@@ -1,0 +1,186 @@
+/* ===================== PAGE AXIOMES ===================== */
+/* Version 1.2 — les règles d’origine (liste + tableau) sont conservées, suivies des styles des pages de détail (.ax-*) */
+
+.axiomes-page h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.axiomes-intro {
+  color: #b0b0b0;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.axiomes-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1d24;
+  border: 1px solid #2a2d36;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.axiomes-table th,
+.axiomes-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #2a2d36;
+}
+
+.axiomes-table th {
+  text-align: left;
+  font-weight: 600;
+  color: #e6e6e6;
+  background: #1f222b;
+}
+
+.axiomes-table td.systeme {
+  color: #7fb7ff;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.axiomes-table td.systeme:hover {
+  color: #a4c9ff;
+}
+
+.axiomes-table td.systeme:focus-visible {
+  outline: 2px solid #7fb7ff;
+  outline-offset: -2px;
+}
+
+.axiomes-table tr:hover {
+  background: #222633;
+}
+
+/* ---------- Encart d’introduction (page liste) ---------- */
+.axiomes-page .ax-encart {
+  background: #1a1d24;
+  border: 1px solid #2a2d36;
+  border-left: 4px solid #ffb86b;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 0 0 22px;
+}
+.axiomes-page .ax-encart h2 { margin: 0 0 8px; font-size: 17px; color: #ffb86b; }
+.axiomes-page .ax-encart p { margin: 0 0 8px; color: #c8c8c8; line-height: 1.6; font-size: 14.5px; }
+.axiomes-page .ax-encart p:last-child { margin-bottom: 0; }
+
+/* ---------- Pages de détail ---------- */
+.ax-retour {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #7fb7ff;
+  font-size: 14px;
+  text-decoration: none;
+}
+.ax-retour:hover { color: #a4c9ff; text-decoration: underline; }
+
+.ax-domaine-tag {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 3px 12px;
+  border: 1px solid #2f3a55;
+  border-radius: 999px;
+  background: #1b2233;
+  color: #7fb7ff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.ax-takeaway {
+  margin: 0 0 26px;
+  padding: 14px 18px;
+  background: #1a1d24;
+  border: 1px solid #2a2d36;
+  border-left: 4px solid #7ee0c3;
+  border-radius: 8px;
+}
+.ax-takeaway-label {
+  display: block;
+  margin-bottom: 4px;
+  color: #7ee0c3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.ax-takeaway p { margin: 0; color: #e6e6e6; line-height: 1.6; font-size: 15px; }
+
+.ax-section { margin: 0 0 30px; }
+.ax-section h2 {
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #2a2d36;
+  font-size: 20px;
+  color: #ffffff;
+}
+.ax-p { margin: 0 0 12px; color: #c8c8c8; line-height: 1.65; font-size: 15px; }
+
+.ax-axiomes { display: flex; flex-direction: column; gap: 10px; margin: 0 0 12px; }
+.ax-axiome {
+  padding: 11px 16px;
+  background: #1a1d24;
+  border: 1px solid #2a2d36;
+  border-left: 4px solid #c8a2ff;
+  border-radius: 8px;
+}
+.ax-axiome-nom { font-weight: 700; color: #e6e6e6; margin-bottom: 3px; }
+.ax-axiome-texte { color: #b8b8b8; font-size: 14.5px; line-height: 1.55; }
+.ax-formule {
+  display: block;
+  margin-top: 7px;
+  padding: 7px 12px;
+  background: #14161c;
+  border: 1px solid #2a2d36;
+  border-radius: 6px;
+  color: #ffd76e;
+  font-family: "Cambria Math", "STIX Two Math", "Cambria", "Times New Roman", serif;
+  font-size: 16px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+.ax-liste { margin: 0 0 12px; padding-left: 22px; color: #c8c8c8; line-height: 1.65; font-size: 15px; }
+.ax-liste li { margin-bottom: 7px; }
+.ax-liste strong, .ax-p strong, .ax-note strong { color: #ffffff; }
+
+.ax-note {
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  background: #1a1d24;
+  border: 1px solid #2a2d36;
+  border-left: 4px solid #ffb86b;
+  border-radius: 8px;
+  color: #c8c8c8;
+  line-height: 1.6;
+  font-size: 14.5px;
+}
+
+.ax-table-wrap { overflow-x: auto; margin: 0 0 12px; }
+.ax-table { width: 100%; border-collapse: collapse; background: #1a1d24; border: 1px solid #2a2d36; }
+.ax-table th, .ax-table td { padding: 10px 14px; border-bottom: 1px solid #2a2d36; text-align: left; vertical-align: top; color: #c8c8c8; font-size: 14.5px; }
+.ax-table th { background: #1f222b; color: #e6e6e6; font-weight: 600; }
+
+.ax-liens { display: flex; flex-wrap: wrap; gap: 10px; }
+.ax-lien {
+  padding: 7px 14px;
+  background: #1a1d24;
+  border: 1px solid #2a2d36;
+  border-radius: 999px;
+  color: #7fb7ff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.ax-lien:hover { background: #222633; color: #a4c9ff; }
+
+/* ---------- Mots grecs de l’encart « Qu’est-ce qu’un axiome ? » : blanc, gras, brillant ---------- */
+.axiomes-page .ax-grec {
+  color: #ffffff;
+  font-weight: 800;
+  text-shadow: 0 0 6px rgba(255, 255, 255, .85), 0 0 14px rgba(255, 255, 255, .45);
+}

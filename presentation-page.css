@@ -1,0 +1,69 @@
+/* PAGE « PRÉSENTATION DU SITE » — Version 1.0 (tout est préfixé .pres-) */
+
+.pres-page { color: #e6e6e6; }
+.pres-page h1 { font-size: 28px; line-height: 1.25; margin-bottom: 14px; color: #ffffff; }
+.pres-page p { line-height: 1.65; font-size: 15px; color: #c8c8c8; }
+.pres-page strong { color: #ffffff; }
+.pres-page code {
+  padding: 1px 6px;
+  background: #14161c;
+  border: 1px solid #2a2d35;
+  border-radius: 4px;
+  color: #ffd76e;
+  font-size: 13px;
+}
+
+.pres-lead { font-size: 16px !important; color: #e6e6e6 !important; margin-bottom: 22px; }
+
+.pres-callout {
+  margin: 0 0 30px;
+  padding: 14px 18px;
+  background: #1a1d24;
+  border: 1px solid #2a2d35;
+  border-left: 4px solid #ffb86b;
+  border-radius: 8px;
+}
+.pres-callout-label { display: block; margin-bottom: 4px; color: #ffb86b; font-size: 12px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+.pres-callout p { margin: 0; }
+
+.pres-section { margin: 0 0 38px; }
+.pres-kicker { margin-bottom: 4px; color: #7aa2ff; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.pres-section h2 { margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid #2a2d35; font-size: 22px; color: #ffffff; }
+
+.pres-stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; margin: 16px 0 20px; }
+.pres-stat { display: flex; flex-direction: column; gap: 4px; margin-bottom: 0; cursor: default; }
+.pres-stat:hover { background: #1a1d24; }
+.pres-stat-num { font-size: 30px; font-weight: 800; color: #7ee0c3; line-height: 1.1; }
+.pres-stat-label { font-size: 13.5px; color: #9aa0ab; }
+
+.pres-menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin: 18px 0 0; }
+.pres-menu-card { display: flex; flex-direction: column; gap: 8px; margin-bottom: 0; cursor: default; }
+.pres-menu-card:hover { background: #1a1d24; }
+.pres-menu-head { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
+.pres-menu-head h3 { margin: 0; color: #7aa2ff; }
+.pres-badge {
+  padding: 2px 10px;
+  border: 1px solid #3a4260;
+  border-radius: 999px;
+  background: #1b2233;
+  color: #c8a2ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.pres-menu-card p { margin: 0; font-size: 14px; color: #9aa0ab; line-height: 1.55; }
+.pres-call { display: block; margin-top: auto; padding: 6px 10px !important; overflow-x: auto; white-space: nowrap; }
+
+.pres-quote {
+  margin: 16px 0 0;
+  padding: 16px 20px;
+  background: #1a1d24;
+  border: 1px solid #2a2d35;
+  border-left: 4px solid #7ee0c3;
+  border-radius: 8px;
+  color: #e6e6e6;
+  font-size: 16px;
+  line-height: 1.7;
+  font-style: italic;
+}

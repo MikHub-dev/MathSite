@@ -1,0 +1,118 @@
+<!doctype html>
+<!-- Version : 1.6 -->
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alpha Omega Math — Encyclopédie Scientifique</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="dossier-multiniveaux.css" />
+  <link rel="stylesheet" href="banque-images.css" />
+  <link rel="stylesheet" href="msc-page.css" />
+  <link rel="stylesheet" href="axiomes.css" />
+  <link rel="stylesheet" href="presentation-page.css" />
+</head>
+
+
+<body>
+
+
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <div class="nav-left">
+      <img class="logo-image" src="autres-images/SiteAlphaOmega.png" alt="Alpha Omega Math" />
+      <div class="logo-text">
+        <span class="logo">Alpha Omega Math</span>
+        <span class="logo-tagline">Find a way or find excuses</span>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#" data-nav="home" onclick="setApp('mathsite'); loadHome()">Accueil</a>
+      <a href="#" data-nav="msc" onclick="setApp('mathsite'); loadMscPage()">MSC</a>
+      <a href="#" data-nav="etudes" onclick="loadEtudes()">Études</a>
+      <a href="#" data-nav="tableau" onclick="setApp('mathsite'); loadCorrespondanceTable()">Correspondances</a>
+      <a href="#" data-nav="exos-fondamentaux" onclick="setApp('mathsite'); loadExosFondamentauxHome()">Exercices</a>
+      <a href="#" data-nav="banque-images" onclick="setApp('mathsite'); loadBanqueImages()">Banque d'images</a>
+      <a href="#" data-nav="axiomes" onclick="setApp('mathsite'); loadAxiomesPage()">Axiomes</a>
+      <a href="#" data-nav="formules" class="nav-link-formules" onclick="loadSpecialisation()">Spécialisation</a>
+      <div class="nav-search">
+        <input id="global-search" placeholder="Rechercher... (+ = ET, espace = OU)" />
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- MAIN LAYOUT -->
+  <div id="layout">
+
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar">
+      <!-- En-tête du menu : le titre à gauche, la flèche tout au bout à droite (elle rétracte le menu
+           jusqu'à une colonne de la largeur de la flèche, ou le réaffiche) -->
+      <div id="sidebar-head">
+        <h2 id="sidebar-title">Niveaux</h2>
+        <button id="sidebar-toggle" type="button" onclick="toggleSidebar()" aria-controls="sidebar-content" aria-expanded="true" aria-label="Réduire le menu" title="Réduire le menu">
+          <svg class="sidebar-toggle-arrow" viewBox="0 0 36 14" aria-hidden="true" focusable="false"><path d="M34 7H2M8 1.5 2 7l6 5.5"/></svg>
+        </button>
+      </div>
+      <div id="sidebar-content"></div>
+    </aside>
+
+
+    <!-- CONTENT -->
+    <main id="content"></main>
+
+
+  </div>
+
+
+  <!-- Lightbox pour les images "1150 Concepts" -->
+  <div id="formules-lightbox" class="formules-lightbox" onclick="closeFormulesLightbox()">
+    <figure>
+      <img id="formules-lightbox-img" src="" alt="" />
+      <figcaption id="formules-lightbox-cap"></figcaption>
+    </figure>
+  </div>
+
+  <!-- Données chargées en <script> (pas en fetch) pour fonctionner en local (file://) -->
+  <script src="notions-data.js"></script>
+  <script src="jsonMathsite.js"></script>
+  <script src="mathsite-fiches-data-college.js"></script>
+  <script src="mathsite-fiches-data-lycee.js"></script>
+  <script src="mathsite-fiches-data-l1.js"></script>
+  <script src="mathsite-fiches-data-l2.js"></script>
+  <script src="mathsite-fiches-data-l3.js"></script>
+  <script src="mathsite-fiches-data-m1.js"></script>
+  <script src="mathsite-fiches-data-m2.js"></script>
+  <script src="formules-data.js"></script>
+  <script src="videos-data.js"></script>
+  <script src="exercices-data.js"></script>
+  <script src="graphics-data.js"></script>
+  <script src="custom-schema-data.js"></script>
+  <script src="dossier-multiniveaux-data.js"></script>
+  <script src="svg-data.js"></script>
+  <script src="app.js"></script>
+  <script src="correspondances.js"></script>
+  <script src="formules.js"></script>
+  <script src="exercices.js"></script>
+  <script src="graphics.js"></script>
+  <script src="custom-schema.js"></script>
+  <script src="exo-email.js"></script>
+  <script src="dossier-multiniveaux.js"></script>
+  <script src="banque-images.js"></script>
+  <script src="msc-page.js"></script>
+  <!-- Pages « Études » et « Spécialisation » (après formules.js, exercices.js, graphics.js, correspondances.js) -->
+  <script src="etudes.js"></script>
+  <!-- Page « Axiomes » (menu horizontal, avant « Spécialisation ») -->
+  <script src="axiomes-data.js"></script>
+  <script src="axiomes.js"></script>
+  <!-- Page « Présentation du site » (remplace loadPresentation d'app.js ; à charger avant nav-history.js) -->
+  <script src="presentation-page.js"></script>
+  <!-- Classification MSC affichée sur chaque fiche (données puis affichage ; à garder juste avant nav-history.js) -->
+  <script src="msc-data.js"></script>
+  <script src="msc.js"></script>
+  <!-- Historique de navigation du bouton « Retour » (accroche les fonctions chargées ci-dessus : à charger APRÈS msc.js, donc tout à la fin) -->
+  <script src="nav-history.js"></script>
+</body>
+</html>
