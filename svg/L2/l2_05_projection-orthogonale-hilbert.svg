@@ -1,0 +1,15 @@
+<svg viewBox="-1.2 -4.3 9.2 5.5" xmlns="http://www.w3.org/2000/svg">
+  <line x1="-1" y1="0" x2="5" y2="0" stroke="black" stroke-width="0.03"/>
+  <line x1="0" y1="1" x2="0" y2="-4" stroke="black" stroke-width="0.03"/>
+  <g font-size="0.21"><line x1="1" y1="-0.06" x2="1" y2="0.06" stroke="black" stroke-width="0.03"/><text x="0.937" y="0.144" >1</text><line x1="2" y1="-0.06" x2="2" y2="0.06" stroke="black" stroke-width="0.03"/><text x="1.937" y="0.144" >2</text><line x1="3" y1="-0.06" x2="3" y2="0.06" stroke="black" stroke-width="0.03"/><text x="2.937" y="0.144" >3</text><line x1="4" y1="-0.06" x2="4" y2="0.06" stroke="black" stroke-width="0.03"/><text x="3.937" y="0.144" >4</text></g>
+  <g font-size="0.21"><line x1="-0.072" y1="-1" x2="0.072" y2="-1" stroke="black" stroke-width="0.03"/><text x="0.0972" y="-1.084" >1</text><line x1="-0.072" y1="-2" x2="0.072" y2="-2" stroke="black" stroke-width="0.03"/><text x="0.0972" y="-2.084" >2</text><line x1="-0.072" y1="-3" x2="0.072" y2="-3" stroke="black" stroke-width="0.03"/><text x="0.0972" y="-3.084" >3</text></g>
+  <line x1="0" y1="0" x2="4" y2="-3" stroke="red" stroke-width="0.07"/>
+  <polygon points="4,-3 3.802,-2.964 3.91,-2.82" fill="red"/>
+  <text x="4.1" y="-3.1" font-size="0.4" fill="red">v</text>
+  <line x1="0" y1="0" x2="4" y2="0" stroke="blue" stroke-width="0.07"/>
+  <polygon points="4,0 3.82,-0.09 3.82,0.09" fill="blue"/>
+  <text x="4.1" y="0.25" font-size="0.35" fill="blue">p = proj(v)</text>
+  <line x1="4" y1="0" x2="4" y2="-3" stroke="grey" stroke-width="0.05" stroke-dasharray="0.1 0.1"/>
+  <text x="4.15" y="-1.5" font-size="0.3" fill="grey">v − p ⟂ sous-espace</text>
+  <polyline points="3.7,0 3.7,-0.3 4,-0.3" fill="none" stroke="black" stroke-width="0.03"/>
+</svg>
