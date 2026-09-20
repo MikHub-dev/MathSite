@@ -1,0 +1,17 @@
+<svg viewBox="-1 -7 12 8" xmlns="http://www.w3.org/2000/svg">
+ <line x1="0" y1="0" x2="11" y2="0" stroke="black" stroke-width="0.05"/>
+ <line x1="0" y1="0" x2="0" y2="-7" stroke="black" stroke-width="0.05"/>
+  <g font-size="0.4">
+    <line x1="2" y1="0.1" x2="2" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="1.85" y="0.3">2</text>
+    <line x1="4" y1="0.1" x2="4" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="3.85" y="0.3">4</text>
+    <line x1="6" y1="0.1" x2="6" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="5.85" y="0.3">6</text>
+    <line x1="8" y1="0.1" x2="8" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="7.85" y="0.3">8</text>
+    <line x1="10" y1="0.1" x2="10" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="9.85" y="0.3">10</text>
+    <line x1="-0.1" y1="-2" x2="0.1" y2="-2" stroke="black" stroke-width="0.05"/><text x="0.15" y="-2.15">2</text>
+    <line x1="-0.1" y1="-4" x2="0.1" y2="-4" stroke="black" stroke-width="0.05"/><text x="0.15" y="-4.15">4</text>
+    <line x1="-0.1" y1="-6" x2="0.1" y2="-6" stroke="black" stroke-width="0.05"/><text x="0.15" y="-6.15">6</text>
+  </g>
+
+ <path d="M 1,0 C 2,-1.4 4,-2.2 6,-2.6 8,-2.8"
+ stroke="green" fill="none" stroke-width="0.08"/>
+</svg>

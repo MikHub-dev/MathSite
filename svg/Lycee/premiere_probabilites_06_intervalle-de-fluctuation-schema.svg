@@ -1,0 +1,9 @@
+<svg viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+ <line x1="30" y1="80" x2="230" y2="80" stroke="black" stroke-width="2"/>
+ <line x1="80" y1="70" x2="80" y2="90" stroke="red" stroke-width="2"/>
+ <line x1="180" y1="70" x2="180" y2="90" stroke="red" stroke-width="2"/>
+ <text x="75" y="65" font-size="12">p−</text>
+ <text x="175" y="65" font-size="12">p+</text>
+ <circle cx="130" cy="80" r="4" fill="blue"/>
+ <text x="125" y="70" font-size="12">p̂</text>
+</svg>
