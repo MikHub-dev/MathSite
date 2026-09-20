@@ -1,0 +1,18 @@
+<svg viewBox="-1.2 -3.3 6.4 6.6" xmlns="http://www.w3.org/2000/svg">
+  <line x1="-1" y1="0" x2="5" y2="0" stroke="black" stroke-width="0.03"/>
+  <line x1="0" y1="3" x2="0" y2="-3" stroke="black" stroke-width="0.03"/>
+  <g font-size="0.21"><line x1="1" y1="-0.072" x2="1" y2="0.072" stroke="black" stroke-width="0.03"/><text x="0.937" y="0.156" >1</text><line x1="2" y1="-0.072" x2="2" y2="0.072" stroke="black" stroke-width="0.03"/><text x="1.937" y="0.156" >2</text><line x1="3" y1="-0.072" x2="3" y2="0.072" stroke="black" stroke-width="0.03"/><text x="2.937" y="0.156" >3</text><line x1="4" y1="-0.072" x2="4" y2="0.072" stroke="black" stroke-width="0.03"/><text x="3.937" y="0.156" >4</text></g>
+  <g font-size="0.21"><line x1="-0.072" y1="2" x2="0.072" y2="2" stroke="black" stroke-width="0.03"/><text x="0.0972" y="2.0252" >-2</text><line x1="-0.072" y1="1" x2="0.072" y2="1" stroke="black" stroke-width="0.03"/><text x="0.0972" y="1.0252" >-1</text><line x1="-0.072" y1="-1" x2="0.072" y2="-1" stroke="black" stroke-width="0.03"/><text x="0.0972" y="-1.084" >1</text><line x1="-0.072" y1="-2" x2="0.072" y2="-2" stroke="black" stroke-width="0.03"/><text x="0.0972" y="-2.084" >2</text></g>
+  <text x="4.64" y="0.084" font-size="0.2625">Re</text>
+  <text x="0.09" y="-2.82" font-size="0.2625">Im</text>
+  <line x1="0" y1="0" x2="3.5" y2="0" stroke="#66aaff" stroke-width="0.25" stroke-linecap="round"/>
+  <text x="1.2" y="0.4" font-size="0.28" fill="#3377cc">spectre continu [0, 3.5]</text>
+  <circle cx="4.2" cy="0" r="0.09" fill="red"/>
+  <circle cx="-1.5" cy="0" r="0.09" fill="red"/>
+  <circle cx="3.6" cy="-1.2" r="0.09" fill="red"/>
+  <circle cx="1" cy="1.9" r="0.09" fill="red"/>
+  <text x="-0.9" y="-0.6" font-size="0.24" fill="red">valeurs propres</text>
+  <text x="-0.9" y="-0.35" font-size="0.24" fill="red">isolées</text>
+  <text x="-0.9" y="-2.6" font-size="0.28">σ(T) = continu ∪</text>
+  <text x="-0.9" y="-2.3" font-size="0.28">valeurs propres</text>
+</svg>
