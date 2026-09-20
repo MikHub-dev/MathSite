@@ -1,0 +1,12 @@
+<svg viewBox="0 0 300 230" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="280" height="180" fill="#f7f7f7" stroke="black" stroke-width="1.5"/>
+  <text x="20" y="28" font-size="14">Espace X</text>
+  <ellipse cx="150" cy="110" rx="100" ry="65" fill="#cce5ff" stroke="blue" stroke-width="2"/>
+  <text x="60" y="55" font-size="13" fill="blue">U (ouvert)</text>
+  <circle cx="150" cy="110" r="30" fill="#ffe0cc" stroke="orange" stroke-width="2" stroke-dasharray="4 3"/>
+  <circle cx="150" cy="110" r="3" fill="black"/>
+  <text x="140" y="105" font-size="13">x</text>
+  <text x="115" y="150" font-size="12" fill="#cc6600">B(x,ε) ⊂ U</text>
+  <text x="15" y="203" font-size="9.5">U est ouvert : autour de chaque x∈U, il existe</text>
+  <text x="15" y="217" font-size="9.5">une boule B(x,ε) entièrement contenue dans U.</text>
+</svg>
