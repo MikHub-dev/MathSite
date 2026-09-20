@@ -1,0 +1,18 @@
+<svg viewBox="-4.2 -2.7 8.4 5.4" xmlns="http://www.w3.org/2000/svg">
+  <line x1="-4" y1="0" x2="4" y2="0" stroke="black" stroke-width="0.04"/>
+  <line x1="0" y1="2.5" x2="0" y2="-2.5" stroke="black" stroke-width="0.04"/>
+  <g font-size="0.28"><line x1="-3" y1="-0.06" x2="-3" y2="0.06" stroke="black" stroke-width="0.04"/><text x="-3.168" y="0.172" >-3</text><line x1="-2" y1="-0.06" x2="-2" y2="0.06" stroke="black" stroke-width="0.04"/><text x="-2.168" y="0.172" >-2</text><line x1="-1" y1="-0.06" x2="-1" y2="0.06" stroke="black" stroke-width="0.04"/><text x="-1.168" y="0.172" >-1</text><line x1="1" y1="-0.06" x2="1" y2="0.06" stroke="black" stroke-width="0.04"/><text x="0.916" y="0.172" >1</text><line x1="2" y1="-0.06" x2="2" y2="0.06" stroke="black" stroke-width="0.04"/><text x="1.916" y="0.172" >2</text><line x1="3" y1="-0.06" x2="3" y2="0.06" stroke="black" stroke-width="0.04"/><text x="2.916" y="0.172" >3</text></g>
+  <g font-size="0.28"><line x1="-0.096" y1="1" x2="0.096" y2="1" stroke="black" stroke-width="0.04"/><text x="0.1296" y="1.0336" >-1</text><line x1="-0.096" y1="-1" x2="0.096" y2="-1" stroke="black" stroke-width="0.04"/><text x="0.1296" y="-1.112" >1</text></g>
+  <circle cx="-3" cy="-1" r="0.12" fill="blue"/>
+  <circle cx="-2.5" cy="1" r="0.12" fill="blue"/>
+  <circle cx="-1" cy="-2" r="0.12" fill="blue"/>
+  <circle cx="1" cy="-1.5" r="0.12" fill="green"/>
+  <circle cx="2" cy="1" r="0.12" fill="green"/>
+  <circle cx="3" cy="-0.5" r="0.12" fill="green"/>
+  <line x1="-3" y1="-1" x2="1" y2="-1.5" stroke="grey" stroke-width="0.04" stroke-dasharray="0.12 0.1"/>
+  <line x1="-2.5" y1="1" x2="3" y2="-0.5" stroke="grey" stroke-width="0.04" stroke-dasharray="0.12 0.1"/>
+  <line x1="-1" y1="-2" x2="2" y2="1" stroke="grey" stroke-width="0.04" stroke-dasharray="0.12 0.1"/>
+  <text x="-3.3" y="-2.1" font-size="0.3" fill="blue">masses source μ</text>
+  <text x="1.2" y="-2.1" font-size="0.3" fill="green">masses cible ν</text>
+  <text x="-3.9" y="2.2" font-size="0.22">plan de transport T minimisant ∫ |x−T(x)| dμ(x)  (Monge–Kantorovich)</text>
+</svg>
