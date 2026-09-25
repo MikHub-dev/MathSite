@@ -1,4 +1,4 @@
-// Version : 1.0
+// Version : 1.2
 // Fiches détaillées — sous-ensemble "M1" du sommaire ΩPrépa (jsonMathsite.js).
 // Fait partie d'un jeu de 7 fichiers de fiches (college, lycee, l1, l2, l3, m1, m2),
 // chacun chargé via <script> pour fonctionner en local (file://). Chaque fichier fusionne
@@ -8,6 +8,7 @@
 // Clé = "<branche>:<id>", ici branche = "sup".
 // Plage d'ids couverte par ce fichier : ids 601-700 (base) + 1554-1772 (additionnels).
 // Nombre de fiches dans ce fichier : 324/324 (complet — 319 d'origine + 5 ajoutées : concepts de Σ 1000 Formules absents du sommaire, cf. session du 2026-09-12).
+// Champ optionnel definition_axiomatique {cadre, axiomes, conclusion, remarque, sources} : présent sur les 325 fiches (schéma décrit dans mathsite-fiches-data-college.js).
 //
 // Chaque "formula" du tableau "formulas" est désormais un objet { text, images } : "text" est
 // le texte original de la formule, "images" un lien <a> (recherche Google Images, tbm=isch,
@@ -30,6 +31,29 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:601": {
     title: "Processus de Lévy : définition",
     definition: "Un processus de Lévy est un processus stochastique à accroissements indépendants et stationnaires, partant de 0, dont les trajectoires sont continues à droite avec limites à gauche ; cette classe généralise simultanément le mouvement brownien et le processus de Poisson, unifiant diffusion continue et sauts.",
+    definition_axiomatique: {
+        cadre: "On se donne un espace probabilisé (Ω, 𝓕, ℙ) et un processus stochastique X = (X_t)_{t≥0} à valeurs dans ℝᵈ, c'est-à-dire une famille de variables aléatoires indexée par le temps. Pour chaque ω, l'application t ↦ X_t(ω) est la trajectoire de X.",
+        axiomes: [
+            {
+                nom: "L1 — Départ en 0",
+                enonce: "X₀ = 0 presque sûrement."
+            },
+            {
+                nom: "L2 — Accroissements indépendants",
+                enonce: "Pour 0 ≤ s < t, l'accroissement X_t − X_s est indépendant de la tribu σ(X_u, u ≤ s) engendrée par le passé."
+            },
+            {
+                nom: "L3 — Accroissements stationnaires",
+                enonce: "Pour tous s, t ≥ 0, X_{t+s} − X_t a la même loi que X_s : la loi d'un accroissement ne dépend que de la durée s."
+            },
+            {
+                nom: "L4 — Régularité des trajectoires",
+                enonce: "Presque sûrement, la trajectoire t ↦ X_t est continue à droite et admet une limite à gauche en tout point (trajectoires càdlàg)."
+            }
+        ],
+        conclusion: "Un processus de Lévy est un processus X qui vérifie L1, L2, L3 et L4. Conséquence (formule de Lévy–Khintchine) : pour tout t ≥ 0 et tout u ∈ ℝᵈ, 𝔼[exp(i⟨u, X_t⟩)] = exp(t ψ(u)), avec ψ(u) = i⟨b, u⟩ − ½⟨u, Au⟩ + ∫_{ℝᵈ} (e^{i⟨u,x⟩} − 1 − i⟨u,x⟩ 1_{|x|<1}) ν(dx), où b ∈ ℝᵈ, A est une matrice symétrique positive et ν est une mesure de Lévy (ν({0}) = 0 et ∫ (|x|² ∧ 1) ν(dx) < +∞). Le triplet (b, A, ν) caractérise la loi du processus.",
+        remarque: "Le mouvement brownien correspond à b = 0, A = I et ν = 0 (trajectoires continues) ; le processus de Poisson d'intensité λ correspond à b = 0, A = 0 et ν = λδ₁ (sauts de taille 1). L'axiome L4 peut être remplacé par la continuité en probabilité de t ↦ X_t : on obtient alors un processus qui possède une modification càdlàg."
+    },
     formulas: [
       {
         text: "1. X₀=0, accroissements indépendants : X_t−X_s indépendant de (X_u)_{u≤s} pour s<t.",
@@ -94,6 +118,29 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:602": {
     title: "Processus de Lévy : propriétés",
     definition: "Les processus de Lévy possèdent des propriétés remarquables héritées de leur structure d'accroissements indépendants et stationnaires : ils sont markoviens, leur fonction caractéristique a une forme explicite (formule de Lévy-Khintchine), et ils peuvent être décomposés en une partie continue et une partie à sauts.",
+    definition_axiomatique: {
+        cadre: "On se donne un espace probabilisé (Ω, 𝓕, ℙ) et un processus stochastique X = (X_t)_{t≥0} à valeurs dans ℝᵈ, c'est-à-dire une famille de variables aléatoires indexée par le temps. Pour chaque ω, l'application t ↦ X_t(ω) est la trajectoire de X.",
+        axiomes: [
+            {
+                nom: "L1 — Départ en 0",
+                enonce: "X₀ = 0 presque sûrement."
+            },
+            {
+                nom: "L2 — Accroissements indépendants",
+                enonce: "Pour 0 ≤ s < t, l'accroissement X_t − X_s est indépendant de la tribu σ(X_u, u ≤ s) engendrée par le passé."
+            },
+            {
+                nom: "L3 — Accroissements stationnaires",
+                enonce: "Pour tous s, t ≥ 0, X_{t+s} − X_t a la même loi que X_s : la loi d'un accroissement ne dépend que de la durée s."
+            },
+            {
+                nom: "L4 — Régularité des trajectoires",
+                enonce: "Presque sûrement, la trajectoire t ↦ X_t est continue à droite et admet une limite à gauche en tout point (trajectoires càdlàg)."
+            }
+        ],
+        conclusion: "Un processus de Lévy X a des accroissements stationnaires indépendants, X_t − X_s ~ N(0, (t−s)A) + partie à sauts. Il est un processus de Markov fort, quasi-continu à gauche ; ses trajectoires sont continues si et seulement si ν = 0 (mouvement brownien) ; il est de carré intégrable si ∫_{|x|≥1}x²ν(dx) < ∞, auquel cas E(X_t) = tb et V(X_t) = t(A + ∫x²ν(dx)).",
+        remarque: "Le mouvement brownien correspond à b = 0, A = I et ν = 0 (trajectoires continues) ; le processus de Poisson d'intensité λ correspond à b = 0, A = 0 et ν = λδ₁ (sauts de taille 1). L'axiome L4 peut être remplacé par la continuité en probabilité de t ↦ X_t : on obtient alors un processus qui possède une modification càdlàg."
+    },
     formulas: [
       {
         text: "1. Propriété de Markov automatique : tout processus de Lévy est un processus de Markov (conséquence de l'indépendance des accroissements).",
@@ -158,6 +205,29 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:603": {
     title: "Décomposition de Lévy-Khintchine",
     definition: "La décomposition de Lévy-Khintchine caractérise entièrement la loi d'un processus de Lévy via trois paramètres : une dérive déterministe, une composante brownienne (diffusion continue) et une mesure de Lévy décrivant l'intensité et la distribution des sauts, formule fondamentale unifiant toute la théorie.",
+    definition_axiomatique: {
+        cadre: "On se donne un espace probabilisé (Ω, 𝓕, ℙ) et un processus stochastique X = (X_t)_{t≥0} à valeurs dans ℝᵈ, c'est-à-dire une famille de variables aléatoires indexée par le temps. Pour chaque ω, l'application t ↦ X_t(ω) est la trajectoire de X.",
+        axiomes: [
+            {
+                nom: "L1 — Départ en 0",
+                enonce: "X₀ = 0 presque sûrement."
+            },
+            {
+                nom: "L2 — Accroissements indépendants",
+                enonce: "Pour 0 ≤ s < t, l'accroissement X_t − X_s est indépendant de la tribu σ(X_u, u ≤ s) engendrée par le passé."
+            },
+            {
+                nom: "L3 — Accroissements stationnaires",
+                enonce: "Pour tous s, t ≥ 0, X_{t+s} − X_t a la même loi que X_s : la loi d'un accroissement ne dépend que de la durée s."
+            },
+            {
+                nom: "L4 — Régularité des trajectoires",
+                enonce: "Presque sûrement, la trajectoire t ↦ X_t est continue à droite et admet une limite à gauche en tout point (trajectoires càdlàg)."
+            }
+        ],
+        conclusion: "Décomposition de Lévy-Itô : X_t = bt + √A·W_t + ∫₀ᵗ∫_{|x|<1}x(N(ds,dx) − ν(dx)ds) + ∫₀ᵗ∫_{|x|≥1}x N(ds,dx), où N est une mesure de Poisson ponctuelle d'intensité ν(dx)ds sur les sauts et W un mouvement brownien indépendant. Elle sépare la dérive, la partie brownienne, les petits sauts (compensés) et les grands sauts (sommables presque sûrement en nombre fini sur tout intervalle borné).",
+        remarque: "Le mouvement brownien correspond à b = 0, A = I et ν = 0 (trajectoires continues) ; le processus de Poisson d'intensité λ correspond à b = 0, A = 0 et ν = λδ₁ (sauts de taille 1). L'axiome L4 peut être remplacé par la continuité en probabilité de t ↦ X_t : on obtient alors un processus qui possède une modification càdlàg."
+    },
     formulas: [
       {
         text: "1. ψ(ξ) = ibξ − (σ²/2)ξ² + ∫(e^{iξx}−1−iξx𝟙_{|x|<1}) ν(dx), où b la dérive, σ² la variance brownienne, ν la mesure de Lévy.",
@@ -222,6 +292,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:604": {
     title: "Processus à sauts",
     definition: "Un processus à sauts est un processus stochastique dont les trajectoires présentent des discontinuités (sauts) à des instants aléatoires, généralisant les processus à trajectoires continues comme le mouvement brownien pour modéliser des événements soudains (défauts, chocs, annonces).",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "S1 — Sauts",
+                enonce: "ΔX_t = X_t − X_{t⁻} ; l'ensemble des instants de saut est dénombrable presque sûrement."
+            },
+            {
+                nom: "S2 — Mesure de sauts",
+                enonce: "N(ω; dt, dx) = Σ_{s: ΔX_s(ω)≠0}δ_{(s,ΔX_s(ω))} est une mesure aléatoire ponctuelle sur ℝ₊ × (ℝᵈ ∖ {0})."
+            },
+            {
+                nom: "S3 — Compensateur",
+                enonce: "Il existe une mesure prévisible ν̂ (le compensateur) telle que N − ν̂ soit une martingale (pour les fonctions test intégrables)."
+            }
+        ],
+        conclusion: "Un processus à sauts purs n'a pas de partie continue (composante brownienne nulle) : X_t = X₀ + Σ_{s≤t}ΔX_s. Exemples : processus de Poisson (sauts de taille 1, intensité constante), processus de Poisson composé (sauts iid aux instants d'un Poisson), chaînes de Markov à temps continu. La formule d'Itô pour les sauts inclut un terme Σ[f(X_s) − f(X_{s⁻}) − f'(X_{s⁻})ΔX_s]."
+    },
     formulas: [
       {
         text: "1. Un processus à sauts pur peut s'écrire Xₜ = Σ_{i: Tᵢ≤t} Jᵢ, où Tᵢ sont les instants de saut et Jᵢ les tailles de saut.",
@@ -286,6 +374,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:605": {
     title: "Processus de Poisson composé",
     definition: "Un processus de Poisson composé combine un processus de Poisson (comptant le nombre d'événements) avec une suite de variables aléatoires indépendantes représentant l'amplitude de chaque événement, modélisant des phénomènes cumulatifs à occurrences aléatoires et amplitudes variables.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "C1 — Processus de comptage",
+                enonce: "N est un processus de Poisson d'intensité λ."
+            },
+            {
+                nom: "C2 — Sauts iid",
+                enonce: "(Y_k) suite iid indépendante de N, de loi μ."
+            },
+            {
+                nom: "C3 — Définition",
+                enonce: "X_t = Σ_{k=1}^{N_t}Y_k (somme vide nulle)."
+            }
+        ],
+        conclusion: "X est un processus de Lévy à sauts purs, de mesure de Lévy ν = λμ (finie). Fonction caractéristique : E(e^{iuX_t}) = exp(tλ(∫(e^{iux}−1)μ(dx))). E(X_t) = λt·E(Y₁), V(X_t) = λt·E(Y₁²). Modèle des sinistres agrégés en assurance (modèle de Cramér-Lundberg) ; utile pour les processus de dommages, files d'attente à sauts."
+    },
     formulas: [
       {
         text: "1. Xₜ = Σ_{i=1}^{Nₜ} Yᵢ, où Nₜ est un processus de Poisson d'intensité λ, et (Yᵢ) i.i.d. indépendantes de N.",
@@ -358,6 +464,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:606": {
     title: "Mouvement brownien fractionnaire",
     definition: "Le mouvement brownien fractionnaire généralise le mouvement brownien standard en introduisant un paramètre de Hurst contrôlant la corrélation à long terme des accroissements, permettant de modéliser des phénomènes présentant de la mémoire (persistance ou anti-persistance) contrairement au brownien classique.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un paramètre de Hurst H ∈ (0 ; 1) et un processus gaussien centré (B^H_t)_{t≥0}.",
+        axiomes: [
+            {
+                nom: "F1 — Gaussien centré",
+                enonce: "B^H est un processus gaussien, B^H_0 = 0, E(B^H_t) = 0."
+            },
+            {
+                nom: "F2 — Covariance",
+                enonce: "E(B^H_sB^H_t) = ½(s^{2H} + t^{2H} − |t − s|^{2H})."
+            },
+            {
+                nom: "F3 — H = 1/2",
+                enonce: "Pour H = 1/2, la covariance devient min(s, t) : mouvement brownien standard."
+            }
+        ],
+        conclusion: "Le mouvement brownien fractionnaire est l'unique processus gaussien centré vérifiant F2 (auto-similaire d'exposant H, à accroissements stationnaires). Pour H > 1/2, les accroissements sont positivement corrélés (mémoire longue, Σ Cov > ∞) ; pour H < 1/2, négativement corrélés ; ce n'est un processus de Markov et une semimartingale que pour H = 1/2. Trajectoires höldériennes d'exposant < H."
+    },
     formulas: [
       {
         text: "1. Processus gaussien centré B^H_t, avec Cov(B^H_s,B^H_t) = (1/2)(s^{2H}+t^{2H}−|t−s|^{2H}), H∈(0,1) le paramètre de Hurst.",
@@ -426,6 +550,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:607": {
     title: "Pont brownien",
     definition: "Un pont brownien est un mouvement brownien conditionné à revenir à une valeur fixée à un instant terminal donné, généralement modélisé comme un mouvement brownien standard sur [0,1] conditionné à valoir 0 en t=0 et en t=1, utile pour modéliser des trajectoires contraintes à leurs extrémités.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "P1 — Brownien conditionné",
+                enonce: "B est un mouvement brownien standard sur [0 ; 1]."
+            },
+            {
+                nom: "P2 — Conditionnement",
+                enonce: "Le pont brownien est la loi de (B_t)_{t∈[0;1]} sachant B₁ = 0."
+            },
+            {
+                nom: "P3 — Construction",
+                enonce: "X_t = B_t − tB₁ est un processus gaussien centré avec X₀ = X₁ = 0."
+            }
+        ],
+        conclusion: "Le pont brownien X a pour covariance E(X_sX_t) = min(s, t) − st ; c'est un processus gaussien markovien issu de 0 et revenant en 0 à l'instant 1. Il apparaît dans le test de Kolmogorov-Smirnov (loi limite de √n(Fₙ − F) sous H₀) et dans la construction du mouvement brownien sur un intervalle (développement de Karhunen-Loève)."
+    },
     formulas: [
       {
         text: "1. B̃ₜ = Bₜ − t·B₁, pour t∈[0,1], B mouvement brownien standard (construction explicite du pont).",
@@ -490,6 +632,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:608": {
     title: "Martingales continues",
     definition: "Une martingale continue est une martingale à temps continu dont les trajectoires sont presque sûrement continues, classe fondamentale incluant le mouvement brownien et de nombreuses intégrales stochastiques, pour laquelle le calcul d'Itô fournit des outils d'analyse puissants.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "M1 — Martingale continue",
+                enonce: "M est adapté, à trajectoires continues, et E(M_t | 𝓕_s) = M_s pour s ≤ t."
+            },
+            {
+                nom: "M2 — Variation quadratique",
+                enonce: "Il existe un processus croissant ⟨M⟩ tel que M² − ⟨M⟩ soit une martingale."
+            },
+            {
+                nom: "M3 — Représentation (Dubins-Schwarz)",
+                enonce: "M_t = W_{⟨M⟩_t} pour un mouvement brownien W (si M₀ = 0 et ⟨M⟩_∞ = ∞)."
+            }
+        ],
+        conclusion: "Toute martingale locale continue est, à changement de temps aléatoire près, un mouvement brownien (Dubins-Schwarz) : le mouvement brownien est le modèle universel des martingales continues. Exemples : W_t, W_t² − t, exp(σW_t − σ²t/2). L'intégrale stochastique ∫H dM est définie pour M martingale continue de carré intégrable via ⟨M⟩ comme mesure de référence."
+    },
     formulas: [
       {
         text: "1. (Mₜ) martingale continue par rapport à (ℱₜ) : trajectoires continues p.s., E(Mₜ|ℱₛ)=Mₛ pour s<t.",
@@ -562,6 +722,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:609": {
     title: "Martingales locales",
     definition: "Une martingale locale généralise la notion de martingale en n'exigeant l'égalité de martingale que jusqu'à une suite croissante de temps d'arrêt tendant vers l'infini (localisation), permettant d'inclure des processus dont l'intégrabilité globale n'est pas garantie, comme certaines intégrales stochastiques.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "L1 — Localisation",
+                enonce: "Il existe une suite de temps d'arrêt τₙ ↑ ∞ telle que M^{τₙ} soit une vraie martingale."
+            },
+            {
+                nom: "L2 — Martingale locale",
+                enonce: "M est une martingale locale si M_{t∧τₙ} est une martingale pour tout n."
+            },
+            {
+                nom: "L3 — Bornée par une suite localisante",
+                enonce: "Toute martingale locale positive est une sur-martingale."
+            }
+        ],
+        conclusion: "L'intégrale stochastique d'Itô ∫H dW n'est en général qu'une martingale locale (pas nécessairement une vraie martingale, sauf si E∫H² < ∞) : la localisation est nécessaire pour définir l'intégrale par rapport à des processus non bornés. Une martingale locale positive bornée en L¹ n'est pas toujours une martingale (contre-exemples classiques, ex. inverse du rayon d'un brownien en dimension 3)."
+    },
     formulas: [
       {
         text: "1. (Mₜ) est une martingale locale s'il existe une suite de temps d'arrêt τₙ→∞ telle que (M_{t∧τₙ}) soit une vraie martingale pour chaque n.",
@@ -626,6 +804,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:610": {
     title: "Temps d’arrêt : propriétés avancées",
     definition: "Les propriétés avancées des temps d'arrêt étendent la théorie de base (théorème d'arrêt optionnel) à des résultats plus fins sur la structure des filtrations arrêtées, la mesurabilité des variables arrêtées, et les temps d'arrêt prévisibles versus totalement inaccessibles, distinction cruciale en théorie générale des processus.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "A1 — Temps d'arrêt",
+                enonce: "τ, σ sont des temps d'arrêt (継 {τ ≤ t} ∈ 𝓕_t)."
+            },
+            {
+                nom: "A2 — Tribu du passé",
+                enonce: "𝓕_τ = {A ∈ 𝓕_∞ : A ∩ {τ ≤ t} ∈ 𝓕_t ∀t}."
+            },
+            {
+                nom: "A3 — Opérations",
+                enonce: "τ ∧ σ, τ ∨ σ, τ + σ sont des temps d'arrêt."
+            }
+        ],
+        conclusion: "𝓕_τ contient l'information disponible à l'instant aléatoire τ ; si τ ≤ σ, 𝓕_τ ⊂ 𝓕_σ. Propriété de Markov forte : X_{τ+·} − X_τ est indépendant de 𝓕_τ et de même loi que X (pour un processus de Markov fort, comme le brownien ou un processus de Lévy). X_τ est 𝓕_τ-mesurable pour X càdlàg adapté (mesurabilité optionnelle)."
+    },
     formulas: [
       {
         text: "1. La tribu ℱ_τ (information disponible au temps d'arrêt τ) est définie par A∈ℱ_τ ⟺ A∩{τ≤t}∈ℱ_t pour tout t.",
@@ -690,6 +886,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:611": {
     title: "Inégalités de Burkholder-Davis-Gundy",
     definition: "Les inégalités de Burkholder-Davis-Gundy établissent une équivalence, à constantes multiplicatives près, entre l'espérance des puissances du maximum d'une martingale et l'espérance des puissances de sa variation quadratique, outil fondamental pour estimer la taille des martingales en calcul stochastique.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "M1 — Martingale locale continue",
+                enonce: "M est une martingale locale continue nulle en 0."
+            },
+            {
+                nom: "M2 — Variation quadratique",
+                enonce: "⟨M⟩_t est le processus croissant associé."
+            },
+            {
+                nom: "M3 — Doob (p = 2)",
+                enonce: "E(sup_{s≤t}M_s²) ≤ 4E(M_t²)."
+            }
+        ],
+        conclusion: "Inégalités de Burkholder-Davis-Gundy : pour p > 0, il existe c_p, C_p > 0 avec c_pE(⟨M⟩_t^{p/2}) ≤ E((sup_{s≤t}|M_s|)^p) ≤ C_pE(⟨M⟩_t^{p/2}). Elles comparent le supremum d'une martingale à sa variation quadratique et remplacent Doob (p = 2 correspond à Doob) pour tout p, y compris en discret pour les martingales à sauts. Outil central des estimations en calcul stochastique."
+    },
     formulas: [
       {
         text: "1. Pour p≥1, il existe des constantes c_p, C_p telles que c_p E[⟨M⟩_T^{p/2}] ≤ E[sup_{t≤T}|Mₜ|^p] ≤ C_p E[⟨M⟩_T^{p/2}], pour M martingale locale continue nulle en 0.",
@@ -754,6 +968,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:612": {
     title: "Quadratic variation (variation quadratique)",
     definition: "La variation quadratique d'un processus stochastique mesure l'accumulation de la « rugosité » de ses trajectoires via la limite en probabilité des sommes des carrés des accroissements sur des subdivisions de plus en plus fines, quantité nulle pour les fonctions régulières mais strictement positive pour le mouvement brownien.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "Q1 — Partition",
+                enonce: "π_n = {0 = t₀ < t₁ < … < t_n = t}, pas → 0."
+            },
+            {
+                nom: "Q2 — Somme des carrés",
+                enonce: "S_n = Σ(M_{t_{k+1}} − M_{t_k})²."
+            },
+            {
+                nom: "Q3 — Convergence en probabilité",
+                enonce: "S_n converge en probabilité vers un processus croissant ⟨M⟩_t (théorème de Lévy)."
+            }
+        ],
+        conclusion: "⟨M⟩ est l'unique processus croissant continu (nul en 0) tel que M² − ⟨M⟩ soit une martingale locale. Pour le brownien, ⟨W⟩_t = t (donc la variation quadratique de W sur [0 ; t] vaut t presque sûrement, contrairement à la variation totale, infinie). Pour deux martingales M, N, ⟨M, N⟩ est défini par polarisation ; il intervient dans la formule d'Itô pour f(M_t, N_t)."
+    },
     formulas: [
       {
         text: "1. ⟨X⟩_t = lim (en probabilité) Σ (X_{tᵢ₊₁}−X_{tᵢ})², sur des subdivisions de [0,t] dont le pas tend vers 0.",
@@ -818,6 +1050,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:613": {
     title: "Formule d’Itô",
     definition: "La formule d'Itô est l'analogue stochastique de la règle de dérivation composée (chain rule) : pour f de classe C² et (B_t) un mouvement brownien, df(B_t)=f'(B_t)dB_t+½f''(B_t)dt. Le terme additionnel ½f''(B_t)dt, absent en calcul différentiel classique, provient de la variation quadratique non nulle du mouvement brownien.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "I1 — Semimartingale",
+                enonce: "X = X₀ + M + A, M martingale locale continue, A à variation finie."
+            },
+            {
+                nom: "I2 — Régularité",
+                enonce: "f ∈ C²(ℝ)."
+            },
+            {
+                nom: "I3 — Variation quadratique",
+                enonce: "⟨M⟩ est le processus de variation quadratique de M."
+            }
+        ],
+        conclusion: "Formule d'Itô : f(X_t) = f(X₀) + ∫₀ᵗf'(X_s)dX_s + ½∫₀ᵗf''(X_s)d⟨M⟩_s. Elle diffère du calcul différentiel classique par le terme d'ordre 2 (dû à ⟨W⟩_t = t ≠ 0). Version multidimensionnelle (Itô-Doeblin) avec la formule de Taylor à l'ordre 2 et les covariations ⟨X^i, X^j⟩. Exemple : d(W_t²) = 2W_tdW_t + dt."
+    },
     formulas: [
       {
         text: "Cette formule se généralise aux processus d'Itô (solutions d'équations différentielles stochastiques) et à des fonctions dépendant également du temps f(t,B_t), avec un terme supplémentaire ∂f/∂t dt. Elle est l'outil calculatoire central de tout le calcul stochastique.",
@@ -861,6 +1111,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:614": {
     title: "Intégrale d’Itô",
     definition: "L'intégrale d'Itô est la construction rigoureuse de l'intégration stochastique d'un processus adapté par rapport au mouvement brownien, définie comme limite en moyenne quadratique de sommes de Riemann progressives (évaluées au point de gauche), fondement de tout le calcul stochastique moderne.",
+    definition_axiomatique: {
+        cadre: "On travaille sur (Ω, 𝒜, (ℱ_t), P) avec un mouvement brownien (W_t) adapté à (ℱ_t) et un processus adapté H ∈ L²(Ω × [0 ; T]).",
+        axiomes: [
+            {
+                nom: "I1 — Processus étagés",
+                enonce: "Pour H = Σhᵢ1_{]tᵢ,tᵢ₊₁]}, ∫H dW = Σhᵢ(W_{tᵢ₊₁} − W_{tᵢ})."
+            },
+            {
+                nom: "I2 — Isométrie d'Itô",
+                enonce: "E((∫₀ᵀH dW)²) = E∫₀ᵀH_t²dt."
+            },
+            {
+                nom: "I3 — Prolongement",
+                enonce: "L'intégrale s'étend par densité à L²(Ω × [0 ; T]) ; t ↦ ∫₀ᵗH dW est une martingale continue."
+            }
+        ],
+        conclusion: "Formule d'Itô : pour f de classe C², f(W_t) = f(0) + ∫f'(W_s)dW_s + ½∫f''(W_s)ds : le terme correctif ½f'' vient de [W]_t = t. Ex. : ∫₀ᵗW dW = (W_t² − t)/2. Elle fonde le calcul stochastique : équations différentielles stochastiques, formule de Black-Scholes (mathématiques financières)."
+    },
     formulas: [
       {
         text: "1. Pour H processus adapté et de carré intégrable, ∫₀ᵗHₛdWₛ = lim (L²) Σ H_{tᵢ}(W_{t_{i+1}}−W_{tᵢ}), sommes évaluées au point de GAUCHE de chaque subdivision.",
@@ -925,6 +1193,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:615": {
     title: "EDP stochastiques (bases)",
     definition: "Les équations aux dérivées partielles stochastiques généralisent les EDP classiques en y incorporant un terme de bruit aléatoire (souvent un bruit blanc spatio-temporel), modélisant des phénomènes physiques soumis à des perturbations aléatoires distribuées dans l'espace et le temps.",
+    definition_axiomatique: {
+        cadre: "On étudie du(t, x) = Δu dt + Σσ_k(u)dW^k_t, équation d'évolution à valeurs dans un espace de fonctions (Hilbert H), avec un bruit gaussien.",
+        axiomes: [
+            {
+                nom: "H1 — Semi-groupe",
+                enonce: "Δ engendre un semi-groupe (e^{tΔ}) sur H (chaleur)."
+            },
+            {
+                nom: "H2 — Bruit",
+                enonce: "(W^k_t) sont des mouvements browniens indépendants (ou un bruit blanc cylindrique Q-Wiener)."
+            },
+            {
+                nom: "H3 — Formulation mild",
+                enonce: "u(t) = e^{tΔ}u₀ + ∫₀ᵗe^{(t−s)Δ}σ(u(s))dW_s."
+            }
+        ],
+        conclusion: "L'EDP stochastique de la chaleur (équation de la chaleur bruitée) admet une solution mild pour un bruit assez régulier (bruit coloré en dimension ≥ 2 ; en dimension 1, le bruit blanc espace-temps suffit). Le semi-groupe régularise (effet parabolique) mais le bruit peut empêcher la continuité classique : les solutions sont généralement höldériennes en temps et en espace, pas C¹. Exemple : équation KPZ, équation de Burgers stochastique."
+    },
     formulas: [
       {
         text: "1. Forme typique : ∂u/∂t = Lu + σ(u)Ẇ(x,t), avec L opérateur différentiel déterministe et Ẇ un bruit blanc spatio-temporel.",
@@ -989,6 +1275,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:616": {
     title: "Processus de diffusion",
     definition: "Un processus de diffusion est un processus de Markov continu caractérisé localement par un coefficient de dérive (tendance moyenne) et un coefficient de diffusion (intensité de la fluctuation aléatoire), généralisation naturelle du mouvement brownien solution d'une équation différentielle stochastique.",
+    definition_axiomatique: {
+        cadre: "On étudie dX_t = b(X_t)dt + σ(X_t)dW_t, X_0 = x, un processus de diffusion sur ℝᵈ.",
+        axiomes: [
+            {
+                nom: "D1 — Lipschitz",
+                enonce: "b, σ lipschitziennes."
+            },
+            {
+                nom: "D2 — Marković",
+                enonce: "X est un processus de Markov (Cauchy-Lipschitz stochastique + unicité trajectorielle)."
+            },
+            {
+                nom: "D3 — Générateur",
+                enonce: "Lf(x) = b(x)·∇f(x) + ½tr(σσᵀ(x)D²f(x))."
+            }
+        ],
+        conclusion: "Le générateur infinitésimal L relie la diffusion à une EDP : u(t, x) = E_x(f(X_t)) vérifie ∂_tu = Lu (Kolmogorov). La formule d'Itô donne f(X_t) − f(X₀) − ∫₀ᵗLf(X_s)ds martingale. Exemples : mouvement brownien (b = 0, σ = I, L = ½Δ), Ornstein-Uhlenbeck (b = −θx, L = −θx·∇ + ½Δ), diffusions géométriques (finance)."
+    },
     formulas: [
       {
         text: "1. dXₜ = b(Xₜ)dt + σ(Xₜ)dWₜ, avec b la dérive et σ la diffusion (coefficients dépendant de l'état).",
@@ -1053,6 +1357,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:617": {
     title: "Processus de Markov continus : générateurs",
     definition: "Le générateur infinitésimal d'un processus de Markov continu est l'opérateur différentiel qui décrit le taux de variation instantané de l'espérance conditionnelle d'une fonction du processus, encodant toute l'information dynamique du processus et faisant le lien avec les équations aux dérivées partielles paraboliques.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un processus de Markov (X_t) à valeurs dans un espace mesurable, de semi-groupe de transition (P_t)_{t≥0}.",
+        axiomes: [
+            {
+                nom: "G1 — Domaine",
+                enonce: "D(L) = {f : (P_tf − f)/t converge dans une norme, quand t → 0}."
+            },
+            {
+                nom: "G2 — Générateur",
+                enonce: "Lf = lim_{t→0}(P_tf − f)/t pour f ∈ D(L)."
+            },
+            {
+                nom: "G3 — Équation de Kolmogorov",
+                enonce: "d/dt(P_tf) = LP_tf = P_tLf pour f ∈ D(L)."
+            }
+        ],
+        conclusion: "L détermine complètement le semi-groupe (P_t = e^{tL} formellement, via Hille-Yosida). Exemples : diffusion (opérateur elliptique du second ordre) ; chaîne de Markov continue (Lf(i) = Σq_ij(f(j) − f(i))) ; processus de Lévy (L opérateur intégro-différentiel donné par la formule de Lévy-Khintchine). Le domaine D(L) précise le comportement aux bords/à l'infini."
+    },
     formulas: [
       {
         text: "1. Lf(x) = lim_{t→0} [E_x(f(Xₜ)) − f(x)] / t, pour f dans le domaine du générateur.",
@@ -1117,6 +1439,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:618": {
     title: "Semi-groupes de Markov",
     definition: "Un semi-groupe de Markov est la famille d'opérateurs (Pₜ)ₜ≥0, indexée par le temps, qui décrit l'évolution des espérances conditionnelles d'un processus de Markov ; cette structure algébrique (Pₜ₊ₛ=PₜPₛ) encode entièrement la dynamique du processus et fait le pont avec la théorie des équations d'évolution.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une famille d'opérateurs (P_t)_{t≥0} sur un espace de Banach (fonctions bornées, ou L² d'une mesure invariante).",
+        axiomes: [
+            {
+                nom: "S1 — Semi-groupe",
+                enonce: "P_0 = I, P_{t+s} = P_tP_s."
+            },
+            {
+                nom: "S2 — Positivité",
+                enonce: "P_t f ≥ 0 si f ≥ 0."
+            },
+            {
+                nom: "S3 — Conservation (ou sous-markovien)",
+                enonce: "P_t1 = 1 (ou ≤ 1)."
+            }
+        ],
+        conclusion: "Un semi-groupe de Markov (P_t) représente l'évolution des espérances P_tf(x) = E_x(f(X_t)) d'un processus de Markov ; il est fortement continu (Hille-Yosida) sous des hypothèses de régularité, générant un opérateur L. Théorème de Hille-Yosida : (P_t) existe si et seulement si L est fermé, densément défini, et (λ − L)⁻¹ est borné par 1/λ pour λ > 0 (dissipativité)."
+    },
     formulas: [
       {
         text: "1. Pₜf(x) = E_x[f(Xₜ)], famille d'opérateurs vérifiant la propriété de semi-groupe : Pₜ₊ₛ = Pₜ∘Pₛ.",
@@ -1181,6 +1521,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:619": {
     title: "Équation de Kolmogorov avant",
     definition: "L'équation de Kolmogorov avant (ou équation de Fokker-Planck) décrit l'évolution temporelle de la densité de probabilité d'un processus de diffusion, en fonction de la variable d'arrivée, permettant de suivre comment une distribution initiale se déforme au cours du temps.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une diffusion X de générateur L = b·∇ + ½tr(σσᵀD²) et une densité de transition p(t, x, y) (loi de X_t sachant X_0 = x).",
+        axiomes: [
+            {
+                nom: "K1 — Génération en la variable finale",
+                enonce: "∂_tp(t, x, y) = L_y*p(t, x, y) (adjoint de L agissant sur y)."
+            },
+            {
+                nom: "K2 — Condition initiale",
+                enonce: "p(0, x, y) = δ_x(y)."
+            },
+            {
+                nom: "K3 — Conservation de la masse",
+                enonce: "∫p(t, x, y)dy = 1."
+            }
+        ],
+        conclusion: "Équation de Kolmogorov avant (forward, ou de Fokker-Planck) : elle décrit l'évolution de la densité p(t, x, ·) en la variable finale y, à x fixé — c'est l'équation d'évolution de la loi. Pour le brownien, L* = ½Δ_y et p est le noyau de la chaleur. Elle sert à calculer la distribution du processus au cours du temps (physique statistique, finance)."
+    },
     formulas: [
       {
         text: "1. ∂p/∂t(t,y) = −∂/∂y[b(y)p(t,y)] + (1/2)∂²/∂y²[σ²(y)p(t,y)], équation de Fokker-Planck en dimension 1.",
@@ -1245,6 +1603,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:620": {
     title: "Équation de Kolmogorov arrière",
     definition: "L'équation de Kolmogorov arrière décrit l'évolution, en fonction du point de départ et du temps restant, de l'espérance d'une fonction de l'état final d'un processus de diffusion, fondement direct de la formule de Feynman-Kac reliant probabilités et équations aux dérivées partielles.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une diffusion X de générateur L et u(t, x) = E_x(f(X_t)) pour f donnée.",
+        axiomes: [
+            {
+                nom: "K1 — Marković",
+                enonce: "u(t, x) = E(f(X_t) | X_0 = x)."
+            },
+            {
+                nom: "K2 — Différentiation en la variable initiale",
+                enonce: "∂_tu(t, x) = Lu(t, x) (générateur agissant sur x)."
+            },
+            {
+                nom: "K3 — Condition finale",
+                enonce: "u(0, x) = f(x)."
+            }
+        ],
+        conclusion: "Équation de Kolmogorov arrière (backward) : elle décrit l'évolution en la variable de départ x, utile pour le pricing d'options (l'équation de Black-Scholes en est un cas particulier) et le calcul de probabilités de sortie. Elle est duale de l'équation forward (adjoint L vs L*). Formule de Feynman-Kac : u(t, x) = E_x(f(X_t)e^{−∫₀ᵗc(X_s)ds}) résout ∂_tu = Lu − cu, u(0,·) = f."
+    },
     formulas: [
       {
         text: "1. ∂u/∂t(t,x) = Lu(t,x) = b(x)∂u/∂x + (σ²(x)/2)∂²u/∂x², avec condition terminale u(T,x)=g(x).",
@@ -1309,6 +1685,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:621": {
     title: "Processus stationnaires",
     definition: "Un processus stochastique est stationnaire si la loi de tout vecteur fini d'observations reste inchangée par translation temporelle, propriété d'invariance statistique forte modélisant des phénomènes dont le comportement statistique ne dépend pas de l'instant d'observation.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un processus (X_t)_{t∈ℝ} (ou ℤ) à valeurs réelles ou vectorielles.",
+        axiomes: [
+            {
+                nom: "S1 — Stationnarité stricte",
+                enonce: "La loi de (X_{t₁+h}, …, X_{t_n+h}) ne dépend pas de h."
+            },
+            {
+                nom: "S2 — Mesure invariante",
+                enonce: "S'il s'agit d'une chaîne de Markov ou diffusion, μ vérifie μP_t = μ pour tout t."
+            },
+            {
+                nom: "S3 — Existence en régime permanent",
+                enonce: "X_t → mesure invariante quand t → ∞ (sous conditions de mélange)."
+            }
+        ],
+        conclusion: "Un processus stationnaire modélise un régime permanent : ses statistiques (moyenne, covariance) sont invariantes par translation du temps. Un processus stationnaire au sens strict avec moments finis est stationnaire au second ordre (réciproque fausse). Exemples : bruit blanc, processus AR(1) stationnaire, chaîne de Markov partant de sa loi stationnaire, mouvement brownien avec les accroissements (mais pas la position elle-même)."
+    },
     formulas: [
       {
         text: "1. (Xₜ) stationnaire (au sens strict) ⟺ pour tout h, la loi de (X_{t₁+h},...,X_{tₙ+h}) est identique à celle de (X_{t₁},...,X_{tₙ}), pour tout choix de t₁,...,tₙ.",
@@ -1373,6 +1767,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:622": {
     title: "Processus ergodiques",
     definition: "Un processus ergodique est un processus stationnaire dont les moyennes temporelles, calculées sur une seule trajectoire suffisamment longue, convergent presque sûrement vers les moyennes d'ensemble (espérances théoriques), justifiant l'estimation de quantités statistiques à partir d'une unique réalisation observée.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un système dynamique mesuré (Ω, 𝓕, μ, T), T préservant μ (μ(T⁻¹A) = μ(A)) ; un processus stationnaire s'écrit X_n = f ∘ Tⁿ.",
+        axiomes: [
+            {
+                nom: "E1 — Invariance",
+                enonce: "μ(T⁻¹A) = μ(A) pour tout A."
+            },
+            {
+                nom: "E2 — Ergodicité",
+                enonce: "T est ergodique si T⁻¹A = A ⟹ μ(A) ∈ {0, 1}."
+            },
+            {
+                nom: "E3 — Intégrabilité",
+                enonce: "f ∈ L¹(μ)."
+            }
+        ],
+        conclusion: "Théorème ergodique de Birkhoff : (1/n)Σ_{k<n}f(Tᵏω) converge presque sûrement vers E(f | invariants), qui vaut ∫f dμ si T est ergodique : la moyenne temporelle égale la moyenne spatiale. Un processus stationnaire ergodique vérifie donc une loi des grands nombres généralisée ; il est mélangeant si de plus μ(T⁻ⁿA ∩ B) → μ(A)μ(B) (dépendance qui s'efface)."
+    },
     formulas: [
       {
         text: "1. Théorème ergodique : pour un processus stationnaire ergodique, (1/T)∫₀ᵀ f(X_t) dt → E[f(X₀)] presque sûrement quand T→∞.",
@@ -1437,6 +1849,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:623": {
     title: "Chaînes de Markov continues",
     definition: "Une chaîne de Markov continue est un processus de Markov à temps continu et espace d'états discret, caractérisée par un générateur (matrice de taux de transition) plutôt que par une matrice de transition discrète, modélisant des systèmes changeant d'état à des instants aléatoires continus.",
+    definition_axiomatique: {
+        cadre: "On étudie un processus (X_t)_{t≥0} à valeurs dans un ensemble dénombrable S, qui saute d'état en état à des instants aléatoires.",
+        axiomes: [
+            {
+                nom: "M1 — Propriété de Markov",
+                enonce: "P(X_{t+s} = j | ℱ_s) = P(X_{t+s} = j | X_s)."
+            },
+            {
+                nom: "M2 — Semi-groupe",
+                enonce: "P(t) = (p_ij(t)) est une matrice stochastique et P(t + s) = P(t)P(s), P(0) = I."
+            },
+            {
+                nom: "M3 — Générateur",
+                enonce: "Q = P'(0) : q_ij ≥ 0 (i ≠ j), q_ii = −Σ_{j≠i}q_ij."
+            }
+        ],
+        conclusion: "P(t) = e^{tQ} (état fini) et les équations de Kolmogorov P' = QP = PQ. Le temps passé en i est exponentiel de paramètre −q_ii ; à la sortie, on saute en j avec la probabilité q_ij/(−q_ii). Exemples : processus de Poisson (Q = λ(décalage − I)), files d'attente M/M/1, processus de naissance et de mort. Loi stationnaire : πQ = 0."
+    },
     formulas: [
       {
         text: "1. Générateur Q = (qᵢⱼ), avec qᵢⱼ≥0 le taux de transition de i vers j (i≠j), et qᵢᵢ=−Σⱼ≠ᵢ qᵢⱼ.",
@@ -1501,6 +1931,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:624": {
     title: "Processus gaussiens",
     definition: "Un processus gaussien est un processus stochastique dont toute famille finie de valeurs suit une loi normale multivariée, entièrement déterminé par sa fonction moyenne et sa fonction de covariance, cadre extrêmement riche et maniable englobant le mouvement brownien et de nombreux modèles statistiques.",
+    definition_axiomatique: {
+        cadre: "Un processus gaussien (X_t)_{t∈T} est caractérisé par une fonction moyenne m(t) et une fonction de covariance K(s, t).",
+        axiomes: [
+            {
+                nom: "G1 — Loi fini-dimensionnelle",
+                enonce: "(X_{t₁}, …, X_{t_n}) suit une loi normale multivariée pour tout n-uplet."
+            },
+            {
+                nom: "G2 — Covariance",
+                enonce: "K(s, t) = Cov(X_s, X_t) doit être une fonction symétrique semi-définie positive."
+            },
+            {
+                nom: "G3 — Existence",
+                enonce: "Kolmogorov : toute paire (m, K) admissible définit un processus gaussien (unique en loi)."
+            }
+        ],
+        conclusion: "La loi d'un processus gaussien est entièrement déterminée par m et K (via les lois normales fini-dimensionnelles). Exemples : mouvement brownien (K = min(s,t)), pont brownien, Ornstein-Uhlenbeck (K(s,t) = e^{−θ|t−s|}, stationnaire), mouvement brownien fractionnaire. Les processus gaussiens servent aux modèles de régression non paramétrique (krigeage) : la loi conditionnelle sachant des observations est encore gaussienne."
+    },
     formulas: [
       {
         text: "1. (Xₜ) est gaussien ⟺ pour tout n et t₁,...,tₙ, (X_{t₁},...,X_{tₙ}) suit une loi normale multivariée.",
@@ -1565,6 +2013,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:625": {
     title: "Processus stationnaires au second ordre",
     definition: "Un processus est stationnaire au second ordre si sa moyenne est constante et sa fonction de covariance ne dépend que de l'écart temporel entre les deux instants considérés, condition plus faible que la stationnarité stricte mais suffisante pour de nombreuses applications statistiques (analyse spectrale, prédiction linéaire).",
+    definition_axiomatique: {
+        cadre: "On travaille avec un processus (X_t) de carré intégrable, de moyenne constante et de covariance K(s, t) = Cov(X_s, X_t) dépendant uniquement de t − s : K(s, t) = γ(t − s).",
+        axiomes: [
+            {
+                nom: "S1 — Moyenne constante",
+                enonce: "E(X_t) = m."
+            },
+            {
+                nom: "S2 — Covariance dépendant du décalage",
+                enonce: "γ(h) = Cov(X_t, X_{t+h})."
+            },
+            {
+                nom: "S3 — Positivité",
+                enonce: "γ est une fonction de type positif (Σᵢⱼcᵢc̄ⱼγ(tᵢ − t_j) ≥ 0)."
+            }
+        ],
+        conclusion: "Stationnarité au second ordre (faible) : plus faible que la stationnarité stricte, elle suffit à définir un spectre. γ(0) = V(X_t) ; γ est paire (cas réel). Exemples : bruit blanc (γ(h) = σ²1_{h=0}), AR(1) stationnaire Xₜ = φXₜ₋₁ + εₜ (|φ| < 1, γ(h) = σ²φ^{|h|}/(1 − φ²)). Un processus gaussien stationnaire au second ordre l'est strictement."
+    },
     formulas: [
       {
         text: "1. E(Xₜ) = μ (constante), Cov(Xₛ,X_{s+h}) = γ(h) (ne dépend que du décalage h, pas de s).",
@@ -1629,6 +2095,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:626": {
     title: "Spectre d’un processus",
     definition: "Le spectre d'un processus stochastique stationnaire est la transformée de Fourier de sa fonction d'autocovariance, décomposant la variance totale du processus en contributions associées à chaque fréquence, outil fondamental pour analyser la structure de corrélation fréquentielle d'un signal aléatoire.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un processus stationnaire au second ordre (X_t) de covariance γ, avec Σ|γ(h)| < ∞ (cas discret) ou γ intégrable (continu).",
+        axiomes: [
+            {
+                nom: "B1 — Bochner",
+                enonce: "Une fonction de type positif est la transformée de Fourier d'une mesure positive finie."
+            },
+            {
+                nom: "B2 — Densité spectrale",
+                enonce: "f(ω) = Σγ(h)e^{−iωh} (ou ∫γ(t)e^{−iωt}dt)."
+            },
+            {
+                nom: "B3 — Inversion",
+                enonce: "γ(h) = (1/2π)∫f(ω)e^{iωh}dω."
+            }
+        ],
+        conclusion: "Théorème de Bochner-Khintchine : γ est la transformée de Fourier d'une mesure positive (la mesure spectrale), qui a une densité f (le spectre) si γ est sommable. f(ω) mesure la puissance du processus à la fréquence ω. Exemple : bruit blanc, f constante (spectre plat) ; AR(1), f(ω) = σ²/|1 − φe^{−iω}|² (spectre lorentzien). Base de l'analyse spectrale des séries temporelles."
+    },
     formulas: [
       {
         text: "1. Densité spectrale : f(ω) = (1/2π) Σ_{h∈ℤ} γ(h) e^{−iωh} (théorème de Bochner-Khintchine, cas discret).",
@@ -1693,6 +2177,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:627": {
     title: "Filtrations et adaptation",
     definition: "Une filtration est une famille croissante de tribus indexée par le temps, représentant l'information disponible à chaque instant ; un processus est adapté à cette filtration si sa valeur à chaque instant ne dépend que de l'information disponible jusqu'à cet instant, condition de non-anticipation essentielle en calcul stochastique.",
+    definition_axiomatique: {
+        cadre: "On travaille sur (Ω, 𝓐, ℙ) avec une famille croissante de sous-tribus (𝓕_t)_{t∈T}.",
+        axiomes: [
+            {
+                nom: "F1 — Croissance",
+                enonce: "𝓕_s ⊂ 𝓕_t pour s ≤ t."
+            },
+            {
+                nom: "F2 — Filtration naturelle",
+                enonce: "𝓕_t^X = σ(X_s, s ≤ t)."
+            },
+            {
+                nom: "F3 — Adaptation",
+                enonce: "X est adapté à (𝓕_t) si X_t est 𝓕_t-mesurable pour tout t."
+            }
+        ],
+        conclusion: "𝓕_t représente l'information disponible à l'instant t. Un processus adapté ne peut pas « voir le futur » (contrairement à un processus anticipant). Les conditions habituelles ajoutent la complétude (𝓕₀ contient les négligeables) et la continuité à droite (⋂_{s>t}𝓕_s = 𝓕_t), utiles pour la régularité des trajectoires et l'existence de modifications càdlàg."
+    },
     formulas: [
       {
         text: "1. (ℱₜ)ₜ≥0 filtration : ℱₛ ⊂ ℱₜ pour s≤t (l'information ne peut que croître avec le temps).",
@@ -1757,6 +2259,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:628": {
     title: "Processus prévisibles",
     definition: "Un processus prévisible est un processus dont la valeur à chaque instant est déterminée par l'information strictement antérieure (et non simplement présente), notion technique plus fine que la simple adaptation, essentielle pour définir rigoureusement l'intégration stochastique et la décomposition de Doob-Meyer.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "P1 — Tribu prévisible",
+                enonce: "𝓟 est engendrée par les processus adaptés continus à gauche (ou par les rectangles (s, t] × A, A ∈ 𝓕_s)."
+            },
+            {
+                nom: "P2 — Processus prévisible",
+                enonce: "H est prévisible si H : Ω × ℝ₊ → ℝ est 𝓟-mesurable."
+            },
+            {
+                nom: "P3 — Continuité à gauche",
+                enonce: "Un processus adapté continu à gauche est prévisible."
+            }
+        ],
+        conclusion: "Les intégrandes de l'intégrale stochastique doivent être prévisibles : H_t ne dépend que du passé strict, ce qui reflète l'impossibilité d'anticiper les sauts futurs (interprétation financière : une stratégie de trading décidée avant l'instant t). Le compensateur prévisible d'un processus croissant (décomposition de Doob-Meyer) est l'unique processus prévisible A tel que X − A soit une martingale."
+    },
     formulas: [
       {
         text: "1. La tribu prévisible 𝒫 est engendrée par les processus continus à gauche et adaptés (ou, en temps discret, par les processus dont Xₙ est ℱ_{n−1}-mesurable).",
@@ -1821,6 +2341,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:629": {
     title: "Processus optionnels",
     definition: "Un processus optionnel occupe une position intermédiaire entre les processus adaptés et prévisibles dans la théorie générale des processus, engendré par les processus càdlàg (continus à droite avec limites à gauche) adaptés, cadre naturel pour de nombreux résultats de théorie des martingales incluant les sauts.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "O1 — Tribu optionnelle",
+                enonce: "𝓞 est engendrée par les processus càdlàg adaptés."
+            },
+            {
+                nom: "O2 — Processus optionnel",
+                enonce: "H est optionnel s'il est 𝓞-mesurable."
+            },
+            {
+                nom: "O3 — Inclusion",
+                enonce: "𝓟 ⊂ 𝓞 ⊂ processus adaptés progressivement mesurables."
+            }
+        ],
+        conclusion: "Un temps d'arrêt τ définit un processus optionnel 1_{[τ,∞)} qui n'est pas nécessairement prévisible (un saut de Poisson n'est pas annoncé) : la distinction optionnel/prévisible reflète celle entre temps d'arrêt quelconque et temps d'arrêt prévisible (annoncé par une suite croissante). Théorème de section : un ensemble optionnel dont chaque coupe est non vide contient le graphe d'un temps d'arrêt."
+    },
     formulas: [
       {
         text: "1. La tribu optionnelle 𝒪 est engendrée par les processus càdlàg adaptés (contenant strictement la tribu prévisible 𝒫 ⊂ 𝒪).",
@@ -1885,6 +2423,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:630": {
     title: "Martingales exponentielles",
     definition: "Une martingale exponentielle (exponentielle de Doléans-Dade) est le processus obtenu en exponentiant, selon une formule spécifique compensant la variation quadratique, une martingale locale continue, construction centrale pour les changements de mesure de probabilité (théorème de Girsanov).",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "E1 — Martingale locale",
+                enonce: "M est une martingale locale continue, M₀ = 0."
+            },
+            {
+                nom: "E2 — Définition",
+                enonce: "ℰ(M)_t = exp(M_t − ½⟨M⟩_t)."
+            },
+            {
+                nom: "E3 — Itô",
+                enonce: "d ℰ(M)_t = ℰ(M)_t dM_t (formule d'Itô appliquée à exp)."
+            }
+        ],
+        conclusion: "ℰ(M) est l'exponentielle stochastique (de Doléans-Dade) de M : c'est une martingale locale positive, et une vraie martingale sous la condition de Novikov E(exp(½⟨M⟩_∞)) < ∞. Exemple : pour M_t = σW_t, ℰ(M)_t = exp(σW_t − σ²t/2), le mouvement brownien géométrique normalisé. Elle intervient dans le changement de mesure de Girsanov et les modèles de prix d'actifs sans arbitrage."
+    },
     formulas: [
       {
         text: "1. Pour M martingale locale continue nulle en 0, l'exponentielle stochastique est ℰ(M)ₜ = exp(Mₜ − ⟨M⟩ₜ/2).",
@@ -1949,6 +2505,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:631": {
     title: "Théorème de Girsanov",
     definition: "Le théorème de Girsanov décrit comment la loi d'un mouvement brownien se transforme sous un changement de mesure de probabilité (absolument continu), la dérive du processus étant modifiée tandis que sa structure de diffusion reste inchangée, résultat fondamental de la finance mathématique moderne.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "N1 — Condition de Novikov",
+                enonce: "θ est adapté, E(exp(½∫₀ᵀθ_s²ds)) < ∞."
+            },
+            {
+                nom: "N2 — Exponentielle de Doléans",
+                enonce: "Z_t = ℰ(−∫θ dW)_t est une martingale (positive, d'espérance 1)."
+            },
+            {
+                nom: "N3 — Changement de mesure",
+                enonce: "ℚ définie par dℚ/dℙ|_{𝓕_T} = Z_T."
+            }
+        ],
+        conclusion: "Théorème de Girsanov : sous ℚ, W̃_t = W_t + ∫₀ᵗθ_sds est un mouvement brownien. On peut donc éliminer une dérive en changeant de mesure de probabilité, tout en gardant la même filtration et la même structure de sauts (nulle ici). Application centrale en finance (mesure risque-neutre, formule de Black-Scholes) et en filtrage."
+    },
     formulas: [
       {
         text: "1. Sous Q définie par dQ/dP=ℰ(−∫θₛdWₛ)ₜ (exponentielle de Doléans-Dade), le processus W̃ₜ=Wₜ+∫₀ᵗθₛds est un mouvement brownien sous Q.",
@@ -2013,6 +2587,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:632": {
     title: "Changement de mesure",
     definition: "Un changement de mesure de probabilité, réalisé via une dérivée de Radon-Nikodym positive d'espérance 1, permet de transformer une mesure de probabilité en une autre absolument continue par rapport à elle, technique fondamentale exploitée en finance (mesure risque-neutre) et en statistique (vraisemblance).",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "A1 — Absolue continuité",
+                enonce: "ℚ ≪ ℙ sur 𝓕_T."
+            },
+            {
+                nom: "A2 — Densité",
+                enonce: "Z_T = dℚ/dℙ|_{𝓕_T} > 0 presque sûrement."
+            },
+            {
+                nom: "A3 — Martingale de densité",
+                enonce: "Z_t = E_ℙ(Z_T | 𝓕_t) est une martingale strictement positive."
+            }
+        ],
+        conclusion: "Sous ℚ, l'espérance se calcule par E_ℚ(X) = E_ℙ(XZ_T). Bayes conditionnel : E_ℚ(X | 𝓕_t) = E_ℙ(XZ_T | 𝓕_t)/Z_t. Les propriétés des processus (martingale, Markov) changent selon la mesure — Girsanov décrit précisément comment (transformation de la dérive du brownien). Utilisé pour passer de la mesure historique à la mesure risque-neutre en finance."
+    },
     formulas: [
       {
         text: "1. Q est absolument continue par rapport à P (Q≪P) s'il existe Z≥0 (la dérivée de Radon-Nikodym dQ/dP) telle que Q(A)=E_P[Z·𝟙_A] pour tout A, avec E_P(Z)=1.",
@@ -2077,6 +2669,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:633": {
     title: "Processus de Bessel",
     definition: "Un processus de Bessel est le processus stochastique modélisant la norme euclidienne d'un mouvement brownien multidimensionnel, paramétré par une dimension (éventuellement non entière), et jouant un rôle central dans l'étude des processus de diffusion et des modèles de taux d'intérêt en finance.",
+    definition_axiomatique: {
+        cadre: "On considère d mouvements browniens indépendants (W¹, …, W^d) et R_t = ‖(W¹_t, …, W^d_t)‖ (norme euclidienne, d ≥ 1).",
+        axiomes: [
+            {
+                nom: "B1 — Norme d'un brownien d-dimensionnel",
+                enonce: "R_t = ‖W_t‖."
+            },
+            {
+                nom: "B2 — Itô sur la norme",
+                enonce: "Formule d'Itô appliquée à ‖x‖ (non C² en 0 pour d = 1)."
+            },
+            {
+                nom: "B3 — Générateur radial",
+                enonce: "Le générateur du processus de Bessel de dimension δ est ½∂_r² + ((δ−1)/2r)∂_r."
+            }
+        ],
+        conclusion: "Le processus de Bessel de dimension entière δ = d est la norme d'un brownien d-dimensionnel ; dR_t = dβ_t + ((δ−1)/2R_t)dt (β brownien). Pour δ ≥ 2, R ne touche jamais 0 (récurrence de Bessel : d = 2 récurrent nul, d ≥ 3 transitoire) ; pour δ < 2, R atteint 0 . La définition s'étend à δ réel non entier (processus de Bessel généralisé, lié au CIR)."
+    },
     formulas: [
       {
         text: "1. Pour un mouvement brownien d-dimensionnel B, le processus R_t=||B_t|| est un processus de Bessel de dimension d (pour d entier).",
@@ -2141,6 +2751,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:634": {
     title: "Processus d’Ornstein-Uhlenbeck",
     definition: "Le processus d'Ornstein-Uhlenbeck est un processus de diffusion gaussien caractérisé par une force de rappel proportionnelle à l'écart par rapport à une valeur moyenne cible, modélisant des phénomènes de retour à la moyenne soumis à un bruit aléatoire continu, archétype des processus stationnaires.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝓕, (𝓕_t)_{t≥0}, ℙ) vérifiant les conditions habituelles (filtration continue à droite et complète).",
+        axiomes: [
+            {
+                nom: "O1 — Équation",
+                enonce: "dX_t = −θ(X_t − μ)dt + σdW_t, θ, σ > 0."
+            },
+            {
+                nom: "O2 — Solution explicite",
+                enonce: "X_t = μ + (X₀ − μ)e^{−θt} + σ∫₀ᵗe^{−θ(t−s)}dW_s."
+            },
+            {
+                nom: "O3 — Gaussien",
+                enonce: "X est un processus gaussien (intégrale stochastique d'un déterministe contre W)."
+            }
+        ],
+        conclusion: "L'OU est l'unique diffusion gaussienne markovienne stationnaire (à changement affine près) : sa loi stationnaire est N(μ, σ²/2θ) et sa covariance stationnaire est (σ²/2θ)e^{−θ|t−s|}. C'est la limite en temps continu du processus AR(1) ; c'est aussi la loi du mouvement brownien transformé par changement de temps et d'échelle (Doob : Y_t = e^{−t}W_{e^{2t}}). Modèle de retour à la moyenne (taux d'intérêt, vitesse d'une particule browninienne physique)."
+    },
     formulas: [
       {
         text: "1. dXₜ = θ(μ−Xₜ)dt + σdWₜ, avec θ>0 la vitesse de retour à la moyenne μ, σ l'intensité du bruit.",
@@ -2205,6 +2833,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:635": {
     title: "Processus de Cox-Ingersoll-Ross",
     definition: "Le processus de Cox-Ingersoll-Ross (CIR) modélise un phénomène de retour à la moyenne à valeurs toujours positives, propriété cruciale pour représenter des taux d'intérêt réalistes ; sa diffusion, proportionnelle à la racine carrée de l'état, empêche naturellement le processus de devenir négatif.",
+    definition_axiomatique: {
+        cadre: "On modélise un taux positif par dX_t = θ(μ − X_t)dt + σ√X_t dW_t, θ, μ, σ > 0, X₀ > 0.",
+        axiomes: [
+            {
+                nom: "C1 — Retour à la moyenne",
+                enonce: "θ(μ − X_t)dt tire X vers μ."
+            },
+            {
+                nom: "C2 — Diffusion proportionnelle à √X",
+                enonce: "σ√X_t dW_t s'annule quand X → 0, empêchant les valeurs négatives."
+            },
+            {
+                nom: "C3 — Condition de Feller",
+                enonce: "2θμ ≥ σ² garantit que X > 0 presque sûrement (X = 0 n'est pas atteint)."
+            }
+        ],
+        conclusion: "Le CIR (Cox-Ingersoll-Ross) est utilisé pour les taux d'intérêt et la volatilité (modèle de Heston) car il reste positif et retourne vers μ. Sa loi stationnaire est une loi Gamma(2θμ/σ², σ²/2θ). Sous la condition de Feller, X ne touche jamais 0 ; sinon, 0 est un état réfléchissant ou absorbant selon la version. Contrairement à OU, ce n'est pas un processus gaussien."
+    },
     formulas: [
       {
         text: "1. dXₜ = θ(μ−Xₜ)dt + σ√Xₜ dWₜ, avec θ,μ,σ>0.",
@@ -2269,6 +2915,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:636": {
     title: "Processus de Hawkes",
     definition: "Un processus de Hawkes est un processus de comptage à intensité auto-excitatrice : chaque événement passé augmente temporairement la probabilité d'occurrence de futurs événements, modélisant des phénomènes de contagion ou de regroupement temporel (clustering) absents des processus de Poisson classiques.",
+    definition_axiomatique: {
+        cadre: "On considère un processus de comptage N_t auto-excitant, d'intensité stochastique λ_t.",
+        axiomes: [
+            {
+                nom: "H1 — Intensité",
+                enonce: "λ_t = μ + Σ_{t_k<t}φ(t − t_k), où (t_k) sont les instants de saut passés de N."
+            },
+            {
+                nom: "H2 — Noyau d'excitation",
+                enonce: "φ ≥ 0, décroissant (souvent φ(s) = αe^{−βs})."
+            },
+            {
+                nom: "H3 — Stationnarité",
+                enonce: "∫φ < 1 (branching ratio < 1) assure la stabilité (non-explosion)."
+            }
+        ],
+        conclusion: "Le processus de Hawkes modélise l'auto-excitation : chaque événement augmente temporairement la probabilité d'événements futurs (agrégation, contagion). Il s'interprète comme un processus de branchement : chaque événement engendre en moyenne ∫φ « enfants » ; le nombre moyen d'événements est amplifié par 1/(1 − ∫φ). Applications : séismes (modèle ETAS), trading haute fréquence, épidémiologie, réseaux sociaux."
+    },
     formulas: [
       {
         text: "1. Intensité conditionnelle : λ(t) = μ + Σ_{Tᵢ<t} φ(t−Tᵢ), où μ est l'intensité de base et φ (noyau d'excitation) décrit l'influence décroissante de chaque événement passé.",
@@ -2333,6 +2997,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:637": {
     title: "Processus de branchement",
     definition: "Un processus de branchement modélise l'évolution d'une population où chaque individu, indépendamment des autres, engendre aléatoirement un nombre de descendants selon une loi donnée, généralisant à temps continu ou discret la croissance et l'extinction de populations soumises au hasard démographique.",
+    definition_axiomatique: {
+        cadre: "Un processus de branchement (Z_n) décrit une population où chaque individu de la génération n engendre indépendamment un nombre aléatoire d'enfants de même loi.",
+        axiomes: [
+            {
+                nom: "B1 — Reproduction iid",
+                enonce: "Z_{n+1} = Σ_{i=1}^{Z_n}ξ_{n,i}, avec (ξ_{n,i}) iid de loi de reproduction μ, indépendante de Z_n."
+            },
+            {
+                nom: "B2 — Fonction génératrice",
+                enonce: "φ(s) = E(s^ξ) ; celle de Z_n est φ_n = φ∘…∘φ (n fois)."
+            },
+            {
+                nom: "B3 — Moyenne",
+                enonce: "m = E(ξ)."
+            }
+        ],
+        conclusion: "E(Z_n) = mⁿZ₀. La population s'éteint presque sûrement si m ≤ 1 (sous-critique/critique, sauf ξ ≡ 1) ; si m > 1 (surcritique), P(extinction) = q, la plus petite racine de φ(s) = s dans [0 ; 1[, et {Z_n → ∞} a probabilité 1 − q > 0. Sur {non-extinction}, Z_n/mⁿ converge presque sûrement vers une variable W > 0 (théorème de Kesten-Stigum si E(ξ ln⁺ξ) < ∞)."
+    },
     formulas: [
       {
         text: "1. Chaque individu de la génération n engendre indépendamment un nombre aléatoire de descendants selon une même loi de reproduction.",
@@ -2397,6 +3079,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:638": {
     title: "Processus de Galton-Watson",
     definition: "Le processus de Galton-Watson est le modèle fondamental et historique de processus de branchement à temps discret, où chaque individu d'une génération engendre indépendamment un nombre aléatoire de descendants selon une loi de reproduction fixée, formant ainsi la génération suivante.",
+    definition_axiomatique: {
+        cadre: "Le processus de Galton-Watson est le cas particulier (fondateur historique) du processus de branchement : Z_0 = 1, Z_{n+1} = Σ_{i=1}^{Z_n}ξ_{n,i}, (ξ_{n,i}) iid de loi de reproduction μ sur ℕ, modélisant la survie d'un nom de famille.",
+        axiomes: [
+            {
+                nom: "B1 — Reproduction iid",
+                enonce: "Z_{n+1} = Σ_{i=1}^{Z_n}ξ_{n,i}, avec (ξ_{n,i}) iid de loi de reproduction μ, indépendante de Z_n."
+            },
+            {
+                nom: "B2 — Fonction génératrice",
+                enonce: "φ(s) = E(s^ξ) ; celle de Z_n est φ_n = φ∘…∘φ (n fois)."
+            },
+            {
+                nom: "B3 — Moyenne",
+                enonce: "m = E(ξ)."
+            }
+        ],
+        conclusion: "Probabilité d'extinction q : plus petite racine dans [0 ; 1] de φ(s) = s (φ fonction génératrice de la loi de reproduction). q = 1 si m = E(ξ) ≤ 1 (sauf reproduction déterministe égale à 1) ; q < 1 si m > 1. Exemple historique : Galton-Watson (1873), extinction des noms de famille aristocratiques anglais."
+    },
     formulas: [
       {
         text: "1. Z₀=1 (ou une valeur initiale donnée), Z_{n+1} = Σ_{i=1}^{Zₙ} ξᵢ^{(n)}, où (ξᵢ^{(n)}) sont i.i.d. selon la loi de reproduction.",
@@ -2461,6 +3161,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:639": {
     title: "Processus de naissance-mort",
     definition: "Un processus de naissance-mort est une chaîne de Markov continue à valeurs entières où les transitions ne peuvent se faire que vers l'état immédiatement supérieur (naissance) ou immédiatement inférieur (mort), modélisant l'évolution de populations, de files d'attente ou de systèmes biologiques.",
+    definition_axiomatique: {
+        cadre: "On considère une chaîne de Markov à temps continu (X_t) sur ℕ, de taux de naissance λ_n (de n vers n+1) et de taux de mort μ_n (de n vers n−1).",
+        axiomes: [
+            {
+                nom: "N1 — Générateur",
+                enonce: "q_{n,n+1} = λ_n, q_{n,n-1} = μ_n, q_{n,n} = −(λ_n + μ_n)."
+            },
+            {
+                nom: "N2 — Positivité",
+                enonce: "λ_n ≥ 0, μ_n ≥ 0, μ_0 = 0."
+            },
+            {
+                nom: "N3 — Régularité",
+                enonce: "Absence d'explosion en temps fini (condition sur Σ1/λ_n)."
+            }
+        ],
+        conclusion: "Le processus de naissance et de mort modélise une population, une file d'attente ou un stock. Loi stationnaire (si elle existe) : π_n = π_0∏_{k<n}λ_k/μ_{k+1}, normalisée par Σπ_n = 1 ; elle vérifie l'équilibre détaillé π_nλ_n = π_{n+1}μ_{n+1} (chaîne réversible). Exemples : processus de Poisson (μ_n = 0), file M/M/1 (λ_n = λ, μ_n = μ), modèle de population logistique (λ_n, μ_n dépendant de n)."
+    },
     formulas: [
       {
         text: "1. Taux de naissance λₙ (transition de n vers n+1) et taux de mort μₙ (transition de n vers n−1), avec μ₀=0.",
@@ -2525,6 +3243,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:640": {
     title: "Processus de renouvellement",
     definition: "Un processus de renouvellement généralise le processus de Poisson en remplaçant l'hypothèse d'intervalles inter-événements exponentiels par une loi quelconque, les durées entre événements successifs étant indépendantes et identiquement distribuées mais non nécessairement exponentielles.",
+    definition_axiomatique: {
+        cadre: "On considère une suite (T_k) d'instants de renouvellement, T_0 = 0, avec des durées inter-renouvellement S_k = T_k − T_{k−1} iid de loi F, E(S) = μ < ∞ ; N_t = sup{k : T_k ≤ t}.",
+        axiomes: [
+            {
+                nom: "R1 — Durées iid",
+                enonce: "Les S_k sont indépendantes et de même loi F, non dégénérée en 0."
+            },
+            {
+                nom: "R2 — Loi des grands nombres",
+                enonce: "T_n/n → μ presque sûrement (SLLN)."
+            },
+            {
+                nom: "R3 — Équation de renouvellement",
+                enonce: "m(t) = E(N_t) vérifie m(t) = F(t) + ∫₀ᵗm(t−s)dF(s)."
+            }
+        ],
+        conclusion: "Théorème de renouvellement élémentaire : N_t/t → 1/μ presque sûrement quand t → ∞ (généralise la loi des grands nombres de Poisson, μ = 1/λ). Théorème du renouvellement (Blackwell) : E(N_{t+h} − N_t) → h/μ si F n'est pas arithmétique. Le processus de Poisson est le cas particulier F exponentielle (sans mémoire) ; sinon N n'est pas markovien."
+    },
     formulas: [
       {
         text: "1. Nₜ = max{n, T₁+...+Tₙ ≤ t}, où (Tᵢ) sont les durées inter-arrivées i.i.d. selon une loi F quelconque.",
@@ -2589,6 +3325,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:641": {
     title: "Catégories : définition",
     definition: "Une catégorie est une structure algébrique composée d'objets et de morphismes (flèches) entre ces objets, munie d'une composition associative et d'un morphisme identité pour chaque objet ; ce cadre extrêmement général unifie de nombreuses structures mathématiques (ensembles, groupes, espaces topologiques) sous un même formalisme.",
+    definition_axiomatique: {
+        cadre: "Une catégorie 𝒞 est la donnée d'objets, de morphismes entre objets et d'une loi de composition.",
+        axiomes: [
+            {
+                nom: "K1 — Morphismes",
+                enonce: "Pour tout couple d'objets (A, B), un ensemble Hom(A, B)."
+            },
+            {
+                nom: "K2 — Composition associative",
+                enonce: "f ∈ Hom(A, B), g ∈ Hom(B, C) donnent g ∘ f ∈ Hom(A, C) et h ∘ (g ∘ f) = (h ∘ g) ∘ f."
+            },
+            {
+                nom: "K3 — Identités",
+                enonce: "Pour tout A, id_A ∈ Hom(A, A) avec f ∘ id = f et id ∘ g = g."
+            }
+        ],
+        conclusion: "Exemples : Ens (ensembles, applications), Grp, Ab, Vect_K, Top (espaces topologiques, applications continues), Ring ; un ensemble ordonné est une catégorie ; un monoïde est une catégorie à un objet. Un isomorphisme est un morphisme inversible ; le produit, le coproduit, le noyau sont définis par des propriétés universelles. Les catégories unifient les constructions algébriques et topologiques."
+    },
     formulas: [
       {
         text: "1. Une catégorie C consiste en une classe d'objets Ob(C), et pour chaque paire (A,B), un ensemble de morphismes Hom(A,B), avec une composition ∘ : Hom(B,C)×Hom(A,B)→Hom(A,C).",
@@ -2653,6 +3407,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:642": {
     title: "Morphismes",
     definition: "Un morphisme dans une catégorie est une flèche abstraite entre deux objets, généralisant simultanément les applications entre ensembles, les homomorphismes de groupes ou les applications linéaires, l'accent étant mis non sur la nature interne des objets mais sur leurs relations structurées entre eux.",
+    definition_axiomatique: {
+        cadre: "On travaille dans une catégorie 𝒞 ; f ∈ Hom(A, B) est un morphisme.",
+        axiomes: [
+            {
+                nom: "M1 — Monomorphisme",
+                enonce: "f est un monomorphisme si fg = fh ⟹ g = h pour tous g, h : X → A (simplifiable à gauche)."
+            },
+            {
+                nom: "M2 — Épimorphisme",
+                enonce: "f est un épimorphisme si gf = hf ⟹ g = h (simplifiable à droite)."
+            },
+            {
+                nom: "M3 — Isomorphisme",
+                enonce: "f est un isomorphisme s'il existe g avec fg = id_B et gf = id_A."
+            }
+        ],
+        conclusion: "Dans Ens, mono = injectif, épi = surjectif ; dans Grp aussi ; dans Ring (avec unité), l'inclusion ℤ ↪ ℚ est un épimorphisme non surjectif. Un isomorphisme est toujours mono et épi ; la réciproque est fausse en général (vraie dans Ens, Grp, Vect, fausse dans Top ou Ring). Un morphisme inversible à gauche est mono, inversible à droite est épi."
+    },
     formulas: [
       {
         text: "1. Un morphisme f∈Hom(A,B) a une source A=dom(f) et un but B=cod(f), notés f:A→B.",
@@ -2717,6 +3489,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:643": {
     title: "Objets initiaux et terminaux",
     definition: "Un objet initial d'une catégorie admet un unique morphisme vers tout autre objet ; un objet terminal admet un unique morphisme depuis tout autre objet ; ces notions duales, définies purement en termes de morphismes, généralisent l'ensemble vide et le singleton dans la catégorie des ensembles.",
+    definition_axiomatique: {
+        cadre: "On travaille dans une catégorie 𝒞.",
+        axiomes: [
+            {
+                nom: "I1 — Objet initial",
+                enonce: "I est initial si pour tout objet X, Hom(I, X) a exactement un élément."
+            },
+            {
+                nom: "T1 — Objet terminal",
+                enonce: "T est terminal si pour tout X, Hom(X, T) a exactement un élément."
+            },
+            {
+                nom: "U1 — Unicité à isomorphisme près",
+                enonce: "Deux objets initiaux (ou terminaux) sont isomorphes, par un unique isomorphisme."
+            }
+        ],
+        conclusion: "Exemples : dans Ens, ∅ est initial, tout singleton est terminal ; dans Grp et Vect_K, l'objet trivial {e} (ou {0}) est à la fois initial et terminal (objet nul) ; dans Top, ∅ est initial et le point est terminal ; dans Ring (unitaire), ℤ est initial, l'anneau nul est terminal. Un objet à la fois initial et terminal est un objet nul (zéro), essentiel dans les catégories abéliennes."
+    },
     formulas: [
       {
         text: "1. I est initial ⟺ pour tout objet A, il existe un unique morphisme I→A.",
@@ -2781,6 +3571,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:644": {
     title: "Produits et coproduits",
     definition: "Le produit de deux objets dans une catégorie généralise le produit cartésien d'ensembles via une propriété universelle : c'est un objet muni de deux projections tel que tout objet possédant des morphismes vers les deux facteurs se factorise de manière unique à travers ce produit ; le coproduit en est la notion duale.",
+    definition_axiomatique: {
+        cadre: "On travaille dans une catégorie 𝒞 avec deux objets A, B.",
+        axiomes: [
+            {
+                nom: "P1 — Produit",
+                enonce: "P muni de p_A : P → A, p_B : P → B est un produit si pour tout X, f : X → A, g : X → B, il existe un unique h : X → P avec p_Ah = f, p_Bh = g."
+            },
+            {
+                nom: "C1 — Coproduit",
+                enonce: "C muni de i_A : A → C, i_B : B → C est un coproduit si pour tout X, f : A → X, g : B → X, il existe un unique h : C → X avec hi_A = f, hi_B = g."
+            },
+            {
+                nom: "U1 — Unicité",
+                enonce: "Produit et coproduit sont uniques à isomorphisme unique près (propriété universelle)."
+            }
+        ],
+        conclusion: "Dans Ens : produit = produit cartésien, coproduit = réunion disjointe. Dans Grp : produit = produit direct, coproduit = produit libre (non le produit direct !). Dans Vect_K (dimension finie) : produit et coproduit coïncident (somme directe). Dans un ensemble ordonné vu comme catégorie, produit = inf, coproduit = sup."
+    },
     formulas: [
       {
         text: "1. P (avec projections p₁:P→A, p₂:P→B) est le produit de A et B si, pour tout objet X avec f:X→A, g:X→B, il existe un unique h:X→P tel que p₁∘h=f et p₂∘h=g.",
@@ -2845,6 +3653,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:645": {
     title: "Foncteurs",
     definition: "Un foncteur est une application entre deux catégories qui préserve leur structure : il associe à chaque objet un objet, à chaque morphisme un morphisme, en respectant la composition et les identités, généralisant ainsi la notion de fonction structurelle entre théories mathématiques différentes.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux catégories 𝒞, 𝒟 ; F associe à chaque objet A de 𝒞 un objet F(A) de 𝒟 et à chaque morphisme f un morphisme F(f).",
+        axiomes: [
+            {
+                nom: "F1 — Covariance",
+                enonce: "F(f : A → B) : F(A) → F(B)."
+            },
+            {
+                nom: "F2 — Composition",
+                enonce: "F(g ∘ f) = F(g) ∘ F(f)."
+            },
+            {
+                nom: "F3 — Identité",
+                enonce: "F(id_A) = id_{F(A)}."
+            }
+        ],
+        conclusion: "Un foncteur contravariant renverse les flèches : F(f : A → B) : F(B) → F(A), F(g ∘ f) = F(f) ∘ F(g). Exemples : le foncteur d'oubli (Grp → Ens), le groupe fondamental π₁ (Top_* → Grp), le foncteur puissance ensembliste 𝒫 (contravariant sur les applications, via image réciproque), le dual d'un espace vectoriel E ↦ E* (contravariant). Un foncteur préserve les isomorphismes."
+    },
     formulas: [
       {
         text: "1. Un foncteur covariant F:C→D associe à A∈Ob(C) un objet F(A)∈Ob(D), et à f:A→B un morphisme F(f):F(A)→F(B), avec F(id_A)=id_{F(A)} et F(g∘f)=F(g)∘F(f).",
@@ -2909,6 +3735,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:646": {
     title: "Foncteurs fidèles et pleins",
     definition: "Un foncteur est fidèle s'il est injectif sur chaque ensemble de morphismes entre deux objets fixés, et plein s'il est surjectif sur ces mêmes ensembles ; ces conditions, plus fortes que la simple existence du foncteur, garantissent qu'il préserve fidèlement (ou complètement) la structure des relations entre objets.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un foncteur F : 𝒞 → 𝒟 et l'application induite F_{A,B} : Hom_𝒞(A, B) → Hom_𝒟(F(A), F(B)).",
+        axiomes: [
+            {
+                nom: "Fi1 — Fidèle",
+                enonce: "F_{A,B} est injective pour tous A, B."
+            },
+            {
+                nom: "Pl1 — Plein",
+                enonce: "F_{A,B} est surjective pour tous A, B."
+            },
+            {
+                nom: "EP1 — Pleinement fidèle",
+                enonce: "F_{A,B} est bijective pour tous A, B."
+            }
+        ],
+        conclusion: "Un foncteur fidèle ne peut pas identifier deux morphismes distincts ; un foncteur plein réalise tous les morphismes de l'image. Exemple : le foncteur d'oubli Grp → Ens est fidèle mais non plein (toutes les applications entre groupes ne sont pas des morphismes) ; l'inclusion d'une sous-catégorie pleine est pleinement fidèle. Un foncteur pleinement fidèle et essentiellement surjectif est une équivalence de catégories."
+    },
     formulas: [
       {
         text: "1. F:C→D fidèle ⟺ pour tous A,B∈C, l'application Hom_C(A,B)→Hom_D(F(A),F(B)) est injective.",
@@ -2973,6 +3817,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:647": {
     title: "Transformations naturelles",
     definition: "Une transformation naturelle est une famille de morphismes reliant deux foncteurs de mêmes catégories source et but, compatible de façon cohérente (via un diagramme commutatif) avec tous les morphismes de la catégorie de départ ; cette notion capture précisément l'idée de « construction canonique, sans choix arbitraire ».",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux foncteurs F, G : 𝒞 → 𝒟.",
+        axiomes: [
+            {
+                nom: "N1 — Composante",
+                enonce: "Pour chaque objet A de 𝒞, un morphisme η_A : F(A) → G(A) de 𝒟."
+            },
+            {
+                nom: "N2 — Naturalité",
+                enonce: "Pour tout f : A → B dans 𝒞, G(f) ∘ η_A = η_B ∘ F(f) (carré commutatif)."
+            },
+            {
+                nom: "N3 — Isomorphisme naturel",
+                enonce: "η est un isomorphisme naturel si chaque η_A est un isomorphisme."
+            }
+        ],
+        conclusion: "Une transformation naturelle est un morphisme entre foncteurs, compatible avec toute la structure (pas seulement objet par objet) : c'est ce qui rend rigoureuse l'idée d'une construction « canonique ». Exemples : le déterminant det : GL_n → GL_1 n'est pas naturel entre foncteurs au sens strict, mais l'injection canonique V → V** est une transformation naturelle id → ** ; la multiplication par un scalaire fixe n'est naturelle que si elle commute avec tous les morphismes."
+    },
     formulas: [
       {
         text: "1. Pour F,G:C→D deux foncteurs, une transformation naturelle η:F⇒G associe à chaque A∈C un morphisme η_A:F(A)→G(A), tel que pour tout f:A→B, G(f)∘η_A = η_B∘F(f) (carré commutatif).",
@@ -3037,6 +3899,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:648": {
     title: "Équivalences de catégories",
     definition: "Deux catégories sont équivalentes s'il existe des foncteurs entre elles, composés en isomorphismes naturels (plutôt qu'en identité stricte) avec l'identité, notion plus souple et plus utile en pratique que l'isomorphisme strict de catégories, permettant d'identifier des structures « essentiellement les mêmes ».",
+    definition_axiomatique: {
+        cadre: "On travaille avec un foncteur F : 𝒞 → 𝒟.",
+        axiomes: [
+            {
+                nom: "EF1 — Pleinement fidèle",
+                enonce: "F induit des bijections sur les Hom."
+            },
+            {
+                nom: "ES1 — Essentiellement surjectif",
+                enonce: "Pour tout objet D de 𝒟, il existe C avec F(C) ≅ D."
+            },
+            {
+                nom: "EQ1 — Équivalence",
+                enonce: "F est une équivalence de catégories si EF1 et ES1 sont vérifiées (équivaut à l'existence de G : 𝒟 → 𝒞 avec GF ≅ id_𝒞 et FG ≅ id_𝒟)."
+            }
+        ],
+        conclusion: "Une équivalence de catégories identifie deux catégories « à isomorphisme près » sans être une bijection sur les objets. Exemples : la catégorie des espaces vectoriels de dimension finie sur K est équivalente à celle des matrices (objets = entiers, morphismes = matrices) ; les faisceaux localement constants sur un espace connexe sont équivalents aux représentations de π₁ ; Stone : algèbres de Boole ≃ espaces de Stone (opposé)."
+    },
     formulas: [
       {
         text: "1. F:C→D et G:D→C forment une équivalence si G∘F ≅ Id_C et F∘G ≅ Id_D (isomorphismes naturels, pas égalité stricte).",
@@ -3101,6 +3981,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:649": {
     title: "Catégories monoïdales",
     definition: "Une catégorie monoïdale est une catégorie munie d'un produit tensoriel (bifoncteur associatif à isomorphisme naturel près) et d'un objet unité, généralisant catégoriquement la structure de monoïde, cadre unificateur pour de nombreuses constructions de produit en algèbre et en théorie quantique.",
+    definition_axiomatique: {
+        cadre: "Une catégorie monoïdale est une catégorie 𝒞 munie d'un bifoncteur ⊗ : 𝒞 × 𝒞 → 𝒞 et d'un objet unité I.",
+        axiomes: [
+            {
+                nom: "A1 — Associativité",
+                enonce: "Il existe un isomorphisme naturel α : (A ⊗ B) ⊗ C ≅ A ⊗ (B ⊗ C)."
+            },
+            {
+                nom: "U1 — Unité",
+                enonce: "Des isomorphismes naturels λ : I ⊗ A ≅ A, ρ : A ⊗ I ≅ A."
+            },
+            {
+                nom: "C1 — Cohérence (Mac Lane)",
+                enonce: "Les pentagones et triangles associés commutent."
+            }
+        ],
+        conclusion: "Exemples : (Vect_K, ⊗, K) (produit tensoriel) ; (Ens, ×, {*}) (produit cartésien) ; (Ab, ⊗_ℤ, ℤ) ; les catégories de représentations d'un groupe (produit tensoriel des représentations). Une catégorie monoïdale tressée a de plus un isomorphisme naturel A ⊗ B ≅ B ⊗ A vérifiant les relations de Yang-Baxter (utilisé en théorie des nœuds et des groupes quantiques)."
+    },
     formulas: [
       {
         text: "1. (C,⊗,I) : ⊗:C×C→C bifoncteur, I objet unité, avec isomorphismes naturels d'associativité (A⊗B)⊗C≅A⊗(B⊗C) et d'unité I⊗A≅A≅A⊗I.",
@@ -3165,6 +4063,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:650": {
     title: "Catégories abéliennes",
     definition: "Une catégorie abélienne est une catégorie enrichie en structure algébrique (groupes abéliens de morphismes, noyaux et conoyaux, factorisation image-coïmage) suffisamment riche pour y développer toute l'algèbre homologique classique, généralisant simultanément les groupes abéliens et les modules.",
+    definition_axiomatique: {
+        cadre: "Une catégorie additive 𝒞 est enrichie sur les groupes abéliens (Hom(A, B) est un groupe abélien, composition bilinéaire) et possède un objet nul, des produits finis et une catégorie abélienne demande en plus des noyaux et conoyaux.",
+        axiomes: [
+            {
+                nom: "A1 — Enrichissement",
+                enonce: "Hom(A, B) est un groupe abélien, la composition est bilinéaire."
+            },
+            {
+                nom: "K1 — Noyaux et conoyaux",
+                enonce: "Tout morphisme a un noyau (limite) et un conoyau (colimite)."
+            },
+            {
+                nom: "N1 — Normalité",
+                enonce: "Tout monomorphisme est un noyau, tout épimorphisme est un conoyau ; toute flèche se factorise en épi suivi de mono."
+            }
+        ],
+        conclusion: "Dans une catégorie abélienne, on peut faire de l'algèbre homologique : suites exactes, noyaux, images, complexes de chaînes, foncteurs dérivés. Exemples : Ab, Vect_K, les modules sur un anneau, les faisceaux de groupes abéliens sur un espace. Théorème de plongement de Freyd-Mitchell : toute petite catégorie abélienne se plonge pleinement fidèlement dans une catégorie de modules."
+    },
     formulas: [
       {
         text: "1. Une catégorie abélienne possède un objet nul, des produits/coproduits finis, des noyaux et conoyaux pour tout morphisme.",
@@ -3229,6 +4145,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:651": {
     title: "Catégories triangulées",
     definition: "Une catégorie triangulée est une catégorie additive munie d'un foncteur de décalage et d'une classe de « triangles distingués » généralisant les suites exactes courtes, structure technique mais fondamentale apparaissant naturellement comme catégorie homotopique de complexes de chaînes en algèbre homologique.",
+    definition_axiomatique: {
+        cadre: "Une catégorie triangulée est une catégorie additive 𝒯 munie d'un automorphisme [1] (le décalage) et d'une classe de triangles distingués X → Y → Z → X[1].",
+        axiomes: [
+            {
+                nom: "TR1 — Rotation",
+                enonce: "Tout morphisme se complète en un triangle distingué ; les triangles distingués sont stables par rotation."
+            },
+            {
+                nom: "TR2 — Morphismes de triangles",
+                enonce: "Deux morphismes compatibles entre les deux premiers sommets de triangles distingués se complètent en un morphisme de triangles (non nécessairement unique)."
+            },
+            {
+                nom: "TR3 — Octaèdre",
+                enonce: "Axiome de l'octaèdre pour les compositions de morphismes."
+            }
+        ],
+        conclusion: "Exemples : la catégorie homotopique des complexes de chaînes K(A), et la catégorie dérivée D(A) d'une catégorie abélienne A. Un triangle distingué généralise la suite exacte courte (mais n'est pas exact au sens abélien : il n'y a pas de noyaux/images en général). Introduites par Verdier et Grothendieck pour formaliser le cône d'un morphisme de complexes."
+    },
     formulas: [
       {
         text: "1. Un triangle distingué s'écrit X→Y→Z→X[1], où [1] est le foncteur de décalage (translation) sur la catégorie.",
@@ -3293,6 +4227,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:652": {
     title: "Catégories dérivées",
     definition: "La catégorie dérivée d'une catégorie abélienne est obtenue en inversant formellement les quasi-isomorphismes (morphismes de complexes induisant un isomorphisme en cohomologie) dans la catégorie homotopique des complexes de chaînes, cadre naturel et puissant pour formuler l'algèbre homologique moderne.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une catégorie abélienne A ; Ch(A) est la catégorie des complexes de chaînes.",
+        axiomes: [
+            {
+                nom: "Q1 — Quasi-isomorphisme",
+                enonce: "f : X• → Y• est un quasi-isomorphisme s'il induit un isomorphisme en homologie H_n(X•) ≅ H_n(Y•) pour tout n."
+            },
+            {
+                nom: "L1 — Localisation",
+                enonce: "D(A) est la localisation de K(A) (catégorie homotopique) par les quasi-isomorphismes."
+            },
+            {
+                nom: "T1 — Structure triangulée",
+                enonce: "D(A) est une catégorie triangulée, héritée du cône de K(A)."
+            }
+        ],
+        conclusion: "La catégorie dérivée D(A) rend inversibles les quasi-isomorphismes : deux complexes ayant la même homologie deviennent isomorphes dans D(A), même s'ils ne le sont pas dans Ch(A). Elle fournit le cadre naturel des foncteurs dérivés (Ext, Tor, cohomologie de faisceaux) comme des objets de D(A) plutôt que de simples groupes gradués, préservant plus d'information (structure multiplicative, suites spectrales)."
+    },
     formulas: [
       {
         text: "1. D(A) = K(A)[Qis⁻¹], localisation de la catégorie homotopique K(A) par les quasi-isomorphismes (calcul de fractions de Verdier).",
@@ -3357,6 +4309,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:653": {
     title: "Limites et colimites",
     definition: "Les limites et colimites généralisent simultanément produits, noyaux, objets terminaux (pour les limites) et coproduits, conoyaux, objets initiaux (pour les colimites) : ce sont des constructions universelles associées à un diagramme de morphismes, unifiant toutes les constructions catégoriques particulières sous un seul concept.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un diagramme F : I → 𝒞 (I petite catégorie, les indices) dans une catégorie 𝒞.",
+        axiomes: [
+            {
+                nom: "L1 — Cône",
+                enonce: "Un cône sur F est un objet L avec des morphismes πᵢ : L → F(i) compatibles aux flèches de I."
+            },
+            {
+                nom: "L2 — Universalité (limite)",
+                enonce: "lim F est le cône universel : tout autre cône se factorise de façon unique par lim F."
+            },
+            {
+                nom: "L3 — Colimite (dual)",
+                enonce: "colim F est la colimite universelle, définie par la propriété duale (cocônes)."
+            }
+        ],
+        conclusion: "Les limites généralisent produit (I discrète), noyau/égalisateur (I = • ⇉ •), produit fibré (I = • → • ← •) ; les colimites généralisent coproduit, conoyau/coégalisateur, somme amalgamée (pushout). Une catégorie est complète si elle a toutes les petites limites ; Ens, Grp, Top, Vect_K le sont (et cocomplètes). Les foncteurs adjoints à gauche préservent les colimites, ceux à droite les limites."
+    },
     formulas: [
       {
         text: "1. La limite d'un diagramme D:J→C est un objet L muni de morphismes vers chaque D(j), universel parmi tous les cônes vers le diagramme.",
@@ -3421,6 +4391,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:654": {
     title: "Adjoints (foncteurs adjoints)",
     definition: "Deux foncteurs sont adjoints (l'un à gauche, l'autre à droite) s'il existe une bijection naturelle entre les morphismes sortant de l'image du premier et les morphismes entrant dans l'image du second, relation catégorique fondamentale unifiant de très nombreuses constructions duales apparaissant en mathématiques.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux foncteurs F : 𝒞 → 𝒟 et G : 𝒟 → 𝒞.",
+        axiomes: [
+            {
+                nom: "A1 — Bijection naturelle",
+                enonce: "Hom_𝒟(F(A), B) ≅ Hom_𝒞(A, G(B)), naturelle en A et B."
+            },
+            {
+                nom: "A2 — Unité et coünité",
+                enonce: "η : id_𝒞 → GF, ε : FG → id_𝒟, vérifiant les identités triangulaires."
+            },
+            {
+                nom: "A3 — Adjoint à gauche/droite",
+                enonce: "F est adjoint à gauche de G ; G adjoint à droite de F."
+            }
+        ],
+        conclusion: "F ⊣ G : (libre, oubli) est l'exemple canonique — le foncteur d'oubli Grp → Ens a pour adjoint à gauche le groupe libre. Autres exemples : produit tensoriel ⊣ Hom (adjonction tensor-hom) ; abélianisation ⊣ inclusion Ab ↪ Grp ; produit ⊣ diagonale ⊣ coproduit. Les adjoints à gauche préservent les colimites, les adjoints à droite les limites (car ils sont définis par des propriétés universelles duales)."
+    },
     formulas: [
       {
         text: "1. F:C→D est adjoint à gauche de G:D→C (F⊣G) si Hom_D(F(A),B) ≅ Hom_C(A,G(B)), naturellement en A et B.",
@@ -3485,6 +4473,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:655": {
     title: "Yoneda : lemme",
     definition: "Le lemme de Yoneda affirme que, pour tout objet A d'une catégorie, les transformations naturelles entre le foncteur représenté par A et n'importe quel autre foncteur correspondent bijectivement aux éléments de ce foncteur évalué en A, résultat technique mais fondamental révélant qu'un objet est entièrement déterminé par ses relations avec tous les autres.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une catégorie localement petite 𝒞, un objet A et un foncteur F : 𝒞 → Ens.",
+        axiomes: [
+            {
+                nom: "Y1 — Foncteur représentable",
+                enonce: "h_A = Hom(A, −) : 𝒞 → Ens est le foncteur représenté par A."
+            },
+            {
+                nom: "Y2 — Bijection",
+                enonce: "Pour tout foncteur F : 𝒞 → Ens, Nat(h_A, F) ≅ F(A)."
+            },
+            {
+                nom: "Y3 — Naturalité",
+                enonce: "La bijection est naturelle en A et en F."
+            }
+        ],
+        conclusion: "Lemme de Yoneda : une transformation naturelle h_A → F est entièrement déterminée par l'image de id_A ∈ h_A(A), c'est-à-dire un élément de F(A). Un objet est déterminé (à isomorphisme unique près) par le foncteur qu'il représente : « connaître un objet, c'est connaître tous ses morphismes vers/depuis les autres objets ». Fondamental en géométrie algébrique (schémas comme foncteurs de points) et en théorie des topos."
+    },
     formulas: [
       {
         text: "1. Pour F:Cᵒᵖ→Ens et A∈C, Nat(Hom(−,A), F) ≅ F(A), bijection naturelle en A et F (version pour les foncteurs contravariants).",
@@ -3549,6 +4555,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:656": {
     title: "Yoneda : embedding",
     definition: "Le plongement de Yoneda est le foncteur pleinement fidèle associant à chaque objet d'une catégorie son foncteur représenté (les morphismes entrant depuis cet objet), permettant de plonger n'importe quelle catégorie dans une catégorie de foncteurs (préfaisceaux), où toutes les limites et colimites existent toujours.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une catégorie localement petite 𝒞 et le foncteur de Yoneda よ : 𝒞 → Fonct(𝒞^op, Ens), A ↦ h_A = Hom(−, A).",
+        axiomes: [
+            {
+                nom: "Y1 — Lemme de Yoneda",
+                enonce: "Nat(h_A, F) ≅ F(A) naturellement."
+            },
+            {
+                nom: "Y2 — Cas F = h_B",
+                enonce: "Nat(h_A, h_B) ≅ h_B(A) = Hom(A, B)."
+            },
+            {
+                nom: "Y3 — Fidélité et plénitude",
+                enonce: "よ_{A,B} : Hom(A, B) → Nat(h_A, h_B) est une bijection (Y2)."
+            }
+        ],
+        conclusion: "L'application よ est pleinement fidèle (plongement de Yoneda) : elle réalise 𝒞 comme une sous-catégorie pleine des préfaisceaux sur 𝒞 (foncteurs contravariants 𝒞 → Ens), qui est complète et cocomplète. Deux objets ayant les mêmes morphismes entrants (ou sortants) sont canoniquement isomorphes. Elle formalise l'idée qu'un objet mathématique est déterminé par ses relations aux autres objets de la catégorie."
+    },
     formulas: [
       {
         text: "1. よ:C → Fonct(Cᵒᵖ,Ens), A ↦ Hom_C(−,A), foncteur pleinement fidèle (conséquence du lemme de Yoneda).",
@@ -3613,6 +4637,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:657": {
     title: "Catégories enrichies",
     definition: "Une catégorie enrichie généralise la notion usuelle de catégorie en remplaçant les ensembles de morphismes par des objets d'une catégorie monoïdale fixée (au lieu de simples ensembles), permettant de capturer une structure supplémentaire sur les morphismes eux-mêmes (topologie, structure linéaire).",
+    definition_axiomatique: {
+        cadre: "On travaille avec une catégorie monoïdale (𝒱, ⊗, I) (par exemple Ab, Vect_K, Top) ; une 𝒱-catégorie enrichie 𝒞 a des Hom(A, B) qui sont des objets de 𝒱.",
+        axiomes: [
+            {
+                nom: "H1 — Objets Hom",
+                enonce: "Hom(A, B) ∈ 𝒱 (et non un simple ensemble)."
+            },
+            {
+                nom: "C1 — Composition",
+                enonce: "Un morphisme Hom(B, C) ⊗ Hom(A, B) → Hom(A, C) dans 𝒱, associatif."
+            },
+            {
+                nom: "I1 — Identité",
+                enonce: "Un morphisme I → Hom(A, A) dans 𝒱, unité pour la composition."
+            }
+        ],
+        conclusion: "Exemples : les catégories Ab-enrichies sont les catégories préadditives (Hom(A, B) est un groupe abélien) ; les Vect_K-catégories (Hom(A, B) est un K-espace vectoriel) ; les catégories Top-enrichies (espaces de morphismes topologisés, utiles en théorie de l'homotopie) ; les 2-catégories sont Cat-enrichies. L'enrichissement précise la structure supplémentaire portée par les ensembles de morphismes."
+    },
     formulas: [
       {
         text: "1. Une catégorie enrichie sur (V,⊗,I) associe à chaque paire (A,B) un objet Hom(A,B)∈V (et non un ensemble), avec une composition Hom(B,C)⊗Hom(A,B)→Hom(A,C) dans V.",
@@ -3677,6 +4719,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:658": {
     title: "Catégories supérieures (∞-catégories)",
     definition: "Les catégories supérieures (∞-catégories) généralisent les catégories ordinaires en autorisant non seulement des morphismes entre objets, mais des morphismes entre morphismes, et ainsi de suite à tous les niveaux, avec une notion de composition définie seulement à homotopie près, cadre développé pour formaliser rigoureusement la topologie algébrique moderne.",
+    definition_axiomatique: {
+        cadre: "Une ∞-catégorie (au sens quasi-catégorie de Joyal-Lurie) est un ensemble simplicial X vérifiant une condition de remplissage des cornes internes.",
+        axiomes: [
+            {
+                nom: "H1 — Ensemble simplicial",
+                enonce: "X est un foncteur contravariant de la catégorie des simplexes Δ vers Ens (des n-simplexes Xₙ pour tout n)."
+            },
+            {
+                nom: "H2 — Cornes internes",
+                enonce: "Toute application Λⁿ_i → X (0 < i < n, corne interne) se prolonge en Δⁿ → X."
+            },
+            {
+                nom: "H3 — Unicité à homotopie près",
+                enonce: "Le remplissage n'est pas requis unique (contrairement au nerf d'une catégorie ordinaire, où il l'est)."
+            }
+        ],
+        conclusion: "Une ∞-catégorie généralise une catégorie ordinaire en gardant trace des homotopies entre morphismes (2-morphismes entre morphismes, 3-morphismes entre 2-morphismes, etc.) : les compositions ne sont associatives qu'à homotopie cohérente près. Une catégorie ordinaire est une ∞-catégorie particulière (nerf, remplissage unique). Utilisées en topologie algébrique (espaces comme ∞-groupoïdes) et en géométrie algébrique dérivée (Lurie)."
+    },
     formulas: [
       {
         text: "1. Une ∞-catégorie possède des k-morphismes pour tout k≥0 (0-morphismes = objets, 1-morphismes = morphismes usuels, 2-morphismes entre morphismes, etc.).",
@@ -3741,6 +4801,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:659": {
     title: "Catégories de topos",
     definition: "Un topos de Grothendieck est une catégorie de faisceaux sur un site (généralisation d'un espace topologique munie d'une notion abstraite de recouvrement), fournissant un cadre extraordinairement riche unifiant géométrie, logique et théorie des ensembles sous un même formalisme catégorique.",
+    definition_axiomatique: {
+        cadre: "Un topos de Grothendieck est une catégorie équivalente à la catégorie des faisceaux d'ensembles sur un site (catégorie munie d'une topologie de Grothendieck).",
+        axiomes: [
+            {
+                nom: "T1 — Complétude",
+                enonce: "𝒞 possède toutes les petites limites et colimites."
+            },
+            {
+                nom: "T2 — Sous-objets classifiant",
+                enonce: "Il existe un objet Ω et un morphisme vrai : 1 → Ω classifiant les sous-objets (Hom(A, Ω) ≅ {sous-objets de A})."
+            },
+            {
+                nom: "T3 — Exponentielles",
+                enonce: "Pour tous A, B, il existe un objet B^A représentant Hom(− × A, B) (cartésien fermé)."
+            }
+        ],
+        conclusion: "Ens est le topos élémentaire de base (Ω = {vrai, faux}) ; les faisceaux sur un espace topologique forment un topos où Ω est plus riche (logique intuitionniste, non classique : le tiers exclu peut échouer). La théorie des topos unifie géométrie (faisceaux) et logique (chaque topos porte une logique interne). Les schémas et champs algébriques se comprennent via des topos étales."
+    },
     formulas: [
       {
         text: "1. Un site (C,J) consiste en une catégorie C munie d'une topologie de Grothendieck J spécifiant, pour chaque objet, des familles de recouvrement.",
@@ -3805,6 +4883,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:660": {
     title: "Catégories de Grothendieck",
     definition: "Une catégorie de Grothendieck est une catégorie abélienne vérifiant des axiomes supplémentaires (existence de colimites filtrantes exactes, générateur) garantissant qu'elle se comporte suffisamment bien pour développer une théorie complète des foncteurs dérivés et de la cohomologie des faisceaux.",
+    definition_axiomatique: {
+        cadre: "Un site de Grothendieck est une catégorie 𝒞 munie d'une topologie de Grothendieck τ : pour chaque objet U, une famille de « recouvrements » (Uᵢ → U).",
+        axiomes: [
+            {
+                nom: "T1 — Isomorphismes",
+                enonce: "Un isomorphisme seul est un recouvrement."
+            },
+            {
+                nom: "T2 — Stabilité par changement de base",
+                enonce: "Un recouvrement de U reste un recouvrement après tout tiré-en-arrière V → U."
+            },
+            {
+                nom: "T3 — Transitivité (localité)",
+                enonce: "Un recouvrement d'un recouvrement est un recouvrement."
+            }
+        ],
+        conclusion: "Un faisceau sur un site est un préfaisceau F : 𝒞^op → Ens vérifiant la condition de recollement pour tout recouvrement (F(U) ≅ égalisateur des F(Uᵢ) sur les intersections). La catégorie des faisceaux sur un site forme un topos de Grothendieck. Exemples : la topologie de Zariski, étale, fppf sur les schémas ; elles remplacent la notion d'ouvert usuel et sont à la base de la cohomologie étale (Grothendieck, conjectures de Weil)."
+    },
     formulas: [
       {
         text: "1. Une catégorie de Grothendieck est une catégorie abélienne cocomplète vérifiant l'axiome AB5 (les colimites filtrantes sont exactes) et possédant un générateur.",
@@ -3869,6 +4965,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:661": {
     title: "Automates finis",
     definition: "Un automate fini est un modèle abstrait de calcul composé d'un nombre fini d'états, d'un alphabet d'entrée, d'une fonction de transition entre états selon les symboles lus, d'un état initial et d'états acceptants ; il reconnaît exactement la classe des langages réguliers.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un alphabet fini Σ ; Σ* est l'ensemble des mots finis sur Σ (monoïde libre, concaténation, mot vide ε) ; un langage est une partie de Σ*.",
+        axiomes: [
+            {
+                nom: "A1 — États",
+                enonce: "Un automate fini est (Q, Σ, δ, q₀, F) : Q ensemble fini d'états, δ : Q × Σ → Q fonction de transition, q₀ ∈ Q état initial, F ⊂ Q états acceptants."
+            },
+            {
+                nom: "A2 — Extension aux mots",
+                enonce: "δ̂ : Q × Σ* → Q est définie par δ̂(q, ε) = q, δ̂(q, wa) = δ(δ̂(q, w), a)."
+            },
+            {
+                nom: "A3 — Langage reconnu",
+                enonce: "L(A) = {w ∈ Σ* : δ̂(q₀, w) ∈ F}."
+            }
+        ],
+        conclusion: "Un automate fini déterministe (AFD) lit un mot lettre à lettre et l'accepte ou le rejette selon l'état final atteint. Exemple : reconnaître les mots de {0,1}* de nombre pair de 1 (deux états, transition qui bascule sur 1). Les langages reconnus par un AFD sont exactement les langages réguliers (théorème de Kleene)."
+    },
     formulas: [
       {
         text: "1. A=(Q,Σ,δ,q₀,F) : Q ensemble fini d'états, Σ alphabet, δ:Q×Σ→Q fonction de transition, q₀ état initial, F⊂Q états acceptants.",
@@ -3933,6 +5047,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:662": {
     title: "Automates déterministes et non déterministes",
     definition: "Un automate est déterministe si, pour chaque état et chaque lettre, il existe une unique transition possible, contrairement à un automate non déterministe qui autorise plusieurs transitions simultanées (ou aucune) ; malgré cette différence de flexibilité, les deux modèles reconnaissent exactement la même classe de langages.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un alphabet fini Σ ; Σ* est l'ensemble des mots finis sur Σ (monoïde libre, concaténation, mot vide ε) ; un langage est une partie de Σ*.",
+        axiomes: [
+            {
+                nom: "D1 — Déterministe",
+                enonce: "δ : Q × Σ → Q est une fonction (un unique successeur)."
+            },
+            {
+                nom: "N1 — Non déterministe",
+                enonce: "δ : Q × Σ → 𝒫(Q) est une relation (plusieurs successeurs possibles, ou aucun) ; L(A) = {w : un chemin d'exécution mène à un état acceptant}."
+            },
+            {
+                nom: "E1 — Équivalence (Rabin-Scott)",
+                enonce: "Construction des sous-ensembles : l'automate déterministe des parties simule tous les chemins non déterministes simultanément."
+            }
+        ],
+        conclusion: "Tout AFN a un AFD équivalent (même langage), obtenu par la construction des parties, au prix d'un nombre d'états jusqu'à 2^{|Q|} (optimal dans le pire cas). AFD et AFN reconnaissent donc exactement les mêmes langages (les langages réguliers), mais un AFN peut être exponentiellement plus compact. Les ε-transitions (AFN-ε) ne changent pas l'expressivité (élimination par clôture)."
+    },
     formulas: [
       {
         text: "1. Automate déterministe (DFA) : δ:Q×Σ→Q, fonction totale (une transition unique par état et lettre).",
@@ -3997,6 +5129,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:663": {
     title: "Expressions régulières",
     definition: "Une expression régulière est une formule symbolique construite à partir de lettres d'un alphabet, combinées par concaténation, union et étoile de Kleene (répétition), décrivant de façon compacte et déclarative un ensemble de mots ; elle constitue une notation alternative, équivalente en pouvoir d'expression, aux automates finis.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un alphabet fini Σ ; Σ* est l'ensemble des mots finis sur Σ (monoïde libre, concaténation, mot vide ε) ; un langage est une partie de Σ*.",
+        axiomes: [
+            {
+                nom: "B1 — Expressions de base",
+                enonce: "∅, ε et a (pour a ∈ Σ) sont des expressions régulières."
+            },
+            {
+                nom: "B2 — Union et concaténation",
+                enonce: "Si e, f sont des expressions régulières, e + f et e·f le sont."
+            },
+            {
+                nom: "B3 — Étoile de Kleene",
+                enonce: "Si e est une expression régulière, e* l'est (répétition 0 fois ou plus)."
+            }
+        ],
+        conclusion: "Chaque expression régulière dénote un langage L(e) ⊂ Σ*. Théorème de Kleene : les langages dénotés par les expressions régulières sont exactement les langages reconnus par les automates finis (constructions explicites dans les deux sens : Thompson, McNaughton-Yamada). Exemple : (0 + 1)*1 dénote les mots binaires finissant par 1."
+    },
     formulas: [
       {
         text: "1. Grammaire des expressions régulières : ∅, ε, a (pour a∈Σ) sont des expressions de base ; si e₁,e₂ sont des expressions, alors e₁+e₂ (union), e₁·e₂ (concaténation), e₁* (étoile de Kleene) le sont aussi.",
@@ -4061,6 +5211,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:664": {
     title: "Langages réguliers",
     definition: "Un langage régulier est un ensemble de mots sur un alphabet donné, reconnaissable par un automate fini (ou de façon équivalente, décrit par une expression régulière) ; cette classe, la plus simple de la hiérarchie de Chomsky, est fermée par de nombreuses opérations (union, intersection, complémentaire, concaténation, étoile).",
+    definition_axiomatique: {
+        cadre: "On travaille sur un alphabet fini Σ ; Σ* est l'ensemble des mots finis sur Σ (monoïde libre, concaténation, mot vide ε) ; un langage est une partie de Σ*.",
+        axiomes: [
+            {
+                nom: "R1 — Clôture de Kleene",
+                enonce: "Les langages réguliers sont la plus petite classe contenant ∅, {ε}, {a} (a ∈ Σ) et stable par union, concaténation, étoile."
+            },
+            {
+                nom: "R2 — Myhill-Nerode",
+                enonce: "L est régulier si et seulement si la relation ~_L (x ~_L y ⟺ ∀z, xz ∈ L ⟺ yz ∈ L) a un nombre fini de classes."
+            },
+            {
+                nom: "R3 — Lemme de l'étoile (pompage)",
+                enonce: "Si L est régulier, il existe n tel que tout mot w ∈ L de longueur ≥ n se décompose w = xyz avec |xy| ≤ n, |y| ≥ 1, xyⁱz ∈ L pour tout i."
+            }
+        ],
+        conclusion: "Le lemme de pompage (R3) sert à prouver qu'un langage n'est pas régulier (par exemple {aⁿbⁿ : n ≥ 0}). Myhill-Nerode donne le nombre minimal d'états d'un AFD reconnaissant L (nombre de classes de ~_L) : base de la minimisation d'automates. Les langages réguliers sont clos par union, intersection, complémentaire, concaténation, étoile, miroir, morphisme et morphisme inverse."
+    },
     formulas: [
       {
         text: "1. Un langage L⊂Σ* est régulier ⟺ il existe un automate fini reconnaissant L ⟺ il existe une expression régulière décrivant L.",
@@ -4125,6 +5293,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:665": {
     title: "Automates à pile",
     definition: "Un automate à pile est un automate fini enrichi d'une mémoire auxiliaire structurée en pile (accès LIFO, dernier entré premier sorti), lui conférant un pouvoir de calcul strictement supérieur aux automates finis, suffisant pour reconnaître exactement la classe des langages algébriques (hors-contexte).",
+    definition_axiomatique: {
+        cadre: "On travaille sur un alphabet fini Σ ; Σ* est l'ensemble des mots finis sur Σ (monoïde libre, concaténation, mot vide ε) ; un langage est une partie de Σ*.",
+        axiomes: [
+            {
+                nom: "P1 — Pile",
+                enonce: "Un automate à pile est (Q, Σ, Γ, δ, q₀, Z₀, F) : Γ alphabet de pile, δ : Q × (Σ ∪ {ε}) × Γ → 𝒫(Q × Γ*)."
+            },
+            {
+                nom: "P2 — Configuration",
+                enonce: "Un triplet (état, mot restant, contenu de la pile)."
+            },
+            {
+                nom: "P3 — Acceptation",
+                enonce: "Par état final, ou par pile vide (équivalents à un renommage près)."
+            }
+        ],
+        conclusion: "L'automate à pile ajoute une mémoire non bornée en pile (LIFO) à l'automate fini : à chaque transition, il peut empiler ou dépiler un symbole. Exemple : reconnaître {aⁿbⁿ : n ≥ 0} en empilant les a et en dépilant sur les b. Les automates à pile (non déterministes) reconnaissent exactement les langages algébriques (hors-contexte) ; les déterministes reconnaissent une sous-classe stricte (langages algébriques déterministes, utilisés pour l'analyse syntaxique LR)."
+    },
     formulas: [
       {
         text: "1. A=(Q,Σ,Γ,δ,q₀,Z₀,F) : Γ alphabet de pile, δ:Q×(Σ∪{ε})×Γ→P(Q×Γ*) fonction de transition dépendant aussi du sommet de pile, Z₀ symbole initial de pile.",
@@ -4189,6 +5375,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:666": {
     title: "Langages algébriques",
     definition: "Un langage algébrique (ou hors-contexte) est un langage engendré par une grammaire algébrique, ou de façon équivalente reconnu par un automate à pile ; cette classe, strictement plus riche que les langages réguliers, capture des structures récursives et imbriquées comme le bon parenthésage, essentielles en syntaxe des langages de programmation.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un alphabet fini Σ ; Σ* est l'ensemble des mots finis sur Σ (monoïde libre, concaténation, mot vide ε) ; un langage est une partie de Σ*.",
+        axiomes: [
+            {
+                nom: "C1 — Grammaire hors-contexte",
+                enonce: "G = (V, Σ, R, S) avec des règles A → α, A ∈ V (non-terminal), α ∈ (V ∪ Σ)*."
+            },
+            {
+                nom: "C2 — Dérivation",
+                enonce: "u ⟹ v si u = xAy, v = xαy et A → α ∈ R ; ⟹* est la clôture réflexive transitive."
+            },
+            {
+                nom: "C3 — Langage engendré",
+                enonce: "L(G) = {w ∈ Σ* : S ⟹* w}."
+            }
+        ],
+        conclusion: "Les langages engendrés par une grammaire hors-contexte sont exactement les langages reconnus par un automate à pile (non déterministe). Forme normale de Chomsky : toute grammaire hors-contexte (sans ε sauf pour le mot vide) est équivalente à une grammaire où les règles sont A → BC ou A → a. Exemple : les expressions arithmétiques bien parenthésées, les palindromes ; {aⁿbⁿcⁿ} n'est PAS algébrique (lemme d'Ogden)."
+    },
     formulas: [
       {
         text: "1. L est algébrique ⟺ il existe une grammaire algébrique (règles A→α, A non-terminal, α suite de terminaux/non-terminaux) engendrant L ⟺ un automate à pile reconnaît L.",
@@ -4253,6 +5457,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:667": {
     title: "Grammaires formelles",
     definition: "Une grammaire formelle est un système de règles de réécriture permettant de générer, à partir d'un symbole de départ, l'ensemble des mots d'un langage, en remplaçant itérativement des symboles non-terminaux par des suites de symboles selon les règles autorisées ; la hiérarchie de Chomsky classe ces grammaires selon la forme de leurs règles.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un alphabet fini Σ ; Σ* est l'ensemble des mots finis sur Σ (monoïde libre, concaténation, mot vide ε) ; un langage est une partie de Σ*.",
+        axiomes: [
+            {
+                nom: "G1 — Alphabets",
+                enonce: "Un alphabet de terminaux Σ et de non-terminaux V, disjoints, avec un axiome S ∈ V."
+            },
+            {
+                nom: "G2 — Règles de production",
+                enonce: "Un ensemble fini R de règles α → β, α, β ∈ (V ∪ Σ)*, α contenant au moins un non-terminal."
+            },
+            {
+                nom: "G3 — Hiérarchie de Chomsky",
+                enonce: "Type 3 (régulières, règles A → aB ou A → a) ⊂ Type 2 (hors-contexte, A → α) ⊂ Type 1 (contextuelles, |α| ≤ |β|) ⊂ Type 0 (générales, aucune restriction)."
+            }
+        ],
+        conclusion: "Une grammaire formelle engendre un langage par dérivation à partir de l'axiome. La hiérarchie de Chomsky relie l'expressivité de la grammaire à la puissance de la machine qui la reconnaît : type 3 ↔ automates finis, type 2 ↔ automates à pile, type 1 ↔ automates linéairement bornés, type 0 ↔ machines de Turing. Chaque niveau est une inclusion stricte."
+    },
     formulas: [
       {
         text: "1. G=(N,Σ,P,S) : N non-terminaux, Σ terminaux, P règles de production (α→β), S symbole de départ.",
@@ -4317,6 +5539,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:668": {
     title: "Machines de Turing",
     definition: "Une machine de Turing est un modèle abstrait de calcul composé d'un ruban infini divisé en cases, d'une tête de lecture-écriture se déplaçant sur ce ruban, et d'un ensemble fini d'états contrôlant son comportement ; ce modèle, le plus général de tous, définit précisément ce qu'est un algorithme calculable (thèse de Church-Turing).",
+    definition_axiomatique: {
+        cadre: "On travaille sur un alphabet fini Σ ; Σ* est l'ensemble des mots finis sur Σ (monoïde libre, concaténation, mot vide ε) ; un langage est une partie de Σ*.",
+        axiomes: [
+            {
+                nom: "M1 — Composants",
+                enonce: "Une machine de Turing est (Q, Σ, Γ, δ, q₀, q_acc, q_rej) : Γ ⊃ Σ alphabet de ruban (avec symbole blanc), δ : Q × Γ → Q × Γ × {G, D}."
+            },
+            {
+                nom: "M2 — Configuration",
+                enonce: "Un triplet (état, contenu du ruban, position de la tête)."
+            },
+            {
+                nom: "M3 — Calcul",
+                enonce: "Une suite de configurations liées par δ ; le calcul s'arrête en q_acc ou q_rej (ou ne s'arrête jamais)."
+            }
+        ],
+        conclusion: "La machine de Turing formalise la notion intuitive d'algorithme (thèse de Church-Turing : toute fonction calculable par une procédure effective l'est par une machine de Turing). Elle est équivalente en puissance (mais pas en efficacité) à d'autres modèles : machines à plusieurs rubans, machines à accès aléatoire, λ-calcul, fonctions récursives, grammaires de type 0. C(M) note l'ensemble des mots pour lesquels M accepte."
+    },
     formulas: [
       {
         text: "1. M=(Q,Σ,Γ,δ,q₀,q_accept,q_reject) : Γ alphabet de ruban (incluant Σ et le symbole blanc), δ:Q×Γ→Q×Γ×{G,D} fonction de transition (lire, écrire, déplacer).",
@@ -4381,6 +5621,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:669": {
     title: "Décidabilité",
     definition: "Un problème (ou langage) est décidable s'il existe une machine de Turing qui s'arrête toujours et répond correctement (oui ou non) pour toute entrée, garantissant une réponse effective et certaine ; cette notion formalise précisément ce qu'est un problème algorithmiquement résoluble.",
+    definition_axiomatique: {
+        cadre: "On travaille avec l'ensemble des machines de Turing et les langages qu'elles définissent.",
+        axiomes: [
+            {
+                nom: "D1 — Décidable (récursif)",
+                enonce: "L est décidable s'il existe une MT M qui s'arrête sur toute entrée et accepte exactement L (accepte si w ∈ L, rejette sinon)."
+            },
+            {
+                nom: "D2 — Semi-décidable (récursivement énumérable)",
+                enonce: "L est semi-décidable s'il existe une MT M qui accepte exactement les w ∈ L (peut ne pas s'arrêter si w ∉ L)."
+            },
+            {
+                nom: "D3 — Clôture",
+                enonce: "Les décidables sont clos par complémentaire, union, intersection ; les semi-décidables sont clos par union, intersection, mais pas (en général) par complémentaire."
+            }
+        ],
+        conclusion: "L est décidable si et seulement si L et son complémentaire sont tous deux semi-décidables. Exemples décidables : langages réguliers, algébriques, l'appartenance A_DFA = {(M, w) : M accepte w} pour M automate fini. Exemples semi-décidables non décidables : le problème de l'arrêt, A_TM = {(M, w) : M accepte w} pour M machine de Turing."
+    },
     formulas: [
       {
         text: "1. L est décidable ⟺ il existe une machine de Turing M qui s'arrête sur toute entrée et telle que M accepte w ⟺ w∈L.",
@@ -4445,6 +5703,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:670": {
     title: "Indécidabilité",
     definition: "Un problème est indécidable s'il n'existe aucune machine de Turing capable de le résoudre en s'arrêtant systématiquement avec la bonne réponse pour toute entrée, établissant une limite absolue et fondamentale à ce que le calcul algorithmique peut accomplir, indépendamment de la puissance de calcul disponible.",
+    definition_axiomatique: {
+        cadre: "On travaille avec des langages définis par des machines de Turing ; l'indécidabilité se prouve par réduction ou diagonalisation.",
+        axiomes: [
+            {
+                nom: "R1 — Réduction",
+                enonce: "L₁ se réduit à L₂ (L₁ ≤_m L₂) s'il existe une fonction calculable f avec w ∈ L₁ ⟺ f(w) ∈ L₂."
+            },
+            {
+                nom: "R2 — Transfert d'indécidabilité",
+                enonce: "Si L₁ ≤_m L₂ et L₁ indécidable, alors L₂ est indécidable."
+            },
+            {
+                nom: "R3 — Diagonalisation",
+                enonce: "Construire un objet qui se distingue de chaque élément d'une énumération, par une propriété autoréférentielle."
+            }
+        ],
+        conclusion: "Le problème de l'arrêt HALT = {(M, w) : M s'arrête sur w} est indécidable (par diagonalisation, ou en réduisant A_TM à HALT). Théorème de Rice : toute propriété non triviale du langage reconnu par une machine de Turing (propriété sémantique) est indécidable. Exemples indécidables : L(M) = ∅ ?, L(M) est régulier ?, deux machines reconnaissent le même langage ?"
+    },
     formulas: [
       {
         text: "1. L est indécidable s'il n'existe aucune machine de Turing décidant L (s'arrêtant toujours avec la réponse correcte).",
@@ -4509,6 +5785,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:671": {
     title: "Problème de l’arrêt",
     definition: "Le problème de l'arrêt consiste à déterminer, à partir de la description d'un programme et d'une entrée, si ce programme termine son exécution ou non ; Turing a démontré en 1936, par un argument de diagonalisation, qu'aucun algorithme ne peut résoudre ce problème pour tous les cas possibles.",
+    definition_axiomatique: {
+        cadre: "On considère A_TM = {⟨M, w⟩ : M est une machine de Turing qui accepte w (ou s'arrête sur w)}.",
+        axiomes: [
+            {
+                nom: "D1 — Supposons décidable",
+                enonce: "Il existe une MT H qui décide A_TM : H(⟨M, w⟩) accepte si M accepte w, rejette sinon."
+            },
+            {
+                nom: "D2 — Construction diagonale",
+                enonce: "On construit D qui, sur entrée ⟨M⟩, simule H(⟨M, ⟨M⟩⟩) et fait le contraire (accepte si H rejette, boucle ou rejette si H accepte)."
+            },
+            {
+                nom: "D3 — Contradiction",
+                enonce: "D(⟨D⟩) accepte si et seulement si D(⟨D⟩) n'accepte pas."
+            }
+        ],
+        conclusion: "Le problème de l'arrêt est indécidable (Turing, 1936) : aucune machine ne peut décider en général si une autre machine (sur une entrée donnée) s'arrête. Il est semi-décidable (on simule et on accepte si ça s'arrête). Analogue au paradoxe du menteur et au théorème d'incomplétude de Gödel (autoréférence). Conséquence pratique : aucun vérificateur universel de programmes (terminaison) n'existe."
+    },
     formulas: [
       {
         text: "1. HALT = {(M,w), M machine de Turing s'arrêtant sur l'entrée w}.",
@@ -4573,6 +5867,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:672": {
     title: "Complexité algorithmique",
     definition: "La complexité algorithmique mesure la quantité de ressources (temps de calcul, espace mémoire) nécessaires à un algorithme pour résoudre un problème, généralement exprimée en fonction de la taille de l'entrée et étudiée dans le pire des cas, fondant une hiérarchie de difficulté computationnelle des problèmes.",
+    definition_axiomatique: {
+        cadre: "On mesure les ressources (temps, espace) utilisées par un algorithme en fonction de la taille n de l'entrée.",
+        axiomes: [
+            {
+                nom: "T1 — Modèle de calcul",
+                enonce: "Machine de Turing (ou équivalent polynomial : RAM)."
+            },
+            {
+                nom: "T2 — Fonction de complexité",
+                enonce: "f(n) = max sur les entrées de taille n du nombre d'étapes (ou de cases de ruban utilisées)."
+            },
+            {
+                nom: "T3 — Notation asymptotique",
+                enonce: "O, Ω, Θ décrivent le comportement de f(n) quand n → ∞, à des constantes multiplicatives près."
+            }
+        ],
+        conclusion: "Classes de temps : DTIME(f(n)) = langages décidables en O(f(n)) étapes par une MT déterministe ; classes d'espace similaires. Le théorème de la hiérarchie temporelle (espace) montre que plus de temps (espace) permet strictement plus de langages, sous des hypothèses de constructibilité. Une classe de complexité regroupe les problèmes de même « difficulté » de calcul."
+    },
     formulas: [
       {
         text: "1. Complexité temporelle T(n) : nombre d'étapes de calcul en fonction de la taille n de l'entrée (pire cas généralement).",
@@ -4637,6 +5949,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:673": {
     title: "Classes P, NP",
     definition: "Les classes P et NP formalisent respectivement les problèmes de décision solubles efficacement (en temps polynomial) et ceux dont une solution proposée peut être vérifiée efficacement, même si la trouver semble difficile ; la question de savoir si P=NP est l'un des plus grands problèmes ouverts des mathématiques et de l'informatique.",
+    definition_axiomatique: {
+        cadre: "On travaille avec des machines de Turing polynomiales (déterministes ou non déterministes).",
+        axiomes: [
+            {
+                nom: "P1 — Classe P",
+                enonce: "P = ⋃_{k}DTIME(nᵏ) : langages décidables en temps polynomial par une MT déterministe."
+            },
+            {
+                nom: "N1 — Classe NP",
+                enonce: "NP = ⋃_{k}NTIME(nᵏ) : langages décidables en temps polynomial par une MT non déterministe."
+            },
+            {
+                nom: "V1 — Caractérisation par certificat",
+                enonce: "L ∈ NP ⟺ il existe une relation R ∈ P et un polynôme p tels que w ∈ L ⟺ ∃y, |y| ≤ p(|w|), R(w, y) (un certificat vérifiable en temps polynomial)."
+            }
+        ],
+        conclusion: "P ⊂ NP (déterministe est un cas particulier de non déterministe). P = problèmes résolubles efficacement ; NP = problèmes dont une solution proposée se vérifie efficacement. Exemples de NP : SAT, coloration de graphe, voyageur de commerce (version décision), factorisation. P = NP ? est le problème ouvert central de l'informatique théorique (l'un des problèmes du prix du millénaire)."
+    },
     formulas: [
       {
         text: "1. P = classe des langages décidables par une machine de Turing déterministe en temps polynomial O(n^k).",
@@ -4701,6 +6031,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:674": {
     title: "NP-complétude",
     definition: "Un problème est NP-complet s'il appartient à NP et si tout autre problème de NP s'y réduit en temps polynomial, ce qui en fait, en un sens précis, l'un des problèmes « les plus difficiles » de la classe NP : résoudre efficacement un seul problème NP-complet résoudrait efficacement tous les problèmes de NP.",
+    definition_axiomatique: {
+        cadre: "On travaille avec la classe NP et les réductions polynomiales.",
+        axiomes: [
+            {
+                nom: "H1 — NP-difficile",
+                enonce: "L est NP-difficile si tout L' ∈ NP se réduit polynomialement à L (L' ≤_p L)."
+            },
+            {
+                nom: "C1 — NP-complet",
+                enonce: "L est NP-complet s'il est NP-difficile et L ∈ NP."
+            },
+            {
+                nom: "R1 — Cook-Levin",
+                enonce: "SAT (satisfiabilité booléenne) est NP-complet."
+            }
+        ],
+        conclusion: "Théorème de Cook-Levin (1971) : SAT est NP-complet (toute machine de Turing non déterministe polynomiale se simule par une formule booléenne codant les configurations). Conséquence : si un problème NP-complet est dans P, alors P = NP. Des milliers de problèmes ont été montrés NP-complets par réduction depuis SAT (Karp, 1972) : 3-SAT, clique, coloration, voyageur de commerce, sac à dos, partition."
+    },
     formulas: [
       {
         text: "1. L est NP-complet ⟺ L∈NP ET pour tout L'∈NP, L' se réduit à L en temps polynomial (L' ≤_p L).",
@@ -4765,6 +6113,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:675": {
     title: "Réductions polynomiales",
     definition: "Une réduction polynomiale transforme, en temps polynomial, les instances d'un problème en instances d'un autre problème de sorte que la réponse (oui/non) soit préservée, outil technique central pour comparer la difficulté relative des problèmes et démontrer la NP-complétude par transitivité.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux langages L₁, L₂.",
+        axiomes: [
+            {
+                nom: "R1 — Réduction polynomiale",
+                enonce: "L₁ ≤_p L₂ s'il existe une fonction f calculable en temps polynomial avec w ∈ L₁ ⟺ f(w) ∈ L₂."
+            },
+            {
+                nom: "R2 — Transitivité",
+                enonce: "≤_p est transitive : L₁ ≤_p L₂ ≤_p L₃ ⟹ L₁ ≤_p L₃."
+            },
+            {
+                nom: "R3 — Transfert",
+                enonce: "Si L₁ ≤_p L₂ et L₂ ∈ P, alors L₁ ∈ P."
+            }
+        ],
+        conclusion: "La réduction polynomiale ordonne les problèmes par difficulté relative « à un algorithme polynomial près » ; elle sert à établir la NP-complétude par chaînage (à partir de SAT). Exemple : 3-SAT ≤_p CLIQUE ≤_p VERTEX-COVER ; SUBSET-SUM ≤_p PARTITION. Une réduction ne prouve rien sur la difficulté absolue, seulement relative : elle transfère la dureté (si L₂ facile, L₁ facile) et la NP-difficulté (si L₁ NP-difficile, L₂ aussi)."
+    },
     formulas: [
       {
         text: "1. L₁ ≤_p L₂ (L₁ se réduit polynomialement à L₂) s'il existe une fonction f calculable en temps polynomial telle que w∈L₁ ⟺ f(w)∈L₂.",
@@ -4829,6 +6195,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:676": {
     title: "Problèmes NP-difficiles",
     definition: "Un problème est NP-difficile si tout problème de NP s'y réduit en temps polynomial, sans exiger que le problème lui-même appartienne à NP (contrairement à la NP-complétude) ; cette classe plus large inclut typiquement les versions optimisation de problèmes de décision NP-complets, ainsi que des problèmes encore plus difficiles.",
+    definition_axiomatique: {
+        cadre: "On travaille avec des problèmes de décision ou d'optimisation dont la difficulté dépasse (a priori) P.",
+        axiomes: [
+            {
+                nom: "H1 — NP-difficile",
+                enonce: "Tout problème de NP s'y réduit polynomialement (pas nécessairement dans NP lui-même)."
+            },
+            {
+                nom: "O1 — Version optimisation",
+                enonce: "Un problème d'optimisation (par ex. trouver le plus petit vertex-cover) est NP-difficile si sa version décision l'est."
+            },
+            {
+                nom: "A1 — Approximation",
+                enonce: "On cherche des algorithmes polynomiaux garantissant une solution à un facteur constant (ou polylogarithmique) de l'optimum."
+            }
+        ],
+        conclusion: "Exemples : TSP (voyageur de commerce, version optimisation), problème du sac à dos, ensemble indépendant maximum, coloration minimale — tous NP-difficiles. Sous P ≠ NP, aucun algorithme polynomial exact n'existe (sauf cas particuliers structurés, comme TSP euclidien approximable à 3/2, ou graphes bipartis pour la coloration). Les heuristiques (recuit simulé, algorithmes génétiques) et la programmation dynamique traitent les instances pratiques."
+    },
     formulas: [
       {
         text: "1. L est NP-difficile ⟺ pour tout L'∈NP, L' ≤_p L (mais L n'appartient pas nécessairement lui-même à NP).",
@@ -4893,6 +6277,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:677": {
     title: "Théorie des graphes : bases",
     definition: "La théorie des graphes étudie les structures composées de sommets reliés par des arêtes, modélisant des relations binaires entre objets ; ce cadre mathématique extrêmement général trouve des applications dans quasiment tous les domaines impliquant des réseaux, des connexions ou des relations structurées.",
+    definition_axiomatique: {
+        cadre: "Un graphe fini non orienté est un couple G = (V, E) où V est un ensemble fini de sommets et E un ensemble de parties à deux éléments de V (arêtes).",
+        axiomes: [
+            {
+                nom: "G1 — Graphe simple",
+                enonce: "E ⊂ {{u, v} : u ≠ v ∈ V} (pas de boucles ni d'arêtes multiples)."
+            },
+            {
+                nom: "G2 — Degré",
+                enonce: "d(v) = nombre d'arêtes contenant v."
+            },
+            {
+                nom: "G3 — Chemin et connexité",
+                enonce: "Un chemin est une suite de sommets consécutivement adjacents ; G est connexe si deux sommets sont reliés par un chemin."
+            }
+        ],
+        conclusion: "Lemme des poignées de mains : Σ_{v∈V}d(v) = 2|E|, donc le nombre de sommets de degré impair est pair. Un graphe à n sommets a au plus n(n − 1)/2 arêtes (graphe complet Kₙ). Représentations : matrice d'adjacence, listes d'adjacence. Cycle, chaîne, arbre, sous-graphe, isomorphisme, complémentaire, graphe biparti (2-coloriable)."
+    },
     formulas: [
       {
         text: "1. Un graphe G=(V,E) est constitué d'un ensemble de sommets V et d'un ensemble d'arêtes E⊂V×V (ou de paires non ordonnées pour un graphe non orienté).",
@@ -4957,6 +6359,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:678": {
     title: "Graphes orientés et non orientés",
     definition: "Un graphe orienté associe à chaque arête un sens de parcours défini (représentée par une paire ordonnée de sommets), contrairement à un graphe non orienté où les arêtes sont symétriques ; cette distinction est essentielle pour modéliser des relations asymétriques comme les liens hypertexte ou les dépendances de tâches.",
+    definition_axiomatique: {
+        cadre: "Un graphe orienté (digraphe) est G = (V, A) avec A ⊂ V × V (arcs, couples ordonnés) ; un graphe non orienté a des arêtes non ordonnées {u, v}.",
+        axiomes: [
+            {
+                nom: "O1 — Arc",
+                enonce: "Un arc (u, v) va de u vers v (asymétrique)."
+            },
+            {
+                nom: "D1 — Degré entrant/sortant",
+                enonce: "d⁺(v) = nombre d'arcs sortant de v, d⁻(v) = nombre d'arcs entrant."
+            },
+            {
+                nom: "F1 — Fortement connexe",
+                enonce: "G est fortement connexe si pour tous u, v il existe un chemin orienté de u vers v et de v vers u."
+            }
+        ],
+        conclusion: "Σd⁺(v) = Σd⁻(v) = |A|. Les composantes fortement connexes forment une partition ; le graphe des composantes (contracté) est un graphe orienté sans cycle (DAG). Tout graphe non orienté peut être vu comme un digraphe symétrique (chaque arête ↔ deux arcs). Les DAG admettent un tri topologique (ordre linéaire compatible avec les arcs) si et seulement s'ils sont sans circuit."
+    },
     formulas: [
       {
         text: "1. Graphe orienté : arêtes = paires ordonnées (u,v)∈V×V, représentant une flèche de u vers v.",
@@ -5021,6 +6441,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:679": {
     title: "Graphes pondérés",
     definition: "Un graphe pondéré associe à chaque arête une valeur numérique (le poids), représentant typiquement un coût, une distance, une capacité ou un temps, enrichissant la structure combinatoire pure du graphe d'une information quantitative essentielle pour de nombreux problèmes d'optimisation (plus court chemin, flot maximal).",
+    definition_axiomatique: {
+        cadre: "Un graphe pondéré est G = (V, E, w) avec w : E → ℝ (ou ℝ₊) une fonction de poids sur les arêtes (ou arcs).",
+        axiomes: [
+            {
+                nom: "W1 — Poids d'un chemin",
+                enonce: "Le poids d'un chemin est la somme des poids de ses arêtes."
+            },
+            {
+                nom: "W2 — Distance",
+                enonce: "d(u, v) = poids minimal d'un chemin de u à v (+∞ si aucun)."
+            },
+            {
+                nom: "W3 — Absence de cycle négatif",
+                enonce: "Un cycle de poids négatif rend la distance non définie (−∞)."
+            }
+        ],
+        conclusion: "Les graphes pondérés modélisent des réseaux avec coûts (distance, temps, capacité). Le plus court chemin dépend fortement du signe des poids : Dijkstra requiert des poids positifs, Bellman-Ford tolère des poids négatifs sans cycle négatif, Floyd-Warshall calcule toutes les distances par paires. Un arbre couvrant de poids minimum (Kruskal, Prim) minimise la somme des poids reliant tous les sommets."
+    },
     formulas: [
       {
         text: "1. Graphe pondéré : G=(V,E,w), où w:E→ℝ associe un poids à chaque arête.",
@@ -5085,6 +6523,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:680": {
     title: "Chemins, cycles, arbres",
     definition: "Un chemin dans un graphe est une séquence de sommets reliés par des arêtes successives, un cycle est un chemin fermé (revenant à son point de départ) sans répétition de sommets intermédiaires, et un arbre est un graphe connexe sans cycle ; ces trois notions fondamentales structurent l'essentiel de l'algorithmique des graphes.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un graphe G = (V, E) ; un chemin est une suite de sommets consécutivement adjacents, sans répétition (v₀, …, v_k).",
+        axiomes: [
+            {
+                nom: "C1 — Chemin",
+                enonce: "v₀, …, v_k avec {v_i, v_{i+1}} ∈ E, sommets distincts."
+            },
+            {
+                nom: "Cy1 — Cycle",
+                enonce: "Un chemin fermé (v₀ = v_k, k ≥ 3) sans autre répétition."
+            },
+            {
+                nom: "A1 — Arbre",
+                enonce: "Un graphe connexe sans cycle (n − 1 arêtes pour n sommets)."
+            }
+        ],
+        conclusion: "Un graphe sans cycle est une forêt (union d'arbres). Une forêt à n sommets et c composantes a n − c arêtes. Longueur d'un plus court chemin = distance de graphe (au sens combinatoire) ; le diamètre est le max des distances ; le graphe des distances munit V d'une structure métrique. Les cycles hamiltoniens et eulériens (cf. théorèmes d'Euler et conditions de Dirac/Ore) sont des cas particuliers de chemins/cycles avec contraintes de visite."
+    },
     formulas: [
       {
         text: "1. Un chemin de longueur k est une suite v₀,v₁,...,vₖ avec (vᵢ,vᵢ₊₁)∈E pour tout i.",
@@ -5149,6 +6605,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:681": {
     title: "Algorithme de Dijkstra",
     definition: "L'algorithme de Dijkstra calcule efficacement le plus court chemin entre un sommet source et tous les autres sommets d'un graphe pondéré à poids positifs, en construisant progressivement, sommet par sommet, un arbre des plus courts chemins via une stratégie gloutonne optimale.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un graphe pondéré G = (V, E, w), w ≥ 0, avec une source s ; d[v] est une estimation de la distance de s à v (initialisée à +∞ sauf d[s] = 0).",
+        axiomes: [
+            {
+                nom: "D1 — Relaxation",
+                enonce: "Pour une arête (u, v), si d[u] + w(u, v) < d[v], on met à jour d[v] ← d[u] + w(u, v)."
+            },
+            {
+                nom: "D2 — Ensemble traité",
+                enonce: "S est l'ensemble des sommets dont la distance finale est déjà déterminée."
+            },
+            {
+                nom: "D3 — Choix glouton",
+                enonce: "À chaque étape, on ajoute à S le sommet hors S de d minimal (poids positifs garantissent qu'aucune future relaxation ne l'améliorera)."
+            }
+        ],
+        conclusion: "L'algorithme de Dijkstra calcule les plus courts chemins depuis s vers tous les sommets, en O((|V| + |E|)log|V|) avec un tas binaire. Correction : par récurrence, le sommet ajouté à S a sa distance finale correcte (poids positifs essentiels ; un poids négatif casse l'algorithme, exemple à trois sommets). Base des protocoles de routage (OSPF) et de nombreux algorithmes de graphes pondérés."
+    },
     formulas: [
       {
         text: "1. Complexité : O((|V|+|E|)log|V|) avec une file de priorité (tas binaire), ou O(|V|²) avec une implémentation naïve.",
@@ -5213,6 +6687,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:682": {
     title: "Algorithme de Bellman-Ford",
     definition: "L'algorithme de Bellman-Ford calcule le plus court chemin depuis un sommet source vers tous les autres, en tolérant des poids d'arêtes négatifs (contrairement à Dijkstra), au prix d'une complexité plus élevée, et permet en outre de détecter la présence de cycles de poids négatif dans le graphe.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un graphe orienté pondéré G = (V, E, w) (poids éventuellement négatifs, sans cycle négatif accessible), avec une source s.",
+        axiomes: [
+            {
+                nom: "R1 — Relaxation itérée",
+                enonce: "d[v] ← min(d[v], d[u] + w(u, v)) pour chaque arête (u, v), répété |V| − 1 fois sur toutes les arêtes."
+            },
+            {
+                nom: "R2 — Convergence",
+                enonce: "Après k itérations, d[v] est correct pour tout plus court chemin d'au plus k arêtes."
+            },
+            {
+                nom: "R3 — Détection de cycle négatif",
+                enonce: "Une itération supplémentaire qui relaxe encore une arête signale un cycle de poids négatif accessible."
+            }
+        ],
+        conclusion: "Bellman-Ford calcule les plus courts chemins depuis s en O(|V||E|), tolère les poids négatifs (contrairement à Dijkstra) et détecte les cycles négatifs. Un plus court chemin simple a au plus |V| − 1 arêtes (sinon il contiendrait un cycle, nécessairement de poids ≥ 0 sinon le chemin ne serait pas le plus court, sauf cycle négatif). Base des protocoles de routage à vecteur de distance (RIP) et de l'arbitrage financier (détection de cycles négatifs = opportunités)."
+    },
     formulas: [
       {
         text: "1. Complexité : O(|V|·|E|), obtenue en relâchant (mettant à jour) toutes les arêtes |V|−1 fois successivement.",
@@ -5277,6 +6769,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:683": {
     title: "Algorithme de Floyd-Warshall",
     definition: "L'algorithme de Floyd-Warshall calcule simultanément les plus courts chemins entre TOUTES les paires de sommets d'un graphe pondéré (tolérant des poids négatifs, sans cycle négatif), via une approche de programmation dynamique élégante et remarquablement compacte.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un graphe orienté pondéré G = (V, E, w), poids éventuellement négatifs (sans cycle négatif) ; D_k[i][j] est la longueur du plus court chemin de i à j n'utilisant que les sommets intermédiaires {1, …, k}.",
+        axiomes: [
+            {
+                nom: "B1 — Cas de base",
+                enonce: "D_0[i][j] = w(i, j) si (i, j) ∈ E, 0 si i = j, +∞ sinon."
+            },
+            {
+                nom: "B2 — Récurrence",
+                enonce: "D_k[i][j] = min(D_{k-1}[i][j], D_{k-1}[i][k] + D_{k-1}[k][j])."
+            },
+            {
+                nom: "B3 — Programmation dynamique",
+                enonce: "On calcule D_n (n = |V|) en n itérations sur k."
+            }
+        ],
+        conclusion: "Floyd-Warshall calcule toutes les distances par paires en O(|V|³), simple à implémenter (trois boucles imbriquées) ; il détecte un cycle négatif si D_n[i][i] < 0 pour un i. Il donne aussi la fermeture transitive d'un graphe (en remplaçant min/+ par ou/et). Comparé à |V| exécutions de Bellman-Ford (O(|V|²|E|)), il est préférable pour les graphes denses."
+    },
     formulas: [
       {
         text: "1. Complexité : O(|V|³), indépendante du nombre d'arêtes, adaptée aux graphes denses.",
@@ -5341,6 +6851,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:684": {
     title: "Algorithmes de flux",
     definition: "Les algorithmes de flux résolvent le problème du flot maximal dans un réseau pondéré par des capacités, déterminant la quantité maximale de matière (données, biens, énergie) pouvant transiter simultanément d'une source à un puits, tout en respectant les contraintes de capacité de chaque arête.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un graphe orienté G = (V, E) avec une capacité c(u, v) ≥ 0 sur chaque arc, une source s et un puits t ; un flot f vérifie 0 ≤ f(u, v) ≤ c(u, v) et la conservation en tout sommet ≠ s, t.",
+        axiomes: [
+            {
+                nom: "F1 — Conservation",
+                enonce: "Pour v ≠ s, t, Σ_uf(u, v) = Σ_wf(v, w)."
+            },
+            {
+                nom: "F2 — Valeur du flot",
+                enonce: "|f| = Σ_vf(s, v) − Σ_vf(v, s)."
+            },
+            {
+                nom: "F3 — Coupe",
+                enonce: "Une coupe (S, T) (s ∈ S, t ∈ T) a pour capacité Σ_{u∈S,v∈T}c(u, v)."
+            }
+        ],
+        conclusion: "Théorème du flot max-coupe min (Ford-Fulkerson) : le flot maximal de s à t est égal à la capacité minimale d'une coupe séparant s et t. Algorithme : on cherche des chemins améliorants dans le graphe résiduel jusqu'à épuisement (Edmonds-Karp : chemins les plus courts, O(|V||E|²)). Applications : couplages bipartis maximum (théorème de König), connectivité (Menger), problèmes de transport et d'affectation."
+    },
     formulas: [
       {
         text: "1. Théorème flot-max / coupe-min (Ford-Fulkerson) : la valeur du flot maximal égale la capacité de la coupe minimale séparant source et puits.",
@@ -5405,6 +6933,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:685": {
     title: "Couplages",
     definition: "Un couplage dans un graphe est un ensemble d'arêtes deux à deux sans sommet commun ; le problème du couplage maximum (ou maximal) cherche à maximiser le nombre d'arêtes ainsi sélectionnées, modélisant naturellement des problèmes d'appariement optimal entre deux ensembles d'entités.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un graphe biparti G = (A ∪ B, E) (toute arête relie A à B) ; un couplage M ⊂ E est un ensemble d'arêtes deux à deux non adjacentes.",
+        axiomes: [
+            {
+                nom: "M1 — Couplage",
+                enonce: "Aucun sommet n'est couvert par deux arêtes de M."
+            },
+            {
+                nom: "A1 — Chemin augmentant",
+                enonce: "Un chemin alternant arêtes hors M et de M, commençant et finissant par des sommets non couverts."
+            },
+            {
+                nom: "K1 — König",
+                enonce: "Dans un graphe biparti, la taille du couplage maximum égale la taille de la couverture par sommets minimum."
+            }
+        ],
+        conclusion: "Un couplage est maximum si et seulement s'il n'existe pas de chemin augmentant (théorème de Berge, valable pour tout graphe). L'algorithme hongrois (Kuhn-Munkres) trouve un couplage de poids maximum en O(n³). Théorème de Hall (mariage) : un couplage saturant A existe si et seulement si pour tout S ⊂ A, |N(S)| ≥ |S|. Applications : affectation de tâches, appariement d'étudiants à des places."
+    },
     formulas: [
       {
         text: "1. Un couplage M⊂E vérifie : aucune paire d'arêtes de M ne partage un sommet commun.",
@@ -5469,6 +7015,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:686": {
     title: "Coloration de graphes",
     definition: "La coloration d'un graphe assigne des couleurs à ses sommets (ou arêtes) de sorte que deux éléments adjacents ne partagent jamais la même couleur, le nombre chromatique étant le minimum de couleurs nécessaires ; ce problème, NP-difficile en général, modélise de nombreux problèmes d'allocation de ressources sous contrainte d'exclusion.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un graphe fini simple G = (V, E) ; une k-coloration propre est une application c : V → {1, …, k} avec c(u) ≠ c(v) pour toute arête uv.",
+        axiomes: [
+            {
+                nom: "C1 — Coloration propre",
+                enonce: "Deux sommets adjacents ont des couleurs différentes."
+            },
+            {
+                nom: "C2 — Nombre chromatique",
+                enonce: "χ(G) est le plus petit k pour lequel G admet une k-coloration propre."
+            },
+            {
+                nom: "C3 — Majoration",
+                enonce: "χ(G) ≤ Δ(G) + 1 (algorithme glouton)."
+            }
+        ],
+        conclusion: "χ(G) ≥ ω(G) (clique) ; χ(G) = 2 ⟺ G est biparti non vide ⟺ pas de cycle impair ; théorème de Brooks : χ(G) ≤ Δ(G) sauf pour les graphes complets et les cycles impairs. Théorème des quatre couleurs (Appel-Haken, 1976) : tout graphe planaire est 4-colorable (preuve assistée par ordinateur). Le calcul de χ(G) est NP-difficile ; applications : planification, allocation de fréquences."
+    },
     formulas: [
       {
         text: "1. Une coloration propre c:V→{1,...,k} vérifie c(u)≠c(v) pour toute arête (u,v)∈E.",
@@ -5533,6 +7097,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:687": {
     title: "Graphes planaires",
     definition: "Un graphe planaire peut être dessiné dans le plan sans qu'aucune de ses arêtes ne se croise ; cette propriété topologique, caractérisée précisément par le théorème de Kuratowski (absence de sous-graphes homéomorphes à K₅ ou K₃,₃), a des implications combinatoires fortes sur la structure du graphe.",
+    definition_axiomatique: {
+        cadre: "Un graphe est planaire s'il peut être dessiné dans le plan sans que deux arêtes se croisent (en dehors de leurs extrémités).",
+        axiomes: [
+            {
+                nom: "E1 — Formule d'Euler",
+                enonce: "Pour un graphe planaire connexe avec n sommets, m arêtes, f faces (dessin plan fixé) : n − m + f = 2."
+            },
+            {
+                nom: "K1 — Mineurs interdits (Kuratowski)",
+                enonce: "G est planaire si et seulement s'il ne contient ni K₅ ni K_{3,3} comme mineur (ou subdivision)."
+            },
+            {
+                nom: "D1 — Majoration des arêtes",
+                enonce: "Un graphe planaire simple à n ≥ 3 sommets a au plus 3n − 6 arêtes (2n − 4 s'il est biparti)."
+            }
+        ],
+        conclusion: "Conséquences de la formule d'Euler : tout graphe planaire a un sommet de degré ≤ 5 ; test de planarité en temps linéaire (Hopcroft-Tarjan). Les graphes planaires sont 4-colorables (théorème des quatre couleurs) et 5-colorables par un argument élémentaire (glouton avec le sommet de degré ≤ 5). Exemples non planaires : K₅ (complet à 5 sommets), K_{3,3} (biparti complet)."
+    },
     formulas: [
       {
         text: "1. Un graphe G est planaire s'il existe un plongement dans le plan sans croisement d'arêtes.",
@@ -5597,6 +7179,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:688": {
     title: "Théorème des quatre couleurs",
     definition: "Le théorème des quatre couleurs affirme que les régions de toute carte planaire (divisée en régions connexes) peuvent toujours être coloriées avec au plus quatre couleurs de sorte que deux régions adjacentes n'aient jamais la même couleur, résultat historique célèbre, prouvé en 1976 par la première démonstration mathématique majeure assistée par ordinateur.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un graphe planaire G = (V, E) (dessinable dans le plan sans croisement d'arêtes) ; on cherche une coloration propre de ses sommets.",
+        axiomes: [
+            {
+                nom: "C1 — Coloration propre",
+                enonce: "Deux sommets adjacents ont des couleurs différentes."
+            },
+            {
+                nom: "C2 — Nombre chromatique",
+                enonce: "χ(G) est le plus petit k pour lequel G admet une k-coloration propre."
+            },
+            {
+                nom: "C3 — Majoration",
+                enonce: "χ(G) ≤ Δ(G) + 1 (algorithme glouton)."
+            }
+        ],
+        conclusion: "Théorème des quatre couleurs (Appel-Haken, 1976, première preuve assistée par ordinateur ; simplifiée par Robertson-Sanders-Seymour-Thomas, 1997) : χ(G) ≤ 4 pour tout graphe planaire G. La preuve réduit le problème à un ensemble fini (environ 1900) de configurations inévitables, vérifiées par ordinateur. Cinq couleurs suffisent par un argument élémentaire (récurrence utilisant un sommet de degré ≤ 5, formule d'Euler) ; trois couleurs ne suffisent pas en général (certains planaires nécessitent 4)."
+    },
     formulas: [
       {
         text: "1. Pour tout graphe planaire G, χ(G) ≤ 4 (le nombre chromatique d'un graphe planaire ne dépasse jamais 4).",
@@ -5661,6 +7261,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:689": {
     title: "Graphes aléatoires",
     definition: "Un graphe aléatoire est engendré par un processus probabiliste (le plus classique étant le modèle d'Erdős-Rényi, où chaque arête possible apparaît indépendamment avec une probabilité fixée), permettant d'étudier statistiquement les propriétés typiques des grands graphes et de modéliser des réseaux réels complexes.",
+    definition_axiomatique: {
+        cadre: "On travaille avec le modèle d'Erdős-Rényi G(n, p) : n sommets, chaque arête présente indépendamment avec probabilité p (ou G(n, m) : m arêtes choisies uniformément parmi les graphes à n sommets et m arêtes).",
+        axiomes: [
+            {
+                nom: "E1 — Indépendance",
+                enonce: "Les C(n, 2) arêtes potentielles sont présentes indépendamment, chacune avec probabilité p = p(n)."
+            },
+            {
+                nom: "S1 — Propriété seuil",
+                enonce: "Une propriété monotone A a une fonction seuil p*(n) si P(G(n,p) ∈ A) → 0 pour p ≪ p*, → 1 pour p ≫ p*."
+            },
+            {
+                nom: "M1 — Méthode probabiliste",
+                enonce: "L'existence d'un objet combinatoire se déduit de P(existence) > 0 dans un modèle aléatoire adapté."
+            }
+        ],
+        conclusion: "Transitions de phase : pour p = c/n, une composante géante apparaît si c > 1 (Erdős-Rényi) ; le seuil de connexité est p ~ ln n/n. La méthode probabiliste (Erdős) prouve l'existence d'objets combinatoires (graphes de grande maille et grand nombre chromatique, bornes de Ramsey) sans construction explicite, en montrant qu'un modèle aléatoire les produit avec probabilité positive."
+    },
     formulas: [
       {
         text: "1. Modèle G(n,p) d'Erdős-Rényi : n sommets, chaque paire de sommets reliée indépendamment avec probabilité p.",
@@ -5725,6 +7343,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:690": {
     title: "Graphes expanseurs",
     definition: "Un graphe expanseur est un graphe creux (peu d'arêtes par sommet) mais fortement connecté, dans lequel tout sous-ensemble de sommets possède proportionnellement beaucoup de voisins extérieurs ; cette combinaison paradoxale de parcimonie et de connectivité en fait un objet précieux en informatique théorique et en théorie des codes.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une famille de graphes d-réguliers (Gₙ) (chaque sommet de degré d fixé) ; A est la matrice d'adjacence, λ₁ = d ≥ λ₂ ≥ … ≥ λₙ ses valeurs propres.",
+        axiomes: [
+            {
+                nom: "E1 — Écart spectral",
+                enonce: "λ = max(|λ₂|, |λₙ|) (seconde plus grande valeur propre en valeur absolue)."
+            },
+            {
+                nom: "E2 — Expansion",
+                enonce: "(Gₙ) est une famille d'expanseurs si λ ≤ d − ε pour un ε > 0 fixé, uniformément en n."
+            },
+            {
+                nom: "E3 — Alon-Boppana",
+                enonce: "λ₂ ≥ 2√(d − 1) − o(1) : borne inférieure asymptotique optimale (graphes de Ramanujan : λ ≤ 2√(d−1))."
+            }
+        ],
+        conclusion: "Un graphe expanseur est « bien connecté » malgré un faible degré : tout ensemble de sommets a une frontière proportionnelle à sa taille (inégalité de Cheeger reliant λ à la constante isopérimétrique). Ils existent (construction probabiliste, ou explicite : graphes de Cayley, constructions de Margulis, Ramanujan de Lubotzky-Phillips-Sarnak) et sont utilisés en théorie des codes correcteurs, dérandomisation, réseaux robustes, et algorithmes rapides de mélange (marches aléatoires)."
+    },
     formulas: [
       {
         text: "1. Un graphe est un (n,d,ε)-expanseur si tout sous-ensemble S de taille ≤n/2 a un bord (voisinage extérieur) de taille ≥ε|S|.",
@@ -5789,6 +7425,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:691": {
     title: "Analyse réelle avancée : mesures",
     definition: "La théorie de la mesure fournit le cadre rigoureux permettant d'assigner une taille (une mesure) à des sous-ensembles d'un espace, généralisant les notions intuitives de longueur, aire ou volume à des ensembles beaucoup plus généraux et irréguliers que ceux traités par le calcul intégral classique de Riemann.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace mesuré (Ω, 𝒜, μ) : 𝒜 est une tribu de parties de Ω, μ : 𝒜 → [0 ; +∞] est σ-additive avec μ(∅) = 0.",
+        axiomes: [
+            {
+                nom: "M1 — Positivité",
+                enonce: "μ(A) ∈ [0 ; +∞] pour tout A ∈ 𝒜."
+            },
+            {
+                nom: "M2 — Ensemble vide",
+                enonce: "μ(∅) = 0."
+            },
+            {
+                nom: "M3 — σ-additivité",
+                enonce: "Pour (Aₙ) deux à deux disjoints, μ(⋃Aₙ) = Σμ(Aₙ)."
+            }
+        ],
+        conclusion: "Conséquences : monotonie (A ⊂ B ⟹ μ(A) ≤ μ(B)), sous-additivité dénombrable, continuité à gauche (Aₙ ↑ A ⟹ μ(Aₙ) → μ(A)) et à droite (Aₙ ↓ A, μ(A₁) < ∞ ⟹ μ(Aₙ) → μ(A)). Exemples : mesure de comptage, mesure de Dirac δ_a, mesure de Lebesgue, probabilités (μ(Ω) = 1)."
+    },
     formulas: [
       {
         text: "1. Une mesure μ sur une tribu 𝒜 est une fonction μ:𝒜→[0,+∞] vérifiant μ(∅)=0 et σ-additivité : μ(∪Aₙ)=Σμ(Aₙ) pour des (Aₙ) deux à deux disjoints.",
@@ -5853,6 +7507,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:692": {
     title: "Mesure de Lebesgue",
     definition: "La mesure de Lebesgue généralise la notion intuitive de longueur, d'aire ou de volume à une vaste classe de sous-ensembles de ℝⁿ (les ensembles mesurables), construite de façon rigoureuse via un procédé d'approximation par recouvrements d'intervalles, et constituant le fondement de toute l'analyse moderne.",
+    definition_axiomatique: {
+        cadre: "On cherche une mesure sur la tribu borélienne de ℝ mesurant la longueur des intervalles.",
+        axiomes: [
+            {
+                nom: "L1 — Normalisation",
+                enonce: "λ([0 ; 1]) = 1."
+            },
+            {
+                nom: "L2 — Invariance par translation",
+                enonce: "λ(A + t) = λ(A)."
+            },
+            {
+                nom: "L3 — σ-additivité",
+                enonce: "λ est une mesure."
+            }
+        ],
+        conclusion: "Il existe une unique mesure borélienne vérifiant L1 à L3 : la mesure de Lebesgue, avec λ([a ; b]) = b − a (construction par mesure extérieure, théorème de Carathéodory). Toute mesure de Borel localement finie invariante par translation est c·λ. Il n'existe pas d'extension à toutes les parties de ℝ (Vitali, axiome du choix). λ({x}) = 0, les ensembles dénombrables sont négligeables ; l'ensemble de Cantor est non dénombrable et de mesure nulle."
+    },
     formulas: [
       {
         text: "1. Mesure extérieure : λ*(A) = inf{Σ|Iₖ|, A⊂∪Iₖ, Iₖ intervalles}, approximation par recouvrements d'intervalles.",
@@ -5917,6 +7589,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:693": {
     title: "Mesurabilité",
     definition: "La mesurabilité caractérise les ensembles (mesurables) auxquels une mesure peut cohéremment assigner une taille, et les fonctions (mesurables) dont les images réciproques d'ensembles mesurables restent mesurables ; cette notion technique est le prérequis indispensable à toute théorie de l'intégration rigoureuse.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux espaces mesurables (Ω, 𝒜) et (Ω', 𝒜') et une application f : Ω → Ω'.",
+        axiomes: [
+            {
+                nom: "F1 — Mesurabilité",
+                enonce: "f est mesurable si f⁻¹(B) ∈ 𝒜 pour tout B ∈ 𝒜'."
+            },
+            {
+                nom: "F2 — Critère",
+                enonce: "Il suffit de vérifier f⁻¹(B) ∈ 𝒜 pour B dans une famille engendrant 𝒜' (par exemple {f > a} pour tout a, si Ω' = ℝ)."
+            },
+            {
+                nom: "F3 — Stabilité",
+                enonce: "Composée, somme, produit et limite simple de fonctions mesurables sont mesurables."
+            }
+        ],
+        conclusion: "Les fonctions continues sont boréliennes ; les fonctions étagées f = Σaᵢ1_{Aᵢ} sont mesurables ; toute fonction mesurable positive est limite croissante d'une suite de fonctions étagées (fₙ = min(n, 2⁻ⁿ⌊2ⁿf⌋)). Sup, inf, limsup, liminf d'une suite de fonctions mesurables sont mesurables ; les fonctions Lebesgue-mesurables sont égales presque partout à des fonctions boréliennes."
+    },
     formulas: [
       {
         text: "1. Une fonction f:Ω→ℝ est mesurable (par rapport à une tribu 𝒜) si f⁻¹(]a,+∞[)∈𝒜 pour tout a∈ℝ (critère équivalent parmi plusieurs).",
@@ -5981,6 +7671,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:694": {
     title: "Intégrale de Lebesgue",
     definition: "L'intégrale de Lebesgue généralise l'intégrale de Riemann en construisant l'intégration non pas en découpant le domaine de départ (approche de Riemann) mais en découpant l'ensemble des valeurs atteintes par la fonction, permettant d'intégrer une classe de fonctions bien plus vaste et offrant des théorèmes de convergence bien plus puissants.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace mesuré (Ω, 𝒜, μ) : 𝒜 est une tribu de parties de Ω, μ : 𝒜 → [0 ; +∞] est σ-additive avec μ(∅) = 0.",
+        axiomes: [
+            {
+                nom: "I1 — Fonctions étagées",
+                enonce: "Pour f = Σaᵢ1_{Aᵢ} ≥ 0, ∫f dμ = Σaᵢμ(Aᵢ)."
+            },
+            {
+                nom: "I2 — Fonctions positives",
+                enonce: "Pour f ≥ 0 mesurable, ∫f dμ = sup{∫s dμ : 0 ≤ s ≤ f étagée}."
+            },
+            {
+                nom: "I3 — Fonctions signées",
+                enonce: "f = f⁺ − f⁻ ; f est intégrable si ∫|f| < ∞ et ∫f = ∫f⁺ − ∫f⁻."
+            }
+        ],
+        conclusion: "L'intégrale est linéaire, croissante, ne dépend pas des ensembles négligeables ; ∫1_A dμ = μ(A). Elle est caractérisée par ces propriétés et la convergence monotone. Elle prolonge l'intégrale de Riemann : une fonction Riemann-intégrable l'est au sens de Lebesgue (même valeur), 1_ℚ est Lebesgue-intégrable (intégrale 0) mais pas Riemann-intégrable."
+    },
     formulas: [
       {
         text: "1. Pour f mesurable positive, l'intégrale est ∫f dμ = sup{∫s dμ, s étagée, 0≤s≤f}, approximation par fonctions étagées.",
@@ -6045,6 +7753,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:695": {
     title: "Théorème de convergence dominée (version complète)",
     definition: "Le théorème de convergence dominée garantit que, si une suite de fonctions mesurables converge presque partout et reste majorée en valeur absolue par une même fonction intégrable, alors la limite est intégrable et l'intégrale de la limite égale la limite des intégrales, résultat d'une puissance et d'une souplesse remarquables comparé à l'intégrale de Riemann.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un intervalle I muni de l'intégrale de Lebesgue (fonctions mesurables ; l'intégrale est linéaire, positive, et se comporte bien avec les limites monotones).",
+        axiomes: [
+            {
+                nom: "D1 — Convergence simple presque partout",
+                enonce: "fₙ(x) → f(x) pour presque tout x ∈ I."
+            },
+            {
+                nom: "D2 — Domination",
+                enonce: "Il existe g intégrable sur I avec |fₙ| ≤ g pour tout n."
+            },
+            {
+                nom: "D3 — Mesurabilité",
+                enonce: "Les fₙ sont mesurables."
+            }
+        ],
+        conclusion: "Théorème de convergence dominée (Lebesgue) : si fₙ → f presque partout et |fₙ| ≤ g pour une g intégrable fixe, alors f est intégrable et ∫fₙ → ∫f, avec de plus ∫|fₙ − f| → 0. Preuve par Fatou appliqué à g ± fₙ ≥ 0. C'est l'outil principal pour intervertir limite et intégrale ; il s'applique aux séries (domination par Σ|uₙ| intégrable) et aux intégrales à paramètre (continuité, dérivabilité sous le signe intégral)."
+    },
     formulas: [
       {
         text: "1. Si fₙ→f presque partout et |fₙ|≤g pour tout n, avec g intégrable, alors f est intégrable et ∫fₙ dμ → ∫f dμ.",
@@ -6117,6 +7843,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:696": {
     title: "Théorème de convergence monotone (Lebesgue)",
     definition: "Le théorème de convergence monotone affirme que, pour une suite croissante de fonctions mesurables positives, l'intégrale de la limite égale la limite des intégrales (sans hypothèse de domination nécessaire), résultat fondamental et technique de base à partir duquel se déduisent de nombreux autres résultats de la théorie de l'intégration.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace mesuré (Ω, 𝒜, μ) : 𝒜 est une tribu de parties de Ω, μ : 𝒜 → [0 ; +∞] est σ-additive avec μ(∅) = 0.",
+        axiomes: [
+            {
+                nom: "B1 — Suite croissante",
+                enonce: "0 ≤ f₁ ≤ f₂ ≤ … mesurables."
+            },
+            {
+                nom: "B2 — Limite",
+                enonce: "fₙ ↑ f ponctuellement (dans [0 ; +∞])."
+            },
+            {
+                nom: "B3 — Définition de l'intégrale",
+                enonce: "∫f = sup{∫s : s étagée, s ≤ f}."
+            }
+        ],
+        conclusion: "Théorème de convergence monotone (Beppo Levi) : ∫fₙ dμ ↑ ∫f dμ (avec la valeur +∞ éventuellement). Preuve : ∫fₙ ≤ ∫f par monotonie ; pour s étagée s ≤ f et 0 < c < 1, Eₙ = {fₙ ≥ cs} ↑ Ω donne ∫fₙ ≥ c∫_{Eₙ}s → c∫s. Corollaire : Σ∫fₙ = ∫Σfₙ pour fₙ ≥ 0 ; permutation Σ et ∫ sans hypothèse de domination."
+    },
     formulas: [
       {
         text: "1. Si 0≤f₁≤f₂≤...≤fₙ≤... (suite croissante de fonctions mesurables positives) et fₙ→f (presque partout ou simplement), alors ∫fₙ dμ → ∫f dμ.",
@@ -6181,6 +7925,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:697": {
     title: "Théorème de Fubini-Tonelli",
     definition: "Le théorème de Fubini-Tonelli établit les conditions précises sous lesquelles une intégrale double (sur un produit d'espaces mesurés) peut se calculer en intégrant successivement selon chaque variable, dans n'importe quel ordre, généralisant rigoureusement l'intégration itérée classique.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux espaces mesurés σ-finis (X, 𝒜, μ) et (Y, ℬ, ν) et l'espace produit (X × Y, 𝒜 ⊗ ℬ, μ ⊗ ν).",
+        axiomes: [
+            {
+                nom: "F1 — Mesure produit",
+                enonce: "μ ⊗ ν est l'unique mesure sur 𝒜 ⊗ ℬ vérifiant (μ ⊗ ν)(A × B) = μ(A)ν(B)."
+            },
+            {
+                nom: "F2 — Tonelli",
+                enonce: "Si f ≥ 0 est mesurable, x ↦ ∫f(x, y)dν(y) et y ↦ ∫f(x, y)dμ(x) sont mesurables et les intégrales itérées sont égales à ∫f d(μ ⊗ ν) dans [0 ; +∞]."
+            },
+            {
+                nom: "F3 — Fubini",
+                enonce: "Si f est μ ⊗ ν-intégrable, les intégrales itérées existent presque partout et sont égales à ∫f d(μ ⊗ ν)."
+            }
+        ],
+        conclusion: "Théorème de Fubini-Tonelli : ∫∫f dμ dν = ∫(∫f dν)dμ = ∫(∫f dμ)dν pour f ≥ 0 mesurable (Tonelli) ou intégrable (Fubini). Il permet de calculer les intégrales multiples et d'intervertir l'ordre d'intégration ; l'hypothèse σ-finie et la positivité ou l'intégrabilité sont essentielles (contre-exemple : mesure de comptage et de Lebesgue sur [0 ; 1], f = 1_{diagonale}). Il justifie Σ∫ = ∫Σ (μ de comptage)."
+    },
     formulas: [
       {
         text: "1. Théorème de Tonelli (fonctions positives) : pour f≥0 mesurable sur (X×Y, μ⊗ν), ∫∫f d(μ⊗ν) = ∫(∫f(x,y)dν(y))dμ(x) = ∫(∫f(x,y)dμ(x))dν(y), sans condition supplémentaire.",
@@ -6245,6 +8007,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:698": {
     title: "Espaces Lᵖ : propriétés avancées",
     definition: "Les espaces Lᵖ, ensembles de classes de fonctions dont la puissance p-ième du module est intégrable, possèdent des propriétés avancées remarquables (complétude, dualité, séparabilité selon p) qui en font le cadre fonctionnel le plus utilisé en analyse moderne, généralisant les espaces euclidiens à la dimension infinie.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace mesuré (Ω, 𝒜, μ) : 𝒜 est une tribu de parties de Ω, μ : 𝒜 → [0 ; +∞] est σ-additive avec μ(∅) = 0. Pour 1 ≤ p ≤ ∞.",
+        axiomes: [
+            {
+                nom: "L1 — Norme",
+                enonce: "‖f‖_p = (∫|f|ᵖdμ)^{1/p} (esssup si p = ∞)."
+            },
+            {
+                nom: "L2 — Dualité",
+                enonce: "(Lᵖ)* ≅ L^q pour 1 ≤ p < ∞ (q conjugué), sous σ-finitude si p = 1."
+            },
+            {
+                nom: "L3 — Complétude et séparabilité",
+                enonce: "Lᵖ est complet (Banach) pour tout p ; séparable pour 1 ≤ p < ∞ si μ est σ-finie sur un espace séparable (ex. ℝⁿ) ; L^∞ ne l'est pas."
+            }
+        ],
+        conclusion: "L² est un espace de Hilbert (le seul réflexif de manière auto-duale) ; pour 1 < p < ∞, Lᵖ est uniformément convexe (inégalité de Clarkson) donc réflexif ; L¹ et L^∞ ne le sont pas. Interpolation de Riesz-Thorin : un opérateur borné de L^{p₀} → L^{q₀} et L^{p₁} → L^{q₁} est borné de L^{pθ} → L^{qθ} pour les exposants intermédiaires, avec une norme interpolée. Inégalité de Young pour la convolution ‖f∗g‖_r ≤ ‖f‖_p‖g‖_q (1/r = 1/p + 1/q − 1)."
+    },
     formulas: [
       {
         text: "1. ||f||_p = (∫|f|^p dμ)^{1/p}, pour 1≤p<∞ ; ||f||_∞ = ess sup|f| (supremum essentiel).",
@@ -6309,6 +8089,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:699": {
     title: "Espaces de Hardy",
     definition: "Les espaces de Hardy Hᵖ regroupent les fonctions holomorphes sur le disque unité (ou le demi-plan) dont les moyennes en norme p sur les cercles concentriques restent uniformément bornées, formant un cadre riche à l'interface de l'analyse complexe et de l'analyse fonctionnelle, essentiel en traitement du signal et en théorie du contrôle.",
+    definition_axiomatique: {
+        cadre: "On travaille sur le demi-plan supérieur ℂ₊ = {Im z > 0} (ou le disque unité), avec f holomorphe et 0 < p < ∞.",
+        axiomes: [
+            {
+                nom: "H1 — Norme de Hardy",
+                enonce: "‖f‖_{H^p} = sup_{y>0}(∫_ℝ|f(x + iy)|ᵖdx)^{1/p} < ∞."
+            },
+            {
+                nom: "H2 — Valeurs au bord",
+                enonce: "f a une limite non tangentielle f* presque partout sur ℝ (théorème de Fatou)."
+            },
+            {
+                nom: "H3 — Identification",
+                enonce: "‖f‖_{H^p} = ‖f*‖_{L^p(ℝ)} : H^p s'identifie à un sous-espace fermé de L^p."
+            }
+        ],
+        conclusion: "H^p(ℂ₊) est l'espace des fonctions holomorphes de norme H^p finie ; pour p ≥ 1, H^p ≅ {g ∈ L^p(ℝ) : ĝ(ξ) = 0 pour ξ < 0} (support spectral positif, via la transformée de Fourier). H² est un espace de Hilbert de noyau reproduisant (noyau de Szegő) ; H¹ joue un rôle clé en analyse harmonique réelle (dual de BMO), notamment pour les opérateurs qui ne sont pas bornés sur L¹."
+    },
     formulas: [
       {
         text: "1. f∈Hᵖ(𝔻) ⟺ f holomorphe sur le disque unité 𝔻 et sup_{0<r<1} (∫₀^{2π} |f(re^{iθ})|^p dθ/2π)^{1/p} < ∞.",
@@ -6373,6 +8171,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:700": {
     title: "Espaces BMO",
     definition: "L'espace BMO (Bounded Mean Oscillation) regroupe les fonctions dont l'oscillation moyenne locale (écart à leur propre moyenne sur tout intervalle ou boule) reste uniformément bornée ; cet espace, plus large que L∞ mais partageant certaines de ses bonnes propriétés, joue un rôle central en analyse harmonique moderne.",
+    definition_axiomatique: {
+        cadre: "On travaille sur ℝⁿ avec f ∈ L¹_{loc} ; pour un cube Q, f_Q = (1/|Q|)∫_Qf est la moyenne de f sur Q.",
+        axiomes: [
+            {
+                nom: "B1 — Oscillation moyenne",
+                enonce: "‖f‖_{BMO} = sup_Q (1/|Q|)∫_Q|f − f_Q|dx (sup sur tous les cubes Q)."
+            },
+            {
+                nom: "B2 — Semi-norme",
+                enonce: "‖f‖_{BMO} = 0 si et seulement si f est constante ; BMO/constantes est un espace de Banach."
+            },
+            {
+                nom: "B3 — Inclusion",
+                enonce: "L^∞ ⊂ BMO, mais BMO contient des fonctions non bornées (ex. ln|x|)."
+            }
+        ],
+        conclusion: "BMO (bounded mean oscillation, John-Nirenberg) est le bon substitut de L^∞ en analyse harmonique : les opérateurs de Calderón-Zygmund (transformée de Hilbert, intégrales singulières) envoient L^∞ dans BMO (pas forcément dans L^∞). Inégalité de John-Nirenberg : une fonction BMO a une décroissance exponentielle de sa distribution d'oscillation, ce qui donne f ∈ L^p_{loc} pour tout p < ∞. Dualité de Fefferman : (H¹)* ≅ BMO."
+    },
     formulas: [
       {
         text: "1. f∈BMO ⟺ sup_Q (1/|Q|) ∫_Q |f−f_Q| dx < ∞, où le supremum est pris sur tous les cubes Q, et f_Q est la moyenne de f sur Q.",
@@ -6437,6 +8253,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1554": {
     title: "Distributions : définition rigoureuse",
     definition: "Une distribution sur un ouvert Ω de ℝⁿ est une forme linéaire continue sur l'espace D(Ω) des fonctions C^∞ à support compact dans Ω (muni de sa topologie propre de convergence). L'espace des distributions D'(Ω) est le dual topologique de D(Ω), généralisant considérablement la notion de fonction.",
+    definition_axiomatique: {
+        cadre: "Une distribution est une forme linéaire continue sur l'espace 𝒟(Ω) = C_c^∞(Ω) des fonctions test.",
+        axiomes: [
+            {
+                nom: "D1 — Fonctions test",
+                enonce: "𝒟(Ω) = C_c^∞(Ω), muni de la convergence de suites à support dans un compact fixe avec toutes les dérivées."
+            },
+            {
+                nom: "D2 — Distribution",
+                enonce: "T : 𝒟(Ω) → ℂ linéaire avec |⟨T, φ⟩| ≤ C_K Σ_{|α|≤m}sup|∂^αφ| pour supp φ ⊂ K."
+            },
+            {
+                nom: "D3 — Dérivation",
+                enonce: "⟨∂^αT, φ⟩ = (−1)^{|α|}⟨T, ∂^αφ⟩."
+            }
+        ],
+        conclusion: "Toute fonction localement intégrable f définit la distribution T_f(φ) = ∫fφ ; δ_a(φ) = φ(a) et la valeur principale PV(1/x) en sont d'autres. Toute distribution est infiniment dérivable ; (H)' = δ pour la fonction de Heaviside ; les solutions fondamentales de −Δ sont −(1/2π)ln|x| (n = 2), 1/(4π|x|) (n = 3). Le produit de deux distributions n'est pas défini en général."
+    },
     formulas: [
       {
         text: "Toute fonction localement intégrable f définit une distribution T_f par T_f(φ)=∫f φ pour φ∈D(Ω) (distribution régulière). Une distribution est continue au sens où T(φ_k)→T(φ) dès que (φ_k) converge vers φ dans D(Ω) (supports uniformément bornés et convergence uniforme de toutes les dérivées).",
@@ -6488,6 +8322,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1555": {
     title: "Dérivation des distributions",
     definition: "La dérivée d'une distribution T (au sens des distributions) est définie par dualité : (T')(φ)=-T(φ') pour toute fonction test φ, formule motivée par l'intégration par parties dans le cas régulier (où le terme de bord s'annule car φ est à support compact). Toute distribution est ainsi indéfiniment dérivable.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une distribution T ∈ 𝒟'(Ω), Ω ouvert de ℝⁿ.",
+        axiomes: [
+            {
+                nom: "D1 — Dérivée d'une distribution",
+                enonce: "⟨∂ᵢT, φ⟩ = −⟨T, ∂ᵢφ⟩ pour φ ∈ 𝒟(Ω) (définition motivée par l'intégration par parties)."
+            },
+            {
+                nom: "D2 — Itération",
+                enonce: "⟨∂^αT, φ⟩ = (−1)^{|α|}⟨T, ∂^αφ⟩."
+            },
+            {
+                nom: "D3 — Continuité",
+                enonce: "∂ᵢ : 𝒟'(Ω) → 𝒟'(Ω) est linéaire et continue pour la topologie faible-*."
+            }
+        ],
+        conclusion: "Toute distribution est infiniment dérivable, et les dérivées d'une distribution associée à une fonction f coïncident avec les dérivées classiques quand f est assez régulière. Exemple : la dérivée de la fonction de Heaviside H est δ₀ ; celle de ln|x| est vp(1/x) ; celle de δ₀ est ⟨δ₀', φ⟩ = −φ'(0). Cette dérivation généralisée rend toute EDP linéaire résoluble « au sens des distributions », même sans solution classique."
+    },
     formulas: [
       {
         text: "Cette dérivation généralise strictement la dérivation classique : pour une fonction C¹ classique, la dérivée distributionnelle coïncide avec la dérivée usuelle. Pour une fonction seulement continue par morceaux (comme la fonction de Heaviside), la dérivée distributionnelle fait apparaître des masses de Dirac aux points de discontinuité.",
@@ -6531,6 +8383,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1556": {
     title: "Distribution de Dirac et propriétés",
     definition: "La masse de Dirac en un point a, notée δ_a, est la distribution définie par δ_a(φ)=φ(a) pour toute fonction test φ. Elle modélise une « densité ponctuelle » de masse 1 concentrée en a, objet impossible à représenter par une fonction classique.",
+    definition_axiomatique: {
+        cadre: "On considère la forme linéaire δ_a : φ ↦ φ(a) sur 𝒟(ℝⁿ) (ou 𝒮(ℝⁿ)), pour a ∈ ℝⁿ.",
+        axiomes: [
+            {
+                nom: "D1 — Linéarité et continuité",
+                enonce: "δ_a est linéaire, et continue pour la convergence de 𝒟 (ou 𝒮)."
+            },
+            {
+                nom: "D2 — Non-fonction",
+                enonce: "Il n'existe aucune f ∈ L¹_{loc} avec ∫fφ = φ(a) pour tout φ (δ_a n'est pas une fonction)."
+            },
+            {
+                nom: "D3 — Approximation",
+                enonce: "δ_a = lim_{ε→0}ρ_ε(· − a) au sens des distributions, pour tout noyau régularisant ρ_ε."
+            }
+        ],
+        conclusion: "δ₀ modélise une masse ponctuelle, une impulsion instantanée ; supp δ_a = {a} ; δ_a ∗ f = f(· − a) (translation, δ₀ neutre pour la convolution). xδ₀ = 0, δ₀' est la dérivée d'un dipôle ; en dimension 1, H' = δ₀ (Heaviside) et (δ₀)^ = 1 (transformée de Fourier constante). Utilisée pour la fonction de Green, les solutions fondamentales, la théorie du signal (peigne de Dirac Ш = Σδ_n)."
+    },
     formulas: [
       {
         text: "δ_a est l'élément neutre de la convolution : f*δ_a=f(·-a) pour toute distribution f (translation). Une suite de fonctions très concentrées et de masse totale 1 (comme des gaussiennes de variance tendant vers 0) converge vers δ_0 au sens des distributions (approximation de l'unité).",
@@ -6582,6 +8452,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1557": {
     title: "Convolution de distributions",
     definition: "La convolution de deux distributions T et S est définie sous des hypothèses adéquates (par exemple, si l'une des deux est à support compact) par (T*S)(φ)=T_x(S_y(φ(x+y))), généralisant la convolution classique de fonctions. Elle n'est pas toujours définie pour deux distributions quelconques.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux distributions u, v ∈ 𝒟'(ℝⁿ), dont l'une au moins est à support compact.",
+        axiomes: [
+            {
+                nom: "C1 — Définition",
+                enonce: "⟨u ∗ v, φ⟩ = ⟨u(x)⊗v(y), φ(x + y)⟩."
+            },
+            {
+                nom: "C2 — Support",
+                enonce: "supp(u ∗ v) ⊂ supp u + supp v."
+            },
+            {
+                nom: "C3 — Dérivation et neutre",
+                enonce: "∂^α(u ∗ v) = ∂^αu ∗ v = u ∗ ∂^αv ; δ ∗ u = u."
+            }
+        ],
+        conclusion: "La convolution est commutative, associative (si assez de supports compacts) et bilinéaire ; elle prolonge la convolution de fonctions. Résoudre P(∂)u = f revient à u = E ∗ f avec E solution fondamentale (P(∂)E = δ). Exemple : H ∗ f = ∫^x f (primitive). Elle régularise : u ∗ φ ∈ C^∞ pour φ ∈ 𝒟."
+    },
     formulas: [
       {
         text: "La convolution est commutative et associative lorsqu'elle est définie, et compatible avec la dérivation : (T*S)'=T'*S=T*S'. La masse de Dirac δ_0 est élément neutre pour la convolution : T*δ_0=T pour toute distribution T.",
@@ -6629,6 +8517,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1558": {
     title: "Transformée de Fourier des distributions tempérées",
     definition: "Pour une distribution tempérée T (élément du dual de l'espace de Schwartz S), la transformée de Fourier T̂ est définie par dualité : T̂(φ)=T(φ̂) pour toute fonction de Schwartz φ. Cette définition étend la transformée de Fourier classique à des objets très généraux, y compris des fonctions non intégrables.",
+    definition_axiomatique: {
+        cadre: "On travaille dans l'espace 𝒮'(ℝⁿ) des distributions tempérées, dual de l'espace de Schwartz 𝒮(ℝⁿ).",
+        axiomes: [
+            {
+                nom: "F1 — Transformée sur 𝒮",
+                enonce: "φ̂(ξ) = ∫φ(x)e^{−ix·ξ}dx est un isomorphisme de 𝒮."
+            },
+            {
+                nom: "F2 — Dualité",
+                enonce: "⟨û, φ⟩ = ⟨u, φ̂⟩ pour u ∈ 𝒮', φ ∈ 𝒮."
+            },
+            {
+                nom: "F3 — Dérivation",
+                enonce: "(∂^αu)^ = (iξ)^αû et (x^αu)^ = (i∂)^αû."
+            }
+        ],
+        conclusion: "La transformée de Fourier est un isomorphisme de 𝒮'(ℝⁿ) ; l'inversion se prolonge. Exemples : δ̂ = 1, 1̂ = (2π)ⁿδ, (e^{ix·a})^ = (2π)ⁿδ_a, PV(1/x)^ = −iπ sign ξ. Elle permet de résoudre P(∂)u = f (en résolvant P(iξ)û = f̂), de définir H^s pour tout s et prolonge Plancherel à L²."
+    },
     formulas: [
       {
         text: "Cette extension conserve les propriétés fondamentales de la transformée de Fourier classique : elle échange dérivation et multiplication par la variable, et la formule d'inversion reste valable dans ce cadre étendu. La transformée de Fourier de δ_0 est la fonction constante égale à 1, et réciproquement.",
@@ -6672,6 +8578,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1559": {
     title: "Espace de Schwartz S(ℝⁿ)",
     definition: "L'espace de Schwartz S(ℝⁿ) est l'espace des fonctions C^∞ sur ℝⁿ dont toutes les dérivées décroissent plus vite que l'inverse de tout polynôme à l'infini. C'est un espace vectoriel topologique dont la topologie est définie par une famille dénombrable de semi-normes.",
+    definition_axiomatique: {
+        cadre: "On travaille sur ℝⁿ : l'espace de Schwartz 𝒮(ℝⁿ) est l'espace des fonctions lisses à décroissance rapide ainsi que toutes leurs dérivées.",
+        axiomes: [
+            {
+                nom: "S1 — Lissité",
+                enonce: "f ∈ C^∞(ℝⁿ)."
+            },
+            {
+                nom: "S2 — Décroissance rapide",
+                enonce: "Pour tous multi-indices α, β, sup|x^α∂^βf(x)| < ∞."
+            },
+            {
+                nom: "S3 — Topologie",
+                enonce: "𝒮 est un espace de Fréchet pour les semi-normes p_{α,β}(f) = sup|x^α∂^βf|."
+            }
+        ],
+        conclusion: "e^{−|x|²} ∈ 𝒮, C_c^∞ ⊂ 𝒮 ⊂ Lᵖ (1 ≤ p ≤ ∞), 𝒮 est stable par dérivation, multiplication par un polynôme, convolution ; la transformée de Fourier est un isomorphisme de 𝒮 (échange régularité et décroissance) et vérifie la formule d'inversion et Parseval. 𝒮 est dense dans L²."
+    },
     formulas: [
       {
         text: "S(ℝⁿ) est stable par transformée de Fourier (contrairement à D(ℝⁿ), l'espace des fonctions à support compact, qui ne l'est pas), ce qui en fait le cadre naturel pour définir la transformée de Fourier sur les distributions tempérées. Toute fonction gaussienne appartient à S(ℝⁿ).",
@@ -6719,6 +8643,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1560": {
     title: "Distributions tempérées",
     definition: "Une distribution tempérée est un élément du dual topologique S'(ℝⁿ) de l'espace de Schwartz S(ℝⁿ) : une forme linéaire continue sur S(ℝⁿ) pour sa topologie propre. Toute distribution à support compact et toute fonction à croissance polynomiale sont tempérées.",
+    definition_axiomatique: {
+        cadre: "On travaille avec 𝒮(ℝⁿ) et son dual topologique 𝒮'(ℝⁿ), l'espace des distributions tempérées.",
+        axiomes: [
+            {
+                nom: "T1 — Dual",
+                enonce: "T ∈ 𝒮' si T est une forme linéaire continue sur 𝒮 : |⟨T, φ⟩| ≤ CΣ_{|α|,|β|≤N}p_{α,β}(φ)."
+            },
+            {
+                nom: "T2 — Fonctions",
+                enonce: "Toute fonction f mesurable à croissance polynomiale définit T_f ∈ 𝒮'."
+            },
+            {
+                nom: "T3 — Stabilité",
+                enonce: "𝒮' est stable par dérivation et par multiplication par un polynôme."
+            }
+        ],
+        conclusion: "𝒮' contient les fonctions à croissance polynomiale, les mesures de masse polynomiale, δ, ses dérivées, les distributions à support compact ; il ne contient pas e^x. La transformée de Fourier est un isomorphisme de 𝒮'. L'espace 𝒮' est le bon cadre pour Fourier (fonctions périodiques, constantes, peignes de Dirac)."
+    },
     formulas: [
       {
         text: "S'(ℝⁿ) est strictement plus petit que D'(ℝⁿ) (toute distribution tempérée est une distribution, mais la réciproque est fausse : e^{x²} définit une distribution mais pas une distribution tempérée). C'est précisément le cadre où la transformée de Fourier est bien définie.",
@@ -6766,6 +8708,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1561": {
     title: "Espaces de Sobolev : définition et normes",
     definition: "L'espace de Sobolev W^{k,p}(Ω) est l'ensemble des fonctions de L^p(Ω) dont toutes les dérivées (au sens des distributions) jusqu'à l'ordre k appartiennent également à L^p(Ω). Il est muni de la norme ||f||_{W^{k,p}}=(Σ_{|α|≤k} ||∂^α f||_{L^p}^p)^{1/p}, qui en fait un espace de Banach.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un ouvert Ω de ℝⁿ ; on utilise les dérivées faibles : ∂^αu = g au sens des distributions si ∫u∂^αφ = (−1)^{|α|}∫gφ pour tout φ ∈ C_c^∞(Ω).",
+        axiomes: [
+            {
+                nom: "S1 — Dérivée faible",
+                enonce: "g ∈ L¹_loc est la dérivée faible ∂^αu de u."
+            },
+            {
+                nom: "S2 — Espace de Sobolev",
+                enonce: "H^k(Ω) = {u ∈ L²(Ω) : ∂^αu ∈ L²(Ω) pour |α| ≤ k}, ‖u‖²_{H^k} = Σ_{|α|≤k}‖∂^αu‖²_{L²}."
+            },
+            {
+                nom: "S3 — Structure hilbertienne",
+                enonce: "H^k(Ω) est un espace de Hilbert pour ⟨u, v⟩ = Σ⟨∂^αu, ∂^αv⟩."
+            }
+        ],
+        conclusion: "H^k(ℝⁿ) = {u ∈ L² : (1 + |ξ|²)^{k/2}û ∈ L²} (caractérisation de Fourier, définit aussi H^s pour s réel). H₀^k est l'adhérence de C_c^∞. Les fonctions de H¹(ℝ) sont continues ; dans H¹(ℝⁿ), n ≥ 2, elles peuvent être discontinues. C_c^∞ est dense dans H^k(ℝⁿ). Ce sont les espaces naturels des EDP elliptiques (formulations variationnelles)."
+    },
     formulas: [
       {
         text: "Pour p=2, on note H^k(Ω)=W^{k,2}(Ω), qui est un espace de Hilbert (le seul cas où la norme provient d'un produit scalaire). Ces espaces permettent de travailler avec des fonctions « faiblement dérivables », essentielles pour formuler les problèmes d'équations aux dérivées partielles de façon variationnelle.",
@@ -6813,6 +8773,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1562": {
     title: "Injections de Sobolev",
     definition: "Les théorèmes d'injection de Sobolev décrivent comment un gain de régularité (dérivées d'ordre k) se traduit en un gain d'intégrabilité ou de régularité classique : par exemple, si k>n/2 (n la dimension), alors H^k(ℝⁿ) s'injecte continûment dans l'espace des fonctions continues bornées.",
+    definition_axiomatique: {
+        cadre: "On travaille dans ℝⁿ (ou un ouvert régulier) avec u ∈ W^{1,p}, 1 ≤ p < n ; p* = np/(n − p) est l'exposant de Sobolev.",
+        axiomes: [
+            {
+                nom: "I1 — Gagliardo-Nirenberg",
+                enonce: "‖u‖_{L^{p*}} ≤ C‖∇u‖_{L^p}, pour u ∈ C_c^1."
+            },
+            {
+                nom: "I2 — Morrey",
+                enonce: "Pour p > n, u ∈ W^{1,p} est hölderienne d'exposant 1 − n/p."
+            },
+            {
+                nom: "I3 — Densité",
+                enonce: "C_c^∞ est dense dans W^{1,p}(ℝⁿ)."
+            }
+        ],
+        conclusion: "Inégalités de Sobolev : W^{1,p}(ℝⁿ) ↪ L^{p*} (1 ≤ p < n), W^{1,p} ↪ C^{0,1−n/p} (p > n) ; pour H^s(ℝⁿ), H^s ↪ C⁰ si s > n/2. Elles relient la régularité (dérivées) à l'intégrabilité et sont invariantes par changement d'échelle. Elles permettent de montrer que les solutions faibles d'EDP sont continues ou régulières."
+    },
     formulas: [
       {
         text: "Plus précisément, en dimension n, W^{k,p}(ℝⁿ) s'injecte dans L^q pour q déterminé par une relation dimensionnelle explicite (exposant critique de Sobolev) lorsque kp<n, et dans les fonctions höldériennes lorsque kp>n. Ces injections sont souvent compactes sur des domaines bornés (théorème de Rellich-Kondrachov).",
@@ -6860,6 +8838,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1563": {
     title: "Formulation variationnelle des EDP",
     definition: "La formulation variationnelle (ou faible) d'une équation aux dérivées partielles consiste à multiplier l'équation par une fonction test, intégrer sur le domaine, et utiliser l'intégration par parties pour transférer des dérivées vers la fonction test, obtenant une équation de la forme a(u,v)=L(v) pour tout v dans un espace de Sobolev adapté.",
+    definition_axiomatique: {
+        cadre: "On étudie −div(A∇u) = f dans Ω, u = 0 sur ∂Ω ; on cherche une formulation intégrale équivalente à l'équation classique.",
+        axiomes: [
+            {
+                nom: "V1 — Test",
+                enonce: "On multiplie par v ∈ H₀¹(Ω) et on intègre par parties (formule de Green)."
+            },
+            {
+                nom: "V2 — Forme faible",
+                enonce: "∫_ΩA∇u·∇v dx = ∫_Ωfv dx pour tout v ∈ H₀¹(Ω)."
+            },
+            {
+                nom: "V3 — Équivalence",
+                enonce: "Une solution classique u ∈ C² est solution faible ; une solution faible suffisamment régulière est classique."
+            }
+        ],
+        conclusion: "La formulation variationnelle affaiblit les hypothèses de régularité (u ∈ H₀¹ suffit, alors que la formulation classique demande u ∈ C²) et se prête au théorème de Lax-Milgram pour l'existence/unicité, ainsi qu'à l'approximation numérique (méthode des éléments finis, Galerkine). Elle est aussi la formulation naturelle du principe variationnel : u minimise l'énergie ½∫A∇v·∇v − ∫fv sur H₀¹(Ω) si A est symétrique."
+    },
     formulas: [
       {
         text: "Cette formulation permet de chercher une solution u dans un espace fonctionnel plus faible (typiquement H^1) que ne l'exigerait la formulation classique (qui nécessite une régularité C²), élargissant considérablement la classe de problèmes pour lesquels on peut démontrer l'existence d'une solution.",
@@ -6907,6 +8903,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1564": {
     title: "Théorème de Lax-Milgram",
     definition: "Le théorème de Lax-Milgram affirme que si a(·,·) est une forme bilinéaire continue et coercive sur un espace de Hilbert H (a(u,u)≥α||u||² pour un α>0), et L une forme linéaire continue sur H, alors il existe une unique solution u∈H à l'équation a(u,v)=L(v) pour tout v∈H.",
+    definition_axiomatique: {
+        cadre: "On étudie −div(A∇u) + cu = f dans un ouvert borné Ω ⊂ ℝⁿ, avec A(x) symétrique uniformément définie positive (A ≥ α > 0) et c ≥ 0.",
+        axiomes: [
+            {
+                nom: "E1 — Ellipticité",
+                enonce: "ξᵀA(x)ξ ≥ α|ξ|² pour tout ξ ∈ ℝⁿ."
+            },
+            {
+                nom: "E2 — Forme bilinéaire",
+                enonce: "a(u, v) = ∫(A∇u·∇v + cuv) est continue et coercive sur H₀¹(Ω) (Poincaré)."
+            },
+            {
+                nom: "E3 — Lax-Milgram",
+                enonce: "Une forme continue et coercive sur un Hilbert admet, pour tout ℓ ∈ H*, un unique u avec a(u, v) = ℓ(v) ∀v."
+            }
+        ],
+        conclusion: "Pour f ∈ H^{−1}(Ω), le problème a une unique solution faible u ∈ H₀¹(Ω) (Lax-Milgram), qui dépend continûment de f ; si le bord et les coefficients sont réguliers, u est plus régulière (régularité elliptique). Principe du maximum : −Δu ≤ 0 ⟹ max u atteint sur ∂Ω. Prototype : équation de Laplace/Poisson."
+    },
     formulas: [
       {
         text: "Ce théorème généralise le théorème de représentation de Riesz (cas où a est le produit scalaire) au cas de formes bilinéaires non nécessairement symétriques, fournissant un critère d'existence et d'unicité extrêmement puissant pour les problèmes variationnels associés aux EDP elliptiques.",
@@ -6954,6 +8968,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1565": {
     title: "Espaces de Hilbert : opérateurs bornés",
     definition: "Un opérateur linéaire T:H→H (H espace de Hilbert) est borné (continu) s'il existe une constante C telle que ||Tx||≤C||x|| pour tout x∈H. L'ensemble des opérateurs bornés sur H, noté B(H), muni de la norme d'opérateur, est lui-même un espace de Banach.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux espaces normés E, F sur K ; T : E → F est une application linéaire.",
+        axiomes: [
+            {
+                nom: "O1 — Linéarité",
+                enonce: "T(λx + μy) = λT(x) + μT(y)."
+            },
+            {
+                nom: "O2 — Borne",
+                enonce: "Il existe C avec ‖T(x)‖ ≤ C‖x‖ pour tout x."
+            },
+            {
+                nom: "O3 — Équivalence",
+                enonce: "T est continue ⟺ T est bornée."
+            }
+        ],
+        conclusion: "L'ensemble ℬ(E, F) des opérateurs bornés est un espace normé, complet si F l'est ; ℬ(E) est une algèbre de Banach (‖ST‖ ≤ ‖S‖‖T‖). Exemples : les opérateurs de multiplication f ↦ gf sur L², de translation, de convolution, les opérateurs intégraux (Tf)(x) = ∫K(x, y)f(y)dy à noyau L², la dérivation n'est pas bornée sur (C¹, ‖·‖_∞)."
+    },
     formulas: [
       {
         text: "Un opérateur linéaire entre espaces de Hilbert est borné si et seulement s'il est continu, propriété générale des applications linéaires entre espaces normés. B(H) est muni d'une structure d'algèbre (composition des opérateurs), faisant de B(H) une algèbre de Banach.",
@@ -7001,6 +9033,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1566": {
     title: "Adjoint d'un opérateur borné",
     definition: "Pour un opérateur borné T sur un espace de Hilbert H, l'adjoint T* est l'unique opérateur borné vérifiant ⟨Tx,y⟩=⟨x,T*y⟩ pour tous x,y∈H. Son existence et son unicité découlent du théorème de représentation de Riesz-Fréchet.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un espace de Hilbert H : un espace préhilbertien (produit scalaire ⟨·,·⟩ sur ℝ ou ℂ) complet pour la norme ‖x‖ = √⟨x, x⟩.",
+        axiomes: [
+            {
+                nom: "A1 — Adjoint",
+                enonce: "T* est l'unique opérateur borné avec ⟨Tx, y⟩ = ⟨x, T*y⟩ (Riesz)."
+            },
+            {
+                nom: "A2 — Auto-adjoint",
+                enonce: "T = T*."
+            },
+            {
+                nom: "A3 — Forme quadratique",
+                enonce: "⟨Tx, x⟩ ∈ ℝ pour tout x."
+            }
+        ],
+        conclusion: "Pour T auto-adjoint : σ(T) ⊂ ℝ, ‖T‖ = sup_{‖x‖=1}|⟨Tx, x⟩|, m = inf⟨Tx, x⟩ et M = sup⟨Tx, x⟩ sont dans σ(T) et σ(T) ⊂ [m ; M] ; des vecteurs propres de valeurs propres distinctes sont orthogonaux. Projections orthogonales, opérateurs de multiplication par une fonction réelle et matrices hermitiennes en sont des exemples."
+    },
     formulas: [
       {
         text: "L'application T↦T* est semi-linéaire, involutive ((T*)*=T), et vérifie ||T*||=||T|| ainsi que (ST)*=T*S*. Un opérateur est dit auto-adjoint si T*=T, unitaire si T*T=TT*=Id, normal si TT*=T*T.",
@@ -7048,6 +9098,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1567": {
     title: "Opérateurs auto-adjoints",
     definition: "Un opérateur borné T sur un espace de Hilbert H est auto-adjoint si T*=T, c'est-à-dire ⟨Tx,y⟩=⟨x,Ty⟩ pour tous x,y∈H. Ces opérateurs généralisent la notion de matrice symétrique (cas réel) ou hermitienne (cas complexe) vue en L2, en dimension infinie.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un espace de Hilbert H : un espace préhilbertien (produit scalaire ⟨·,·⟩ sur ℝ ou ℂ) complet pour la norme ‖x‖ = √⟨x, x⟩.",
+        axiomes: [
+            {
+                nom: "A1 — Adjoint",
+                enonce: "T* est l'unique opérateur borné avec ⟨Tx, y⟩ = ⟨x, T*y⟩ (Riesz)."
+            },
+            {
+                nom: "A2 — Auto-adjoint",
+                enonce: "T = T*."
+            },
+            {
+                nom: "A3 — Forme quadratique",
+                enonce: "⟨Tx, x⟩ ∈ ℝ pour tout x."
+            }
+        ],
+        conclusion: "Pour T auto-adjoint : σ(T) ⊂ ℝ, ‖T‖ = sup_{‖x‖=1}|⟨Tx, x⟩|, m = inf⟨Tx, x⟩ et M = sup⟨Tx, x⟩ sont dans σ(T) et σ(T) ⊂ [m ; M] ; des vecteurs propres de valeurs propres distinctes sont orthogonaux. Projections orthogonales, opérateurs de multiplication par une fonction réelle et matrices hermitiennes en sont des exemples."
+    },
     formulas: [
       {
         text: "Le spectre d'un opérateur auto-adjoint borné est toujours réel et contenu dans [-||T||,||T||]. La norme d'un opérateur auto-adjoint est égale à sup{|⟨Tx,x⟩| : ||x||=1}, formule qui généralise le quotient de Rayleigh vu en L2 pour les matrices symétriques.",
@@ -7091,6 +9159,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1568": {
     title: "Opérateurs compacts",
     definition: "Un opérateur borné T:H→H est compact si l'image de la boule unité par T est relativement compacte (d'adhérence compacte), ou de façon équivalente si l'image de toute suite bornée admet une sous-suite dont l'image converge. Les opérateurs compacts généralisent en dimension infinie le comportement des opérateurs de rang fini.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux espaces de Banach E, F et T ∈ ℬ(E, F) ; B_E est la boule unité de E.",
+        axiomes: [
+            {
+                nom: "K1 — Compact",
+                enonce: "T est compact si T(B_E) est relativement compact dans F."
+            },
+            {
+                nom: "K2 — Suites",
+                enonce: "T est compact si de toute suite bornée (xₙ), (T xₙ) a une sous-suite convergente."
+            },
+            {
+                nom: "K3 — Idéal",
+                enonce: "Les opérateurs compacts forment un idéal bilatère fermé de ℬ(E)."
+            }
+        ],
+        conclusion: "Un opérateur de rang fini est compact ; une limite en norme d'opérateurs compacts est compacte ; en Hilbert, T est compact si et seulement s'il est limite d'opérateurs de rang fini. L'identité en dimension infinie n'est pas compacte (Riesz). Les opérateurs intégraux à noyau L² (Hilbert-Schmidt) sont compacts."
+    },
     formulas: [
       {
         text: "Tout opérateur de rang fini est compact, et l'ensemble des opérateurs compacts est fermé pour la norme d'opérateur (limite d'opérateurs compacts). Un opérateur compact ne peut jamais être inversible d'inverse borné en dimension infinie (sauf cas trivial).",
@@ -7138,6 +9224,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1569": {
     title: "Théorie spectrale des opérateurs compacts auto-adjoints",
     definition: "Le théorème spectral pour les opérateurs compacts auto-adjoints (théorème de Hilbert-Schmidt) affirme qu'il existe une base hilbertienne de H formée de vecteurs propres de T, avec des valeurs propres réelles (λ_n) tendant vers 0 (si H est de dimension infinie). C'est la généralisation directe de la diagonalisation des matrices symétriques (L2) au cadre hilbertien.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un espace de Hilbert H : un espace préhilbertien (produit scalaire ⟨·,·⟩ sur ℝ ou ℂ) complet pour la norme ‖x‖ = √⟨x, x⟩. T est compact et auto-adjoint.",
+        axiomes: [
+            {
+                nom: "S1 — Auto-adjoint compact",
+                enonce: "T = T*, T compact."
+            },
+            {
+                nom: "S2 — Valeurs propres réelles",
+                enonce: "σ(T) ∖ {0} est formé de valeurs propres réelles λₙ → 0."
+            },
+            {
+                nom: "S3 — Orthogonalité",
+                enonce: "Les espaces propres associés à des valeurs propres distinctes sont orthogonaux et de dimension finie (pour λ ≠ 0)."
+            }
+        ],
+        conclusion: "Théorème spectral pour les opérateurs compacts auto-adjoints : H possède une base hilbertienne de vecteurs propres (eₙ) et Tx = Σλₙ⟨x, eₙ⟩eₙ. On l'obtient en maximisant ⟨Tx, x⟩ sur la sphère (‖T‖ = |λ_max|) et en itérant sur l'orthogonal. Application : problèmes de Sturm-Liouville, séries de Fourier, opérateurs intégraux symétriques, SVD infinie."
+    },
     formulas: [
       {
         text: "Tout vecteur x∈H se décompose alors en série x=Σ⟨x,e_n⟩e_n (base propre) et Tx=Σλ_n⟨x,e_n⟩e_n, formule qui généralise exactement la diagonalisation en dimension finie. Chaque valeur propre non nulle est de multiplicité finie.",
@@ -7185,6 +9289,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1570": {
     title: "Alternative de Fredholm",
     definition: "L'alternative de Fredholm, pour un opérateur compact T sur un espace de Hilbert H et l'équation (Id-T)x=y, affirme une dichotomie : soit l'équation (Id-T)x=y admet une unique solution pour tout y (et alors Id-T est inversible), soit l'équation homogène (Id-T)x=0 a des solutions non nulles, formant un espace de dimension finie, et l'équation avec second membre n'a de solution que sous une condition de compatibilité (orthogonalité au noyau de l'adjoint).",
+    definition_axiomatique: {
+        cadre: "On travaille avec un espace de Banach complexe E et un opérateur compact T ∈ ℬ(E) de dimension infinie.",
+        axiomes: [
+            {
+                nom: "C1 — Compact",
+                enonce: "T(B_E) est relativement compact."
+            },
+            {
+                nom: "C2 — Alternative de Fredholm",
+                enonce: "Pour λ ≠ 0, T − λ est injectif si et seulement s'il est surjectif."
+            },
+            {
+                nom: "C3 — Noyaux de dimension finie",
+                enonce: "ker(T − λ) est de dimension finie pour λ ≠ 0."
+            }
+        ],
+        conclusion: "Théorème de Riesz-Schauder : σ(T) ∖ {0} est formé de valeurs propres isolées de multiplicité finie, dénombrable, ne s'accumulant qu'en 0 ; 0 ∈ σ(T). Alternative de Fredholm : l'équation (T − λ)x = y est soit uniquement résoluble pour tout y, soit a un noyau de dimension finie et une condition de compatibilité (y ⊥ ker(T* − λ̄))."
+    },
     formulas: [
       {
         text: "Ce résultat généralise, pour les systèmes linéaires en dimension infinie via des opérateurs compacts, la dichotomie bien connue en dimension finie (théorème du rang : soit le système a une solution unique, soit il a soit aucune solution, soit une infinité selon compatibilité).",
@@ -7232,6 +9354,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1571": {
     title: "Analyse harmonique : séries de Fourier approfondies",
     definition: "L'analyse harmonique approfondie des séries de Fourier étudie la convergence des sommes partielles S_N(f) vers f dans divers sens (ponctuel, uniforme, en norme L², en norme L^p) selon la régularité de f, ainsi que le comportement des coefficients de Fourier (décroissance liée à la régularité, via les théorèmes de Riemann-Lebesgue et de Dirichlet-Jordan).",
+    definition_axiomatique: {
+        cadre: "On travaille avec f 2π-périodique, de classe C¹ par morceaux ; S_N f(x) = Σ_{|n|≤N} cₙ(f)e^{inx}.",
+        axiomes: [
+            {
+                nom: "D1 — Noyau de Dirichlet",
+                enonce: "S_N f(x) = (1/2π)∫_{−π}^{π} f(x − t)D_N(t)dt, D_N(t) = sin((N + ½)t)/sin(t/2), (1/2π)∫D_N = 1."
+            },
+            {
+                nom: "D2 — Riemann-Lebesgue",
+                enonce: "∫g(t)sin(λt)dt → 0 quand λ → ∞ pour g intégrable."
+            },
+            {
+                nom: "D3 — Régularité",
+                enonce: "Les limites f(x⁺) et f(x⁻) existent, avec dérivées à droite et à gauche."
+            }
+        ],
+        conclusion: "Théorème de Dirichlet : pour tout x, S_N f(x) → (f(x⁺) + f(x⁻))/2 (f(x) si f est continue en x). Preuve : S_Nf(x) − moyenne = (1/2π)∫[f(x − t) − f(x⁻)]D_N + …, et (f(x − t) − f(x⁻))/sin(t/2) est intégrable, donc l'intégrale tend vers 0 (D2). Exemple : la série de Fourier du signal carré converge vers sa moyenne aux sauts."
+    },
     formulas: [
       {
         text: "Pour f∈L²(périodique), les sommes partielles S_N(f) convergent vers f en norme L² (résultat de la théorie hilbertienne, base orthonormée des exponentielles complexes). La convergence ponctuelle ou uniforme nécessite des hypothèses de régularité supplémentaires (fonctions C¹ par morceaux pour Dirichlet-Jordan).",
@@ -7275,6 +9415,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1572": {
     title: "Théorème de Hahn-Banach : formes géométriques",
     definition: "Les formes géométriques du théorème de Hahn-Banach (théorèmes de séparation) affirment que deux convexes disjoints dans un espace vectoriel normé peuvent être séparés par un hyperplan fermé (sous des hypothèses adéquates, comme l'un des convexes ouvert, ou les deux compacts/fermés en dimension finie).",
+    definition_axiomatique: {
+        cadre: "On travaille dans un espace vectoriel normé réel E ; A, B sont deux convexes non vides disjoints.",
+        axiomes: [
+            {
+                nom: "S1 — Hahn-Banach analytique",
+                enonce: "Toute forme dominée par une jauge sous-linéaire se prolonge à E."
+            },
+            {
+                nom: "S2 — Séparation (un ouvert)",
+                enonce: "Si A est ouvert, il existe φ ∈ E* et α ∈ ℝ avec φ(a) < α ≤ φ(b) pour tout a ∈ A, b ∈ B."
+            },
+            {
+                nom: "S3 — Séparation stricte (compact/fermé)",
+                enonce: "Si A est compact et B fermé (E normé), il existe φ et α < β avec φ(a) ≤ α < β ≤ φ(b)."
+            }
+        ],
+        conclusion: "Ces formes géométriques du théorème de Hahn-Banach expriment qu'on peut toujours séparer deux convexes disjoints par un hyperplan (au moins au sens large) ; c'est l'outil de base de la dualité convexe, du théorème du supporting hyperplane et de la programmation linéaire/convexe en dimension infinie. Sans convexité ou en dimension infinie sans hypothèse topologique adéquate (ouvert ou compact/fermé), la séparation peut échouer."
+    },
     formulas: [
       {
         text: "Ces formes géométriques découlent du théorème de Hahn-Banach analytique (prolongement de formes linéaires) et sont extrêmement utilisées en analyse convexe et en optimisation, notamment pour établir l'existence d'hyperplans séparateurs et de multiplicateurs de Lagrange généralisés.",
@@ -7318,6 +9476,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1573": {
     title: "Espaces réflexifs",
     definition: "Un espace de Banach E est réflexif si l'injection canonique J:E→E'' (bidual) est surjective (donc un isomorphisme isométrique). Tout espace de Hilbert est réflexif, ainsi que les espaces L^p pour 1<p<+∞, mais L¹ et L^∞ ne le sont pas en général.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un espace de Banach E, son dual E* et son bidual E** ; J : E → E**, J(x)(φ) = φ(x), est l'injection canonique.",
+        axiomes: [
+            {
+                nom: "J1 — Isométrie",
+                enonce: "‖J(x)‖ = ‖x‖ (Hahn-Banach)."
+            },
+            {
+                nom: "J2 — Réflexif",
+                enonce: "E est réflexif si J est surjective."
+            },
+            {
+                nom: "J3 — Boule unité faiblement compacte",
+                enonce: "E est réflexif si et seulement si sa boule unité est faiblement compacte (Kakutani)."
+            }
+        ],
+        conclusion: "Les espaces de Hilbert, Lᵖ et ℓᵖ (1 < p < ∞) et tout espace de dimension finie sont réflexifs ; L¹, ℓ¹, L^∞, ℓ^∞, c₀, C(K) (K infini) ne le sont pas. Dans un réflexif, toute suite bornée a une sous-suite faiblement convergente (Eberlein-Šmulian) et tout convexe fermé borné est faiblement compact ; toute fonctionnelle continue coercive convexe y atteint son minimum."
+    },
     formulas: [
       {
         text: "Dans un espace réflexif, toute suite bornée admet une sous-suite faiblement convergente (conséquence du théorème de Banach-Alaoglu combiné à la réflexivité), propriété analogue à la compacité faible qui remplace la compacité forte, absente en dimension infinie.",
@@ -7369,6 +9545,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1574": {
     title: "Convergence faible dans les espaces de Banach",
     definition: "Une suite (x_n) d'un espace de Banach E converge faiblement vers x si φ(x_n)→φ(x) pour toute forme linéaire continue φ∈E' (dual topologique). Cette convergence, notée x_n⇀x, est strictement plus faible que la convergence en norme (dite « forte ») en dimension infinie.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un espace de Banach E, muni de sa topologie faible σ(E, E*) : la plus grossière rendant continues toutes les φ ∈ E*.",
+        axiomes: [
+            {
+                nom: "F1 — Convergence faible",
+                enonce: "xₙ ⇀ x si φ(xₙ) → φ(x) pour tout φ ∈ E*."
+            },
+            {
+                nom: "F2 — Comparaison",
+                enonce: "Convergence en norme ⟹ convergence faible ; la réciproque est fausse en dimension infinie."
+            },
+            {
+                nom: "F3 — Semi-continuité",
+                enonce: "La norme est semi-continue inférieurement pour la topologie faible : ‖x‖ ≤ liminf‖xₙ‖ si xₙ ⇀ x."
+            }
+        ],
+        conclusion: "En dimension infinie, la boule unité n'est jamais compacte en norme (Riesz), mais elle est faiblement compacte si E est réflexif (Kakutani, Eberlein-Šmulian avec compacité séquentielle) : toute suite bornée a une sous-suite faiblement convergente. Exemple : dans L², la suite sin(nx) converge faiblement vers 0 sans converger en norme (lemme de Riemann-Lebesgue). Outil essentiel des méthodes directes du calcul des variations."
+    },
     formulas: [
       {
         text: "Toute suite convergente en norme converge faiblement vers la même limite, mais la réciproque est fausse en dimension infinie. Dans un espace de Hilbert, toute suite bornée admet une sous-suite faiblement convergente (conséquence du théorème de Banach-Alaoglu), un substitut essentiel à la compacité (absente en dimension infinie).",
@@ -7420,6 +9614,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1575": {
     title: "Théorème de représentation de Riesz-Fréchet",
     definition: "Le théorème de représentation de Riesz-Fréchet énonce que pour tout espace de Hilbert H, toute forme linéaire continue φ sur H s'écrit de façon unique φ(x)=⟨x,y⟩ pour un certain y∈H, avec ||φ||=||y||. Ce théorème identifie ainsi canoniquement H à son dual topologique H'.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un espace euclidien : un ℝ-espace vectoriel de dimension finie muni d'un produit scalaire (bilinéaire, symétrique, défini positif).",
+        axiomes: [
+            {
+                nom: "R1 — Forme linéaire",
+                enonce: "φ : E → ℝ est linéaire."
+            },
+            {
+                nom: "R2 — Injectivité",
+                enonce: "a ↦ ⟨a, ·⟩ est linéaire et injective (⟨a, a⟩ = 0 ⟹ a = 0)."
+            },
+            {
+                nom: "R3 — Dimension",
+                enonce: "dim E* = dim E."
+            }
+        ],
+        conclusion: "Théorème de représentation de Riesz : pour toute forme linéaire φ sur un espace euclidien (ou hilbertien) E, il existe un unique a ∈ E tel que φ(x) = ⟨a, x⟩. En dimension finie, cela résulte de R2 et R3 (injective entre espaces de même dimension). En dimension infinie, il faut supposer φ continue et E complet (espace de Hilbert)."
+    },
     formulas: [
       {
         text: "Cette identification H≅H' est isométrique et fait de tout espace de Hilbert un espace réflexif. Elle est à la base de la définition de l'adjoint d'un opérateur borné et du théorème de Lax-Milgram (généralisation aux formes bilinéaires non symétriques).",
@@ -7479,6 +9691,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1576": {
     title: "Équation de la chaleur : existence et unicité des solutions",
     definition: "L'équation de la chaleur ∂u/∂t=Δu (avec condition initiale u(0,·)=u_0 et conditions au bord adaptées) modélise la diffusion thermique. Son existence et son unicité se démontrent via la formulation variationnelle (théorème de Lax-Milgram appliqué à chaque instant, combiné à un théorème de type Cauchy-Lipschitz abstrait) ou via le noyau de la chaleur sur ℝⁿ tout entier.",
+    definition_axiomatique: {
+        cadre: "On étudie uₜ − div(A∇u) = f dans Ω × ]0 ; T[, avec u = 0 sur ∂Ω × ]0 ; T[ et u(·, 0) = u₀.",
+        axiomes: [
+            {
+                nom: "P1 — Opérateur elliptique",
+                enonce: "L = −div(A∇·) est elliptique, autoadjoint sur L²(Ω) de domaine H²∩H₀¹."
+            },
+            {
+                nom: "P2 — Semi-groupe",
+                enonce: "u(t) = e^{−tL}u₀ est bien définie (spectre de L positif)."
+            },
+            {
+                nom: "P3 — Principe du maximum",
+                enonce: "Si f ≤ 0 et u₀ ≤ 0, alors u ≤ 0."
+            }
+        ],
+        conclusion: "Le problème est bien posé : existence, unicité (estimations d'énergie), dépendance continue et effet régularisant (u(t) ∈ C^∞ pour t > 0 même si u₀ ∈ L²). L'énergie ‖u(t)‖₂ décroît exponentiellement : ‖u(t)‖₂ ≤ e^{−λ₁t}‖u₀‖₂. Le noyau de la chaleur (4πt)^{−n/2}e^{−|x|²/4t} donne la solution dans ℝⁿ. L'écoulement est irréversible (pas d'unicité en remontant le temps)."
+    },
     formulas: [
       {
         text: "Sur ℝⁿ, la solution s'écrit explicitement comme convolution de la donnée initiale avec le noyau de la chaleur (gaussienne dépendant du temps), fournissant à la fois existence, unicité et régularisation instantanée (la solution devient C^∞ pour tout t>0, même si u_0 est seulement continue).",
@@ -7538,6 +9768,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1577": {
     title: "Équation des ondes : formule de d'Alembert",
     definition: "L'équation des ondes ∂²u/∂t²=c²Δu en dimension 1 (∂²u/∂t²=c²∂²u/∂x²) admet, avec des conditions initiales u(0,x)=f(x) et ∂u/∂t(0,x)=g(x), la solution explicite donnée par la formule de d'Alembert : u(t,x)=½[f(x+ct)+f(x-ct)]+1/(2c)∫_{x-ct}^{x+ct}g(s)ds.",
+    definition_axiomatique: {
+        cadre: "On étudie uₜₜ = c²uₓₓ sur ℝ × ℝ, avec u(x, 0) = f(x), uₜ(x, 0) = g(x).",
+        axiomes: [
+            {
+                nom: "W1 — Factorisation",
+                enonce: "(∂ₜ − c∂ₓ)(∂ₜ + c∂ₓ)u = 0."
+            },
+            {
+                nom: "W2 — Solutions",
+                enonce: "F(x − ct) et G(x + ct) sont solutions pour toutes fonctions F, G de classe C²."
+            },
+            {
+                nom: "W3 — Conditions initiales",
+                enonce: "F + G = f et c(G' − F') = g."
+            }
+        ],
+        conclusion: "Formule de d'Alembert : u(x, t) = ½[f(x − ct) + f(x + ct)] + (1/2c)∫_{x−ct}^{x+ct} g(s)ds. La solution est la superposition d'une onde qui se propage vers la droite et d'une onde vers la gauche, à la vitesse c ; l'information ne se propage pas plus vite que c. Conservation de l'énergie ∫(uₜ² + c²uₓ²)dx."
+    },
     formulas: [
       {
         text: "Cette formule illustre le phénomène de propagation à vitesse finie c caractéristique des équations hyperboliques (contrairement à l'équation de la chaleur, à propagation instantanée) : la solution en un point (t,x) ne dépend que des données initiales dans le cône de dépendance [x-ct,x+ct].",
@@ -7589,6 +9837,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1578": {
     title: "Équation de Laplace et fonctions harmoniques",
     definition: "Une fonction u est harmonique sur un ouvert Ω si Δu=0. L'équation de Laplace Δu=0 modélise de nombreux phénomènes stationnaires (potentiel électrostatique, température à l'équilibre). Les fonctions harmoniques possèdent des propriétés remarquables héritées de l'analyse complexe (partie réelle et imaginaire d'une fonction holomorphe sont harmoniques en dimension 2).",
+    definition_axiomatique: {
+        cadre: "On travaille dans ℝⁿ muni d'une norme ‖·‖ (toutes équivalentes en dimension finie) ; une fonction f est définie sur un ouvert U de ℝⁿ à valeurs dans ℝ (ou ℝᵖ).",
+        axiomes: [
+            {
+                nom: "H1 — Harmonique",
+                enonce: "u est harmonique sur Ω si u est C² et Δu = 0."
+            },
+            {
+                nom: "H2 — Valeur moyenne",
+                enonce: "u(a) est la moyenne de u sur toute sphère (ou disque) de centre a incluse dans Ω."
+            },
+            {
+                nom: "H3 — Fonctions holomorphes",
+                enonce: "En dimension 2, la partie réelle et la partie imaginaire d'une fonction holomorphe sont harmoniques."
+            }
+        ],
+        conclusion: "Une fonction harmonique vérifie la propriété de la moyenne, le principe du maximum, et est C^∞ (analytique réelle). Réciproquement, une fonction continue à propriété de la moyenne est harmonique. Exemples : x² − y², ln r (plan), 1/r (espace) ; u(x, y) = Re(zⁿ) = rⁿcos nθ."
+    },
     formulas: [
       {
         text: "Propriété de la moyenne : la valeur d'une fonction harmonique en un point est égale à sa moyenne sur toute sphère (ou boule) centrée en ce point contenue dans le domaine. Principe du maximum : une fonction harmonique non constante atteint son maximum et son minimum uniquement sur le bord du domaine.",
@@ -7632,6 +9898,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1579": {
     title: "Problème de Dirichlet",
     definition: "Le problème de Dirichlet consiste à chercher une fonction u harmonique (ou plus généralement solution d'une EDP elliptique) sur un ouvert Ω, vérifiant une condition au bord imposée u=g sur ∂Ω. Sur un domaine régulier, ce problème admet une unique solution (existence garantie notamment par le théorème de Lax-Milgram en formulation variationnelle).",
+    definition_axiomatique: {
+        cadre: "On cherche u dans un ouvert borné Ω ⊂ ℝⁿ (bord régulier) vérifiant −Δu = f dans Ω et u = g sur ∂Ω.",
+        axiomes: [
+            {
+                nom: "D1 — Formulation faible",
+                enonce: "u − ũ ∈ H₀¹(Ω) (ũ relèvement de g) et ∫∇u·∇v = ∫fv pour tout v ∈ H₀¹."
+            },
+            {
+                nom: "D2 — Unicité",
+                enonce: "La différence de deux solutions est harmonique nulle sur ∂Ω : nulle (principe du maximum ou énergie)."
+            },
+            {
+                nom: "D3 — Existence",
+                enonce: "Lax-Milgram (méthode variationnelle, principe de Dirichlet) ou méthode de Perron."
+            }
+        ],
+        conclusion: "Le problème de Dirichlet est bien posé : la solution u est l'unique minimiseur de l'énergie ½∫|∇v|² − ∫fv parmi les v de trace g. Dans le disque, la solution de Δu = 0 est donnée par la formule de Poisson ; dans le rectangle, par séparation des variables. Régularité : si ∂Ω, f, g sont réguliers, u ∈ C^∞ à l'intérieur."
+    },
     formulas: [
       {
         text: "La solution du problème de Dirichlet pour l'équation de Laplace sur un disque s'exprime explicitement via la formule intégrale de Poisson, moyenne pondérée de la donnée au bord par un noyau explicite (noyau de Poisson).",
@@ -7679,6 +9963,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1580": {
     title: "Problème de Neumann",
     definition: "Le problème de Neumann consiste à chercher une solution d'une EDP elliptique (comme Δu=f) sur un ouvert Ω, avec condition au bord portant sur la dérivée normale ∂u/∂n=g sur ∂Ω, plutôt que sur u elle-même comme dans le problème de Dirichlet.",
+    definition_axiomatique: {
+        cadre: "On cherche u dans un ouvert borné régulier Ω ⊂ ℝⁿ vérifiant −Δu = f dans Ω et ∂u/∂ν = g sur ∂Ω (ν normale extérieure).",
+        axiomes: [
+            {
+                nom: "N1 — Formulation faible",
+                enonce: "∫∇u·∇v = ∫fv + ∫_{∂Ω}gv pour tout v ∈ H¹(Ω)."
+            },
+            {
+                nom: "N2 — Condition de compatibilité",
+                enonce: "∫_Ωf + ∫_{∂Ω}g = 0 (v = 1)."
+            },
+            {
+                nom: "N3 — Espace quotient",
+                enonce: "La coercivité de a(u, v) = ∫∇u·∇v a lieu sur H¹/ℝ (Poincaré-Wirtinger)."
+            }
+        ],
+        conclusion: "Si la condition de compatibilité est vérifiée, il existe une solution, unique à l'addition d'une constante près. Interprétation : le flux total sortant est égal à la source totale (formule de Green). Contrairement à Dirichlet, on ne peut pas prescrire arbitrairement f et g. Pour −Δu + u = f, le problème est bien posé sans condition de compatibilité."
+    },
     formulas: [
       {
         text: "Le problème de Neumann homogène (Δu=0, ∂u/∂n=0) a toujours les fonctions constantes comme solutions, donc la solution n'est jamais unique (seulement à une constante additive près). De plus, l'existence d'une solution au problème avec second membre nécessite une condition de compatibilité (intégrale du second membre nulle sur le domaine et le bord, liée à la formule de la divergence).",
@@ -7726,6 +10028,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1581": {
     title: "Principe du maximum pour les EDP elliptiques",
     definition: "Le principe du maximum (faible) pour une EDP elliptique du type -Δu≤0 (sous-harmonique) sur un domaine borné affirme que le maximum de u est atteint sur le bord du domaine. Le principe du maximum fort précise que si le maximum est atteint en un point intérieur, alors u est constante sur toute la composante connexe.",
+    definition_axiomatique: {
+        cadre: "On étudie Lu = Σaᵢⱼ(x)∂ᵢⱼu + Σbᵢ(x)∂ᵢu ≤ 0 (sous-solution) dans un ouvert borné connexe Ω ⊂ ℝⁿ, avec (aᵢⱼ) symétrique définie positive (elliptique) et u ∈ C²(Ω) ∩ C(Ω̄).",
+        axiomes: [
+            {
+                nom: "E1 — Ellipticité",
+                enonce: "(aᵢⱼ(x)) est définie positive en tout point x ∈ Ω."
+            },
+            {
+                nom: "E2 — Point de maximum intérieur",
+                enonce: "Si u atteint son maximum sur Ω en un point intérieur x₀, alors ∇u(x₀) = 0 et la hessienne D²u(x₀) est semi-définie négative."
+            },
+            {
+                nom: "E3 — Trace du produit",
+                enonce: "tr(A·D²u(x₀)) ≤ 0 pour A ≥ 0, D²u(x₀) ≤ 0."
+            }
+        ],
+        conclusion: "Principe du maximum faible : Lu ≥ 0 dans Ω (sur-harmonique généralisée) entraîne max_Ω̄u = max_{∂Ω}u (le maximum est atteint sur le bord). Principe du maximum fort (Hopf) : si de plus Lu ≥ 0 et u atteint son maximum en un point intérieur, u est constante. Conséquences : unicité pour le problème de Dirichlet, comparaison de solutions, estimation a priori ‖u‖_∞ ≤ ‖u‖_{∂Ω} + C‖f‖_∞ pour Lu = f."
+    },
     formulas: [
       {
         text: "Ce principe se généralise à des opérateurs elliptiques plus généraux (avec des termes d'ordre inférieur sous conditions de signe appropriées) et fournit un outil puissant pour obtenir des estimations a priori sur les solutions, sans les calculer explicitement.",
@@ -7777,6 +10097,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1582": {
     title: "EDP linéaires du premier ordre : méthode des caractéristiques",
     definition: "La méthode des caractéristiques permet de résoudre les EDP linéaires (et quasi-linéaires) du premier ordre du type a(x,t)∂u/∂x+b(x,t)∂u/∂t=c(x,t,u), en transformant l'EDP en un système d'équations différentielles ordinaires le long de courbes caractéristiques dans le plan (x,t), le long desquelles u se comporte de façon contrôlée.",
+    definition_axiomatique: {
+        cadre: "On considère l'EDP du premier ordre a(x, t)uₜ + b(x, t)uₓ = c(x, t, u).",
+        axiomes: [
+            {
+                nom: "C1 — Courbes caractéristiques",
+                enonce: "Courbes (x(s), t(s)) solutions de dx/ds = b, dt/ds = a."
+            },
+            {
+                nom: "C2 — Équation différentielle ordinaire",
+                enonce: "Le long d'une caractéristique, du/ds = c(x, t, u)."
+            },
+            {
+                nom: "C3 — Paramétrage",
+                enonce: "Chaque point du plan est sur une caractéristique issue de la donnée initiale."
+            }
+        ],
+        conclusion: "La méthode des caractéristiques ramène l'EDP à un système d'EDO le long des caractéristiques ; la solution est reconstruite par la donnée initiale. Pour l'équation de transport, les caractéristiques sont les droites x − ct = constante ; pour l'équation de Burgers uₜ + uuₓ = 0, elles sont des droites de pente u, qui peuvent se croiser (chocs)."
+    },
     formulas: [
       {
         text: "Le long d'une courbe caractéristique paramétrée par (dx/ds,dt/ds)=(a,b), l'équation devient du/ds=c, une équation différentielle ordinaire simple. La solution générale de l'EDP s'obtient en résolvant ce système caractéristique et en imposant la condition initiale.",
@@ -7828,6 +10166,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1583": {
     title: "Solutions faibles d'une EDP",
     definition: "Une solution faible d'une EDP est une fonction, souvent seulement dans un espace de Sobolev, vérifiant l'équation au sens des distributions (contre toute fonction test), plutôt qu'au sens classique (qui exigerait une régularité C^k). Cette notion permet de donner un sens rigoureux à des solutions non classiquement dérivables.",
+    definition_axiomatique: {
+        cadre: "On étudie Lu = f dans Ω, où u n'est a priori pas assez régulière pour vérifier l'équation ponctuellement (u ∈ L¹_{loc} ou H¹).",
+        axiomes: [
+            {
+                nom: "D1 — Sens distributionnel",
+                enonce: "∫_Ωu·ᵗLφ dx = ∫_Ωfφ dx pour tout φ ∈ C_c^∞(Ω) (ᵗL opérateur formel adjoint)."
+            },
+            {
+                nom: "D2 — Sens variationnel (elliptique)",
+                enonce: "u ∈ H₀¹(Ω) et a(u, v) = ℓ(v) pour tout v ∈ H₀¹(Ω) (forme bilinéaire associée à L)."
+            },
+            {
+                nom: "D3 — Équivalence avec le sens classique",
+                enonce: "Si u est assez régulière (u ∈ C²), les deux notions coïncident avec la solution classique."
+            }
+        ],
+        conclusion: "Une solution faible existe souvent (Lax-Milgram, méthode variationnelle) quand une solution classique n'est pas garantie a priori (données peu régulières, f ∈ H^{−1} ou L², coefficients discontinus). La régularité elliptique (De Giorgi-Nash-Moser, Schauder) montre ensuite que, sous des hypothèses de régularité sur L et f, la solution faible est en fait classique : « faible + régularité = fort »."
+    },
     formulas: [
       {
         text: "Toute solution classique est solution faible, mais la réciproque nécessite souvent des résultats de régularité elliptique supplémentaires pour remonter d'une solution faible à une solution classique. Les solutions faibles permettent de traiter des équations avec des discontinuités (chocs) ou des données irrégulières.",
@@ -7875,6 +10231,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1584": {
     title: "Formulation variationnelle et méthode de Galerkine",
     definition: "La méthode de Galerkine consiste à approcher la solution d'un problème variationnel posé dans un espace de Hilbert de dimension infinie par une suite de solutions de problèmes analogues posés dans des sous-espaces de dimension finie V_n (de dimension croissante), dont la réunion est dense dans l'espace complet.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un espace de Hilbert H (ex. H₀¹(Ω)) muni d'une forme bilinéaire continue coercive a(·,·) et d'une forme linéaire ℓ ; (V_n) est une suite croissante de sous-espaces de dimension finie avec ⋃V_n dense dans H.",
+        axiomes: [
+            {
+                nom: "G1 — Approximation interne",
+                enonce: "u_n ∈ V_n vérifie a(u_n, v) = ℓ(v) pour tout v ∈ V_n."
+            },
+            {
+                nom: "G2 — Existence et unicité en dimension finie",
+                enonce: "Lax-Milgram (ou inversion d'un système linéaire) sur V_n."
+            },
+            {
+                nom: "G3 — Céa",
+                enonce: "‖u − u_n‖ ≤ (M/α)inf_{v∈V_n}‖u − v‖ (M continuité, α coercivité de a)."
+            }
+        ],
+        conclusion: "Méthode de Galerkine : on résout le problème projeté sur des sous-espaces de dimension finie, puis on passe à la limite n → ∞ grâce à la densité (⋃V_n dense) et au lemme de Céa qui contrôle l'erreur par la meilleure approximation dans V_n. Base théorique de la méthode des éléments finis (V_n = fonctions affines par morceaux sur un maillage) : le choix des V_n détermine la vitesse de convergence."
+    },
     formulas: [
       {
         text: "Sous les hypothèses du théorème de Lax-Milgram (coercivité, continuité), les solutions approchées u_n dans V_n convergent vers la solution exacte u du problème variationnel complet lorsque n→+∞, fournissant à la fois une preuve constructive d'existence et un schéma numérique.",
@@ -7922,6 +10296,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1585": {
     title: "Classification des EDP du second ordre",
     definition: "Une EDP linéaire du second ordre à deux variables, de la forme A∂²u/∂x²+2B∂²u/∂x∂y+C∂²u/∂y²+...=0, se classe selon le signe du discriminant B²-AC (analogue à la classification des coniques) : elliptique si B²-AC<0 (comme Laplace), parabolique si B²-AC=0 (comme la chaleur), hyperbolique si B²-AC>0 (comme les ondes).",
+    definition_axiomatique: {
+        cadre: "On travaille avec une EDP linéaire du second ordre Σaᵢⱼ(x)∂ᵢⱼu + (termes d'ordre inférieur) = f, (aᵢⱼ) symétrique réelle ; Δ = discriminant de la forme quadratique associée à (aᵢⱼ) (valeurs propres λᵢ).",
+        axiomes: [
+            {
+                nom: "E1 — Elliptique",
+                enonce: "Toutes les valeurs propres λᵢ sont de même signe non nul (forme définie)."
+            },
+            {
+                nom: "P1 — Parabolique",
+                enonce: "Une valeur propre est nulle, les autres de même signe (forme dégénérée)."
+            },
+            {
+                nom: "H1 — Hyperbolique",
+                enonce: "Une valeur propre est de signe opposé aux autres, toutes non nulles."
+            }
+        ],
+        conclusion: "Exemples canoniques : Laplace/Poisson (elliptique, −Δu = f), chaleur (parabolique, ∂_tu − Δu = f, où t joue le rôle d'une variable dégénérée), ondes (hyperbolique, ∂_t²u − Δu = f). Le type détermine la nature du problème bien posé : Dirichlet/Neumann pour l'elliptique, Cauchy avec donnée initiale pour parabolique et hyperbolique ; les caractéristiques n'existent que pour les hyperboliques (propagation à vitesse finie) et paraboliques dégénérées (direction du temps)."
+    },
     formulas: [
       {
         text: "Cette classification détermine qualitativement le comportement des solutions : les équations elliptiques ont des solutions régulières (effet régularisant), les paraboliques ont un effet régularisant en temps mais une propagation à vitesse infinie, et les hyperboliques propagent l'information à vitesse finie sans régularisation.",
@@ -7969,6 +10361,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1586": {
     title: "Fonctions de Green",
     definition: "La fonction de Green G(x,y) associée à un opérateur elliptique L sur un domaine Ω (avec conditions au bord données) est la solution fondamentale de LG(·,y)=δ_y avec les conditions au bord homogènes correspondantes. Elle permet d'exprimer la solution du problème avec second membre général f comme u(x)=∫_Ω G(x,y)f(y)dy.",
+    definition_axiomatique: {
+        cadre: "On étudie un problème linéaire Lu = f avec des conditions aux limites homogènes sur un intervalle [a ; b] ; L est un opérateur différentiel.",
+        axiomes: [
+            {
+                nom: "G1 — Définition",
+                enonce: "G(x, y) vérifie L_x G(x, y) = δ_y(x) avec les conditions aux limites."
+            },
+            {
+                nom: "G2 — Représentation",
+                enonce: "u(x) = ∫ₐᵇ G(x, y)f(y)dy."
+            },
+            {
+                nom: "G3 — Symétrie",
+                enonce: "Si L est autoadjoint, G(x, y) = G(y, x)."
+            }
+        ],
+        conclusion: "La fonction de Green est la réponse à une impulsion unité δ_y ; la solution pour un second membre quelconque s'obtient par superposition. Exemple : −u'' = f sur [0 ; 1], u(0) = u(1) = 0 a pour fonction de Green G(x, y) = x(1 − y) si x ≤ y, y(1 − x) si x ≥ y."
+    },
     formulas: [
       {
         text: "L'existence de la fonction de Green transforme la résolution d'une EDP avec second membre quelconque en un simple calcul intégral, une fois G connue. Pour de nombreux domaines simples (demi-espace, boule, disque), G peut être calculée explicitement par des méthodes de symétrisation (méthode des images).",
@@ -8012,6 +10422,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1587": {
     title: "Noyau de la chaleur",
     definition: "Le noyau de la chaleur sur ℝⁿ est la fonction K_t(x)=(4πt)^{-n/2}e^{-|x|²/(4t)} pour t>0, solution fondamentale de l'équation de la chaleur ∂u/∂t=Δu avec donnée initiale δ_0. La solution générale avec donnée initiale u_0 s'obtient par convolution u(t,·)=K_t*u_0.",
+    definition_axiomatique: {
+        cadre: "On étudie l'équation de la chaleur uₜ = k uₓₓ sur ℝ × ]0 ; +∞[, u(x, 0) = u₀(x) ∈ L¹ ∩ L².",
+        axiomes: [
+            {
+                nom: "A1 — Transformée en x",
+                enonce: "û(ξ, t) = ∫u(x, t)e^{−iξx}dx."
+            },
+            {
+                nom: "A2 — Dérivation",
+                enonce: "ℱ(uₓₓ) = −ξ²û."
+            },
+            {
+                nom: "A3 — EDO en t",
+                enonce: "ût = −kξ²û, û(ξ, 0) = û₀(ξ)."
+            }
+        ],
+        conclusion: "û(ξ, t) = û₀(ξ)e^{−kξ²t}, donc u(·, t) = Gₜ ∗ u₀ avec le noyau de la chaleur Gₜ(x) = (4πkt)^{−1/2}e^{−x²/4kt} (transformée de e^{−kξ²t}). La solution est C^∞ pour t > 0 même si u₀ est seulement L¹ (effet régularisant), positive si u₀ ≥ 0, et l'énergie décroît. La même méthode résout l'équation de Laplace dans un demi-plan et les équations dispersives."
+    },
     formulas: [
       {
         text: "Le noyau de la chaleur est une gaussienne dont la variance croît linéairement avec le temps (2nt), s'aplatissant progressivement tout en conservant une intégrale totale égale à 1 (conservation de la « masse thermique » totale). C'est une approximation de l'unité au sens des distributions quand t→0⁺.",
@@ -8055,6 +10483,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1588": {
     title: "Inégalités de Poincaré",
     definition: "L'inégalité de Poincaré affirme que sur un domaine borné Ω, il existe une constante C(Ω) telle que ||u||_{L²(Ω)}≤C(Ω)||∇u||_{L²(Ω)} pour toute fonction u∈H^1_0(Ω) (nulle au bord). Elle contrôle la norme L² d'une fonction par la norme de son gradient, propriété non triviale nécessitant la condition au bord ou une hypothèse de moyenne nulle.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un ouvert borné connexe Ω ⊂ ℝⁿ (à bord lipschitzien) et u ∈ H₀¹(Ω) (ou H¹(Ω) avec u de moyenne nulle).",
+        axiomes: [
+            {
+                nom: "P1 — Compacité",
+                enonce: "L'injection H¹(Ω) ↪ L²(Ω) est compacte (Rellich, Ω borné régulier)."
+            },
+            {
+                nom: "P2 — Absence de minimiseur non trivial",
+                enonce: "Si ‖∇u‖₂ = 0 et u ∈ H₀¹, alors u = 0 (Ω connexe)."
+            },
+            {
+                nom: "P3 — Compacité + contradiction",
+                enonce: "Une suite minimisant ‖∇u‖₂/‖u‖₂ à ‖u‖₂ = 1 converge (sous-suite) vers un minimiseur non nul."
+            }
+        ],
+        conclusion: "Inégalité de Poincaré : il existe C_Ω > 0 (dépendant du diamètre de Ω) tel que ‖u‖_{L²(Ω)} ≤ C_Ω‖∇u‖_{L²(Ω)} pour tout u ∈ H₀¹(Ω). La meilleure constante est 1/√λ₁ (λ₁ première valeur propre de Dirichlet du laplacien). Elle assure la coercivité de a(u,v) = ∫∇u·∇v sur H₀¹ (Lax-Milgram) et donc l'existence-unicité pour −Δu = f, u|_{∂Ω} = 0. Variante de Poincaré-Wirtinger : sur H¹(Ω) avec ∫u = 0 (Ω connexe)."
+    },
     formulas: [
       {
         text: "Cette inégalité est cruciale pour établir la coercivité de la forme bilinéaire associée au laplacien (a(u,v)=∫∇u·∇v) sur H^1_0(Ω), condition nécessaire pour appliquer le théorème de Lax-Milgram et démontrer l'existence de solutions au problème de Dirichlet.",
@@ -8102,6 +10548,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1589": {
     title: "Méthode des éléments finis : principe général",
     definition: "La méthode des éléments finis est une technique numérique de résolution des EDP consistant à discrétiser le domaine Ω en petits éléments (triangles, quadrilatères en 2D), et à approcher la solution du problème variationnel dans un espace de dimension finie de fonctions polynomiales par morceaux (méthode de Galerkine avec un choix spécifique de sous-espaces).",
+    definition_axiomatique: {
+        cadre: "On approche la solution faible u ∈ H₀¹(Ω) de a(u, v) = ℓ(v) (formulation variationnelle) par un sous-espace V_h engendré par des fonctions de base φᵢ associées à un maillage de pas h.",
+        axiomes: [
+            {
+                nom: "F1 — Maillage et base",
+                enonce: "Ω est découpé en éléments (triangles, tétraèdres…), V_h = Vect(φᵢ) où φᵢ sont affines (ou polynomiales de bas degré) par morceaux, associées aux nœuds du maillage."
+            },
+            {
+                nom: "F2 — Système linéaire",
+                enonce: "u_h = Σuᵢφᵢ résout le système Ku = F, K_ij = a(φᵢ, φⱼ) (matrice de rigidité), F_i = ℓ(φᵢ)."
+            },
+            {
+                nom: "F3 — Convergence (Céa)",
+                enonce: "‖u − u_h‖ ≤ (M/α)inf_{v∈V_h}‖u − v‖ → 0 quand h → 0."
+            }
+        ],
+        conclusion: "La méthode des éléments finis (Galerkine avec des fonctions à support local) donne une matrice K creuse (φᵢ, φⱼ à supports disjoints la plupart du temps), exploitable numériquement même pour des géométries complexes (contrairement aux différences finies, limitées aux grilles régulières). L'erreur d'interpolation contrôle la vitesse de convergence : pour des éléments P1 et u ∈ H², ‖u − u_h‖_{H¹} = O(h)."
+    },
     formulas: [
       {
         text: "Les fonctions de base sont typiquement choisies « chapeaux » (affines par morceaux, valant 1 en un nœud du maillage et 0 aux autres), ce qui rend le système linéaire résultant creux (peu d'interactions entre nœuds éloignés), facilitant grandement sa résolution numérique.",
@@ -8149,6 +10613,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1590": {
     title: "Espérance conditionnelle : définition rigoureuse",
     definition: "L'espérance conditionnelle E(X|G) d'une variable aléatoire intégrable X par rapport à une sous-tribu G est l'unique (à égalité presque sûre près) variable aléatoire G-mesurable Y telle que ∫_A Y dP=∫_A X dP pour tout A∈G. Son existence est garantie par le théorème de Radon-Nikodym (ou, dans L², par projection orthogonale via Riesz-Fréchet).",
+    definition_axiomatique: {
+        cadre: "On travaille sur (Ω, 𝓐, ℙ) avec X ∈ L¹(ℙ) et 𝓖 ⊂ 𝓐 une sous-tribu.",
+        axiomes: [
+            {
+                nom: "G1 — Mesurabilité",
+                enonce: "E(X | 𝓖) est 𝓖-mesurable."
+            },
+            {
+                nom: "G2 — Propriété caractéristique",
+                enonce: "∫_AE(X | 𝓖)dℙ = ∫_AXdℙ pour tout A ∈ 𝓖."
+            },
+            {
+                nom: "G3 — Existence et unicité (Radon-Nikodym)",
+                enonce: "La mesure signée A ↦ ∫_AXdℙ (A ∈ 𝓖) est absolument continue par rapport à ℙ|_𝓖 ; sa densité est E(X | 𝓖), unique ℙ-presque sûrement."
+            }
+        ],
+        conclusion: "E(X | 𝓖) est la meilleure approximation de X par une variable 𝓖-mesurable, au sens L² (projection orthogonale de X sur L²(𝓖) si X ∈ L²) : elle généralise l'espérance conditionnelle élémentaire E(X | Y = y) en la rendant valide même quand ℙ(Y = y) = 0 (cas continu). Si 𝓖 = σ(Y), on note E(X | Y) = φ(Y) pour une fonction borélienne φ (lemme de Doob-Dynkin)."
+    },
     formulas: [
       {
         text: "Dans L²(Ω), l'espérance conditionnelle E(X|G) est exactement la projection orthogonale de X sur le sous-espace fermé L²(Ω,G,P) des variables G-mesurables de carré intégrable, ce qui en fait la meilleure approximation de X (au sens L²) par une variable G-mesurable.",
@@ -8200,6 +10682,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1591": {
     title: "Propriétés de l'espérance conditionnelle",
     definition: "L'espérance conditionnelle vérifie de nombreuses propriétés analogues à l'espérance simple : linéarité, positivité, et surtout la propriété de la tour E(E(X|G))=E(X), ainsi que E(Y·X|G)=Y·E(X|G) pour Y une variable G-mesurable bornée (« sortir ce qui est connu »).",
+    definition_axiomatique: {
+        cadre: "On travaille sur (Ω, 𝓐, ℙ) avec X, Y ∈ L¹ et des sous-tribus 𝓖 ⊂ 𝓗 ⊂ 𝓐.",
+        axiomes: [
+            {
+                nom: "L1 — Linéarité",
+                enonce: "E(aX + bY | 𝓖) = aE(X | 𝓖) + bE(Y | 𝓖)."
+            },
+            {
+                nom: "T1 — Tour",
+                enonce: "E(E(X | 𝓗) | 𝓖) = E(X | 𝓖) (𝓖 ⊂ 𝓗)."
+            },
+            {
+                nom: "S1 — Sortie du connu",
+                enonce: "Si Z est 𝓖-mesurable et bornée, E(ZX | 𝓖) = ZE(X | 𝓖)."
+            }
+        ],
+        conclusion: "Conséquences : E(E(X | 𝓖)) = E(X) (cas 𝓖 = {∅, Ω} de la propriété de tour) ; positivité (X ≥ 0 ⟹ E(X | 𝓖) ≥ 0) ; Jensen conditionnel φ(E(X|𝓖)) ≤ E(φ(X)|𝓖) pour φ convexe ; si X est indépendante de 𝓖, E(X | 𝓖) = E(X) (constante). Ces règles font de l'espérance conditionnelle un opérateur de projection linéaire, positif, contractant en norme Lᵖ (p ≥ 1)."
+    },
     formulas: [
       {
         text: "Si G_1⊂G_2 (G_1 moins d'information que G_2), la propriété des tours emboîtées donne E(E(X|G_2)|G_1)=E(X|G_1) : conditionner successivement par rapport à deux tribus emboîtées équivaut à conditionner directement par rapport à la plus petite.",
@@ -8243,6 +10743,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1592": {
     title: "Martingales à temps discret : définition rigoureuse",
     definition: "Une suite (X_n) adaptée à une filtration (F_n) est une martingale (au sens rigoureux, utilisant l'espérance conditionnelle formelle) si X_n est intégrable pour tout n et E(X_{n+1}|F_n)=X_n presque sûrement. Cette définition rigoureuse généralise et précise la notion vue de façon informelle en L3.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝒜, (ℱₙ)ₙ, P) et une suite (Xₙ) de variables aléatoires.",
+        axiomes: [
+            {
+                nom: "M1 — Adaptée",
+                enonce: "Xₙ est ℱₙ-mesurable."
+            },
+            {
+                nom: "M2 — Intégrable",
+                enonce: "E|Xₙ| < ∞."
+            },
+            {
+                nom: "M3 — Propriété de martingale",
+                enonce: "E(Xₙ₊₁ | ℱₙ) = Xₙ."
+            }
+        ],
+        conclusion: "(Xₙ) est une martingale (sous-martingale si E(Xₙ₊₁|ℱₙ) ≥ Xₙ, sur-martingale si ≤). E(Xₙ) est constante. Exemples : Sₙ = ΣYᵢ avec E(Yᵢ) = 0 ; Sₙ² − n (marche aléatoire simple) ; Mₙ = ∏Yᵢ (E(Yᵢ) = 1) ; E(X | ℱₙ) (martingale de Doob) ; proportion de boules dans une urne de Pólya. Modèle d'un jeu équitable."
+    },
     formulas: [
       {
         text: "Une martingale conserve son espérance au cours du temps (E(X_n)=E(X_0)) et vérifie plus généralement E(X_n|F_m)=X_m pour tout n≥m (propriété des tours emboîtées appliquée successivement), formalisant l'idée de « jeu équitable » à tout horizon temporel.",
@@ -8294,6 +10812,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1593": {
     title: "Théorème d'arrêt de Doob",
     definition: "Un temps d'arrêt τ par rapport à une filtration (F_n) est une variable aléatoire à valeurs dans ℕ∪{+∞} telle que {τ≤n}∈F_n pour tout n (la décision de s'arrêter à l'instant n ne dépend que de l'information disponible à cet instant). Le théorème d'arrêt de Doob affirme que sous des hypothèses adéquates (τ borné, ou martingale bornée), E(X_τ)=E(X_0) pour une martingale (X_n) arrêtée au temps τ.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé filtré (Ω, 𝒜, (ℱₙ), P) ; τ : Ω → ℕ ∪ {+∞}.",
+        axiomes: [
+            {
+                nom: "A1 — Temps d'arrêt",
+                enonce: "{τ ≤ n} ∈ ℱₙ pour tout n : la décision d'arrêter à n ne dépend que du passé."
+            },
+            {
+                nom: "A2 — Tribu du passé",
+                enonce: "ℱ_τ = {A : A ∩ {τ ≤ n} ∈ ℱₙ ∀n}."
+            },
+            {
+                nom: "A3 — Martingale arrêtée",
+                enonce: "(X_{n∧τ}) est une martingale si (Xₙ) l'est."
+            }
+        ],
+        conclusion: "Théorème d'arrêt (Doob) : si (Xₙ) est une martingale et τ un temps d'arrêt borné (ou avec E τ < ∞ et incréments bornés, ou (X_{n∧τ}) uniformément intégrable), alors E(X_τ) = E(X₀). Application : ruine du joueur (P(ruine) par martingale (q/p)^{S_n}), identité de Wald E(S_τ) = E(τ)E(Y). Un jeu équitable reste équitable avec une stratégie d'arrêt."
+    },
     formulas: [
       {
         text: "Ce théorème permet de calculer des espérances de quantités arrêtées à des temps aléatoires (comme le premier instant où une marche aléatoire atteint un certain seuil), généralisant la conservation de l'espérance à des horizons temporels aléatoires plutôt que déterministes.",
@@ -8337,6 +10873,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1594": {
     title: "Inégalités de martingales (Doob)",
     definition: "Les inégalités maximales de Doob contrôlent le comportement du maximum d'une martingale (ou sous-martingale positive) sur un intervalle de temps : pour p>1, E(sup_{k≤n}|X_k|^p)≤(p/(p-1))^p E(|X_n|^p) (inégalité L^p de Doob), et pour tout λ>0, P(sup_{k≤n}X_k≥λ)≤E(X_n^+)/λ (inégalité maximale, cas p=1).",
+    definition_axiomatique: {
+        cadre: "On travaille avec une sous-martingale positive (Xₙ) (ou une martingale |Xₙ|) et λ > 0.",
+        axiomes: [
+            {
+                nom: "D1 — Temps d'arrêt",
+                enonce: "τ = inf{k : X_k ≥ λ} est un temps d'arrêt."
+            },
+            {
+                nom: "D2 — Arrêt",
+                enonce: "E(X_{τ∧n}) ≤ E(X_n)."
+            },
+            {
+                nom: "D3 — Markov",
+                enonce: "λP(max_{k≤n}X_k ≥ λ) ≤ E(X_n 1_{max ≥ λ}) ≤ E(X_n)."
+            }
+        ],
+        conclusion: "Inégalité maximale de Doob : λP(max_{k≤n}X_k ≥ λ) ≤ E(X_n⁺). Version Lᵖ (p > 1) : ‖max_{k≤n}|X_k|‖_p ≤ (p/(p − 1))‖X_n‖_p. Ces inégalités contrôlent le supremum d'une martingale par sa valeur finale ; elles permettent de démontrer la convergence des martingales L² et Kolmogorov (inégalité sur les sommes de variables indépendantes)."
+    },
     formulas: [
       {
         text: "Ces inégalités permettent de contrôler uniformément le comportement de toute la trajectoire d'une martingale à partir de sa seule valeur finale, un renforcement considérable par rapport à l'inégalité de Markov appliquée à un instant fixé isolément.",
@@ -8380,6 +10934,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1595": {
     title: "Théorème de convergence des martingales",
     definition: "Le théorème de convergence presque sûre des martingales (Doob) affirme que toute martingale (X_n) bornée dans L¹ (sup_n E(|X_n|)<+∞) converge presque sûrement vers une variable aléatoire intégrable X_∞. Si de plus la martingale est bornée dans L² (ou uniformément intégrable), la convergence a également lieu dans L¹ (ou L²).",
+    definition_axiomatique: {
+        cadre: "On travaille avec une sous-martingale (Xₙ) sur (Ω, 𝒜, (ℱₙ), P) bornée dans L¹ : sup E|Xₙ| < ∞.",
+        axiomes: [
+            {
+                nom: "C1 — Nombre de montées",
+                enonce: "U_N[a, b] : nombre de traversées montantes de [a ; b] avant N."
+            },
+            {
+                nom: "C2 — Inégalité de Doob",
+                enonce: "(b − a)E U_N[a, b] ≤ E(X_N − a)⁺."
+            },
+            {
+                nom: "C3 — Critère de convergence",
+                enonce: "Xₙ converge dans ℝ si et seulement si le nombre de montées est fini pour tout a < b."
+            }
+        ],
+        conclusion: "Théorème de convergence de Doob : Xₙ converge presque sûrement vers une variable X_∞ intégrable. Si (Xₙ) est bornée dans L² (ou Lᵖ, p > 1), la convergence a lieu aussi dans L² (Lᵖ) ; si elle est uniformément intégrable, dans L¹. Application : loi 0-1 de Lévy, loi forte des grands nombres, convergence des martingales de Galton-Watson normalisées."
+    },
     formulas: [
       {
         text: "Ce théorème repose sur le lemme des « montées et descentes » (upcrossing lemma), contrôlant le nombre de fois qu'une martingale traverse un intervalle donné, argument combinatoire ingénieux à la base de la démonstration de la convergence presque sûre.",
@@ -8431,6 +11003,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1596": {
     title: "Mouvement brownien : définition et construction",
     definition: "Le mouvement brownien standard (B_t)_{t≥0} est un processus stochastique à trajectoires continues, tel que B_0=0, à accroissements indépendants et stationnaires, avec B_t-B_s de loi normale N(0,t-s) pour s<t. Son existence rigoureuse (construction de Wiener) nécessite un argument non trivial de continuité des trajectoires.",
+    definition_axiomatique: {
+        cadre: "Le processus de Wiener (mouvement brownien standard) est un processus (W_t)_{t≥0} réel.",
+        axiomes: [
+            {
+                nom: "B1 — Origine",
+                enonce: "W₀ = 0 presque sûrement."
+            },
+            {
+                nom: "B2 — Accroissements indépendants et gaussiens",
+                enonce: "Pour s < t, W_t − W_s est indépendant de σ(W_u, u ≤ s) et de loi N(0, t − s)."
+            },
+            {
+                nom: "B3 — Trajectoires continues",
+                enonce: "t ↦ W_t(ω) est continue presque sûrement."
+            }
+        ],
+        conclusion: "Le mouvement brownien existe (Wiener, Lévy-Ciesielski) et est unique en loi ; c'est un processus gaussien de covariance E(W_sW_t) = min(s, t). Propriétés : martingale continue, propriété de Markov forte, invariance d'échelle (W_{ct}/√c), variation quadratique [W]_t = t, trajectoires nulle part dérivables et de variation infinie, loi du logarithme itéré. Limite d'échelle de la marche aléatoire (Donsker)."
+    },
     formulas: [
       {
         text: "Le mouvement brownien est l'unique processus (à loi près) vérifiant simultanément ces propriétés, et sert de modèle limite universel (analogue du théorème central limite, mais pour des processus entiers) pour de nombreuses marches aléatoires renormalisées (théorème de Donsker).",
@@ -8482,6 +11072,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1597": {
     title: "Propriétés trajectorielles du mouvement brownien",
     definition: "Les trajectoires du mouvement brownien sont presque sûrement continues (par construction) mais presque sûrement nulle part dérivables, un résultat remarquable illustrant l'irrégularité extrême de ce processus malgré sa continuité. Elles sont höldériennes d'exposant strictement inférieur à 1/2, mais jamais d'exposant supérieur ou égal.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un mouvement brownien standard (W_t)_{t≥0}.",
+        axiomes: [
+            {
+                nom: "H1 — Continuité höldérienne",
+                enonce: "Presque sûrement, t ↦ W_t est höldérienne d'exposant α pour tout α < 1/2 (Kolmogorov-Chentsov, à partir de E|W_t − W_s|^{2k} = C_k|t−s|^k)."
+            },
+            {
+                nom: "N1 — Non-dérivabilité",
+                enonce: "Presque sûrement, t ↦ W_t n'est dérivable en aucun point (Paley-Wiener-Zygmund)."
+            },
+            {
+                nom: "V1 — Variation",
+                enonce: "Presque sûrement, W a une variation quadratique ⟨W⟩_t = t sur [0 ; t] et une variation totale infinie sur tout intervalle non trivial."
+            }
+        ],
+        conclusion: "Les trajectoires browniennes sont continues mais extrêmement irrégulières : höldériennes d'exposant < 1/2 mais pas 1/2 (loi du logarithme itéré de Khintchine précise l'oscillation exacte : limsup W_t/√(2t ln ln(1/t)) = 1 en 0). D'autres propriétés : l'ensemble des zéros est fermé, non dénombrable, de mesure de Lebesgue nulle (ensemble parfait sans point isolé) ; le maximum sur [0;t] a même loi que |W_t| (principe de réflexion)."
+    },
     formulas: [
       {
         text: "Le mouvement brownien possède la propriété de Markov (le futur ne dépend du passé qu'à travers le présent) et même la propriété de Markov forte (valable également pour des temps d'arrêt aléatoires). Ses trajectoires ont une variation quadratique finie (égale à t sur [0,t]) mais une variation totale infinie sur tout intervalle.",
@@ -8529,6 +11137,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1598": {
     title: "Processus stochastiques : définition générale",
     definition: "Un processus stochastique est une famille de variables aléatoires (X_t)_{t∈T} indexée par un ensemble T (souvent le temps, discret ou continu), définies sur un même espace de probabilité. Sa loi est entièrement déterminée par ses lois fini-dimensionnelles (lois des vecteurs (X_{t_1},...,X_{t_n}) pour tout choix fini d'instants).",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace probabilisé (Ω, 𝒜, P) ; T est un ensemble d'indices (temps).",
+        axiomes: [
+            {
+                nom: "S1 — Processus",
+                enonce: "Un processus stochastique est une famille (X_t)_{t∈T} de variables aléatoires sur (Ω, 𝒜, P)."
+            },
+            {
+                nom: "S2 — Lois fini-dimensionnelles",
+                enonce: "La famille des lois (X_{t₁}, …, X_{t_n}) de tous les n-uplets détermine la loi du processus."
+            },
+            {
+                nom: "S3 — Filtration",
+                enonce: "(ℱ_t) est croissante ; X est adapté si X_t est ℱ_t-mesurable."
+            }
+        ],
+        conclusion: "Théorème d'extension de Kolmogorov : toute famille cohérente (compatible par marginalisation et permutation) de lois fini-dimensionnelles est la famille des lois fini-dimensionnelles d'un processus. La trajectoire t ↦ X_t(ω) est un objet aléatoire. Exemples : suites iid, marche aléatoire, processus de Poisson, mouvement brownien, chaînes de Markov, martingales."
+    },
     formulas: [
       {
         text: "Le théorème d'extension de Kolmogorov garantit que, sous une condition de cohérence des lois fini-dimensionnelles, il existe bien un processus stochastique (sur un espace de probabilité adapté) ayant ces lois fini-dimensionnelles prescrites, résultat fondamental d'existence.",
@@ -8584,6 +11210,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1599": {
     title: "Filtration et processus adaptés",
     definition: "Une filtration (F_t)_{t∈T} est une famille croissante de sous-tribus de F, modélisant l'information disponible au cours du temps. Un processus (X_t) est adapté à cette filtration si X_t est F_t-mesurable pour tout t (la valeur du processus à l'instant t ne dépend que de l'information disponible jusqu'à cet instant).",
+    definition_axiomatique: {
+        cadre: "On travaille sur (Ω, 𝓐, ℙ) avec une famille croissante de sous-tribus (𝓕_t)_{t∈T}.",
+        axiomes: [
+            {
+                nom: "F1 — Croissance",
+                enonce: "𝓕_s ⊂ 𝓕_t pour s ≤ t."
+            },
+            {
+                nom: "F2 — Filtration naturelle",
+                enonce: "𝓕_t^X = σ(X_s, s ≤ t)."
+            },
+            {
+                nom: "F3 — Adaptation",
+                enonce: "X est adapté à (𝓕_t) si X_t est 𝓕_t-mesurable pour tout t."
+            }
+        ],
+        conclusion: "𝓕_t représente l'information disponible à l'instant t. Un processus adapté ne peut pas « voir le futur » (contrairement à un processus anticipant). Les conditions habituelles ajoutent la complétude (𝓕₀ contient les négligeables) et la continuité à droite (⋂_{s>t}𝓕_s = 𝓕_t), utiles pour la régularité des trajectoires et l'existence de modifications càdlàg."
+    },
     formulas: [
       {
         text: "La filtration naturelle d'un processus (X_t) est F_t=σ(X_s, s≤t), la plus petite filtration rendant le processus adapté. Un processus adapté à sa propre filtration naturelle est dit non anticipant (il n'utilise pas d'information future).",
@@ -8635,6 +11279,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1600": {
     title: "Intégrale stochastique d'Itô",
     definition: "L'intégrale stochastique d'Itô ∫₀ᵗ H_s dB_s, pour un processus H adapté et de carré intégrable, est définie comme limite en probabilité (ou en L²) de sommes de Riemann « à gauche » (évaluant H au début de chaque sous-intervalle), construction rendue nécessaire par la variation totale infinie des trajectoires browniennes.",
+    definition_axiomatique: {
+        cadre: "On travaille sur (Ω, 𝒜, (ℱ_t), P) avec un mouvement brownien (W_t) adapté à (ℱ_t) et un processus adapté H ∈ L²(Ω × [0 ; T]).",
+        axiomes: [
+            {
+                nom: "I1 — Processus étagés",
+                enonce: "Pour H = Σhᵢ1_{]tᵢ,tᵢ₊₁]}, ∫H dW = Σhᵢ(W_{tᵢ₊₁} − W_{tᵢ})."
+            },
+            {
+                nom: "I2 — Isométrie d'Itô",
+                enonce: "E((∫₀ᵀH dW)²) = E∫₀ᵀH_t²dt."
+            },
+            {
+                nom: "I3 — Prolongement",
+                enonce: "L'intégrale s'étend par densité à L²(Ω × [0 ; T]) ; t ↦ ∫₀ᵗH dW est une martingale continue."
+            }
+        ],
+        conclusion: "Formule d'Itô : pour f de classe C², f(W_t) = f(0) + ∫f'(W_s)dW_s + ½∫f''(W_s)ds : le terme correctif ½f'' vient de [W]_t = t. Ex. : ∫₀ᵗW dW = (W_t² − t)/2. Elle fonde le calcul stochastique : équations différentielles stochastiques, formule de Black-Scholes (mathématiques financières)."
+    },
     formulas: [
       {
         text: "Contrairement à l'intégrale de Riemann-Stieltjes classique, le choix du point d'évaluation (gauche plutôt que milieu ou droite) change fondamentalement la valeur de l'intégrale stochastique, en raison de la variation quadratique non nulle du mouvement brownien (à la différence des fonctions à variation bornée classiques).",
@@ -8682,6 +11344,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1601": {
     title: "Chaînes de Markov : théorie ergodique approfondie",
     definition: "Pour une chaîne de Markov irréductible et apériodique sur un espace d'états fini ou dénombrable, le théorème ergodique affirme la convergence de la loi de la chaîne vers une unique loi stationnaire π, indépendamment de la loi initiale, ainsi que la convergence presque sûre de la fréquence empirique de visite de chaque état vers sa probabilité stationnaire.",
+    definition_axiomatique: {
+        cadre: "On étudie une chaîne de Markov irréductible, récurrente positive, de loi stationnaire π, et une fonction f intégrable pour π.",
+        axiomes: [
+            {
+                nom: "E1 — Irréductibilité",
+                enonce: "Tous les états communiquent."
+            },
+            {
+                nom: "E2 — Récurrence positive",
+                enonce: "Le temps moyen de retour en i est fini : E_i(T_i) < ∞ et π_i = 1/E_i(T_i)."
+            },
+            {
+                nom: "E3 — Loi forte des grands nombres pour les cycles",
+                enonce: "Les excursions successives hors de i sont indépendantes et de même loi."
+            }
+        ],
+        conclusion: "Théorème ergodique : (1/n)Σ_{k<n} f(X_k) → Σ_i π_i f(i) presque sûrement : la moyenne temporelle égale la moyenne spatiale. En particulier la proportion de temps passé en i tend vers π_i. Il fonde les méthodes de Monte-Carlo par chaînes de Markov (MCMC)."
+    },
     formulas: [
       {
         text: "La vitesse de convergence vers la loi stationnaire est liée au second plus grand module des valeurs propres de la matrice de transition (trou spectral) : plus ce trou est grand, plus la convergence est rapide, résultat fondamental pour l'analyse des algorithmes de Monte-Carlo par chaînes de Markov (MCMC).",
@@ -8729,6 +11409,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1602": {
     title: "Statistique bayésienne : introduction",
     definition: "L'approche bayésienne de la statistique considère le paramètre inconnu θ comme une variable aléatoire, munie d'une loi a priori π(θ) reflétant les croyances avant observation des données. Après observation des données x, la loi a posteriori π(θ|x) est obtenue via la formule de Bayes : π(θ|x)∝L(x|θ)π(θ), où L est la vraisemblance.",
+    definition_axiomatique: {
+        cadre: "On modélise un paramètre θ comme une variable aléatoire, de loi a priori π(θ), et les données x comme issues de la vraisemblance f(x | θ).",
+        axiomes: [
+            {
+                nom: "B1 — Loi conjointe",
+                enonce: "La loi conjointe de (θ, X) est π(θ)f(x | θ)."
+            },
+            {
+                nom: "B2 — Formule de Bayes",
+                enonce: "π(θ | x) = π(θ)f(x|θ)/∫π(θ')f(x|θ')dθ' (loi a posteriori, à une constante de normalisation près)."
+            },
+            {
+                nom: "B3 — Actualisation séquentielle",
+                enonce: "π(θ | x₁, …, xₙ) se recalcule en traitant chaque observation successivement, la postérieure d'une étape servant de priori à la suivante."
+            }
+        ],
+        conclusion: "Contrairement à l'approche fréquentiste (θ fixé inconnu, l'aléa porte sur l'échantillonnage), l'approche bayésienne traite θ comme aléatoire et combine l'information a priori (croyance avant observation) avec la vraisemblance des données pour produire une distribution a posteriori complète, dont on peut extraire une estimation ponctuelle, un intervalle de crédibilité, ou l'utiliser pour prédire de nouvelles observations (loi prédictive ∫f(x'|θ)π(θ|x)dθ)."
+    },
     formulas: [
       {
         text: "Cette approche contraste avec la statistique fréquentiste (classique), où θ est considéré comme un paramètre fixe inconnu (non aléatoire). L'approche bayésienne permet d'incorporer naturellement des connaissances a priori et fournit directement une distribution complète d'incertitude sur θ, plutôt qu'une simple estimation ponctuelle.",
@@ -8776,6 +11474,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1603": {
     title: "Loi a priori et loi a posteriori",
     definition: "La loi a priori π(θ) encode l'information (ou l'absence d'information, via une loi dite non informative) disponible sur le paramètre θ avant observation des données. La loi a posteriori π(θ|x), obtenue par la formule de Bayes, combine cette information a priori avec l'information apportée par les données observées via la vraisemblance.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un modèle f(x | θ) et une famille de lois a priori.",
+        axiomes: [
+            {
+                nom: "C1 — Priori conjuguée",
+                enonce: "Une famille de lois a priori est conjuguée au modèle f(·|θ) si la loi a posteriori appartient à la même famille (paramètres mis à jour explicitement)."
+            },
+            {
+                nom: "N1 — Priori non informative",
+                enonce: "Une loi a priori censée représenter une absence d'information préalable (Jeffreys, uniforme impropre)."
+            },
+            {
+                nom: "H1 — Hyperparamètres",
+                enonce: "Les paramètres de la loi a priori elle-même, éventuellement mis à jour par une structure hiérarchique."
+            }
+        ],
+        conclusion: "Exemples classiques de conjugaison : Bêta(a,b) priori pour p, échantillon Bernoulli(p) ⟹ postérieure Bêta(a + Σxᵢ, b + n − Σxᵢ) ; priori Gamma pour λ, échantillon de Poisson(λ) ⟹ postérieure Gamma mise à jour ; priori normale pour la moyenne, échantillon gaussien de variance connue ⟹ postérieure normale. La conjugaison permet un calcul explicite ; en son absence, on utilise l'approximation (Laplace) ou la simulation (MCMC, Metropolis-Hastings, Gibbs)."
+    },
     formulas: [
       {
         text: "Une famille de lois a priori est dite conjuguée pour un modèle statistique donné si la loi a posteriori appartient à la même famille que la loi a priori (facilitant grandement les calculs), comme la conjugaison Beta-Binomiale ou Normale-Normale.",
@@ -8827,6 +11543,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1604": {
     title: "Estimateur bayésien",
     definition: "Un estimateur bayésien de θ est typiquement défini comme une caractéristique de la loi a posteriori : la moyenne a posteriori (minimisant l'erreur quadratique moyenne bayésienne), la médiane a posteriori, ou le maximum a posteriori (MAP, valeur la plus probable a posteriori), selon la fonction de perte considérée.",
+    definition_axiomatique: {
+        cadre: "On dispose d'une loi a posteriori π(θ | x) et d'une fonction de perte L(θ, δ) mesurant le coût d'estimer θ par δ.",
+        axiomes: [
+            {
+                nom: "R1 — Risque bayésien",
+                enonce: "r(δ) = E_θ[E_x(L(θ, δ(x)) | θ)] = E_x[E_θ(L(θ, δ(x)) | x)] (Fubini)."
+            },
+            {
+                nom: "O1 — Minimisation conditionnelle",
+                enonce: "Minimiser r(δ) revient à minimiser, pour chaque x, E_θ(L(θ, δ) | x) sur δ (règle de Bayes)."
+            },
+            {
+                nom: "L1 — Cas quadratique",
+                enonce: "Pour L(θ, δ) = (θ − δ)², le minimiseur est δ*(x) = E(θ | x) (espérance a posteriori)."
+            }
+        ],
+        conclusion: "L'estimateur bayésien minimise le risque a posteriori pour la perte choisie : moyenne a posteriori (perte quadratique), médiane a posteriori (perte absolue), mode a posteriori (perte 0-1, MAP). Il est toujours admissible sous des hypothèses larges (un estimateur non bayésien peut être dominé) ; il converge vers l'estimateur du maximum de vraisemblance quand n → ∞ si la priori est régulière (théorème de Bernstein-von Mises, sous conditions)."
+    },
     formulas: [
       {
         text: "L'estimateur bayésien associé à une perte quadratique est exactement l'espérance a posteriori E(θ|x), résultat qui généralise le principe de projection de l'espérance conditionnelle (meilleure approximation au sens L²) vu en théorie des probabilités.",
@@ -8874,6 +11608,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1605": {
     title: "Variétés différentiables : définition rigoureuse",
     definition: "Une variété différentiable de dimension n est un espace topologique séparé, à base dénombrable, muni d'un atlas de cartes locales (homéomorphismes vers des ouverts de ℝⁿ) dont les changements de cartes sont des applications C^∞ (difféomorphismes entre ouverts de ℝⁿ). Cette structure généralise rigoureusement les courbes et surfaces étudiées en L2-L3.",
+    definition_axiomatique: {
+        cadre: "Une variété différentielle de dimension n est un espace topologique M localement homéomorphe à ℝⁿ, recollé de façon lisse.",
+        axiomes: [
+            {
+                nom: "V1 — Topologie",
+                enonce: "M est séparé et à base dénombrable."
+            },
+            {
+                nom: "V2 — Cartes",
+                enonce: "Tout point a un voisinage U et un homéomorphisme φ : U → φ(U) ⊂ ℝⁿ ouvert."
+            },
+            {
+                nom: "V3 — Atlas C^∞",
+                enonce: "Les changements de cartes φⱼ ∘ φᵢ⁻¹ sont C^∞."
+            }
+        ],
+        conclusion: "Deux atlas définissent la même structure s'ils sont compatibles (leur réunion est un atlas) ; une structure différentielle = un atlas maximal. Exemples : ℝⁿ, la sphère Sⁿ (deux cartes de projection stéréographique), le tore, les groupes de Lie GLₙ(ℝ), SO(n), les espaces projectifs, les sous-variétés de ℝᵖ (fibres régulières de submersions)."
+    },
     formulas: [
       {
         text: "Deux atlas sont dits compatibles s'ils définissent la même structure différentiable (leur réunion est encore un atlas C^∞). La sphère Sⁿ, les espaces projectifs, et plus généralement toute surface régulière de ℝ^m sont des exemples fondamentaux de variétés différentiables.",
@@ -8929,6 +11681,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1606": {
     title: "Applications différentiables entre variétés",
     definition: "Une application f entre deux variétés différentiables est différentiable (de classe C^∞) si son expression dans toute paire de cartes locales est une application C^∞ entre ouverts de ℝⁿ. Cette définition, indépendante du choix des cartes (grâce à la compatibilité C^∞ des changements de cartes), généralise la différentiabilité classique aux variétés.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété différentielle M de dimension n (espace topologique séparé à base dénombrable, muni d'un atlas de cartes de classe C^∞) ; T_pM désigne l'espace tangent en p. N est une seconde variété et f : M → N est une application.",
+        axiomes: [
+            {
+                nom: "D1 — Différentiabilité",
+                enonce: "f est C^∞ si, dans des cartes, ψ ∘ f ∘ φ⁻¹ est C^∞."
+            },
+            {
+                nom: "D2 — Différentielle",
+                enonce: "df_p : T_pM → T_{f(p)}N est l'application linéaire qui à γ'(0) associe (f ∘ γ)'(0)."
+            },
+            {
+                nom: "D3 — Composition",
+                enonce: "d(g ∘ f)_p = dg_{f(p)} ∘ df_p."
+            }
+        ],
+        conclusion: "Un difféomorphisme est une bijection C^∞ d'inverse C^∞ ; une immersion (resp. submersion) a une différentielle injective (resp. surjective) en tout point. Théorème du rang constant, théorème d'inversion locale sur les variétés. Si c est valeur régulière de f, f⁻¹(c) est une sous-variété de codimension dim N."
+    },
     formulas: [
       {
         text: "Un difféomorphisme entre deux variétés est une bijection différentiable dont l'inverse est également différentiable ; deux variétés difféomorphes sont considérées comme « identiques » du point de vue de la géométrie différentielle, bien qu'elles puissent être topologiquement plongées différemment.",
@@ -8980,6 +11750,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1607": {
     title: "Espace tangent à une variété",
     definition: "L'espace tangent T_pM à une variété M en un point p peut être défini de façon équivalente comme l'ensemble des classes d'équivalence de courbes passant par p (dérivées à l'origine), ou comme l'ensemble des dérivations ponctuelles (opérateurs linéaires vérifiant la règle de Leibniz) sur les fonctions C^∞ définies au voisinage de p. C'est un espace vectoriel de même dimension que M.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété différentielle M de dimension n (espace topologique séparé à base dénombrable, muni d'un atlas de cartes de classe C^∞) ; T_pM désigne l'espace tangent en p. On fixe un point p ∈ M.",
+        axiomes: [
+            {
+                nom: "D1 — Courbes issues de p",
+                enonce: "Deux courbes C¹ γ₁, γ₂ : ]−ε ; ε[ → M avec γᵢ(0) = p sont équivalentes si, dans une carte, (φ ∘ γ₁)'(0) = (φ ∘ γ₂)'(0)."
+            },
+            {
+                nom: "D2 — Espace tangent (courbes)",
+                enonce: "T_pM est l'ensemble des classes d'équivalence [γ] ; il hérite d'une structure de K-espace vectoriel via une carte."
+            },
+            {
+                nom: "D3 — Dérivations (définition équivalente)",
+                enonce: "T_pM s'identifie à l'espace des dérivations en p : les applications linéaires v : C^∞(M) → ℝ vérifiant v(fg) = v(f)g(p) + f(p)v(g)."
+            }
+        ],
+        conclusion: "Les deux définitions (classes de courbes, dérivations) coïncident : à [γ] correspond la dérivation f ↦ (f∘γ)'(0). dim T_pM = dim M, avec pour base (dans une carte (x¹, …, xⁿ)) les dérivées partielles (∂/∂x¹|_p, …, ∂/∂xⁿ|_p). Le fibré tangent TM = ⊔_pT_pM réunit tous les espaces tangents ; une application différentiable f : M → N induit df_p : T_pM → T_{f(p)}N (différentielle)."
+    },
     formulas: [
       {
         text: "Pour une variété de dimension n, T_pM est isomorphe à ℝⁿ via le choix d'une carte locale en p, mais cet isomorphisme dépend du choix de la carte (contrairement à l'espace tangent lui-même, défini intrinsèquement). La réunion de tous les espaces tangents forme le fibré tangent TM.",
@@ -9031,6 +11819,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1608": {
     title: "Champs de vecteurs sur une variété",
     definition: "Un champ de vecteurs sur une variété M est une application qui à chaque point p∈M associe un vecteur tangent X(p)∈T_pM, de façon différentiable. Un champ de vecteurs peut être vu comme un opérateur de dérivation sur les fonctions C^∞(M), agissant par dérivée directionnelle en chaque point.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété différentielle M de dimension n (espace topologique séparé à base dénombrable, muni d'un atlas de cartes de classe C^∞) ; T_pM désigne l'espace tangent en p.",
+        axiomes: [
+            {
+                nom: "V1 — Champ de vecteurs",
+                enonce: "X associe à chaque p ∈ M un vecteur X_p ∈ T_pM."
+            },
+            {
+                nom: "V2 — Régularité",
+                enonce: "X est C^∞ si, pour toute f ∈ C^∞(M), p ↦ X_p(f) est C^∞."
+            },
+            {
+                nom: "V3 — Crochet de Lie",
+                enonce: "[X, Y](f) = X(Y(f)) − Y(X(f)) est encore un champ de vecteurs C^∞."
+            }
+        ],
+        conclusion: "L'espace des champs de vecteurs 𝔛(M), muni du crochet [·,·], est une algèbre de Lie (bilinéaire, alternée, Jacobi) ; c'est un module sur C^∞(M). Un champ de vecteurs engendre un flot local φ_t (courbes intégrales, solutions de γ' = X(γ), Cauchy-Lipschitz) ; le crochet [X, Y] mesure le défaut de commutation des flots : φ_t^X ∘ φ_s^Y ≠ φ_s^Y ∘ φ_t^X en général, l'écart étant d'ordre 2 en (s,t) et gouverné par [X,Y]."
+    },
     formulas: [
       {
         text: "Le crochet de Lie [X,Y] de deux champs de vecteurs X,Y, défini par [X,Y]f=X(Yf)-Y(Xf), mesure le défaut de commutativité des flots associés à X et Y, et munit l'espace des champs de vecteurs d'une structure d'algèbre de Lie (essentielle pour l'étude des groupes de Lie).",
@@ -9078,6 +11884,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1609": {
     title: "Formes différentielles",
     definition: "Une forme différentielle de degré k (k-forme) sur une variété M est un champ de formes multilinéaires alternées sur les espaces tangents, généralisant en dimension supérieure la notion de forme linéaire (1-forme, comme la différentielle df d'une fonction) et d'élément de volume orienté (n-forme en dimension n).",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété différentielle M de dimension n (espace topologique séparé à base dénombrable, muni d'un atlas de cartes de classe C^∞) ; T_pM désigne l'espace tangent en p.",
+        axiomes: [
+            {
+                nom: "F1 — k-forme",
+                enonce: "ω_p ∈ Λᵏ(T_p*M) est une forme k-linéaire alternée sur T_pM, C^∞ en p."
+            },
+            {
+                nom: "F2 — Produit extérieur",
+                enonce: "ω ∧ η est bilinéaire, associatif et ω ∧ η = (−1)^{kl}η ∧ ω (k = deg ω, l = deg η)."
+            },
+            {
+                nom: "F3 — Dérivée extérieure",
+                enonce: "d est l'unique opérateur ℝ-linéaire de degré 1 tel que df est la différentielle des fonctions, d(ω ∧ η) = dω ∧ η + (−1)ᵏω ∧ dη et d² = 0."
+            }
+        ],
+        conclusion: "En coordonnées, ω = Σ f_I dx^I et dω = Σ df_I ∧ dx^I. Sur ℝ³, d retrouve gradient, rotationnel et divergence. Formule de Stokes ∫_Mdω = ∫_{∂M}ω, qui unifie théorèmes fondamental, Green, Stokes, Ostrogradski. L'image réciproque par une application f commute avec d : f*(dω) = d(f*ω)."
+    },
     formulas: [
       {
         text: "L'espace des k-formes est muni d'un produit extérieur (∧), associatif et antisymétrique gradué, qui à une p-forme et une q-forme associe une (p+q)-forme. Les formes différentielles se transportent naturellement par les applications différentiables (pullback), rendant leur manipulation particulièrement adaptée à la géométrie intrinsèque.",
@@ -9129,6 +11953,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1610": {
     title: "Dérivée extérieure",
     definition: "La dérivée extérieure d est un opérateur qui à une k-forme différentielle associe une (k+1)-forme, généralisant simultanément le gradient (k=0), le rotationnel (k=1, en dimension 3) et la divergence (k=2, en dimension 3) sous un même formalisme unifié. Elle vérifie la propriété fondamentale d∘d=0 (la dérivée extérieure d'une dérivée extérieure est toujours nulle).",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété différentielle M de dimension n (espace topologique séparé à base dénombrable, muni d'un atlas de cartes de classe C^∞) ; T_pM désigne l'espace tangent en p.",
+        axiomes: [
+            {
+                nom: "F1 — k-forme",
+                enonce: "ω_p ∈ Λᵏ(T_p*M) est une forme k-linéaire alternée sur T_pM, C^∞ en p."
+            },
+            {
+                nom: "F2 — Produit extérieur",
+                enonce: "ω ∧ η est bilinéaire, associatif et ω ∧ η = (−1)^{kl}η ∧ ω (k = deg ω, l = deg η)."
+            },
+            {
+                nom: "F3 — Dérivée extérieure",
+                enonce: "d est l'unique opérateur ℝ-linéaire de degré 1 tel que df est la différentielle des fonctions, d(ω ∧ η) = dω ∧ η + (−1)ᵏω ∧ dη et d² = 0."
+            }
+        ],
+        conclusion: "En coordonnées, ω = Σ f_I dx^I et dω = Σ df_I ∧ dx^I. Sur ℝ³, d retrouve gradient, rotationnel et divergence. Formule de Stokes ∫_Mdω = ∫_{∂M}ω, qui unifie théorèmes fondamental, Green, Stokes, Ostrogradski. L'image réciproque par une application f commute avec d : f*(dω) = d(f*ω)."
+    },
     formulas: [
       {
         text: "Une forme ω est dite fermée si dω=0, et exacte s'il existe η telle que ω=dη. Toute forme exacte est fermée (conséquence directe de d∘d=0), mais la réciproque n'est vraie que localement en général (lemme de Poincaré) ; la mesure de l'écart entre formes fermées et formes exactes globalement est précisément l'objet de la cohomologie de de Rham.",
@@ -9192,6 +12034,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1611": {
     title: "Théorème de Stokes (version générale sur les variétés)",
     definition: "Le théorème de Stokes général affirme que pour une variété à bord orientée M de dimension n et une (n-1)-forme différentielle ω à support compact, ∫_M dω=∫_{∂M}ω (avec l'orientation induite sur le bord). Ce théorème unifie sous un même énoncé le théorème fondamental de l'analyse, le théorème de Green, le théorème de la divergence et le théorème de Stokes classique (rotationnel) vus en L2-L3.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété M orientée à bord, de dimension n, compacte (ou ω à support compact) ; ω est une (n−1)-forme C^∞ sur M.",
+        axiomes: [
+            {
+                nom: "S1 — Bord orienté",
+                enonce: "∂M hérite d'une orientation induite (convention de la normale sortante)."
+            },
+            {
+                nom: "S2 — Dérivée extérieure",
+                enonce: "dω est une n-forme."
+            },
+            {
+                nom: "S3 — Cartes adaptées et partition de l'unité",
+                enonce: "On se ramène, via une partition de l'unité, au cas d'un support dans une carte adaptée au bord, où l'énoncé se réduit au théorème fondamental de l'analyse."
+            }
+        ],
+        conclusion: "Théorème de Stokes (version générale) : ∫_Mdω = ∫_{∂M}ω (avec ∫_{∂M}ω = 0 si ∂M = ∅). Il unifie le théorème fondamental de l'analyse (n = 1), Green-Riemann (n = 2), Stokes classique et Ostrogradski (n = 3, sur ℝ³ ⊂ variété). Conséquence : si M est compacte sans bord et ω = dη est exacte, ∫_Mω = 0 (utile pour montrer qu'une forme n'est pas exacte en exhibant une intégrale non nulle, comme pour dθ sur S¹)."
+    },
     formulas: [
       {
         text: "L'élégance de cette formulation unifiée tient à ce que la dérivée extérieure d et l'opération de restriction au bord ∂ sont, en un sens précis, des opérations « adjointes » l'une de l'autre, reflet profond de la dualité entre géométrie (variétés à bord) et analyse (formes différentielles).",
@@ -9243,6 +12103,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1612": {
     title: "Cohomologie de de Rham",
     definition: "La cohomologie de de Rham d'une variété M en degré k est le quotient H^k_{dR}(M)=Z^k/B^k, où Z^k est l'espace des k-formes fermées (dω=0) et B^k celui des k-formes exactes (ω=dη). Elle mesure précisément l'obstruction, en un degré donné, pour qu'une forme fermée soit exacte, phénomène purement local d'après le lemme de Poincaré mais globalement non trivial.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété différentielle M de dimension n (espace topologique séparé à base dénombrable, muni d'un atlas de cartes de classe C^∞) ; T_pM désigne l'espace tangent en p.",
+        axiomes: [
+            {
+                nom: "H1 — Formes fermées et exactes",
+                enonce: "Zᵏ = {ω ∈ Ωᵏ : dω = 0}, Bᵏ = dΩᵏ⁻¹ ⊂ Zᵏ (car d² = 0)."
+            },
+            {
+                nom: "H2 — Cohomologie",
+                enonce: "H^k_{dR}(M) = Zᵏ/Bᵏ."
+            },
+            {
+                nom: "H3 — Invariance par homotopie",
+                enonce: "Des applications homotopes induisent la même application en cohomologie."
+            }
+        ],
+        conclusion: "H⁰(M) = ℝ^{nombre de composantes connexes} ; H^k(ℝⁿ) = 0 pour k ≥ 1 (Poincaré) ; H¹(S¹) = ℝ (dθ, fermée non exacte) ; H^k(Sⁿ) = ℝ pour k = 0, n. Théorème de de Rham : H^k_{dR}(M) ≅ H^k(M; ℝ) (cohomologie singulière). Dimension finie pour M compacte ; dualité de Poincaré H^k ≅ (H^{n−k})*."
+    },
     formulas: [
       {
         text: "Le théorème de de Rham établit un isomorphisme remarquable entre la cohomologie de de Rham (définie analytiquement, via les formes différentielles) et la cohomologie singulière (définie topologiquement, via les simplexes), reliant ainsi profondément analyse différentielle et topologie algébrique.",
@@ -9290,6 +12168,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1613": {
     title: "Métriques riemanniennes : introduction",
     definition: "Une métrique riemannienne sur une variété M est un champ de produits scalaires g_p sur chaque espace tangent T_pM, dépendant de façon différentiable du point p. Elle permet de mesurer des longueurs de courbes, des angles entre vecteurs tangents et des volumes sur la variété, généralisant en dimension et en cadre abstraits le produit scalaire euclidien.",
+    definition_axiomatique: {
+        cadre: "Une variété riemannienne est une variété différentielle munie d'une structure de longueur.",
+        axiomes: [
+            {
+                nom: "G1 — Produit scalaire",
+                enonce: "g_p : T_pM × T_pM → ℝ bilinéaire, symétrique, défini positif."
+            },
+            {
+                nom: "G2 — Régularité",
+                enonce: "p ↦ g_p(X_p, Y_p) est C^∞ pour tous champs X, Y."
+            },
+            {
+                nom: "G3 — Longueur",
+                enonce: "L(γ) = ∫√(g(γ'(t), γ'(t)))dt et d(p, q) = inf L(γ) définit une distance."
+            }
+        ],
+        conclusion: "Une isométrie préserve g. Exemples : ℝⁿ (g euclidien), la sphère Sⁿ ⊂ ℝⁿ⁺¹ (métrique induite), le plan hyperbolique (demi-plan de Poincaré, g = (dx² + dy²)/y²), les sous-variétés de ℝⁿ. Toute variété différentielle paracompacte admet une métrique riemannienne (partition de l'unité)."
+    },
     formulas: [
       {
         text: "La longueur d'une courbe γ:[a,b]→M est définie par L(γ)=∫_a^b √(g_{γ(t)}(γ'(t),γ'(t))) dt, et la distance riemannienne entre deux points est l'infimum des longueurs des courbes les reliant. Toute variété différentiable (paracompacte) admet une métrique riemannienne (existence garantie par les partitions de l'unité).",
@@ -9337,6 +12233,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1614": {
     title: "Connexion de Levi-Civita",
     definition: "La connexion de Levi-Civita est l'unique connexion affine sur une variété riemannienne (M,g) qui soit compatible avec la métrique (∇g=0, préservant les produits scalaires le long du transport parallèle) et sans torsion (∇_XY-∇_YX=[X,Y]). Elle généralise la dérivation directionnelle classique de ℝⁿ aux variétés courbes.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété riemannienne (M, g) ; une connexion ∇ est une règle de dérivation covariante ∇_XY des champs de vecteurs.",
+        axiomes: [
+            {
+                nom: "C1 — Sans torsion",
+                enonce: "∇_XY − ∇_YX = [X, Y]."
+            },
+            {
+                nom: "C2 — Compatibilité avec la métrique",
+                enonce: "X·g(Y, Z) = g(∇_XY, Z) + g(Y, ∇_XZ)."
+            },
+            {
+                nom: "C3 — Connexion",
+                enonce: "∇ est C^∞(M)-linéaire en X et vérifie la règle de Leibniz ∇_X(fY) = X(f)Y + f∇_XY."
+            }
+        ],
+        conclusion: "Théorème fondamental de la géométrie riemannienne : il existe une unique connexion ∇ vérifiant C1 et C2 (formule de Koszul). Symboles de Christoffel : Γ^k_{ij} = ½g^{kl}(∂ᵢg_{jl} + ∂ⱼg_{il} − ∂_lg_{ij}). Elle définit le transport parallèle, les géodésiques et la courbure. Sur une sous-variété de ℝᵖ, c'est la projection tangentielle de la dérivée usuelle."
+    },
     formulas: [
       {
         text: "Cette connexion permet de définir rigoureusement le transport parallèle d'un vecteur le long d'une courbe (déplacement du vecteur en préservant sa « direction » au sens de la connexion), notion qui dépend en général du chemin suivi sur une variété courbe (contrairement au cas plat de ℝⁿ).",
@@ -9388,6 +12302,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1615": {
     title: "Géodésiques",
     definition: "Une géodésique sur une variété riemannienne (M,g) est une courbe γ dont le champ de vecteurs vitesse est parallèle le long de la courbe elle-même (∇_{γ'}γ'=0), généralisant la notion de « ligne droite » aux espaces courbes. Localement, les géodésiques réalisent (au moins pour des points suffisamment proches) le chemin le plus court entre deux points.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété riemannienne (M, g) : g_p est un produit scalaire sur T_pM, dépendant de façon C^∞ de p ; ∇ est la connexion de Levi-Civita.",
+        axiomes: [
+            {
+                nom: "G1 — Définition",
+                enonce: "γ est une géodésique si ∇_{γ'}γ' = 0 (accélération covariante nulle)."
+            },
+            {
+                nom: "G2 — Vitesse constante",
+                enonce: "‖γ'‖ est constante le long d'une géodésique."
+            },
+            {
+                nom: "G3 — Minimisation locale",
+                enonce: "Deux points proches sont reliés par une unique géodésique minimisant la longueur."
+            }
+        ],
+        conclusion: "Les géodésiques sont les « droites » d'une variété riemannienne et les extrémales de la longueur (et de l'énergie). Exemples : droites dans ℝⁿ, grands cercles sur Sⁿ, demi-cercles orthogonaux à l'axe réel dans ℍ². Théorème de Hopf-Rinow : M complète ⟺ deux points sont reliés par une géodésique minimisante ; exponentielle exp_p : T_pM → M."
+    },
     formulas: [
       {
         text: "Les géodésiques sont solutions d'un système d'équations différentielles du second ordre (équations géodésiques, faisant intervenir les symboles de Christoffel de la connexion). Le théorème de Hopf-Rinow relie complétude géodésique (existence des géodésiques pour tout temps) et complétude métrique de la variété.",
@@ -9431,6 +12363,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1616": {
     title: "Courbure de Riemann",
     definition: "Le tenseur de courbure de Riemann R(X,Y)Z=∇_X∇_YZ-∇_Y∇_XZ-∇_{[X,Y]}Z mesure précisément le défaut de commutativité des dérivées covariantes secondes, généralisant en dimension quelconque la courbure de Gauss des surfaces (L3). Il encode toute l'information sur la courbure intrinsèque de la variété riemannienne.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété riemannienne (M, g) : g_p est un produit scalaire sur T_pM, dépendant de façon C^∞ de p ; ∇ est la connexion de Levi-Civita.",
+        axiomes: [
+            {
+                nom: "R1 — Définition",
+                enonce: "R(X, Y)Z = ∇_X∇_YZ − ∇_Y∇_XZ − ∇_{[X,Y]}Z."
+            },
+            {
+                nom: "R2 — Tensorialité",
+                enonce: "R est C^∞(M)-linéaire en X, Y, Z."
+            },
+            {
+                nom: "R3 — Symétries",
+                enonce: "R(X, Y) = −R(Y, X), g(R(X, Y)Z, W) = −g(R(X, Y)W, Z) = g(R(Z, W)X, Y) et identité de Bianchi R(X, Y)Z + R(Y, Z)X + R(Z, X)Y = 0."
+            }
+        ],
+        conclusion: "R mesure l'écart à la commutation des dérivées covariantes, donc l'écart au plat : R = 0 si et seulement si (M, g) est localement isométrique à ℝⁿ. Dans une carte, R^l_{ijk} = ∂ᵢΓ^l_{jk} − ∂ⱼΓ^l_{ik} + Γ^l_{im}Γ^m_{jk} − Γ^l_{jm}Γ^m_{ik}. En dimension 2, R est déterminé par la courbure de Gauss K : R(X, Y)Y = K(⟨Y, Y⟩X − ⟨X, Y⟩Y)."
+    },
     formulas: [
       {
         text: "La courbure sectionnelle, dérivée du tenseur de Riemann, généralise la courbure de Gauss à un plan tangent bidimensionnel quelconque en un point d'une variété de dimension quelconque. Une courbure sectionnelle constamment nulle caractérise (localement) les variétés localement isométriques à l'espace euclidien plat.",
@@ -9486,6 +12436,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1617": {
     title: "Groupes de Lie : définition et exemples",
     definition: "Un groupe de Lie est un groupe muni d'une structure de variété différentiable, telle que les opérations de groupe (multiplication et inversion) soient différentiables. Cette structure unifie algèbre (théorie des groupes) et géométrie différentielle (variétés), fondamentale pour l'étude des symétries continues.",
+    definition_axiomatique: {
+        cadre: "Un groupe de Lie est un groupe G muni d'une structure de variété différentiable C^∞ compatible avec la loi de groupe.",
+        axiomes: [
+            {
+                nom: "G1 — Groupe",
+                enonce: "(G, ·) est un groupe."
+            },
+            {
+                nom: "G2 — Variété C^∞",
+                enonce: "G est une variété différentiable."
+            },
+            {
+                nom: "G3 — Compatibilité C^∞",
+                enonce: "(g, h) ↦ gh⁻¹ (ou séparément produit et inverse) est C^∞ de G × G (resp. G) dans G."
+            }
+        ],
+        conclusion: "Exemples : (ℝⁿ, +), le cercle S¹ = 𝕌 (multiplication complexe), le tore Tⁿ, GL_n(ℝ) (ouvert de M_n(ℝ), det ≠ 0), SO(n), SU(n), Sp(2n), le groupe de Heisenberg (matrices triangulaires unipotentes). Un groupe de Lie est en particulier un groupe topologique C^∞ ; les translations L_g : h ↦ gh sont des difféomorphismes, ce qui permet de ramener l'étude locale de G au voisinage du neutre e."
+    },
     formulas: [
       {
         text: "Le groupe GL_n(ℝ) des matrices inversibles est un groupe de Lie de dimension n², ouvert de l'espace des matrices. Ses sous-groupes classiques (O(n), SO(n), U(n), SU(n)) sont également des groupes de Lie, de dimensions calculables explicitement à partir de leurs équations de définition.",
@@ -9529,6 +12497,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1618": {
     title: "Algèbre de Lie associée à un groupe de Lie",
     definition: "L'algèbre de Lie 𝔤 d'un groupe de Lie G est l'espace tangent à G en l'élément neutre, muni du crochet de Lie induit par les champs de vecteurs invariants à gauche sur G. Cette algèbre encode « linéairement » (au premier ordre) toute la structure locale du groupe au voisinage de l'identité.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un groupe de Lie G, d'élément neutre e ; T_eG est l'espace tangent en e.",
+        axiomes: [
+            {
+                nom: "I1 — Champs invariants à gauche",
+                enonce: "Un champ X est invariant à gauche si dL_g(X_h) = X_{gh} pour tout g, h ∈ G (déterminé par sa valeur en e : X_g = dL_g(X_e))."
+            },
+            {
+                nom: "I2 — Stabilité par crochet",
+                enonce: "Le crochet de deux champs invariants à gauche est invariant à gauche (car dL_g préserve le crochet de Lie des champs de vecteurs)."
+            },
+            {
+                nom: "I3 — Identification",
+                enonce: "𝔤 = T_eG, muni du crochet [X_e, Y_e] := [X, Y]_e (X, Y champs invariants à gauche associés)."
+            }
+        ],
+        conclusion: "𝔤 = Lie(G) est l'algèbre de Lie de G ; dim 𝔤 = dim G. Exemples : Lie(GL_n(ℝ)) = 𝔤𝔩_n(ℝ) = M_n(ℝ) avec [A,B] = AB − BA ; Lie(SO(n)) = 𝔰𝔬(n) (matrices antisymétriques) ; Lie(ℝⁿ, +) = ℝⁿ avec crochet nul (abélien). Un morphisme de groupes de Lie induit un morphisme d'algèbres de Lie en dérivant en e ; la correspondance de Lie relie sous-groupes (fermés connexes) de G et sous-algèbres de 𝔤."
+    },
     formulas: [
       {
         text: "La dimension de l'algèbre de Lie est égale à celle du groupe de Lie. Pour les groupes matriciels classiques, l'algèbre de Lie s'identifie souvent à un espace de matrices défini par des conditions linéaires ou quadratiques simples (comme les matrices antisymétriques pour so(n)).",
@@ -9580,6 +12566,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1619": {
     title: "Topologie algébrique : groupe fondamental",
     definition: "Le groupe fondamental π₁(X,x_0) d'un espace topologique X pointé en x_0 est l'ensemble des classes d'homotopie de lacets basés en x_0 (chemins fermés partant et arrivant en x_0), muni de la loi de composition des chemins. C'est un invariant algébrique associé à un espace topologique, capturant ses « trous » de dimension 1.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un espace topologique X connexe par arcs et un point de base x₀ ; un lacet est un chemin γ : [0 ; 1] → X avec γ(0) = γ(1) = x₀.",
+        axiomes: [
+            {
+                nom: "P1 — Homotopie de lacets",
+                enonce: "Deux lacets sont homotopes s'il existe une déformation continue de l'un en l'autre en fixant x₀."
+            },
+            {
+                nom: "P2 — Loi",
+                enonce: "[γ]·[δ] = [γ · δ] (concaténation) est bien définie sur les classes d'homotopie."
+            },
+            {
+                nom: "P3 — Groupe",
+                enonce: "π₁(X, x₀) est un groupe (neutre : lacet constant, inverse : lacet inverse)."
+            }
+        ],
+        conclusion: "π₁ est un invariant d'homotopie : indépendant (à isomorphisme près) du point de base si X est connexe par arcs. X simplement connexe ⟺ π₁ = {1}. Exemples : π₁(S¹) = ℤ, π₁(ℝⁿ) = 1, π₁(Sⁿ) = 1 (n ≥ 2), π₁(T²) = ℤ², π₁(ℝℙ²) = ℤ/2. Théorème de van Kampen : π₁ d'une réunion d'ouverts (produit amalgamé)."
+    },
     formulas: [
       {
         text: "Un espace est dit simplement connexe si son groupe fondamental est trivial (tout lacet est homotope au lacet constant). Le groupe fondamental de ℝⁿ (n≥1) est trivial, tandis que celui du cercle S¹ est isomorphe à (ℤ,+), engendré par la classe du lacet faisant un tour.",
@@ -9631,6 +12635,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1620": {
     title: "Revêtements",
     definition: "Un revêtement d'un espace topologique X est une application p:X̃→X telle que tout point de X possède un voisinage ouvert U dont l'image réciproque p⁻¹(U) est une réunion disjointe d'ouverts homéomorphes à U via p (feuillets du revêtement). Le revêtement universel est le revêtement simplement connexe, unique à isomorphisme près.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux espaces topologiques connexes par arcs X̃, X et une application continue p : X̃ → X.",
+        axiomes: [
+            {
+                nom: "R1 — Surjection continue",
+                enonce: "p est surjective et continue."
+            },
+            {
+                nom: "R2 — Voisinages trivialisants",
+                enonce: "Tout x ∈ X a un voisinage ouvert U tel que p⁻¹(U) soit une réunion disjointe d'ouverts Vᵢ envoyés homéomorphiquement sur U."
+            },
+            {
+                nom: "R3 — Relèvement",
+                enonce: "Tout chemin de X se relève de façon unique une fois le point de départ choisi."
+            }
+        ],
+        conclusion: "p est un revêtement. Exemples : ℝ → S¹, t ↦ e^{2iπt} ; z ↦ zⁿ sur S¹ ; Sⁿ → ℝℙⁿ (revêtement à deux feuillets) ; ℝⁿ → Tⁿ. Le revêtement universel (X̃ simplement connexe) existe pour X localement raisonnable ; π₁(X) ≅ groupe des automorphismes de revêtement, et les revêtements connexes correspondent aux sous-groupes de π₁(X)."
+    },
     formulas: [
       {
         text: "Il existe une correspondance fondamentale entre les revêtements d'un espace X (suffisamment régulier) et les sous-groupes de son groupe fondamental π₁(X,x_0), les revêtements connexes correspondant aux sous-groupes, et le revêtement universel correspondant au sous-groupe trivial.",
@@ -9678,6 +12700,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1621": {
     title: "Homologie singulière : introduction",
     definition: "L'homologie singulière associe à un espace topologique X une suite de groupes abéliens H_n(X) (pour n≥0), construits à partir des simplexes singuliers (applications continues d'un simplexe standard vers X) et d'opérateurs de bord successifs, mesurant les « trous » de dimension n dans l'espace, de façon plus systématique et calculable que le groupe fondamental (limité à la dimension 1).",
+    definition_axiomatique: {
+        cadre: "On travaille avec un espace topologique X et Δⁿ le n-simplexe standard ; un n-simplexe singulier est une application continue σ : Δⁿ → X.",
+        axiomes: [
+            {
+                nom: "C1 — Groupe des chaînes",
+                enonce: "Cₙ(X) est le groupe abélien libre engendré par les n-simplexes singuliers."
+            },
+            {
+                nom: "D1 — Bord",
+                enonce: "∂ₙσ = Σᵢ(−1)ⁱσ|_{[v₀,…,v̂ᵢ,…,vₙ]} (somme alternée des faces)."
+            },
+            {
+                nom: "D2 — Complexe de chaînes",
+                enonce: "∂ₙ₋₁ ∘ ∂ₙ = 0 : (Cₙ(X), ∂) est un complexe de chaînes."
+            }
+        ],
+        conclusion: "L'homologie singulière est Hₙ(X) = ker(∂ₙ)/Im(∂ₙ₊₁). Elle est un invariant d'homotopie (des applications homotopes induisent le même morphisme en homologie), calculable et fonctorielle, contrairement au groupe fondamental (H₁(X) est l'abélianisé de π₁(X)). H₀(X) = ℤ^{composantes connexes par arcs} ; Hₙ(Sᵏ) = ℤ si n ∈ {0, k}, 0 sinon ; suite exacte de Mayer-Vietoris pour calculer l'homologie d'une réunion d'ouverts."
+    },
     formulas: [
       {
         text: "Contrairement au groupe fondamental (qui peut être non abélien), les groupes d'homologie sont toujours abéliens. Le premier groupe d'homologie H_1(X) est en fait l'abélianisé du groupe fondamental π₁(X) (théorème de Hurewicz en degré 1), reliant les deux théories.",
@@ -9729,6 +12769,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1622": {
     title: "Géométrie riemannienne : théorème de Gauss-Bonnet",
     definition: "Le théorème de Gauss-Bonnet, dans sa version globale, relie l'intégrale de la courbure de Gauss K sur une surface compacte orientée S sans bord à sa topologie : ∫_S K dA=2πχ(S), où χ(S) est la caractéristique d'Euler-Poincaré de la surface (un invariant purement topologique, calculable à partir d'une triangulation).",
+    definition_axiomatique: {
+        cadre: "On travaille sur une surface riemannienne compacte orientée (M, g) sans bord, de courbure de Gauss K et de caractéristique d'Euler χ(M) = 2 − 2g (g : genre).",
+        axiomes: [
+            {
+                nom: "B1 — Courbure",
+                enonce: "K est la courbure de Gauss (produit des courbures principales)."
+            },
+            {
+                nom: "B2 — Élément d'aire",
+                enonce: "dA est l'élément d'aire de g."
+            },
+            {
+                nom: "B3 — Caractéristique d'Euler",
+                enonce: "χ(M) = V − A + F pour toute triangulation."
+            }
+        ],
+        conclusion: "Théorème de Gauss-Bonnet : ∫_M K dA = 2πχ(M). Donc l'intégrale de la courbure est un invariant topologique : sphère 4π, tore 0, surface de genre g ≥ 2 : 4π(1 − g) < 0. Avec bord : ∫_M K dA + ∫_{∂M}k_g ds = 2πχ(M). Conséquence : somme des angles d'un triangle géodésique = π + ∫K dA."
+    },
     formulas: [
       {
         text: "Ce théorème remarquable établit un pont fondamental entre géométrie (courbure, une notion locale et analytique) et topologie (caractéristique d'Euler, une notion globale et combinatoire) : quelle que soit la façon dont on déforme (sans changer la topologie) une surface, l'intégrale totale de sa courbure reste constante.",
@@ -9776,6 +12834,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1623": {
     title: "Théorie des représentations : représentations irréductibles (approfondissement)",
     definition: "Une représentation d'un groupe G sur un espace vectoriel V est irréductible si elle n'admet pas de sous-espace stable non trivial. En M1, on approfondit l'étude en établissant le lemme de Schur : tout morphisme entre représentations irréductibles est soit nul, soit un isomorphisme, et tout endomorphisme d'une représentation irréductible complexe est une homothétie.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un groupe fini G et un corps K (ℂ) ; une représentation linéaire de G est un morphisme ρ : G → GL(V), V espace vectoriel de dimension finie.",
+        axiomes: [
+            {
+                nom: "R1 — Morphisme",
+                enonce: "ρ(gh) = ρ(g)ρ(h) et ρ(e) = id."
+            },
+            {
+                nom: "R2 — Sous-représentation",
+                enonce: "W ⊂ V stable par tous les ρ(g)."
+            },
+            {
+                nom: "R3 — Irréductible",
+                enonce: "ρ est irréductible si les seuls sous-espaces stables sont {0} et V."
+            }
+        ],
+        conclusion: "Théorème de Maschke : (car K ∤ |G|) toute sous-représentation a un supplémentaire stable ; toute représentation est somme directe d'irréductibles. Lemme de Schur : un morphisme de représentations entre irréductibles est nul ou un isomorphisme ; sur ℂ, EndG(V) = ℂ pour V irréductible. Exemples : représentation régulière, triviale, signature, permutation, et celles de Sₙ."
+    },
     formulas: [
       {
         text: "Le lemme de Schur est l'outil technique central pour démontrer les relations d'orthogonalité des caractères et pour établir que le nombre de représentations irréductibles d'un groupe fini est égal au nombre de ses classes de conjugaison, résultats vus en L3 mais dont la démonstration complète est ici approfondie.",
@@ -9819,6 +12895,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1624": {
     title: "Théorème de Maschke (démonstration approfondie)",
     definition: "Le théorème de Maschke affirme que toute représentation d'un groupe fini G sur un espace vectoriel de caractéristique 0 (ou première avec |G|) se décompose en somme directe de représentations irréductibles (semi-simplicité). La démonstration repose sur la construction d'un projecteur invariant par moyennisation sur le groupe, technique centrale de la théorie des représentations.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un groupe fini G, un corps K de caractéristique ne divisant pas |G|, et une représentation ρ : G → GL(V) avec W ⊂ V sous-espace stable.",
+        axiomes: [
+            {
+                nom: "P1 — Projecteur candidat",
+                enonce: "p₀ : V → W un projecteur K-linéaire quelconque (p₀|_W = id)."
+            },
+            {
+                nom: "M1 — Moyennisation",
+                enonce: "p = (1/|G|)Σ_{g∈G}ρ(g)p₀ρ(g)⁻¹."
+            },
+            {
+                nom: "S1 — Équivariance",
+                enonce: "p commute avec tous les ρ(g) et p|_W = id (car p₀|_W = id et W stable)."
+            }
+        ],
+        conclusion: "Théorème de Maschke : p est un projecteur G-équivariant sur W, donc ker p est un supplémentaire stable de W dans V : toute sous-représentation admet un supplémentaire stable, et par récurrence toute représentation se décompose en somme directe d'irréductibles. L'hypothèse car K ∤ |G| est essentielle : en caractéristique divisant |G| (cas modulaire), la moyennisation par 1/|G| échoue et des représentations indécomposables non irréductibles existent (théorie des représentations modulaires)."
+    },
     formulas: [
       {
         text: "La preuve construit, à partir d'un projecteur quelconque sur un sous-espace stable, un nouveau projecteur invariant sous l'action du groupe par la formule de moyennisation P̃=(1/|G|)Σ_{g∈G} ρ(g)Pρ(g)⁻¹, exploitant crucialement l'inversibilité de |G| dans le corps de base (d'où l'hypothèse de caractéristique).",
@@ -9866,6 +12960,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1625": {
     title: "Théorie de Galois : théorème fondamental (démonstration complète)",
     definition: "En M1, on reprend le théorème fondamental de la théorie de Galois (vu en L3) en en donnant la démonstration complète, reposant sur le théorème de l'élément primitif (toute extension séparable finie est simple, engendrée par un seul élément) et sur le comptage précis des K-automorphismes d'une extension via les plongements dans une clôture algébrique.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une extension galoisienne finie L/K, de groupe G = Gal(L/K).",
+        axiomes: [
+            {
+                nom: "F1 — Correspondance",
+                enonce: "H ↦ L^H (corps fixe) et M ↦ Gal(L/M) sont des bijections réciproques, décroissantes, entre sous-groupes de G et corps intermédiaires K ⊂ M ⊂ L."
+            },
+            {
+                nom: "D1 — Degrés",
+                enonce: "[L : L^H] = |H| et [L^H : K] = [G : H] (indépendance linéaire des caractères d'Artin ou théorie de la base normale)."
+            },
+            {
+                nom: "N1 — Normalité",
+                enonce: "M/K est galoisienne si et seulement si Gal(L/M) est distingué dans G, et alors Gal(M/K) ≅ G/Gal(L/M)."
+            }
+        ],
+        conclusion: "Preuve du cœur de D1 (|Gal(L/K)| = [L:K] pour L/K galoisienne) : par le théorème de l'élément primitif L = K(α), et le nombre de K-plongements de L dans une clôture algébrique égale le nombre de racines distinctes du polynôme minimal de α (séparabilité), qui égale [L:K] (normalité : toutes les racines sont dans L). La correspondance transforme des questions de théorie des corps (sous-corps) en questions de théorie des groupes (sous-groupes), le cœur de la théorie de Galois."
+    },
     formulas: [
       {
         text: "La démonstration établit précisément que pour une extension galoisienne finie L/K, l'application M↦Gal(L/M) (des corps intermédiaires vers les sous-groupes) est une bijection décroissante, dont l'inverse est H↦L^H, en utilisant le théorème d'indépendance linéaire des caractères (théorème d'Artin) comme outil technique clé.",
@@ -9921,6 +13033,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1626": {
     title: "Résolubilité des équations polynomiales par radicaux : démonstration (Abel-Ruffini)",
     definition: "En M1, on démontre complètement le théorème d'Abel-Ruffini : pour n≥5, il n'existe pas de formule générale par radicaux exprimant les racines d'une équation polynomiale générique de degré n en fonction de ses coefficients, via l'étude du groupe de Galois du polynôme générique, égal à S_n tout entier, et la non-résolubilité de S_n pour n≥5.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un corps K de caractéristique 0 ; un polynôme P est résoluble par radicaux si ses racines s'obtiennent à partir des coefficients par +, −, ×, ÷ et extractions de racines n-ièmes.",
+        axiomes: [
+            {
+                nom: "G1 — Groupe de Galois",
+                enonce: "Gal(P) = Gal(corps de décomposition/K) ⊂ S_n."
+            },
+            {
+                nom: "G2 — Tour de radicaux",
+                enonce: "Une suite d'extensions K = K₀ ⊂ K₁ ⊂ … ⊂ K_r avec Kᵢ = Kᵢ₋₁(αᵢ), αᵢⁿⁱ ∈ Kᵢ₋₁."
+            },
+            {
+                nom: "G3 — Résolubilité",
+                enonce: "Gal(P) est un groupe résoluble."
+            }
+        ],
+        conclusion: "Théorème de Galois : P est résoluble par radicaux si et seulement si Gal(P) est résoluble. Comme Sₙ est résoluble pour n ≤ 4 et non résoluble pour n ≥ 5, il existe des formules générales (Cardan, Ferrari) jusqu'au degré 4 et aucune en degré ≥ 5 (Abel-Ruffini). Exemple : X⁵ − 6X + 3 a pour groupe de Galois S₅ sur ℚ : non résoluble par radicaux."
+    },
     formulas: [
       {
         text: "La démonstration combine la caractérisation de la résolubilité par radicaux via la résolubilité du groupe de Galois (vue en L3) avec la démonstration algébrique que S_n n'est pas résoluble pour n≥5 (via la simplicité non abélienne du groupe alterné A_n pour n≥5), aboutissant à la conclusion finale du théorème.",
@@ -9972,6 +13102,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1627": {
     title: "Corps finis : structure multiplicative cyclique",
     definition: "Pour tout corps fini F_q (q=p^n, p premier), le groupe multiplicatif F_q* (éléments non nuls, muni de la multiplication) est cyclique d'ordre q-1. Ce résultat remarquable, non évident a priori, découle du fait qu'un groupe abélien fini dans lequel l'équation x^d=1 a au plus d solutions pour tout diviseur d est nécessairement cyclique.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un corps fini F_q (q = pⁿ, p premier) ; F_q* est son groupe multiplicatif, d'ordre q − 1.",
+        axiomes: [
+            {
+                nom: "D1 — Divisibilité des ordres",
+                enonce: "Pour tout diviseur d de q−1, le nombre d'éléments d'ordre divisant d dans F_q* est au plus d (un polynôme de degré d a au plus d racines)."
+            },
+            {
+                nom: "S1 — Fonction indicatrice d'Euler",
+                enonce: "Σ_{d|(q-1)}φ(d) = q − 1."
+            },
+            {
+                nom: "C1 — Comptage exact",
+                enonce: "Le nombre d'éléments d'ordre exactement d est φ(d) ou 0 ; la somme des φ(d) sur les diviseurs égale déjà q−1 (S1), donc c'est φ(d) pour chaque d (sinon la somme serait strictement inférieure)."
+            }
+        ],
+        conclusion: "F_q* est cyclique d'ordre q − 1 (un générateur est appelé racine primitive, ou élément primitif de F_q). Conséquence : F_q* ≅ ℤ/(q−1)ℤ, tout sous-groupe est cyclique, il y a φ(q−1) générateurs. Utilisé pour construire des codes correcteurs (Reed-Solomon), en cryptographie (logarithme discret dans F_p*, Diffie-Hellman classique), et pour l'existence de racines primitives modulo p (cas q = p premier)."
+    },
     formulas: [
       {
         text: "Un générateur de F_q* est appelé élément primitif (ou racine primitive) du corps fini. Le nombre de générateurs distincts de F_q* est exactement φ(q-1) (indicatrice d'Euler appliquée à q-1), résultat qui découle directement de la structure cyclique du groupe.",
@@ -10019,6 +13167,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1628": {
     title: "Polynômes cyclotomiques",
     definition: "Le n-ième polynôme cyclotomique Φ_n(X) est le polynôme unitaire à coefficients entiers dont les racines sont exactement les racines primitives n-ièmes de l'unité (racines n-ièmes de l'unité qui ne sont pas des racines d-ièmes pour d<n diviseur strict de n). Il vérifie la relation fondamentale X^n-1=Π_{d|n}Φ_d(X).",
+    definition_axiomatique: {
+        cadre: "On travaille avec les racines n-ièmes de l'unité dans ℂ : 𝕌ₙ = {e^{2ikπ/n}}, groupe cyclique d'ordre n ; une racine primitive est d'ordre exactement n.",
+        axiomes: [
+            {
+                nom: "C1 — Définition",
+                enonce: "Φₙ(X) = ∏_{k ∧ n = 1}(X − e^{2ikπ/n}), produit sur les racines primitives."
+            },
+            {
+                nom: "C2 — Décomposition",
+                enonce: "Xⁿ − 1 = ∏_{d|n}Φ_d(X)."
+            },
+            {
+                nom: "C3 — Degré",
+                enonce: "deg Φₙ = φ(n)."
+            }
+        ],
+        conclusion: "Φₙ est unitaire à coefficients entiers (récurrence à partir de C2) et irréductible sur ℚ (Gauss) ; [ℚ(e^{2iπ/n}) : ℚ] = φ(n) et le groupe de Galois est (ℤ/nℤ)*. Exemples : Φ₁ = X − 1, Φ₂ = X + 1, Φ₃ = X² + X + 1, Φ₄ = X² + 1, Φ₆ = X² − X + 1, Φ_p = Xᵖ⁻¹ + … + 1."
+    },
     formulas: [
       {
         text: "Le degré de Φ_n est φ(n) (indicatrice d'Euler), et Φ_n est toujours irréductible sur ℚ (résultat non trivial), ce qui en fait le polynôme minimal sur ℚ de toute racine primitive n-ième de l'unité. Le corps de décomposition de Φ_n sur ℚ est exactement ℚ(ζ_n), l'extension cyclotomique de degré φ(n).",
@@ -10066,6 +13232,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1629": {
     title: "Théorie algébrique des nombres : anneaux d'entiers algébriques (approfondissement)",
     definition: "En M1, on approfondit l'étude des anneaux d'entiers O_K d'un corps de nombres K en introduisant la notion d'idéal fractionnaire (sous-O_K-module non nul de K stable par multiplication par un élément non nul commun) et en établissant que, bien que O_K ne soit pas toujours principal, tout idéal fractionnaire non nul se factorise de façon unique en produit d'idéaux premiers (propriété de Dedekind).",
+    definition_axiomatique: {
+        cadre: "On travaille avec un corps de nombres K (extension finie de ℚ) ; un entier algébrique est une racine d'un polynôme unitaire à coefficients entiers.",
+        axiomes: [
+            {
+                nom: "O1 — Anneau des entiers",
+                enonce: "𝒪_K = {x ∈ K : x entier sur ℤ} est un anneau."
+            },
+            {
+                nom: "O2 — Noethérien intégralement clos",
+                enonce: "𝒪_K est noethérien, intégralement clos et de dimension 1 (anneau de Dedekind)."
+            },
+            {
+                nom: "O3 — Factorisation en idéaux",
+                enonce: "Tout idéal non nul de 𝒪_K se factorise de façon unique en idéaux premiers."
+            }
+        ],
+        conclusion: "Exemples : 𝒪_{ℚ(i)} = ℤ[i] (principal, factoriel), 𝒪_{ℚ(√−5)} = ℤ[√−5] (non factoriel : 6 = 2·3 = (1+√−5)(1−√−5), mais idéaux factorisent), 𝒪_{ℚ(√5)} = ℤ[(1+√5)/2]. Kummer, Dedekind : la factorisation unique est restaurée au niveau des idéaux. Le groupe des classes mesure l'échec de la principalité (fini)."
+    },
     formulas: [
       {
         text: "Cette propriété de factorisation unique en idéaux premiers (anneaux de Dedekind) restaure, au niveau des idéaux, l'unicité de factorisation perdue au niveau des éléments dans les anneaux d'entiers non principaux (comme ℤ[√-5]), résolvant élégamment le problème rencontré en L3.",
@@ -10113,6 +13297,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1630": {
     title: "Modules sur un anneau principal : théorème de structure (démonstration approfondie)",
     definition: "En M1, on approfondit la démonstration du théorème de structure des modules de type fini sur un anneau principal (vu en L3), en détaillant la méthode de réduction matricielle (forme normale de Smith) permettant de calculer explicitement les facteurs invariants d'un module donné par générateurs et relations.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un anneau commutatif A (addition commutative associative de neutre 0, multiplication associative commutative de neutre 1, distributive). On suppose A principal (tout idéal est engendré par un élément) et M un A-module de type fini.",
+        axiomes: [
+            {
+                nom: "S1 — Type fini",
+                enonce: "M est engendré par un nombre fini d'éléments."
+            },
+            {
+                nom: "S2 — Facteurs invariants",
+                enonce: "Il existe des éléments d₁ | d₂ | … | d_s non nuls, non inversibles, uniques à associés près."
+            },
+            {
+                nom: "S3 — Rang",
+                enonce: "Il existe un unique entier r ≥ 0 (rang libre)."
+            }
+        ],
+        conclusion: "Théorème de structure : M ≅ Aʳ ⊕ A/(d₁) ⊕ … ⊕ A/(d_s). Pour A = ℤ : théorème de structure des groupes abéliens de type fini (ℤʳ ⊕ groupes cycliques finis). Pour A = K[X] : réduction de Jordan et de Frobenius d'un endomorphisme (facteurs invariants de XI − A, polynômes invariants de similitude). Décomposition primaire : M ≅ Aʳ ⊕ ⊕A/(pᵏ)."
+    },
     formulas: [
       {
         text: "La forme normale de Smith d'une matrice à coefficients dans un anneau principal A s'obtient par des opérations élémentaires sur les lignes et les colonnes (inversibles dans A), aboutissant à une matrice diagonale dont les coefficients successifs se divisent mutuellement, redonnant exactement les facteurs invariants du module quotient associé.",
@@ -10160,6 +13362,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1631": {
     title: "Théorie de Sylow : démonstrations complètes",
     definition: "En M1, on reprend les théorèmes de Sylow (vus en L3) en en donnant les démonstrations complètes, reposant sur des arguments fins d'actions de groupes : action par conjugaison sur l'ensemble des p-sous-groupes de Sylow pour l'existence, et comptage modulaire (via l'équation aux classes) pour les congruences sur leur nombre.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un groupe fini G d'ordre pᵃm, p premier, p ∤ m ; G agit sur l'ensemble Ω des parties à pᵃ éléments de G par translation à gauche.",
+        axiomes: [
+            {
+                nom: "C1 — Cardinal de Ω",
+                enonce: "|Ω| = C(pᵃm, pᵃ), dont la valuation p-adique est celle de m (lemme combinatoire)."
+            },
+            {
+                nom: "O1 — Une orbite de cardinal premier à p",
+                enonce: "Comme p ∤ |Ω|, il existe une orbite Ω₀ de cardinal premier à p (sinon toutes les tailles d'orbites, qui divisent |G|, seraient multiples de p par un argument de comptage)."
+            },
+            {
+                nom: "S1 — Stabilisateur",
+                enonce: "Pour A ∈ Ω₀, Stab(A) a un indice [G:Stab(A)] = |Ω₀| premier à p, donc |Stab(A)| est multiple de pᵃ ; mais |Stab(A)| ≤ |A| = pᵃ (Stab(A) agit librement sur A par translation), donc |Stab(A)| = pᵃ exactement."
+            }
+        ],
+        conclusion: "Cette preuve (Wielandt) établit l'existence d'un p-Sylow (premier théorème de Sylow) par un argument de comptage élégant, sans induction sur |G|. Les deuxième et troisième théorèmes (conjugaison transitive des p-Sylow via l'action par conjugaison sur l'ensemble des p-Sylow, et n_p ≡ 1 [p] via l'action d'un p-Sylow sur cet ensemble par conjugaison, dont les orbites non ponctuelles ont un cardinal multiple de p) complètent la preuve classique."
+    },
     formulas: [
       {
         text: "La démonstration de l'existence d'un p-sous-groupe de Sylow utilise typiquement une action du groupe sur l'ensemble des parties de cardinal p^a (a la valuation p-adique de |G|), combinée à un argument de comptage montrant qu'au moins une orbite a un stabilisateur du bon ordre.",
@@ -10207,6 +13427,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1632": {
     title: "Produits tensoriels d'espaces vectoriels",
     definition: "Le produit tensoriel V⊗W de deux espaces vectoriels sur un corps K est un espace vectoriel muni d'une application bilinéaire universelle ⊗:V×W→V⊗W, au sens où toute application bilinéaire de V×W vers un espace Z se factorise de façon unique à travers V⊗W via une application linéaire. Si dim(V)=m et dim(W)=n, alors dim(V⊗W)=mn.",
+    definition_axiomatique: {
+        cadre: "On travaille sur des K-espaces vectoriels de dimension finie E₁, …, E_p, F.",
+        axiomes: [
+            {
+                nom: "M1 — Multilinéaire",
+                enonce: "f : E₁ × … × E_p → F est multilinéaire si elle est linéaire par rapport à chaque variable."
+            },
+            {
+                nom: "M2 — Propriété universelle",
+                enonce: "Il existe un espace E₁ ⊗ … ⊗ E_p et une application multilinéaire ⊗ tels que toute application multilinéaire f se factorise de façon unique en f = f̃ ∘ ⊗ avec f̃ linéaire."
+            },
+            {
+                nom: "M3 — Dimension",
+                enonce: "dim(E ⊗ F) = dim E · dim F."
+            }
+        ],
+        conclusion: "Le produit tensoriel E ⊗ F est caractérisé par cette propriété universelle (à isomorphisme près) ; il contient les tenseurs purs x ⊗ y et une base de E ⊗ F est (eᵢ ⊗ f_j). Il permet de représenter les applications bilinéaires comme des applications linéaires et de définir formes multilinéaires, déterminant (Λⁿ E) et produit de Kronecker."
+    },
     formulas: [
       {
         text: "Le produit tensoriel de bases (e_i) de V et (f_j) de W forme une base (e_i⊗f_j) de V⊗W, ce qui justifie directement la formule dim(V⊗W)=dim(V)·dim(W). Le produit tensoriel est distributif par rapport à la somme directe et permet de représenter les applications bilinéaires comme applications linéaires sur l'espace tensorisé.",
@@ -10266,6 +13504,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1633": {
     title: "Algèbre homologique : suites exactes et complexes",
     definition: "Un complexe de chaînes est une suite d'espaces vectoriels (ou de modules) reliés par des applications linéaires (différentielles) d_n:C_n→C_{n-1} vérifiant d_n∘d_{n+1}=0. Une suite est exacte en un terme si le noyau de l'application sortante est exactement égal à l'image de l'application entrante ; un complexe exact partout est dit acyclique.",
+    definition_axiomatique: {
+        cadre: "Un complexe de chaînes est une suite de K-espaces vectoriels (Cₙ) et d'applications linéaires dₙ : Cₙ → Cₙ₋₁.",
+        axiomes: [
+            {
+                nom: "C1 — Différentielle",
+                enonce: "dₙ₋₁ ∘ dₙ = 0."
+            },
+            {
+                nom: "C2 — Cycles et bords",
+                enonce: "Zₙ = ker dₙ ⊃ Bₙ = Im dₙ₊₁ (car d² = 0)."
+            },
+            {
+                nom: "C3 — Homologie",
+                enonce: "Hₙ = Zₙ/Bₙ."
+            }
+        ],
+        conclusion: "Le complexe est exact si et seulement si Hₙ = 0 pour tout n. Exemples : complexe simplicial (homologie d'un espace triangulé, H₀ = composantes connexes), complexe de de Rham (formes différentielles, d² = 0), complexe de Koszul. Une suite exacte courte de complexes donne une suite exacte longue d'homologie. La caractéristique d'Euler Σ(−1)ⁿ dim Cₙ = Σ(−1)ⁿ dim Hₙ."
+    },
     formulas: [
       {
         text: "L'homologie H_n(C)=ker(d_n)/im(d_{n+1}) d'un complexe mesure précisément le défaut d'exactitude en chaque degré. Une suite exacte courte 0→A→B→C→0 encode une extension de C par A, notion centrale reliant sous-objets, quotients et objets ambiants.",
@@ -10313,6 +13569,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1634": {
     title: "Algèbre extérieure et formes multilinéaires alternées (approfondissement)",
     definition: "L'algèbre extérieure Λ(V) d'un espace vectoriel V est l'algèbre graduée construite à partir du produit tensoriel en quotientant par les relations d'antisymétrie (v⊗v=0), munie du produit extérieur ∧. La puissance extérieure k-ième Λ^k(V) est l'espace des tenseurs antisymétriques de degré k, de dimension C(n,k) si dim(V)=n.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un K-espace vectoriel E de dimension n ; on définit les puissances extérieures ΛᵏE et le produit extérieur.",
+        axiomes: [
+            {
+                nom: "W1 — Application alternée universelle",
+                enonce: "ΛᵏE muni de l'application (x₁, …, x_k) ↦ x₁ ∧ … ∧ x_k alternée k-linéaire, universelle : toute application alternée f se factorise de façon unique par une application linéaire f̃ sur ΛᵏE."
+            },
+            {
+                nom: "W2 — Produit extérieur",
+                enonce: "(x₁ ∧ … ∧ x_k) ∧ (y₁ ∧ … ∧ y_l) = x₁ ∧ … ∧ x_k ∧ y₁ ∧ … ∧ y_l ; α ∧ β = (−1)^{kl}β ∧ α."
+            },
+            {
+                nom: "W3 — Dimension",
+                enonce: "dim ΛᵏE = C(n, k) ; base eᵢ₁ ∧ … ∧ eᵢₖ, i₁ < … < iₖ."
+            }
+        ],
+        conclusion: "Λ(E) = ⊕ΛᵏE est une algèbre graduée anticommutative de dimension 2ⁿ. x₁ ∧ … ∧ x_k ≠ 0 si et seulement si la famille est libre ; le déterminant est la coordonnée de x₁ ∧ … ∧ xₙ sur e₁ ∧ … ∧ eₙ. Applications : formes différentielles, produit vectoriel (Λ²ℝ³ ≅ ℝ³), coordonnées de Plücker, orientation."
+    },
     formulas: [
       {
         text: "Λ^n(V) (n=dim V) est de dimension 1, engendré par le produit extérieur d'une base, et fournit une notion intrinsèque de « volume orienté » : le déterminant d'un endomorphisme s'interprète précisément comme le scalaire par lequel il multiplie cet espace de dimension 1 (Λ^n(f) agit par multiplication par det(f)).",
@@ -10360,6 +13634,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1635": {
     title: "Catégories et foncteurs : exemples approfondis",
     definition: "Une catégorie est constituée d'objets et de morphismes entre objets, munis d'une composition associative et d'identités. Un foncteur entre deux catégories associe à chaque objet un objet et à chaque morphisme un morphisme, en respectant composition et identités (foncteur covariant), ou en les inversant (foncteur contravariant).",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux catégories 𝒞, 𝒟 ; F associe à chaque objet A de 𝒞 un objet F(A) de 𝒟 et à chaque morphisme f un morphisme F(f).",
+        axiomes: [
+            {
+                nom: "F1 — Covariance",
+                enonce: "F(f : A → B) : F(A) → F(B)."
+            },
+            {
+                nom: "F2 — Composition",
+                enonce: "F(g ∘ f) = F(g) ∘ F(f)."
+            },
+            {
+                nom: "F3 — Identité",
+                enonce: "F(id_A) = id_{F(A)}."
+            }
+        ],
+        conclusion: "Un foncteur contravariant renverse les flèches : F(f : A → B) : F(B) → F(A), F(g ∘ f) = F(f) ∘ F(g). Exemples : le foncteur d'oubli (Grp → Ens), le groupe fondamental π₁ (Top_* → Grp), le foncteur puissance ensembliste 𝒫 (contravariant sur les applications, via image réciproque), le dual d'un espace vectoriel E ↦ E* (contravariant). Un foncteur préserve les isomorphismes."
+    },
     formulas: [
       {
         text: "De nombreuses constructions mathématiques usuelles sont des foncteurs : le passage d'un espace vectoriel à son dual est un foncteur contravariant, l'abélianisation d'un groupe est un foncteur covariant de la catégorie des groupes vers celle des groupes abéliens, l'homologie singulière est un foncteur covariant de la catégorie des espaces topologiques vers celle des groupes abéliens gradués.",
@@ -10403,6 +13695,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1636": {
     title: "Cryptographie à base de courbes elliptiques : introduction",
     definition: "Une courbe elliptique sur un corps K est l'ensemble des solutions d'une équation de la forme y²=x³+ax+b (avec discriminant non nul), muni d'un point à l'infini. Cet ensemble peut être muni d'une structure de groupe abélien via une loi de composition géométrique (la somme de deux points s'obtenant par intersection avec une droite et symétrie), fondement de la cryptographie à base de courbes elliptiques (ECC).",
+    definition_axiomatique: {
+        cadre: "On travaille sur une courbe elliptique E : y² = x³ + ax + b sur F_p (p > 3, discriminant −16(4a³+27b²) ≠ 0), munie de la loi de groupe (point à l'infini O neutre, trois points alignés de somme O).",
+        axiomes: [
+            {
+                nom: "G1 — Groupe fini",
+                enonce: "E(F_p) = {(x,y) ∈ F_p² : y² = x³+ax+b} ∪ {O} est un groupe abélien fini."
+            },
+            {
+                nom: "D1 — Problème du logarithme discret elliptique (ECDLP)",
+                enonce: "Étant donnés P et Q = nP, retrouver n est (conjecturalement) difficile — plus difficile que le logarithme discret classique dans F_p* pour une taille de clé comparable."
+            },
+            {
+                nom: "H1 — Théorème de Hasse",
+                enonce: "|E(F_p)| = p + 1 − t, |t| ≤ 2√p (borne sur le nombre de points)."
+            }
+        ],
+        conclusion: "La cryptographie à courbes elliptiques (ECC) construit des protocoles d'échange de clé (ECDH) et de signature (ECDSA) sur E(F_p), atteignant une sécurité comparable à RSA avec des clés bien plus courtes (~256 bits contre ~3072 bits), car le meilleur algorithme connu contre ECDLP (Pollai-rho) est en O(√p), sans analogue du crible de corps de nombres (sous-exponentiel) qui affaiblit RSA et le logarithme discret classique. Utilisée dans TLS, Bitcoin (secp256k1), Signal."
+    },
     formulas: [
       {
         text: "La sécurité de l'ECC repose sur la difficulté du problème du logarithme discret dans le groupe des points d'une courbe elliptique sur un corps fini : étant donné P et Q=kP, retrouver k est considéré comme très difficile, permettant des protocoles cryptographiques (échange de clés, signature) à clés bien plus courtes qu'avec RSA pour un niveau de sécurité équivalent.",
@@ -10454,6 +13764,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1637": {
     title: "Optimisation convexe : conditions d'optimalité",
     definition: "Pour un problème de minimisation d'une fonction convexe différentiable f sur un ensemble convexe C, un point x* est optimal si et seulement si ∇f(x*)·(y-x*)≥0 pour tout y∈C (condition d'optimalité du premier ordre pour l'optimisation sous contraintes convexes). Si C=ℝⁿ (sans contrainte), cette condition se réduit à ∇f(x*)=0.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une fonction convexe f : ℝⁿ → ℝ différentiable et un ensemble convexe fermé C ⊂ ℝⁿ ; on cherche x* minimisant f sur C.",
+        axiomes: [
+            {
+                nom: "C1 — Convexité",
+                enonce: "f(tx + (1 − t)y) ≤ tf(x) + (1 − t)f(y) pour x, y ∈ U et t ∈ [0 ; 1]."
+            },
+            {
+                nom: "C2 — Caractérisation différentiable",
+                enonce: "Si f est C¹, f est convexe si et seulement si f(y) ≥ f(x) + ⟨∇f(x), y − x⟩."
+            },
+            {
+                nom: "C3 — Caractérisation par la hessienne",
+                enonce: "Si f est C², f est convexe si et seulement si H_f(x) est semi-définie positive pour tout x."
+            }
+        ],
+        conclusion: "Condition d'optimalité : x* ∈ C est un minimum global de f sur C si et seulement si ⟨∇f(x*), x − x*⟩ ≥ 0 pour tout x ∈ C (l'opposé du gradient ne pointe vers aucune direction admissible qui diminuerait f). Pour C = ℝⁿ (sans contrainte), cela se réduit à ∇f(x*) = 0 ; si f est de plus strictement convexe, le minimum (s'il existe) est unique. Ce critère est nécessaire et suffisant grâce à la convexité (contrairement au cas non convexe, où ∇f(x*)=0 n'est que nécessaire)."
+    },
     formulas: [
       {
         text: "En optimisation convexe (fonction et ensemble convexes), tout point vérifiant la condition d'optimalité du premier ordre est un minimum global (et non seulement local), propriété remarquable qui distingue fondamentalement l'optimisation convexe de l'optimisation générale, où les minima locaux ne sont pas nécessairement globaux.",
@@ -10505,6 +13833,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1638": {
     title: "Conditions de Karush-Kuhn-Tucker (KKT)",
     definition: "Pour un problème d'optimisation sous contraintes d'égalité (h_i(x)=0) et d'inégalité (g_j(x)≤0), les conditions KKT généralisent les multiplicateurs de Lagrange en ajoutant des conditions de complémentarité : à un optimum x*, il existe des multiplicateurs λ_i, μ_j≥0 tels que ∇f(x*)+Σλ_i∇h_i(x*)+Σμ_j∇g_j(x*)=0, avec μ_j g_j(x*)=0 pour chaque contrainte d'inégalité (complémentarité).",
+    definition_axiomatique: {
+        cadre: "On minimise f(x) sous gᵢ(x) ≤ 0 (i=1,…,m) et hⱼ(x) = 0 (j=1,…,p), f, gᵢ, hⱼ ∈ C¹, en un point x* vérifiant une condition de qualification des contraintes (ex. Slater pour un problème convexe).",
+        axiomes: [
+            {
+                nom: "S1 — Stationnarité",
+                enonce: "∇f(x*) + Σλᵢ∇gᵢ(x*) + Σμⱼ∇hⱼ(x*) = 0 pour des multiplicateurs λᵢ ≥ 0, μⱼ ∈ ℝ."
+            },
+            {
+                nom: "C1 — Complémentarité",
+                enonce: "λᵢgᵢ(x*) = 0 pour tout i (le multiplicateur est nul si la contrainte n'est pas active)."
+            },
+            {
+                nom: "R1 — Réalisabilité",
+                enonce: "gᵢ(x*) ≤ 0, hⱼ(x*) = 0, λᵢ ≥ 0."
+            }
+        ],
+        conclusion: "Les conditions de Karush-Kuhn-Tucker généralisent les multiplicateurs de Lagrange aux contraintes d'inégalité ; elles sont nécessaires en un minimum local sous qualification des contraintes (ex. indépendance linéaire des gradients actifs, ou Slater pour un problème convexe où elles deviennent aussi suffisantes). Elles fondent numériquement les méthodes de points intérieurs et de programmation quadratique séquentielle (SQP)."
+    },
     formulas: [
       {
         text: "Sous des hypothèses de qualification des contraintes (comme Slater pour les problèmes convexes) et de convexité du problème, les conditions KKT sont non seulement nécessaires mais également suffisantes pour l'optimalité globale, généralisant ainsi les conditions du premier ordre à des problèmes avec contraintes d'inégalité.",
@@ -10564,6 +13910,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1639": {
     title: "Dualité en optimisation (Lagrangien dual)",
     definition: "Pour un problème d'optimisation primal (minimiser f(x) sous contraintes g_j(x)≤0), le Lagrangien est L(x,μ)=f(x)+Σμ_j g_j(x) (μ_j≥0), et la fonction duale est q(μ)=inf_x L(x,μ). Le problème dual consiste à maximiser q(μ) sous μ≥0, fournissant systématiquement une borne inférieure sur la valeur optimale du problème primal (dualité faible).",
+    definition_axiomatique: {
+        cadre: "On considère le problème primal min_x f(x) sous gᵢ(x) ≤ 0, et le lagrangien L(x, λ) = f(x) + Σλᵢgᵢ(x), λ ≥ 0.",
+        axiomes: [
+            {
+                nom: "D1 — Fonction duale",
+                enonce: "q(λ) = inf_xL(x, λ)."
+            },
+            {
+                nom: "C1 — Concavité",
+                enonce: "q est concave (inf d'une famille de fonctions affines en λ), même si f et gᵢ ne sont pas convexes."
+            },
+            {
+                nom: "F1 — Dualité faible",
+                enonce: "q(λ) ≤ f(x) pour tout x réalisable et λ ≥ 0, donc sup_λq(λ) ≤ inf_xf(x)."
+            }
+        ],
+        conclusion: "Le problème dual max_{λ≥0}q(λ) fournit toujours une borne inférieure sur l'optimum primal (dualité faible) ; sous convexité et qualification des contraintes (Slater), il n'y a pas de saut de dualité : sup q = inf f (dualité forte), et les solutions optimales primale-duale vérifient KKT. Le dual est souvent plus simple (dimension réduite, contraintes plus simples) et sert de base aux algorithmes de points intérieurs et à la décomposition de grands problèmes."
+    },
     formulas: [
       {
         text: "Sous des hypothèses de convexité et de qualification des contraintes (condition de Slater), la dualité forte est vérifiée : les valeurs optimales des problèmes primal et dual coïncident exactement, permettant de résoudre le problème primal via son dual, souvent plus simple.",
@@ -10611,6 +13975,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1640": {
     title: "Méthode du gradient conjugué",
     definition: "La méthode du gradient conjugué est un algorithme itératif de résolution de systèmes linéaires Ax=b (A symétrique définie positive) ou de minimisation de formes quadratiques associées, construisant une suite de directions de descente mutuellement conjuguées par rapport à A (d_i^T A d_j=0 pour i≠j), garantissant la convergence en au plus n itérations en arithmétique exacte (n la dimension du système).",
+    definition_axiomatique: {
+        cadre: "On minimise f(x) = ½xᵀAx − bᵀx, A ∈ Mₙ(ℝ) symétrique définie positive, en générant des directions (dₖ) A-conjuguées : dᵢᵀAdⱼ = 0 pour i ≠ j.",
+        axiomes: [
+            {
+                nom: "C1 — Directions conjuguées",
+                enonce: "d₀,…,d_{n-1} sont A-conjuguées (base orthogonale pour le produit scalaire ⟨u,v⟩_A = uᵀAv)."
+            },
+            {
+                nom: "M1 — Minimisation exacte 1D",
+                enonce: "À chaque étape, x_{k+1} = x_k + α_kd_k, α_k choisi pour minimiser f exactement le long de d_k."
+            },
+            {
+                nom: "R1 — Résidu",
+                enonce: "r_k = b − Ax_k = −∇f(x_k) ; les directions sont construites récursivement par d_k = r_k + β_kd_{k-1} (β_k choisi pour la A-conjugaison avec d_{k-1})."
+            }
+        ],
+        conclusion: "Le gradient conjugué converge en au plus n itérations en arithmétique exacte (propriété C1 : minimiser successivement le long de directions A-conjuguées revient à minimiser exactement sur l'espace engendré par toutes les directions passées), mais en pratique (arithmétique flottante, grande dimension) il est utilisé comme méthode itérative, convergeant d'autant plus vite que le conditionnement de A est petit (taux (√κ−1)/(√κ+1) par itération, κ = cond(A)). Coût O(n) par itération pour A creuse : adapté aux très grands systèmes issus de la discrétisation d'EDP."
+    },
     formulas: [
       {
         text: "Contrairement à la méthode du gradient à pas optimal (qui peut converger très lentement pour des systèmes mal conditionnés, en zigzaguant), le gradient conjugué exploite l'information des directions précédentes pour converger significativement plus vite, sans nécessiter le stockage ni l'inversion explicite de la matrice A.",
@@ -10658,6 +14040,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1641": {
     title: "Méthode de Newton en optimisation",
     definition: "La méthode de Newton pour minimiser une fonction f deux fois différentiable consiste à itérer x_{k+1}=x_k-[Hf(x_k)]⁻¹∇f(x_k), où Hf est la matrice hessienne, approximant f localement par son développement de Taylor à l'ordre 2 (une forme quadratique) et se déplaçant directement vers le minimum de cette approximation quadratique.",
+    definition_axiomatique: {
+        cadre: "On minimise f ∈ C² : ℝⁿ → ℝ en approchant f près de x_k par son développement de Taylor à l'ordre 2 : f(x_k + d) ≈ f(x_k) + ∇f(x_k)ᵀd + ½dᵀH_kd, H_k = D²f(x_k).",
+        axiomes: [
+            {
+                nom: "Q1 — Modèle quadratique",
+                enonce: "d_k minimise le modèle quadratique : H_kd_k = −∇f(x_k) (si H_k définie positive)."
+            },
+            {
+                nom: "N1 — Itération de Newton",
+                enonce: "x_{k+1} = x_k − H_k⁻¹∇f(x_k)."
+            },
+            {
+                nom: "C1 — Convergence quadratique locale",
+                enonce: "Si H est lipschitzienne et H(x*) définie positive au minimum x*, ‖x_{k+1} − x*‖ ≤ C‖x_k − x*‖² pour x_k assez proche de x*."
+            }
+        ],
+        conclusion: "La convergence quadratique de Newton (le nombre de décimales correctes double à chaque itération, une fois assez proche) est bien plus rapide que la convergence linéaire du gradient, au prix du calcul (coûteux, O(n³)) et de l'inversion de la hessienne à chaque étape, et de l'absence de garantie de convergence globale (H_k peut ne pas être définie positive loin du minimum, ou l'itération peut diverger) : on la combine souvent à une recherche linéaire ou une région de confiance pour la robustesse (Newton amorti/globalisé)."
+    },
     formulas: [
       {
         text: "Cette méthode converge quadratiquement (le nombre de chiffres significatifs corrects double approximativement à chaque itération) au voisinage d'un minimum non dégénéré (hessienne définie positive), une vitesse de convergence bien supérieure à celle de la méthode du gradient (convergence seulement linéaire en général), mais nécessite le calcul et l'inversion de la hessienne à chaque itération, coûteux en grande dimension.",
@@ -10705,6 +14105,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1642": {
     title: "Calcul des variations : équation d'Euler-Lagrange",
     definition: "Le calcul des variations étudie l'optimisation de fonctionnelles (fonctions dont l'argument est lui-même une fonction), typiquement de la forme J(y)=∫_a^b L(x,y(x),y'(x))dx. L'équation d'Euler-Lagrange, condition nécessaire d'optimalité, s'écrit ∂L/∂y-d/dx(∂L/∂y')=0, généralisant l'annulation du gradient au cas fonctionnel.",
+    definition_axiomatique: {
+        cadre: "On cherche une fonction q(t) qui rend stationnaire l'action S[q] = ∫L(q, q̇, t)dt parmi les chemins à extrémités fixées, L(q,q̇,t) fonction régulière (lagrangien).",
+        axiomes: [
+            {
+                nom: "A1 — Principe de moindre action",
+                enonce: "La trajectoire réelle rend stationnaire l'action S[q] = ∫L(q, q̇, t)dt parmi les chemins à extrémités fixées."
+            },
+            {
+                nom: "A2 — Variation première",
+                enonce: "δS = 0 pour toute variation δq nulle aux extrémités."
+            },
+            {
+                nom: "A3 — Calcul des variations",
+                enonce: "δS = ∫(∂L/∂q − d/dt(∂L/∂q̇))·δq dt (intégration par parties)."
+            }
+        ],
+        conclusion: "Équation d'Euler-Lagrange : d/dt(∂L/∂q̇) − ∂L/∂q = 0, condition nécessaire pour qu'un chemin rende l'action stationnaire (obtenue en annulant la variation première δS pour toute variation δq nulle aux bords, par intégration par parties). Elle unifie de nombreux principes variationnels : la mécanique classique (L = énergie cinétique − potentielle), la géodésique riemannienne (L = ‖q̇‖_g, ou son carré), le problème de la brachistochrone, et se généralise aux EDP (fonctionnelles L(u,∇u,x) → équation d'Euler-Lagrange aux dérivées partielles)."
+    },
     formulas: [
       {
         text: "Cette équation se déduit en considérant une variation infinitésimale y+εη (η s'annulant aux extrémités) et en imposant que la dérivée de J par rapport à ε s'annule en ε=0, aboutissant après intégration par parties à l'équation différentielle d'Euler-Lagrange que doit vérifier tout extremum.",
@@ -10752,6 +14170,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1643": {
     title: "Décomposition en valeurs singulières (SVD) : calcul et applications",
     definition: "La décomposition en valeurs singulières (SVD) d'une matrice A de taille m×n s'écrit A=UΣV^T, où U et V sont des matrices orthogonales (de tailles m×m et n×n respectivement) et Σ une matrice diagonale (rectangulaire) à coefficients positifs ou nuls (les valeurs singulières), décroissants. Cette décomposition existe pour toute matrice réelle, sans hypothèse de carré ou d'inversibilité.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une matrice A ∈ M_{m,n}(ℝ) ; AᵀA est symétrique positive.",
+        axiomes: [
+            {
+                nom: "V1 — Spectre de AᵀA",
+                enonce: "AᵀA est symétrique, positive, donc diagonalisable en base orthonormale (vᵢ), de valeurs propres λᵢ ≥ 0."
+            },
+            {
+                nom: "V2 — Valeurs singulières",
+                enonce: "σᵢ = √λᵢ ; uᵢ = Avᵢ/σᵢ pour σᵢ > 0."
+            },
+            {
+                nom: "V3 — Orthonormalité",
+                enonce: "(uᵢ) est une famille orthonormale."
+            }
+        ],
+        conclusion: "Décomposition en valeurs singulières : A = UΣVᵀ avec U ∈ O_m, V ∈ Oₙ, Σ diagonale (m × n) de coefficients σ₁ ≥ … ≥ σ_r > 0. Les valeurs singulières sont uniques ; rg A = r. La SVD donne la meilleure approximation de rang k de A (Eckart-Young), la pseudo-inverse, et est la base de l'analyse en composantes principales."
+    },
     formulas: [
       {
         text: "Les valeurs singulières sont les racines carrées des valeurs propres de A^T A (ou AA^T), et les colonnes de U et V sont respectivement les vecteurs propres de AA^T et A^T A. La SVD fournit la meilleure approximation de rang k d'une matrice donnée (théorème d'Eckart-Young), au sens de la norme spectrale ou de Frobenius.",
@@ -10803,6 +14239,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1644": {
     title: "Chaînes de Markov Monte-Carlo (MCMC) : introduction",
     definition: "Les méthodes MCMC permettent d'échantillonner approximativement une loi de probabilité π complexe (souvent connue seulement à une constante de normalisation près, comme une loi a posteriori bayésienne) en construisant une chaîne de Markov dont la loi stationnaire est exactement π, et en simulant cette chaîne suffisamment longtemps pour approcher un échantillon de π.",
+    definition_axiomatique: {
+        cadre: "On veut échantillonner une loi cible π sur un espace d'états (souvent connue à une constante de normalisation près) en construisant une chaîne de Markov de loi stationnaire π.",
+        axiomes: [
+            {
+                nom: "R1 — Réversibilité",
+                enonce: "On choisit un noyau de transition P vérifiant l'équilibre détaillé π(x)P(x, y) = π(y)P(y, x)."
+            },
+            {
+                nom: "C1 — Convergence",
+                enonce: "Si la chaîne est irréductible et apériodique, sa loi converge vers π quelle que soit la loi initiale (théorème ergodique pour les chaînes de Markov)."
+            },
+            {
+                nom: "E1 — Moyenne ergodique",
+                enonce: "(1/n)Σ_{k<n}f(X_k) → ∫f dπ presque sûrement (théorème ergodique de Birkhoff)."
+            }
+        ],
+        conclusion: "Les méthodes MCMC (Metropolis-Hastings, échantillonneur de Gibbs) construisent explicitement un tel noyau P vérifiant l'équilibre détaillé pour π, sans connaître sa constante de normalisation (elle se simplifie dans le rapport π(y)/π(x)). Elles permettent de simuler des lois complexes en grande dimension (statistique bayésienne, physique statistique, apprentissage automatique) là où l'échantillonnage direct est impossible."
+    },
     formulas: [
       {
         text: "La construction de la chaîne repose sur des algorithmes génériques (comme Metropolis-Hastings) garantissant, sous des hypothèses de réversibilité (condition de bilan détaillé), que π est bien la loi stationnaire de la chaîne construite, quelle que soit la complexité de π (à condition de savoir l'évaluer, au moins à une constante près).",
@@ -10850,6 +14304,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1645": {
     title: "Courbes elliptiques : loi de groupe (approfondissement analytique)",
     definition: "Vue analytiquement (sur ℂ), une courbe elliptique s'obtient comme quotient ℂ/Λ du plan complexe par un réseau Λ (sous-groupe discret de rang 2 de ℂ), ce qui donne immédiatement à cet ensemble une structure naturelle de groupe abélien (héritée de l'addition sur ℂ), correspondant exactement à la loi de groupe géométrique définie algébriquement sur la courbe y²=x³+ax+b.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un réseau Λ = ℤω₁ + ℤω₂ ⊂ ℂ (ω₁/ω₂ ∉ ℝ) et la fonction ℘ de Weierstrass, ℘(z) = 1/z² + Σ_{ω∈Λ∖{0}}(1/(z−ω)² − 1/ω²).",
+        axiomes: [
+            {
+                nom: "P1 — Périodicité",
+                enonce: "℘(z + ω) = ℘(z) pour tout ω ∈ Λ (fonction elliptique, méromorphe Λ-périodique)."
+            },
+            {
+                nom: "E1 — Équation différentielle",
+                enonce: "℘'² = 4℘³ − g₂℘ − g₃ (g₂, g₃ dépendant de Λ, séries d'Eisenstein)."
+            },
+            {
+                nom: "B1 — Bijection avec ℂ/Λ",
+                enonce: "z ↦ (℘(z), ℘'(z)) définit un isomorphisme analytique de ℂ/Λ sur la courbe elliptique E : y² = 4x³ − g₂x − g₃ (plus le point à l'infini)."
+            }
+        ],
+        conclusion: "La loi de groupe géométrique sur E (trois points alignés de somme nulle) correspond, via cette paramétrisation, à l'addition dans ℂ/Λ : ℘(z₁+z₂) s'exprime rationnellement en ℘(z₁), ℘'(z₁), ℘(z₂), ℘'(z₂) (formule d'addition). Ainsi une courbe elliptique complexe est, analytiquement, un tore ℂ/Λ ; le théorème d'uniformisation de Weierstrass établit que toute courbe elliptique sur ℂ s'obtient ainsi pour un réseau Λ convenable, unique à homothétie près."
+    },
     formulas: [
       {
         text: "Cette double description (algébrique, via l'équation cubique, et analytique, via le quotient ℂ/Λ) est reliée par les fonctions elliptiques de Weierstrass, qui fournissent explicitement le paramétrage entre le tore complexe ℂ/Λ et la courbe cubique dans le plan projectif.",
@@ -10901,6 +14373,34 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1646": {
     title: "Fonction zêta de Riemann : définition et prolongement",
     definition: "La fonction zêta de Riemann est définie pour Re(s)>1 par la série ζ(s)=Σ_{n≥1} 1/n^s, absolument convergente dans ce demi-plan. Elle admet un prolongement analytique méromorphe à tout le plan complexe, avec un unique pôle simple en s=1 (résidu 1), résultat non trivial reliant analyse complexe et théorie des nombres.",
+    definition_axiomatique: {
+        cadre: "On étudie deux fonctions méromorphes sur ℂ : Γ(z) = ∫₀^{+∞}tᶻ⁻¹e⁻ᵗdt (Re z > 0) et ζ(s) = Σn⁻ˢ (Re s > 1).",
+        axiomes: [
+            {
+                nom: "Γ1 — Relation fonctionnelle",
+                enonce: "Γ(z + 1) = zΓ(z) ; Γ(1) = 1 ; sur ℝ₊*, Γ est log-convexe."
+            },
+            {
+                nom: "Γ2 — Prolongement",
+                enonce: "Γ se prolonge à ℂ en une fonction méromorphe sans zéro, de pôles simples en 0, −1, −2, … avec Res_{−n}Γ = (−1)ⁿ/n!."
+            },
+            {
+                nom: "ζ1 — Équation fonctionnelle",
+                enonce: "ζ se prolonge à ℂ ∖ {1} en fonction méromorphe (pôle simple en 1) et ξ(s) = π^{−s/2}Γ(s/2)ζ(s) vérifie ξ(s) = ξ(1 − s)."
+            }
+        ],
+        conclusion: "Sur ℝ₊*, Γ est caractérisée par Γ1 et la log-convexité (Bohr-Mollerup) ; sur ℂ, par Γ1 et le fait d'être bornée sur la bande 1 ≤ Re z ≤ 2 (Wielandt). Γ(z)Γ(1 − z) = π/sin πz, Γ(1/2) = √π. Les zéros non triviaux de ζ sont dans la bande 0 < Re s < 1 ; l'hypothèse de Riemann affirme qu'ils sont sur Re s = 1/2.",
+        sources: [
+            {
+                titre: "Encyclopedia of Mathematics — Bohr-Mollerup theorem",
+                url: "https://encyclopediaofmath.org/wiki/Bohr-Mollerup_theorem"
+            },
+            {
+                titre: "Special Functions Wiki — Bohr-Mollerup theorem",
+                url: "https://specialfunctionswiki.org/index.php/Bohr-Mollerup_theorem"
+            }
+        ]
+    },
     formulas: [
       {
         text: "L'identité d'Euler ζ(s)=Π_p (1-p^{-s})⁻¹ (produit sur tous les nombres premiers p, valable pour Re(s)>1) relie directement la fonction zêta à la répartition des nombres premiers, fondement de la théorie analytique des nombres. L'équation fonctionnelle de Riemann relie ζ(s) à ζ(1-s), révélant une symétrie profonde.",
@@ -10948,6 +14448,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1647": {
     title: "Surfaces de Riemann : introduction",
     definition: "Une surface de Riemann est une variété complexe de dimension complexe 1 (donc de dimension réelle 2), c'est-à-dire un espace topologique muni d'un atlas de cartes à valeurs dans ℂ dont les changements de cartes sont holomorphes. Cette structure généralise le plan complexe ℂ et la sphère de Riemann à des surfaces topologiquement plus riches.",
+    definition_axiomatique: {
+        cadre: "Une surface de Riemann est une variété complexe connexe de dimension 1.",
+        axiomes: [
+            {
+                nom: "R1 — Cartes",
+                enonce: "Atlas de cartes à valeurs dans ℂ."
+            },
+            {
+                nom: "R2 — Transitions holomorphes",
+                enonce: "Les changements de cartes sont holomorphes."
+            },
+            {
+                nom: "R3 — Connexité",
+                enonce: "L'espace est connexe."
+            }
+        ],
+        conclusion: "Exemples : ℂ, la sphère de Riemann Ĉ, le disque, les tores ℂ/(ℤ + τℤ) (courbes elliptiques), le graphe de w² = P(z) (surface hyperelliptique). Théorème d'uniformisation : le revêtement universel d'une surface de Riemann est Ĉ, ℂ ou 𝔻. Genre g, formule de Riemann-Hurwitz, théorème de Riemann-Roch."
+    },
     formulas: [
       {
         text: "Toute surface de Riemann compacte est classifiée topologiquement par son genre g (nombre de « trous », comme pour un tore), et le théorème de Riemann-Roch relie ce genre à la dimension des espaces de fonctions méromorphes admissibles sur la surface, résultat central de la théorie.",
@@ -10999,6 +14517,34 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1648": {
     title: "Fonctions spéciales : fonction Gamma",
     definition: "La fonction Gamma d'Euler, définie pour Re(s)>0 par Γ(s)=∫₀^∞ t^{s-1}e^{-t}dt, prolonge la factorielle aux nombres complexes (Γ(n)=(n-1)! pour n entier positif) et se prolonge méromorphiquement à tout ℂ, avec des pôles simples exactement aux entiers négatifs ou nuls.",
+    definition_axiomatique: {
+        cadre: "On cherche une fonction Γ sur ]0 ; +∞[ qui prolonge la factorielle aux réels positifs : Γ(n + 1) = n!.",
+        axiomes: [
+            {
+                nom: "G1 — Relation fonctionnelle",
+                enonce: "Γ(x + 1) = x·Γ(x) pour tout x > 0."
+            },
+            {
+                nom: "G2 — Normalisation",
+                enonce: "Γ(1) = 1."
+            },
+            {
+                nom: "G3 — Log-convexité",
+                enonce: "Γ est strictement positive et ln Γ est convexe."
+            }
+        ],
+        conclusion: "Théorème de Bohr-Mollerup : il existe une unique fonction vérifiant G1 à G3, c'est Γ(x) = ∫₀^{+∞} t^{x−1}e^{−t}dt. Sans G3, la relation fonctionnelle n'impose pas l'unicité ; sans G2, toute fonction λΓ conviendrait. On a Γ(1/2) = √π.",
+        sources: [
+            {
+                titre: "Encyclopedia of Mathematics — Bohr-Mollerup theorem",
+                url: "https://encyclopediaofmath.org/wiki/Bohr-Mollerup_theorem"
+            },
+            {
+                titre: "Special Functions Wiki — Bohr-Mollerup theorem",
+                url: "https://specialfunctionswiki.org/index.php/Bohr-Mollerup_theorem"
+            }
+        ]
+    },
     formulas: [
       {
         text: "La relation fonctionnelle Γ(s+1)=sΓ(s) généralise directement la relation de récurrence de la factorielle. La formule de réflexion d'Euler Γ(s)Γ(1-s)=π/sin(πs) relie les valeurs de Γ en s et 1-s, et la valeur remarquable Γ(1/2)=√π relie la fonction Gamma à l'intégrale gaussienne classique.",
@@ -11046,6 +14592,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1649": {
     title: "Systèmes dynamiques : points fixes et stabilité (approfondissement)",
     definition: "Pour un système dynamique discret x_{n+1}=f(x_n) (f de classe C¹), un point fixe x* (vérifiant f(x*)=x*) est dit stable si les trajectoires initialisées suffisamment proches de x* restent proches (ou convergent vers x*) ; un critère local suffisant est |f'(x*)|<1 (point fixe attractif), tandis que |f'(x*)|>1 caractérise un point fixe répulsif (instable).",
+    definition_axiomatique: {
+        cadre: "On travaille dans ℂ, corps commutatif contenant ℝ, identifié au plan ; Ω est un ouvert de ℂ et f : Ω → ℂ. f : Ω → ℂ est holomorphe et z₀ un point fixe : f(z₀) = z₀.",
+        axiomes: [
+            {
+                nom: "M1 — Multiplicateur",
+                enonce: "λ = f'(z₀)."
+            },
+            {
+                nom: "A1 — Attractif/répulsif",
+                enonce: "|λ| < 1 : z₀ attractif (il existe un voisinage où les itérées convergent vers z₀) ; |λ| > 1 : répulsif ; |λ| = 1 : neutre (indifférent), rationnel (parabolique) ou irrationnel (elliptique, selon Kœnigs/Siegel)."
+            },
+            {
+                nom: "K1 — Linéarisation de Kœnigs",
+                enonce: "Si 0 < |λ| < 1 (ou |λ| > 1), il existe une coordonnée locale φ (φ(z₀)=0) conjuguant f à sa partie linéaire : φ(f(z)) = λφ(z)."
+            }
+        ],
+        conclusion: "Kœnigs (1884) : au voisinage d'un point fixe strictement attractif ou répulsif, la dynamique de f est conjuguée à une simple multiplication par λ (linéarisation locale exacte, série convergente). Pour |λ| = 1 avec λ racine de l'unité (parabolique), la dynamique est plus rigide (fleurs de Leau-Fatou, pas de linéarisation) ; pour λ = e^{2iπα}, α irrationnel (elliptique), la linéarisation (disque de Siegel) dépend arithmétiquement de α (condition diophantienne de Bruno). Ces trois régimes structurent l'étude des systèmes dynamiques holomorphes (ensembles de Julia et de Fatou)."
+    },
     formulas: [
       {
         text: "Ce critère de stabilité linéaire (basé sur la dérivée en x*) généralise directement l'étude de la convergence des méthodes itératives de point fixe (vue en L1-L2) et s'étend aux systèmes dynamiques continus (équations différentielles) via l'étude du spectre de la matrice jacobienne au point d'équilibre.",
@@ -11093,6 +14657,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1650": {
     title: "Modèle linéaire gaussien",
     definition: "Le modèle linéaire gaussien s'écrit Y=Xβ+ε, où Y est le vecteur des observations, X la matrice de design (variables explicatives), β le vecteur des paramètres inconnus à estimer, et ε un vecteur d'erreurs gaussiennes centrées, indépendantes, de variance commune σ² (hypothèses de Gauss-Markov complétées par la normalité).",
+    definition_axiomatique: {
+        cadre: "On travaille avec le modèle linéaire Y = Xβ + ε, X ∈ M_{n,p}(ℝ) de rang p, ε ~ N(0, σ²Iₙ) (hypothèse gaussienne, en plus des hypothèses de Gauss-Markov).",
+        axiomes: [
+            {
+                nom: "G1 — Définition",
+                enonce: "X est gaussien si toute combinaison linéaire ⟨a, X⟩ suit une loi normale (éventuellement dégénérée)."
+            },
+            {
+                nom: "G2 — Loi",
+                enonce: "La loi de X est déterminée par (m, Σ) : X ~ N(m, Σ), φ_X(t) = exp(i⟨t, m⟩ − ½tᵀΣt)."
+            },
+            {
+                nom: "G3 — Matrice de covariance",
+                enonce: "Σ est symétrique semi-définie positive."
+            }
+        ],
+        conclusion: "Sous l'hypothèse gaussienne, l'estimateur des moindres carrés β̂ = (XᵀX)⁻¹XᵀY est le maximum de vraisemblance, β̂ ~ N(β, σ²(XᵀX)⁻¹), indépendant de l'estimateur de variance σ̂² = ‖Y − Xβ̂‖²/(n−p) qui vérifie (n−p)σ̂²/σ² ~ χ²_{n−p} (théorème de Cochran). D'où des tests et intervalles de confiance exacts sur les coefficients via la loi de Student : (β̂ᵢ − βᵢ)/(σ̂√((XᵀX)⁻¹_{ii})) ~ t_{n−p}."
+    },
     formulas: [
       {
         text: "Sous ces hypothèses, l'estimateur des moindres carrés β̂=(X^TX)⁻¹X^TY coïncide exactement avec l'estimateur du maximum de vraisemblance, et suit une loi normale multivariée explicite, permettant de construire des intervalles de confiance et des tests d'hypothèses exacts sur les coefficients (tests de Student, de Fisher).",
@@ -11140,6 +14722,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1651": {
     title: "Régression linéaire multiple",
     definition: "La régression linéaire multiple généralise la régression simple à plusieurs variables explicatives : Y=β_0+β_1X_1+...+β_pX_p+ε. L'estimation par moindres carrés se formule matriciellement identique au cas simple (β̂=(X^TX)⁻¹X^TY), mais l'interprétation des coefficients change : chaque β_i mesure l'effet de X_i « toutes choses égales par ailleurs » (à valeurs des autres variables fixées).",
+    definition_axiomatique: {
+        cadre: "On dispose de n observations (yᵢ, xᵢ1, …, xᵢp) et on ajuste yᵢ = β₀ + β₁xᵢ1 + … + βpxᵢp + εᵢ par moindres carrés.",
+        axiomes: [
+            {
+                nom: "M1 — Critère",
+                enonce: "β̂ minimise Σ(yᵢ − β₀ − Σβⱼxᵢⱼ)² = ‖Y − Xβ‖²."
+            },
+            {
+                nom: "N1 — Équations normales",
+                enonce: "XᵀXβ̂ = XᵀY (unique si rg X = p + 1)."
+            },
+            {
+                nom: "D1 — Décomposition de la variance",
+                enonce: "SCT = SCE + SCR (totale = expliquée + résiduelle, par le théorème de Pythagore appliqué à la projection orthogonale sur Im X)."
+            }
+        ],
+        conclusion: "R² = SCE/SCT mesure la part de variance expliquée (croît mécaniquement avec p, d'où le R² ajusté qui pénalise le nombre de variables) ; le test de Fisher global teste H₀ : β₁ = … = βp = 0. La colinéarité entre régresseurs (XᵀX mal conditionnée) instabilise β̂ (variance inflatée, VIF) ; la régression ridge (pénalité ‖β‖²) et le lasso (pénalité ‖β‖₁, qui induit la parcimonie) corrigent ce problème au prix d'un biais contrôlé (compromis biais-variance)."
+    },
     formulas: [
       {
         text: "Le coefficient de détermination R² mesure la proportion de variance de Y expliquée par le modèle, mais augmente mécaniquement avec l'ajout de variables explicatives (même non pertinentes), justifiant l'usage du R² ajusté qui pénalise la complexité du modèle. La colinéarité entre variables explicatives peut rendre l'estimation instable (matrice X^TX mal conditionnée, voire non inversible).",
@@ -11191,6 +14791,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1652": {
     title: "Apprentissage statistique : régression et classification (introduction)",
     definition: "L'apprentissage statistique étudie la construction de modèles prédictifs à partir de données, distinguant la régression (prédire une variable continue) de la classification (prédire une catégorie). Le compromis biais-variance est central : un modèle trop simple (biais élevé, sous-apprentissage) ou trop complexe (variance élevée, surapprentissage) dégrade tous deux la performance de prédiction sur de nouvelles données.",
+    definition_axiomatique: {
+        cadre: "On dispose d'un échantillon d'apprentissage (xᵢ, yᵢ), i = 1, …, n, et on cherche une fonction f dans une classe ℱ minimisant le risque empirique R̂(f) = (1/n)Σℓ(f(xᵢ), yᵢ), approximation du risque théorique R(f) = E(ℓ(f(X), Y)).",
+        axiomes: [
+            {
+                nom: "R1 — Régression",
+                enonce: "Y réel, ℓ(ŷ, y) = (ŷ − y)² (perte quadratique) : f* = E(Y | X = x) minimise R."
+            },
+            {
+                nom: "C1 — Classification",
+                enonce: "Y ∈ {0, 1} (ou plusieurs classes), ℓ souvent 0-1 (ou une relaxation convexe : logistique, charnière) : f*(x) = 1_{P(Y=1|X=x)>1/2} (classifieur de Bayes) minimise le risque 0-1."
+            },
+            {
+                nom: "G1 — Généralisation",
+                enonce: "R(f̂) − R̂(f̂) est contrôlé par la complexité de ℱ (dimension de Vapnik-Chervonenkis, Rademacher) : minimiser R̂ seul sur-apprend si ℱ est trop riche."
+            }
+        ],
+        conclusion: "Le compromis biais-variance oppose une classe ℱ trop simple (biais élevé, sous-apprentissage) à une classe trop riche (variance élevée, sur-apprentissage, faible risque empirique mais mauvaise généralisation). La régularisation (pénalité sur la complexité de f, ex. ‖f‖ dans un RKHS pour les SVM) et la validation croisée arbitrent ce compromis. Exemples de méthodes : régression linéaire/logistique, arbres, forêts aléatoires, machines à vecteurs de support, réseaux de neurones."
+    },
     formulas: [
       {
         text: "L'erreur de prédiction sur de nouvelles données (erreur de généralisation) se décompose théoriquement en un terme de biais au carré, un terme de variance et un terme d'erreur irréductible, décomposition biais-variance qui guide le choix de la complexité optimale d'un modèle.",
@@ -11242,6 +14860,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1653": {
     title: "Opérateurs différentiels et distributions",
     definition: "Un opérateur différentiel P(D)=Σa_α D^α (D^α dérivée partielle d'ordre multi-indice α) agit naturellement sur les distributions par transposition : (P(D)T)(φ)=T((-1)^{|α|}D^αφ), généralisant la dérivation classique à tout objet distributionnel, même très irrégulier.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un opérateur différentiel linéaire à coefficients C^∞, P(x, ∂) = Σ_{|α|≤m}a_α(x)∂^α, agissant sur 𝒟'(Ω).",
+        axiomes: [
+            {
+                nom: "P1 — Action sur les distributions",
+                enonce: "⟨P(x, ∂)T, φ⟩ = ⟨T, ᵗP(x, ∂)φ⟩, où ᵗP est l'opérateur transposé (formel), obtenu par intégrations par parties répétées."
+            },
+            {
+                nom: "P2 — Continuité",
+                enonce: "P(x, ∂) : 𝒟'(Ω) → 𝒟'(Ω) est linéaire continu."
+            },
+            {
+                nom: "P3 — Compatibilité",
+                enonce: "Pour T = T_f, f ∈ C^m, P(x,∂)T = T_{Pf} (coïncide avec la dérivation classique)."
+            }
+        ],
+        conclusion: "Cette extension permet de résoudre P(x, ∂)u = f pour f distribution, sans hypothèse de régularité classique. Le transposé de ∂ᵢ est −∂ᵢ ; celui de la multiplication par a(x) est lui-même. Exemple : Δ(ln|x|)/2π = δ₀ en dimension 2 (solution fondamentale) ; l'équation des ondes admet des solutions distributionnelles pour des données non C²."
+    },
     formulas: [
       {
         text: "Cette action prolonge de façon cohérente l'action de P(D) sur les fonctions régulières (où elle coïncide avec la dérivation classique), permettant d'étudier des équations aux dérivées partielles avec des données très générales (distributions comme second membre).",
@@ -11289,6 +14925,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1654": {
     title: "Solutions fondamentales d'opérateurs différentiels",
     definition: "Une solution fondamentale d'un opérateur différentiel P(D) est une distribution E vérifiant P(D)E=δ_0. Une fois E connue, la solution de P(D)u=f (pour f suffisamment régulière) s'obtient par convolution : u=E*f, réduisant la résolution d'une EDP linéaire à un calcul de convolution.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un opérateur différentiel P(∂) à coefficients constants sur ℝⁿ.",
+        axiomes: [
+            {
+                nom: "E1 — Solution fondamentale",
+                enonce: "E ∈ 𝒟'(ℝⁿ) vérifie P(∂)E = δ₀."
+            },
+            {
+                nom: "E2 — Existence (Malgrange-Ehrenpreis)",
+                enonce: "Tout opérateur différentiel à coefficients constants non nul possède une solution fondamentale."
+            },
+            {
+                nom: "E3 — Résolution par convolution",
+                enonce: "Si f est à support compact (ou assez régulière), u = E ∗ f résout P(∂)u = f."
+            }
+        ],
+        conclusion: "Exemples : pour −Δ, E(x) = 1/(4π|x|) (n = 3), −(1/2π)ln|x| (n = 2) ; pour la chaleur ∂_t − Δ, E(t, x) = (4πt)^{−n/2}e^{−|x|²/4t}1_{t>0} ; pour les ondes ∂_t² − Δ, la formule de Kirchhoff (n = 3, portée par la sphère |x| = t). Elles fournissent le noyau de Green des opérateurs à coefficients constants et se calculent souvent par transformée de Fourier : P(iξ)Ê(ξ) = 1."
+    },
     formulas: [
       {
         text: "L'existence d'une solution fondamentale pour tout opérateur différentiel à coefficients constants non nul est garantie par le théorème de Malgrange-Ehrenpreis (admis à ce niveau), résultat d'existence remarquable et général de la théorie des EDP linéaires.",
@@ -11336,6 +14990,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1655": {
     title: "Théorème de trace (Sobolev, introduction)",
     definition: "Le théorème de trace affirme que pour un domaine Ω régulier, il existe un opérateur de trace continu qui à toute fonction u∈H¹(Ω) associe sa restriction (trace) sur le bord ∂Ω, appartenant à un espace de Sobolev fractionnaire H^{1/2}(∂Ω), donnant un sens rigoureux à la « valeur au bord » d'une fonction seulement définie presque partout.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un ouvert borné Ω à bord ∂Ω régulier (lipschitzien) et u ∈ H^s(Ω), s > 1/2.",
+        axiomes: [
+            {
+                nom: "T1 — Densité",
+                enonce: "C^∞(Ω̄) est dense dans H^s(Ω)."
+            },
+            {
+                nom: "T2 — Continuité de la restriction",
+                enonce: "L'application u ↦ u|_{∂Ω} (définie sur les fonctions régulières) est continue de H^s(Ω) dans H^{s−1/2}(∂Ω)."
+            },
+            {
+                nom: "T3 — Prolongement",
+                enonce: "Cette application se prolonge par densité à tout H^s(Ω), s > 1/2."
+            }
+        ],
+        conclusion: "Le théorème de trace donne un sens à la « valeur au bord » d'une fonction de Sobolev, qui n'est définie qu'à un ensemble de mesure nulle près (donc a priori pas ponctuellement sur ∂Ω, de mesure nulle dans ℝⁿ). H₀^s(Ω) = ker(trace) pour s > 1/2 (fonctions de trace nulle). L'application trace est surjective sur H^{s−1/2}(∂Ω) et admet un inverse à droite continu (relèvement). Essentiel pour poser les conditions aux limites de Dirichlet en formulation variationnelle."
+    },
     formulas: [
       {
         text: "Ce théorème est essentiel car les fonctions de H¹(Ω) ne sont définies qu'à un ensemble de mesure nulle près, rendant leur valeur ponctuelle sur le bord (de mesure nulle dans Ω) a priori mal définie ; l'opérateur de trace donne un sens rigoureux et continu à cette restriction.",
@@ -11379,6 +15051,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1656": {
     title: "Opérateurs non bornés (introduction)",
     definition: "En M1, on introduit systématiquement les opérateurs non bornés (définis seulement sur un domaine dense D(T)⊂H, non sur H tout entier), typiques des opérateurs différentiels, en posant les bases de leur théorie spectrale (approfondie en M2), distinguant domaine, graphe, et fermeture d'un opérateur.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un espace de Hilbert H : un espace préhilbertien (produit scalaire ⟨·,·⟩ sur ℝ ou ℂ) complet pour la norme ‖x‖ = √⟨x, x⟩.",
+        axiomes: [
+            {
+                nom: "N1 — Domaine",
+                enonce: "T est défini sur un sous-espace D(T) ⊂ H (son domaine), T : D(T) → H linéaire."
+            },
+            {
+                nom: "N2 — Non borné",
+                enonce: "sup_{x∈D(T), ‖x‖=1}‖Tx‖ = +∞."
+            },
+            {
+                nom: "N3 — Graphe",
+                enonce: "G(T) = {(x, Tx) : x ∈ D(T)} ⊂ H × H."
+            }
+        ],
+        conclusion: "Exemples : Tf = f' sur L²(ℝ) de domaine H¹(ℝ), Tf = −f'' de domaine H²(ℝ), la multiplication Mf(x) = xf(x) de domaine {f ∈ L² : xf ∈ L²} (opérateurs de position et d'impulsion en mécanique quantique). L'opérateur non borné n'est pas défini partout : d'après le graphe fermé, un opérateur fermé défini partout est borné (Hellinger-Toeplitz pour les symétriques)."
+    },
     formulas: [
       {
         text: "Un opérateur T est fermé si son graphe {(x,Tx) : x∈D(T)} est fermé dans H×H, propriété plus faible que la continuité mais essentielle pour de nombreux résultats (comme le théorème du graphe fermé), remplaçant la continuité automatique de la dimension finie.",
@@ -11422,6 +15112,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1657": {
     title: "Semi-groupes d'opérateurs (introduction)",
     definition: "Un semi-groupe fortement continu d'opérateurs (T(t))_{t≥0} sur un espace de Banach vérifie T(0)=Id, T(t+s)=T(t)T(s), et t↦T(t)x continue pour tout x, généralisant l'exponentielle de matrice exp(tA) au cadre de la dimension infinie, où A peut être un opérateur non borné.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une famille d'opérateurs (P_t)_{t≥0} sur un espace de Banach (fonctions bornées, ou L² d'une mesure invariante).",
+        axiomes: [
+            {
+                nom: "S1 — Semi-groupe",
+                enonce: "P_0 = I, P_{t+s} = P_tP_s."
+            },
+            {
+                nom: "S2 — Positivité",
+                enonce: "P_t f ≥ 0 si f ≥ 0."
+            },
+            {
+                nom: "S3 — Conservation (ou sous-markovien)",
+                enonce: "P_t1 = 1 (ou ≤ 1)."
+            }
+        ],
+        conclusion: "Un semi-groupe de Markov (P_t) représente l'évolution des espérances P_tf(x) = E_x(f(X_t)) d'un processus de Markov ; il est fortement continu (Hille-Yosida) sous des hypothèses de régularité, générant un opérateur L. Théorème de Hille-Yosida : (P_t) existe si et seulement si L est fermé, densément défini, et (λ − L)⁻¹ est borné par 1/λ pour λ > 0 (dissipativité)."
+    },
     formulas: [
       {
         text: "Le générateur infinitésimal A du semi-groupe est défini par Ax=lim_{t→0}(T(t)x-x)/t (sur le domaine où cette limite existe), et le semi-groupe T(t)=exp(tA) (au sens généralisé) résout formellement l'équation d'évolution u'(t)=Au(t), u(0)=x.",
@@ -11469,6 +15177,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1658": {
     title: "Théorème de Hille-Yosida (introduction, énoncé)",
     definition: "Le théorème de Hille-Yosida caractérise précisément les opérateurs A (non bornés) qui sont générateurs infinitésimaux d'un semi-groupe fortement continu de contractions : A doit être fermé, de domaine dense, et vérifier une estimation de résolvante ||(λ-A)⁻¹||≤1/λ pour tout λ>0.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un espace de Banach E avec un opérateur A : D(A) ⊂ E → E.",
+        axiomes: [
+            {
+                nom: "D1 — Densément défini et fermé",
+                enonce: "D(A) est dense dans E, et A est fermé."
+            },
+            {
+                nom: "D2 — Dissipativité",
+                enonce: "‖(λ − A)x‖ ≥ λ‖x‖ pour tout λ > 0, x ∈ D(A) (ou une variante avec ω : ‖(λ−A)x‖ ≥ (λ−ω)‖x‖)."
+            },
+            {
+                nom: "D3 — Surjectivité de la résolvante",
+                enonce: "(λ₀ − A) est surjectif pour un λ₀ > 0."
+            }
+        ],
+        conclusion: "Théorème de Hille-Yosida : A engendre un semi-groupe fortement continu de contractions (P_t)_{t≥0} (‖P_t‖ ≤ 1) si et seulement si D1 à D3 sont vérifiées ; alors P_t = lim_{n→∞}(I − (t/n)A)^{−n} et u(t) = P_tu₀ résout u' = Au, u(0) = u₀. Il fonde l'existence et l'unicité pour les EDP d'évolution linéaires abstraites (chaleur, ondes, Schrödinger) formulées comme des équations différentielles dans un espace de Banach."
+    },
     formulas: [
       {
         text: "Ce théorème fournit un critère abstrait complet (nécessaire et suffisant) pour l'existence d'un semi-groupe associé à un opérateur donné, résolvant ainsi de façon générale l'existence de solutions pour de larges classes d'équations d'évolution linéaires.",
@@ -11516,6 +15242,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1659": {
     title: "Noyaux de convolution (Dirichlet, Fejér)",
     definition: "Le noyau de Dirichlet D_n(x)=Σ_{k=-n}^n e^{ikx} intervient dans l'écriture des sommes partielles de Fourier comme convolution : S_n(f)=f*D_n. Le noyau de Fejér F_n=(D_0+...+D_n)/(n+1) (moyenne de Cesàro des noyaux de Dirichlet) possède de meilleures propriétés de convergence (positivité, approximation de l'unité).",
+    definition_axiomatique: {
+        cadre: "On travaille avec f 2π-périodique, de classe C¹ par morceaux ; S_N f(x) = Σ_{|n|≤N} cₙ(f)e^{inx}.",
+        axiomes: [
+            {
+                nom: "D1 — Noyau de Dirichlet",
+                enonce: "S_N f(x) = (1/2π)∫_{−π}^{π} f(x − t)D_N(t)dt, D_N(t) = sin((N + ½)t)/sin(t/2), (1/2π)∫D_N = 1."
+            },
+            {
+                nom: "D2 — Riemann-Lebesgue",
+                enonce: "∫g(t)sin(λt)dt → 0 quand λ → ∞ pour g intégrable."
+            },
+            {
+                nom: "D3 — Régularité",
+                enonce: "Les limites f(x⁺) et f(x⁻) existent, avec dérivées à droite et à gauche."
+            }
+        ],
+        conclusion: "Le noyau de Dirichlet D_N(t) = Σ_{|n|≤N}e^{int} = sin((N+½)t)/sin(t/2) satisfait S_Nf = f ∗ D_N/2π mais n'est pas positif : Σ_Nf ne converge pas uniformément pour toute f continue (existence de contre-exemples, Du Bois-Reymond). Le noyau de Fejér σ_N(t) = (1/(N+1))Σ_{k=0}^N D_k(t) = (1/(N+1))(sin((N+1)t/2)/sin(t/2))² est, lui, positif, d'intégrale 1, et concentré près de 0 : c'est une approximation de l'identité, contrairement à D_N."
+    },
     formulas: [
       {
         text: "Contrairement au noyau de Dirichlet (qui change de signe et n'est pas une approximation de l'unité, expliquant les phénomènes de non-convergence ponctuelle de Fourier), le noyau de Fejér est positif et vérifie les propriétés d'une approximation de l'unité, garantissant la convergence uniforme des moyennes de Cesàro pour toute fonction continue.",
@@ -11559,6 +15303,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1660": {
     title: "Théorème de Fejér",
     definition: "Le théorème de Fejér affirme que pour toute fonction f continue et périodique, les moyennes de Cesàro σ_n(f)=(S_0(f)+...+S_n(f))/(n+1) des sommes partielles de Fourier convergent uniformément vers f, un résultat de convergence remarquablement plus robuste que celui des sommes partielles S_n(f) elles-mêmes (qui peuvent ne pas converger uniformément, voire ponctuellement en certains points).",
+    definition_axiomatique: {
+        cadre: "On travaille avec f 2π-périodique continue, S_Nf ses sommes partielles de Fourier et σ_Nf = (S_0f + … + S_Nf)/(N+1) (moyenne de Cesàro).",
+        axiomes: [
+            {
+                nom: "F1 — Noyau de Fejér",
+                enonce: "σ_Nf = f ∗ K_N/2π, K_N(t) = (1/(N+1))(sin((N+1)t/2)/sin(t/2))² ≥ 0."
+            },
+            {
+                nom: "F2 — Approximation de l'identité",
+                enonce: "K_N ≥ 0, (1/2π)∫K_N = 1, et K_N se concentre près de 0 quand N → ∞."
+            },
+            {
+                nom: "F3 — Convolution avec noyau positif concentré",
+                enonce: "f ∗ K_N/2π → f uniformément pour f continue périodique (propriété générale des approximations de l'identité)."
+            }
+        ],
+        conclusion: "Théorème de Fejér : σ_Nf → f uniformément pour toute f continue 2π-périodique (alors que S_Nf peut diverger). Il redémontre Weierstrass trigonométrique (densité des polynômes trigonométriques dans C(𝕋)) et donne l'unicité des coefficients de Fourier d'une fonction continue sans passer par Dirichlet. Il illustre qu'une sommation régularisée (Cesàro) peut converger là où la sommation brute échoue."
+    },
     formulas: [
       {
         text: "Ce théorème repose sur le fait que le noyau de Fejér F_n est une approximation de l'unité (positive, de masse totale 1, se concentrant progressivement autour de 0), propriété qui garantit la convergence uniforme de la convolution f*F_n vers f pour toute fonction continue.",
@@ -11606,6 +15368,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1661": {
     title: "Analyse de Fourier sur les groupes abéliens (introduction)",
     definition: "L'analyse de Fourier se généralise à tout groupe abélien localement compact G, en remplaçant les fonctions e^{inx} (caractères de ℤ ou de ℝ) par les caractères du groupe (morphismes continus de G vers le cercle unité), l'ensemble des caractères formant le groupe dual Ĝ.",
+    definition_axiomatique: {
+        cadre: "On travaille dans un groupe topologique abélien localement compact G muni de sa mesure de Haar μ.",
+        axiomes: [
+            {
+                nom: "A1 — Caractères",
+                enonce: "Ĝ = {χ : G → 𝕊¹ morphisme continu}, groupe dual, localement compact."
+            },
+            {
+                nom: "A2 — Transformée",
+                enonce: "f̂(χ) = ∫f(x)conj(χ(x))dμ(x) pour f ∈ L¹(G)."
+            },
+            {
+                nom: "A3 — Plancherel",
+                enonce: "Il existe une mesure de Haar sur Ĝ avec ‖f̂‖₂ = ‖f‖₂ (f ∈ L¹ ∩ L²)."
+            }
+        ],
+        conclusion: "Dualité de Pontryagin : Ĝ^ ≅ G. Exemples : ℝ^ = ℝ (Fourier), 𝕋^ = ℤ (séries de Fourier), ℤ^ = 𝕋, (ℤ/nℤ)^ ≅ ℤ/nℤ (transformée de Fourier discrète). La transformée de Fourier envoie la convolution sur le produit, est un isomorphisme unitaire de L²(G) sur L²(Ĝ) et s'inverse : f(x) = ∫f̂(χ)χ(x)dχ."
+    },
     formulas: [
       {
         text: "Pour G=ℝ, le dual Ĝ s'identifie à ℝ lui-même (via les caractères x↦e^{iξx}), retrouvant la transformée de Fourier classique ; pour G=ℤ/nℤ, le dual est également ℤ/nℤ, retrouvant la transformée de Fourier discrète utilisée en traitement du signal numérique.",
@@ -11657,6 +15437,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1662": {
     title: "Ondelettes : introduction",
     definition: "Une ondelette est une fonction ψ oscillante et de moyenne nulle, à partir de laquelle on construit une famille de fonctions ψ_{a,b}(x)=(1/√a)ψ((x-b)/a) (translations et dilatations), permettant une analyse temps-fréquence (ou espace-échelle) plus fine que la transformée de Fourier classique.",
+    definition_axiomatique: {
+        cadre: "On travaille dans L²(ℝ) avec des sous-espaces emboîtés (Vⱼ)_{j∈ℤ} approchant les fonctions à l'échelle 2^{−j}.",
+        axiomes: [
+            {
+                nom: "W1 — Emboîtement",
+                enonce: "Vⱼ ⊂ Vⱼ₊₁, ⋂Vⱼ = {0}, ⋃Vⱼ est dense dans L²."
+            },
+            {
+                nom: "W2 — Auto-similarité",
+                enonce: "f(x) ∈ Vⱼ ⟺ f(2x) ∈ Vⱼ₊₁."
+            },
+            {
+                nom: "W3 — Fonction d'échelle",
+                enonce: "Il existe φ telle que (φ(· − k))_{k∈ℤ} soit une base orthonormée de V₀."
+            }
+        ],
+        conclusion: "Sous W1 à W3 (analyse multi-résolution), il existe une ondelette ψ telle que (ψⱼₖ = 2^{j/2}ψ(2ʲx − k)) soit une base hilbertienne de L²(ℝ) : décomposition en détails à toutes les échelles. Exemples : Haar (φ = 1_{[0;1[}), Daubechies (support compact). Les ondelettes localisent à la fois en position et en fréquence (contrairement à Fourier) ; utilisation en compression d'images (JPEG 2000)."
+    },
     formulas: [
       {
         text: "Contrairement aux fonctions trigonométriques (parfaitement localisées en fréquence mais non en espace), les ondelettes offrent un compromis ajustable entre localisation temporelle et fréquentielle, particulièrement adapté à l'analyse de signaux non stationnaires ou présentant des singularités locales.",
@@ -11704,6 +15502,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1663": {
     title: "Bases orthonormées d'ondelettes (introduction culturelle)",
     definition: "Une base orthonormée d'ondelettes de L²(ℝ) est construite à partir d'une unique fonction ψ (l'ondelette mère) par translations et dilatations dyadiques ψ_{j,k}(x)=2^{j/2}ψ(2^jx-k) (j,k∈ℤ), formant, sous des conditions adéquates sur ψ, une base hilbertienne complète de L²(ℝ).",
+    definition_axiomatique: {
+        cadre: "On travaille dans L²(ℝ) avec des sous-espaces emboîtés (Vⱼ)_{j∈ℤ} approchant les fonctions à l'échelle 2^{−j}.",
+        axiomes: [
+            {
+                nom: "W1 — Emboîtement",
+                enonce: "Vⱼ ⊂ Vⱼ₊₁, ⋂Vⱼ = {0}, ⋃Vⱼ est dense dans L²."
+            },
+            {
+                nom: "W2 — Auto-similarité",
+                enonce: "f(x) ∈ Vⱼ ⟺ f(2x) ∈ Vⱼ₊₁."
+            },
+            {
+                nom: "W3 — Fonction d'échelle",
+                enonce: "Il existe φ telle que (φ(· − k))_{k∈ℤ} soit une base orthonormée de V₀."
+            }
+        ],
+        conclusion: "Une base d'ondelettes orthonormée de L²(ℝ) est de la forme ψ_{j,k}(x) = 2^{j/2}ψ(2^jx − k), (j, k) ∈ ℤ², issue d'une analyse multi-résolution (fonction d'échelle φ, ondelette mère ψ). Contrairement à la base de Fourier (localisée en fréquence, non en position), elle est localisée à la fois en position (support ou décroissance rapide de ψ) et en échelle/fréquence : elle capture les singularités locales d'un signal sans étaler leur effet sur tous les coefficients, ce qui la rend efficace pour la compression et le débruitage."
+    },
     formulas: [
       {
         text: "L'analyse multirésolution (Mallat, Meyer) fournit un cadre systématique pour construire de telles bases, décomposant L²(ℝ) en une suite emboîtée de sous-espaces d'approximation à différentes échelles, chaque niveau ajoutant un « détail » supplémentaire capturé par les ondelettes correspondantes.",
@@ -11755,6 +15571,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1664": {
     title: "Théorème de Banach-Alaoglu (introduction)",
     definition: "Le théorème de Banach-Alaoglu affirme que la boule unité fermée du dual topologique E' d'un espace normé E est compacte pour la topologie faible-* (topologie de la convergence simple sur E), résultat de compacité remarquable en dimension infinie où la compacité forte (pour la norme) échoue en général.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un espace de Banach E, son dual E* muni de la topologie faible-* σ(E*, E) (la plus grossière rendant continues les évaluations φ ↦ φ(x), x ∈ E).",
+        axiomes: [
+            {
+                nom: "B1 — Boule unité",
+                enonce: "B* = {φ ∈ E* : ‖φ‖ ≤ 1}."
+            },
+            {
+                nom: "B2 — Compacité de Tychonoff",
+                enonce: "B* s'identifie à une partie fermée d'un produit ∏_{x∈E}[−‖x‖ ; ‖x‖], compact par Tychonoff."
+            },
+            {
+                nom: "B3 — Fermeture faible-*",
+                enonce: "B* est fermée dans ce produit (limites ponctuelles de formes linéaires bornées par 1 restent linéaires bornées par 1)."
+            }
+        ],
+        conclusion: "Théorème de Banach-Alaoglu : la boule unité fermée du dual d'un espace normé est compacte pour la topologie faible-*. Si E est séparable, B* est de plus métrisable (donc séquentiellement compacte). C'est l'outil clé pour obtenir des solutions faibles d'EDP (bornes a priori ⟹ sous-suite faible-* convergente) et pour la représentation des mesures (compacité des mesures de probabilité par Riesz-Markov)."
+    },
     formulas: [
       {
         text: "Ce théorème, démontré via le théorème de Tychonoff (compacité d'un produit d'espaces compacts), est un substitut essentiel à la compacité usuelle absente en dimension infinie, permettant d'extraire des sous-suites (ou sous-réseaux) convergentes de suites bornées dans le dual.",
@@ -11802,6 +15636,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1665": {
     title: "Dualité dans les espaces Lᵖ",
     definition: "Le théorème de dualité affirme que pour 1<p<+∞, le dual topologique de L^p(Ω) est isomorphe (isométriquement) à L^q(Ω), où q est l'exposant conjugué (1/p+1/q=1), l'isomorphisme étant réalisé par g↦(f↦∫fg). Le cas p=1 est particulier : le dual de L¹ est L^∞, mais le dual de L^∞ est strictement plus grand que L¹.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un espace mesuré (Ω, 𝒜, μ) : 𝒜 est une tribu de parties de Ω, μ : 𝒜 → [0 ; +∞] est σ-additive avec μ(∅) = 0. Soit 1 ≤ p < ∞, q l'exposant conjugué (1/p + 1/q = 1).",
+        axiomes: [
+            {
+                nom: "D1 — Hölder",
+                enonce: "|∫fg| ≤ ‖f‖_p‖g‖_q."
+            },
+            {
+                nom: "D2 — Application",
+                enonce: "g ∈ L^q définit φ_g(f) = ∫fg ∈ (Lᵖ)*, ‖φ_g‖ = ‖g‖_q."
+            },
+            {
+                nom: "D3 — σ-finitude",
+                enonce: "Si p = 1, μ est σ-finie."
+            }
+        ],
+        conclusion: "Théorème de représentation de Riesz : pour 1 ≤ p < ∞ (et μ σ-finie si p = 1), l'application g ↦ φ_g est un isomorphisme isométrique de L^q sur le dual (Lᵖ)*. Donc (L²)* = L², (L¹)* = L^∞, (ℓᵖ)* = ℓ^q ; L^∞ a un dual strictement plus gros que L¹. Les Lᵖ, 1 < p < ∞, sont réflexifs."
+    },
     formulas: [
       {
         text: "Cette dualité, admise et utilisée systématiquement, fait de L^p (pour 1<p<+∞) un espace réflexif (le bidual s'identifie canoniquement à l'espace lui-même), propriété essentielle pour l'application de résultats de compacité faible en analyse variationnelle.",
@@ -11845,6 +15697,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1666": {
     title: "Méthode de séparation des variables (approfondissement)",
     definition: "En M1, on approfondit la méthode de séparation des variables (introduite en L3) en traitant des domaines géométriques plus riches (disque, boule, cylindre) nécessitant des fonctions spéciales (polynômes de Legendre, fonctions de Bessel, harmoniques sphériques) au lieu des simples fonctions trigonométriques du cas rectangulaire.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un domaine produit (ou à symétrie adaptée, comme un disque en polaires), avec une EDP linéaire à coefficients dépendant d'une seule variable dans chaque facteur ; u(x, y) = X(x)Y(y) est cherché sous forme séparée.",
+        axiomes: [
+            {
+                nom: "S1 — Séparabilité de l'opérateur",
+                enonce: "L'opérateur se scinde en une somme d'opérateurs agissant chacun sur une seule variable (à une éventuelle fonction de couplage près)."
+            },
+            {
+                nom: "S2 — Sturm-Liouville",
+                enonce: "Chaque facteur satisfait un problème aux valeurs propres avec conditions aux limites appropriées, dont les solutions forment une base hilbertienne."
+            },
+            {
+                nom: "S3 — Superposition",
+                enonce: "La solution générale est une série Σc_{n}X_n(x)Y_n(y), les c_n déterminés par la donnée (initiale ou au bord) via les coefficients de la décomposition sur la base propre."
+            }
+        ],
+        conclusion: "La méthode s'applique à un large éventail de géométries (rectangle : sinus/cosinus ; disque : Bessel × trigonométrique ; sphère : Legendre × trigonométrique) et d'équations (Laplace, chaleur, ondes, Schrödinger), à condition que le domaine et les coefficients respectent la symétrie du système de coordonnées choisi. Elle échoue pour des domaines ou coefficients non séparables, où l'on recourt aux éléments finis ou aux méthodes spectrales génériques."
+    },
     formulas: [
       {
         text: "Pour l'équation de Laplace sur un disque en coordonnées polaires, la séparation u(r,θ)=R(r)Θ(θ) conduit à une équation de Θ donnant des fonctions trigonométriques (périodicité en θ), et une équation d'Euler pour R dont les solutions sont des puissances de r, aboutissant à la série de Fourier en θ à coefficients dépendant de r^n.",
@@ -11888,6 +15758,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1667": {
     title: "Lois de conservation scalaires (introduction)",
     definition: "Une loi de conservation scalaire s'écrit ∂u/∂t+∂(f(u))/∂x=0, où f est le flux (fonction du champ conservé u), modélisant la conservation d'une quantité physique (masse, énergie) dont la variation locale est due uniquement au flux entrant et sortant, sans terme source.",
+    definition_axiomatique: {
+        cadre: "On étudie ∂_tu + ∂_xf(u) = 0, u(x, 0) = u₀(x), avec f : ℝ → ℝ (flux), au sens des distributions (solutions faibles, car les caractéristiques peuvent se croiser).",
+        axiomes: [
+            {
+                nom: "C1 — Forme faible",
+                enonce: "∫∫(u∂_tφ + f(u)∂_xφ)dxdt + ∫u₀(x)φ(x,0)dx = 0 pour tout φ ∈ C_c^∞."
+            },
+            {
+                nom: "C2 — Condition de Rankine-Hugoniot",
+                enonce: "Au travers d'une discontinuité (choc) de vitesse s, s[u] = [f(u)] (sauts entre les deux côtés)."
+            },
+            {
+                nom: "C3 — Condition d'entropie (Lax/Oleinik)",
+                enonce: "Une condition supplémentaire sélectionne la solution physiquement admissible parmi les solutions faibles multiples."
+            }
+        ],
+        conclusion: "Sans condition d'entropie, une loi de conservation scalaire peut avoir plusieurs solutions faibles (non-unicité) : l'entropie sélectionne la limite physique (viscosité évanescente ∂_tu + ∂_xf(u) = ε∂_x²u, ε → 0). Exemple classique : l'équation de Burgers ∂_tu + u∂_xu = 0, dont les caractéristiques se croisent en temps fini même pour une donnée lisse, formant un choc. Ces lois modélisent le trafic routier, la dynamique des gaz (équations d'Euler)."
+    },
     formulas: [
       {
         text: "Pour un flux f non linéaire, les caractéristiques (droites le long desquelles u est constant) peuvent se croiser en temps fini, provoquant l'apparition d'une discontinuité (choc), phénomène ne pouvant être décrit par une solution classique, nécessitant la notion de solution faible (approfondie en M2).",
@@ -11939,6 +15827,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1668": {
     title: "Équation de Schrödinger (introduction, contexte physique)",
     definition: "L'équation de Schrödinger iℏ∂ψ/∂t=-（ℏ²/2m)Δψ+Vψ décrit l'évolution temporelle de la fonction d'onde ψ d'une particule quantique dans un potentiel V, équation fondamentale de la mécanique quantique non relativiste, linéaire mais à coefficients complexes (présence du i).",
+    definition_axiomatique: {
+        cadre: "On considère iħ∂_tψ = −(ħ²/2m)Δψ + V(x)ψ, ψ(·, 0) = ψ₀ ∈ L²(ℝⁿ, ℂ), avec V réel (potentiel).",
+        axiomes: [
+            {
+                nom: "H1 — Hamiltonien auto-adjoint",
+                enonce: "H = −(ħ²/2m)Δ + V est un opérateur auto-adjoint sur L² (sous des hypothèses sur V)."
+            },
+            {
+                nom: "H2 — Groupe unitaire",
+                enonce: "Stone : H auto-adjoint engendre un groupe unitaire U(t) = e^{−itH/ħ}."
+            },
+            {
+                nom: "H3 — Conservation",
+                enonce: "‖ψ(t)‖₂ = ‖ψ₀‖₂ pour tout t (unitarité)."
+            }
+        ],
+        conclusion: "L'équation de Schrödinger est bien posée (existence, unicité, dépendance continue) via le théorème de Stone appliqué à H auto-adjoint (Kato : les potentiels raisonnablement singuliers, comme le potentiel coulombien, préservent l'auto-adjonction). |ψ(x, t)|² s'interprète comme une densité de probabilité de présence, conservée dans le temps. Pour V = 0, le groupe se calcule par transformée de Fourier : ψ̂(ξ, t) = e^{−iħ|ξ|²t/2m}ψ̂₀(ξ) (dispersion)."
+    },
     formulas: [
       {
         text: "Contrairement à l'équation de la chaleur (dissipative, effet régularisant fort), l'équation de Schrödinger conserve la norme L² de la solution (||ψ(t)||_2=||ψ(0)||_2, interprétée physiquement comme conservation de la probabilité totale), et son semi-groupe associé est unitaire (et non seulement contractant).",
@@ -11986,6 +15892,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1669": {
     title: "Équation de transport",
     definition: "L'équation de transport ∂u/∂t+v·∇u=0 (v un champ de vitesse donné) décrit le déplacement d'une quantité u sans déformation, à la vitesse v ; pour v constant, la solution explicite est u(t,x)=u_0(x-vt), simple translation de la donnée initiale.",
+    definition_axiomatique: {
+        cadre: "On considère uₜ + c·uₓ = 0 pour x ∈ ℝ, t ≥ 0, c constante, avec la donnée u(x, 0) = u₀(x).",
+        axiomes: [
+            {
+                nom: "T1 — Dérivée le long d'une droite",
+                enonce: "Si x(t) = x₀ + ct, d/dt u(x(t), t) = uₜ + cuₓ = 0."
+            },
+            {
+                nom: "T2 — Invariance",
+                enonce: "u est constante le long des droites x − ct = constante."
+            },
+            {
+                nom: "T3 — Condition initiale",
+                enonce: "u(x, 0) = u₀(x)."
+            }
+        ],
+        conclusion: "La solution est u(x, t) = u₀(x − ct) : le profil initial est transporté sans déformation à la vitesse c. Elle est unique (T1, T2) ; toute fonction F(x − ct) est solution ; une donnée non dérivable donne une solution faible."
+    },
     formulas: [
       {
         text: "Pour un champ de vitesse v(x) dépendant de l'espace (non constant), la solution s'obtient via la méthode des caractéristiques, en résolvant le système différentiel dX/dt=v(X) (trajectoires caractéristiques), la solution u étant constante le long de chaque caractéristique.",
@@ -12029,6 +15953,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1670": {
     title: "Problèmes bien posés au sens de Hadamard",
     definition: "Un problème est dit bien posé au sens de Hadamard s'il admet une solution, que cette solution est unique, et que cette solution dépend continûment des données du problème (condition initiale, second membre). L'absence de l'une de ces trois conditions rend le problème mal posé, souvent problématique pour une résolution numérique fiable.",
+    definition_axiomatique: {
+        cadre: "On considère un problème P(donnée) = solution, entre deux espaces métriques (ou normés) X (données) et Y (solutions).",
+        axiomes: [
+            {
+                nom: "E1 — Existence",
+                enonce: "Pour toute donnée admissible, une solution existe."
+            },
+            {
+                nom: "U1 — Unicité",
+                enonce: "La solution est unique."
+            },
+            {
+                nom: "C1 — Dépendance continue",
+                enonce: "L'application donnée ↦ solution est continue de X dans Y."
+            }
+        ],
+        conclusion: "Un problème vérifiant E1 à U1 à C1 est bien posé au sens de Hadamard ; sinon il est mal posé. Exemples bien posés : Cauchy-Lipschitz pour les EDO, Dirichlet pour Laplace, Cauchy pour la chaleur et les ondes (sous hypothèses adaptées). Exemples mal posés : l'équation de la chaleur rétrograde (remonter le temps amplifie les hautes fréquences, C1 échoue), le problème de Cauchy pour Laplace (instabilité de Hadamard, exemple explicite avec u_n(x,y) = e^{−√n}sin(nx)sh(ny) petites données, grande solution), la tomographie (inversion instable)."
+    },
     formulas: [
       {
         text: "L'équation de la chaleur rétrograde (résoudre en remontant le temps) est un exemple classique de problème mal posé : bien que formellement similaire à l'équation de la chaleur directe, elle amplifie exponentiellement les hautes fréquences, rendant la solution extrêmement sensible aux perturbations des données.",
@@ -12076,6 +16018,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1671": {
     title: "Régularité elliptique (introduction)",
     definition: "La régularité elliptique étudie le gain de régularité des solutions d'une EDP elliptique (comme -Δu=f) par rapport à la régularité du second membre f : typiquement, si f∈L² alors u∈H², un gain de deux ordres de dérivabilité caractéristique de l'effet régularisant des opérateurs elliptiques.",
+    definition_axiomatique: {
+        cadre: "On étudie une solution faible u ∈ H₀¹(Ω) de −div(A∇u) = f, A elliptique C^∞ (ou lipschitzienne), Ω régulier (ou ℝⁿ).",
+        axiomes: [
+            {
+                nom: "E1 — Ellipticité uniforme",
+                enonce: "ξᵀAξ ≥ α|ξ|² > 0."
+            },
+            {
+                nom: "R1 — Régularité des coefficients et du second membre",
+                enonce: "A ∈ C^∞ (ou C^k), f ∈ H^s (ou C^{0,α})."
+            },
+            {
+                nom: "R2 — Estimation elliptique",
+                enonce: "‖u‖_{H^{s+2}} ≤ C(‖f‖_{H^s} + ‖u‖_{L²}) (interne) ; version Schauder en normes höldériennes C^{k,α}."
+            }
+        ],
+        conclusion: "La régularité elliptique affirme que la solution gagne deux ordres de dérivabilité par rapport au second membre (bootstrap : si f ∈ H^s, u ∈ H^{s+2} ; si f ∈ C^{0,α}, u ∈ C^{2,α}, estimations de Schauder). Elle transforme une solution faible en solution classique quand les données sont régulières, et permet un raisonnement par bootstrap (on part de u ∈ H¹, on remonte itérativement la régularité). Elle échoue au bord si celui-ci est seulement lipschitzien (perte de régularité aux coins)."
+    },
     formulas: [
       {
         text: "Ce résultat, combiné aux injections de Sobolev, permet de remonter d'une solution faible (obtenue par exemple via Lax-Milgram, seulement dans H¹) à une solution classique (deux fois dérivable) sous des hypothèses suffisantes de régularité sur f et sur le domaine.",
@@ -12119,6 +16079,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1672": {
     title: "Discrétisation d'une EDP elliptique",
     definition: "La discrétisation d'une EDP elliptique (comme -Δu=f) consiste à approcher les dérivées par des différences finies (ou à utiliser une formulation variationnelle discrétisée par éléments finis) sur un maillage du domaine, transformant le problème continu en un système linéaire de grande taille à résoudre numériquement.",
+    definition_axiomatique: {
+        cadre: "On discrétise −u'' = f sur ]0 ; 1[, u(0) = u(1) = 0, par une grille uniforme xᵢ = ih, h = 1/(n+1), et le schéma centré (−u_{i-1} + 2u_i − u_{i+1})/h² = f(xᵢ).",
+        axiomes: [
+            {
+                nom: "D1 — Approximation de la dérivée seconde",
+                enonce: "u''(xᵢ) = (u_{i-1} − 2u_i + u_{i+1})/h² + O(h²) (développement de Taylor)."
+            },
+            {
+                nom: "D2 — Système linéaire",
+                enonce: "Le schéma s'écrit Au = f, A matrice tridiagonale (2, −1) symétrique définie positive."
+            },
+            {
+                nom: "D3 — Consistance",
+                enonce: "L'erreur de troncature locale est O(h²) (résidu du schéma appliqué à la solution exacte)."
+            }
+        ],
+        conclusion: "Consistance (erreur locale → 0) + stabilité (‖A⁻¹‖ bornée uniformément en h) entraînent la convergence (théorème de Lax pour les schémas linéaires) : ‖u − u_h‖ = O(h²) en norme discrète adaptée. Généralisation en dimension supérieure : le laplacien discret à 5 points (2D) ou 7 points (3D), qui donne une matrice creuse structurée (pentadiagonale par blocs)."
+    },
     formulas: [
       {
         text: "Pour le schéma aux différences finies standard en dimension 1, l'approximation -u''(x_i)≈-(u_{i-1}-2u_i+u_{i+1})/h² (h le pas du maillage) transforme l'équation différentielle en un système linéaire tridiagonal, résoluble efficacement par des méthodes directes (Thomas) ou itératives.",
@@ -12166,6 +16144,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1673": {
     title: "Analyse de convergence des schémas numériques (introduction)",
     definition: "L'analyse de convergence d'un schéma numérique pour une EDP étudie si la solution discrète converge vers la solution exacte quand le pas de discrétisation tend vers 0, cette convergence résultant classiquement (théorème de Lax) de la conjonction de deux propriétés : la consistance (l'erreur de troncature tend vers 0) et la stabilité (les erreurs ne s'amplifient pas au cours des itérations).",
+    definition_axiomatique: {
+        cadre: "On travaille avec un schéma numérique pour une EDP, discrétisant en espace (pas h) et en temps (pas k), d'erreur de troncature locale τ(h, k).",
+        axiomes: [
+            {
+                nom: "C1 — Consistance",
+                enonce: "τ(h, k) → 0 quand h, k → 0 (le schéma appliqué à la solution exacte tend vers 0)."
+            },
+            {
+                nom: "S1 — Stabilité",
+                enonce: "Les erreurs ne s'amplifient pas de façon incontrôlée d'une itération à l'autre (norme de l'opérateur d'itération uniformément bornée)."
+            },
+            {
+                nom: "O1 — Ordre",
+                enonce: "τ(h, k) = O(hᵖ + kᵠ) définit l'ordre p en espace, q en temps."
+            }
+        ],
+        conclusion: "Théorème de Lax-Richtmyer : pour un schéma linéaire consistant, stabilité ⟺ convergence. C'est le résultat central de l'analyse numérique des EDP : il ramène l'étude de la convergence (souvent difficile à établir directement) à celles, plus mécaniques, de la consistance (développement de Taylor) et de la stabilité (analyse de von Neumann, matrice d'amplification, ou énergie discrète)."
+    },
     formulas: [
       {
         text: "Le théorème de Lax-Richtmyer formalise ce principe pour les schémas linéaires : consistance + stabilité ⟺ convergence, réduisant l'étude de la convergence (souvent difficile à établir directement) à l'étude séparée de ces deux propriétés plus accessibles.",
@@ -12213,6 +16209,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1674": {
     title: "Schémas aux différences finies pour l'équation de la chaleur",
     definition: "Le schéma explicite pour l'équation de la chaleur ∂u/∂t=∂²u/∂x² discrétise la dérivée temporelle par une différence avant et la dérivée spatiale par une différence centrée : (u_i^{n+1}-u_i^n)/Δt=(u_{i+1}^n-2u_i^n+u_{i-1}^n)/Δx², permettant de calculer explicitement chaque nouvelle valeur à partir des précédentes.",
+    definition_axiomatique: {
+        cadre: "On discrétise ∂_tu = ν∂_x²u sur une grille (xᵢ, tₙ), pas h en espace, k en temps ; schéma explicite : (u_i^{n+1} − u_i^n)/k = ν(u_{i-1}^n − 2u_i^n + u_{i+1}^n)/h².",
+        axiomes: [
+            {
+                nom: "E1 — Explicite (Euler avant)",
+                enonce: "u_i^{n+1} = u_i^n + r(u_{i-1}^n − 2u_i^n + u_{i+1}^n), r = νk/h²."
+            },
+            {
+                nom: "I1 — Implicite (Euler arrière)",
+                enonce: "u_i^{n+1} − r(u_{i-1}^{n+1} − 2u_i^{n+1} + u_{i+1}^{n+1}) = u_i^n (système linéaire tridiagonal à résoudre à chaque pas)."
+            },
+            {
+                nom: "C1 — Crank-Nicolson",
+                enonce: "Moyenne des schémas explicite et implicite : consistance d'ordre 2 en temps (au lieu de 1)."
+            }
+        ],
+        conclusion: "Le schéma explicite est consistant d'ordre 1 en temps, 2 en espace, mais conditionnellement stable (r ≤ 1/2, analyse de von Neumann) : le pas de temps est sévèrement contraint par h² pour de petits h. L'implicite est inconditionnellement stable (mais coûte la résolution d'un système à chaque pas) ; Crank-Nicolson est inconditionnellement stable et d'ordre 2 en temps, le meilleur compromis usuel."
+    },
     formulas: [
       {
         text: "Ce schéma est simple à implémenter mais conditionnellement stable (nécessitant Δt≤Δx²/2, condition très restrictive en pratique), contrairement au schéma implicite (résolvant un système linéaire à chaque pas de temps) qui est inconditionnellement stable, au prix d'un coût de calcul plus élevé par itération.",
@@ -12264,6 +16278,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1675": {
     title: "Stabilité des schémas numériques (critère CFL, introduction)",
     definition: "La condition de Courant-Friedrichs-Lewy (CFL) est une condition nécessaire de stabilité pour les schémas explicites résolvant des EDP d'évolution : le domaine de dépendance numérique (déterminé par le schéma) doit contenir le domaine de dépendance physique réel de l'équation, imposant typiquement une contrainte du type Δt≤C·Δx (ou Δx² selon le type d'équation).",
+    definition_axiomatique: {
+        cadre: "On étudie un schéma numérique linéaire pour une EDP d'évolution, par l'analyse de von Neumann : on cherche des solutions en onde plane u_j^n = ξⁿe^{ijθ}, θ ∈ [0 ; 2π[.",
+        axiomes: [
+            {
+                nom: "A1 — Facteur d'amplification",
+                enonce: "ξ(θ) est déterminé en injectant l'onde plane dans le schéma."
+            },
+            {
+                nom: "V1 — Critère de von Neumann",
+                enonce: "Le schéma est stable si et seulement si |ξ(θ)| ≤ 1 (+ O(k) tolérable) pour tout θ."
+            },
+            {
+                nom: "C1 — CFL (Courant-Friedrichs-Lewy)",
+                enonce: "Pour un schéma explicite d'une EDP hyperbolique de vitesse c, le domaine de dépendance numérique doit contenir le domaine de dépendance physique : c·k/h ≤ 1."
+            }
+        ],
+        conclusion: "Pour l'équation de transport explicite décentrée, la condition CFL c·k/h ≤ 1 est nécessaire et suffisante (von Neumann) ; pour la chaleur explicite, la stabilité impose νk/h² ≤ 1/2 (contrainte bien plus sévère, quadratique en h). Violer CFL produit une instabilité numérique exponentielle sans rapport avec la physique du problème (le schéma « explose »), quelle que soit la précision de l'arithmétique utilisée."
+    },
     formulas: [
       {
         text: "Pour une équation hyperbolique (transport, ondes) de vitesse de propagation v, la condition CFL s'écrit vΔt/Δx≤1 (le nombre CFL ne doit pas dépasser 1), tandis que pour une équation parabolique (chaleur), elle s'écrit Δt/Δx²≤constante, une contrainte bien plus sévère sur le pas de temps.",
@@ -12311,6 +16343,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1676": {
     title: "Analyse numérique des EDP hyperboliques (introduction)",
     definition: "Les EDP hyperboliques (équation des ondes, lois de conservation) nécessitent des schémas numériques spécifiques (schémas décentrés amont, schémas de Godunov) capables de capturer correctement la propagation à vitesse finie de l'information et les discontinuités éventuelles (chocs) sans introduire d'oscillations parasites.",
+    definition_axiomatique: {
+        cadre: "On discrétise ∂_tu + c∂_xu = 0 (c > 0) par différents schémas explicites sur une grille (xᵢ, tₙ).",
+        axiomes: [
+            {
+                nom: "D1 — Décentré amont (upwind)",
+                enonce: "u_i^{n+1} = u_i^n − (ck/h)(u_i^n − u_{i-1}^n), stable si ck/h ≤ 1 (CFL)."
+            },
+            {
+                nom: "D2 — Centré (instable)",
+                enonce: "u_i^{n+1} = u_i^n − (ck/2h)(u_{i+1}^n − u_{i-1}^n) est inconditionnellement instable (analyse de von Neumann : |ξ| > 1)."
+            },
+            {
+                nom: "D3 — Lax-Friedrichs / Lax-Wendroff",
+                enonce: "Modifications stabilisant le schéma centré par diffusion numérique (Lax-Friedrichs) ou par un terme d'ordre 2 (Lax-Wendroff, ordre 2 en espace et temps)."
+            }
+        ],
+        conclusion: "Le choix du sens de décentrement doit respecter la direction de propagation de l'information (caractéristiques) : upwind est stable et simple mais diffusif (ordre 1, lisse les discontinuités) ; Lax-Wendroff est plus précis (ordre 2) mais produit des oscillations parasites près des chocs (phénomène de Gibbs numérique), corrigées par des limiteurs de flux (schémas TVD, essentiellement non oscillants ENO/WENO) pour les lois de conservation non linéaires."
+    },
     formulas: [
       {
         text: "Un schéma décentré (upwind), utilisant l'information provenant de la direction d'où vient l'onde (déterminée par le signe de la vitesse de propagation), est généralement plus stable et physiquement pertinent qu'un schéma centré pour les équations de transport et les lois de conservation hyperboliques.",
@@ -12362,6 +16412,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1677": {
     title: "Équations différentielles stochastiques (introduction)",
     definition: "En M1, on introduit formellement les équations différentielles stochastiques (EDS) dX_t=b(t,X_t)dt+σ(t,X_t)dB_t, généralisant les équations différentielles ordinaires en ajoutant un terme de bruit stochastique piloté par un mouvement brownien, la notation étant une écriture différentielle formelle de l'équation intégrale correspondante.",
+    definition_axiomatique: {
+        cadre: "On considère dX_t = b(t, X_t)dt + σ(t, X_t)dW_t, X₀ = x, où W est un mouvement brownien.",
+        axiomes: [
+            {
+                nom: "E1 — Lipschitz",
+                enonce: "|b(t, x) − b(t, y)| + |σ(t, x) − σ(t, y)| ≤ K|x − y|."
+            },
+            {
+                nom: "E2 — Croissance linéaire",
+                enonce: "|b(t, x)| + |σ(t, x)| ≤ K(1 + |x|)."
+            },
+            {
+                nom: "E3 — Forme intégrale",
+                enonce: "X_t = x + ∫₀ᵗb ds + ∫₀ᵗσ dW."
+            }
+        ],
+        conclusion: "Sous E1 et E2, il existe une unique solution forte (Picard adapté à l'intégrale d'Itô), de moments finis. Exemples : mouvement brownien géométrique dS = μS dt + σS dW (S_t = S₀e^{(μ−σ²/2)t+σW_t}, modèle de Black-Scholes), processus d'Ornstein-Uhlenbeck dX = −θX dt + σ dW. Schéma d'Euler-Maruyama : Xₙ₊₁ = Xₙ + b Δt + σ ΔW."
+    },
     formulas: [
       {
         text: "L'interprétation rigoureuse de cette équation utilise l'intégrale stochastique d'Itô pour le second terme, et le théorème d'existence et d'unicité (analogue stochastique de Cauchy-Lipschitz) garantit une solution unique sous des hypothèses de régularité lipschitzienne sur b et σ.",
@@ -12413,6 +16481,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1678": {
     title: "Processus de Markov à temps continu (introduction)",
     definition: "Un processus de Markov à temps continu (X_t)_{t≥0} généralise les chaînes de Markov à temps discret (L3) au cas d'un temps continu : la loi de X_{t+s} sachant le passé jusqu'à t ne dépend que de X_t, formalisant la propriété de Markov dans ce cadre plus général.",
+    definition_axiomatique: {
+        cadre: "On étudie un processus (X_t)_{t≥0} à valeurs dans un ensemble dénombrable S, qui saute d'état en état à des instants aléatoires.",
+        axiomes: [
+            {
+                nom: "M1 — Propriété de Markov",
+                enonce: "P(X_{t+s} = j | ℱ_s) = P(X_{t+s} = j | X_s)."
+            },
+            {
+                nom: "M2 — Semi-groupe",
+                enonce: "P(t) = (p_ij(t)) est une matrice stochastique et P(t + s) = P(t)P(s), P(0) = I."
+            },
+            {
+                nom: "M3 — Générateur",
+                enonce: "Q = P'(0) : q_ij ≥ 0 (i ≠ j), q_ii = −Σ_{j≠i}q_ij."
+            }
+        ],
+        conclusion: "P(t) = e^{tQ} (état fini) et les équations de Kolmogorov P' = QP = PQ. Le temps passé en i est exponentiel de paramètre −q_ii ; à la sortie, on saute en j avec la probabilité q_ij/(−q_ii). Exemples : processus de Poisson (Q = λ(décalage − I)), files d'attente M/M/1, processus de naissance et de mort. Loi stationnaire : πQ = 0."
+    },
     formulas: [
       {
         text: "Pour un espace d'états discret, un tel processus est caractérisé par ses taux de transition (générateur infinitésimal Q), les probabilités de transition sur un intervalle fini s'obtenant par l'équation de Kolmogorov (analogue de l'exponentielle de matrice, P(t)=exp(tQ)).",
@@ -12460,6 +16546,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1679": {
     title: "Files d'attente (introduction, processus de naissance et de mort)",
     definition: "Un processus de naissance et de mort est un processus de Markov à temps continu sur ℕ où les seules transitions possibles sont vers l'état voisin supérieur (naissance, taux λ_n) ou inférieur (mort, taux μ_n), modèle fondamental de la théorie des files d'attente (nombre de clients dans une file).",
+    definition_axiomatique: {
+        cadre: "On modélise une file d'attente par un processus de naissance et de mort : arrivées de taux λ (Poisson), services de taux μ (exponentiels indépendants), un serveur, capacité infinie (file M/M/1).",
+        axiomes: [
+            {
+                nom: "A1 — Arrivées Poisson",
+                enonce: "Le nombre de clients dans le système augmente de 1 au taux λ, indépendamment de l'état."
+            },
+            {
+                nom: "S1 — Service exponentiel",
+                enonce: "S'il y a au moins un client, le nombre diminue de 1 au taux μ (sans mémoire)."
+            },
+            {
+                nom: "R1 — Stabilité",
+                enonce: "ρ = λ/μ < 1."
+            }
+        ],
+        conclusion: "Sous ρ < 1, la loi stationnaire est géométrique : π_n = (1 − ρ)ρⁿ ; le nombre moyen de clients est ρ/(1 − ρ), le temps moyen d'attente dans le système (loi de Little : L = λW) est 1/(μ − λ). Pour ρ ≥ 1, la file est instable (explosion du nombre de clients). Généralisations : M/M/c (c serveurs), M/M/1/K (capacité finie), M/G/1 (formule de Pollaczek-Khinchine pour service général)."
+    },
     formulas: [
       {
         text: "Pour la file M/M/1 (arrivées et services tous deux de type Poisson/exponentiel, un seul serveur), de taux d'arrivée λ et de service μ, la mesure stationnaire existe si λ<μ (condition de stabilité), donnant une loi géométrique du nombre de clients en régime stationnaire.",
@@ -12507,6 +16611,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1680": {
     title: "Théorie de la ruine (approfondissement)",
     definition: "En M1, on approfondit le problème de la ruine (déjà vu pour la marche aléatoire simple en L3) en étudiant des modèles plus réalistes de réserve d'assurance, combinant un flux continu de primes et des sinistres modélisés par un processus de Poisson composé, aboutissant au modèle de Cramér-Lundberg fondamental en actuariat.",
+    definition_axiomatique: {
+        cadre: "On modélise la réserve d'une compagnie d'assurance par R_t = u + ct − S_t, u réserve initiale, c > 0 taux de prime, S_t = Σ_{k≤N_t}Y_k sinistres cumulés (N processus de Poisson d'intensité λ, Y_k iid positifs, E(Y) = μ), et ψ(u) = P(inf_{t≥0}R_t < 0) la probabilité de ruine.",
+        axiomes: [
+            {
+                nom: "C1 — Condition de charge de sécurité",
+                enonce: "c > λμ (la prime dépasse le coût moyen des sinistres, sinon ψ(u) = 1 pour tout u)."
+            },
+            {
+                nom: "M1 — Martingale exponentielle",
+                enonce: "S'il existe r > 0 (coefficient d'ajustement) avec λ(E(e^{rY}) − 1) = cr, alors e^{−rR_t} est une martingale."
+            },
+            {
+                nom: "A1 — Temps d'arrêt de ruine",
+                enonce: "τ = inf{t : R_t < 0}, appliquer le théorème d'arrêt à la martingale arrêtée."
+            }
+        ],
+        conclusion: "Inégalité de Lundberg : ψ(u) ≤ e^{−ru} (majoration exponentielle via la martingale et le théorème d'arrêt). Formule de Cramér-Lundberg (approximation asymptotique) : ψ(u) ~ Ce^{−ru} quand u → ∞. Elle quantifie le compromis entre réserve initiale, prime et risque de ruine, fondement actuariel de la tarification et du calcul de fonds propres réglementaires (Solvabilité II)."
+    },
     formulas: [
       {
         text: "Le modèle de Cramér-Lundberg s'écrit R_t=u+ct-S_t (u capital initial, c taux de prime, S_t processus de Poisson composé des sinistres cumulés), et l'inégalité de Lundberg fournit une borne exponentielle sur la probabilité de ruine, approfondie en détail en M2.",
@@ -12554,6 +16676,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1681": {
     title: "Processus ponctuels de Poisson (approfondissement)",
     definition: "En M1, on approfondit le processus de Poisson (introduit en L3) en le généralisant en dimension supérieure (processus ponctuel de Poisson sur ℝ^d) : un ensemble aléatoire de points tel que le nombre de points dans toute région de mesure μ suit une loi de Poisson de paramètre μ, avec indépendance entre régions disjointes.",
+    definition_axiomatique: {
+        cadre: "On considère un processus de comptage (N(t))_{t≥0} : N(t) est le nombre d'événements survenus dans ]0 ; t], croissant, à valeurs entières, N(0) = 0.",
+        axiomes: [
+            {
+                nom: "P1 — Accroissements indépendants",
+                enonce: "Pour t₀ < t₁ < … < tₙ, N(t₁) − N(t₀), …, N(tₙ) − N(tₙ₋₁) sont indépendants."
+            },
+            {
+                nom: "P2 — Accroissements stationnaires",
+                enonce: "La loi de N(t + h) − N(t) ne dépend que de h."
+            },
+            {
+                nom: "P3 — Événements rares",
+                enonce: "P(N(h) = 1) = λh + o(h) et P(N(h) ≥ 2) = o(h)."
+            }
+        ],
+        conclusion: "Ces axiomes caractérisent le processus de Poisson d'intensité λ : N(t) suit la loi de Poisson P(λt), les accroissements sur des intervalles disjoints sont indépendants et les temps d'attente entre événements sont indépendants de loi exponentielle E(λ). Il modélise des événements rares survenant au hasard (appels, pannes, arrivées de clients)."
+    },
     formulas: [
       {
         text: "Cette généralisation permet de modéliser la répartition aléatoire de points dans l'espace (positions d'étoiles, d'arbres dans une forêt, de défauts dans un matériau), avec des propriétés remarquables comme le théorème de Slivnyak (statistiques conditionnelles sachant la présence d'un point en un lieu donné).",
@@ -12601,6 +16741,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1682": {
     title: "Analyse de la variance (ANOVA, introduction)",
     definition: "L'analyse de la variance (ANOVA) compare les moyennes de plusieurs groupes (échantillons) à partir de la décomposition de la variance totale des observations en variance inter-groupes (due aux différences entre moyennes de groupes) et variance intra-groupe (due à la variabilité résiduelle au sein de chaque groupe).",
+    definition_axiomatique: {
+        cadre: "On compare les moyennes de k groupes (facteur à k modalités) à partir de nᵢ observations par groupe, sous l'hypothèse de normalité et d'homoscédasticité (même variance σ² dans chaque groupe).",
+        axiomes: [
+            {
+                nom: "D1 — Décomposition de la variance",
+                enonce: "SCT = SCB + SCW (totale = inter-groupes + intra-groupes), par Pythagore (projection sur l'espace engendré par l'indicatrice des groupes)."
+            },
+            {
+                nom: "H0 — Hypothèse nulle",
+                enonce: "H₀ : μ₁ = … = μ_k (tous les groupes ont la même moyenne)."
+            },
+            {
+                nom: "F1 — Statistique de test",
+                enonce: "F = (SCB/(k−1))/(SCW/(n−k)) ~ F_{k−1, n−k} sous H₀ (Cochran : SCB et SCW indépendantes, chacune un χ² à un facteur près)."
+            }
+        ],
+        conclusion: "L'ANOVA (analyse de la variance) à un facteur généralise le test de Student à plus de deux groupes ; elle teste globalement l'effet du facteur avant, éventuellement, des comparaisons multiples deux à deux (avec correction, ex. Bonferroni, Tukey HSD, pour contrôler le risque global). Elle s'étend à plusieurs facteurs (ANOVA à deux facteurs, avec interaction) et se reformule comme un cas particulier du modèle linéaire général (régression avec variables indicatrices)."
+    },
     formulas: [
       {
         text: "Le test F d'ANOVA compare le rapport de ces deux variances (statistique de Fisher) à une valeur critique de la loi de Fisher, permettant de tester l'hypothèse nulle d'égalité de toutes les moyennes de groupes contre l'hypothèse alternative d'au moins une différence significative.",
@@ -12648,6 +16806,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1683": {
     title: "Modèles linéaires généralisés (introduction)",
     definition: "En M1, on introduit les modèles linéaires généralisés (GLM), étendant le modèle linéaire classique à des variables réponses non gaussiennes (binaires, de comptage), en reliant l'espérance de la réponse à un prédicteur linéaire via une fonction de lien adaptée (logit pour les données binaires, log pour les comptages).",
+    definition_axiomatique: {
+        cadre: "On généralise le modèle linéaire à une réponse Y dont la loi appartient à la famille exponentielle (Bernoulli, Poisson, Gamma…), avec une fonction de lien g reliant l'espérance au prédicteur linéaire.",
+        axiomes: [
+            {
+                nom: "F1 — Famille exponentielle",
+                enonce: "La densité de Y s'écrit f(y; θ, φ) = exp((yθ − b(θ))/φ + c(y, φ))."
+            },
+            {
+                nom: "L1 — Fonction de lien",
+                enonce: "g(E(Y | X)) = Xβ, avec g strictement monotone dérivable (lien canonique : g = (b')⁻¹)."
+            },
+            {
+                nom: "E1 — Estimation",
+                enonce: "β̂ maximise la vraisemblance, résolue par l'algorithme itératif des moindres carrés repondérés (IRLS)."
+            }
+        ],
+        conclusion: "Exemples : régression logistique (Y Bernoulli, lien logit g(p) = ln(p/(1−p))), régression de Poisson (Y comptage, lien log), régression Gamma (Y positif continu). Les GLM unifient de nombreux modèles de régression sous un même cadre théorique (existence, tests de déviance analogues au test de Fisher, diagnostics de résidus adaptés). La déviance D = 2(ℓ_saturé − ℓ_modèle) généralise la somme des carrés résiduels et sert de critère d'ajustement/comparaison de modèles emboîtés."
+    },
     formulas: [
       {
         text: "Cette introduction précède l'approfondissement complet en M2 (régression logistique, régression de Poisson), présentant ici les principes généraux : famille exponentielle pour la loi de la réponse, fonction de lien reliant espérance et prédicteur linéaire, estimation par maximum de vraisemblance.",
@@ -12695,6 +16871,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1684": {
     title: "Tests non paramétriques (introduction)",
     definition: "Les tests non paramétriques (test de Wilcoxon-Mann-Whitney, test de Kruskal-Wallis) permettent de comparer des distributions ou des médianes sans supposer une forme particulière (comme la normalité) pour la loi sous-jacente des données, contrairement aux tests paramétriques classiques (test de Student, ANOVA).",
+    definition_axiomatique: {
+        cadre: "On teste une hypothèse sur la loi (ou la position relative) de deux échantillons sans supposer une forme paramétrique (par exemple sans hypothèse de normalité).",
+        axiomes: [
+            {
+                nom: "R1 — Rangs",
+                enonce: "On remplace les observations par leurs rangs dans l'échantillon combiné (statistique invariante par transformation monotone)."
+            },
+            {
+                nom: "U1 — Statistique de Mann-Whitney",
+                enonce: "U = Σ_i Σ_j 1_{Xᵢ<Yⱼ} compare les rangs de deux échantillons indépendants."
+            },
+            {
+                nom: "K1 — Loi sous H₀",
+                enonce: "Sous H₀ (mêmes lois), la loi de la statistique de rangs ne dépend pas de la loi commune inconnue (loi exacte tabulée, ou asymptotiquement normale)."
+            }
+        ],
+        conclusion: "Les tests non paramétriques (Mann-Whitney/Wilcoxon pour deux échantillons indépendants, Wilcoxon signé pour échantillons appariés, Kruskal-Wallis pour k groupes, test du signe, test de Kolmogorov-Smirnov pour l'adéquation à une loi) sont robustes à la non-normalité et moins sensibles aux valeurs aberrantes, au prix d'une puissance statistique généralement inférieure aux tests paramétriques correspondants quand les hypothèses de ces derniers sont effectivement vérifiées (test t, ANOVA)."
+    },
     formulas: [
       {
         text: "Ces tests reposent typiquement sur les rangs des observations plutôt que sur leurs valeurs numériques exactes, les rendant robustes aux valeurs aberrantes et applicables même lorsque les hypothèses de normalité des tests paramétriques classiques ne sont pas vérifiées.",
@@ -12742,6 +16936,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1685": {
     title: "Statistique des valeurs extrêmes (introduction culturelle)",
     definition: "La théorie des valeurs extrêmes étudie le comportement asymptotique du maximum (ou minimum) d'un échantillon de variables aléatoires i.i.d., le théorème de Fisher-Tippett-Gnedenko (admis à ce niveau) établissant que ce maximum renormalisé converge en loi vers l'une de trois familles possibles (Gumbel, Fréchet, Weibull), unifiées sous la loi généralisée des valeurs extrêmes (GEV).",
+    definition_axiomatique: {
+        cadre: "On étudie le comportement du maximum Mₙ = max(X₁, …, Xₙ) d'un échantillon iid, en cherchant des constantes aₙ > 0, bₙ telles que (Mₙ − bₙ)/aₙ converge en loi.",
+        axiomes: [
+            {
+                nom: "F1 — Fisher-Tippett-Gnedenko",
+                enonce: "Si (Mₙ − bₙ)/aₙ converge en loi vers une limite non dégénérée, celle-ci est nécessairement de type Gumbel, Fréchet ou Weibull (loi des valeurs extrêmes généralisée, GEV)."
+            },
+            {
+                nom: "D1 — Domaine d'attraction",
+                enonce: "La loi de X détermine (par la régularité de sa queue) à quel type appartient la limite (queue exponentielle ↔ Gumbel, queue polynomiale ↔ Fréchet, borne supérieure finie ↔ Weibull)."
+            },
+            {
+                nom: "P1 — Excès au-delà d'un seuil (Pickands-Balkema-de Haan)",
+                enonce: "La loi de X − u sachant X > u converge, quand u croît, vers une loi de Pareto généralisée."
+            }
+        ],
+        conclusion: "La théorie des valeurs extrêmes fonde l'estimation des événements rares (crues centennales, records de température, risques financiers extrêmes) à partir de peu de données : plutôt que d'ajuster toute la distribution, on modélise spécifiquement la queue (méthode des maxima par blocs → GEV, ou méthode des excès au-delà d'un seuil → Pareto généralisée). Le paramètre de forme ξ de la GEV/Pareto généralisée détermine l'épaisseur de la queue (ξ > 0 : queue lourde, sans espérance si ξ ≥ 1)."
+    },
     formulas: [
       {
         text: "Cette théorie généralise, pour les valeurs extrêmes, le rôle unificateur que joue le théorème central limite pour les sommes de variables aléatoires, fournissant un cadre statistique rigoureux pour modéliser les événements rares et catastrophiques (crues centennales, records climatiques).",
@@ -12793,6 +17005,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1686": {
     title: "Copules (introduction culturelle)",
     definition: "Une copule est une fonction qui relie les lois marginales de plusieurs variables aléatoires à leur loi jointe, séparant ainsi la structure de dépendance (encodée par la copule) de l'information marginale de chaque variable individuelle, selon le théorème de Sklar (admis à ce niveau).",
+    definition_axiomatique: {
+        cadre: "On considère un vecteur aléatoire (X₁, …, X_d) de fonctions de répartition marginales F₁, …, F_d continues.",
+        axiomes: [
+            {
+                nom: "S1 — Théorème de Sklar",
+                enonce: "Il existe une unique fonction C : [0;1]^d → [0;1] (la copule) telle que la fonction de répartition jointe F(x₁,…,x_d) = C(F₁(x₁), …, F_d(x_d))."
+            },
+            {
+                nom: "C1 — Copule",
+                enonce: "C est la fonction de répartition jointe du vecteur (F₁(X₁), …, F_d(X_d)), dont chaque marginale est uniforme sur [0;1]."
+            },
+            {
+                nom: "I1 — Invariance",
+                enonce: "C est invariante par transformation strictement croissante de chaque Xᵢ (elle ne dépend que de la structure de dépendance, pas des marginales)."
+            }
+        ],
+        conclusion: "La copule sépare la dépendance (C) des lois marginales (F₁, …, F_d) : elle permet de construire des lois jointes à marginales imposées et une dépendance choisie (Gaussienne, de Student à queue lourde, de Clayton/Gumbel asymétriques). Exemples : la copule d'indépendance C(u) = ∏uᵢ ; la copule gaussienne (paramétrée par une matrice de corrélation) est très utilisée en finance (mais sous-estime le risque de dépendance en queue, un facteur pointé dans la crise de 2008)."
+    },
     formulas: [
       {
         text: "Le théorème de Sklar affirme que toute fonction de répartition jointe F(x,y) s'écrit F(x,y)=C(F_X(x),F_Y(y)) pour une copule C unique (si les marges sont continues), permettant de modéliser séparément les lois marginales (souvent bien connues) et la structure de dépendance entre variables (souvent plus complexe et spécifique).",
@@ -12840,6 +17070,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1687": {
     title: "Validation croisée et sélection de modèle (introduction)",
     definition: "La validation croisée (k-fold cross-validation) évalue la performance de généralisation d'un modèle statistique en le divisant en k parties, entraînant successivement le modèle sur k-1 parties et le testant sur la partie restante, moyennant les performances obtenues sur les k découpages possibles, fournissant une estimation robuste de l'erreur de généralisation.",
+    definition_axiomatique: {
+        cadre: "On dispose d'un ensemble de modèles candidats (ou d'hyperparamètres) et d'un jeu de données ; on veut estimer la capacité de généralisation sans utiliser de données de test séparées à chaque comparaison.",
+        axiomes: [
+            {
+                nom: "K1 — Partition en k blocs",
+                enonce: "Les données sont partagées en k parties disjointes de taille égale."
+            },
+            {
+                nom: "E1 — Validation croisée en k blocs",
+                enonce: "Pour chaque i, on entraîne sur les k − 1 autres blocs et on évalue sur le bloc i ; l'erreur de validation croisée est la moyenne des k erreurs."
+            },
+            {
+                nom: "L1 — Cas limite (leave-one-out)",
+                enonce: "k = n : chaque observation sert une fois de test (coûteux mais quasi non biaisé)."
+            }
+        ],
+        conclusion: "La validation croisée estime le risque de généralisation R(f̂) sans biais optimiste (contrairement à l'erreur d'entraînement, systématiquement trop optimiste) et sert à choisir entre modèles ou hyperparamètres (régularisation, profondeur d'arbre, nombre de voisins) en minimisant l'erreur de validation croisée. Compromis biais-variance de l'estimateur lui-même : k petit (ex. 5 ou 10) réduit la variance de l'estimation au prix d'un léger biais pessimiste (moins de données d'entraînement par pli) ; leave-one-out a une variance élevée entre jeux de données similaires."
+    },
     formulas: [
       {
         text: "Cette technique est essentielle pour la sélection de modèle (choix du degré d'un polynôme, du nombre de variables à inclure, du paramètre de régularisation) en évitant le piège du surapprentissage (bon ajustement sur les données d'entraînement mais mauvaise généralisation) déjà évoqué en M1.",
@@ -12887,6 +17135,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1688": {
     title: "Fibré tangent",
     definition: "Le fibré tangent TM d'une variété différentiable M est la réunion disjointe de tous les espaces tangents T_pM (p∈M), muni d'une structure naturelle de variété différentiable de dimension 2·dim(M), l'application naturelle π:TM→M (associant à chaque vecteur tangent son point de base) étant une projection lisse.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une variété M de dimension n ; TM = ⊔_{p∈M}T_pM, muni de la projection π : TM → M, π(v) = p si v ∈ T_pM.",
+        axiomes: [
+            {
+                nom: "F1 — Structure de variété",
+                enonce: "TM est une variété de dimension 2n, dont les cartes proviennent de celles de M : (x¹,…,xⁿ, v¹,…,vⁿ) où (xⁱ) sont les coordonnées du point et (vⁱ) celles du vecteur dans la base ∂/∂xⁱ."
+            },
+            {
+                nom: "F2 — Trivialisations locales",
+                enonce: "Sur le domaine U d'une carte de M, π⁻¹(U) ≅ U × ℝⁿ (difféomorphisme)."
+            },
+            {
+                nom: "F3 — Section",
+                enonce: "Une section de π (application s : M → TM avec π∘s = id) est exactement un champ de vecteurs sur M."
+            }
+        ],
+        conclusion: "TM est un fibré vectoriel de rang n sur M : localement trivial, mais globalement non trivial en général (TS² n'est pas S² × ℝ², théorème de la boule chevelue : tout champ de vecteurs tangent continu sur S² s'annule quelque part). Un point de TM est un couple (position, vitesse) : TM est l'espace des états d'un système mécanique dont M est l'espace des configurations."
+    },
     formulas: [
       {
         text: "Un champ de vecteurs sur M est précisément une section (lisse) de ce fibré, c'est-à-dire une application s:M→TM telle que π∘s=Id_M, formalisant rigoureusement la notion déjà utilisée en L3-M1 sans cette structure explicite de fibré.",
@@ -12938,6 +17204,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1689": {
     title: "Sous-variétés et théorème du rang constant",
     definition: "Une sous-variété de dimension k d'une variété M de dimension n est un sous-ensemble qui, localement, ressemble à ℝ^k plongé dans ℝⁿ (via des cartes adaptées). Le théorème du rang constant affirme que si F:M→N est une application différentiable de rang constant r, alors localement, F ressemble à une projection standard, et les fibres F⁻¹(y) sont des sous-variétés de dimension dim(M)-r.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété différentielle M de dimension n (espace topologique séparé à base dénombrable, muni d'un atlas de cartes de classe C^∞) ; T_pM désigne l'espace tangent en p. f : M → N est C^∞ ; on suppose rg(df_p) = r constant sur un voisinage de p (rang constant).",
+        axiomes: [
+            {
+                nom: "R1 — Rang constant",
+                enonce: "df_q a un rang r indépendant de q dans un voisinage de p."
+            },
+            {
+                nom: "C1 — Cartes adaptées",
+                enonce: "Il existe des cartes centrées en p et f(p) dans lesquelles f s'écrit (x₁,…,x_n) ↦ (x₁,…,x_r,0,…,0)."
+            },
+            {
+                nom: "S1 — Cas particuliers",
+                enonce: "r = dim M (immersion locale), r = dim N (submersion locale) ; une valeur régulière c de f (df_p surjective pour tout p ∈ f⁻¹(c)) donne f⁻¹(c) sous-variété."
+            }
+        ],
+        conclusion: "Théorème du rang constant : sous R1, f se linéarise localement (C1) dans des cartes bien choisies. Théorème des valeurs régulières : si c est une valeur régulière de f : M → N, f⁻¹(c) est une sous-variété de M de dimension dim M − dim N (généralise le théorème des fonctions implicites). Exemples : Sⁿ = f⁻¹(1) pour f(x) = ‖x‖² (valeur régulière 1) ; SL_n(ℝ) = det⁻¹(1)."
+    },
     formulas: [
       {
         text: "Ce théorème généralise et unifie le théorème d'inversion locale (cas r=dim(M)=dim(N)) et le théorème des fonctions implicites, fournissant un cadre général pour établir qu'un ensemble de niveau d'une fonction est une sous-variété sous une hypothèse de rang constant du gradient (ou de la différentielle).",
@@ -12985,6 +17269,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1690": {
     title: "Exponentielle sur un groupe de Lie",
     definition: "L'application exponentielle exp:𝔤→G d'un groupe de Lie G d'algèbre de Lie 𝔤 (l'espace tangent en l'identité) généralise l'exponentielle de matrice : pour un groupe matriciel, elle coïncide exactement avec l'exponentielle matricielle classique déjà rencontrée en L3, associant à chaque élément de l'algèbre de Lie l'élément du groupe obtenu en suivant le flot du champ de vecteurs invariant à gauche correspondant.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un groupe de Lie G d'algèbre de Lie 𝔤 = T_eG.",
+        axiomes: [
+            {
+                nom: "E1 — Sous-groupe à un paramètre",
+                enonce: "Pour X ∈ 𝔤, il existe un unique morphisme de groupes de Lie γ_X : (ℝ, +) → G avec γ_X'(0) = X (courbe intégrale du champ invariant à gauche associé à X, passant par e)."
+            },
+            {
+                nom: "E2 — Définition",
+                enonce: "exp(X) = γ_X(1)."
+            },
+            {
+                nom: "E3 — Propriété de flot",
+                enonce: "γ_X(t) = exp(tX), donc exp((s+t)X) = exp(sX)exp(tX)."
+            }
+        ],
+        conclusion: "exp : 𝔤 → G est un difféomorphisme local en 0 (d(exp)_0 = id) ; pour G = GL_n(ℝ), exp coïncide avec l'exponentielle matricielle Σ Xᵏ/k!. G connexe et engendré par exp(𝔤) au voisinage de e ; si G est connexe, tout élément est produit fini d'exponentielles. La formule de Baker-Campbell-Hausdorff exprime exp(X)exp(Y) = exp(X + Y + ½[X,Y] + …) en termes du crochet, reliant localement structure de groupe et structure d'algèbre de Lie."
+    },
     formulas: [
       {
         text: "Cette application n'est en général ni injective ni surjective globalement (bien qu'elle le soit toujours localement, au voisinage de 0), et elle relie la structure locale du groupe (au voisinage de l'identité) à la structure de son algèbre de Lie, permettant de transférer des calculs du groupe vers l'algèbre (souvent plus simple, car linéaire).",
@@ -13032,6 +17334,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1691": {
     title: "Actions de groupes de Lie (introduction)",
     definition: "Une action d'un groupe de Lie G sur une variété M est dite lisse si l'application G×M→M (g,p)↦g·p est différentiable, généralisant les actions de groupes discrets (déjà étudiées en L3) au cadre continu, avec des orbites qui sont elles-mêmes des sous-variétés de M sous des hypothèses de régularité adéquates.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un groupe de Lie G agissant sur une variété M par une application C^∞, α : G × M → M, (g, p) ↦ g·p.",
+        axiomes: [
+            {
+                nom: "A1 — Action de groupe",
+                enonce: "e·p = p et g·(h·p) = (gh)·p."
+            },
+            {
+                nom: "A2 — Lissité",
+                enonce: "α est C^∞."
+            },
+            {
+                nom: "A3 — Orbite et stabilisateur",
+                enonce: "L'orbite G·p est l'image de G → M, g ↦ g·p ; le stabilisateur G_p = {g : g·p = p} est un sous-groupe fermé de G, donc un groupe de Lie (théorème de Cartan)."
+            }
+        ],
+        conclusion: "Si G_p est un sous-groupe fermé, G/G_p est une variété et l'application G/G_p → G·p, gG_p ↦ g·p, est un difféomorphisme sur l'orbite (si l'action est propre, l'orbite est une sous-variété fermée). Exemples : SO(3) agissant sur S² (transitive, stabilisateur SO(2)) ; GL_n(ℝ) agissant sur ℝⁿ ; SL_2(ℝ) agissant sur le demi-plan de Poincaré par homographies. Une action est propre si l'application (g,p) ↦ (g·p,p) est propre, ce qui garantit que le quotient M/G est raisonnable (séparé)."
+    },
     formulas: [
       {
         text: "Pour une action transitive (une seule orbite, M tout entier), le théorème de la variété homogène affirme que M s'identifie difféomorphiquement au quotient G/H, où H est le stabilisateur d'un point quelconque, généralisant considérablement la construction déjà rencontrée pour les actions discrètes.",
@@ -13075,6 +17395,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1692": {
     title: "Homotopie de chemins et de lacets",
     definition: "Deux chemins γ_0,γ_1:[0,1]→X (de mêmes extrémités) sont homotopes s'il existe une application continue H:[0,1]×[0,1]→X (l'homotopie) telle que H(·,0)=γ_0, H(·,1)=γ_1, et les extrémités restent fixées tout au long de la déformation, formalisant l'idée de « déformer continûment » un chemin en un autre.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un espace topologique X et deux chemins γ₀, γ₁ : [0;1] → X de mêmes extrémités (γ₀(0)=γ₁(0), γ₀(1)=γ₁(1)).",
+        axiomes: [
+            {
+                nom: "H1 — Homotopie de chemins",
+                enonce: "H : [0;1]² → X continue, H(·,0) = γ₀, H(·,1) = γ₁, H(0,s) = γ₀(0), H(1,s) = γ₀(1) pour tout s (extrémités fixées)."
+            },
+            {
+                nom: "E1 — Relation d'équivalence",
+                enonce: "L'homotopie de chemins (à extrémités fixées) est une relation d'équivalence."
+            },
+            {
+                nom: "C1 — Concaténation compatible",
+                enonce: "Si γ₀ ~ γ₁ et δ₀ ~ δ₁ (avec γᵢ(1) = δᵢ(0)), alors γ₀·δ₀ ~ γ₁·δ₁."
+            }
+        ],
+        conclusion: "L'homotopie de lacets (γ₀(0) = γ₀(1) = δ₀(0) = δ₀(1) = x₀) définit le groupe fondamental π₁(X, x₀) (classes de lacets, produit par concaténation) ; l'homotopie de chemins généraux permet de définir le groupoïde fondamental (objets = points de X, morphismes = classes d'homotopie de chemins), qui contient π₁(X, x₀) comme le groupe des automorphismes de l'objet x₀."
+    },
     formulas: [
       {
         text: "L'homotopie de chemins (à extrémités fixées) est une relation d'équivalence, et la composition des classes d'homotopie de lacets (chemins fermés) basés en un même point munit l'ensemble de ces classes d'une structure de groupe, le groupe fondamental π₁(X,x_0) déjà introduit en M1.",
@@ -13122,6 +17460,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1693": {
     title: "Théorème de van Kampen (introduction, énoncé)",
     definition: "Le théorème de van Kampen permet de calculer le groupe fondamental d'un espace X recouvert par deux ouverts connexes par arcs U,V (d'intersection connexe par arcs) à partir des groupes fondamentaux de U, V et de leur intersection : π₁(X) est le produit amalgamé π₁(U)*_{π₁(U∩V)}π₁(V), une construction généralisant le produit libre de groupes.",
+    definition_axiomatique: {
+        cadre: "On travaille avec X = U ∪ V, U, V ouverts connexes par arcs d'intersection U ∩ V connexe par arcs, contenant un point base x₀.",
+        axiomes: [
+            {
+                nom: "G1 — Morphismes induits",
+                enonce: "Les inclusions induisent i_U : π₁(U∩V) → π₁(U), i_V : π₁(U∩V) → π₁(V), j_U : π₁(U) → π₁(X), j_V : π₁(V) → π₁(X)."
+            },
+            {
+                nom: "A1 — Produit amalgamé",
+                enonce: "π₁(X, x₀) est le produit amalgamé π₁(U) *_{π₁(U∩V)} π₁(V) (pushout dans la catégorie des groupes)."
+            },
+            {
+                nom: "U1 — Universalité",
+                enonce: "Pour tout groupe H et morphismes compatibles φ_U : π₁(U) → H, φ_V : π₁(V) → H (φ_Ui_U = φ_Vi_V), il existe un unique morphisme π₁(X) → H compatible."
+            }
+        ],
+        conclusion: "Théorème de van Kampen : π₁(X) est engendré par les images de π₁(U) et π₁(V), avec pour seules relations celles héritées de π₁(U ∩ V) (identifiant i_U(γ) et i_V(γ)). Il calcule π₁ d'un espace décomposé en morceaux plus simples : π₁(S¹) = ℤ (U, V deux arcs se recouvrant, U∩V non connexe demande une variante) ; π₁(figure-huit) = ℤ * ℤ (groupe libre à deux générateurs, U∩V simplement connexe)."
+    },
     formulas: [
       {
         text: "Ce théorème est l'outil calculatoire central de la topologie algébrique pour déterminer le groupe fondamental d'espaces complexes construits par recollement de morceaux plus simples dont le groupe fondamental est déjà connu.",
@@ -13169,6 +17525,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1694": {
     title: "Suite exacte longue en homologie (introduction)",
     definition: "Pour une paire d'espaces (X,A) (A sous-espace de X), la suite exacte longue en homologie relie les groupes d'homologie de A, X et de la paire (X,A) (homologie relative) par une suite infinie d'applications, chacune étant l'image de la précédente, généralisant les suites exactes courtes déjà rencontrées en algèbre linéaire (L3).",
+    definition_axiomatique: {
+        cadre: "On travaille avec une suite exacte courte de complexes de chaînes 0 → A• → B• → C• → 0 (morphismes de complexes, exacts en chaque degré).",
+        axiomes: [
+            {
+                nom: "S1 — Morphismes de complexes",
+                enonce: "Les applications commutent avec les différentielles à chaque degré."
+            },
+            {
+                nom: "C1 — Connecting homomorphism",
+                enonce: "Pour [c] ∈ Hₙ(C•), on relève c en b ∈ Bₙ, ∂b se relève (car exact) en a ∈ Aₙ₋₁ avec ∂a = 0 ; δ[c] := [a] ∈ Hₙ₋₁(A•) (lemme du serpent)."
+            },
+            {
+                nom: "E1 — Exactitude",
+                enonce: "La suite …→Hₙ(A)→Hₙ(B)→Hₙ(C)→Hₙ₋₁(A)→… est exacte."
+            }
+        ],
+        conclusion: "La suite exacte longue relie les homologies (ou cohomologies) de trois espaces (complexes) liés par une suite exacte courte, permettant de calculer l'homologie de l'un à partir des deux autres. Exemples : suite exacte longue d'une paire (X, A) (Hₙ(A) → Hₙ(X) → Hₙ(X,A) → Hₙ₋₁(A) → …), de Mayer-Vietoris (pour X = U ∪ V) ; outil central de calcul en topologie algébrique et en algèbre homologique."
+    },
     formulas: [
       {
         text: "Cette suite exacte est un outil calculatoire fondamental permettant de déterminer l'homologie d'un espace complexe X à partir de celle, plus simple, d'un sous-espace A et de la paire (X,A), par des arguments de « chasse au diagramme » exploitant l'exactitude à chaque étape.",
@@ -13216,6 +17590,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1695": {
     title: "Caractéristique d'Euler-Poincaré",
     definition: "La caractéristique d'Euler-Poincaré χ(X) d'un espace topologique (raisonnable, comme un complexe cellulaire fini) est la somme alternée des rangs de ses groupes d'homologie χ(X)=Σ(-1)^n rang(H_n(X)), généralisant et rendant rigoureuse la formule combinatoire V-E+F déjà rencontrée pour les polyèdres (formule d'Euler classique).",
+    definition_axiomatique: {
+        cadre: "On travaille avec un CW-complexe fini (ou une triangulation finie) X, ayant cₙ cellules (simplexes) de dimension n.",
+        axiomes: [
+            {
+                nom: "C1 — Décomposition cellulaire",
+                enonce: "X = ⋃cellules, chaque n-cellule attachée par une application Sⁿ⁻¹ → X^{(n-1)} (squelette)."
+            },
+            {
+                nom: "E1 — Définition combinatoire",
+                enonce: "χ(X) = Σ(−1)ⁿcₙ."
+            },
+            {
+                nom: "H1 — Invariance topologique (formule d'Euler-Poincaré)",
+                enonce: "χ(X) = Σ(−1)ⁿ dim Hₙ(X; ℚ) (indépendant de la décomposition cellulaire ou triangulation choisie)."
+            }
+        ],
+        conclusion: "χ est un invariant d'homotopie (par H1) calculable combinatoirement (par C1) : sommets − arêtes + faces pour une surface (retrouve n − m + f = 2 sur la sphère). Pour une surface compacte orientable de genre g, χ = 2 − 2g (lié à Gauss-Bonnet : ∫K dA = 2πχ) ; pour un graphe connexe (1-complexe), χ = 1 − (nombre de cycles indépendants) = sommets − arêtes. χ(X × Y) = χ(X)χ(Y) ; χ(X ∪ Y) = χ(X) + χ(Y) − χ(X ∩ Y) (Mayer-Vietoris)."
+    },
     formulas: [
       {
         text: "Cette quantité est un invariant topologique (préservé par homéomorphisme, et même par équivalence d'homotopie), calculable de façon purement combinatoire à partir d'une triangulation ou d'une décomposition cellulaire de l'espace, sans référence directe à l'homologie.",
@@ -13263,6 +17655,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1696": {
     title: "Classification des surfaces compactes (introduction culturelle)",
     definition: "Le théorème de classification des surfaces compactes (sans bord) affirme que toute surface compacte connexe est homéomorphe soit à une sphère avec g anses (genre g, surfaces orientables), soit à une sphère avec k bandes de Möbius (surfaces non orientables), la caractéristique d'Euler distinguant complètement ces types au sein de chaque famille.",
+    definition_axiomatique: {
+        cadre: "On travaille avec les surfaces compactes connexes sans bord (2-variétés compactes), classifiées à homéomorphisme près.",
+        axiomes: [
+            {
+                nom: "O1 — Orientable",
+                enonce: "La surface admet une orientation cohérente (pas de sous-espace de Möbius)."
+            },
+            {
+                nom: "C1 — Caractéristique d'Euler",
+                enonce: "χ(surface) = 2 − 2g (orientable, genre g = nombre d'anses) ou 2 − k (non orientable, k = nombre de « croisillons » ou plans projectifs sommés)."
+            },
+            {
+                nom: "S1 — Somme connexe",
+                enonce: "Toute surface compacte s'obtient comme somme connexe de tores (orientable) ou de plans projectifs (non orientable)."
+            }
+        ],
+        conclusion: "Théorème de classification des surfaces : toute surface compacte connexe sans bord est homéomorphe soit à la sphère S² (g=0), soit à une somme connexe de g tores Σ_g (orientable, genre g), soit à une somme connexe de k plans projectifs N_k (non orientable). χ et l'orientabilité déterminent complètement le type topologique. Exemples : sphère (χ=2), tore (χ=0), bouteille de Klein = N₂ (χ=0, non orientable), plan projectif ℝℙ² = N₁ (χ=1)."
+    },
     formulas: [
       {
         text: "Pour les surfaces orientables de genre g, χ=2-2g (sphère g=0, χ=2 ; tore g=1, χ=0 ; double tore g=2, χ=-2) ; pour les surfaces non orientables, une formule analogue relie χ au nombre de bandes de Möbius, ce résultat de classification complète étant l'un des plus élégants de la topologie de basse dimension.",
@@ -13314,6 +17724,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1697": {
     title: "Fibrés vectoriels (introduction)",
     definition: "Un fibré vectoriel de rang k sur une variété M est une famille de k-espaces vectoriels (les fibres) paramétrée continûment par les points de M, localement isomorphe à un produit M×ℝ^k (trivialité locale), le fibré tangent (déjà rencontré) étant l'exemple fondamental de fibré vectoriel de rang égal à la dimension de M.",
+    definition_axiomatique: {
+        cadre: "Un fibré vectoriel de rang k sur une variété M est une variété E munie d'une projection π : E → M et d'une structure de K-espace vectoriel de dimension k sur chaque fibre E_p = π⁻¹(p).",
+        axiomes: [
+            {
+                nom: "T1 — Trivialisations locales",
+                enonce: "Pour tout p, il existe un voisinage U et un difféomorphisme Φ : π⁻¹(U) → U × Kᵏ, linéaire sur chaque fibre."
+            },
+            {
+                nom: "T2 — Fonctions de transition",
+                enonce: "Sur U ∩ V, g_{UV} = Φ_U∘Φ_V⁻¹ : (U∩V) → GL_k(K) est C^∞."
+            },
+            {
+                nom: "T3 — Cocycle",
+                enonce: "g_{UV}g_{VW} = g_{UW} sur U ∩ V ∩ W (condition de cocycle, permettant de reconstruire E à partir des g_{UV})."
+            }
+        ],
+        conclusion: "Exemples : TM (fibré tangent), T*M (fibré cotangent), les fibrés en droites (rang 1, ex. fibré tautologique sur ℙⁿ), les fibrés normaux à une sous-variété. Un fibré est trivial (≅ M × Kᵏ) si et seulement s'il admet k sections partout linéairement indépendantes ; TS¹ et TT² sont triviaux, TS² ne l'est pas (obstruction topologique, classe d'Euler). Opérations : somme directe, produit tensoriel, dual, fibré des homomorphismes, tirés en arrière par une application."
+    },
     formulas: [
       {
         text: "Un fibré vectoriel est dit trivial s'il est globalement isomorphe à M×ℝ^k (pas seulement localement) ; l'obstruction à la trivialité globale est mesurée par des invariants topologiques (classes caractéristiques, introduites en M2), la non-trivialité étant un phénomène purement global.",
@@ -13361,6 +17789,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1698": {
     title: "Théorie de Morse (introduction culturelle)",
     definition: "La théorie de Morse étudie la topologie d'une variété M à partir des points critiques d'une fonction de Morse f:M→ℝ (fonction dont tous les points critiques sont non dégénérés, c'est-à-dire de hessienne inversible), l'indice de Morse en chaque point critique (nombre de valeurs propres négatives de la hessienne) déterminant précisément comment la topologie de {f≤c} change lorsque c traverse une valeur critique.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété compacte M et une fonction de Morse f : M → ℝ (fonction C^∞ dont tous les points critiques sont non dégénérés : la hessienne y est inversible).",
+        axiomes: [
+            {
+                nom: "N1 — Non-dégénérescence",
+                enonce: "En un point critique p (df_p = 0), la hessienne D²f(p) est non dégénérée."
+            },
+            {
+                nom: "I1 — Indice de Morse",
+                enonce: "L'indice λ(p) est le nombre de valeurs propres négatives de D²f(p) (dimension du sous-espace où f décroît le plus vite)."
+            },
+            {
+                nom: "L1 — Lemme de Morse",
+                enonce: "Au voisinage d'un point critique d'indice λ, f s'écrit dans des coordonnées adaptées f(p) − x₁² − … − x_λ² + x_{λ+1}² + … + x_n²."
+            }
+        ],
+        conclusion: "Théorie de Morse : la topologie de M se reconstruit en attachant une cellule de dimension λ à chaque point critique d'indice λ, à mesure que l'on parcourt les valeurs de f (passage d'une sous-variété de niveau {f ≤ c} à l'autre) ; les inégalités de Morse relient le nombre de points critiques d'indice λ aux nombres de Betti (b_λ ≤ #points critiques d'indice λ). Exemple emblématique : la hauteur sur le tore vertical a 4 points critiques (min, deux cols, max), correspondant aux nombres de Betti (1, 2, 1) du tore."
+    },
     formulas: [
       {
         text: "Les inégalités de Morse relient le nombre de points critiques d'indice k à la dimension du groupe d'homologie H_k(M), fournissant une méthode puissante pour obtenir des informations topologiques sur M à partir de l'étude purement analytique d'une fonction bien choisie sur M.",
@@ -13412,6 +17858,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1699": {
     title: "Espaces projectifs réels et complexes : structure différentiable",
     definition: "L'espace projectif réel ℝP^n (droites vectorielles de ℝ^{n+1}) et l'espace projectif complexe ℂP^n (droites vectorielles complexes de ℂ^{n+1}) sont naturellement des variétés différentiables (respectivement de dimension réelle n et 2n), munies d'atlas de cartes affines standard héritées des coordonnées homogènes.",
+    definition_axiomatique: {
+        cadre: "On travaille avec ℙⁿ(K) (K = ℝ ou ℂ), l'ensemble des droites vectorielles de K^{n+1}, muni des cartes affines U_i = {[x₀:…:xₙ] : xᵢ ≠ 0} → K^n, [x] ↦ (x₀/xᵢ, …, x̂ᵢ/xᵢ, …, xₙ/xᵢ).",
+        axiomes: [
+            {
+                nom: "A1 — Recouvrement",
+                enonce: "Les U_i (i = 0, …, n) recouvrent ℙⁿ(K)."
+            },
+            {
+                nom: "A2 — Changements de cartes rationnels (donc C^∞)",
+                enonce: "Sur U_i ∩ U_j, la transition est une fraction rationnelle sans pôle, donc C^∞ (voire holomorphe si K = ℂ)."
+            },
+            {
+                nom: "A3 — Compacité",
+                enonce: "ℙⁿ(K) est l'image de la sphère unité de K^{n+1} par l'application quotient, donc compact."
+            }
+        ],
+        conclusion: "ℙⁿ(ℝ) est une variété différentiable compacte connexe de dimension n, quotient de Sⁿ par x ∼ −x (revêtement double) ; ℙⁿ(ℂ) est une variété complexe compacte connexe de dimension complexe n (dimension réelle 2n), munie naturellement de la métrique de Fubini-Study (kählérienne). ℙ¹(ℝ) ≅ S¹, ℙ¹(ℂ) ≅ S² (sphère de Riemann) ; ℙⁿ(ℝ) est orientable si et seulement si n est impair."
+    },
     formulas: [
       {
         text: "ℝP^n est compact, connexe, et orientable seulement pour n impair (résultat non trivial lié au comportement de l'application antipodale) ; ℂP^n, en tant que variété complexe, est toujours orientable (l'orientation complexe induisant naturellement une orientation réelle sous-jacente).",
@@ -13471,6 +17935,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1700": {
     title: "Grassmanniennes (introduction culturelle)",
     definition: "La grassmannienne Gr(k,n) est l'ensemble de tous les sous-espaces vectoriels de dimension k d'un espace vectoriel de dimension n, généralisant l'espace projectif ℙ^{n-1}=Gr(1,n) (cas k=1) à des sous-espaces de dimension quelconque, naturellement munie d'une structure de variété différentiable compacte.",
+    definition_axiomatique: {
+        cadre: "On travaille avec Gr(k, n) l'ensemble des sous-espaces vectoriels de dimension k de Kⁿ (K = ℝ ou ℂ).",
+        axiomes: [
+            {
+                nom: "A1 — Recouvrement par cartes",
+                enonce: "Pour V₀ ∈ Gr(k,n), les sous-espaces V proches de V₀ (transverses à un supplémentaire fixé W) s'écrivent comme graphes d'applications linéaires V₀ → W, donnant une carte à valeurs dans Hom(V₀, W) ≅ K^{k(n−k)}."
+            },
+            {
+                nom: "A2 — Changements de cartes C^∞",
+                enonce: "Les transitions entre cartes de ce type sont rationnelles, donc C^∞."
+            },
+            {
+                nom: "A3 — Cas k = 1",
+                enonce: "Gr(1, n) = ℙⁿ⁻¹(K) : la grassmannienne généralise l'espace projectif."
+            }
+        ],
+        conclusion: "Gr(k, n) est une variété compacte de dimension k(n − k) (sur ℝ ; 2k(n−k) réelle sur ℂ), munie d'une action transitive de O(n) (ou U(n)) : Gr(k,n) ≅ O(n)/(O(k) × O(n−k)) (espace homogène). Elle se plonge dans un espace projectif via les coordonnées de Plücker (Λᵏℝⁿ), et paramètre naturellement les familles de sous-espaces en géométrie algébrique, en théorie des fibrés (fibré tautologique) et en physique (espace des états en mécanique quantique projective généralisée)."
+    },
     formulas: [
       {
         text: "La dimension de Gr(k,n) est k(n-k), résultat qui se retrouve en comptant les degrés de liberté d'un sous-espace de dimension k dans un espace de dimension n (via une paramétrisation locale par des cartes affines analogues aux coordonnées homogènes projectives).",
@@ -13518,6 +18000,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1701": {
     title: "Formes symplectiques (introduction culturelle)",
     definition: "En M1, on rappelle et approfondit la notion de forme symplectique (introduite en M2 dans le programme initial, mais fondamentale dès ce niveau pour la mécanique hamiltonienne) : une 2-forme différentielle ω fermée et non dégénérée sur une variété M de dimension paire, généralisant l'espace des phases de la mécanique classique.",
+    definition_axiomatique: {
+        cadre: "Une variété symplectique est un couple (M, ω), où M est une variété différentielle et ω une 2-forme différentielle.",
+        axiomes: [
+            {
+                nom: "S1 — Fermée",
+                enonce: "dω = 0."
+            },
+            {
+                nom: "S2 — Non dégénérée",
+                enonce: "Pour tout p, ω_p : T_pM × T_pM → ℝ est non dégénérée (si ω_p(v, ·) = 0, alors v = 0)."
+            },
+            {
+                nom: "S3 — Dimension paire",
+                enonce: "S2 impose dim M = 2n (ωⁿ ≠ 0 est une forme volume)."
+            }
+        ],
+        conclusion: "Théorème de Darboux : localement, ω = Σdqᵢ ∧ dpᵢ : les variétés symplectiques n'ont pas d'invariant local. Exemples : ℝ²ⁿ (forme standard), fibrés cotangents T*Q (formes de Liouville), variétés kählériennes (ℙⁿ(ℂ)), surfaces orientées. Cadre géométrique de la mécanique hamiltonienne."
+    },
     formulas: [
       {
         text: "Le théorème de Darboux (déjà mentionné) garantit l'absence d'invariants locaux non triviaux pour la géométrie symplectique, contrastant avec la géométrie riemannienne (où la courbure est un invariant local essentiel), toute la richesse de cette géométrie résidant dans des invariants globaux.",
@@ -13561,6 +18061,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1702": {
     title: "Variétés à bord (introduction)",
     definition: "Une variété à bord est un espace localement modelé soit sur ℝⁿ (points intérieurs), soit sur le demi-espace fermé {x_n≥0} (points du bord), le bord ∂M formant lui-même une variété de dimension n-1 sans bord, généralisant les variétés usuelles (sans bord) à des objets comme le disque fermé ou une boule pleine.",
+    definition_axiomatique: {
+        cadre: "Une variété à bord M de dimension n est un espace localement modelé sur ℝⁿ ou le demi-espace ℍⁿ = {x ∈ ℝⁿ : xₙ ≥ 0}, avec des cartes C^∞-compatibles.",
+        axiomes: [
+            {
+                nom: "C1 — Cartes",
+                enonce: "Chaque point a un voisinage difféomorphe à un ouvert de ℝⁿ ou de ℍⁿ."
+            },
+            {
+                nom: "B1 — Bord",
+                enonce: "∂M est l'ensemble des points dont une carte les envoie sur {xₙ = 0} ; c'est une variété (sans bord) de dimension n − 1."
+            },
+            {
+                nom: "I1 — Intérieur",
+                enonce: "M ∖ ∂M est une variété (sans bord) de dimension n."
+            }
+        ],
+        conclusion: "Exemples : le disque fermé D̄ⁿ (bord Sⁿ⁻¹), le cylindre [0;1] × S¹ (bord deux cercles), une variété compacte sans bord n'a pas de bord (∂M = ∅). Un cobordisme entre deux variétés fermées M₀, M₁ est une variété à bord W avec ∂W = M₀ ⊔ M₁ ; la théorie du cobordisme classifie les variétés à cette relation d'équivalence près. Le théorème de Stokes s'étend aux variétés à bord (∫_Mdω = ∫_{∂M}ω)."
+    },
     formulas: [
       {
         text: "Le théorème de Stokes général (déjà rencontré en M1) s'applique précisément dans ce cadre des variétés à bord orientées, l'orientation du bord étant induite de façon cohérente par celle de la variété (convention de la normale sortante), condition essentielle à la validité de la formule.",
@@ -13608,6 +18126,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1703": {
     title: "Partitions de l'unité",
     definition: "Une partition de l'unité subordonnée à un recouvrement ouvert (U_i) d'une variété M est une famille de fonctions lisses (φ_i) à support dans U_i respectivement, positives, dont la somme vaut 1 en tout point de M (localement finie), outil technique fondamental permettant de recoller des constructions locales en un objet global bien défini sur toute la variété.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété M (paracompacte) recouverte par une famille d'ouverts (Uᵢ)_{i∈I}.",
+        axiomes: [
+            {
+                nom: "S1 — Support",
+                enonce: "Une famille (ρᵢ) de fonctions C^∞, ρᵢ ≥ 0, supp(ρᵢ) ⊂ Uᵢ."
+            },
+            {
+                nom: "L1 — Somme localement finie",
+                enonce: "Chaque point a un voisinage rencontrant seulement un nombre fini de supp(ρᵢ)."
+            },
+            {
+                nom: "N1 — Normalisation",
+                enonce: "Σᵢρᵢ(p) = 1 pour tout p ∈ M."
+            }
+        ],
+        conclusion: "L'existence d'une partition de l'unité subordonnée à tout recouvrement ouvert (pour M paracompacte, ce qui est automatique pour une variété séparée à base dénombrable) permet de recoller des constructions locales en objets globaux : définir une métrique riemannienne (moyenne de métriques locales pondérées par ρᵢ), une forme volume, intégrer une n-forme sur M (∫_Mω = Σᵢ∫_{Uᵢ}ρᵢω, chaque terme calculable dans une carte), ou construire des fonctions de troncature C^∞."
+    },
     formulas: [
       {
         text: "L'existence de partitions de l'unité (garantie pour toute variété paracompacte, hypothèse toujours vérifiée en pratique) est le résultat technique clé permettant de construire des métriques riemanniennes globales, des formes de volume, et de nombreux autres objets géométriques à partir de constructions locales plus simples.",
@@ -13655,6 +18191,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1704": {
     title: "Théorème de plongement de Whitney (introduction culturelle)",
     definition: "Le théorème de plongement de Whitney (admis à ce niveau) affirme que toute variété différentiable de dimension n (paracompacte) se plonge (s'immerge de façon injective, avec différentielle injective) dans ℝ^{2n}, garantissant que la définition abstraite d'une variété (via des cartes locales) est toujours réalisable concrètement comme un sous-ensemble d'un espace euclidien.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une variété compacte (ou paracompacte) M de dimension n.",
+        axiomes: [
+            {
+                nom: "I1 — Plongement",
+                enonce: "Une immersion injective propre f : M → ℝᴺ (difféomorphisme sur son image, image fermée)."
+            },
+            {
+                nom: "N1 — Dimension cible",
+                enonce: "N = 2n suffit toujours (Whitney fort) ; N = 2n+1 suffit par un argument élémentaire (projection générique, Whitney faible)."
+            },
+            {
+                nom: "C1 — Compacité",
+                enonce: "Si M est compacte, l'existence d'un plongement se démontre par un recouvrement fini et un argument de transversalité (théorème de Sard)."
+            }
+        ],
+        conclusion: "Théorème de plongement de Whitney (1936) : toute variété C^∞ de dimension n (séparée, à base dénombrable) se plonge dans ℝ^{2n}. Il justifie a posteriori de définir les variétés de façon intrinsèque (par des cartes) plutôt que comme sous-ensembles de ℝᴺ : tout objet intrinsèque se réalise concrètement dans un espace euclidien, sans perte de généralité. La preuve utilise le théorème de Sard (les valeurs critiques d'une application C^∞ forment un ensemble de mesure nulle) pour éliminer les auto-intersections par petites perturbations génériques."
+    },
     formulas: [
       {
         text: "Ce résultat justifie a posteriori que l'on peut toujours penser à une variété différentiable comme un objet plongé dans un espace euclidien (comme les surfaces et courbes déjà rencontrées en L2-L3), même si la définition abstraite moderne ne le nécessite pas a priori.",
@@ -13702,6 +18256,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1705": {
     title: "Table des caractères d'un groupe fini",
     definition: "En M1, on approfondit la construction pratique de la table des caractères (déjà introduite en L3) pour des groupes finis plus complexes que S_3, en exploitant systématiquement les relations d'orthogonalité des caractères et les propriétés de la représentation régulière pour déterminer complètement les représentations irréductibles.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un groupe fini G, ses classes de conjugaison C₁, …, C_r et ses caractères irréductibles χ₁, …, χ_r.",
+        axiomes: [
+            {
+                nom: "T1 — Carrée",
+                enonce: "Le nombre de caractères irréductibles est égal au nombre de classes de conjugaison."
+            },
+            {
+                nom: "T2 — Orthogonalité des lignes",
+                enonce: "Σ_g χᵢ(g)conj(χⱼ(g)) = |G|δᵢⱼ."
+            },
+            {
+                nom: "T3 — Orthogonalité des colonnes",
+                enonce: "Σᵢχᵢ(g)conj(χᵢ(h)) = |C_G(g)| si g ~ h, 0 sinon."
+            }
+        ],
+        conclusion: "La table de caractères est la matrice r × r des χᵢ(C_j). Exemple pour S₃ (classes : id, transpositions, 3-cycles) : triviale (1, 1, 1), signature (1, −1, 1), standard de dimension 2 (2, 0, −1) ; vérification 1² + 1² + 2² = 6 = |S₃|. Elle permet de lire le nombre de classes, l'ordre des éléments, les sous-groupes distingués (noyaux de caractères)."
+    },
     formulas: [
       {
         text: "La méthode systématique combine : détermination du nombre de classes de conjugaison (donnant le nombre de représentations irréductibles), calcul des dimensions possibles (via Σd_i²=|G|), et utilisation des relations d'orthogonalité pour compléter progressivement la table.",
@@ -13749,6 +18321,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1706": {
     title: "Représentations induites (introduction)",
     definition: "Pour H un sous-groupe de G et ρ une représentation de H, la représentation induite Ind_H^G(ρ) est une représentation de G construite à partir de ρ, de dimension [G:H]×dim(ρ), généralisant systématiquement la représentation régulière (cas où H={e} et ρ triviale) à des sous-groupes quelconques.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un groupe fini G, un sous-groupe H ≤ G et une représentation ρ : H → GL(W).",
+        axiomes: [
+            {
+                nom: "D1 — Espace induit",
+                enonce: "Ind_H^G(W) = K[G] ⊗_{K[H]} W, de dimension [G:H]·dim W."
+            },
+            {
+                nom: "A1 — Action",
+                enonce: "G agit sur Ind_H^G(W) par g·(x ⊗ w) = (gx) ⊗ w."
+            },
+            {
+                nom: "F1 — Réciprocité de Frobenius",
+                enonce: "⟨Ind_H^Gχ, ψ⟩_G = ⟨χ, Res_H^Gψ⟩_H pour tout caractère χ de H, ψ de G (Res = restriction)."
+            }
+        ],
+        conclusion: "L'induction construit une représentation de G à partir d'une représentation de H (opération adjointe à la restriction, réciprocité de Frobenius) ; elle est essentielle pour construire les représentations irréductibles de G à partir de celles de sous-groupes plus simples (par exemple les groupes de permutation : la représentation de permutation est Ind_{Stab}^G(triviale)). Exemple : les caractères induits d'un sous-groupe cyclique engendrent souvent une base pratique pour le calcul de la table de caractères."
+    },
     formulas: [
       {
         text: "La réciprocité de Frobenius relie les multiplicités d'apparition des représentations irréductibles dans une représentation induite Ind_H^G(ρ) à celles de la restriction Res_H^G(σ) d'une représentation de G à H, établissant une dualité fondamentale entre ces deux opérations (induction et restriction).",
@@ -13796,6 +18386,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1707": {
     title: "Algèbres de groupe (introduction)",
     definition: "L'algèbre de groupe K[G] d'un groupe fini G sur un corps K est l'espace vectoriel de base (e_g)_{g∈G}, muni du produit hérité de la multiplication du groupe (e_g·e_h=e_{gh}), étendu par bilinéarité, transformant ainsi l'étude des représentations de G en l'étude des modules sur cette algèbre K[G].",
+    definition_axiomatique: {
+        cadre: "On travaille avec un groupe fini G et un corps K ; K[G] désigne l'espace vectoriel de base (eg)_{g∈G} muni du produit eg·eh = e_{gh} étendu par bilinéarité.",
+        axiomes: [
+            {
+                nom: "A1 — Algèbre",
+                enonce: "K[G] est une K-algèbre associative de dimension |G|, unitaire (unité e_e)."
+            },
+            {
+                nom: "R1 — Modules = représentations",
+                enonce: "Une représentation de G sur un K-espace vectoriel V correspond exactement à une structure de K[G]-module sur V."
+            },
+            {
+                nom: "W1 — Wedderburn (car K ∤ |G|, K algébriquement clos)",
+                enonce: "K[G] ≅ ∏ᵢM_{dᵢ}(K), produit d'algèbres de matrices indexées par les représentations irréductibles de dimension dᵢ."
+            }
+        ],
+        conclusion: "L'algèbre de groupe traduit la théorie des représentations en théorie des modules sur K[G] (algèbre semi-simple si Maschke s'applique). La décomposition de Wedderburn K[G] ≅ ∏M_{dᵢ}(K) redonne Σdᵢ² = |G| (dimension de K[G]) et fournit un cadre structurel unifié pour l'analyse harmonique non commutative (transformée de Fourier sur les groupes finis via cette décomposition)."
+    },
     formulas: [
       {
         text: "Le théorème de Maschke (déjà rencontré en L3-M1) se reformule élégamment dans ce langage : K[G] est semi-simple (somme directe d'algèbres de matrices) si et seulement si la caractéristique de K ne divise pas |G|, unifiant théorie des représentations et théorie des algèbres semi-simples.",
@@ -13843,6 +18451,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1708": {
     title: "Groupes de Galois de polynômes classiques (exemples approfondis)",
     definition: "En M1, on approfondit le calcul explicite du groupe de Galois de polynômes classiques : celui d'un polynôme de degré 3 est un sous-groupe de S_3 (donc S_3 ou A_3 selon que le discriminant est un carré ou non dans le corps de base), celui d'un polynôme de degré 4 « générique » est S_4, avec des sous-cas selon la factorisation de sa résolvante cubique.",
+    definition_axiomatique: {
+        cadre: "On calcule le groupe de Galois de polynômes explicites sur ℚ, en combinant réduction modulo p et étude du discriminant.",
+        axiomes: [
+            {
+                nom: "R1 — Réduction modulo p",
+                enonce: "Si P est unitaire à coefficients entiers et P mod p est séparable, le type de factorisation de P mod p en irréductibles donne la structure cyclique d'un élément de Gal(P) ⊂ S_n (Dedekind)."
+            },
+            {
+                nom: "D1 — Discriminant",
+                enonce: "Gal(P) ⊂ A_n si et seulement si le discriminant de P est un carré dans ℚ."
+            },
+            {
+                nom: "T1 — Transitivité",
+                enonce: "Si P est irréductible sur ℚ, Gal(P) agit transitivement sur les racines : c'est un sous-groupe transitif de S_n."
+            }
+        ],
+        conclusion: "Exemples : X⁴ + 1 a pour groupe de Galois (ℤ/2ℤ)² (extension biquadratique ℚ(ζ₈)) ; X⁴ − 2 a pour groupe D₄ (dièdral d'ordre 8) ; un quintique générique comme X⁵ − X − 1 a pour groupe S₅ (non résoluble, cf. Abel-Ruffini) ; Xⁿ − 1 a pour groupe (ℤ/nℤ)* (abélien, cyclotomique). Ces techniques de calcul explicite (Dedekind, discriminant) illustrent concrètement la correspondance de Galois sur des cas simples."
+    },
     formulas: [
       {
         text: "Cette étude systématique combine le calcul du discriminant (déjà vu en L3), l'analyse de la résolvante (polynôme auxiliaire de degré inférieur encodant des informations sur le groupe de Galois) et les théorèmes généraux de la théorie de Galois pour déterminer précisément le groupe de Galois sans le calculer directement comme groupe d'automorphismes.",
@@ -13890,6 +18516,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1709": {
     title: "Idéaux fractionnaires (introduction culturelle)",
     definition: "Un idéal fractionnaire d'un anneau intègre A (de corps de fractions K) est un sous-A-module non nul I de K tel qu'il existe un élément non nul d de A avec dI⊂A, généralisant la notion d'idéal ordinaire (cas I⊂A) à des « idéaux » pouvant contenir des éléments non entiers du corps de fractions.",
+    definition_axiomatique: {
+        cadre: "On travaille dans le corps des fractions K = Frac(𝒪_K) d'un anneau de Dedekind 𝒪_K (par exemple l'anneau des entiers d'un corps de nombres).",
+        axiomes: [
+            {
+                nom: "F1 — Idéal fractionnaire",
+                enonce: "Un 𝒪_K-sous-module non nul de type fini I ⊂ K (équivalent : il existe d ∈ 𝒪_K non nul avec dI ⊂ 𝒪_K)."
+            },
+            {
+                nom: "P1 — Groupe multiplicatif",
+                enonce: "Les idéaux fractionnaires non nuls forment un groupe abélien pour le produit, d'élément neutre 𝒪_K, où l'inverse de I est I⁻¹ = {x ∈ K : xI ⊂ 𝒪_K}."
+            },
+            {
+                nom: "F2 — Factorisation unique",
+                enonce: "Tout idéal fractionnaire non nul se factorise de façon unique en produit de puissances (entières, positives ou négatives) d'idéaux premiers."
+            }
+        ],
+        conclusion: "Le groupe des idéaux fractionnaires modulo les idéaux principaux (K*/𝒪_K* agissant par multiplication) est le groupe des classes d'idéaux Cl(K), fini, dont l'ordre h_K mesure l'écart à la factorisation unique dans 𝒪_K (h_K = 1 si et seulement si 𝒪_K est principal). Les idéaux fractionnaires restaurent une structure de groupe là où 𝒪_K seul (anneau, non groupe multiplicatif) ne le permet pas ; base de la théorie du corps de classes."
+    },
     formulas: [
       {
         text: "Dans un anneau de Dedekind (comme l'anneau des entiers d'un corps de nombres), l'ensemble des idéaux fractionnaires non nuls forme un groupe pour la multiplication (chaque idéal fractionnaire non nul admettant un inverse), le quotient par le sous-groupe des idéaux fractionnaires principaux redonnant exactement le groupe des classes (déjà introduit en M2).",
@@ -13937,6 +18581,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1710": {
     title: "Formes de Jordan : démonstration complète",
     definition: "En M1, on complète la démonstration du théorème de la forme de Jordan (l'existence d'une base dans laquelle un endomorphisme dont le polynôme caractéristique est scindé s'écrit comme une somme de blocs de Jordan), en s'appuyant sur le théorème de structure des modules de type fini sur un anneau principal (déjà vu en L3) appliqué à K[X] agissant sur l'espace vectoriel via l'endomorphisme considéré.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un corps K (ℝ ou ℂ) et un K-espace vectoriel E de dimension finie n ; u est un endomorphisme de E.",
+        axiomes: [
+            {
+                nom: "J1 — Bloc de Jordan",
+                enonce: "J_k(λ) = λI_k + N_k, où N_k a des 1 sur la sur-diagonale et 0 ailleurs."
+            },
+            {
+                nom: "J2 — Scindé",
+                enonce: "χ_u est scindé sur K."
+            },
+            {
+                nom: "J3 — Nilpotent",
+                enonce: "N_k est nilpotent d'indice k : (N_k)ᵏ = 0 et (N_k)ᵏ⁻¹ ≠ 0."
+            }
+        ],
+        conclusion: "Si χ_u est scindé, il existe une base où la matrice de u est diagonale par blocs de Jordan J_k(λ) ; cette décomposition est unique à l'ordre des blocs près. Elle raffine la diagonalisation : u = d + n avec d diagonalisable, n nilpotent et dn = nd (Dunford)."
+    },
     formulas: [
       {
         text: "Cette démonstration structurelle, plus conceptuelle que les approches calculatoires élémentaires, éclaire profondément pourquoi la réduction de Jordan existe et est essentiellement unique, en identifiant les blocs de Jordan aux facteurs invariants du module K[X]-associé à l'endomorphisme.",
@@ -13980,6 +18642,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1711": {
     title: "Foncteurs dérivés (introduction culturelle)",
     definition: "Les foncteurs dérivés (comme Ext et Tor en algèbre homologique) mesurent systématiquement le défaut d'exactitude d'un foncteur donné (comme Hom ou le produit tensoriel), en utilisant des résolutions projectives ou injectives des modules considérés, généralisant considérablement la notion de suite exacte déjà rencontrée.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un foncteur additif exact à gauche F : 𝒜 → ℬ entre catégories abéliennes (𝒜 avec assez d'injectifs), et un objet A de 𝒜.",
+        axiomes: [
+            {
+                nom: "R1 — Résolution injective",
+                enonce: "0 → A → I⁰ → I¹ → … avec les Iⁿ injectifs."
+            },
+            {
+                nom: "D1 — Foncteurs dérivés",
+                enonce: "RⁿF(A) := Hⁿ(F(I•)) (cohomologie du complexe obtenu en appliquant F à la résolution, privée de A)."
+            },
+            {
+                nom: "I1 — Indépendance",
+                enonce: "RⁿF(A) ne dépend pas de la résolution injective choisie (à isomorphisme canonique près), et R⁰F = F."
+            }
+        ],
+        conclusion: "Les foncteurs dérivés mesurent le défaut d'exactitude de F : une suite exacte courte 0→A→B→C→0 donne une suite exacte longue …→RⁿF(A)→RⁿF(B)→RⁿF(C)→Rⁿ⁺¹F(A)→… Exemples : Ext = foncteurs dérivés de Hom(A,−) ; Tor = foncteurs dérivés de A⊗− ; la cohomologie de faisceaux Hⁿ(X,ℱ) = foncteurs dérivés des sections globales Γ(X,−). Ils unifient de nombreuses constructions cohomologiques sous un même principe."
+    },
     formulas: [
       {
         text: "Le foncteur Tor_1(A,B) mesure précisément le défaut d'exactitude du produit tensoriel ⊗ (qui n'est exact qu'à droite en général), s'annulant lorsque l'un des deux modules est plat (généralisant la liberté), tandis que Ext^1(A,B) classifie les extensions de B par A (suites exactes courtes non triviales).",
@@ -14031,6 +18711,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1712": {
     title: "Cohomologie de groupes (introduction culturelle)",
     definition: "La cohomologie d'un groupe G à coefficients dans un G-module M, notée H^n(G,M), est définie via une résolution projective de ℤ comme ℤG-module (algèbre de groupe), généralisant la cohomologie de de Rham et la cohomologie singulière à un cadre purement algébrique associé à un groupe abstrait.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un groupe G et un ℤ[G]-module M (groupe abélien muni d'une action de G) ; Hⁿ(G, M) désigne la cohomologie de G à coefficients dans M.",
+        axiomes: [
+            {
+                nom: "D1 — Foncteurs dérivés",
+                enonce: "Hⁿ(G, M) = Extⁿ_{ℤ[G]}(ℤ, M) (ℤ muni de l'action triviale), foncteurs dérivés de M ↦ M^G (invariants)."
+            },
+            {
+                nom: "H0 — Cas n=0",
+                enonce: "H⁰(G, M) = M^G = {m ∈ M : gm = m ∀g}."
+            },
+            {
+                nom: "H1 — Cas n=1 (groupes non abéliens : cocycles)",
+                enonce: "H¹(G, M) = Z¹(G,M)/B¹(G,M), Z¹ = {f : G→M, f(gh)=f(g)+gf(h)} (1-cocycles), B¹ = {g ↦ gm−m} (1-cobords)."
+            }
+        ],
+        conclusion: "H¹(G, M) classifie les extensions de groupes ou les torseurs (par exemple, en théorie de Galois, H¹(Gal(L/K), L*) = 0, théorème 90 de Hilbert) ; H²(G, M) classifie les extensions de G par M (extensions centrales si M est central). La cohomologie de groupes relie l'algèbre (structure du groupe G) à la topologie (Hⁿ(G,M) = Hⁿ(BG, M) pour l'espace classifiant BG = K(G,1)), un pont utilisé en théorie des nombres (cohomologie galoisienne) et en topologie algébrique."
+    },
     formulas: [
       {
         text: "H^0(G,M) s'identifie aux invariants M^G (éléments fixés par l'action de G), tandis que H^1(G,M) classifie les extensions et dérivations croisées (liées aux produits semi-directs tordus), et H^2(G,M) classifie les extensions centrales de G par M, généralisant considérablement les constructions déjà vues (produit semi-direct, L3).",
@@ -14078,6 +18776,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1713": {
     title: "Anneaux de valuation discrète (introduction culturelle)",
     definition: "Un anneau de valuation discrète (AVD) est un anneau principal local (un seul idéal maximal) non corps, caractérisé par une valuation v:K*→ℤ (K le corps de fractions) telle que A={x∈K : v(x)≥0}, généralisant l'anneau des entiers p-adiques ℤ_p ou l'anneau des séries formelles K[[X]].",
+    definition_axiomatique: {
+        cadre: "On travaille avec un corps K muni d'une valuation discrète v : K* → ℤ surjective, v(xy) = v(x)+v(y), v(x+y) ≥ min(v(x),v(y)).",
+        axiomes: [
+            {
+                nom: "O1 — Anneau de valuation",
+                enonce: "𝒪 = {x ∈ K* : v(x) ≥ 0} ∪ {0} est un anneau local (un unique idéal maximal 𝔪 = {v(x) ≥ 1} ∪ {0})."
+            },
+            {
+                nom: "P1 — Idéal principal",
+                enonce: "𝔪 = (π) pour tout π de valuation 1 (uniformisante) ; tout idéal de 𝒪 est une puissance de 𝔪."
+            },
+            {
+                nom: "F1 — Corps résiduel",
+                enonce: "𝒪/𝔪 est un corps (le corps résiduel)."
+            }
+        ],
+        conclusion: "𝒪 est un anneau principal local (donc euclidien pour v) : c'est le modèle local des anneaux de Dedekind (localisés en un idéal premier). Exemples : ℤ_(p) = {a/b : p∤b} ⊂ ℚ (valuation p-adique), ℤ_p (entiers p-adiques, complétion), K[[t]] (série formelles, valuation = ordre d'annulation en 0). Ces anneaux sont l'outil de base de l'étude locale des courbes algébriques et des corps de nombres (complétion en chaque place)."
+    },
     formulas: [
       {
         text: "Tout élément non nul de A s'écrit de façon unique u·π^n (u une unité, π un générateur de l'idéal maximal appelé uniformisante, n=v(x)≥0), structure remarquablement simple qui fait des AVD le modèle local de base de la théorie des anneaux de Dedekind (dont la localisation en chaque idéal premier est précisément un AVD).",
@@ -14125,6 +18841,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1714": {
     title: "Produits tensoriels de modules",
     definition: "Le produit tensoriel M⊗_A N de deux A-modules (A un anneau commutatif) généralise le produit tensoriel d'espaces vectoriels (déjà vu en M1 pour les espaces vectoriels) au cadre des modules, muni d'une application bilinéaire universelle vérifiant une propriété analogue (toute application A-bilinéaire de M×N se factorise de façon unique à travers M⊗_A N).",
+    definition_axiomatique: {
+        cadre: "On travaille avec un anneau commutatif A et deux A-modules M, N.",
+        axiomes: [
+            {
+                nom: "B1 — Application universelle",
+                enonce: "M ⊗_A N est muni d'une application A-bilinéaire ⊗ : M × N → M ⊗_A N."
+            },
+            {
+                nom: "U1 — Propriété universelle",
+                enonce: "Toute application A-bilinéaire M × N → P se factorise de façon unique par une application A-linéaire M ⊗_A N → P."
+            },
+            {
+                nom: "G1 — Générateurs et relations",
+                enonce: "M ⊗_A N est engendré par les m ⊗ n, avec les relations de bilinéarité (m+m')⊗n = m⊗n+m'⊗n, etc."
+            }
+        ],
+        conclusion: "Contrairement au cas des espaces vectoriels, le produit tensoriel de modules peut avoir une dimension (rang) qui se comporte mal : A/I ⊗_A A/J ≅ A/(I+J) (peut être nul même si les modules ne le sont pas), et ⊗_A n'est en général exact qu'à droite (le foncteur dérivé associé est Tor). Sur un anneau principal, M ⊗_A A/I ≅ M/IM. Exemples : ℤ/2 ⊗_ℤ ℤ/3 = 0 (car 1 = 2·2 − 3 et 2·(1⊗x) = 0 = 3·(1⊗x) force 1⊗x = 0)."
+    },
     formulas: [
       {
         text: "Contrairement au cas des espaces vectoriels (où la dimension du produit tensoriel est simplement le produit des dimensions), le produit tensoriel de modules quelconques peut avoir un comportement plus subtil, notamment s'annuler complètement dans certains cas (comme ℤ/nℤ⊗_ℤℤ/mℤ≅ℤ/pgcd(n,m)ℤ, pouvant être nul si n,m sont premiers entre eux).",
@@ -14172,6 +18906,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1715": {
     title: "Algèbre symétrique (introduction)",
     definition: "L'algèbre symétrique Sym(E) d'un espace vectoriel E est le quotient de l'algèbre tensorielle T(E) par l'idéal engendré par les éléments x⊗y-y⊗x, rendant la multiplication commutative, et s'identifiant naturellement à l'algèbre des polynômes sur E (Sym(E)≅K[X_1,...,X_n] si E est de dimension n de base (X_i)).",
+    definition_axiomatique: {
+        cadre: "On travaille sur un K-espace vectoriel V ; l'algèbre symétrique S(V) est le quotient de l'algèbre tensorielle T(V) par l'idéal engendré par les x⊗y − y⊗x.",
+        axiomes: [
+            {
+                nom: "Q1 — Quotient",
+                enonce: "S(V) = T(V)/(x⊗y − y⊗x, x,y ∈ V)."
+            },
+            {
+                nom: "U1 — Propriété universelle",
+                enonce: "Toute application linéaire de V dans une K-algèbre commutative A se prolonge de façon unique en un morphisme d'algèbres S(V) → A."
+            },
+            {
+                nom: "G1 — Graduation",
+                enonce: "S(V) = ⊕ₖSᵏ(V), où Sᵏ(V) est l'image de V^{⊗k}, de dimension C(dim V + k − 1, k)."
+            }
+        ],
+        conclusion: "Si V a pour base (e₁,…,eₙ), S(V) ≅ K[e₁,…,eₙ] (polynômes) : l'algèbre symétrique formalise algébriquement la notion de polynôme sur un espace vectoriel sans choix de base. Elle est le pendant « commutatif » de l'algèbre extérieure Λ(V) (« anticommutative ») : tenseur = symétrique ⊕ extérieur ⊕ (représentations mixtes) en général, mais T(V) = S(V) ⊕ Λ(V) seulement pour les degrés 0, 1, 2 en caractéristique 0."
+    },
     formulas: [
       {
         text: "Cette construction, duale (en un sens précis) de l'algèbre extérieure (obtenue en quotientant par x⊗y+y⊗x au lieu de x⊗y-y⊗x), munit E d'une structure d'algèbre commutative graduée, chaque composante homogène Sym^k(E) correspondant aux polynômes homogènes de degré k.",
@@ -14219,6 +18971,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1716": {
     title: "Transformations naturelles (introduction culturelle)",
     definition: "Une transformation naturelle η entre deux foncteurs F,G:C→D (déjà introduits en L3) associe à chaque objet A de C un morphisme η_A:F(A)→G(A) dans D, de façon compatible avec les morphismes de C (diagramme commutatif pour tout morphisme f:A→B), formalisant l'idée de « morphisme entre foncteurs » eux-mêmes.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux foncteurs F, G : 𝒞 → 𝒟.",
+        axiomes: [
+            {
+                nom: "N1 — Composante",
+                enonce: "Pour chaque objet A de 𝒞, un morphisme η_A : F(A) → G(A) de 𝒟."
+            },
+            {
+                nom: "N2 — Naturalité",
+                enonce: "Pour tout f : A → B dans 𝒞, G(f) ∘ η_A = η_B ∘ F(f) (carré commutatif)."
+            },
+            {
+                nom: "N3 — Isomorphisme naturel",
+                enonce: "η est un isomorphisme naturel si chaque η_A est un isomorphisme."
+            }
+        ],
+        conclusion: "Une transformation naturelle est un morphisme entre foncteurs, compatible avec toute la structure (pas seulement objet par objet) : c'est ce qui rend rigoureuse l'idée d'une construction « canonique ». Exemples : le déterminant det : GL_n → GL_1 n'est pas naturel entre foncteurs au sens strict, mais l'injection canonique V → V** est une transformation naturelle id → ** ; la multiplication par un scalaire fixe n'est naturelle que si elle commute avec tous les morphismes."
+    },
     formulas: [
       {
         text: "Cette notion, culminant la hiérarchie catégorielle (objets, morphismes, foncteurs, transformations naturelles), permet de comparer rigoureusement différentes constructions fonctorielles et d'exprimer des propriétés d'universalité de façon extrêmement générale et élégante.",
@@ -14270,6 +19040,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1717": {
     title: "Groupes algébriques (introduction culturelle)",
     definition: "Un groupe algébrique est une variété algébrique (ensemble de zéros de polynômes) munie d'une structure de groupe compatible (les opérations de groupe étant des morphismes de variétés algébriques), généralisant les groupes de Lie au cadre de la géométrie algébrique, avec des exemples fondamentaux comme GL_n, SL_n, ou les courbes elliptiques (munies de leur loi de groupe géométrique).",
+    definition_axiomatique: {
+        cadre: "Un groupe algébrique affine sur un corps K (algébriquement clos, pour simplifier) est une variété algébrique affine G munie d'une loi de groupe donnée par des morphismes de variétés algébriques.",
+        axiomes: [
+            {
+                nom: "V1 — Variété affine",
+                enonce: "G = V(I) ⊂ 𝔸ⁿ, ensemble des zéros d'un idéal I de K[x₁,…,xₙ]."
+            },
+            {
+                nom: "M1 — Multiplication et inverse",
+                enonce: "m : G × G → G et i : G → G sont des morphismes de variétés algébriques (donnés par des polynômes)."
+            },
+            {
+                nom: "N1 — Neutre",
+                enonce: "Il existe e ∈ G avec les axiomes usuels de groupe."
+            }
+        ],
+        conclusion: "Exemples : G_a = (K, +) (groupe additif), G_m = (K*, ×) (groupe multiplicatif, V(xy−1) ⊂ 𝔸²), GL_n(K) (ouvert de M_n via det, ou fermé de M_n × 𝔸¹ par xy·det = 1), SL_n(K), les tores, les groupes unipotents. La théorie des groupes algébriques (Chevalley, Borel) classifie les groupes réductifs (analogues algébriques des groupes de Lie compacts) et fonde la théorie des représentations algébriques, utilisée en géométrie arithmétique et en théorie de Langlands."
+    },
     formulas: [
       {
         text: "Ces groupes se classent en groupes algébriques affines (comme GL_n, sous-variétés d'un espace affine) et groupes algébriques projectifs (comme les courbes elliptiques, sous-variétés d'un espace projectif, formant alors des « variétés abéliennes »), deux familles aux propriétés structurelles très différentes.",
@@ -14321,6 +19109,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1718": {
     title: "Variétés algébriques affines (introduction)",
     definition: "Une variété algébrique affine est l'ensemble des zéros communs d'une famille de polynômes dans l'espace affine 𝔸^n(K), généralisant les courbes planes déjà étudiées (L3) à des dimensions et des codimensions quelconques, avec une correspondance fondamentale (théorème des zéros de Hilbert, approfondi séparément) entre variétés et idéaux de l'anneau de polynômes.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un corps K algébriquement clos et l'espace affine 𝔸ⁿ(K) ; une variété algébrique affine est V(I) = {x : f(x) = 0 ∀f ∈ I} pour un idéal I ⊂ K[x₁, …, xₙ].",
+        axiomes: [
+            {
+                nom: "Z1 — Topologie de Zariski",
+                enonce: "Les V(I) sont les fermés d'une topologie sur 𝔸ⁿ."
+            },
+            {
+                nom: "Z2 — Nullstellensatz",
+                enonce: "I(V(J)) = √J (radical) : correspondance entre variétés et idéaux radicaux."
+            },
+            {
+                nom: "Z3 — Irréductibilité",
+                enonce: "V est irréductible si I(V) est premier."
+            }
+        ],
+        conclusion: "Nullstellensatz de Hilbert : V(J) = ∅ ⟺ 1 ∈ J ; les points de 𝔸ⁿ correspondent aux idéaux maximaux. La dimension d'une variété est la dimension de Krull de son anneau de coordonnées. Le théorème de la base de Hilbert (anneaux noethériens) assure que tout I est engendré par un nombre fini de polynômes."
+    },
     formulas: [
       {
         text: "L'anneau de coordonnées K[V] d'une variété affine V est le quotient de l'anneau de polynômes par l'idéal des polynômes s'annulant sur V, encodant algébriquement toute la géométrie de V ; V est dite irréductible si cet anneau est intègre, généralisant la notion de courbe irréductible.",
@@ -14372,6 +19178,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1719": {
     title: "Idéaux et théorème des zéros de Hilbert (introduction culturelle)",
     definition: "Le théorème des zéros de Hilbert (Nullstellensatz, admis à ce niveau) établit une correspondance bijective (sur un corps algébriquement clos) entre les idéaux radicaux de K[X_1,...,X_n] et les variétés algébriques affines de 𝔸^n(K), le radical d'un idéal I étant l'ensemble des éléments dont une puissance appartient à I.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un corps K algébriquement clos et l'espace affine 𝔸ⁿ(K) ; une variété algébrique affine est V(I) = {x : f(x) = 0 ∀f ∈ I} pour un idéal I ⊂ K[x₁, …, xₙ].",
+        axiomes: [
+            {
+                nom: "Z1 — Topologie de Zariski",
+                enonce: "Les V(I) sont les fermés d'une topologie sur 𝔸ⁿ."
+            },
+            {
+                nom: "Z2 — Nullstellensatz",
+                enonce: "I(V(J)) = √J (radical) : correspondance entre variétés et idéaux radicaux."
+            },
+            {
+                nom: "Z3 — Irréductibilité",
+                enonce: "V est irréductible si I(V) est premier."
+            }
+        ],
+        conclusion: "Nullstellensatz de Hilbert : V(J) = ∅ ⟺ 1 ∈ J ; les points de 𝔸ⁿ correspondent aux idéaux maximaux. La dimension d'une variété est la dimension de Krull de son anneau de coordonnées. Le théorème de la base de Hilbert (anneaux noethériens) assure que tout I est engendré par un nombre fini de polynômes."
+    },
     formulas: [
       {
         text: "Ce théorème précise que l'idéal des polynômes s'annulant sur la variété définie par un idéal I est exactement le radical de I (et non I lui-même en général), résolvant complètement la correspondance entre langage algébrique (idéaux) et langage géométrique (variétés).",
@@ -14419,6 +19243,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1720": {
     title: "Bases de Gröbner (introduction culturelle)",
     definition: "En M1, on rappelle et approfondit la notion de base de Gröbner (introduite en L3) en présentant l'algorithme de Buchberger de façon plus détaillée, illustrant son utilisation pour résoudre effectivement des systèmes d'équations polynomiales et pour tester l'appartenance d'un polynôme à un idéal donné.",
+    definition_axiomatique: {
+        cadre: "On travaille dans A = K[x₁, …, xₙ] avec un ordre monomial ≺ (ordre total compatible avec la multiplication, bon ordre) ; LT(f) est le terme dominant de f.",
+        axiomes: [
+            {
+                nom: "G1 — Idéal des termes dominants",
+                enonce: "LT(I) = ⟨LT(f) : f ∈ I⟩."
+            },
+            {
+                nom: "G2 — Base de Gröbner",
+                enonce: "G = {g₁, …, g_s} ⊂ I est une base de Gröbner de I si ⟨LT(g₁), …, LT(g_s)⟩ = LT(I)."
+            },
+            {
+                nom: "G3 — Division",
+                enonce: "Pour G base de Gröbner, le reste de la division de f par G est unique."
+            }
+        ],
+        conclusion: "Sous ces hypothèses, f ∈ I si et seulement si son reste par G est nul : le problème d'appartenance à un idéal est résolu. L'algorithme de Buchberger (S-polynômes) calcule une base de Gröbner ; il permet d'éliminer des variables, de résoudre des systèmes polynomiaux, de tester l'égalité d'idéaux et de calculer la dimension. Généralise le pivot de Gauss (degré 1) et l'algorithme d'Euclide (une variable)."
+    },
     formulas: [
       {
         text: "Une base de Gröbner réduite est unique pour un idéal et un ordre monomial donnés, ce qui en fait un « certificat canonique » de l'idéal, permettant des tests algorithmiques (appartenance à l'idéal, égalité de deux idéaux, dimension de la variété associée) impossibles à effectuer directement à partir d'un système de générateurs quelconque.",
@@ -14470,6 +19312,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1721": {
     title: "Méthode du gradient à pas fixe",
     definition: "La méthode du gradient à pas fixe itère x_{k+1}=x_k-α∇f(x_k) avec un pas α constant fixé à l'avance, la convergence vers un minimum étant garantie (pour f convexe et de gradient lipschitzien de constante L) si le pas vérifie 0<α<2/L, une condition explicite reliant la vitesse de convergence au choix du pas.",
+    definition_axiomatique: {
+        cadre: "On cherche le minimum d'une fonction f : ℝⁿ → ℝ de classe C¹, sans contrainte.",
+        axiomes: [
+            {
+                nom: "G1 — Direction de descente",
+                enonce: "d est une direction de descente en x si ⟨∇f(x), d⟩ < 0."
+            },
+            {
+                nom: "G2 — Pas",
+                enonce: "xₖ₊₁ = xₖ − αₖ∇f(xₖ), αₖ > 0."
+            },
+            {
+                nom: "G3 — Lipschitz du gradient",
+                enonce: "‖∇f(x) − ∇f(y)‖ ≤ L‖x − y‖."
+            }
+        ],
+        conclusion: "La méthode du gradient à pas fixe α < 2/L converge vers un point critique ; si f est convexe, vers un minimum global. Pour la fonctionnelle quadratique ½xᵀAx − bᵀx (A symétrique définie positive), la convergence est linéaire de raison ((κ − 1)/(κ + 1)) où κ = cond(A). Alternatives : gradient conjugué, méthode de Newton (xₖ₊₁ = xₖ − H⁻¹∇f)."
+    },
     formulas: [
       {
         text: "Pour un pas trop petit, la convergence est garantie mais très lente ; pour un pas proche de la borne critique 2/L, la convergence peut devenir oscillante ; pour un pas dépassant cette borne, la méthode diverge, illustrant le compromis délicat inhérent au choix d'un pas fixe.",
@@ -14521,6 +19381,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1722": {
     title: "Méthode du gradient à pas optimal",
     definition: "La méthode du gradient à pas optimal choisit, à chaque itération, le pas α_k minimisant exactement f(x_k-α∇f(x_k)) le long de la direction de descente (recherche linéaire exacte), garantissant la décroissance maximale de f à chaque étape, contrairement au pas fixe qui ne s'adapte pas à la géométrie locale de f.",
+    definition_axiomatique: {
+        cadre: "On minimise f ∈ C¹ convexe par x_{k+1} = x_k − α_k∇f(x_k), en choisissant à chaque étape α_k = argmin_{α≥0}f(x_k − α∇f(x_k)) (recherche linéaire exacte).",
+        axiomes: [
+            {
+                nom: "L1 — Recherche linéaire exacte",
+                enonce: "α_k minimise exactement φ(α) = f(x_k − α∇f(x_k)) le long de la direction de descente."
+            },
+            {
+                nom: "O1 — Orthogonalité des directions consécutives",
+                enonce: "∇f(x_{k+1}) ⊥ ∇f(x_k) (condition d'optimalité de α_k : φ'(α_k) = 0 = −∇f(x_{k+1})ᵀ∇f(x_k))."
+            },
+            {
+                nom: "Z1 — Zigzag",
+                enonce: "Pour une fonction quadratique mal conditionnée, les directions successives orthogonales produisent une trajectoire en zigzag lente."
+            }
+        ],
+        conclusion: "Le pas optimal accélère la descente à chaque étape individuelle mais souffre du phénomène de zigzag pour des fonctionnelles quadratiques anisotropes (conditionnement κ = λ_max/λ_min élevé) : le taux de convergence reste linéaire, de raison ((κ−1)/(κ+1))² (Kantorovich), identique en ordre de grandeur au pas fixe optimal, contrairement au gradient conjugué qui échappe à cette limitation en exploitant l'historique des directions."
+    },
     formulas: [
       {
         text: "Cette méthode a une interprétation géométrique remarquable : les directions de descente successives sont orthogonales (∇f(x_{k+1})⊥∇f(x_k)), ce qui peut conduire à un phénomène de « zigzag » ralentissant la convergence pour des fonctions mal conditionnées (courbes de niveau très allongées).",
@@ -14572,6 +19450,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1723": {
     title: "Méthodes de quasi-Newton (introduction, BFGS)",
     definition: "Les méthodes de quasi-Newton (comme BFGS, Broyden-Fletcher-Goldfarb-Shanno) approchent itérativement la matrice hessienne (ou son inverse) à partir des seules évaluations du gradient successif, sans calcul explicite ni coûteux de la hessienne exacte, offrant un compromis efficace entre la simplicité du gradient (ordre 1) et la rapidité de Newton (ordre 2, mais coûteux).",
+    definition_axiomatique: {
+        cadre: "On minimise f ∈ C¹, en approchant la hessienne (inconnue ou coûteuse) par une matrice B_k mise à jour à chaque itération à partir des seuls gradients.",
+        axiomes: [
+            {
+                nom: "S1 — Équation de la sécante",
+                enonce: "B_{k+1}(x_{k+1} − x_k) = ∇f(x_{k+1}) − ∇f(x_k) (analogue discret de la relation hessienne-dérivée seconde)."
+            },
+            {
+                nom: "SP1 — Symétrie définie positive préservée",
+                enonce: "La mise à jour est choisie pour préserver B_{k+1} symétrique définie positive si B_k l'est (garantit une direction de descente)."
+            },
+            {
+                nom: "BFGS1 — Formule de mise à jour",
+                enonce: "B_{k+1} = B_k + (yyᵀ)/(yᵀs) − (B_ksᵀsB_k)/(sᵀB_ks), s = x_{k+1}−x_k, y = ∇f(x_{k+1})−∇f(x_k) (mise à jour de rang 2)."
+            }
+        ],
+        conclusion: "BFGS (Broyden-Fletcher-Goldfarb-Shanno) atteint une convergence superlinéaire (plus rapide que le gradient, sans le coût O(n³) par itération de Newton exact) : le coût par itération est O(n²), et B_k converge vers la vraie hessienne le long de la trajectoire sous des hypothèses de régularité. La version à mémoire limitée (L-BFGS), qui ne stocke que quelques vecteurs (s_k, y_k) récents au lieu de la matrice B_k complète, est le cheval de bataille de l'optimisation en très grande dimension (apprentissage automatique)."
+    },
     formulas: [
       {
         text: "La mise à jour BFGS de l'approximation de l'inverse de la hessienne utilise une formule de rang 2, garantissant que la matrice approchée reste symétrique définie positive (propriété essentielle pour garantir une direction de descente), tout en convergeant superlinéairement vers la véritable hessienne au voisinage du minimum.",
@@ -14619,6 +19515,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1724": {
     title: "Optimisation sous contraintes linéaires (introduction, simplexe approfondi)",
     definition: "En M1, on approfondit l'algorithme du simplexe (introduit en L3) en détaillant sa mise en œuvre pratique via le tableau simplexe, les règles de choix du pivot (variable entrante et sortante), et la gestion des cas particuliers (dégénérescence, absence de solution bornée).",
+    definition_axiomatique: {
+        cadre: "On considère un programme linéaire sous forme standard : maximiser cᵀx sous Ax = b, x ≥ 0 (A ∈ M_{m,n}, rg A = m).",
+        axiomes: [
+            {
+                nom: "S1 — Solution de base",
+                enonce: "Une solution de base est un point de {Ax = b, x ≥ 0} dont les composantes non nulles correspondent à des colonnes indépendantes de A."
+            },
+            {
+                nom: "S2 — Sommets",
+                enonce: "Les sommets du polyèdre {Ax = b, x ≥ 0} sont exactement les solutions de base admissibles."
+            },
+            {
+                nom: "S3 — Optimum",
+                enonce: "Si le programme admet un optimum, il est atteint en un sommet."
+            }
+        ],
+        conclusion: "L'algorithme du simplexe (Dantzig) passe d'un sommet à un sommet voisin en échangeant une variable entrante et une variable sortante (règle du pivot) tant que le coût réduit permet d'améliorer cᵀx ; il s'arrête quand tous les coûts réduits sont ≤ 0 (optimalité). Dualité : max cᵀx sous Ax ≤ b = min bᵀy sous Aᵀy ≥ c (valeurs égales à l'optimum). Complexité exponentielle dans le pire des cas, excellente en pratique."
+    },
     formulas: [
       {
         text: "La méthode des deux phases permet de démarrer l'algorithme du simplexe même en l'absence d'un sommet initial évident (base réalisable immédiate), en résolvant d'abord un problème auxiliaire dont l'optimum fournit un point de départ réalisable pour le problème original.",
@@ -14666,6 +19580,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1725": {
     title: "Programmation quadratique (introduction)",
     definition: "La programmation quadratique optimise une fonction quadratique (souvent convexe) sous des contraintes linéaires, généralisant à la fois la programmation linéaire (fonction objectif linéaire) et l'optimisation quadratique sans contrainte, avec des applications directes en finance (optimisation de portefeuille de Markowitz, déjà vue en M1) et en apprentissage automatique (machines à vecteurs de support).",
+    definition_axiomatique: {
+        cadre: "On minimise ½xᵀQx + cᵀx sous Ax ≤ b, Ex = f, Q symétrique semi-définie positive.",
+        axiomes: [
+            {
+                nom: "Q1 — Fonction objectif quadratique",
+                enonce: "Q ⪰ 0 assure la convexité du problème."
+            },
+            {
+                nom: "K1 — KKT",
+                enonce: "Les conditions KKT (stationnarité, complémentarité, réalisabilité) sont nécessaires et suffisantes (convexité + qualification)."
+            },
+            {
+                nom: "A1 — Ensemble actif",
+                enonce: "À l'optimum, seules les contraintes actives (Ax = b sur ce sous-ensemble) contribuent effectivement, réduisant localement le problème à un système linéaire égalité."
+            }
+        ],
+        conclusion: "La programmation quadratique (QP) généralise la programmation linéaire (Q=0) et se résout par des méthodes d'ensemble actif (itérer sur le sous-ensemble de contraintes actives, résoudre un système linéaire à chaque étape) ou des méthodes de points intérieurs (comme pour le simplexe/LP, en suivant un chemin central). Elle apparaît comme sous-problème à chaque itération de la programmation quadratique séquentielle (SQP) pour l'optimisation non linéaire générale, et dans les machines à vecteurs de support (SVM)."
+    },
     formulas: [
       {
         text: "Les conditions KKT (déjà vues en M1 pour l'optimisation générale) se spécialisent pour la programmation quadratique en un système linéaire (si la fonction objectif est quadratique et les contraintes linéaires), rendant le problème résoluble par des méthodes d'algèbre linéaire adaptées, plus efficaces que pour un problème d'optimisation général.",
@@ -14713,6 +19645,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1726": {
     title: "Contrôle optimal : principe du maximum de Pontryagin (introduction culturelle)",
     definition: "Le principe du maximum de Pontryagin fournit des conditions nécessaires d'optimalité pour un problème de contrôle optimal (minimiser un coût dépendant d'une trajectoire x(t) contrôlée par u(t), sous une équation d'état x'=f(t,x,u)), en introduisant un état adjoint p(t) (analogue continu des multiplicateurs de Lagrange) et en exigeant que le contrôle optimal maximise (ou minimise) en chaque instant le hamiltonien du système.",
+    definition_axiomatique: {
+        cadre: "On contrôle un système ẋ(t) = f(x(t), u(t), t), x(0) = x₀, en choisissant u(·) ∈ U (contraintes de commande) pour minimiser J[u] = ∫₀ᵀg(x,u,t)dt + φ(x(T)).",
+        axiomes: [
+            {
+                nom: "H1 — Hamiltonien",
+                enonce: "H(x, u, p, t) = g(x,u,t) + pᵀf(x,u,t), p le costate (variable adjointe)."
+            },
+            {
+                nom: "A1 — Équation adjointe",
+                enonce: "ṗ = −∂H/∂x, p(T) = ∇φ(x(T)) (condition transverse)."
+            },
+            {
+                nom: "M1 — Maximisation ponctuelle",
+                enonce: "u*(t) maximise (ou minimise, selon convention) H(x*(t), u, p*(t), t) sur U, pour presque tout t."
+            }
+        ],
+        conclusion: "Le principe du maximum de Pontryagin donne des conditions nécessaires d'optimalité (analogue du multiplicateur de Lagrange en dimension infinie, via le costate p qui joue le rôle du gradient dual dans le temps) ; il permet, contrairement au calcul des variations classique, de traiter des contraintes sur la commande u (U compact non ouvert, comme u ∈ [−1;1]), où la stationnarité classique ∂H/∂u=0 peut échouer aux bords. Applications : trajectoires optimales (aérospatiale), gestion de ressources, contrôle de systèmes économiques."
+    },
     formulas: [
       {
         text: "Ce principe généralise au cadre du contrôle optimal continu les conditions de Lagrange déjà connues pour l'optimisation statique sous contrainte, l'état adjoint p(t) vérifiant sa propre équation différentielle (équation adjointe), couplée à l'équation d'état par le système d'optimalité complet.",
@@ -14764,6 +19714,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1727": {
     title: "Équation de Hamilton-Jacobi-Bellman (introduction culturelle)",
     definition: "L'équation de Hamilton-Jacobi-Bellman (HJB) caractérise la fonction valeur V(t,x) d'un problème de contrôle optimal (le coût optimal restant à payer en partant de l'état x à l'instant t) comme solution d'une EDP non linéaire du premier ordre, obtenue par un principe de programmation dynamique (optimalité de Bellman : toute sous-trajectoire d'une trajectoire optimale est elle-même optimale).",
+    definition_axiomatique: {
+        cadre: "On considère la fonction valeur V(x, t) = inf_{u(·)}[∫_t^Tg(x(s),u(s),s)ds + φ(x(T))] sous ẋ = f(x,u,s), x(t) = x.",
+        axiomes: [
+            {
+                nom: "P1 — Principe de programmation dynamique (Bellman)",
+                enonce: "V(x,t) = inf_u[g(x,u,t)Δt + V(x+f(x,u,t)Δt, t+Δt)] + o(Δt) (décomposer en un pas court puis le reste optimal)."
+            },
+            {
+                nom: "D1 — Limite Δt→0",
+                enonce: "En développant à l'ordre 1 et en passant à la limite, on obtient l'équation aux dérivées partielles."
+            },
+            {
+                nom: "F1 — Condition terminale",
+                enonce: "V(x, T) = φ(x)."
+            }
+        ],
+        conclusion: "Équation de Hamilton-Jacobi-Bellman : −∂_tV(x,t) = inf_u[g(x,u,t) + ∇_xV(x,t)·f(x,u,t)], V(x,T) = φ(x). Contrairement à Pontryagin (conditions nécessaires le long d'une seule trajectoire optimale), HJB caractérise la fonction valeur en tout point (x,t) — approche globale, coûteuse en grande dimension (malédiction de la dimension) mais donnant directement la stratégie optimale en boucle fermée u*(x,t) = argmin. Les solutions ne sont en général que de viscosité (non classiques, Crandall-Lions), même pour des données régulières."
+    },
     formulas: [
       {
         text: "Cette approche, duale (au sens de la dualité de Legendre) du principe du maximum de Pontryagin, fournit une caractérisation globale (via la fonction valeur sur tout l'espace des états) plutôt que locale (le long d'une seule trajectoire), au prix d'une EDP généralement difficile à résoudre explicitement en dimension élevée.",
@@ -14811,6 +19779,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1728": {
     title: "Problèmes isopérimétriques (introduction)",
     definition: "Un problème isopérimétrique classique cherche à maximiser l'aire enclose par une courbe fermée de périmètre donné (ou, de façon duale, à minimiser le périmètre pour une aire donnée), la solution étant toujours le cercle, résultat intuitif mais dont la démonstration rigoureuse nécessite des outils sophistiqués du calcul des variations.",
+    definition_axiomatique: {
+        cadre: "On cherche, parmi les domaines Ω ⊂ ℝⁿ de volume (aire) fixé V, celui qui minimise le périmètre (aire de bord) P(Ω).",
+        axiomes: [
+            {
+                nom: "I1 — Inégalité isopérimétrique",
+                enonce: "P(Ω)ⁿ ≥ nⁿω_nV(Ω)^{n−1} (ω_n = volume de la boule unité), avec égalité si et seulement si Ω est une boule."
+            },
+            {
+                nom: "I2 — Existence d'un minimiseur (BV)",
+                enonce: "Compacité BV et semi-continuité inférieure du périmètre donnent l'existence d'un minimiseur parmi les ensembles de périmètre fini."
+            },
+            {
+                nom: "I3 — Symétrisation de Schwarz",
+                enonce: "Remplacer Ω par une boule de même volume ne peut que diminuer le périmètre."
+            }
+        ],
+        conclusion: "L'inégalité isopérimétrique classique (n = 2 : L² ≥ 4πA) remonte à la Grèce antique (Didon) ; sa preuve rigoureuse moderne utilise la symétrisation, l'analyse géométrique de la mesure (De Giorgi) ou les inégalités de Sobolev optimales (Bliss). Généralisations : problème isopérimétrique sur une variété riemannienne, avec une contrainte de courbure (Gauss-Bonnet), en théorie des graphes (constante de Cheeger) et en probabilités (inégalités de concentration gaussienne)."
+    },
     formulas: [
       {
         text: "L'inégalité isopérimétrique s'écrit L²≥4πA (L le périmètre, A l'aire), avec égalité si et seulement si la courbe est un cercle, généralisable en dimension supérieure (la sphère minimisant la surface pour un volume donné) et à des versions pondérées ou contraintes.",
@@ -14858,6 +19844,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1729": {
     title: "Analyse numérique matricielle : méthodes itératives avancées (GMRES, introduction)",
     definition: "La méthode GMRES (Generalized Minimal RESidual) résout des systèmes linéaires Ax=b pour des matrices A non symétriques (où le gradient conjugué, réservé aux matrices symétriques définies positives, ne s'applique pas), en minimisant le résidu ||Ax_k-b|| sur un sous-espace de Krylov de dimension croissante, généralisant l'idée du gradient conjugué à un cadre plus général.",
+    definition_axiomatique: {
+        cadre: "On résout Ax = b, A ∈ Mₙ(ℝ) non symétrique (ou non définie positive) inversible, en grande dimension, par une méthode de sous-espace de Krylov K_m(A, r₀) = Vect(r₀, Ar₀, …, A^{m−1}r₀), r₀ = b − Ax₀.",
+        axiomes: [
+            {
+                nom: "A1 — Arnoldi",
+                enonce: "Le procédé d'Arnoldi construit une base orthonormée (q₁, …, q_m) de K_m et une matrice de Hessenberg H_m avec AQ_m = Q_{m+1}H̃_m."
+            },
+            {
+                nom: "M1 — Minimisation résiduelle",
+                enonce: "x_m = x₀ + Q_my_m, y_m choisi pour minimiser ‖b − Ax_m‖₂ (moindres carrés sur H̃_m)."
+            },
+            {
+                nom: "C1 — Sous-espace croissant",
+                enonce: "K_1 ⊂ K_2 ⊂ … : la résolution exacte est atteinte en au plus n itérations (en arithmétique exacte)."
+            }
+        ],
+        conclusion: "GMRES (Generalized Minimal RESidual) minimise le résidu sur un sous-espace de Krylov de dimension croissante, sans exiger la symétrie de A (contrairement au gradient conjugué) ; le coût et le stockage par itération augmentent (orthogonalisation contre tous les vecteurs précédents), d'où les versions redémarrées (GMRES(m)). La convergence dépend du conditionnement et de la répartition des valeurs propres de A dans le plan complexe ; un bon préconditionnement est souvent indispensable."
+    },
     formulas: [
       {
         text: "Cette méthode construit itérativement une base orthonormée du sous-espace de Krylov (via le procédé d'Arnoldi, généralisation non symétrique du procédé de Lanczos), garantissant une décroissance monotone du résidu à chaque itération, sans nécessiter la symétrie de A.",
@@ -14905,6 +19909,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1730": {
     title: "Valeurs propres numériques : méthode de la puissance itérée",
     definition: "La méthode de la puissance itérée calcule numériquement la valeur propre dominante (de plus grand module) d'une matrice A et son vecteur propre associé, en itérant x_{k+1}=Ax_k/||Ax_k|| (normalisation à chaque étape) à partir d'un vecteur initial quelconque, convergeant généralement vers la direction propre dominante.",
+    definition_axiomatique: {
+        cadre: "On cherche la plus grande valeur propre (en module) λ₁ d'une matrice A ∈ Mₙ(ℝ) diagonalisable, de valeurs propres |λ₁| > |λ₂| ≥ … , et un vecteur v₀ non orthogonal au vecteur propre associé à λ₁.",
+        axiomes: [
+            {
+                nom: "I1 — Itération",
+                enonce: "v_{k+1} = Av_k/‖Av_k‖."
+            },
+            {
+                nom: "D1 — Décomposition",
+                enonce: "v₀ = c₁e₁ + Σ_{i≥2}c_ie_i (base propre), c₁ ≠ 0."
+            },
+            {
+                nom: "R1 — Dominance",
+                enonce: "|λ_i/λ₁| < 1 pour i ≥ 2."
+            }
+        ],
+        conclusion: "v_k = Aᵏv₀/‖Aᵏv₀‖ = (λ₁ᵏ/‖·‖)(c₁e₁ + Σc_i(λ_i/λ₁)ᵏe_i) → ±e₁ (direction propre), avec une erreur en O(|λ₂/λ₁|ᵏ) : convergence géométrique, d'autant plus rapide que l'écart spectral est grand. λ₁ s'estime par le quotient de Rayleigh v_kᵀAv_k. Variantes : itération inverse (converge vers le vecteur propre le plus proche d'un décalage donné), méthode QR (calcule tout le spectre simultanément par itérations de similitude)."
+    },
     formulas: [
       {
         text: "La vitesse de convergence de cette méthode dépend du rapport entre la deuxième et la première valeur propre en module (|λ_2/λ_1|) : plus ce rapport est petit, plus la convergence est rapide, un rapport proche de 1 rendant la méthode très lente à converger.",
@@ -14952,6 +19974,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1731": {
     title: "Analyse numérique des EDO raides (introduction)",
     definition: "Une équation différentielle ordinaire est dite raide (stiff) lorsqu'elle comporte des échelles de temps très différentes (certaines composantes de la solution variant très rapidement, d'autres très lentement), rendant les méthodes explicites classiques (Euler explicite, Runge-Kutta explicite) extrêmement contraignantes en termes de pas de temps admissible pour la stabilité.",
+    definition_axiomatique: {
+        cadre: "On résout numériquement y' = f(t, y) dont le jacobien ∂f/∂y a des valeurs propres de grande partie réelle négative en module (échelles de temps très disparates).",
+        axiomes: [
+            {
+                nom: "S1 — Modèle de test",
+                enonce: "y' = λy, Re λ ≪ 0 : la solution exacte décroît vite (e^{λt} → 0)."
+            },
+            {
+                nom: "E1 — Instabilité d'Euler explicite",
+                enonce: "|1 + hλ| > 1 si h est trop grand par rapport à 1/|λ| : le schéma explicite explose numériquement bien que la solution exacte décroisse."
+            },
+            {
+                nom: "A1 — A-stabilité",
+                enonce: "Un schéma est A-stable si sa région de stabilité contient tout le demi-plan Re(hλ) < 0."
+            }
+        ],
+        conclusion: "Une équation (ou un système) est raide quand elle couple des échelles de temps très différentes : les schémas explicites imposent un pas de temps ridiculement petit (dicté par la composante la plus rapide) même quand on ne s'intéresse qu'au comportement lent. Les méthodes implicites A-stables (Euler implicite, Crank-Nicolson, BDF) restent stables pour tout pas h, au prix de la résolution d'un système (souvent non linéaire, par Newton) à chaque étape."
+    },
     formulas: [
       {
         text: "Les méthodes implicites (Euler implicite, méthodes de Rosenbrock, formules de différentiation rétrograde BDF) sont préférées pour les problèmes raides car leur stabilité (souvent inconditionnelle, A-stabilité) ne dépend pas de la même contrainte sévère sur le pas de temps, au prix de la résolution d'un système (souvent non linéaire) à chaque pas.",
@@ -14999,6 +20039,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1732": {
     title: "Méthodes multi-pas (Adams-Bashforth, introduction)",
     definition: "Les méthodes multi-pas (contrairement aux méthodes à un pas comme Euler ou Runge-Kutta) utilisent plusieurs valeurs précédentes de la solution pour calculer la valeur suivante, les méthodes d'Adams-Bashforth (explicites) approchant l'intégrale du second membre par un polynôme d'interpolation construit à partir des valeurs précédentes déjà calculées.",
+    definition_axiomatique: {
+        cadre: "On résout y' = f(t, y) en utilisant plusieurs valeurs passées (yₙ, yₙ₋₁, …) plutôt qu'une seule (méthodes à un pas comme Runge-Kutta).",
+        axiomes: [
+            {
+                nom: "M1 — Forme générale",
+                enonce: "y_{n+k} = Σ_{j<k}a_jy_{n+j} + hΣ_{j≤k}b_jf(t_{n+j}, y_{n+j})."
+            },
+            {
+                nom: "E1 — Explicite (Adams-Bashforth)",
+                enonce: "b_k = 0 : y_{n+k} dépend seulement de valeurs déjà calculées de f."
+            },
+            {
+                nom: "O1 — Ordre par interpolation",
+                enonce: "f est approchée par un polynôme interpolant les k dernières valeurs (fₙ, …, f_{n+k-1}), intégré exactement sur [t_{n+k-1} ; t_{n+k}]."
+            }
+        ],
+        conclusion: "Adams-Bashforth à k pas est explicite d'ordre k (Adams-Bashforth 2 : y_{n+1} = y_n + h(3f_n − f_{n-1})/2) ; les méthodes d'Adams-Moulton (implicites) sont plus stables. Avantage sur Runge-Kutta : une seule évaluation de f par pas (au lieu de plusieurs étapes), économique pour f coûteuse ; inconvénient : demande un démarrage (les premières valeurs par une méthode à un pas) et perd en stabilité pour les grands k. Les méthodes prédicteur-correcteur combinent Adams-Bashforth (prédiction) et Adams-Moulton (correction)."
+    },
     formulas: [
       {
         text: "Ces méthodes offrent un ordre de précision élevé pour un coût de calcul par pas relativement faible (une seule évaluation de la fonction par pas, contrairement aux méthodes de Runge-Kutta qui en nécessitent plusieurs), au prix d'une initialisation plus délicate (nécessitant plusieurs valeurs de départ, souvent calculées par une méthode à un pas).",
@@ -15046,6 +20104,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1733": {
     title: "Analyse d'erreur et ordre de convergence des schémas numériques",
     definition: "L'ordre de convergence d'un schéma numérique mesure la vitesse à laquelle l'erreur entre solution numérique et solution exacte décroît lorsque le pas de discrétisation h tend vers 0 : un schéma d'ordre p vérifie erreur=O(h^p), un ordre plus élevé garantissant une convergence plus rapide pour un même raffinement du maillage.",
+    definition_axiomatique: {
+        cadre: "On résout numériquement un problème (EDO, EDP) par un schéma dépendant d'un pas h ; e(h) = ‖solution exacte − solution numérique‖ est l'erreur globale.",
+        axiomes: [
+            {
+                nom: "O1 — Ordre de convergence",
+                enonce: "e(h) = Chᵖ + o(hᵖ) : p est l'ordre du schéma."
+            },
+            {
+                nom: "R1 — Estimation empirique",
+                enonce: "En comparant e(h) et e(h/2) (ou plusieurs pas), p ≈ log₂(e(h)/e(h/2))."
+            },
+            {
+                nom: "C1 — Consistance et stabilité",
+                enonce: "Ordre de consistance (erreur locale par pas) et stabilité déterminent l'ordre global (souvent égal pour les schémas à un pas, réduit d'un ordre par rapport à la consistance locale sur l'intervalle total)."
+            }
+        ],
+        conclusion: "L'ordre théorique d'un schéma (Euler : 1 ; Runge-Kutta 4 : 4 ; trapèzes/Simpson : 2/4) se vérifie numériquement en traçant ln(e) contre ln(h) : la pente est l'ordre observé. Un ordre observé inférieur à l'ordre théorique signale souvent une perte de régularité de la solution, une erreur de mise en œuvre, ou une saturation par les erreurs d'arrondi (quand h devient très petit, l'erreur d'arrondi O(u/h) finit par dominer l'erreur de troncature O(hᵖ))."
+    },
     formulas: [
       {
         text: "L'ordre de convergence se détermine théoriquement par développement de Taylor de l'erreur de troncature locale, et se vérifie numériquement en observant le rapport des erreurs pour des pas successivement divisés par 2 (un schéma d'ordre p voit son erreur divisée par 2^p à chaque raffinement).",
@@ -15093,6 +20169,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1734": {
     title: "Extrapolation de Richardson",
     definition: "L'extrapolation de Richardson améliore la précision d'une approximation numérique dépendant d'un paramètre h (comme une dérivée numérique ou une intégrale approchée) en combinant les résultats obtenus pour deux valeurs différentes de h (typiquement h et h/2), éliminant le terme d'erreur dominant connu théoriquement.",
+    definition_axiomatique: {
+        cadre: "On dispose d'une approximation numérique A(h) d'une quantité exacte I, dont l'erreur admet un développement asymptotique A(h) = I + c₁h^p + c₂h^{p+1} + … (p connu, ordre du schéma).",
+        axiomes: [
+            {
+                nom: "S1 — Poids",
+                enonce: "∫ₐᵇ P = (b − a)/6·[P(a) + 4P((a + b)/2) + P(b)] pour tout polynôme P de degré ≤ 3."
+            },
+            {
+                nom: "S2 — Formule",
+                enonce: "Sₙ = (h/6)Σ[f(xₖ) + 4f(mₖ) + f(xₖ₊₁)]."
+            },
+            {
+                nom: "S3 — Erreur",
+                enonce: "|I − Sₙ| ≤ (b − a)h⁴·sup|f⁽⁴⁾|/2880."
+            }
+        ],
+        conclusion: "Extrapolation de Richardson : en combinant A(h) et A(h/2), le terme dominant d'erreur s'élimine : I ≈ (2^pA(h/2) − A(h))/(2^p − 1), une approximation d'ordre p + 1 (au moins). Itérée sur une suite de pas h, h/2, h/4, … avec des combinaisons successives, elle donne l'algorithme de Romberg pour l'intégration numérique, qui atteint une précision spectaculaire (ordre croissant à chaque étape) pour des fonctions suffisamment régulières."
+    },
     formulas: [
       {
         text: "Si une approximation A(h) vérifie A(h)=A_{exact}+Ch^p+O(h^{p+1}) (erreur d'ordre p connu), la combinaison (2^p·A(h/2)-A(h))/(2^p-1) élimine le terme en h^p, donnant une nouvelle approximation d'ordre p+1, une décimale de précision supplémentaire gagnée sans calcul substantiellement plus coûteux.",
@@ -15140,6 +20234,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1735": {
     title: "Quadrature de Gauss",
     definition: "La quadrature de Gauss approche une intégrale ∫_{-1}^1 f(x)dx par une somme pondérée Σw_if(x_i), où les points x_i (racines des polynômes de Legendre) et les poids w_i sont choisis pour rendre la formule exacte sur les polynômes de degré le plus élevé possible (degré 2n-1 pour n points, contre seulement n-1 pour une quadrature à points équirépartis comme Newton-Cotes).",
+    definition_axiomatique: {
+        cadre: "On approche ∫_{-1}^{1}f(x)dx par une somme pondérée Σ_{i=1}^nwᵢf(xᵢ), en choisissant les nœuds xᵢ et poids wᵢ pour que la formule soit exacte sur les polynômes de degré le plus élevé possible (2n − 1).",
+        axiomes: [
+            {
+                nom: "O1 — Orthogonalité",
+                enonce: "Les nœuds xᵢ sont les racines du polynôme de Legendre Pₙ (orthogonal à tout polynôme de degré < n pour le poids 1 sur [−1 ; 1])."
+            },
+            {
+                nom: "P1 — Poids",
+                enonce: "wᵢ = 2/((1 − xᵢ²)Pₙ'(xᵢ)²) > 0."
+            },
+            {
+                nom: "E1 — Exactitude",
+                enonce: "La formule est exacte pour tout polynôme de degré ≤ 2n − 1 (optimal : n points ne peuvent excéder ce degré, contrainte de Gauss)."
+            }
+        ],
+        conclusion: "La quadrature de Gauss-Legendre atteint le degré d'exactitude maximal possible pour n nœuds (2n − 1, contre n − 1 pour Newton-Cotes à nœuds équirépartis) : pour f régulière, la convergence est spectrale (plus rapide que toute puissance de 1/n). D'autres familles de polynômes orthogonaux donnent des quadratures adaptées à des poids singuliers (Gauss-Chebyshev pour 1/√(1−x²), Gauss-Laguerre pour e⁻ˣ sur [0;∞[, Gauss-Hermite pour e^{−x²} sur ℝ, utile en probabilités gaussiennes)."
+    },
     formulas: [
       {
         text: "Cette optimalité remarquable (degré d'exactitude doublé par rapport aux méthodes classiques à même nombre de points) provient du choix judicieux des points d'évaluation (non équirépartis, concentrés vers les bords de l'intervalle) et des poids associés, liés aux propriétés d'orthogonalité des polynômes de Legendre déjà étudiés.",
@@ -15187,6 +20299,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1736": {
     title: "Méthodes spectrales (introduction culturelle)",
     definition: "Les méthodes spectrales résolvent numériquement des EDP en approchant la solution par une combinaison de fonctions de base globales (polynômes de Tchebychev, fonctions trigonométriques) plutôt que par des fonctions à support local (éléments finis, différences finies), offrant une convergence exponentielle pour des solutions suffisamment régulières (analytiques), bien plus rapide que la convergence polynomiale des méthodes locales classiques.",
+    definition_axiomatique: {
+        cadre: "On résout une EDP en cherchant une solution approchée sous forme d'une série tronquée de fonctions globales (Fourier, Chebyshev, polynômes orthogonaux) plutôt que locales (éléments finis).",
+        axiomes: [
+            {
+                nom: "B1 — Base globale",
+                enonce: "u_N(x) = Σ_{k=0}^Nâ_kφ_k(x), φ_k fonctions lisses sur tout le domaine (ex. e^{ikx}, T_k(x) de Chebyshev)."
+            },
+            {
+                nom: "C1 — Collocation ou Galerkine spectral",
+                enonce: "Les coefficients â_k sont déterminés en imposant l'équation aux points de collocation (ou en projetant sur les φ_k)."
+            },
+            {
+                nom: "R1 — Régularité et convergence spectrale",
+                enonce: "Pour u périodique C^∞ (Fourier) ou analytique (Chebyshev), l'erreur décroît plus vite que toute puissance de 1/N."
+            }
+        ],
+        conclusion: "Contrairement aux éléments finis (convergence algébrique O(h^p), p fixé par le degré local), les méthodes spectrales atteignent une convergence exponentielle pour des solutions très régulières, au prix d'une perte d'efficacité pour des géométries complexes ou des solutions peu régulières (chocs, coins) — le phénomène de Gibbs y dégrade fortement la convergence. Utilisées en météorologie (modèles globaux sur la sphère, harmoniques sphériques), turbulence (Chebyshev/Fourier)."
+    },
     formulas: [
       {
         text: "Cette convergence exponentielle (dite « spectrale ») s'obtient au prix d'une perte de flexibilité géométrique (les méthodes spectrales étant naturellement adaptées à des domaines simples comme des rectangles ou des disques) et d'une sensibilité accrue aux irrégularités de la solution (comme les discontinuités, où la convergence redevient seulement algébrique, avec des oscillations de Gibbs).",
@@ -15234,6 +20364,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1737": {
     title: "Simulation Monte-Carlo avancée (réduction de variance, introduction)",
     definition: "Les techniques de réduction de variance (variables antithétiques, variables de contrôle, échantillonnage préférentiel) améliorent la précision d'une estimation Monte-Carlo (déjà introduite en L1) sans augmenter le nombre de simulations, en exploitant une structure ou une information supplémentaire sur le problème pour réduire la variance de l'estimateur.",
+    definition_axiomatique: {
+        cadre: "On veut estimer I = E(f(X)) par la moyenne empirique Îₙ = (1/n)Σf(Xᵢ), (Xᵢ) iid de loi de X, d'erreur quadratique V(f(X))/n (Monte-Carlo naïf).",
+        axiomes: [
+            {
+                nom: "V1 — Variable de contrôle",
+                enonce: "Si g est telle que E(g(X)) = μ_g connu et Cov(f(X), g(X)) ≠ 0, l'estimateur f(X) − β(g(X) − μ_g) (β optimal = Cov(f,g)/V(g)) a une variance réduite."
+            },
+            {
+                nom: "A1 — Échantillonnage préférentiel (importance sampling)",
+                enonce: "Pour une densité q équivalente à celle de X, I = E_q(f(X)p(X)/q(X)) ; choisir q proche de |f|p réduit la variance."
+            },
+            {
+                nom: "S1 — Variables antithétiques",
+                enonce: "Si U ~ 𝒰(0,1), utiliser (f(U) + f(1−U))/2 réduit la variance si f est monotone (corrélation négative entre les deux évaluations)."
+            }
+        ],
+        conclusion: "Ces techniques ne changent pas l'espérance de l'estimateur (sans biais) mais réduisent sa variance, donc le nombre de tirages nécessaires pour une précision donnée (l'erreur Monte-Carlo brute décroît en 1/√n, incompressible en ordre, mais la constante devant peut être réduite de plusieurs ordres de grandeur). Le choix optimal de q en échantillonnage préférentiel annule la variance dans le cas idéal (mais requiert de connaître ce qu'on cherche)."
+    },
     formulas: [
       {
         text: "La méthode des variables antithétiques consiste à simuler des paires de trajectoires corrélées négativement (comme U et 1-U pour U uniforme), leur moyenne ayant une variance réduite par rapport à des simulations indépendantes, exploitant la symétrie de nombreux problèmes.",
@@ -15281,6 +20429,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1738": {
     title: "Méthodes de quasi-Monte-Carlo (introduction culturelle)",
     definition: "Les méthodes de quasi-Monte-Carlo remplacent les points aléatoires de la méthode de Monte-Carlo classique par des suites déterministes à faible discrépance (comme les suites de Halton ou de Sobol), conçues pour remplir l'espace de façon plus uniforme que des points purement aléatoires, offrant une convergence plus rapide (typiquement O(1/N) contre O(1/√N) pour Monte-Carlo classique) pour certaines classes de fonctions.",
+    definition_axiomatique: {
+        cadre: "On veut estimer ∫_{[0;1]^d}f(x)dx par (1/n)Σf(xᵢ), en remplaçant des points aléatoires par une suite déterministe (xᵢ) à faible discrépance.",
+        axiomes: [
+            {
+                nom: "D1 — Discrépance",
+                enonce: "D_N = sup_{boîtes B}|(#{xᵢ ∈ B}/N) − vol(B)| mesure l'écart à l'équirépartition uniforme."
+            },
+            {
+                nom: "F1 — Suites à faible discrépance",
+                enonce: "Suites de van der Corput, Halton, Sobol : D_N = O((ln N)^d/N) (déterministe), contre O(1/√N) pour l'aléatoire (Monte-Carlo, en espérance)."
+            },
+            {
+                nom: "K1 — Inégalité de Koksma-Hlawka",
+                enonce: "|Îₙ − I| ≤ V(f)·D_N, où V(f) est la variation de f au sens de Hardy-Krause."
+            }
+        ],
+        conclusion: "Le quasi-Monte-Carlo remplace l'échantillonnage aléatoire par une suite déterministe bien répartie, gagnant en principe un facteur (ln N)^d/√N par rapport au Monte-Carlo classique pour les fonctions à variation bornée — un avantage net en dimension modérée, qui s'estompe (« malédiction de la dimension ») quand d devient grand, car le facteur (ln N)^d croît vite. Utilisé en finance quantitative (calcul de prix d'options à nombreuses dimensions)."
+    },
     formulas: [
       {
         text: "La discrépance d'une suite de points mesure son écart à une répartition parfaitement uniforme ; les suites à faible discrépance sont spécifiquement construites pour minimiser cette quantité, exploitant des structures combinatoires ou arithmétiques (décomposition en base b pour Halton).",
@@ -15324,6 +20490,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1739": {
     title: "Algorithme de Metropolis-Hastings (introduction)",
     definition: "En M1, on détaille le fonctionnement de l'algorithme de Metropolis-Hastings (déjà mentionné en M2 dans le contexte des méthodes MCMC) : à chaque étape, un état candidat est proposé selon une loi de proposition, puis accepté avec une probabilité dépendant du rapport des densités cible et de proposition (assurant la condition de bilan détaillé garantissant la loi cible comme stationnaire).",
+    definition_axiomatique: {
+        cadre: "On veut échantillonner une loi cible π(x) ∝ f(x) (f connue, constante de normalisation inconnue), en proposant q(y|x) et acceptant avec probabilité α.",
+        axiomes: [
+            {
+                nom: "Q1 — Loi de proposition",
+                enonce: "q(·|x) est une densité de transition (marche aléatoire, indépendante, etc.)."
+            },
+            {
+                nom: "A1 — Probabilité d'acceptation",
+                enonce: "α(x, y) = min(1, (f(y)q(x|y))/(f(x)q(y|x)))."
+            },
+            {
+                nom: "D1 — Équilibre détaillé",
+                enonce: "Le noyau P(x, dy) = q(y|x)α(x,y)dy + (1 − ∫q(z|x)α(x,z)dz)δ_x(dy) vérifie π(x)P(x,dy) = π(y)P(y,dx)."
+            }
+        ],
+        conclusion: "L'algorithme de Metropolis-Hastings construit une chaîne de Markov de loi stationnaire π sans connaître sa constante de normalisation (elle se simplifie dans le rapport f(y)/f(x)). Cas particulier q symétrique (Metropolis) : α = min(1, f(y)/f(x)). L'échantillonneur de Gibbs en est un cas particulier multivarié (mise à jour coordonnée par coordonnée selon les lois conditionnelles complètes, acceptées avec probabilité 1). Convergence garantie par le théorème ergodique (irréductibilité, apériodicité)."
+    },
     formulas: [
       {
         text: "Le choix de la loi de proposition influence fortement l'efficacité pratique de l'algorithme : une proposition trop concentrée (petits pas) conduit à une exploration lente de l'espace, tandis qu'une proposition trop dispersée conduit à un taux de rejet élevé, un compromis optimal devant être trouvé empiriquement ou théoriquement.",
@@ -15371,6 +20555,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1740": {
     title: "Recuit simulé (introduction)",
     definition: "Le recuit simulé est un algorithme d'optimisation stochastique inspiré du processus physique de refroidissement contrôlé des métaux, acceptant parfois des solutions moins bonnes que la solution courante (avec une probabilité décroissant avec une « température » diminuant progressivement) afin d'échapper aux minima locaux, contrairement à une descente de gradient purement locale.",
+    definition_axiomatique: {
+        cadre: "On minimise f sur un ensemble (souvent discret ou combinatoire) en simulant un processus physique de refroidissement, avec un état courant x_k, une température T_k décroissante, et un voisinage N(x_k).",
+        axiomes: [
+            {
+                nom: "P1 — Proposition",
+                enonce: "y est tiré uniformément (ou selon une règle) dans N(x_k)."
+            },
+            {
+                nom: "A1 — Acceptation de Metropolis",
+                enonce: "On accepte x_{k+1} = y avec probabilité min(1, e^{−(f(y)−f(x_k))/T_k}) (toujours si f(y) ≤ f(x_k), parfois même si f(y) > f(x_k))."
+            },
+            {
+                nom: "D1 — Refroidissement",
+                enonce: "T_k → 0 (schéma de refroidissement, ex. T_k = T₀/ln(k+2) pour la convergence théorique garantie, en pratique géométrique T_k = γᵀ₀ᵏ)"
+            }
+        ],
+        conclusion: "Le recuit simulé accepte parfois des dégradations temporaires (contrôlées par T_k) pour échapper aux minima locaux, contrairement à une descente gloutonne systématique ; à température fixe, la loi limite de x_k est la loi de Boltzmann π(x) ∝ e^{−f(x)/T} (concentrée sur les minima quand T → 0). Sous un schéma de refroidissement suffisamment lent (logarithmique, Hajek 1988), la convergence vers le minimum global est garantie en probabilité, mais très lente en pratique — un compromis exploration/exploitation typique des métaheuristiques."
+    },
     formulas: [
       {
         text: "La probabilité d'acceptation d'une solution dégradant légèrement le coût (Δ>0) est exp(-Δ/T), où T est la température courante : à haute température, presque toute dégradation est acceptée (exploration large de l'espace), tandis qu'à basse température, seules les améliorations sont acceptées (exploitation fine autour d'un optimum local prometteur).",
@@ -15414,6 +20616,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1741": {
     title: "Algorithmes génétiques (introduction culturelle)",
     definition: "Les algorithmes génétiques sont des métaheuristiques d'optimisation inspirées de l'évolution biologique, faisant évoluer une population de solutions candidates par des opérateurs de sélection (favorisant les meilleures solutions), de croisement (combinaison de deux solutions parentes) et de mutation (modification aléatoire), imitant les mécanismes de la sélection naturelle et de la reproduction.",
+    definition_axiomatique: {
+        cadre: "On maintient une population de solutions candidates (chromosomes) codant des points de l'espace de recherche, évoluant par sélection, croisement et mutation, guidée par une fonction de fitness (à maximiser).",
+        axiomes: [
+            {
+                nom: "S1 — Sélection",
+                enonce: "Les individus de meilleure fitness ont une probabilité plus grande d'être choisis comme parents (roulette, tournoi)."
+            },
+            {
+                nom: "C1 — Croisement (crossover)",
+                enonce: "Deux parents combinent leurs codages pour produire un ou plusieurs enfants (échange de segments)."
+            },
+            {
+                nom: "M1 — Mutation",
+                enonce: "Une perturbation aléatoire de faible probabilité modifie un enfant, maintenant la diversité de la population."
+            }
+        ],
+        conclusion: "Les algorithmes génétiques s'inspirent de l'évolution darwinienne pour explorer un espace de recherche vaste et non structuré (où le gradient n'est pas disponible ou l'espace est discret/combinatoire), sans garantie théorique forte de convergence vers l'optimum global en temps fini (contrairement au recuit simulé sous conditions), mais efficaces en pratique sur des problèmes multimodaux complexes (conception, planification, hyperparamètres). Le théorème des schémas de Holland tente de formaliser pourquoi les bons « blocs de construction » se propagent dans la population."
+    },
     formulas: [
       {
         text: "Cette approche est particulièrement adaptée aux problèmes d'optimisation combinatoire complexes où la structure du problème ne se prête pas facilement à des méthodes basées sur le gradient, la diversité de la population permettant une exploration large de l'espace de recherche.",
@@ -15461,6 +20681,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1742": {
     title: "Optimisation stochastique (introduction)",
     definition: "En M1, on approfondit l'optimisation stochastique (au-delà de la simple descente de gradient stochastique déjà rencontrée en M2) en étudiant des problèmes où la fonction objectif elle-même est aléatoire (dépendant d'un aléa non contrôlé), nécessitant de minimiser une espérance E[f(x,ξ)] plutôt qu'une fonction déterministe.",
+    definition_axiomatique: {
+        cadre: "On minimise F(θ) = E_ξ[f(θ, ξ)] (espérance sur un aléa ξ, ex. l'échantillonnage des données), sans accès direct à ∇F mais à des estimateurs non biaisés ∇f(θ, ξ_k).",
+        axiomes: [
+            {
+                nom: "U1 — Estimateur non biaisé",
+                enonce: "E(∇f(θ, ξ_k)) = ∇F(θ)."
+            },
+            {
+                nom: "S1 — Itération stochastique",
+                enonce: "θ_{k+1} = θ_k − α_k∇f(θ_k, ξ_k)."
+            },
+            {
+                nom: "R1 — Conditions de Robbins-Monro",
+                enonce: "Σα_k = ∞, Σα_k² < ∞ assurent la convergence presque sûre vers un point critique de F (sous convexité, vers le minimum)."
+            }
+        ],
+        conclusion: "La descente de gradient stochastique (SGD) évite de calculer un gradient exact sur toutes les données à chaque itération (coûteux pour de grands jeux de données) en n'utilisant qu'un échantillon (ou mini-lot) à chaque pas : le bruit introduit ralentit la convergence asymptotique (taux O(1/√k) au lieu de O(1/k) pour le gradient exact en convexe) mais permet un coût par itération indépendant de la taille des données, essentiel à l'entraînement des réseaux de neurones sur de très grands jeux (variantes : momentum, Adam, RMSProp, qui adaptent le pas coordonnée par coordonnée)."
+    },
     formulas: [
       {
         text: "L'approche par approximation stochastique (algorithme de Robbins-Monro, déjà mentionné en M2) résout ce problème en n'utilisant à chaque itération qu'une estimation bruitée du gradient (obtenue par un seul ou quelques tirages de l'aléa ξ), sous des conditions sur le pas d'apprentissage garantissant la convergence presque sûre vers l'optimum.",
@@ -15512,6 +20750,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1743": {
     title: "Apprentissage profond : perceptron multicouche (introduction mathématique)",
     definition: "Un perceptron multicouche (réseau de neurones feedforward) est une composition de couches de transformations affines suivies de fonctions d'activation non linéaires (comme la fonction sigmoïde ou ReLU), le théorème d'approximation universelle (admis à ce niveau) garantissant qu'un réseau à une seule couche cachée suffisamment large peut approcher arbitrairement bien toute fonction continue sur un compact.",
+    definition_axiomatique: {
+        cadre: "On modélise une fonction f : ℝᵈ → ℝᵖ par composition de couches affines suivies de non-linéarités : h^{(0)} = x, h^{(l)} = σ(W^{(l)}h^{(l-1)} + b^{(l)}), sortie ŷ = h^{(L)}.",
+        axiomes: [
+            {
+                nom: "A1 — Approximation universelle",
+                enonce: "Un réseau à une couche cachée suffisamment large, avec σ non polynomiale bornée (ou ReLU), approche uniformément toute fonction continue sur un compact (Cybenko, Hornik)."
+            },
+            {
+                nom: "O1 — Fonction de perte",
+                enonce: "On minimise ℛ(W, b) = (1/n)Σℓ(f_{W,b}(xᵢ), yᵢ) sur les données d'entraînement."
+            },
+            {
+                nom: "R1 — Rétropropagation",
+                enonce: "∇ℛ se calcule couche par couche par la règle de la chaîne, en propageant les gradients de la sortie vers l'entrée."
+            }
+        ],
+        conclusion: "Le théorème d'approximation universelle garantit l'existence d'un réseau approximant, mais ne dit rien sur l'apprentissage effectif des poids ni sur la taille nécessaire. La rétropropagation (différentiation automatique en mode inverse) calcule le gradient en O(nombre de paramètres) au lieu de O(paramètres²) pour une différence finie naïve, rendant l'entraînement par descente de gradient stochastique praticable même pour des millions de paramètres."
+    },
     formulas: [
       {
         text: "L'entraînement d'un tel réseau consiste à minimiser une fonction de perte (mesurant l'écart entre prédictions et valeurs réelles) par descente de gradient stochastique, le gradient étant calculé efficacement par l'algorithme de rétropropagation (déjà mentionné en M2), appliquant systématiquement la règle de dérivation composée à travers toutes les couches.",
@@ -15559,6 +20815,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1744": {
     title: "Fonctions elliptiques (introduction culturelle)",
     definition: "Une fonction elliptique est une fonction méromorphe sur ℂ doublement périodique (périodique selon deux périodes ω_1,ω_2 non colinéaires réellement), généralisant les fonctions trigonométriques (simplement périodiques) et intimement liée aux courbes elliptiques via le paramétrage de Weierstrass (fonction ℘ de Weierstrass).",
+    definition_axiomatique: {
+        cadre: "Une fonction elliptique est une fonction méromorphe f sur ℂ, doublement périodique : il existe ω₁, ω₂ (ω₁/ω₂ ∉ ℝ) avec f(z+ωᵢ) = f(z).",
+        axiomes: [
+            {
+                nom: "D1 — Double périodicité",
+                enonce: "f(z+ω₁) = f(z+ω₂) = f(z)."
+            },
+            {
+                nom: "L1 — Liouville (bornée ⟹ constante)",
+                enonce: "Une fonction elliptique holomorphe (sans pôle) sur ℂ est constante (bornée sur un parallélogramme fondamental compact, donc sur ℂ par périodicité, donc constante par Liouville classique)."
+            },
+            {
+                nom: "N1 — Nombre de pôles = nombre de zéros",
+                enonce: "Dans un parallélogramme fondamental, une fonction elliptique non constante a autant de zéros que de pôles (comptés avec multiplicité), et au moins 2 pôles."
+            }
+        ],
+        conclusion: "Les fonctions elliptiques forment un corps (le corps des fonctions méromorphes sur le tore ℂ/Λ), engendré par ℘ et ℘' (toute fonction elliptique s'exprime comme fraction rationnelle de ces deux-là). Elles tirent leur nom du calcul des longueurs d'arc d'ellipse (intégrales elliptiques ∫dx/√(cubique ou quartique)), dont elles sont les fonctions réciproques ; elles paramètrent les courbes elliptiques et interviennent en mécanique (pendule), en théorie des nombres (formes modulaires) et en cryptographie."
+    },
     formulas: [
       {
         text: "La fonction ℘ de Weierstrass, associée à un réseau Λ=ℤω_1+ℤω_2, vérifie une équation différentielle du type (℘')²=4℘³-g_2℘-g_3, établissant explicitement le lien entre le tore complexe ℂ/Λ et la courbe elliptique cubique correspondante, déjà mentionné en M2 sous l'angle analytique.",
@@ -15606,6 +20880,34 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1745": {
     title: "Hypothèse de Riemann (énoncé culturel)",
     definition: "L'hypothèse de Riemann, l'un des problèmes ouverts les plus célèbres des mathématiques (et l'un des sept problèmes du prix du millénaire), conjecture que tous les zéros non triviaux de la fonction zêta de Riemann (déjà introduite en M1) ont pour partie réelle exactement 1/2, une propriété qui, si elle est vraie, donnerait des informations extrêmement précises sur la répartition des nombres premiers.",
+    definition_axiomatique: {
+        cadre: "On travaille avec ζ(s) = Σn⁻ˢ, prolongée en fonction méromorphe sur ℂ (pôle simple en s=1), vérifiant l'équation fonctionnelle ξ(s) = ξ(1−s), ξ(s) = π^{−s/2}Γ(s/2)ζ(s).",
+        axiomes: [
+            {
+                nom: "Z1 — Zéros triviaux",
+                enonce: "ζ(s) = 0 pour s = −2, −4, −6, … (dus aux pôles de Γ(s/2) dans l'équation fonctionnelle)."
+            },
+            {
+                nom: "Z2 — Bande critique",
+                enonce: "Tous les autres zéros (« non triviaux ») sont dans la bande 0 < Re s < 1 (Hadamard, de la Vallée Poussin : aucun sur Re s = 0 ou 1)."
+            },
+            {
+                nom: "H — Hypothèse de Riemann",
+                enonce: "Tous les zéros non triviaux vérifient Re s = 1/2."
+            }
+        ],
+        conclusion: "L'hypothèse de Riemann (1859), l'un des problèmes du prix du millénaire, reste ouverte : vérifiée numériquement pour des milliards de zéros, elle équivaut à une majoration précise du terme d'erreur dans le théorème des nombres premiers (π(x) = Li(x) + O(√x ln x) si et seulement si RH est vraie), et a de nombreuses conséquences en théorie des nombres (répartition fine des premiers, majorations de sommes de caractères). Des variantes (RH généralisée pour les fonctions L de Dirichlet) sont utilisées conditionnellement dans de nombreux théorèmes.",
+        sources: [
+            {
+                titre: "Encyclopedia of Mathematics — Bohr-Mollerup theorem",
+                url: "https://encyclopediaofmath.org/wiki/Bohr-Mollerup_theorem"
+            },
+            {
+                titre: "Special Functions Wiki — Bohr-Mollerup theorem",
+                url: "https://specialfunctionswiki.org/index.php/Bohr-Mollerup_theorem"
+            }
+        ]
+    },
     formulas: [
       {
         text: "Cette conjecture, formulée par Riemann en 1859, résiste depuis plus d'un siècle et demi à toute démonstration ou réfutation, malgré une vérification numérique portant sur des milliards de zéros (tous vérifiant effectivement la conjecture), et son éventuelle preuve aurait des répercussions majeures en théorie analytique des nombres.",
@@ -15653,6 +20955,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1746": {
     title: "Fonctions L de Dirichlet (introduction culturelle)",
     definition: "Une fonction L de Dirichlet L(s,χ)=Σχ(n)/n^s (χ un caractère de Dirichlet, fonction périodique multiplicative sur les entiers premiers avec un module donné) généralise la fonction zêta de Riemann (cas du caractère trivial), et admet un prolongement analytique similaire, essentielle pour l'étude des nombres premiers dans les progressions arithmétiques.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un caractère de Dirichlet χ modulo m et L(s, χ) = Σχ(n)n⁻ˢ = ∏_p(1−χ(p)p⁻ˢ)⁻¹ (Re s > 1).",
+        axiomes: [
+            {
+                nom: "H1 — Caractère principal",
+                enonce: "χ₀(n) = 1 si n∧m=1, 0 sinon : L(s,χ₀) diffère de ζ(s) par un facteur eulérien fini (pôle simple en s=1, comme ζ)."
+            },
+            {
+                nom: "H2 — Caractère non principal",
+                enonce: "χ ≠ χ₀ : L(s,χ) se prolonge en une fonction entière sur ℂ (pas de pôle, contrairement à ζ)."
+            },
+            {
+                nom: "H3 — Équation fonctionnelle",
+                enonce: "L(s,χ) satisfait une équation fonctionnelle reliant L(s,χ) et L(1−s,χ̄), via une somme de Gauss associée à χ."
+            }
+        ],
+        conclusion: "Les fonctions L de Dirichlet généralisent ζ (cas χ trivial modulo 1) et sont l'outil analytique central de la preuve du théorème de Dirichlet sur les progressions arithmétiques (via la non-annulation L(1,χ) ≠ 0). Elles s'inscrivent dans une famille bien plus vaste de fonctions L (fonctions L de formes modulaires, de courbes elliptiques, d'Artin, automorphes) conjecturalement unifiées par le programme de Langlands, chacune vérifiant (conjecturalement ou effectivement) une équation fonctionnelle et une hypothèse de Riemann généralisée."
+    },
     formulas: [
       {
         text: "Ces fonctions vérifient une équation fonctionnelle analogue à celle de zêta, et leurs zéros (conjecturalement tous sur la droite critique, généralisation de l'hypothèse de Riemann aux fonctions L, appelée hypothèse de Riemann généralisée) contrôlent finement la répartition des nombres premiers dans les classes de congruence modulo un entier donné.",
@@ -15700,6 +21020,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1747": {
     title: "Théorème de Dirichlet sur les nombres premiers en progression arithmétique (énoncé)",
     definition: "Le théorème de Dirichlet affirme que pour tous entiers a,q premiers entre eux, la progression arithmétique a, a+q, a+2q, ... contient une infinité de nombres premiers, généralisant considérablement le résultat élémentaire d'Euclide sur l'infinitude des nombres premiers (cas particulier a=q=1).",
+    definition_axiomatique: {
+        cadre: "On travaille avec a, m entiers, a ∧ m = 1 ; L(s, χ) = Σχ(n)n⁻ˢ pour un caractère de Dirichlet χ modulo m (morphisme (ℤ/mℤ)* → ℂ*, étendu par 0 hors des inversibles).",
+        axiomes: [
+            {
+                nom: "L1 — Produit d'Euler",
+                enonce: "L(s, χ) = ∏_p(1 − χ(p)p⁻ˢ)⁻¹ (χ complètement multiplicative)."
+            },
+            {
+                nom: "N1 — Non-annulation en s=1",
+                enonce: "L(1, χ) ≠ 0 pour χ ≠ χ₀ (caractère non principal) — point technique clé de la preuve."
+            },
+            {
+                nom: "O1 — Orthogonalité des caractères",
+                enonce: "(1/φ(m))Σ_χχ̄(a)χ(n) = 1 si n ≡ a [m], 0 sinon (isole une classe résiduelle)."
+            }
+        ],
+        conclusion: "Théorème de Dirichlet (1837) : pour a ∧ m = 1, il existe une infinité de nombres premiers p ≡ a [m]. Preuve (esquisse) : Σ_{p≡a}1/p diverge, obtenue en combinant ln L(s,χ) ~ Σ_pχ(p)p⁻ˢ près de s=1, l'orthogonalité des caractères (O1) pour isoler la classe a, et la non-annulation L(1,χ) ≠ 0 (N1, le point difficile, démontrée via des arguments analytiques ou algébriques). Il généralise l'infinitude des nombres premiers d'Euclide à toute progression arithmétique admissible."
+    },
     formulas: [
       {
         text: "La démonstration de ce théorème, bien plus profonde que celle d'Euclide, repose sur l'utilisation des fonctions L de Dirichlet (déjà mentionnées) et de leur non-annulation en s=1, illustrant un exemple spectaculaire où l'analyse complexe (fonctions L) résout un problème de nature purement arithmétique.",
@@ -15747,6 +21085,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1748": {
     title: "Théorie analytique des nombres : méthode du cercle (introduction culturelle)",
     definition: "La méthode du cercle (Hardy-Littlewood-Ramanujan) est une technique analytique permettant de compter asymptotiquement le nombre de représentations d'un entier comme somme d'éléments d'ensembles donnés (comme les partitions, déjà mentionnées en M2, ou les sommes de carrés), en étudiant le comportement d'une fonction génératrice au voisinage du cercle unité, décomposé en « arcs majeurs » et « arcs mineurs ».",
+    definition_axiomatique: {
+        cadre: "On veut compter les solutions d'une équation additive (ex. conjecture de Goldbach, sommes de puissances) via l'intégrale I = ∫₀¹f(α)^ke(−Nα)dα, f(α) = Σ_{n≤N}e(nα) (ou une variante pondérée sur les nombres premiers), e(x) = e^{2iπx}.",
+        axiomes: [
+            {
+                nom: "F1 — Coefficients de Fourier",
+                enonce: "I = ∫₀¹∏f(α)e(−Nα)dα compte exactement le nombre de représentations de N comme somme voulue (formule d'inversion de Fourier sur le cercle)."
+            },
+            {
+                nom: "M1 — Arcs majeurs",
+                enonce: "Près des rationnels a/q à petit dénominateur, f(α) est grand (approximé explicitement) : ces arcs majeurs fournissent le terme principal."
+            },
+            {
+                nom: "m1 — Arcs mineurs",
+                enonce: "Ailleurs (arcs mineurs), on majore |f(α)| par des bornes de Weyl ou de Vinogradov, montrant leur contribution négligeable devant le terme principal."
+            }
+        ],
+        conclusion: "La méthode du cercle (Hardy-Littlewood-Ramanujan, perfectionnée par Vinogradov) a établi que tout entier impair assez grand est somme de trois nombres premiers (théorème des trois nombres premiers, Vinogradov 1937, borne effective par Helfgott en 2013 pour clore le cas de Goldbach ternaire complet), et des résultats analogues pour le problème de Waring (sommes de puissances k-ièmes). Elle illustre la puissance de l'analyse de Fourier appliquée à des problèmes additifs de théorie des nombres."
+    },
     formulas: [
       {
         text: "Cette méthode a permis historiquement d'obtenir la formule asymptotique de Hardy-Ramanujan pour les partitions d'entiers (déjà mentionnée en M2), et reste un outil puissant pour de nombreux problèmes additifs en théorie des nombres (conjecture de Goldbach faible, résolue en partie par cette méthode).",
@@ -15794,6 +21150,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1749": {
     title: "Formes modulaires (introduction culturelle)",
     definition: "En M1, on approfondit la notion de forme modulaire (déjà mentionnée en M2) en précisant sa définition rigoureuse : une fonction holomorphe sur le demi-plan de Poincaré, vérifiant f((aτ+b)/(cτ+d))=(cτ+d)^k·f(τ) pour toute matrice [[a,b],[c,d]] de SL_2(ℤ) (poids k), et holomorphe (ou s'annulant) à l'infini.",
+    definition_axiomatique: {
+        cadre: "Une forme modulaire de poids k pour SL₂(ℤ) est une fonction holomorphe f : ℍ → ℂ (ℍ = demi-plan de Poincaré) vérifiant une loi de transformation sous l'action de SL₂(ℤ).",
+        axiomes: [
+            {
+                nom: "T1 — Transformation",
+                enonce: "f((aτ+b)/(cτ+d)) = (cτ+d)ᵏf(τ) pour toute matrice (a b; c d) ∈ SL₂(ℤ)."
+            },
+            {
+                nom: "H1 — Holomorphie",
+                enonce: "f est holomorphe sur ℍ."
+            },
+            {
+                nom: "C1 — Holomorphie à l'infini (cusp)",
+                enonce: "f admet un développement de Fourier f(τ) = Σ_{n≥0}aₙq^n, q = e^{2iπτ} (bornée quand Im τ → ∞) ; une forme parabolique (cuspidale) a de plus a₀ = 0."
+            }
+        ],
+        conclusion: "Exemples : les séries d'Eisenstein G_k (poids k, non cuspidale) ; la fonction Δ (discriminant modulaire, poids 12, cuspidale, Δ = q∏(1−qⁿ)²⁴, liée à τ(n) de Ramanujan) ; le j-invariant (poids 0, fonction modulaire méromorphe classifiant les courbes elliptiques sur ℂ à isomorphisme près). L'espace des formes modulaires de poids k fixé est de dimension finie (calculable explicitement). Les formes modulaires jouent un rôle central dans la preuve du grand théorème de Fermat (Wiles, via la modularité des courbes elliptiques)."
+    },
     formulas: [
       {
         text: "L'espace des formes modulaires de poids k donné est de dimension finie (résultat remarquable), et ces fonctions se développent en séries de Fourier (q-développement, q=e^{2iπτ}) dont les coefficients codent souvent une information arithmétique profonde (comme le nombre de points d'une courbe elliptique modulo chaque nombre premier, via le théorème de modularité déjà mentionné en M2).",
@@ -15845,6 +21219,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1750": {
     title: "Revêtements ramifiés (introduction culturelle)",
     definition: "Un revêtement ramifié généralise la notion de revêtement (déjà vue en L3) en autorisant certains points exceptionnels (points de ramification) où l'application n'est plus localement un homéomorphisme trivial, mais se comporte comme z↦z^n au voisinage de ces points, un phénomène typique des applications holomorphes non constantes entre surfaces de Riemann.",
+    definition_axiomatique: {
+        cadre: "On travaille avec deux surfaces de Riemann X, Y et une application holomorphe non constante f : X → Y entre surfaces compactes.",
+        axiomes: [
+            {
+                nom: "L1 — Degré local",
+                enonce: "En tout point p, f s'écrit localement z ↦ zᵉ⁽ᵖ⁾ (coordonnées adaptées), e(p) ≥ 1 l'indice de ramification."
+            },
+            {
+                nom: "R1 — Point de ramification",
+                enonce: "p est un point de ramification si e(p) ≥ 2 ; leur ensemble est discret (donc fini, X compacte)."
+            },
+            {
+                nom: "H1 — Formule de Riemann-Hurwitz",
+                enonce: "2g_X − 2 = n(2g_Y − 2) + Σ_p(e(p) − 1), où n est le degré de f (nombre de préimages génériques)."
+            }
+        ],
+        conclusion: "Un revêtement ramifié est un revêtement au sens usuel en dehors d'un ensemble discret de points (les valeurs critiques), où plusieurs feuillets se rejoignent. Exemples : z ↦ zⁿ sur ℂℙ¹ (ramifié en 0 et ∞, degré n) ; les courbes hyperelliptiques w² = P(z) (revêtement ramifié double de ℂℙ¹ aux racines de P) ; les fonctions elliptiques comme revêtements ramifiés du tore. La formule de Riemann-Hurwitz relie le genre de X à celui de Y et à la ramification, outil clé de la classification des courbes algébriques."
+    },
     formulas: [
       {
         text: "La formule de Riemann-Hurwitz relie le genre de deux surfaces de Riemann reliées par un revêtement ramifié de degré n, en fonction du nombre et de l'ordre des points de ramification, généralisant considérablement les relations topologiques déjà rencontrées pour les revêtements non ramifiés.",
@@ -15892,6 +21284,34 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1751": {
     title: "Théorème de Riemann-Roch (introduction culturelle, énoncé)",
     definition: "En M1, on introduit l'énoncé du théorème de Riemann-Roch (approfondi en M2) pour une courbe algébrique compacte de genre g : pour un diviseur D, ℓ(D)-ℓ(K-D)=deg(D)-g+1, où ℓ(D) est la dimension de l'espace des fonctions méromorphes de pôles bornés par D, et K le diviseur canonique associé aux formes différentielles holomorphes.",
+    definition_axiomatique: {
+        cadre: "On travaille sur une surface de Riemann compacte X de genre g, avec un diviseur D = Σn_ipᵢ (combinaison formelle entière de points) ; L(D) = {f méromorphe : (f) + D ≥ 0} ∪ {0}, ℓ(D) = dim L(D).",
+        axiomes: [
+            {
+                nom: "R1 — Diviseur canonique",
+                enonce: "K est le diviseur d'une forme méromorphe non nulle, deg K = 2g − 2."
+            },
+            {
+                nom: "R2 — Dualité de Serre",
+                enonce: "ℓ(D) − ℓ(K − D) = deg D − g + 1."
+            },
+            {
+                nom: "R3 — Cas D = 0",
+                enonce: "ℓ(0) = 1 (les constantes), ℓ(K) = g (formes holomorphes)."
+            }
+        ],
+        conclusion: "Théorème de Riemann-Roch : ℓ(D) − ℓ(K − D) = deg D + 1 − g, pour tout diviseur D sur une courbe (surface de Riemann compacte) de genre g. Pour deg D > 2g − 2, ℓ(K − D) = 0 et ℓ(D) = deg D + 1 − g exactement. Il détermine le nombre de fonctions méromorphes à pôles prescrits, gouverne le plongement projectif des courbes (via les diviseurs très amples) et se généralise en dimension supérieure (Hirzebruch-Riemann-Roch, Grothendieck-Riemann-Roch).",
+        sources: [
+            {
+                titre: "Encyclopedia of Mathematics — Bohr-Mollerup theorem",
+                url: "https://encyclopediaofmath.org/wiki/Bohr-Mollerup_theorem"
+            },
+            {
+                titre: "Special Functions Wiki — Bohr-Mollerup theorem",
+                url: "https://specialfunctionswiki.org/index.php/Bohr-Mollerup_theorem"
+            }
+        ]
+    },
     formulas: [
       {
         text: "Ce théorème remarquable relie une quantité analytique (dimension d'un espace de fonctions) à des données purement combinatoires (degré du diviseur et genre de la courbe), fournissant un outil de calcul extrêmement puissant sans résolution explicite d'équations différentielles ou intégrales.",
@@ -15939,6 +21359,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1752": {
     title: "Uniformisation des surfaces de Riemann (introduction culturelle)",
     definition: "Le théorème d'uniformisation (l'un des résultats les plus profonds de l'analyse complexe du XIXe-XXe siècle, admis à ce niveau) affirme que toute surface de Riemann simplement connexe est conformément équivalente (biholomorphe) à exactement l'une de trois modèles : la sphère de Riemann, le plan complexe ℂ, ou le disque unité (équivalent au demi-plan de Poincaré), classifiant ainsi complètement la géométrie conforme locale de toute surface de Riemann.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une surface de Riemann simplement connexe X̃ (le revêtement universel d'une surface de Riemann X quelconque).",
+        axiomes: [
+            {
+                nom: "U1 — Trichotomie",
+                enonce: "X̃ est conformément équivalente à Ĉ (sphère de Riemann), ℂ (plan), ou 𝔻 (disque unité)."
+            },
+            {
+                nom: "K1 — Courbure constante associée",
+                enonce: "Ces trois modèles portent une métrique naturelle de courbure constante +1 (sphérique), 0 (euclidienne), −1 (hyperbolique) respectivement."
+            },
+            {
+                nom: "Q1 — Quotient",
+                enonce: "X = X̃/Γ, Γ ⊂ Aut(X̃) sous-groupe discret sans point fixe agissant proprement discontinûment, isomorphe à π₁(X)."
+            }
+        ],
+        conclusion: "Théorème d'uniformisation de Poincaré-Koebe : toute surface de Riemann simplement connexe est biholomorphe à Ĉ, ℂ ou 𝔻. Conséquence : la sphère de Riemann ℂℙ¹ (genre 0) est de type sphérique ; le tore ℂ/Λ (genre 1) de type euclidien ; toute surface de genre g ≥ 2 est de type hyperbolique, quotient du disque par un sous-groupe fuchsien isomorphe à π₁(surface). Il unifie géométrie (courbure constante), analyse complexe (classification conforme) et topologie (revêtement universel, groupe fondamental)."
+    },
     formulas: [
       {
         text: "Ce théorème permet, en passant au revêtement universel, de classer TOUTE surface de Riemann (pas seulement simplement connexe) selon le type de son revêtement universel, reliant profondément géométrie conforme, topologie (revêtements) et géométrie hyperbolique (le disque étant le modèle de la géométrie hyperbolique, déjà mentionné en M2).",
@@ -15986,6 +21424,34 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1753": {
     title: "Fonction Bêta et lien avec la fonction Gamma",
     definition: "La fonction Bêta est définie pour Re(p),Re(q)>0 par B(p,q)=∫_0^1 t^{p-1}(1-t)^{q-1}dt, et vérifie la relation fondamentale B(p,q)=Γ(p)Γ(q)/Γ(p+q), reliant directement cette intégrale à la fonction Gamma déjà étudiée (M1), permettant de calculer explicitement de nombreuses intégrales apparaissant en probabilités et en analyse.",
+    definition_axiomatique: {
+        cadre: "On considère B(x, y) = ∫₀¹ t^{x−1}(1 − t)^{y−1}dt pour x, y > 0.",
+        axiomes: [
+            {
+                nom: "B1 — Symétrie",
+                enonce: "B(x, y) = B(y, x) (changement de variable t ↦ 1 − t)."
+            },
+            {
+                nom: "B2 — Relation",
+                enonce: "B(x + 1, y) = (x/(x + y))·B(x, y) (intégration par parties)."
+            },
+            {
+                nom: "B3 — Normalisation",
+                enonce: "B(1, y) = 1/y."
+            }
+        ],
+        conclusion: "B(x, y) = Γ(x)Γ(y)/Γ(x + y). Preuve : à y fixé, f(x) = B(x, y)Γ(x + y)/Γ(y) est strictement positive, log-convexe, vérifie f(x + 1) = xf(x) (B2) et f(1) = 1 (B3) : c'est Γ par le théorème de Bohr-Mollerup.",
+        sources: [
+            {
+                titre: "Encyclopedia of Mathematics — Bohr-Mollerup theorem",
+                url: "https://encyclopediaofmath.org/wiki/Bohr-Mollerup_theorem"
+            },
+            {
+                titre: "Special Functions Wiki — Bohr-Mollerup theorem",
+                url: "https://specialfunctionswiki.org/index.php/Bohr-Mollerup_theorem"
+            }
+        ]
+    },
     formulas: [
       {
         text: "Cette relation se démontre en calculant Γ(p)Γ(q) comme une intégrale double, puis en effectuant un changement de variables adapté (passage en coordonnées polaires généralisées) pour retrouver le produit B(p,q)Γ(p+q), technique classique de démonstration reliant ces deux fonctions spéciales.",
@@ -16033,6 +21499,34 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1754": {
     title: "Fonctions de Bessel (introduction)",
     definition: "Les fonctions de Bessel J_n sont les solutions régulières en 0 de l'équation différentielle de Bessel x²y''+xy'+(x²-n²)y=0, apparaissant naturellement lors de la résolution par séparation des variables de l'équation de Laplace ou de la chaleur en coordonnées cylindriques (déjà évoquée en M1 pour les coordonnées sphériques).",
+    definition_axiomatique: {
+        cadre: "On cherche les solutions de x²y'' + xy' + (x² − ν²)y = 0 (équation de Bessel), régulières en x = 0, pour ν ≥ 0.",
+        axiomes: [
+            {
+                nom: "B1 — Série entière (Frobenius)",
+                enonce: "On cherche y = xᵛΣaₖxᵏ, ce qui donne une relation de récurrence sur les aₖ."
+            },
+            {
+                nom: "B2 — Normalisation",
+                enonce: "J_ν(x) = Σ_{k≥0}(−1)ᵏ/(k!Γ(ν+k+1))·(x/2)^{2k+ν} (fonction de Bessel de première espèce)."
+            },
+            {
+                nom: "B3 — Indépendance linéaire",
+                enonce: "Pour ν ∉ ℤ, J_ν et J_{−ν} sont indépendantes ; pour ν ∈ ℤ, on introduit Y_ν (seconde espèce, singulière en 0)."
+            }
+        ],
+        conclusion: "J_ν décrit les modes propres à symétrie cylindrique (membrane circulaire, guide d'onde, diffraction). Propriétés : J_ν(x) ~ √(2/πx)cos(x − νπ/2 − π/4) à l'infini (oscillation amortie), récurrence J_{ν−1}(x) + J_{ν+1}(x) = (2ν/x)J_ν(x), zéros simples j_{ν,k}, orthogonalité ∫₀¹xJ_ν(j_{ν,k}x)J_ν(j_{ν,l}x)dx = 0 pour k ≠ l (base de L²([0;1], x dx)).",
+        sources: [
+            {
+                titre: "Encyclopedia of Mathematics — Bohr-Mollerup theorem",
+                url: "https://encyclopediaofmath.org/wiki/Bohr-Mollerup_theorem"
+            },
+            {
+                titre: "Special Functions Wiki — Bohr-Mollerup theorem",
+                url: "https://specialfunctionswiki.org/index.php/Bohr-Mollerup_theorem"
+            }
+        ]
+    },
     formulas: [
       {
         text: "Ces fonctions oscillent avec une amplitude décroissante à l'infini (comme 1/√x), possèdent une infinité de zéros réels, et vérifient des relations de récurrence entre indices consécutifs, propriétés analogues à celles des fonctions trigonométriques mais adaptées à la géométrie cylindrique.",
@@ -16076,6 +21570,28 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1755": {
     title: "Polynômes orthogonaux classiques (Legendre, Hermite, Laguerre)",
     definition: "Au-delà des polynômes de Legendre (déjà étudiés en L2), les polynômes d'Hermite (orthogonaux sur ℝ pour le poids gaussien e^{-x²}) et de Laguerre (orthogonaux sur [0,+∞[ pour le poids e^{-x}) forment deux autres familles classiques de polynômes orthogonaux, chacune adaptée à un contexte physique et probabiliste spécifique.",
+    definition_axiomatique: {
+        cadre: "On travaille dans ℝ[X] muni du produit scalaire ⟨P, Q⟩ = ∫_{−1}^{1} P(t)Q(t)dt.",
+        axiomes: [
+            {
+                nom: "S1 — Bilinéarité",
+                enonce: "(λu + μu')·v = λ u·v + μ u'·v, et de même dans la seconde variable."
+            },
+            {
+                nom: "S2 — Symétrie",
+                enonce: "u·v = v·u."
+            },
+            {
+                nom: "S3 — Définie positive",
+                enonce: "u·u ≥ 0, et u·u = 0 si et seulement si u = 0."
+            },
+            {
+                nom: "L — Degrés",
+                enonce: "(Lₙ) est orthogonale et deg Lₙ = n ; Lₙ est unitaire (ou normalisée par Lₙ(1) = 1)."
+            }
+        ],
+        conclusion: "Les familles classiques de polynômes orthogonaux se déduisent de Gram-Schmidt appliqué à (1, X, X², …) pour différents produits scalaires pondérés : Legendre ⟨P,Q⟩ = ∫_{-1}^1PQ (poids 1) ; Hermite ⟨P,Q⟩ = ∫_ℝPQe^{−x²}dx (analyse harmonique gaussienne, oscillateur harmonique quantique) ; Laguerre ⟨P,Q⟩ = ∫₀^∞PQe^{−x}dx (problèmes radiaux, atome d'hydrogène) ; Tchebychev ⟨P,Q⟩ = ∫_{-1}^1PQ/√(1−x²)dx (approximation optimale, quadrature de Gauss-Chebyshev). Chaque famille vérifie une relation de récurrence à trois termes et une équation différentielle du second ordre caractéristique (équation de Sturm-Liouville)."
+    },
     formulas: [
       {
         text: "Ces trois familles (Legendre, Hermite, Laguerre) apparaissent systématiquement comme solutions d'équations différentielles classiques issues de la mécanique quantique (oscillateur harmonique pour Hermite, atome d'hydrogène pour Laguerre) et de la théorie du potentiel (Legendre), unifiées par leur caractère de polynômes orthogonaux pour un poids donné.",
@@ -16123,6 +21639,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1756": {
     title: "Transformée de Laplace : propriétés approfondies",
     definition: "En M1, on approfondit la transformée de Laplace (introduite en L3) en détaillant systématiquement ses propriétés opérationnelles : linéarité, dérivation (L{f'}(s)=sL{f}(s)-f(0)), translation en s (multiplication par e^{at} correspondant à un décalage en s), et convolution (L{f*g}=L{f}·L{g}, transformant la convolution en simple produit).",
+    definition_axiomatique: {
+        cadre: "On travaille avec les fonctions f, g d'ordre exponentiel et 𝓛f(p) = ∫₀^{+∞}e^{−pt}f(t)dt.",
+        axiomes: [
+            {
+                nom: "P1 — Dérivation",
+                enonce: "𝓛(f')(p) = p𝓛f(p) − f(0) (intégration par parties)."
+            },
+            {
+                nom: "P2 — Translation",
+                enonce: "𝓛(e^{at}f)(p) = 𝓛f(p − a) ; 𝓛(f(t − τ)H(t − τ)) = e^{−pτ}𝓛f(p)."
+            },
+            {
+                nom: "P3 — Multiplication par t",
+                enonce: "𝓛(tf)(p) = −(𝓛f)'(p)."
+            }
+        ],
+        conclusion: "Par récurrence, 𝓛(f⁽ⁿ⁾) = pⁿ𝓛f − pⁿ⁻¹f(0) − … − f⁽ⁿ⁻¹⁾(0). Théorèmes de la valeur initiale (f(0⁺) = lim_{p→∞} p𝓛f(p)) et finale (lim_{t→∞} f(t) = lim_{p→0} p𝓛f(p) si elle existe). La transformée de l'intégrale ∫₀ᵗf est 𝓛f(p)/p."
+    },
     formulas: [
       {
         text: "La propriété de convolution est particulièrement puissante : elle permet de résoudre des équations intégrales de convolution (comme celles apparaissant en théorie du signal ou en systèmes de contrôle) en les transformant en simples équations algébriques dans le domaine de Laplace.",
@@ -16170,6 +21704,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1757": {
     title: "Transformée en Z (introduction, lien avec le traitement du signal)",
     definition: "La transformée en Z d'une suite discrète (x_n) est X(z)=Σx_nz^{-n} (série de Laurent formelle en z⁻¹), analogue discret de la transformée de Laplace, transformant les équations de récurrence linéaires (systèmes discrets) en équations algébriques, tout comme Laplace transforme les équations différentielles.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une suite (xₙ)_{n≥0} (signal discret) ; X(z) = Σ_{n≥0}xₙz⁻ⁿ pour z ∈ ℂ dans la couronne de convergence.",
+        axiomes: [
+            {
+                nom: "Z1 — Définition",
+                enonce: "X(z) = Σxₙz⁻ⁿ (série de Laurent en z⁻¹)."
+            },
+            {
+                nom: "Z2 — Décalage",
+                enonce: "𝒵(x_{n−k}) = z^{−k}X(z) (pour x causal, condition initiale nulle)."
+            },
+            {
+                nom: "Z3 — Convolution",
+                enonce: "𝒵(x ∗ y) = X(z)Y(z) (produit des transformées)."
+            }
+        ],
+        conclusion: "La transformée en Z est l'analogue discret de la transformée de Laplace (et se réduit à la transformée de Fourier discrète en temps sur |z| = 1) ; elle transforme les équations aux différences linéaires à coefficients constants en équations algébriques. Utilisée pour l'analyse et la synthèse de filtres numériques (fonction de transfert H(z) = Y(z)/X(z)), l'étude de la stabilité (pôles de H dans le disque unité pour un système causal stable)."
+    },
     formulas: [
       {
         text: "Cette transformée vérifie des propriétés analogues à celles de Laplace (linéarité, décalage temporel correspondant à une multiplication par une puissance de z, convolution discrète transformée en produit simple), fondamentales pour l'analyse des systèmes de traitement du signal numérique (filtres discrets).",
@@ -16217,6 +21769,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1758": {
     title: "Analyse spectrale du signal (introduction)",
     definition: "L'analyse spectrale d'un signal étudie sa décomposition en fréquences constitutives via la transformée de Fourier (pour un signal continu) ou la transformée de Fourier discrète (pour un signal échantillonné), le spectre d'amplitude |X(f)| révélant l'importance relative de chaque fréquence dans le signal analysé.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un signal discret stationnaire (au second ordre) (xₙ), de covariance γ(k) = Cov(xₙ, x_{n+k}), et sa densité spectrale de puissance.",
+        axiomes: [
+            {
+                nom: "S1 — Définition",
+                enonce: "S(ω) = Σ_kγ(k)e^{−iωk} (transformée de Fourier de la suite de covariances, théorème de Bochner-Khintchine discret)."
+            },
+            {
+                nom: "S2 — Positivité",
+                enonce: "S(ω) ≥ 0 pour tout ω (γ est de type positif)."
+            },
+            {
+                nom: "S3 — Périodogramme",
+                enonce: "Îₙ(ω) = (1/n)|Σ_{k<n}x_ke^{−iωk}|² est un estimateur (biaisé, non consistant sans lissage) de S(ω)."
+            }
+        ],
+        conclusion: "L'analyse spectrale décompose la puissance d'un signal stationnaire par fréquence ; elle sert à détecter des composantes périodiques cachées dans du bruit, filtrer (multiplication par une fonction de transfert en fréquence), et caractériser des processus (bruit blanc : S constant ; AR(1) : S en forme de cloche). Des estimateurs consistants (Welch, fenêtre de Bartlett) lissent le périodogramme brut, statistiquement instable (variance ne décroissant pas avec n)."
+    },
     formulas: [
       {
         text: "La densité spectrale de puissance (module au carré de la transformée de Fourier, ou transformée de Fourier de la fonction d'autocorrélation pour un signal aléatoire stationnaire, théorème de Wiener-Khintchine) quantifie la répartition de l'énergie (ou de la puissance) du signal selon les fréquences.",
@@ -16268,6 +21838,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1759": {
     title: "Théorie du signal : échantillonnage et théorème de Shannon-Nyquist (introduction)",
     definition: "Le théorème d'échantillonnage de Shannon-Nyquist affirme qu'un signal à bande limitée (dont le spectre de Fourier s'annule au-delà d'une fréquence maximale f_max) peut être parfaitement reconstruit à partir de ses échantillons pris à une fréquence d'échantillonnage f_e≥2f_max (fréquence de Nyquist), résultat fondateur du traitement du signal numérique.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une fonction f ∈ L²(ℝ) et sa transformée de Fourier f̂.",
+        axiomes: [
+            {
+                nom: "P1 — Support compact",
+                enonce: "supp f̂ ⊂ [−a ; a]."
+            },
+            {
+                nom: "P2 — Fonction entière",
+                enonce: "f(x) = (1/2π)∫_{−a}^{a}f̂(ξ)e^{ixξ}dξ se prolonge en fonction entière F(z) sur ℂ."
+            },
+            {
+                nom: "P3 — Type exponentiel",
+                enonce: "|F(x + iy)| ≤ Ce^{a|y|}, et F|_ℝ ∈ L²."
+            }
+        ],
+        conclusion: "Théorème d'échantillonnage de Shannon-Nyquist : un signal f ∈ L²(ℝ) à spectre borné (f̂ nul hors [−B ; B], fréquence de Nyquist B/2π) est entièrement déterminé par ses échantillons f(nT), T = π/B, et se reconstruit par f(t) = Σf(nT)sinc((t − nT)/T) (Paley-Wiener). Sous-échantillonner (T > π/B) crée un repliement de spectre (aliasing) : les hautes fréquences se confondent avec des basses fréquences dans le signal reconstruit, phénomène observé en imagerie (moiré) et en audio numérique."
+    },
     formulas: [
       {
         text: "Si cette condition n'est pas respectée (sous-échantillonnage), un phénomène de repliement de spectre (aliasing) se produit : les hautes fréquences du signal original sont perçues, après échantillonnage, comme des fréquences plus basses, phénomène erroné mais impossible à corriger a posteriori sans information supplémentaire.",
@@ -16315,6 +21903,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1760": {
     title: "Compression et transformée en ondelettes (introduction culturelle)",
     definition: "La compression de signal ou d'image par ondelettes (comme dans le standard JPEG 2000) décompose le signal sur une base d'ondelettes (déjà introduite en M1), la majorité de l'information étant concentrée sur peu de coefficients significatifs, les coefficients de faible amplitude pouvant être négligés (quantifiés à zéro) sans perte perceptible de qualité.",
+    definition_axiomatique: {
+        cadre: "On travaille dans L²(ℝ) avec des sous-espaces emboîtés (Vⱼ)_{j∈ℤ} approchant les fonctions à l'échelle 2^{−j}.",
+        axiomes: [
+            {
+                nom: "W1 — Emboîtement",
+                enonce: "Vⱼ ⊂ Vⱼ₊₁, ⋂Vⱼ = {0}, ⋃Vⱼ est dense dans L²."
+            },
+            {
+                nom: "W2 — Auto-similarité",
+                enonce: "f(x) ∈ Vⱼ ⟺ f(2x) ∈ Vⱼ₊₁."
+            },
+            {
+                nom: "W3 — Fonction d'échelle",
+                enonce: "Il existe φ telle que (φ(· − k))_{k∈ℤ} soit une base orthonormée de V₀."
+            }
+        ],
+        conclusion: "La compression par ondelettes exploite la localisation temps-fréquence : un signal lisse par morceaux a, dans une base d'ondelettes adaptée, l'essentiel de son énergie concentrée sur peu de coefficients de grande amplitude (les autres, faibles, sont négligeables), contrairement à Fourier où les discontinuités dispersent l'énergie sur tous les coefficients. La compression consiste à ne garder que les plus grands coefficients (seuillage) ; la norme JPEG 2000 utilise cette propriété (ondelettes de Daubechies biorthogonales)."
+    },
     formulas: [
       {
         text: "Cette approche exploite le fait que les ondelettes, localisées à la fois en espace et en fréquence, s'adaptent naturellement aux structures locales d'une image (contours nets, zones uniformes), contrairement à la transformée de Fourier classique (globale), offrant une compression plus efficace pour des images naturelles présentant des discontinuités locales.",
@@ -16362,6 +21968,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1761": {
     title: "Bifurcations (introduction culturelle)",
     definition: "Une bifurcation est un changement qualitatif brutal du comportement d'un système dynamique dépendant d'un paramètre, lorsque ce paramètre franchit une valeur critique (comme l'apparition ou la disparition de points d'équilibre, ou un changement de leur stabilité), phénomène déjà pressenti lors de l'étude des systèmes dynamiques dépendant d'un paramètre (L1).",
+    definition_axiomatique: {
+        cadre: "On considère une famille de systèmes dynamiques x' = f(x, μ) (ou xₙ₊₁ = f(xₙ, μ) en discret), dépendant d'un paramètre μ ; x*(μ) est un point d'équilibre (ou une orbite).",
+        axiomes: [
+            {
+                nom: "E1 — Équilibre paramétré",
+                enonce: "f(x*(μ), μ) = 0 (continu) ou f(x*(μ), μ) = x*(μ) (discret)."
+            },
+            {
+                nom: "S1 — Stabilité linéarisée",
+                enonce: "Le signe des parties réelles des valeurs propres de D_xf(x*(μ), μ) détermine la stabilité locale."
+            },
+            {
+                nom: "B1 — Bifurcation",
+                enonce: "Une valeur propre traverse l'axe imaginaire (continu) ou le cercle unité (discret) en μ = μ₀ : la topologie qualitative du portrait de phase change."
+            }
+        ],
+        conclusion: "Types classiques : bifurcation nœud-col (fusion/disparition de deux équilibres, une valeur propre réelle traverse 0), fourche (pitchfork, symétrie brisée), transcritique (échange de stabilité), de Hopf (paire complexe conjuguée traverse l'axe imaginaire, naissance d'un cycle limite). Exemple emblématique : l'application logistique xₙ₊₁ = μxₙ(1 − xₙ), qui subit une cascade de doublements de période menant au chaos (constante de Feigenbaum universelle)."
+    },
     formulas: [
       {
         text: "Les bifurcations les plus classiques incluent la bifurcation fourche (un équilibre stable se scinde en deux équilibres stables et un instable), la bifurcation nœud-col (apparition ou disparition d'une paire d'équilibres) et la bifurcation de Hopf (apparition d'un cycle limite autour d'un équilibre devenant instable).",
@@ -16413,6 +22037,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1762": {
     title: "Théorie du chaos : exposants de Lyapunov (introduction culturelle)",
     definition: "L'exposant de Lyapunov d'un système dynamique mesure le taux exponentiel moyen de divergence (ou de convergence) de deux trajectoires initialement très proches : un exposant strictement positif signale une sensibilité extrême aux conditions initiales (comportement chaotique), tandis qu'un exposant négatif indique une convergence des trajectoires (stabilité).",
+    definition_axiomatique: {
+        cadre: "On étudie un système dynamique xₙ₊₁ = f(xₙ) (ou un flot continu) et sa sensibilité aux conditions initiales ; δₙ = |f^{(n)}(x₀ + ε) − f^{(n)}(x₀)| pour ε petit.",
+        axiomes: [
+            {
+                nom: "L1 — Croissance exponentielle moyenne",
+                enonce: "λ = lim_{n→∞}(1/n)ln|δₙ/ε| (limite supposée exister, indépendante de ε petit et presque tout x₀, par le théorème ergodique multiplicatif d'Oseledets)."
+            },
+            {
+                nom: "L2 — Formule ergodique",
+                enonce: "λ = lim_{n→∞}(1/n)Σ_{k<n}ln|f'(x_k)| (pour un système ergodique de mesure invariante μ)."
+            },
+            {
+                nom: "L3 — Signe",
+                enonce: "λ > 0 : sensibilité exponentielle (chaos) ; λ ≤ 0 : trajectoires voisines ne divergent pas exponentiellement."
+            }
+        ],
+        conclusion: "L'exposant de Lyapunov quantifie le taux de divergence exponentielle des trajectoires voisines : λ > 0 est la signature quantitative du chaos déterministe (perte de prévisibilité à long terme malgré un système déterministe). En dimension d, il existe d exposants (spectre de Lyapunov, théorème d'Oseledets) ; leur somme est liée à la divergence du champ (taux de contraction/expansion des volumes). Exemple : pour l'application logistique à μ = 4, λ = ln 2 > 0."
+    },
     formulas: [
       {
         text: "Cette sensibilité aux conditions initiales, caractéristique du chaos déterministe, signifie qu'une erreur infime sur la condition initiale s'amplifie exponentiellement au cours du temps, rendant toute prédiction à long terme pratiquement impossible malgré le caractère parfaitement déterministe des équations régissant le système.",
@@ -16464,6 +22106,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1763": {
     title: "Attracteurs étranges (introduction culturelle)",
     definition: "Un attracteur étrange est un ensemble vers lequel convergent les trajectoires d'un système dynamique chaotique, possédant typiquement une structure fractale (dimension non entière) et sur lequel le mouvement reste néanmoins chaotique (sensibilité aux conditions initiales), contrairement aux attracteurs classiques (point fixe, cycle limite) où le comportement asymptotique est parfaitement régulier.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un flot (ou une application) dissipatif sur ℝⁿ, admettant un ensemble borné invariant A vers lequel convergent (presque) toutes les trajectoires.",
+        axiomes: [
+            {
+                nom: "A1 — Attracteur",
+                enonce: "A est compact, invariant par le flot, et attire un voisinage ouvert (bassin d'attraction)."
+            },
+            {
+                nom: "E1 — Étrange",
+                enonce: "A a une structure fractale (dimension non entière) et la dynamique restreinte à A est sensible aux conditions initiales (exposant de Lyapunov positif sur A)."
+            },
+            {
+                nom: "V1 — Volume nul",
+                enonce: "A est d'intérieur vide et de mesure de Lebesgue nulle (dissipation : le flot contracte les volumes en moyenne)."
+            }
+        ],
+        conclusion: "Exemples : l'attracteur de Lorenz (système ẋ = σ(y−x), ẏ = x(ρ−z)−y, ż = xy−βz, dimension de Hausdorff ≈ 2,06), l'attracteur de Rössler, l'attracteur de Hénon (discret). Un attracteur étrange combine contraction globale (volume → 0) et étirement local (sensibilité), ce qui produit un feuilletage fractal infiniment replié — mécanisme d'« étirement et repliement » caractéristique du chaos déterministe dans les systèmes dissipatifs de dimension ≥ 3 (continu) ou ≥ 1 (discret non inversible)."
+    },
     formulas: [
       {
         text: "L'attracteur de Lorenz, issu d'un modèle simplifié de convection atmosphérique (système de trois équations différentielles non linéaires couplées), est l'exemple historique et emblématique d'attracteur étrange, sa forme caractéristique en « papillon » illustrant visuellement la structure fractale de cet ensemble.",
@@ -16515,6 +22175,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1764": {
     title: "Applications logistiques et dynamique symbolique (introduction culturelle)",
     definition: "L'application logistique x_{n+1}=rx_n(1-x_n) présente, selon la valeur du paramètre r, une cascade de comportements qualitativement très différents : convergence vers un point fixe (r petit), cycles de période 2, 4, 8,... (cascade de doublements de période, r augmentant), puis chaos (r proche de 4), diagramme de bifurcation illustrant visuellement cette transition vers le chaos.",
+    definition_axiomatique: {
+        cadre: "On étudie l'application logistique xₙ₊₁ = μxₙ(1 − xₙ) sur [0 ; 1], μ ∈ [0 ; 4], et son codage symbolique par les itinéraires (suites de 0/1 selon xₙ < 1/2 ou ≥ 1/2).",
+        axiomes: [
+            {
+                nom: "D1 — Dynamique symbolique",
+                enonce: "À chaque orbite (xₙ), on associe la suite sₙ ∈ {0, 1} avec sₙ = 0 si xₙ < 1/2, 1 sinon."
+            },
+            {
+                nom: "D2 — Conjugaison topologique (μ = 4)",
+                enonce: "Pour μ = 4, xₙ = sin²(πθₙ) conjugue la logistique au doublement d'angle θₙ₊₁ = 2θₙ mod 1, lui-même conjugué au décalage de Bernoulli sur les suites binaires."
+            },
+            {
+                nom: "D3 — Cascade de doublements de période",
+                enonce: "Une suite de bifurcations fourche (période 1 → 2 → 4 → …) accumule à μ_∞ ≈ 3,569946, avec un rapport universel (constante de Feigenbaum δ ≈ 4,6692)."
+            }
+        ],
+        conclusion: "Pour μ = 4, la dynamique est chaotique au sens topologique fort : mélangeante, densité des points périodiques, sensibilité aux conditions initiales, entropie topologique ln 2 (conjugaison au décalage de Bernoulli sur deux symboles). La constante de Feigenbaum δ est universelle : elle apparaît dans toute famille de systèmes à un paramètre subissant une cascade de doublements de période qualitativement analogue, bien au-delà de la seule application logistique."
+    },
     formulas: [
       {
         text: "La dynamique symbolique associe à chaque trajectoire une suite symbolique (typiquement 0 ou 1 selon que x_n est inférieur ou supérieur à un seuil donné), permettant d'étudier le système chaotique via des outils combinatoires (décalage de Bernoulli), révélant une structure profondément liée à celle des nombres réels en base 2.",
@@ -16566,6 +22244,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1765": {
     title: "Fractales : dimension de Hausdorff (introduction culturelle)",
     definition: "La dimension de Hausdorff généralise la notion usuelle de dimension (0 pour un point, 1 pour une courbe, 2 pour une surface) à des ensembles fractals présentant une structure d'autosimilarité à toutes les échelles, la dimension pouvant alors prendre une valeur non entière, quantifiant précisément le degré de « remplissage » de l'espace par l'ensemble considéré.",
+    definition_axiomatique: {
+        cadre: "On travaille avec une partie A ⊂ ℝⁿ ; pour d ≥ 0 et ε > 0, on pose H^d_ε(A) = inf{Σ(diam Uᵢ)^d : A ⊂ ⋃Uᵢ, diam Uᵢ ≤ ε}.",
+        axiomes: [
+            {
+                nom: "H1 — Mesure de Hausdorff",
+                enonce: "H^d(A) = lim_{ε→0}H^d_ε(A) ∈ [0 ; +∞] (croissant quand ε décroît)."
+            },
+            {
+                nom: "H2 — Saut",
+                enonce: "Il existe un unique d_H tel que H^d(A) = +∞ pour d < d_H et H^d(A) = 0 pour d > d_H."
+            },
+            {
+                nom: "H3 — Cohérence",
+                enonce: "Pour A ⊂ ℝⁿ « régulier » (sous-variété de dimension k), d_H(A) = k et H^k coïncide (à constante près) avec le volume k-dimensionnel usuel."
+            }
+        ],
+        conclusion: "d_H(A) est la dimension de Hausdorff de A ; elle peut être non entière pour des ensembles fractals. Exemples : l'ensemble de Cantor triadique a d_H = ln2/ln3 ≈ 0,631 ; le flocon de von Koch a d_H = ln4/ln3 ≈ 1,262 ; le triangle de Sierpiński a d_H = ln3/ln2 ≈ 1,585. Pour les fractals auto-similaires stricts à N copies de rapport r, d_H = ln N/ln(1/r) (formule de Moran). Elle diffère en général de la dimension de boîte (box-counting), coïncidant sous des hypothèses de régularité (auto-similarité)."
+    },
     formulas: [
       {
         text: "Pour un objet autosimilaire construit par N copies réduites d'un facteur 1/r de lui-même, la dimension de similarité (cas particulier calculable de la dimension de Hausdorff) est log(N)/log(r), formule directement applicable aux fractales classiques construites par un procédé itératif simple.",
@@ -16613,6 +22309,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1766": {
     title: "Ensemble de Mandelbrot et de Julia (introduction culturelle)",
     definition: "L'ensemble de Mandelbrot est l'ensemble des paramètres complexes c pour lesquels la suite z_{n+1}=z_n²+c (z_0=0) reste bornée, tandis que l'ensemble de Julia associé à un paramètre c fixé est l'ensemble des points de départ z_0 pour lesquels cette même suite reste bornée, ces deux objets fractals étant intimement liés (la connexité de Julia_c équivalant à l'appartenance de c à Mandelbrot).",
+    definition_axiomatique: {
+        cadre: "On itère f_c(z) = z² + c pour c ∈ ℂ fixé ; l'ensemble de Julia rempli K_c = {z ∈ ℂ : (f_c^{(n)}(z)) est bornée}, l'ensemble de Julia J_c = ∂K_c.",
+        axiomes: [
+            {
+                nom: "B1 — Bornage",
+                enonce: "|z| > max(2, |c|) implique que la suite (f_c^{(n)}(z)) diverge vers l'infini (critère d'échappement)."
+            },
+            {
+                nom: "C1 — Connexité de K_c",
+                enonce: "K_c est connexe si et seulement si l'orbite de 0 (point critique de f_c) reste bornée."
+            },
+            {
+                nom: "M1 — Ensemble de Mandelbrot",
+                enonce: "M = {c ∈ ℂ : K_c est connexe} = {c : (f_c^{(n)}(0))_n reste bornée}."
+            }
+        ],
+        conclusion: "L'ensemble de Julia J_c est l'ensemble des points où la dynamique de f_c est chaotique (sensible aux conditions initiales) ; il est soit connexe (c ∈ M), soit totalement discontinu (poussière de Cantor, c ∉ M). L'ensemble de Mandelbrot M, tracé dans le plan des paramètres c, encode simultanément la topologie de tous les J_c ; il est connexe (Douady-Hubbard) et possède une frontière fractale d'une richesse structurelle immense (mini-copies de M à toutes les échelles), objet emblématique de la dynamique holomorphe et de l'esthétique fractale."
+    },
     formulas: [
       {
         text: "Ces ensembles présentent une structure fractale extraordinairement riche et complexe (autosimilarité approximative, structure au bord infiniment détaillée), révélée par leur visualisation graphique (coloration selon la vitesse de divergence pour les points n'appartenant pas à l'ensemble), devenues des images emblématiques de la théorie du chaos et des fractales.",
@@ -16668,6 +22382,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1767": {
     title: "Théorie ergodique : théorème de Birkhoff (introduction culturelle)",
     definition: "Le théorème ergodique de Birkhoff (généralisant la loi forte des grands nombres à des systèmes dynamiques déterministes préservant une mesure) affirme que, pour un système ergodique, la moyenne temporelle d'une observable le long d'une trajectoire converge presque sûrement vers sa moyenne spatiale (intégrale par rapport à la mesure invariante), établissant un pont profond entre dynamique déterministe et probabilités.",
+    definition_axiomatique: {
+        cadre: "On travaille avec un système dynamique mesuré (Ω, 𝓕, μ, T), T préservant μ (μ(T⁻¹A) = μ(A)) ; un processus stationnaire s'écrit X_n = f ∘ Tⁿ.",
+        axiomes: [
+            {
+                nom: "E1 — Invariance",
+                enonce: "μ(T⁻¹A) = μ(A) pour tout A."
+            },
+            {
+                nom: "E2 — Ergodicité",
+                enonce: "T est ergodique si T⁻¹A = A ⟹ μ(A) ∈ {0, 1}."
+            },
+            {
+                nom: "E3 — Intégrabilité",
+                enonce: "f ∈ L¹(μ)."
+            }
+        ],
+        conclusion: "Théorème ergodique de Birkhoff : (1/n)Σ_{k<n}f(Tᵏω) converge presque sûrement vers E(f | invariants), qui vaut ∫f dμ si T est ergodique : la moyenne temporelle égale la moyenne spatiale. Un processus stationnaire ergodique vérifie donc une loi des grands nombres généralisée ; il est mélangeant si de plus μ(T⁻ⁿA ∩ B) → μ(A)μ(B) (dépendance qui s'efface)."
+    },
     formulas: [
       {
         text: "Un système est dit ergodique si tout ensemble invariant par la dynamique a une mesure nulle ou pleine (pas de sous-système invariant non trivial), condition garantissant que « presque toute » trajectoire explore fidèlement l'ensemble de l'espace des états selon la mesure invariante considérée.",
@@ -16719,6 +22451,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1768": {
     title: "Systèmes hamiltoniens (introduction culturelle)",
     definition: "Un système hamiltonien est un système d'équations différentielles de la forme dq/dt=∂H/∂p, dp/dt=-∂H/∂p (H la fonction hamiltonienne, typiquement l'énergie totale du système), généralisant la mécanique classique (déjà évoquée via les formes symplectiques, M1) et conservant automatiquement H le long des trajectoires (conservation de l'énergie).",
+    definition_axiomatique: {
+        cadre: "On travaille sur une variété symplectique (M, ω) et une fonction H ∈ C^∞(M) (hamiltonien).",
+        axiomes: [
+            {
+                nom: "H1 — Champ hamiltonien",
+                enonce: "X_H est défini par ι_{X_H}ω = dH."
+            },
+            {
+                nom: "H2 — Équations de Hamilton",
+                enonce: "En coordonnées de Darboux : q̇ᵢ = ∂H/∂pᵢ, ṗᵢ = −∂H/∂qᵢ."
+            },
+            {
+                nom: "H3 — Conservation",
+                enonce: "H est constante le long des trajectoires de X_H."
+            }
+        ],
+        conclusion: "Le flot φₜ de X_H préserve ω (donc le volume) et H. Pour H = p²/2m + V(q), on retrouve les équations de Newton mq̈ = −V'(q). Une fonction f est constante le long du flot si et seulement si {f, H} = 0. Théorème de Liouville-Arnold : un système intégrable a des invariants tore-fibrés (variables action-angle)."
+    },
     formulas: [
       {
         text: "Ces systèmes conservent également le volume dans l'espace des phases (théorème de Liouville, déjà mentionné en L3), une propriété remarquable ayant des implications profondes sur leur comportement à long terme (récurrence de Poincaré, absence de points attractifs au sens dissipatif classique).",
@@ -16770,6 +22520,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1769": {
     title: "Mécanique analytique et formalisme lagrangien (introduction culturelle)",
     definition: "Le formalisme lagrangien décrit la dynamique d'un système mécanique via une fonction lagrangienne L(q,q̇,t)=T-V (énergie cinétique moins énergie potentielle), les équations du mouvement (équations d'Euler-Lagrange, déjà rencontrées en calcul des variations, M1) s'obtenant en écrivant que la trajectoire réelle rend stationnaire l'action ∫L dt (principe de moindre action).",
+    definition_axiomatique: {
+        cadre: "On travaille avec un système mécanique de coordonnées généralisées q = (q₁, …, qₙ), de vitesses q̇, et un lagrangien L(q, q̇, t) = énergie cinétique − énergie potentielle.",
+        axiomes: [
+            {
+                nom: "A1 — Principe de moindre action",
+                enonce: "La trajectoire réelle rend stationnaire l'action S[q] = ∫L(q, q̇, t)dt parmi les chemins à extrémités fixées."
+            },
+            {
+                nom: "A2 — Variation première",
+                enonce: "δS = 0 pour toute variation δq nulle aux extrémités."
+            },
+            {
+                nom: "A3 — Calcul des variations",
+                enonce: "δS = ∫(∂L/∂q − d/dt(∂L/∂q̇))·δq dt (intégration par parties)."
+            }
+        ],
+        conclusion: "Équations d'Euler-Lagrange : d/dt(∂L/∂q̇ᵢ) − ∂L/∂qᵢ = 0 pour chaque i. Le passage au formalisme hamiltonien (transformée de Legendre p = ∂L/∂q̇, H = p·q̇ − L) donne les équations de Hamilton q̇ = ∂H/∂p, ṗ = −∂H/∂q, équivalentes mais du premier ordre et de nature symplectique (cf. variétés symplectiques). Le théorème de Noether relie chaque symétrie continue du lagrangien à une quantité conservée (énergie ↔ invariance temporelle, impulsion ↔ invariance spatiale)."
+    },
     formulas: [
       {
         text: "Ce formalisme, équivalent au formalisme newtonien classique mais souvent plus adapté aux systèmes avec contraintes (via des coordonnées généralisées adaptées éliminant automatiquement les forces de liaison), se relie au formalisme hamiltonien (déjà introduit) par une transformation de Legendre reliant vitesses généralisées q̇ et moments conjugués p.",
@@ -16817,6 +22585,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1770": {
     title: "Groupes de symétrie en physique mathématique (introduction culturelle)",
     definition: "Les groupes de symétrie (groupes de Lie ou groupes finis, selon le contexte) formalisent les invariances d'un système physique sous certaines transformations (rotations, translations, permutations de particules identiques), le théorème de Noether (admis à ce niveau) établissant une correspondance profonde entre chaque symétrie continue et une quantité conservée (loi de conservation).",
+    definition_axiomatique: {
+        cadre: "On travaille avec un système physique invariant sous l'action d'un groupe G (groupe de symétrie) agissant sur son espace des états (ou sur l'espace-temps).",
+        axiomes: [
+            {
+                nom: "S1 — Invariance",
+                enonce: "Le lagrangien (ou l'équation du mouvement) est invariant sous l'action de G."
+            },
+            {
+                nom: "N1 — Théorème de Noether",
+                enonce: "À chaque symétrie continue (sous-groupe à un paramètre de G) correspond une quantité conservée."
+            },
+            {
+                nom: "R1 — Représentation",
+                enonce: "Les états quantiques (ou classiques) du système se transforment selon une représentation de G, qui se décompose en irréductibles (classifiant les multiplets de particules)."
+            }
+        ],
+        conclusion: "Exemples : invariance par translation temporelle ↔ conservation de l'énergie ; translation spatiale ↔ impulsion ; rotation SO(3) ↔ moment cinétique (représentations irréductibles indexées par le spin, cf. harmoniques sphériques et fonctions de Wigner de SU(2)) ; groupe de Lorentz (relativité restreinte) ; groupe de jauge U(1)×SU(2)×SU(3) du modèle standard (charge électrique, isospin faible, couleur). La classification des particules élémentaires par leurs nombres quantiques est essentiellement la théorie des représentations des groupes de symétrie du système."
+    },
     formulas: [
       {
         text: "Le groupe de rotation SO(3) (déjà étudié en L3) correspond, via le théorème de Noether, à la conservation du moment angulaire ; l'invariance par translation temporelle correspond à la conservation de l'énergie ; l'invariance par translation spatiale correspond à la conservation de la quantité de mouvement, illustrant systématiquement ce lien fondamental.",
@@ -16864,6 +22650,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1771": {
     title: "Équations de la relativité restreinte (introduction mathématique culturelle)",
     definition: "La relativité restreinte remplace les transformations de Galilée classiques par les transformations de Lorentz, préservant l'intervalle d'espace-temps s²=c²t²-x²-y²-z² (métrique de Minkowski, de signature (1,3) ou (3,1) selon convention), plutôt que la distance euclidienne classique et le temps séparément, unifiant espace et temps en une structure géométrique unique.",
+    definition_axiomatique: {
+        cadre: "On travaille dans l'espace de Minkowski ℝ⁴ muni de la forme quadratique η(x,x) = −c²t² + x² + y² + z² (signature (−,+,+,+)) ; les changements de référentiel inertiel préservent η.",
+        axiomes: [
+            {
+                nom: "R1 — Principe de relativité",
+                enonce: "Les lois de la physique ont la même forme dans tous les référentiels inertiels."
+            },
+            {
+                nom: "R2 — Invariance de c",
+                enonce: "La vitesse de la lumière c est la même dans tous les référentiels inertiels."
+            },
+            {
+                nom: "R3 — Transformations de Lorentz",
+                enonce: "Les changements de référentiel sont les transformations linéaires préservant η (groupe de Lorentz O(3,1))."
+            }
+        ],
+        conclusion: "Entre deux référentiels en translation uniforme de vitesse relative v (le long de x), t' = γ(t − vx/c²), x' = γ(x − vt), γ = 1/√(1 − v²/c²) (transformation de Lorentz) ; elles remplacent les transformations galiléennes classiques (t'=t) et redonnent celles-ci quand v ≪ c. Conséquences géométriques : dilatation du temps, contraction des longueurs, non-simultanéité relative, invariance de l'intervalle ds² = η(dx,dx) le long des trajectoires — c'est un cas particulier plat de la géométrie (pseudo-)riemannienne, généralisée par la relativité générale (courbure de l'espace-temps, équations d'Einstein)."
+    },
     formulas: [
       {
         text: "Le groupe de Lorentz (préservant cette métrique de Minkowski) est un groupe de Lie non compact analogue au groupe orthogonal O(n) déjà étudié, mais associé à une forme quadratique de signature mixte (et non définie positive), avec des propriétés géométriques significativement différentes (existence de directions « de type temps », « de type espace », « de type lumière »).",
@@ -16915,6 +22719,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1772": {
     title: "Modèles mathématiques en biologie et épidémiologie (Lotka-Volterra, modèles SIR)",
     definition: "En M1, on approfondit l'étude qualitative des modèles classiques de dynamique des populations : le modèle proie-prédateur de Lotka-Volterra (dx/dt=ax-bxy, dy/dt=-cy+dxy) présente des trajectoires périodiques autour d'un équilibre non trivial (centre au sens de la linéarisation, déjà mentionné en L3), tandis que le modèle épidémiologique SIR (Susceptibles-Infectés-Retirés) modélise la propagation d'une épidémie via trois équations différentielles couplées.",
+    definition_axiomatique: {
+        cadre: "On modélise l'interaction entre populations (ou une épidémie) par un système d'EDO couplées sur des compartiments positifs.",
+        axiomes: [
+            {
+                nom: "L1 — Lotka-Volterra (proies-prédateurs)",
+                enonce: "ẋ = x(a − by), ẏ = y(cx − d), a, b, c, d > 0 (x proies, y prédateurs)."
+            },
+            {
+                nom: "S1 — SIR (épidémiologie)",
+                enonce: "Ṡ = −βSI/N, İ = βSI/N − γI, Ṙ = γI, avec S + I + R = N constant."
+            },
+            {
+                nom: "Q1 — Positivité et bornage",
+                enonce: "Les orthants positifs sont invariants (les compartiments restent ≥ 0) ; pour SIR, S + I + R = N."
+            }
+        ],
+        conclusion: "Lotka-Volterra a une quantité conservée H(x, y) = cx + by − d ln x − a ln y (minimum au point d'équilibre (d/c, a/b)) : les orbites sont fermées (centres, périodiques, non asymptotiquement stables). SIR : le nombre de reproduction de base R₀ = βS₀/(γN) détermine si l'épidémie démarre (R₀ > 1, İ(0) > 0) ou s'éteint (R₀ ≤ 1) ; I(t) → 0 toujours (pas d'équilibre endémique sans réintroduction de susceptibles), avec une taille finale d'épidémie donnée implicitement par une équation transcendante."
+    },
     formulas: [
       {
         text: "Pour le modèle SIR, le nombre de reproduction de base R_0 (déjà rencontré en M2 pour les modèles avancés) détermine si une épidémie se développe (R_0>1) ou s'éteint naturellement (R_0≤1), ce seuil critique émergeant directement de l'analyse de stabilité du point d'équilibre sans maladie (population entièrement susceptible).",
@@ -16966,6 +22788,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1954": {
     title: "Théorème de Chomsky-Schützenberger",
     definition: "Tout langage algébrique (hors-contexte) s'obtient à partir d'un langage de Dyck (parenthésage bien formé) par intersection avec un langage régulier, puis image par un morphisme.",
+    definition_axiomatique: {
+        cadre: "On travaille avec les classes de la hiérarchie de Chomsky et les automates associés.",
+        axiomes: [
+            {
+                nom: "C1 — Classe et machine",
+                enonce: "Type 3 ↔ automates finis, Type 2 ↔ automates à pile, Type 1 ↔ automates linéairement bornés, Type 0 ↔ machines de Turing."
+            },
+            {
+                nom: "C2 — Grammaire hors-contexte",
+                enonce: "Une grammaire de type 2 engendre exactement les langages algébriques."
+            },
+            {
+                nom: "C3 — Équivalence de puissance",
+                enonce: "Deux modèles de calcul de même classe reconnaissent les mêmes langages, éventuellement avec des coûts différents."
+            }
+        ],
+        conclusion: "Théorème de Chomsky-Schützenberger : tout langage algébrique s'obtient comme image par un morphisme (littéral, effaçant sur un symbole) de l'intersection d'un langage de Dyck (parenthésage bien formé) et d'un langage régulier ; réciproquement toute telle image est algébrique. Il exhibe le rôle structurant de l'appariement récursif (parenthèses) dans les langages hors-contexte, et relie syntaxe formelle et combinatoire des mots."
+    },
     formulas: [
       {
         text: "1. L algébrique ⟹ ∃ morphisme h, langage régulier R, tels que L = h(D_n ∩ R), où D_n est le langage de Dyck sur n paires de symboles.",
@@ -17022,6 +22862,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1956": {
     title: "Lambda-calcul et théorème de Church-Rosser",
     definition: "Si un terme du λ-calcul se réduit en deux termes distincts par des chemins de β-réduction différents, ces deux termes admettent une forme réduite commune (propriété de confluence).",
+    definition_axiomatique: {
+        cadre: "Le λ-calcul est un système formel de termes : variables x, abstractions λx.M, applications (M N), muni de la β-réduction (λx.M)N →_β M[x := N].",
+        axiomes: [
+            {
+                nom: "L1 — Termes",
+                enonce: "Les λ-termes sont engendrés par variables, abstraction et application."
+            },
+            {
+                nom: "L2 — β-réduction",
+                enonce: "(λx.M)N →_β M[N/x] (substitution évitant la capture de variables)."
+            },
+            {
+                nom: "L3 — Confluence locale",
+                enonce: "Si M →_β M₁ et M →_β M₂, il existe N avec M₁ →*_β N et M₂ →*_β N (lemme de Newman + confluence locale)."
+            }
+        ],
+        conclusion: "Théorème de Church-Rosser : si M →*_β M₁ et M →*_β M₂, il existe N avec M₁ →*_β N et M₂ →*_β N : l'ordre de réduction ne change pas la forme normale (si elle existe), qui est donc unique. Conséquence : deux termes égaux dans la théorie λβ n'ont pas de dérivations divergentes irréconciliables ; base de la sémantique des langages fonctionnels (Lisp, Haskell) et de l'équivalence entre calculabilité λ et machines de Turing (thèse de Church)."
+    },
     formulas: [
       {
         text: "1. t →* t₁ et t →* t₂ ⟹ ∃t₃, t₁ →* t₃ et t₂ →* t₃ (confluence, propriété du « diamant »).",
@@ -17082,6 +22940,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1957": {
     title: "Formes de Smith d'une matrice",
     definition: "La forme normale de Smith d'une matrice à coefficients dans un anneau principal est une matrice diagonale D=diag(d₁,...,d_r,0,...,0) obtenue par opérations élémentaires sur les lignes et colonnes, avec d₁|d₂|...|d_r.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un anneau principal A (par exemple ℤ ou K[X]) et M ∈ M_{m,n}(A).",
+        axiomes: [
+            {
+                nom: "O1 — Opérations élémentaires",
+                enonce: "Échanges de lignes/colonnes, multiplication d'une ligne/colonne par une unité de A, ajout d'un multiple d'une ligne/colonne à une autre — préservent la classe d'équivalence de M."
+            },
+            {
+                nom: "D1 — Forme diagonale",
+                enonce: "Il existe P ∈ GL_m(A), Q ∈ GL_n(A) telles que PMQ = diag(d₁,…,d_r,0,…,0)."
+            },
+            {
+                nom: "I1 — Divisibilité",
+                enonce: "d₁ | d₂ | … | d_r (facteurs invariants), uniques à multiplication par une unité près."
+            }
+        ],
+        conclusion: "La forme normale de Smith se calcule par l'algorithme d'Euclide généralisé (pivots successifs par opérations élémentaires). Elle donne directement le théorème de structure des modules de type fini sur A : coker(M : Aⁿ → Aᵐ) ≅ A^{m−r} ⊕ ⊕A/(dᵢ). Sur ℤ, elle calcule la structure d'un groupe abélien de type fini (générateurs et relations codés par M) ; sur K[X] = A, appliquée à XI − M (M matrice d'un endomorphisme), elle donne les facteurs invariants et la réduction de Frobenius."
+    },
     formulas: [
       {
         text: "1. A = U D V, où U,V sont inversibles et D = diag(d₁,...,d_r,0,...,0) avec d₁|d₂|...|d_r.",
@@ -17142,6 +23018,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1962": {
     title: "Polynôme chromatique",
     definition: "Le polynôme chromatique P(G,k) d'un graphe G compte le nombre de colorations propres des sommets de G utilisant au plus k couleurs, deux sommets adjacents ayant toujours des couleurs distinctes.",
+    definition_axiomatique: {
+        cadre: "On travaille sur un graphe fini simple G = (V, E) ; pour k ∈ ℕ, P(G, k) désigne le nombre de colorations propres de G avec (au plus) k couleurs.",
+        axiomes: [
+            {
+                nom: "D1 — Suppression-contraction",
+                enonce: "P(G, k) = P(G−e, k) − P(G/e, k) pour toute arête e (G−e : suppression de e, G/e : contraction de e)."
+            },
+            {
+                nom: "B1 — Cas de base",
+                enonce: "P(graphe sans arête à n sommets, k) = kⁿ."
+            },
+            {
+                nom: "P1 — Fonction polynomiale",
+                enonce: "P(G, k) est, pour tout graphe G, une fonction polynomiale de k (degré |V|, coefficient dominant 1, coefficients alternés en signe)."
+            }
+        ],
+        conclusion: "Le polynôme chromatique généralise le nombre chromatique : χ(G) est le plus petit entier k > 0 avec P(G,k) > 0 (P(G,k) = 0 pour k < χ(G)). Exemples : P(arbre à n sommets, k) = k(k−1)ⁿ⁻¹ ; P(cycle Cₙ, k) = (k−1)ⁿ + (−1)ⁿ(k−1) ; P(Kₙ, k) = k(k−1)⋯(k−n+1). Il se généralise au polynôme de Tutte (invariant à deux variables encodant coloration, flot, fiabilité du réseau) via la même récurrence de suppression-contraction."
+    },
     formulas: [
       {
         text: "1. P(G,k) = P(G-e,k) - P(G/e,k) (relation de suppression-contraction, pour une arête e).",
@@ -17206,6 +23100,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1965": {
     title: "Décomposition de Cholesky",
     definition: "La décomposition de Cholesky exprime une matrice symétrique définie positive A comme un produit A = LLᵀ, où L est triangulaire inférieure à coefficients diagonaux strictement positifs.",
+    definition_axiomatique: {
+        cadre: "On travaille avec A ∈ Mₙ(ℝ) symétrique définie positive.",
+        axiomes: [
+            {
+                nom: "S1 — Symétrie définie positive",
+                enonce: "A = Aᵀ, xᵀAx > 0 pour x ≠ 0."
+            },
+            {
+                nom: "L1 — Existence et unicité",
+                enonce: "Il existe une unique matrice L triangulaire inférieure à diagonale strictement positive telle que A = LLᵀ."
+            },
+            {
+                nom: "C1 — Construction récursive",
+                enonce: "Les coefficients de L se calculent colonne par colonne : Lᵢᵢ = √(Aᵢᵢ − Σ_{k<i}Lᵢₖ²), Lⱼᵢ = (Aⱼᵢ − Σ_{k<i}LⱼₖLᵢₖ)/Lᵢᵢ pour j > i."
+            }
+        ],
+        conclusion: "La décomposition de Cholesky coûte environ n³/3 opérations, deux fois moins que la LU générale (elle exploite la symétrie) ; elle résout Ax = b par deux substitutions triangulaires (Ly = b, Lᵀx = y), numériquement stable sans pivotage (A définie positive le garantit). Elle sert au calcul rapide de déterminants (det A = ∏Lᵢᵢ²), à la simulation de vecteurs gaussiens corrélés (X = LZ, Z ~ N(0, I) donne X ~ N(0, A)), et comme préconditionneur en optimisation."
+    },
     formulas: [
       {
         text: "1. A = LLᵀ, L triangulaire inférieure, L_ii > 0.",
@@ -17266,6 +23178,24 @@ Object.assign(window.MATHSITE_FICHES, {
   "sup:1983": {
     title: "Théorème de Cramér (grandes déviations)",
     definition: "Le théorème de Cramér quantifie la vitesse, exponentiellement petite, à laquelle la moyenne empirique d'un échantillon s'écarte significativement de son espérance théorique.",
+    definition_axiomatique: {
+        cadre: "On considère X₁, …, Xₙ iid, Sₙ = X₁ + … + Xₙ, et Λ(t) = ln E(e^{tX₁}) (log-Laplace, supposée finie sur un voisinage de 0) ; Λ*(x) = sup_t(tx − Λ(t)) sa transformée de Legendre (fonction de taux).",
+        axiomes: [
+            {
+                nom: "C1 — Chernoff",
+                enonce: "P(Sₙ/n ≥ x) ≤ e^{−nΛ*(x)} pour x ≥ E(X₁) (borne de Markov exponentielle optimisée en t)."
+            },
+            {
+                nom: "C2 — Convexité",
+                enonce: "Λ est convexe (Cauchy-Schwarz sur les dérivées), Λ*(x) ≥ 0 avec égalité en x = E(X₁)."
+            },
+            {
+                nom: "C3 — Asymptotique exacte",
+                enonce: "Sous des hypothèses de régularité (loi non arithmétique), P(Sₙ/n ≈ x) ~ e^{−nΛ*(x)} à un facteur polynomial près."
+            }
+        ],
+        conclusion: "Théorème de Cramér : pour x > E(X₁), lim_{n→∞}(1/n)ln P(Sₙ/n ≥ x) = −Λ*(x) : la probabilité qu'une moyenne empirique s'écarte de l'espérance décroît exponentiellement en n, avec un taux précis Λ*(x) (et non seulement une borne, contrairement à Chernoff/Hoeffding). C'est le résultat fondateur de la théorie des grandes déviations, qui quantifie finement les événements rares au-delà de la loi des grands nombres et du théorème central limite (régime des fluctuations typiques en √n)."
+    },
     formulas: [
       {
         text: "1. P(X̄ₙ ≥ a) ≈ e^(−n·I(a)), où I est la fonction de taux (transformée de Legendre du log de la fonction génératrice des moments)",

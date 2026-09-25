@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Initiation à l'axiomatisation (niveau lycée) — page Axiomes de Alpha Omega Math — version 1.3
+     Images : dossier autres-images/ (à placer à côté de cette page, comme index.html) -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>Initiation à l’axiomatisation (niveau lycée) — Alpha Omega Math</title>
+
+  <style>
+    
+    
+    /* =====================================================================
+       Codes couleurs et conventions repris de MathSite (styles.css)
+       fond #0f1116 · panneaux #1a1d24 · champs #14161c · bordures #2a2d35
+       accent #7aa2ff · menthe #7ee0c3 · ambre #ffd76e · orange #ffb86b
+       rose #ff6b8b · violet #c8a2ff · police Inter / Arial
+       ===================================================================== */
+    :root {
+      --bg: #0f1116;
+      --panel: #1a1d24;
+      --panel-hover: #23262f;
+      --field: #14161c;
+      --border: #2a2d35;
+      --text: #e6e6e6;
+      --soft: #c8c8c8;
+      --muted: #9aa0ab;
+      --blue: #7aa2ff;
+      --mint: #7ee0c3;
+      --amber: #ffd76e;
+      --orange: #ffb86b;
+      --rose: #ff6b8b;
+      --violet: #c8a2ff;
+      --red: #ff4d4d;
+      --mono: "SFMono-Regular", Consolas, "Courier New", monospace;
+    }
+
+    /* Couleur d'une famille : --c (hex) et --c-rgb (pour les fonds translucides) */
+    .c-blue   { --c: #7aa2ff; --c-rgb: 122, 162, 255; }
+    .c-mint   { --c: #7ee0c3; --c-rgb: 126, 224, 195; }
+    .c-amber  { --c: #ffd76e; --c-rgb: 255, 215, 110; }
+    .c-orange { --c: #ffb86b; --c-rgb: 255, 184, 107; }
+    .c-rose   { --c: #ff6b8b; --c-rgb: 255, 107, 139; }
+    .c-violet { --c: #c8a2ff; --c-rgb: 200, 162, 255; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, p { margin: 0; }
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .hidden-sm { display: none; }
+    @media (min-width: 640px) { .hidden-sm { display: inline; } }
+
+    /* ---------- Fond animé ---------- */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .math-symbol-floating {
+      position: absolute;
+      z-index: -1;
+      opacity: .05;
+      user-select: none;
+      pointer-events: none;
+      font-family: serif;
+      animation: float 20s infinite ease-in-out;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(10deg); }
+    }
+
+    /* ---------- Menu horizontal (identique à MathSite) ---------- */
+    #navbar {
+      background: var(--panel);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .nav-left { display: flex; align-items: center; gap: 12px; }
+    .logo-image { width: 64px; height: auto; display: block; border-radius: 8px; }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo { font-size: 22px; font-weight: 700; color: var(--blue); }
+    .logo-tagline { font-size: 13px; font-style: italic; color: var(--red); letter-spacing: .02em; }
+
+    .nav-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+    .nav-links a {
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active {
+      color: #fff;
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 4px;
+    }
+    .nav-link-formules { padding-left: 20px; border-left: 1px solid var(--border); }
+
+    /* ---------- Boutons (btn-primary / btn-secondary de MathSite) ---------- */
+    .btn-primary, .btn-secondary {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .btn-primary { background: var(--blue); color: var(--bg); }
+    .btn-primary:hover { filter: brightness(1.08); }
+    .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ---------- Étiquettes ---------- */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      padding: 2px 10px;
+      border-radius: 999px;
+      color: var(--c);
+      background: rgba(var(--c-rgb), .12);
+      border: 1px solid rgba(var(--c-rgb), .3);
+    }
+    .tag-mono { font-family: var(--mono); }
+
+    /* ---------- Couleurs de la hiérarchie (identiques sur toute la page) ---------- */
+    :root {
+      --lvl-domaine: var(--blue);
+      --lvl-discipline: var(--mint);
+      --lvl-notions: var(--violet);
+      --lvl-dots: var(--orange);
+      --line: rgba(154, 160, 171, .5);
+    }
+
+    /* ---------- En-tête de page ---------- */
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 40px 24px 32px;
+      text-align: left;
+    }
+    .hero h1 {
+      font-size: clamp(22px, 3.4vw, 30px);
+      line-height: 1.25;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .hero .lead {
+      max-width: none;
+      margin: 0 0 6px;
+      color: var(--soft);
+      font-size: 15px;
+      line-height: 1.6;
+      text-wrap: pretty;
+    }
+    .toc { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px; margin-top: 20px; }
+    .toc a { text-decoration: none; padding: 5px 15px; font-size: 15px; color: #ff9f1c; }
+    .toc a:hover { background: rgba(var(--c-rgb), .22); }
+
+    
+
+    /* ---------- Page « Initiation à l'axiomatisation » ---------- */
+    .hero .tag { margin-bottom: 14px; }
+    main { max-width: 1180px; margin: 0 auto; padding: 0 24px 96px; display: flex; flex-direction: column; gap: 40px; }
+    section { scroll-margin-top: 24px; }
+    .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: clamp(20px, 4vw, 40px); }
+    .panel h2 { display: flex; align-items: center; gap: 14px; font-size: clamp(22px, 3.4vw, 30px); line-height: 1.25; font-weight: 700; color: #fff; margin-bottom: 20px; }
+    .panel h3 { font-size: 17px; color: var(--text); margin: 28px 0 12px; }
+    .panel h3:first-of-type { margin-top: 0; }
+    .panel p + h3 { margin-top: 20px; }
+    .panel p { color: var(--soft); line-height: 1.65; }
+    .panel p + p { margin-top: 12px; }
+    .panel strong { color: var(--text); }
+    .sec-num {
+      flex: 0 0 auto; width: 44px; height: 44px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-weight: 700; font-size: 20px;
+      color: var(--c); background: rgba(var(--c-rgb), .12); border: 1px solid rgba(var(--c-rgb), .3);
+    }
+    .goal { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; margin-top: 4px; }
+    .goal strong { color: var(--mint); }
+
+    /* Listes */
+    .plain { list-style: none; margin: 0; padding: 0; }
+    .plain li { position: relative; padding: 5px 0 5px 22px; color: var(--soft); line-height: 1.6; }
+    .plain li::before { content: ""; position: absolute; left: 4px; top: 1.05em; width: 7px; height: 7px; border-radius: 50%; background: var(--c, var(--blue)); }
+    .plain li strong { color: var(--c, var(--text)); }
+
+    /* Axiomes numérotés : pastille + énoncé */
+    .axioms { list-style: none; margin: 14px 0 0; padding: 0; background: var(--field); border: 1px solid var(--border); border-radius: 10px; }
+    .axioms li { display: grid; grid-template-columns: 56px 1fr; gap: 14px; align-items: baseline; padding: 12px 18px; border-top: 1px solid var(--border); color: var(--text); }
+    .axioms li:first-child { border-top: none; }
+    .axioms .tag { justify-self: start; font-family: var(--mono); }
+    .axioms .math { color: #fff; }
+
+    .math { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 1.08em; letter-spacing: .01em; }
+    .formula { display: block; text-align: center; margin: 14px 0; padding: 14px 18px; background: var(--field); border: 1px solid var(--border); border-radius: 10px; color: #fff; font-size: 1.2em; overflow-x: auto; }
+
+    /* Cartes (cohérent / complet / indépendant, structures, bonus…) */
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 16px 0 4px; }
+    .card { background: var(--field); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+    .card h4 { margin: 12px 0 8px; font-size: 16px; color: #fff; }
+    .card p { font-size: 14.5px; }
+    .card .sec-num { width: 40px; height: 40px; font-size: 18px; }
+    .card ul.plain li { font-size: 14.5px; }
+
+    /* Encadrés */
+    .callout { margin: 20px 0 0; padding: 16px 20px; background: rgba(var(--c-rgb), .08); border: 1px solid rgba(var(--c-rgb), .3); border-left: 4px solid var(--c); border-radius: 10px; }
+    .callout .callout-title { display: block; font-weight: 700; color: var(--c); margin-bottom: 6px; }
+    .callout p, .callout li { color: var(--text); }
+    .callout p + p { margin-top: 8px; }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 4px; }
+    .pills .tag { font-size: 22px; padding: 4px 18px; font-family: "Cambria Math", "STIX Two Math", serif; }
+
+    .steps { list-style: none; counter-reset: st; margin: 14px 0 0; padding: 0; display: grid; gap: 12px; margin-top: 14px; }
+    .steps li { counter-increment: st; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: center; background: var(--field); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; color: var(--text); }
+    .steps li::before { content: counter(st); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 700; color: var(--orange); background: rgba(255,184,107,.12); border: 1px solid rgba(255,184,107,.3); }
+
+    /* Images : un clic les ouvre en plein écran */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; margin-top: 14px; }
+    .fig { margin: 0; }
+    .fig-btn { display: block; width: 100%; aspect-ratio: 4 / 3; padding: 0; background: #fff; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; cursor: zoom-in; }
+    .fig-btn:hover { border-color: var(--blue); }
+    .fig-btn img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .fig figcaption { margin-top: 8px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+
+    .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 56px; font-size: 30px; line-height: 1; color: var(--muted); background: rgba(26,29,36,.8); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; }
+    .lightbox-nav:hover { color: #fff; border-color: var(--blue); }
+    #lightbox-prev { left: 20px; }
+    #lightbox-next { right: 20px; }
+
+    .bonus-title { color: var(--amber); }
+    @media (max-width: 640px) {
+      #navbar { padding: 12px 16px; }
+      .nav-link-formules { padding-left: 0; border-left: none; }
+      .hero { padding: 28px 16px 24px; }
+      main { padding: 0 16px 72px; }
+      .axioms li { grid-template-columns: 1fr; gap: 6px; }
+      .lightbox-nav { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .math-symbol-floating { animation: none; }
+    }
+
+/* ---------- Image agrandie (comme la lightbox de MathSite) ---------- */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 5vh 5vw;
+      background: rgba(6, 7, 12, .92);
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox figure { margin: 0; display: flex; flex-direction: column; align-items: center; }
+    .lightbox img { max-width: 100%; max-height: 80vh; border-radius: 4px; background: #fff; }
+    .lightbox figcaption { color: var(--text); font-size: 13.5px; margin-top: 14px; max-width: 60ch; text-align: center; }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      font-size: 28px;
+      line-height: 1;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .lightbox-close:hover { color: #fff; border-color: var(--blue); }
+
+    
+  </style>
+</head>
+<body>
+
+  <div class="math-symbol-floating c-blue"   style="font-size: 6rem; top: 3rem; left: 2.5rem; color: var(--c); animation-delay: 0s;" aria-hidden="true">∫</div>
+  <div class="math-symbol-floating c-violet" style="font-size: 8rem; top: 33%; right: 3rem; color: var(--c); animation-delay: -3s;" aria-hidden="true">∑</div>
+  <div class="math-symbol-floating c-mint"   style="font-size: 6rem; bottom: 25%; left: 25%; color: var(--c); animation-delay: -7s;" aria-hidden="true">∞</div>
+  <div class="math-symbol-floating c-rose"   style="font-size: 8rem; bottom: 2.5rem; right: 33%; color: var(--c); animation-delay: -11s;" aria-hidden="true">∇</div>
+
+  <header id="navbar">
+    <div class="nav-left">
+      <img class="logo-image" src="SiteAlphaOmega.png" alt="Alpha Omega Math" onerror="this.style.display='none'">
+      <div class="logo-text">
+        <span class="logo">Alpha Omega Math</span>
+        <span class="logo-tagline">Find a way or find excuses</span>
+      </div>
+    </div>
+    <nav class="nav-links" aria-label="Menu principal">
+      <a href="index.html" data-nav="home">Accueil</a>
+      <a href="classification_msc2020_wow.html" data-nav="msc">MSC</a>
+      <a href="index.html" data-nav="etudes">Études</a>
+      <a href="index.html" data-nav="tableau">Correspondances</a>
+      <a href="index.html" data-nav="exos-fondamentaux">Exercices</a>
+      <a href="index.html" data-nav="banque-images">Banque d'images</a>
+      <a href="index.html" data-nav="axiomes" class="active" aria-current="page">Axiomes</a>
+      <a href="index.html" data-nav="specialisation" class="nav-link-formules">Spécialisation</a>
+    </nav>
+  </header>
+
+  <header class="hero">
+    <span class="tag c-mint">🎯 Module · niveau lycée</span>
+    <h1>Initiation à l’axiomatisation</h1>
+    <p class="lead"><strong style="color:var(--mint)">Objectif&nbsp;:</strong> comprendre ce qu’est un système axiomatique, manipuler des axiomes simples, construire des mini-théories cohérentes.</p>
+    <nav class="toc" aria-label="Sommaire de la page"><a class="tag c-blue" href="#notion">1. Notion d’axiome</a><a class="tag c-blue" href="#systeme">2. Système axiomatique minimal</a><a class="tag c-blue" href="#peano">3. Axiomes de Peano</a><a class="tag c-blue" href="#algebre">4. Axiomes algébriques</a><a class="tag c-blue" href="#logique">5. Logique formelle</a><a class="tag c-blue" href="#atelier">6. Atelier</a><a class="tag c-blue" href="#apport">7. Apport au lycée</a><a class="tag c-blue" href="#bonus">Bonus : récap</a></nav>
+  </header>
+
+  <main>
+    <section id="notion">
+      <div class="panel">
+        <h2><span class="sec-num c-blue">1</span>Notion d’axiome</h2>
+
+        <p>Un axiome est une <strong>règle de départ</strong>&nbsp;:</p>
+        <ul class="plain c-blue" style="margin-top:8px">
+          <li>non démontrée,</li>
+          <li>admise comme vraie,</li>
+          <li>qui sert de base à toute la théorie.</li>
+        </ul>
+        <div class="callout c-mint">
+          <span class="callout-title">Exemples accessibles</span>
+          <ul class="plain c-mint">
+            <li>«&nbsp;Par deux points distincts passe une unique droite.&nbsp;»</li>
+            <li>«&nbsp;0 est un nombre.&nbsp;»</li>
+            <li>«&nbsp;Tout nombre a un successeur.&nbsp;»</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="systeme">
+      <div class="panel">
+        <h2><span class="sec-num c-mint">2</span>Système axiomatique minimal</h2>
+
+        <p>On montre aux élèves qu’un système axiomatique doit être&nbsp;:</p>
+        <div class="cards">
+          <div class="card c-blue"><span class="sec-num">✓</span><h4>Cohérent</h4><p>Pas de contradictions.</p></div>
+          <div class="card c-mint"><span class="sec-num">∀</span><h4>Complet</h4><p>Permet de démontrer les propriétés visées.</p></div>
+          <div class="card c-violet"><span class="sec-num">⊥</span><h4>Indépendant</h4><p>Aucun axiome inutile.</p></div>
+        </div>
+
+        <h3 style="margin-top:32px">Un mini-système jouet&nbsp;: «&nbsp;Monde des points&nbsp;»</h3>
+        <p>On peut illustrer avec un mini-système jouet. Axiomes&nbsp;:</p>
+        <ol class="axioms" style="list-style:none"><li><span class="tag tag-mono c-blue">A1</span><span>«&nbsp;Il existe au moins un point.&nbsp;»</span></li><li><span class="tag tag-mono c-blue">A2</span><span>«&nbsp;Pour tous points A et B, distincts ou non, il existe une droite qui passe par A et B.&nbsp;»</span></li><li><span class="tag tag-mono c-blue">A3</span><span>«&nbsp;Une droite contient au moins deux points distincts.&nbsp;»</span></li></ol>
+        <div class="callout c-orange">
+          <span class="callout-title">Ce système permet déjà de démontrer</span>
+          <ul class="plain c-orange">
+            <li>qu’il existe une droite,</li>
+            <li>qu’une droite contient au moins deux points,</li>
+            <li>qu’il existe au moins deux points distincts.</li>
+          </ul>
+          <p style="margin-top:12px"><strong>Preuve.</strong> Par A1, il existe un point P. Par A2 appliqué à A = B = P, il existe une droite d (première propriété). Par A3, d contient deux points distincts (deuxième propriété), donc il existe au moins deux points distincts (troisième propriété).</p>
+        </div>
+        <div class="callout c-blue">
+          <span class="callout-title">Remarque</span>
+          <p>Si A2 ne parlait que de points distincts, A1 ne suffirait pas à produire une première droite&nbsp;: un monde réduit à un seul point, sans aucune droite, vérifierait A1, A2 et A3 sans que les trois propriétés soient vraies. Le choix d’un énoncé précis des axiomes est justement ce que ce module fait travailler.</p>
+        </div>
+
+        <h3>Pour illustrer&nbsp;: les axiomes d’Euclide</h3>
+        <div class="gallery">
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Notions communes et postulats d’Euclide, avec schémas (points, droites, plans)"><img src="autres-images/axiomatisation_01_axiomes-postulats-euclide.png" alt="Notions communes et postulats d’Euclide, avec schémas (points, droites, plans)" loading="lazy"></button><figcaption>Notions communes et postulats d’Euclide.</figcaption></figure>
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Tableau de résultats de géométrie euclidienne&nbsp;: «&nbsp;Axioms of Euclidean Geometry&nbsp;»"><img src="autres-images/axiomatisation_02_geometrie-euclidienne-axiomes.png" alt="Tableau de résultats de géométrie euclidienne&nbsp;: «&nbsp;Axioms of Euclidean Geometry&nbsp;»" loading="lazy"></button><figcaption>Axiomes de la géométrie euclidienne.</figcaption></figure>
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Règles de la géométrie euclidienne illustrées par des cercles («&nbsp;Euclidean Geometry Rules&nbsp;»)"><img src="autres-images/axiomatisation_03_regles-geometrie-euclidienne.png" alt="Règles de la géométrie euclidienne illustrées par des cercles («&nbsp;Euclidean Geometry Rules&nbsp;»)" loading="lazy"></button><figcaption>Quelques règles de la géométrie euclidienne (cercles).</figcaption></figure>
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Schéma des axiomes d’incidence, d’entre-deux et de congruence définissant le plan euclidien"><img src="autres-images/axiomatisation_04_plan-euclidien.png" alt="Schéma des axiomes d’incidence, d’entre-deux et de congruence définissant le plan euclidien" loading="lazy"></button><figcaption>Groupes d’axiomes menant au plan euclidien (Hilbert).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+    <section id="peano">
+      <div class="panel">
+        <h2><span class="sec-num c-violet">3</span>Axiomes de Peano simplifiés</h2>
+
+        <p>On peut introduire une version adaptée&nbsp;:</p>
+        <ol class="axioms" style="list-style:none"><li><span class="tag tag-mono c-violet">P1</span><span>0 est un nombre.</span></li><li><span class="tag tag-mono c-violet">P2</span><span>Chaque nombre a un successeur.</span></li><li><span class="tag tag-mono c-violet">P3</span><span>0 n’est le successeur d’aucun nombre.</span></li><li><span class="tag tag-mono c-violet">P4</span><span>Deux nombres ayant le même successeur sont égaux.</span></li><li><span class="tag tag-mono c-violet">P5</span><span>(Induction) Toute propriété vraie pour 0 et héréditaire est vraie pour tous les nombres.</span></li></ol>
+        <h3 style="margin-top:28px">Applications</h3>
+        <ul class="plain c-violet">
+          <li>définir l’addition par récurrence, avec deux règles qui en sont les <strong>définitions</strong>&nbsp;: <span class="math">a + 0 = a</span> et <span class="math">a + S(b) = S(a + b)</span>,</li>
+          <li>démontrer par induction (P5) des propriétés qui n’en découlent pas directement&nbsp;: <span class="math">0 + a = a</span>, puis l’associativité et la commutativité de l’addition.</li>
+        </ul>
+        <div class="callout c-violet">
+          <span class="callout-title">Exemple&nbsp;: démontrer que 0 + a = a par induction</span>
+          <p><strong>Initialisation.</strong> <span class="math">0 + 0 = 0</span>, par la définition de l’addition avec <span class="math">a = 0</span>.</p>
+          <p><strong>Hérédité.</strong> Si <span class="math">0 + a = a</span>, alors <span class="math">0 + S(a) = S(0 + a) = S(a)</span>, par la seconde règle puis l’hypothèse.</p>
+          <p>Par P5, <span class="math">0 + a = a</span> pour tout nombre <span class="math">a</span>.</p>
+        </div>
+
+        <h3>Peano en images</h3>
+        <div class="gallery">
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Extrait sur l’arithmétique de Peano&nbsp;: définition récursive de l’addition et de la multiplication"><img src="autres-images/axiomatisation_05_arithmetique-peano-wikipedia.png" alt="Extrait sur l’arithmétique de Peano&nbsp;: définition récursive de l’addition et de la multiplication" loading="lazy"></button><figcaption>Addition et multiplication définies par récurrence.</figcaption></figure>
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Arithmétique de Peano&nbsp;: axiomes du semi-anneau discret et schéma d’induction"><img src="autres-images/axiomatisation_06_arithmetique-peano-semi-anneau.png" alt="Arithmétique de Peano&nbsp;: axiomes du semi-anneau discret et schéma d’induction" loading="lazy"></button><figcaption>Axiomes du semi-anneau discret et schéma d’induction.</figcaption></figure>
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Arithmétique de Peano du premier ordre&nbsp;: signature, domaine et axiomes"><img src="autres-images/axiomatisation_07_arithmetique-peano-premier-ordre.png" alt="Arithmétique de Peano du premier ordre&nbsp;: signature, domaine et axiomes" loading="lazy"></button><figcaption>Arithmétique de Peano du premier ordre.</figcaption></figure>
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Les axiomes de Peano, extrait de MathWorld"><img src="autres-images/axiomatisation_08_axiomes-peano-mathworld.png" alt="Les axiomes de Peano, extrait de MathWorld" loading="lazy"></button><figcaption>Les cinq axiomes de Peano (MathWorld).</figcaption></figure>
+        </div>
+      </div>
+    </section>
+    <section id="algebre">
+      <div class="panel">
+        <h2><span class="sec-num c-rose">4</span>Axiomes algébriques</h2>
+
+        <p>Les élèves peuvent manipuler des structures&nbsp;:</p>
+        <div class="cards">
+          <div class="card c-rose"><span class="sec-num">G</span><h4>Groupe</h4><p>Fermeture, associativité, identité, inverse.</p></div>
+          <div class="card c-orange"><span class="sec-num">A</span><h4>Anneau</h4><p>Deux opérations, distributivité.</p></div>
+          <div class="card c-mint"><span class="sec-num">E</span><h4>Espace vectoriel</h4><p>Axiomes de combinaison linéaire.</p></div>
+        </div>
+
+        <h3 style="margin-top:32px">Exemple&nbsp;: axiomes d’un groupe <span class="math">(G, ∗)</span></h3>
+        <ol class="axioms" style="list-style:none"><li><span class="tag tag-mono c-rose">G1</span><span><span class="math">a ∗ b ∈ G</span></span></li><li><span class="tag tag-mono c-rose">G2</span><span><span class="math">(a ∗ b) ∗ c = a ∗ (b ∗ c)</span></span></li><li><span class="tag tag-mono c-rose">G3</span><span>il existe <span class="math">e</span> tel que, pour tout <span class="math">a</span>, <span class="math">e ∗ a = a ∗ e = a</span></span></li><li><span class="tag tag-mono c-rose">G4</span><span>pour tout <span class="math">a</span>, il existe <span class="math">a⁻¹</span> tel que <span class="math">a ∗ a⁻¹ = e</span></span></li></ol>
+        <h3>Groupes en images</h3>
+        <div class="gallery">
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Théorème fondamental d’homomorphisme illustré avec le groupe A4 et son quotient"><img src="autres-images/axiomatisation_09_theoreme-homomorphisme.png" alt="Théorème fondamental d’homomorphisme illustré avec le groupe A4 et son quotient" loading="lazy"></button><figcaption>Théorème d’homomorphisme&nbsp;: le groupe A₄ et son quotient.</figcaption></figure>
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Fiche «&nbsp;Abstract Algebra Group Theory Basics&nbsp;»&nbsp;: groupes, sous-groupes, tables d’opération"><img src="autres-images/axiomatisation_10_groupes-bases.png" alt="Fiche «&nbsp;Abstract Algebra Group Theory Basics&nbsp;»&nbsp;: groupes, sous-groupes, tables d’opération" loading="lazy"></button><figcaption>Bases de la théorie des groupes&nbsp;: sous-groupes, tables de Cayley.</figcaption></figure>
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Diagramme de relations entre groupes finis (groupes sporadiques)"><img src="autres-images/axiomatisation_11_groupes-treillis.png" alt="Diagramme de relations entre groupes finis (groupes sporadiques)" loading="lazy"></button><figcaption>Diagramme de relations entre groupes sporadiques.</figcaption></figure>
+          <figure class="fig"><button type="button" class="fig-btn" aria-label="Agrandir&nbsp;: Fiche «&nbsp;Group Theory Cyclic & Dihedral Groups&nbsp;»&nbsp;: groupes cycliques, ℤₙ, ordre d’un élément"><img src="autres-images/axiomatisation_12_groupes-cycliques.png" alt="Fiche «&nbsp;Group Theory Cyclic & Dihedral Groups&nbsp;»&nbsp;: groupes cycliques, ℤₙ, ordre d’un élément" loading="lazy"></button><figcaption>Groupes cycliques&nbsp;: ℤ, ℤₙ, ordre d’un élément.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+    <section id="logique">
+      <div class="panel">
+        <h2><span class="sec-num c-amber">5</span>Logique formelle intuitive</h2>
+
+        <p>On introduit&nbsp;:</p>
+        <h3>Les connecteurs</h3>
+        <div class="pills"><span class="tag c-amber">∧</span><span class="tag c-amber">∨</span><span class="tag c-amber">→</span><span class="tag c-amber">¬</span></div>
+        <h3>Les axiomes logiques</h3>
+        <p>Par exemple, deux schémas d’axiomes&nbsp;:</p>
+        <ol class="axioms" style="list-style:none"><li><span class="tag tag-mono c-amber">L1</span><span><span class="math">P → (Q → P)</span></span></li><li><span class="tag tag-mono c-amber">L2</span><span><span class="math">(P → (Q → R)) → ((P → Q) → (P → R))</span></span></li></ol>
+        <h3>Les règles d’inférence</h3>
+        <p>Modus ponens, syllogisme, etc.</p>
+        <div class="callout c-rose">
+          <span class="callout-title">Exercice type</span>
+          <p>À partir des axiomes logiques et de modus ponens, démontrer&nbsp;:</p>
+          <span class="formula math">P → P</span>
+          <p>Il faut les deux schémas L1 et L2&nbsp;: L1 seul ne suffit pas.</p>
+          <details style="margin-top:12px">
+            <summary style="cursor:pointer;color:var(--c);font-weight:700">Voir une démonstration</summary>
+            <ol class="axioms" style="list-style:none;margin-top:12px">
+              <li><span class="tag tag-mono c-rose">1</span><span class="math">(P → ((P → P) → P)) → ((P → (P → P)) → (P → P))</span></li>
+              <li><span class="tag tag-mono c-rose">2</span><span class="math">P → ((P → P) → P)</span></li>
+              <li><span class="tag tag-mono c-rose">3</span><span class="math">(P → (P → P)) → (P → P)</span></li>
+              <li><span class="tag tag-mono c-rose">4</span><span class="math">P → (P → P)</span></li>
+              <li><span class="tag tag-mono c-rose">5</span><span class="math">P → P</span></li>
+            </ol>
+            <p style="margin-top:10px;font-size:14px">1&nbsp;: L2 avec Q = P → P et R = P. 2&nbsp;: L1 avec Q = P → P. 3&nbsp;: modus ponens sur 2 et 1. 4&nbsp;: L1 avec Q = P. 5&nbsp;: modus ponens sur 4 et 3.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+    <section id="atelier">
+      <div class="panel">
+        <h2><span class="sec-num c-orange">6</span>Atelier&nbsp;: construire sa propre théorie</h2>
+
+        <p>Tu peux proposer aux élèves de créer un mini-univers&nbsp;:</p>
+        <ol class="steps">
+          <li>choisir les objets (points, créatures, nombres, segments…),</li>
+          <li>écrire 3 à 5 axiomes,</li>
+          <li>dériver des théorèmes,</li>
+          <li>vérifier cohérence et indépendance.</li>
+        </ol>
+        <h3 style="margin-top:32px">Exemple&nbsp;: le monde des «&nbsp;créatures&nbsp;»</h3>
+        <ol class="axioms" style="list-style:none"><li><span class="tag tag-mono c-orange">A1</span><span>Chaque créature a un parent.</span></li><li><span class="tag tag-mono c-orange">A2</span><span>Une créature ne peut être son propre parent.</span></li><li><span class="tag tag-mono c-orange">A3</span><span>Si A est parent de B et B parent de C, alors A est ancêtre de C.</span></li><li><span class="tag tag-mono c-orange">A4</span><span>Un parent d’une créature est l’un de ses ancêtres.</span></li></ol>
+        <div class="callout c-mint">
+          <span class="callout-title">Théorème</span>
+          <p>Une créature a au moins un ancêtre.</p>
+          <p><strong>Preuve.</strong> Soit C une créature. Par A1, elle a un parent B. Par A4, B est un ancêtre de C.</p>
+        </div>
+        <div class="callout c-orange">
+          <span class="callout-title">Cohérence et indépendance</span>
+          <p>Sans A4, A1 à A3 ne permettent pas de conclure&nbsp;: A3 ne parle que de grands-parents. Et A2 n’intervient pas dans cette preuve&nbsp;: est-il indépendant des autres&nbsp;? Est-il nécessaire&nbsp;? C’est le genre de question de l’atelier.</p>
+        </div>
+      </div>
+    </section>
+    <section id="apport">
+      <div class="panel">
+        <h2><span class="sec-num c-mint">7</span>Ce que l’axiomatisation apporte au lycée</h2>
+
+        <ul class="plain c-mint">
+          <li>renforce la rigueur,</li>
+          <li>clarifie la différence entre définition, axiome, théorème,</li>
+          <li>prépare à l’abstraction universitaire,</li>
+          <li>donne du pouvoir conceptuel (structures, logique, cohérence).</li>
+        </ul>
+      </div>
+    </section>
+    <section id="bonus">
+      <div class="panel">
+        <h2><span class="sec-num c-amber">🎁</span><span class="bonus-title">Bonus&nbsp;: mini-fiche récap structurée</span></h2>
+        <div class="cards">
+          <div class="card c-blue"><span class="tag">Axiomes</span><p style="margin-top:12px">Règles de base non démontrées.</p></div>
+          <div class="card c-mint"><span class="tag">Système axiomatique</span><p style="margin-top:12px">Cohérence, complétude, indépendance.</p></div>
+          <div class="card c-violet"><span class="tag">Exemples lycée</span><p style="margin-top:12px">Peano, Euclide, groupes, logique.</p></div>
+          <div class="card c-orange"><span class="tag">Objectif</span><p style="margin-top:12px">Construire des théories cohérentes.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Fermer">×</button>
+    <button type="button" class="lightbox-nav" id="lightbox-prev" aria-label="Image précédente">‹</button>
+    <button type="button" class="lightbox-nav" id="lightbox-next" aria-label="Image suivante">›</button>
+    <figure>
+      <img id="lightbox-img" src="" alt="">
+      <figcaption id="lightbox-cap"></figcaption>
+    </figure>
+  </div>
+
+  <script>
+    /* ---------- Image agrandie (avec navigation ← / →) ---------- */
+    let lastOpener = null;
+    let current = -1;
+    const lightbox = document.getElementById('lightbox');
+    const figBtns = Array.from(document.querySelectorAll('.fig-btn'));
+
+    function showImage(i) {
+      current = (i + figBtns.length) % figBtns.length;
+      const img = figBtns[current].querySelector('img');
+      lastOpener = figBtns[current];
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-img').alt = img.alt;
+      document.getElementById('lightbox-cap').textContent = img.alt;
+    }
+    function openLightbox(i) {
+      showImage(i);
+      lightbox.classList.add('open');
+      document.getElementById('lightbox-close').focus();
+    }
+    function closeLightbox() {
+      if (!lightbox.classList.contains('open')) return;
+      lightbox.classList.remove('open');
+      if (lastOpener) lastOpener.focus();
+    }
+
+    figBtns.forEach((btn, i) => btn.addEventListener('click', () => openLightbox(i)));
+    lightbox.addEventListener('click', closeLightbox);
+    document.getElementById('lightbox-prev').addEventListener('click', e => { e.stopPropagation(); showImage(current - 1); });
+    document.getElementById('lightbox-next').addEventListener('click', e => { e.stopPropagation(); showImage(current + 1); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') showImage(current - 1);
+      else if (e.key === 'ArrowRight') showImage(current + 1);
+    });
+
+  </script>
+</body>
+</html>

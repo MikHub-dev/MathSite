@@ -1,4 +1,3 @@
-// Version : 1.0
 // =====================================================================
 // PAGE « MSC » — Classification Mathématiques MSC, affichée dans la zone centrale (#content)
 // de MathSite, comme les autres rubriques du menu horizontal (Exercices, Banques d'images...).
@@ -228,10 +227,33 @@
       <div class="mscp-inner">
 
         <header class="mscp-hero">
-          <h1>Classification Mathématiques MSC</h1>
-          <p class="mscp-lead"><span class="mscp-nb">La MSC (Mathematics Subject Classification) organise les mathématiques en grands domaines,</span> <span class="mscp-nb">eux-mêmes divisés en disciplines, qui manipulent des notions.</span></p>
-          <p class="mscp-lead">C’est une cartographie hiérarchique de la structure des mathématiques.</p>
-          <nav class="mscp-toc" aria-label="Sommaire de la page">${toc}</nav>
+          <div class="mscp-hero-grid">
+            <div class="mscp-hero-main">
+              <h1>Classification Mathématiques MSC</h1>
+              <p class="mscp-lead"><span class="mscp-nb">La MSC (Mathematics Subject Classification) organise les mathématiques en grands domaines,</span> <span class="mscp-nb">eux-mêmes divisés en disciplines, qui manipulent des notions.</span></p>
+              <p class="mscp-lead">C’est une cartographie hiérarchique de la structure des mathématiques.</p>
+              <nav class="mscp-toc" aria-label="Sommaire de la page">${toc}</nav>
+            </div>
+
+            <aside class="mscp-panel mscp-legend" aria-label="Légende des couleurs">
+              <h3>Légende des couleurs</h3>
+              <ul class="mscp-legend-tree">
+                <li class="mscp-legend-domaine">Domaine
+                  <ul>
+                    <li class="mscp-legend-branche">Math théorique ou appliquée
+                      <ul>
+                        <li class="mscp-legend-discipline">Discipline
+                          <ul>
+                            <li class="mscp-legend-notions">Exemples de notions</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </aside>
+          </div>
         </header>
 ${MSC_DOMAINS.map(domainHtml).join("")}
 

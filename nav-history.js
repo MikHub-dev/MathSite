@@ -1,17 +1,21 @@
-// Version : 1.4
+// Version : 1.5
 // =====================================================================
 // HISTORIQUE DE NAVIGATION — le bouton « ← Retour » des fiches revient à l'écran PRÉCÉDENT
-// (et non plus à l'accueil).
+// (et non plus à l'accueil), et #content revient systématiquement en haut après un clic qui
+// change d'écran.
 //
 // Principe : on ne touche pas aux fonctions d'affichage. À l'instar de msc.js, on « s'accroche »
 // sur les fonctions globales load…() / open…() (+ showSearchResults, showMenuBranchPage,
 // showSidebarImage) : chaque fois que l'une d'elles change réellement le contenu de #content,
-// l'écran quitté est empilé (fonction + arguments + position de défilement). Retour dépile et
-// ré-exécute la fonction : les écouteurs (exercices, etc.) sont donc recréés normalement.
+// l'écran quitté est empilé (fonction + arguments + position de défilement) et le nouvel écran
+// est remonté en haut (#content.scrollTop = 0). Retour dépile et ré-exécute la fonction : les
+// écouteurs (exercices, etc.) sont donc recréés normalement, et la position de défilement de
+// l'écran quitté est restaurée (Retour ne remonte PAS en haut : il vous remet où vous étiez).
 //
 // Filet de sécurité : si un écran apparaît sans passer par une fonction accrochée (fonction
 // locale à un script, par exemple), il est détecté par un MutationObserver ; on garde alors le
-// HTML de l'écran au moment où on le quitte, pour pouvoir le remettre à l'identique.
+// HTML de l'écran au moment où on le quitte, pour pouvoir le remettre à l'identique, et le
+// remontage en haut s'applique aussi dans ce cas.
 //
 // Utilisé par navBack() (app.js). À charger APRÈS msc.js (donc tout à la fin de index.html).
 // =====================================================================
@@ -49,6 +53,15 @@
     return a.length === b.length && a.every(function (v, i) { return v === b[i]; });
   }
 
+  // Nouvel écran affiché (pas un Retour) : #content remonte systématiquement en haut. window.scrollTo
+  // est un filet de sécurité (la page elle-même ne défile pas dans ce gabarit, #content est seul
+  // scrollable — voir styles.css #layout / #content), sans effet indésirable si elle le fait.
+  function resetScroll() {
+    const c = content();
+    if (c) c.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }
+
   function push(entry, scroll) {
     if (!entry) return;
     if (entry.snapshot && entry.html == null) return;    // rien pour le remettre : inutile de l'empiler
@@ -66,6 +79,7 @@
     push(current, lastScroll);
     current = { snapshot: true };
     currentTitle = t;
+    resetScroll();
   });
 
   // --- Accroche d'une fonction globale --------------------------------------------------------
@@ -100,6 +114,7 @@
         if (!sameScreen && !typing) push(leaving, scroll);
         current = { name: name, args: args };
         currentTitle = titleOf();
+        if (!typing) resetScroll();   // recherche : ne pas remonter en haut à chaque frappe
       }
       return result;
     };
