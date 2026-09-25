@@ -1,0 +1,16 @@
+<svg viewBox="-6 -6 12 12" xmlns="http://www.w3.org/2000/svg">
+  <line x1="-6" y1="0" x2="6" y2="0" stroke="black" stroke-width="0.05"/>
+  <line x1="0" y1="6" x2="0" y2="-6" stroke="black" stroke-width="0.05"/>
+  <g font-size="0.5">
+    <line x1="2" y1="0.2" x2="2" y2="-0.2" stroke="black" stroke-width="0.05"/><text x="1.8" y="0.5">1</text>
+    <line x1="-2" y1="0.2" x2="-2" y2="-0.2" stroke="black" stroke-width="0.05"/><text x="-2.4" y="0.5">-1</text>
+    <line x1="-0.2" y1="-2" x2="0.2" y2="-2" stroke="black" stroke-width="0.05"/><text x="0.3" y="-2.3">1</text>
+    <line x1="-0.2" y1="2" x2="0.2" y2="2" stroke="black" stroke-width="0.05"/><text x="0.3" y="1.7">-1</text>
+  </g>
+  <line x1="0" y1="0" x2="3" y2="-2" stroke="blue" stroke-width="0.08"/>
+  <polygon points="3,-2 2.7,-1.8 2.9,-2.3" fill="blue"/>
+  <text x="3.2" y="-2.2" font-size="0.6">v</text>
+  <line x1="0" y1="0" x2="-2" y2="-3" stroke="red" stroke-width="0.08"/>
+  <polygon points="-2,-3 -2.3,-2.7 -1.8,-2.9" fill="red"/>
+  <text x="-2.8" y="-3.2" font-size="0.6">w</text>
+</svg>

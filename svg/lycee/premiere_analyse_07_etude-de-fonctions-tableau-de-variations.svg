@@ -1,0 +1,9 @@
+<svg viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+ <rect x="0" y="0" width="300" height="120" fill="white" stroke="black"/>
+ <text x="10" y="20" font-size="14">x</text>
+ <text x="10" y="60" font-size="14">f'(x)</text>
+ <text x="10" y="100" font-size="14">f(x)</text>
+ <text x="80" y="100" font-size="20">↗</text>
+ <text x="150" y="100" font-size="20">↘</text>
+ <text x="220" y="100" font-size="20">↗</text>
+</svg>

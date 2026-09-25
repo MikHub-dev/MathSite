@@ -1,0 +1,14 @@
+<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20,140 C80,80 220,80 280,140 C220,180 80,180 20,140 Z" fill="#dbe9ff" stroke="#3355aa" stroke-width="1.5"/>
+  <path d="M38,133 C 100,97 200,97 262,133" fill="none" stroke="#88a8dd" stroke-width="0.8"/>
+  <path d="M46,136 C 100,99 200,99 254,136" fill="none" stroke="#88a8dd" stroke-width="0.8"/>
+  <path d="M54,139 C 100,101 200,101 246,139" fill="none" stroke="#88a8dd" stroke-width="0.8"/>
+  <path d="M62,142 C 100,103 200,103 238,142" fill="none" stroke="#88a8dd" stroke-width="0.8"/>
+  <circle cx="150" cy="112" r="4" fill="red"/>
+  <text x="158" y="108" font-size="12" fill="red">p</text>
+  <polygon points="105,100 195,100 210,125 120,125" fill="#ffe0b3" stroke="orange" stroke-width="1.5" opacity="0.75"/>
+  <text x="150" y="90" font-size="11" fill="#cc6600" text-anchor="middle">TₚS (plan tangent)</text>
+  <line x1="150" y1="112" x2="150" y2="55" stroke="green" stroke-width="2"/>
+  <polygon points="150,55 145,65 155,65" fill="green"/>
+  <text x="156" y="60" font-size="12" fill="green">n (normale)</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg viewBox="-1 -10 11 11" xmlns="http://www.w3.org/2000/svg">
+  <line x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="0.05"/>
+  <line x1="0" y1="0" x2="0" y2="-10" stroke="black" stroke-width="0.05"/>
+  <g font-size="0.4">
+    <line x1="2" y1="0.1" x2="2" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="1.85" y="0.3">2</text>
+    <line x1="4" y1="0.1" x2="4" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="3.85" y="0.3">4</text>
+    <line x1="6" y1="0.1" x2="6" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="5.85" y="0.3">6</text>
+    <line x1="8" y1="0.1" x2="8" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="7.85" y="0.3">8</text>
+    <line x1="-0.1" y1="-2" x2="0.1" y2="-2" stroke="black" stroke-width="0.05"/><text x="0.15" y="-2.15">2</text>
+    <line x1="-0.1" y1="-4" x2="0.1" y2="-4" stroke="black" stroke-width="0.05"/><text x="0.15" y="-4.15">4</text>
+    <line x1="-0.1" y1="-6" x2="0.1" y2="-6" stroke="black" stroke-width="0.05"/><text x="0.15" y="-6.15">6</text>
+    <line x1="-0.1" y1="-8" x2="0.1" y2="-8" stroke="black" stroke-width="0.05"/><text x="0.15" y="-8.15">8</text>
+  </g>
+
+  <polyline fill="none" stroke="blue" stroke-width="0.08"
+    points="1,-0.5 2,-0.8 3,-1.1 4,-1.3 6,-1.6 8,-1.8"/>
+  <polyline fill="none" stroke="green" stroke-width="0.08"
+    points="1,-1 2,-4 3,-9 4,-10"/>
+  <polyline fill="none" stroke="orange" stroke-width="0.08"
+    points="1,-1.5 2,-2.3 3,-3.4 4,-5 5,-7.5 6,-9"/>
+  <polyline fill="none" stroke="red" stroke-width="0.08"
+    points="1,-1 2,-2 3,-6 4,-10"/>
+</svg>

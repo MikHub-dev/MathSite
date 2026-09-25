@@ -1,0 +1,15 @@
+<svg viewBox="-6.5 -4.3 12.8 8.6" xmlns="http://www.w3.org/2000/svg">
+  <line x1="-4" y1="0" x2="4" y2="0" stroke="black" stroke-width="0.04"/>
+  <line x1="0" y1="4" x2="0" y2="-4" stroke="black" stroke-width="0.04"/>
+  <g font-size="0.28"><line x1="-3" y1="-0.096" x2="-3" y2="0.096" stroke="black" stroke-width="0.04"/><text x="-3.168" y="0.208" >-3</text><line x1="-2" y1="-0.096" x2="-2" y2="0.096" stroke="black" stroke-width="0.04"/><text x="-2.168" y="0.208" >-2</text><line x1="-1" y1="-0.096" x2="-1" y2="0.096" stroke="black" stroke-width="0.04"/><text x="-1.168" y="0.208" >-1</text><line x1="1" y1="-0.096" x2="1" y2="0.096" stroke="black" stroke-width="0.04"/><text x="0.916" y="0.208" >1</text><line x1="2" y1="-0.096" x2="2" y2="0.096" stroke="black" stroke-width="0.04"/><text x="1.916" y="0.208" >2</text><line x1="3" y1="-0.096" x2="3" y2="0.096" stroke="black" stroke-width="0.04"/><text x="2.916" y="0.208" >3</text></g>
+  <g font-size="0.28"><line x1="-0.096" y1="3" x2="0.096" y2="3" stroke="black" stroke-width="0.04"/><text x="0.1296" y="3.0336" >-3</text><line x1="-0.096" y1="2" x2="0.096" y2="2" stroke="black" stroke-width="0.04"/><text x="0.1296" y="2.0336" >-2</text><line x1="-0.096" y1="1" x2="0.096" y2="1" stroke="black" stroke-width="0.04"/><text x="0.1296" y="1.0336" >-1</text><line x1="-0.096" y1="-1" x2="0.096" y2="-1" stroke="black" stroke-width="0.04"/><text x="0.1296" y="-1.112" >1</text><line x1="-0.096" y1="-2" x2="0.096" y2="-2" stroke="black" stroke-width="0.04"/><text x="0.1296" y="-2.112" >2</text><line x1="-0.096" y1="-3" x2="0.096" y2="-3" stroke="black" stroke-width="0.04"/><text x="0.1296" y="-3.112" >3</text></g>
+  <text x="3.52" y="0.112" font-size="0.35">x</text>
+  <text x="0.12" y="-3.76" font-size="0.35">ct</text>
+  <line x1="-4" y1="4" x2="4" y2="-4" stroke="orange" stroke-width="0.05"/>
+  <line x1="-4" y1="-4" x2="4" y2="4" stroke="orange" stroke-width="0.05"/>
+  <text x="-6.3" y="-3.5" font-size="0.26" fill="orange">cône de lumière</text>
+  <line x1="0" y1="3.5" x2="1.2" y2="-3.5" stroke="blue" stroke-width="0.07"/>
+  <text x="-6.3" y="-3" font-size="0.26" fill="blue">ligne d'univers (v&lt;c)</text>
+  <line x1="-3" y1="1.5" x2="3" y2="-1.5" stroke="green" stroke-width="0.05" stroke-dasharray="0.12 0.1"/>
+  <text x="-6.3" y="-2.5" font-size="0.26" fill="green">simultanéité (repère mobile)</text>
+</svg>

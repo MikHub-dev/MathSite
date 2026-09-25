@@ -1,0 +1,15 @@
+<svg viewBox="-6 -4 12 6" xmlns="http://www.w3.org/2000/svg">
+ <line x1="-6" y1="0" x2="6" y2="0" stroke="black" stroke-width="0.05"/>
+  <g font-size="0.4">
+    <line x1="-4" y1="0.1" x2="-4" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="-4.15" y="0.3">-4</text>
+    <line x1="-2" y1="0.1" x2="-2" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="-2.15" y="0.3">-2</text>
+    <line x1="0" y1="0.1" x2="0" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="-0.15" y="0.3">0</text>
+    <line x1="2" y1="0.1" x2="2" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="1.85" y="0.3">2</text>
+    <line x1="4" y1="0.1" x2="4" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="3.85" y="0.3">4</text>
+  </g>
+
+ <path d="M -6,0 C -4,-1 -2,-1 0,0 2,1 4,1 6,0"
+ stroke="red" fill="none" stroke-width="0.08"/>
+ <path d="M -6,-1 C -4,-1 -2,0 0,1 2,0 4,-1 6,-1"
+ stroke="blue" fill="none" stroke-width="0.08"/>
+</svg>

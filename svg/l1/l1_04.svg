@@ -1,0 +1,26 @@
+<svg viewBox="-1 -5.5 11 6" xmlns="http://www.w3.org/2000/svg">
+  <line x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="0.05"/>
+  <line x1="0" y1="0" x2="0" y2="-5" stroke="black" stroke-width="0.05"/>
+  <g font-size="0.4">
+    <line x1="2" y1="0.1" x2="2" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="1.85" y="0.3">2</text>
+    <line x1="4" y1="0.1" x2="4" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="3.85" y="0.3">4</text>
+    <line x1="6" y1="0.1" x2="6" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="5.85" y="0.3">6</text>
+    <line x1="8" y1="0.1" x2="8" y2="-0.1" stroke="black" stroke-width="0.05"/><text x="7.85" y="0.3">8</text>
+    <line x1="-0.1" y1="-1" x2="0.1" y2="-1" stroke="black" stroke-width="0.05"/><text x="0.15" y="-1.15">1</text>
+    <line x1="-0.1" y1="-2" x2="0.1" y2="-2" stroke="black" stroke-width="0.05"/><text x="0.15" y="-2.15">2</text>
+    <line x1="-0.1" y1="-3" x2="0.1" y2="-3" stroke="black" stroke-width="0.05"/><text x="0.15" y="-3.15">3</text>
+    <line x1="-0.1" y1="-4" x2="0.1" y2="-4" stroke="black" stroke-width="0.05"/><text x="0.15" y="-4.15">4</text>
+  </g>
+
+  <g fill="red">
+    <circle cx="1" cy="-1.8" r="0.12"/>
+    <circle cx="2" cy="-1.4" r="0.12"/>
+    <circle cx="3" cy="-1.2" r="0.12"/>
+    <circle cx="4" cy="-1.1" r="0.12"/>
+    <circle cx="5" cy="-1.05" r="0.12"/>
+    <circle cx="6" cy="-1.02" r="0.12"/>
+    <circle cx="7" cy="-1.01" r="0.12"/>
+    <circle cx="8" cy="-1.005" r="0.12"/>
+  </g>
+  <line x1="6" y1="-1.02" x2="8" y2="-1.005" stroke="purple" stroke-width="0.06"/>
+</svg>

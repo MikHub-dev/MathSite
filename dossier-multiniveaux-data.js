@@ -1,0 +1,238 @@
+// Version : 1.0
+// =====================================================================
+// DOSSIER MULTI‑NIVEAUX — données (générées à partir du classeur Excel)
+// Source : integration_221_vers_encyclopedie_v2.xlsx, feuille « Verdict par fiche ».
+// Chaque ligne du classeur = une fiche de la bibliothèque des 221 fiches historiques
+// (window.NOTIONS) rattachée à UN niveau : 193 rattachements pour 149 fiches
+// (39 fiches sont réparties sur plusieurs années). Les fiches Physique/Informatique et les 10
+// fiches de la feuille « Exclusions » ne sont pas dans le classeur, donc pas ici.
+// Clés : niveau du site > année (mêmes clés que MATHSITE_NIVEAUX dans app.js).
+// « formules » = colonne « Formules » du classeur, telle quelle (libellés parfois abrégés).
+// =====================================================================
+window.DOSSIER_MULTINIVEAUX = {
+  "college": {
+    "6e": [
+      {"id": 204, "titre": "Cercles", "categorie": "Géométrie", "formules": ["Longueur : 2πr", "Aire : πr²"]},
+      {"id": 205, "titre": "Angles", "categorie": "Géométrie", "formules": ["Somme des angles d'un triangle : 180°"]},
+      {"id": 206, "titre": "Triangles", "categorie": "Géométrie", "formules": ["Aire : (base × hauteur)/2"]},
+      {"id": 208, "titre": "Quadrilatères", "categorie": "Géométrie", "formules": ["Aire rectangle : L × l"]},
+      {"id": 213, "titre": "Symétries", "categorie": "Géométrie", "formules": ["Symétrie axiale"]},
+      {"id": 218, "titre": "Sphères", "categorie": "Géométrie", "formules": ["Volume : (4/3) π r³", "Aire : 4π r²"]}
+    ],
+    "5e": [
+      {"id": 208, "titre": "Quadrilatères", "categorie": "Géométrie", "formules": ["Aire parallélogramme : base × hauteur"]},
+      {"id": 213, "titre": "Symétries", "categorie": "Géométrie", "formules": ["Symétrie centrale"]},
+      {"id": 219, "titre": "Cylindres", "categorie": "Géométrie", "formules": ["Volume : V = π r² h", "Aire latérale : 2π r h"]}
+    ],
+    "4e": [
+      {"id": 206, "titre": "Triangles", "categorie": "Géométrie", "formules": ["Pythagore : a² + b² = c²"]},
+      {"id": 210, "titre": "Polygones", "categorie": "Géométrie", "formules": ["Somme des angles intérieurs : (n-2) × 180°"]},
+      {"id": 212, "titre": "Cercle circonscrit", "categorie": "Géométrie", "formules": ["Centre : intersection des médiatrices"]},
+      {"id": 610, "titre": "Géométrie olympique", "categorie": "Olympiades", "formules": ["Pythagore"]}
+    ],
+    "3e": [
+      {"id": 200, "titre": "Points, droites et plans", "categorie": "Géométrie", "formules": ["Droite (plan) : ax + by + c = 0"]},
+      {"id": 202, "titre": "Distances et milieux", "categorie": "Géométrie", "formules": ["Distance : d(A,B) = √((xB-xA)² + (yB-yA)²)", "Milieu : M = ((xA+xB)/2, (yA+yB)/2)"]},
+      {"id": 206, "titre": "Triangles", "categorie": "Géométrie", "formules": ["Formule de Héron"]},
+      {"id": 207, "titre": "Trigonométrie", "categorie": "Géométrie", "formules": ["sin² x + cos² x = 1", "tan x = sin x / cos x"]},
+      {"id": 214, "titre": "Homothéties", "categorie": "Géométrie", "formules": ["Aire multipliée par k²"]},
+      {"id": 220, "titre": "Cones", "categorie": "Géométrie", "formules": ["Volume : V = (1/3) π r² h", "Aire latérale : π r l"]},
+      {"id": 602, "titre": "Techniques de factorisation", "categorie": "Olympiades", "formules": ["a²+b² ≥ 2ab"]},
+      {"id": 610, "titre": "Géométrie olympique", "categorie": "Olympiades", "formules": ["Angles inscrits"]},
+      {"id": 300, "titre": "Expériences aléatoires", "categorie": "Probabilités", "formules": ["Ω : ensemble des issues", "Événement : A ⊂ Ω"]},
+      {"id": 301, "titre": "Probabilité d’un événement", "categorie": "Probabilités", "formules": ["P(A) = |A| / |Ω|", "0 ≤ P(A) ≤ 1", "P(Ω) = 1"]}
+    ]
+  },
+  "lycee": {
+    "Seconde": [
+      {"id": 100, "titre": "Nombres réels", "categorie": "Algèbre", "formules": ["ℝ = ensemble des nombres réels"]},
+      {"id": 1, "titre": "Fonctions", "categorie": "Analyse", "formules": ["f : A → B"]},
+      {"id": 201, "titre": "Vecteurs", "categorie": "Géométrie", "formules": ["→AB = (xB - xA, yB - yA)", "Norme : ||u|| = √(x² + y²)"]},
+      {"id": 204, "titre": "Cercles", "categorie": "Géométrie", "formules": ["(x - a)² + (y - b)² = r²"]}
+    ],
+    "Premiere": [
+      {"id": 102, "titre": "Polynômes", "categorie": "Algèbre", "formules": ["P(x) = a_n x^n + ... + a_0", "P'(x) = Σ k a_k x^{k-1}", "Racines : P(x)=0"]},
+      {"id": 1, "titre": "Fonctions", "categorie": "Analyse", "formules": ["f(x + h) - f(x)"]},
+      {"id": 4, "titre": "Dérivation", "categorie": "Analyse", "formules": ["f'(x) = lim_{h→0} (f(x+h)-f(x))/h", "(fg)' = f'g + fg'"]},
+      {"id": 200, "titre": "Points, droites et plans", "categorie": "Géométrie", "formules": ["Distance point–droite"]},
+      {"id": 201, "titre": "Vecteurs", "categorie": "Géométrie", "formules": ["u·v = x1x2 + y1y2"]},
+      {"id": 203, "titre": "Produit scalaire", "categorie": "Géométrie", "formules": ["u·v = ||u|| ||v|| cos θ", "u·v = x1x2 + y1y2 (plan)", "Orthogonalité : u·v = 0"]},
+      {"id": 205, "titre": "Angles", "categorie": "Géométrie", "formules": ["cos θ = u·v / (||u|| ||v||)"]},
+      {"id": 207, "titre": "Trigonométrie", "categorie": "Géométrie", "formules": ["cos(a+b) = cos a cos b - sin a sin b"]},
+      {"id": 210, "titre": "Polygones", "categorie": "Géométrie", "formules": ["Aire polygone régulier (avec tan(π/n))"]},
+      {"id": 212, "titre": "Cercle circonscrit", "categorie": "Géométrie", "formules": ["Rayon dans un triangle : R = a / (2 sin A)"]},
+      {"id": 216, "titre": "Géométrie vectorielle", "categorie": "Géométrie", "formules": ["Droite paramétrique : A + t u"]},
+      {"id": 600, "titre": "Inégalités classiques", "categorie": "Olympiades", "formules": ["AM ≥ GM", "Cauchy-Schwarz"]},
+      {"id": 601, "titre": "Optimisation", "categorie": "Olympiades", "formules": ["AM-GM pour minimiser", "Symétrisation", "Méthode des extremums"]},
+      {"id": 602, "titre": "Techniques de factorisation", "categorie": "Olympiades", "formules": ["a³+b³+c³-3abc=(a+b+c)(...)"]},
+      {"id": 605, "titre": "Récurrences", "categorie": "Olympiades", "formules": ["u_{n+1} = f(u_n)"]},
+      {"id": 610, "titre": "Géométrie olympique", "categorie": "Olympiades", "formules": ["Puissance d'un point"]},
+      {"id": 611, "titre": "Barycentres", "categorie": "Olympiades", "formules": ["G = (mA A + mB B) / (mA + mB)", "Somme vectorielle pondérée"]},
+      {"id": 614, "titre": "Symétrisation", "categorie": "Olympiades", "formules": ["AM-GM pour symétriser"]},
+      {"id": 616, "titre": "Inégalités classiques avancées", "categorie": "Olympiades", "formules": ["AM-GM", "Cauchy-Schwarz"]},
+      {"id": 619, "titre": "Puissance d'un point et inversion", "categorie": "Olympiades", "formules": ["Puissance d'un point", "Théorème de Ptolémée"]},
+      {"id": 620, "titre": "Polynômes et équations fonctionnelles avancés", "categorie": "Olympiades", "formules": ["Relations coefficients-racines"]},
+      {"id": 302, "titre": "Variables aléatoires", "categorie": "Probabilités", "formules": ["X : Ω → ℝ", "Loi de X : P(X = x_i)"]},
+      {"id": 303, "titre": "Probabilités conditionnelles", "categorie": "Probabilités", "formules": ["P(A|B) = P(A ∩ B) / P(B)", "P(A ∩ B) = P(A|B) P(B)"]},
+      {"id": 304, "titre": "Espérance", "categorie": "Probabilités", "formules": ["E(X) = Σ x_i P(X = x_i) (discret)"]},
+      {"id": 305, "titre": "Variance et écart-type", "categorie": "Probabilités", "formules": ["Var(X) = E(X²) - [E(X)]²", "σ(X) = √Var(X)"]},
+      {"id": 307, "titre": "Lois usuelles discrètes", "categorie": "Probabilités", "formules": ["Loi de Bernoulli", "Loi binomiale"]},
+      {"id": 308, "titre": "Indépendance", "categorie": "Probabilités", "formules": ["A et B indépendants", "X et Y indépendantes"]}
+    ],
+    "Terminale": [
+      {"id": 101, "titre": "Nombres complexes", "categorie": "Algèbre", "formules": ["z = x + iy", "i² = -1", "|z| = √(x² + y²)", "e^{iθ} = cos θ + i sin θ"]},
+      {"id": 113, "titre": "Arithmétique modulaire", "categorie": "Algèbre", "formules": ["a ≡ b (mod n)", "ℤ/nℤ"]},
+      {"id": 114, "titre": "Cryptographie", "categorie": "Algèbre", "formules": ["RSA : c ≡ m^e (mod n)", "Diffie-Hellman"]},
+      {"id": 1, "titre": "Fonctions", "categorie": "Analyse", "formules": ["Composition : (f ∘ g)(x) = f(g(x))"]},
+      {"id": 2, "titre": "Limites", "categorie": "Analyse", "formules": ["lim_{x→a} f(x) = L", "lim_{x→∞} f(x)", "lim_{x→0} sin(x)/x = 1"]},
+      {"id": 3, "titre": "Continuité", "categorie": "Analyse", "formules": ["f continue en a ⇔ lim_{x→a} f(x) = f(a)", "Théorème des valeurs intermédiaires"]},
+      {"id": 4, "titre": "Dérivation", "categorie": "Analyse", "formules": ["(f/g)' = (f'g - fg')/g²"]},
+      {"id": 5, "titre": "Intégration", "categorie": "Analyse", "formules": ["∫_a^b f(x) dx = F(b) - F(a)", "∫ x dx = x²/2"]},
+      {"id": 6, "titre": "Équations différentielles", "categorie": "Analyse", "formules": ["y' = ay", "y' + ay = f(x)", "Solution homogène + solution particulière"]},
+      {"id": 8, "titre": "Analyse complexe", "categorie": "Analyse", "formules": ["z = x + iy", "e^{iθ} = cos θ + i sin θ"]},
+      {"id": 12, "titre": "Théorèmes fondamentaux de l'analyse", "categorie": "Analyse", "formules": ["Théorème des valeurs intermédiaires"]},
+      {"id": 13, "titre": "Intégrale de Riemann", "categorie": "Analyse", "formules": ["∫ₐᵇ f(x)dx = F(b)-F(a)"]},
+      {"id": 200, "titre": "Points, droites et plans", "categorie": "Géométrie", "formules": ["Plan (espace) : ax + by + cz + d = 0"]},
+      {"id": 209, "titre": "Nombres complexes en géométrie", "categorie": "Géométrie", "formules": ["z = x + iy", "Rotation : z' = e^{iθ} z", "Translation : z' = z + a"]},
+      {"id": 211, "titre": "Transformations géométriques", "categorie": "Géométrie", "formules": ["Translation : z' = z + a", "Rotation : z' = e^{iθ} z", "Homothétie : z' = k z"]},
+      {"id": 214, "titre": "Homothéties", "categorie": "Géométrie", "formules": ["z' = k z (centre à l'origine)"]},
+      {"id": 216, "titre": "Géométrie vectorielle", "categorie": "Géométrie", "formules": ["Plan paramétrique : A + s u + t v"]},
+      {"id": 217, "titre": "Géométrie dans l’espace", "categorie": "Géométrie", "formules": ["Plan : ax + by + cz + d = 0", "Droite : A + t u"]},
+      {"id": 218, "titre": "Sphères", "categorie": "Géométrie", "formules": ["(x-a)² + (y-b)² + (z-c)² = r²"]},
+      {"id": 600, "titre": "Inégalités classiques", "categorie": "Olympiades", "formules": ["Jensen"]},
+      {"id": 603, "titre": "Équations fonctionnelles", "categorie": "Olympiades", "formules": ["f(x+y)=f(x)+f(y)", "f(xy)=f(x)f(y)"]},
+      {"id": 604, "titre": "Symétries et invariants", "categorie": "Olympiades", "formules": ["Invariant = quantité conservée", "Symétrie → réduction du problème"]},
+      {"id": 605, "titre": "Récurrences", "categorie": "Olympiades", "formules": ["Méthode de descente infinie"]},
+      {"id": 606, "titre": "Combinatoire avancée", "categorie": "Olympiades", "formules": ["C(n,k) = n!/(k!(n-k)!)", "Principe des tiroirs", "Inclusion-exclusion"]},
+      {"id": 607, "titre": "Graphes olympiques", "categorie": "Olympiades", "formules": ["Connexité", "Cycles", "Colorations"]},
+      {"id": 608, "titre": "Théorie des nombres olympique", "categorie": "Olympiades", "formules": ["a ≡ b (mod n)", "PGCD, PPCM", "Petit théorème de Fermat"]},
+      {"id": 609, "titre": "Équations diophantiennes", "categorie": "Olympiades", "formules": ["ax + by = c", "Méthode de descente infinie"]},
+      {"id": 612, "titre": "Colorations", "categorie": "Olympiades", "formules": ["Coloration minimale", "Invariants de coloration"]},
+      {"id": 613, "titre": "Pavages", "categorie": "Olympiades", "formules": ["Pavage = partition du plan", "Invariants de parité"]},
+      {"id": 614, "titre": "Symétrisation", "categorie": "Olympiades", "formules": ["Symétrisation → réduction du problème"]},
+      {"id": 615, "titre": "Méthode des invariants", "categorie": "Olympiades", "formules": ["Invariant = quantité conservée", "Monovariant = quantité monotone"]},
+      {"id": 616, "titre": "Inégalités classiques avancées", "categorie": "Olympiades", "formules": ["Inégalité de réarrangement"]},
+      {"id": 617, "titre": "Ordre multiplicatif et théorie des nombres olympique", "categorie": "Olympiades", "formules": ["Petit théorème de Fermat"]},
+      {"id": 618, "titre": "Double comptage et principes d'invariance", "categorie": "Olympiades", "formules": ["Principe des tiroirs (Dirichlet)", "Double comptage", "Invariants et semi-invariants"]},
+      {"id": 620, "titre": "Polynômes et équations fonctionnelles avancés", "categorie": "Olympiades", "formules": ["Équation de Cauchy"]},
+      {"id": 621, "titre": "Théorie des graphes en olympiades", "categorie": "Olympiades", "formules": ["Lemme des poignées de main", "Théorème de Ramsey (cas simples)", "Coloration de graphes"]},
+      {"id": 622, "titre": "Stratégies de preuve avancées", "categorie": "Olympiades", "formules": ["Récurrence forte", "Descente infinie de Fermat"]},
+      {"id": 623, "titre": "Coloriages et pavages avancés", "categorie": "Olympiades", "formules": ["Argument de coloriage (échiquier)", "Invariant de parité", "Pavages par polyominos"]},
+      {"id": 304, "titre": "Espérance", "categorie": "Probabilités", "formules": ["E(X) = ∫ x f_X(x) dx (continu)"]},
+      {"id": 306, "titre": "Formule de Bayes", "categorie": "Probabilités", "formules": ["P(A|B) = P(B|A) P(A) / P(B)", "P(B) = Σ P(B|A_i) P(A_i)"]},
+      {"id": 307, "titre": "Lois usuelles discrètes", "categorie": "Probabilités", "formules": ["Loi géométrique"]},
+      {"id": 311, "titre": "Lois normales", "categorie": "Probabilités", "formules": ["N(m,σ²)", "Densité gaussienne"]},
+      {"id": 324, "titre": "Combinatoire fondamentale", "categorie": "Probabilités", "formules": ["Arrangements : A(n,k)=n!/(n-k)!", "Combinaisons : C(n,k)=n!/(k!(n-k)!)", "Binôme de Newton"]}
+    ]
+  },
+  "prepa": {
+    "L1": [
+      {"id": 100, "titre": "Nombres réels", "categorie": "Algèbre", "formules": ["Propriétés : ordre total, densité, complétude"]},
+      {"id": 103, "titre": "Matrices", "categorie": "Algèbre", "formules": ["A ∈ M_{n×n}(ℝ)", "det(A)", "A^{-1} si det(A) ≠ 0"]},
+      {"id": 104, "titre": "Espaces vectoriels", "categorie": "Algèbre", "formules": ["E espace vectoriel sur K", "Base : (e1,...,en)", "Dimension : dim(E)"]},
+      {"id": 105, "titre": "Déterminant", "categorie": "Algèbre", "formules": ["det(A)", "det(AB) = det(A) det(B)", "A inversible ⇔ det(A) ≠ 0"]},
+      {"id": 106, "titre": "Applications linéaires", "categorie": "Algèbre", "formules": ["f(u+v)=f(u)+f(v)", "f(λu)=λf(u)", "Mat(f) dépend de la base"]},
+      {"id": 121, "titre": "Arithmétique avancée", "categorie": "Algèbre", "formules": ["Théorème de Bézout", "Petit théorème de Fermat", "Théorème chinois des restes"]},
+      {"id": 5, "titre": "Intégration", "categorie": "Analyse", "formules": ["Changement de variable : ∫ f(g(t)) g'(t) dt"]},
+      {"id": 10, "titre": "Développements limités", "categorie": "Analyse", "formules": ["sin x = x - x³/6 + ...", "e^x = 1 + x + x²/2 + ...", "ln(1+x) = x - x²/2 + ..."]},
+      {"id": 11, "titre": "Suites et séries numériques", "categorie": "Analyse", "formules": ["Critère de Cauchy", "Séries de Riemann : Σ1/n^α converge ssi α>1", "Critère de d'Alembert"]},
+      {"id": 12, "titre": "Théorèmes fondamentaux de l'analyse", "categorie": "Analyse", "formules": ["Théorème de Rolle", "TAF : f(b)-f(a)=f'(c)(b-a)"]},
+      {"id": 13, "titre": "Intégrale de Riemann", "categorie": "Analyse", "formules": ["Intégration par parties", "Changement de variable"]},
+      {"id": 15, "titre": "Équations différentielles linéaires", "categorie": "Analyse", "formules": ["y'+a(x)y=b(x)", "Équation caractéristique : ar²+br+c=0"]},
+      {"id": 215, "titre": "Affinités", "categorie": "Géométrie", "formules": ["Transformation linéaire préservant le parallélisme", "Représentation par matrices 2×2 + translation"]},
+      {"id": 617, "titre": "Ordre multiplicatif et théorie des nombres olympique", "categorie": "Olympiades", "formules": ["Ordre de a modulo n", "Lifting the Exponent (LTE)"]},
+      {"id": 619, "titre": "Puissance d'un point et inversion", "categorie": "Olympiades", "formules": ["Inversion de centre O et rapport k"]},
+      {"id": 620, "titre": "Polynômes et équations fonctionnelles avancés", "categorie": "Olympiades", "formules": ["Polynômes à coefficients entiers"]},
+      {"id": 622, "titre": "Stratégies de preuve avancées", "categorie": "Olympiades", "formules": ["Principe extrémal"]},
+      {"id": 310, "titre": "Covariance et corrélation", "categorie": "Probabilités", "formules": ["Cov(X,Y) = E(XY) - E(X)E(Y)", "Corr(X,Y) = Cov(X,Y) / (σ(X)σ(Y))"]},
+      {"id": 312, "titre": "Variables aléatoires continues", "categorie": "Probabilités", "formules": ["Densité de probabilité f(x)", "Fonction de répartition F(x)", "E[X]=∫x f(x)dx"]},
+      {"id": 707, "titre": "Équations différentielles avancées", "categorie": "Prépa", "formules": ["y' = ay", "y'' + ω² y = 0"]}
+    ],
+    "L2": [
+      {"id": 107, "titre": "Valeurs propres", "categorie": "Algèbre", "formules": ["A v = λ v", "det(A - λI) = 0"]},
+      {"id": 108, "titre": "Diagonalisation", "categorie": "Algèbre", "formules": ["A = PDP^{-1}", "D diag(λ1,...,λn)"]},
+      {"id": 109, "titre": "Formes quadratiques", "categorie": "Algèbre", "formules": ["Q(x)=xᵀAx", "Signature de Sylvester"]},
+      {"id": 110, "titre": "Groupes", "categorie": "Algèbre", "formules": ["G ensemble + opération", "Identité, inverse", "Associativité"]},
+      {"id": 111, "titre": "Anneaux", "categorie": "Algèbre", "formules": ["(A,+,×)", "Distributivité"]},
+      {"id": 112, "titre": "Corps", "categorie": "Algèbre", "formules": ["K corps", "ℚ, ℝ, ℂ"]},
+      {"id": 122, "titre": "Structures algébriques : groupes, anneaux, corps", "categorie": "Algèbre", "formules": ["Groupe (G,*)", "Sous-groupe, morphisme de groupes", "Théorème de Lagrange : |H| divise |G|"]},
+      {"id": 123, "titre": "Réduction des endomorphismes", "categorie": "Algèbre", "formules": ["Polynôme caractéristique", "Théorème de Cayley-Hamilton"]},
+      {"id": 124, "titre": "Espaces euclidiens et hermitiens", "categorie": "Algèbre", "formules": ["Procédé de Gram-Schmidt", "Matrices orthogonales : AᵀA=I", "Théorème spectral"]},
+      {"id": 132, "titre": "Algèbres et groupes de Lie", "categorie": "Algèbre", "formules": ["Exponentielle de matrice exp(A)"]},
+      {"id": 8, "titre": "Analyse complexe", "categorie": "Analyse", "formules": ["∮ f(z) dz"]},
+      {"id": 9, "titre": "Séries entières", "categorie": "Analyse", "formules": ["Σ a_n x^n", "Rayon de convergence R", "Test de Cauchy"]},
+      {"id": 14, "titre": "Fonctions de plusieurs variables", "categorie": "Analyse", "formules": ["Gradient ∇f", "Théorème de Schwarz : ∂²f/∂x∂y=∂²f/∂y∂x", "Multiplicateurs de Lagrange"]},
+      {"id": 15, "titre": "Équations différentielles linéaires", "categorie": "Analyse", "formules": ["X'=AX ⟹ X(t)=exp(tA)X₀"]},
+      {"id": 309, "titre": "Vecteurs aléatoires", "categorie": "Probabilités", "formules": ["X = (X1,...,Xn)", "Loi jointe"]},
+      {"id": 313, "titre": "Théorème central limite", "categorie": "Probabilités", "formules": ["TCL", "Loi des grands nombres", "Théorème de Slutsky"]},
+      {"id": 320, "titre": "Grandes déviations et concentration", "categorie": "Probabilités", "formules": ["Inégalité de Markov", "Inégalité de Bienaymé-Tchebychev"]},
+      {"id": 700, "titre": "Espaces vectoriels normés", "categorie": "Prépa", "formules": ["Norme : ||x||", "Distance : d(x,y)=||x−y||", "Normes usuelles"]},
+      {"id": 701, "titre": "Espaces métriques", "categorie": "Prépa", "formules": ["Distance : d(x,y)", "Boule : B(x,r)", "Convergence : x_n → x"]},
+      {"id": 703, "titre": "Séries de fonctions", "categorie": "Prépa", "formules": ["Σ f_n(x)", "Convergence simple / uniforme", "Théorème de Weierstrass"]},
+      {"id": 707, "titre": "Équations différentielles avancées", "categorie": "Prépa", "formules": ["Méthode de variation de la constante"]},
+      {"id": 710, "titre": "Séries entières avancées", "categorie": "Prépa", "formules": ["Σ a_n (x−x0)^n", "Rayon de convergence R", "Test de Cauchy"]},
+      {"id": 711, "titre": "Algèbre linéaire avancée", "categorie": "Prépa", "formules": ["A = P D P^{-1}", "Valeurs propres", "Formes quadratiques"]},
+      {"id": 712, "titre": "Probabilités avancées", "categorie": "Prépa", "formules": ["E(X|Y)", "Cov(X,Y)", "Loi normale"]}
+    ]
+  },
+  "grandes-ecoles": {
+    "L3": [
+      {"id": 123, "titre": "Réduction des endomorphismes", "categorie": "Algèbre", "formules": ["Réduction de Jordan"]},
+      {"id": 128, "titre": "Formes quadratiques et bilinéaires", "categorie": "Algèbre", "formules": ["Réduction de Gauss", "Signature (p,q)", "Loi d'inertie de Sylvester"]},
+      {"id": 133, "titre": "Théorie des nombres avancée", "categorie": "Algèbre", "formules": ["Fonction indicatrice d'Euler φ(n)"]},
+      {"id": 134, "titre": "Cryptographie avancée (mathématiques)", "categorie": "Algèbre", "formules": ["RSA"]},
+      {"id": 7, "titre": "Séries de Fourier", "categorie": "Analyse", "formules": ["f(x) = a0 + Σ (an cos(nx) + bn sin(nx))", "an = ∫ f(x) cos(nx) dx", "bn = ∫ f(x) sin(nx) dx"]},
+      {"id": 16, "titre": "Transformées intégrales", "categorie": "Analyse", "formules": ["Laplace : L{f}(s)=∫f(t)e^{-st}dt", "Fourier : f̂(ξ)=∫f(x)e^{-2iπxξ}dx", "Théorème de convolution"]},
+      {"id": 17, "titre": "Topologie générale", "categorie": "Analyse", "formules": ["Espace métrique (E,d)", "Compacité", "Théorème du point fixe de Banach"]},
+      {"id": 20, "titre": "Analyse complexe avancée", "categorie": "Analyse", "formules": ["Formule intégrale de Cauchy", "Théorème des résidus", "Développement en série de Laurent"]},
+      {"id": 24, "titre": "Fonctions spéciales (Gamma, Bêta, Zêta)", "categorie": "Analyse", "formules": ["Γ(x)=∫₀^∞ t^{x-1}e^{-t}dt", "Γ(n+1)=n!", "ζ(s)=Σ1/n^s"]},
+      {"id": 221, "titre": "Géométrie différentielle des courbes", "categorie": "Géométrie", "formules": ["Vecteur tangent unitaire", "Courbure κ", "Formules de Frenet"]},
+      {"id": 314, "titre": "Chaînes de Markov", "categorie": "Probabilités", "formules": ["Matrice de transition P", "Distribution stationnaire : πP=π", "Équation de Chapman-Kolmogorov"]},
+      {"id": 318, "titre": "Statistique mathématique", "categorie": "Probabilités", "formules": ["Estimateur du maximum de vraisemblance", "Borne de Cramér-Rao", "Intervalle de confiance"]},
+      {"id": 319, "titre": "Tests d'hypothèses", "categorie": "Probabilités", "formules": ["Erreur de première espèce α", "Lemme de Neyman-Pearson", "Test du χ²"]},
+      {"id": 702, "titre": "Topologie", "categorie": "Prépa", "formules": ["Ouverts, fermés", "Adhérence, intérieur", "Frontière"]},
+      {"id": 704, "titre": "Séries de Fourier (niveau prépa)", "categorie": "Prépa", "formules": ["f(x)=a0+Σ(an cos(nx)+bn sin(nx))", "an = ∫ f(x)cos(nx) dx", "bn = ∫ f(x)sin(nx) dx"]},
+      {"id": 705, "titre": "Analyse complexe (niveau prépa)", "categorie": "Prépa", "formules": ["Holomorphie", "Résidus", "∮ f(z) dz"]},
+      {"id": 706, "titre": "Transformations conformes", "categorie": "Prépa", "formules": ["f holomorphe ⇒ conforme", "Préservation des angles"]},
+      {"id": 708, "titre": "Espaces de Hilbert", "categorie": "Prépa", "formules": ["Produit scalaire", "Complétude", "Base orthonormée"]},
+      {"id": 709, "titre": "Espaces de Banach", "categorie": "Prépa", "formules": ["Norme", "Complétude", "Applications linéaires continues"]},
+      {"id": 713, "titre": "Statistiques avancées", "categorie": "Prépa", "formules": ["Estimateur", "Intervalle de confiance", "Test d'hypothèse"]}
+    ],
+    "M1": [
+      {"id": 125, "titre": "Théorie de Galois", "categorie": "Algèbre", "formules": ["Extension de corps K⊂L", "Groupe de Galois Gal(L/K)", "Théorème d'Abel-Ruffini"]},
+      {"id": 129, "titre": "Algèbre tensorielle et multilinéaire", "categorie": "Algèbre", "formules": ["Produit tensoriel V⊗W", "Formes multilinéaires alternées", "Déterminant comme forme n-linéaire alternée"]},
+      {"id": 130, "titre": "Corps finis et applications", "categorie": "Algèbre", "formules": ["𝔽_q avec q=p^n", "Groupe multiplicatif 𝔽_q* cyclique", "Polynômes cyclotomiques"]},
+      {"id": 133, "titre": "Théorie des nombres avancée", "categorie": "Algèbre", "formules": ["Théorème des nombres premiers", "Fonction zêta de Riemann ζ(s)"]},
+      {"id": 134, "titre": "Cryptographie avancée (mathématiques)", "categorie": "Algèbre", "formules": ["Logarithme discret", "Courbes elliptiques : y²=x³+ax+b"]},
+      {"id": 18, "titre": "Mesure et intégrale de Lebesgue", "categorie": "Analyse", "formules": ["Théorème de convergence dominée", "Lemme de Fatou", "Théorème de Fubini-Tonelli"]},
+      {"id": 19, "titre": "Espaces de Hilbert et opérateurs", "categorie": "Analyse", "formules": ["Inégalité de Cauchy-Schwarz", "Théorème de projection orthogonale", "Théorème de représentation de Riesz"]},
+      {"id": 22, "titre": "Équations aux dérivées partielles", "categorie": "Analyse", "formules": ["Équation de la chaleur", "Équation des ondes", "Équation de Laplace : Δu=0"]},
+      {"id": 23, "titre": "Calcul des variations et optimisation", "categorie": "Analyse", "formules": ["Équations d'Euler-Lagrange", "Conditions KKT", "Multiplicateurs de Lagrange"]},
+      {"id": 222, "titre": "Géométrie différentielle des surfaces", "categorie": "Géométrie", "formules": ["Première forme fondamentale", "Courbure de Gauss K", "Theorema Egregium"]},
+      {"id": 223, "titre": "Variétés différentiables", "categorie": "Géométrie", "formules": ["Cartes et atlas", "Espace tangent TₚM", "Théorème de Stokes généralisé"]},
+      {"id": 224, "titre": "Topologie algébrique", "categorie": "Géométrie", "formules": ["Groupe fondamental π₁(X)", "Caractéristique d'Euler : V−E+F=2", "Homologie singulière"]},
+      {"id": 228, "titre": "Géométrie projective", "categorie": "Géométrie", "formules": ["Espace projectif ℙⁿ", "Coordonnées homogènes", "Homographies"]},
+      {"id": 315, "titre": "Martingales et temps d'arrêt", "categorie": "Probabilités", "formules": ["E[Xₙ₊₁|Fₙ]=Xₙ", "Théorème d'arrêt de Doob", "Inégalité de Doob"]},
+      {"id": 316, "titre": "Mouvement brownien et calcul stochastique", "categorie": "Probabilités", "formules": ["Formule d'Itô", "dXₜ=μdt+σdWₜ", "Propriété de Markov du mouvement brownien"]},
+      {"id": 320, "titre": "Grandes déviations et concentration", "categorie": "Probabilités", "formules": ["Théorème de Cramér"]},
+      {"id": 321, "titre": "Processus de Poisson et files d'attente", "categorie": "Probabilités", "formules": ["Loi de Poisson du processus", "Temps d'attente exponentiels", "Processus de naissance et de mort"]}
+    ],
+    "M2": [
+      {"id": 126, "titre": "Modules et algèbre homologique", "categorie": "Algèbre", "formules": ["Module libre", "Théorème de structure des modules de type fini", "Suite exacte courte"]},
+      {"id": 127, "titre": "Représentations de groupes finis", "categorie": "Algèbre", "formules": ["Caractère : χ(g)=Tr(ρ(g))", "Lemme de Schur", "Théorème de Maschke"]},
+      {"id": 131, "titre": "Anneaux de polynômes et géométrie algébrique", "categorie": "Algèbre", "formules": ["Nullstellensatz", "Idéaux premiers, idéaux maximaux", "Variétés algébriques"]},
+      {"id": 132, "titre": "Algèbres et groupes de Lie", "categorie": "Algèbre", "formules": ["Crochet de Lie [X,Y]", "Algèbre 𝔰𝔩(n)"]},
+      {"id": 21, "titre": "Distributions et espaces de Sobolev", "categorie": "Analyse", "formules": ["Dérivée au sens des distributions", "Distribution de Dirac δ", "Espace de Sobolev Wᵏ,ᵖ"]},
+      {"id": 225, "titre": "Géométrie riemannienne", "categorie": "Géométrie", "formules": ["Connexion de Levi-Civita", "Tenseur de courbure de Riemann", "Équation de la géodésique"]},
+      {"id": 226, "titre": "Géométrie symplectique et mécanique hamiltonienne", "categorie": "Géométrie", "formules": ["Forme symplectique ω", "Crochet de Poisson {f,g}", "Théorème de Liouville"]},
+      {"id": 227, "titre": "Géométrie algébrique", "categorie": "Géométrie", "formules": ["Théorème de Bézout", "Diviseurs sur une courbe", "Théorème de Riemann-Roch"]},
+      {"id": 229, "titre": "Théorie de Hodge et cohomologie", "categorie": "Géométrie", "formules": ["Opérateur de Laplace-de Rham", "Décomposition de Hodge", "Théorème de de Rham"]},
+      {"id": 230, "titre": "Géométrie hyperbolique et courbure négative", "categorie": "Géométrie", "formules": ["Modèle du disque de Poincaré", "Espaces CAT(0)", "Bord à l'infini"]},
+      {"id": 231, "titre": "Fibrés vectoriels et classes caractéristiques", "categorie": "Géométrie", "formules": ["Fibré vectoriel E→M", "Connexion et courbure d'un fibré", "Classes de Chern"]},
+      {"id": 232, "titre": "Transport optimal et inégalités géométriques", "categorie": "Géométrie", "formules": ["Distance de Wasserstein", "Dualité de Kantorovich", "Inégalité isopérimétrique"]},
+      {"id": 317, "titre": "Équations différentielles stochastiques", "categorie": "Probabilités", "formules": ["EDS", "Théorème d'existence et unicité", "Formule de Feynman-Kac"]},
+      {"id": 322, "titre": "Finance mathématique", "categorie": "Probabilités", "formules": ["Formule de Black-Scholes", "Portefeuille auto-financé", "Mesure de probabilité risque-neutre"]},
+      {"id": 323, "titre": "Séries temporelles", "categorie": "Probabilités", "formules": ["Modèle ARMA(p,q)", "Modèle GARCH", "Théorème de Wold"]}
+    ]
+  }
+};

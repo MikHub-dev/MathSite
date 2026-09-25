@@ -1,0 +1,8 @@
+<svg viewBox="-6 -6 12 12" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="-2" cy="0" r="2" fill="#e6f7ff" stroke="blue" stroke-width="0.08" stroke-dasharray="0.3 0.3"/>
+  <text x="-3" y="-2.8" font-size="0.6">B(x,r)</text>
+  <circle cx="3" cy="0" r="2" fill="#e6ffe6" stroke="green" stroke-width="0.12"/>
+  <text x="2" y="-2.8" font-size="0.6">\bar{B}(x,r)</text>
+  <circle cx="-2" cy="0" r="0.15" fill="red"/>
+  <circle cx="3" cy="0" r="0.15" fill="red"/>
+</svg>

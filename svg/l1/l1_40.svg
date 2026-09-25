@@ -1,0 +1,7 @@
+<svg viewBox="-6 -6 12 12" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="0" cy="0" r="3" fill="#e6f7ff" stroke="blue" stroke-width="0.08"/>
+  <circle cx="0" cy="0" r="3" fill="none" stroke="blue" stroke-width="0.12"/>
+  <circle cx="3" cy="0" r="0.15" fill="red"/>
+  <text x="3.2" y="0.3" font-size="0.6">x</text>
+  <text x="-2" y="-3.5" font-size="0.6">Adhérence(A)</text>
+</svg>

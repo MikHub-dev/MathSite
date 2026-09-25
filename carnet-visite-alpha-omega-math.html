@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Carnet de visite Site Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{color-scheme:dark;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;padding:0;}
+
+  /* Palette identique au CSS réel du site (styles.css) : fond #0f1116, panneaux #1a1d24,
+     bordures #2a2d35, accent principal #7aa2ff. Les 6 couleurs de domaine (--dom-*) sont
+     copiées telles quelles de la constante DOMAINES de correspondances.js. */
+  :root{
+    --bg:#0f1116;
+    --surface:#1a1d24;
+    --surface-2:#14161c;
+    --ink:#e6e6e6;
+    --ink-soft:#9a9a9a;
+    --ink-dim:#7a7f8c;
+    --line:#2a2d35;
+    --accent:#7aa2ff;
+    --accent-soft:rgba(122,162,255,.14);
+    --orange:#ffb86b;
+    --orange-soft:rgba(255,184,107,.13);
+    --pink:#ff6b8b;
+    --violet:#c8a2ff;
+    --teal:#7ee0c3;
+    --wip:#7a7f8c;
+    /* Domaines MSC — mêmes valeurs hexadécimales que DOMAINES dans correspondances.js */
+    --dom-fond:#4f8ff7;
+    --dom-alg:#5cc16f;
+    --dom-ana:#f5a04a;
+    --dom-geo:#b57edc;
+    --dom-pro:#f2d04b;
+    --dom-app:#a9825f;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 24px -12px rgba(0,0,0,.55);
+    --radius: 12px;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  }
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter",Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--accent-soft); }
+
+  h1,h2,h3,h4{
+    font-family:"Inter",Arial,sans-serif;
+    font-weight:800;
+    color:var(--ink);
+    margin:0 0 .4em;
+    letter-spacing:-.01em;
+  }
+  em, .em{ font-style:italic; font-weight:500; }
+  a{ color:var(--accent); }
+  code, .mono{ font-family:var(--mono); }
+  .tabular{ font-variant-numeric: tabular-nums; }
+
+  /* ===================== NAVBAR — même structure/couleurs que #navbar / .nav-links du site ===================== */
+  .site-nav{
+    position:sticky; top:0; z-index:20;
+    background:var(--surface);
+    border-bottom:1px solid var(--line);
+    padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:20px; flex-wrap:wrap;
+  }
+  .nav-left{ display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .nav-badge{
+    width:40px; height:40px; border-radius:10px; flex-shrink:0;
+    background:linear-gradient(135deg, var(--accent), var(--violet));
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; font-size:17px; color:#0f1116;
+  }
+  .logo-text{ display:flex; flex-direction:column; }
+  .logo{ font-size:20px; font-weight:800; color:var(--accent); line-height:1.15; }
+  .logo-tagline{ font-size:12.5px; font-style:italic; color:var(--pink); letter-spacing:.01em; }
+
+  .nav-links{ display:flex; flex-wrap:wrap; row-gap:6px; align-items:center; }
+  .nav-links a{
+    color:var(--accent); font-weight:700; margin-left:22px; text-decoration:none;
+    font-size:14.5px; padding-bottom:4px; border-bottom:2px solid transparent;
+  }
+  .nav-links a:first-child{ margin-left:0; }
+  .nav-links a:hover{ color:#ffffff; }
+  .nav-links a.active{ color:#ffffff; border-color:var(--accent); }
+
+  /* ===================== LAYOUT PLEINE LARGEUR (pas de colonne latérale, comme #content) ===================== */
+  main.page{ padding:2.2rem clamp(1rem,3vw,2.6rem) 6rem; width:100%; }
+  .masthead{ margin-bottom:1.6rem; }
+  .kicker{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-dim); margin-bottom:.9rem;
+  }
+  .masthead h1{ font-size:clamp(1.9rem,3.4vw,2.6rem); line-height:1.16; max-width:60ch; }
+  .masthead .lede{ font-size:1.05rem; color:var(--ink-soft); margin-top:.9rem; max-width:95ch; }
+
+  .update-note{
+    display:flex; gap:.7rem; align-items:flex-start;
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--accent);
+    border-radius:10px; padding:.85rem 1.1rem; margin-bottom:3rem; font-size:.9rem; color:var(--ink-soft);
+    max-width:120ch;
+  }
+  .update-note strong{ color:var(--ink); }
+
+  section{ margin-bottom:3.6rem; scroll-margin-top:5.2rem; }
+  .section-eyebrow{
+    font-family:var(--mono); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--sec-accent, var(--accent)); margin-bottom:.5rem; font-weight:700;
+  }
+  section h2{ font-size:1.7rem; margin-bottom:.7rem; }
+  section > p{ color:var(--ink-soft); max-width:105ch; }
+  section > p.lead{ color:var(--ink); font-size:1.03rem; max-width:105ch; }
+
+  .stat-row{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; margin:1.6rem 0 2rem;
+  }
+  .stat{ background:var(--surface); padding:1.1rem 1.3rem; border-top:3px solid var(--stat-c, var(--accent)); }
+  .stat .num{ font-family:var(--mono); font-size:1.5rem; font-weight:700; color:var(--stat-c, var(--accent)); }
+  .stat .label{ font-size:.8rem; color:var(--ink-soft); margin-top:.2rem; }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:.35em; font-family:var(--mono);
+    font-size:.66rem; letter-spacing:.04em; text-transform:uppercase;
+    padding:.28em .65em; border-radius:100px; font-weight:700; white-space:nowrap;
+  }
+  .pill.wip{ background:rgba(122,127,140,.16); color:var(--wip); border:1px solid rgba(122,127,140,.3); }
+  .pill.formules{ background:var(--orange-soft); color:var(--orange); border:1px solid rgba(255,184,107,.3); }
+  .pill.new{ background:rgba(126,224,195,.13); color:var(--teal); border:1px solid rgba(126,224,195,.3); }
+
+  .dot{ width:9px; height:9px; border-radius:3px; display:inline-block; }
+
+  .menu-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1rem; margin-top:1.6rem; }
+  .menu-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:1.25rem 1.35rem 1.35rem; box-shadow:var(--shadow); border-top:3px solid var(--card-accent, var(--line));
+    display:flex; flex-direction:column; gap:.55rem;
+  }
+  .menu-card.wip{ border-top-style:dashed; opacity:.92; }
+  .menu-card .top{ display:flex; align-items:center; justify-content:space-between; gap:.6rem; flex-wrap:wrap; }
+  .menu-card h3{ font-size:1.08rem; margin:0; color:var(--card-accent, var(--ink)); }
+  .menu-card p{ margin:0; font-size:.9rem; color:var(--ink-soft); }
+  .menu-card .call{
+    font-family:var(--mono); font-size:.72rem; color:var(--ink-soft);
+    background:var(--surface-2); border-radius:8px; padding:.4rem .55rem; margin-top:.15rem;
+    overflow-x:auto; white-space:nowrap; border:1px solid var(--line);
+  }
+  .menu-card .file{ font-family:var(--mono); font-size:.68rem; color:var(--ink-dim); }
+
+  .home-tiles-note{
+    margin-top:1.8rem; background:var(--surface-2); border:1px solid var(--line); border-radius:var(--radius);
+    padding:1.1rem 1.35rem; max-width:120ch;
+  }
+  .home-tiles-note h4{ font-size:.92rem; margin-bottom:.5rem; color:var(--teal); }
+  .home-tiles-note p{ margin:0; font-size:.88rem; color:var(--ink-soft); }
+
+  .compare-wrap{ overflow-x:auto; margin-top:1.6rem; border:1px solid var(--line); border-radius:var(--radius); }
+  table.compare{ width:100%; border-collapse:collapse; min-width:560px; background:var(--surface); }
+  table.compare th{
+    font-family:var(--mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.04em;
+    color:var(--teal); text-align:left; padding:.9rem 1rem; border-bottom:2px solid var(--line);
+    background:var(--surface-2); position:sticky; top:0;
+  }
+  table.compare td{ padding:.85rem 1rem; border-bottom:1px solid var(--line); font-size:.88rem; vertical-align:top; }
+  table.compare tr:hover td{ background:var(--surface-2); }
+  table.compare tr:last-child td{ border-bottom:none; }
+  table.compare td:first-child{ font-family:var(--mono); font-size:.72rem; color:var(--ink-soft); white-space:nowrap; }
+
+  .quote{
+    font-family:"Inter",Arial,sans-serif; font-style:italic; font-weight:500; font-size:1.08rem;
+    color:var(--ink); border-left:3px solid var(--teal); padding:.2rem 0 .2rem 1.1rem; margin:1.6rem 0; max-width:105ch;
+  }
+  .quote cite{ display:block; font-family:var(--mono); font-style:normal; font-size:.72rem; color:var(--ink-dim); margin-top:.5rem; }
+
+  .bridge-box{
+    background:var(--surface-2); border:1px solid var(--line); border-left:3px solid var(--teal);
+    border-radius:var(--radius); padding:1.3rem 1.5rem; margin-top:1.6rem; max-width:120ch;
+  }
+  .bridge-box h4{ font-size:1rem; color:var(--teal); margin-bottom:.6rem; }
+  .bridge-box ul{ margin:0; padding-left:1.2rem; }
+  .bridge-box li{ margin-bottom:.45rem; font-size:.92rem; color:var(--ink-soft); }
+  .bridge-box li strong{ color:var(--ink); }
+
+  .kpi-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.7rem; margin:1.4rem 0; max-width:120ch; }
+  .kpi{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:.8rem 1rem; }
+  .kpi .n{ font-family:var(--mono); font-size:1.3rem; font-weight:700; color:var(--orange); }
+  .kpi .l{ font-size:.78rem; color:var(--ink-soft); margin-top:.15rem; }
+
+  .domain-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:.6rem; margin-top:1.4rem; max-width:120ch; }
+  .domain-chip{
+    display:flex; align-items:center; gap:.5rem; background:var(--surface); border:1px solid var(--line);
+    border-radius:10px; padding:.6rem .75rem; font-size:.82rem;
+  }
+  .domain-chip .dot{ width:10px; height:10px; flex:none; }
+
+  .anatomy-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-top:1.6rem; }
+  .anatomy-card{
+    background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--orange);
+    border-radius:var(--radius); padding:1.1rem 1.25rem; box-shadow:var(--shadow);
+  }
+  .anatomy-card h4{ font-size:.98rem; margin-bottom:.4rem; color:var(--orange); }
+  .anatomy-card p{ margin:0; font-size:.87rem; color:var(--ink-soft); }
+  .anatomy-card .n{ font-family:var(--mono); font-size:.7rem; color:var(--ink-dim); }
+
+  .persona{
+    background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--pink);
+    border-radius:var(--radius); padding:1.4rem 1.5rem; margin-top:1.4rem; box-shadow:var(--shadow);
+  }
+  .persona .top{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+  .persona h3{ font-size:1.12rem; color:var(--pink); }
+  .persona .goal{ font-size:.88rem; color:var(--ink-soft); font-style:italic; }
+  .persona ol{ margin:.9rem 0 0; padding-left:1.25rem; }
+  .persona li{ margin-bottom:.5rem; font-size:.92rem; color:var(--ink-soft); }
+  .persona li .tag{ font-family:var(--mono); font-size:.68rem; color:var(--accent); font-weight:700; }
+
+  .axiom-box{
+    background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--violet);
+    border-radius:var(--radius); padding:1.3rem 1.5rem; margin-top:1.3rem; box-shadow:var(--shadow);
+  }
+  .axiom-box h4{ font-size:1rem; margin-bottom:.5rem; color:var(--violet); }
+  .axiom-box p{ margin:0 0 .7rem; font-size:.92rem; color:var(--ink-soft); }
+  .axiom-box p:last-child{ margin-bottom:0; }
+
+  table.axtable{ width:100%; border-collapse:collapse; margin:1rem 0; background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+  table.axtable th{ font-family:var(--mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.04em; color:var(--violet); text-align:left; padding:.7rem .9rem; background:var(--surface-2); border-bottom:1px solid var(--line); }
+  table.axtable td{ padding:.65rem .9rem; border-bottom:1px solid var(--line); font-size:.85rem; color:var(--ink-soft); }
+  table.axtable tr:last-child td{ border-bottom:none; }
+
+  .missing-note{
+    border:1px dashed rgba(200,162,255,.4); border-radius:10px; padding:.9rem 1.1rem; margin-top:1.2rem;
+    font-size:.85rem; color:var(--ink-soft); max-width:105ch; background:rgba(200,162,255,.05);
+  }
+  .missing-note strong{ color:var(--violet); }
+
+  footer{ padding-top:1rem; border-top:1px solid var(--line); color:var(--ink-dim); font-size:.82rem; max-width:120ch; }
+  footer p{ margin:.4rem 0; }
+
+  @media (max-width: 720px){
+    .site-nav{ padding:10px 14px; }
+    .nav-links a{ margin-left:14px; font-size:13.5px; }
+    main.page{ padding-top:1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <a class="nav-left" href="index.html" title="Retour à l'accueil du site (index.html)">
+    <span class="nav-badge">ΩA</span>
+    <span class="logo-text">
+      <span class="logo">Alpha Omega Math</span>
+      <span class="logo-tagline">Find a way or find excuses</span>
+    </span>
+  </a>
+  <nav class="nav-links">
+    <a href="#apercu">00 Aperçu</a>
+    <a href="#menu">01 Menu</a>
+    <a href="#etudes-spe">02 Études &amp; Spécialisation</a>
+    <a href="#correspondances">03 Correspondances</a>
+    <a href="#axiomes">04 Axiomes</a>
+    <a href="#usages">05 Cas d'usage</a>
+  </nav>
+</header>
+
+<main class="page">
+  <div class="masthead">
+    <div class="kicker">Document de présentation — usage interne</div>
+    <h1>Alpha Omega Math, une carte des mathématiques classée comme une vraie discipline</h1>
+    <p class="lede">Ce carnet présente le site tel qu'il est aujourd'hui : le menu horizontal à 8 entrées (Accueil, MSC, Études, Correspondances, Exercices, Banque d'images, Axiomes, Spécialisation), ce qui distingue — et relie — <strong>Études</strong> et <strong>Spécialisation</strong>, le fonctionnement de <strong>Correspondances</strong> et de sa lecture « Vue d'ensemble », et la nouvelle rubrique <strong>Axiomes</strong>, avec son initiation pensée pour un lycéen.</p>
+  </div>
+  <div class="update-note">
+    <span>🔄</span>
+    <span><strong>Refonte complète :</strong> ce carnet a été reconstruit à partir du code source réel du site (<code>index.html</code>, <code>app.js</code>, <code>etudes.js</code>, <code>correspondances.js</code>, <code>formules.js</code>, <code>axiomes.js</code>) que vous m'avez transmis. Il remplace une version précédente qui décrivait une architecture plus ancienne (Encyclopédie / 2200 Notions / 5000 Formules séparées) : le site a depuis fusionné ces rubriques en <strong>Études</strong> et <strong>Spécialisation</strong>, et a gagné une rubrique <strong>Axiomes</strong> à part entière. Il n'y a plus de script vidéo minuté dans ce carnet.</span>
+  </div>
+
+  <section id="apercu" style="--sec-accent:var(--accent)">
+    <div class="section-eyebrow">00 — Aperçu</div>
+    <h2>Un site qui n'a toujours pas besoin d'internet</h2>
+    <p class="lead">Le principe fondateur n'a pas bougé : tout le contenu arrive par des balises <code>&lt;script&gt;</code>, jamais par <code>fetch()</code>, précisément parce qu'un <code>fetch()</code> local est bloqué par Chrome en <code>file://</code>. On double-clique sur <code>index.html</code>, sans serveur, sans wifi, et tout est déjà là — plus de 25 scripts de données et d'affichage chargés dans l'ordre, jusqu'à <code>nav-history.js</code> tout à la fin.</p>
+    <p>Le site s'appelle <strong>Alpha Omega Math</strong> à l'écran (le nom <em>ΩPrépa</em> reste utilisé dans le texte de présentation), signature « Find a way or find excuses ». Quelques chiffres, recalculés en direct par le site lui-même et non écrits en dur :</p>
+    <div class="stat-row">
+      <div class="stat" style="--stat-c:var(--accent)"><div class="num tabular">2200+</div><div class="label">notions, du Collège aux Grandes Écoles</div></div>
+      <div class="stat" style="--stat-c:var(--orange)"><div class="num tabular">~5000</div><div class="label">formules &amp; théorèmes</div></div>
+      <div class="stat" style="--stat-c:var(--teal)"><div class="num tabular">6</div><div class="label">domaines de la classification MSC</div></div>
+      <div class="stat" style="--stat-c:var(--pink)"><div class="num tabular">39</div><div class="label">notions-pivots dans Correspondances</div></div>
+      <div class="stat" style="--stat-c:var(--violet)"><div class="num tabular">8</div><div class="label">entrées du menu horizontal</div></div>
+    </div>
+    <p>Comme le dit le site lui-même sur sa page « Présentation » : <span class="em">« ΩPrépa rassemble, sur un seul site, les mathématiques du Collège aux Grandes Écoles : plus de 2200 notions et près de 5000 formules et théorèmes, chacun documenté par une fiche complète (définition, formules, explications, exemples, applications, correspondances, vidéos). L'objectif n'est pas de remplacer un cours, mais de donner un point de repère fiable à tout moment de la scolarité. »</span> Certaines fiches vont plus loin : un champ optionnel <code>definition_axiomatique</code> (cadre, axiomes, conclusion, remarque, sources) s'affiche juste après la Définition quand il est renseigné.</p>
+  </section>
+
+  <section id="menu" style="--sec-accent:var(--teal)">
+    <div class="section-eyebrow">01 — Navigation</div>
+    <h2>Le menu horizontal, poste par poste</h2>
+    <p class="lead">Huit entrées, dans l'ordre exact d'<code>index.html</code>, suivies d'un champ de recherche unique au site (<code>#global-search</code>).</p>
+
+    <div class="menu-grid">
+      <div class="menu-card" style="--card-accent:var(--accent)">
+        <div class="top"><h3>Accueil</h3></div>
+        <p>La page d'atterrissage : les 6 vignettes du menu horizontal (moins Accueil et MSC) plus une 7<sup>e</sup>, « Présentation du site », suivies des tuiles « Collège / Lycée / Prépa-CPGE / Grandes Écoles / Tous les niveaux » qui comptent leurs notions et concepts. Le menu de gauche se réaffiche automatiquement ici.</p>
+        <div class="call">setApp('mathsite'); loadHome()</div>
+        <span class="file">app.js — loadHome()</span>
+      </div>
+      <div class="menu-card" style="--card-accent:var(--dom-geo)">
+        <div class="top"><h3>MSC</h3></div>
+        <p>La page de référence de la classification MSC2020 (Mathematics Subject Classification) utilisée par tout le site : ses 6 domaines, sa structure en disciplines, son code à 5 caractères. Menu de gauche rétracté.</p>
+        <div class="call">setApp('mathsite'); loadMscPage()</div>
+        <span class="file">msc-page.js</span>
+      </div>
+      <div class="menu-card" style="--card-accent:var(--orange)">
+        <div class="top"><h3>Études</h3></div>
+        <p>La bibliothèque Encyclopédie au complet : toutes les fiches du sommaire, par niveau, classe et chapitre. Un écran d'introduction affiche des totaux calculés à la volée (domaines, disciplines, notions, fiches, formules) niveau par niveau. Menu de gauche déployé (sommaire complet).</p>
+        <div class="call">loadEtudes()</div>
+        <span class="file">etudes.js</span>
+      </div>
+      <div class="menu-card" style="--card-accent:var(--dom-pro)">
+        <div class="top"><h3>Correspondances</h3></div>
+        <p>39 notions-pivots, rangées sous les 6 domaines MSC, chacune reliée à d'autres notions du sommaire avec la raison mathématique précise du rapprochement. Menu de gauche rétracté (détail en section 03).</p>
+        <div class="call">setApp('mathsite'); loadCorrespondanceTable()</div>
+        <span class="file">correspondances.js</span>
+      </div>
+      <div class="menu-card" style="--card-accent:var(--dom-alg)">
+        <div class="top"><h3>Exercices</h3></div>
+        <p>Les exercices fondamentaux, rattachés aux fiches, pour s'entraîner sur une notion qu'on vient de revoir. Menu de gauche rétracté.</p>
+        <div class="call">setApp('mathsite'); loadExosFondamentauxHome()</div>
+        <span class="file">app.js — loadExosFondamentauxHome()</span>
+      </div>
+      <div class="menu-card" style="--card-accent:var(--wip)">
+        <div class="top"><h3>Banque d'images</h3></div>
+        <p>Les schémas et illustrations du site, au singulier dans le menu. Menu de gauche rétracté. (Contenu non vérifié dans cette session — <code>banque-images.js</code> ne m'a pas été transmis.)</p>
+        <div class="call">setApp('mathsite'); loadBanqueImages()</div>
+        <span class="file">banque-images.js</span>
+      </div>
+      <div class="menu-card" style="--card-accent:var(--violet)">
+        <div class="top"><h3>Axiomes</h3><span class="pill new">nouvelle rubrique</span></div>
+        <p>Un panorama des grands systèmes d'axiomes (logique, ensembles, arithmétique, algèbre, géométrie, analyse, probabilités, calcul lambda), avec un lien direct vers une page d'initiation pour le lycée. Menu de gauche toujours rétracté (détail en section 04).</p>
+        <div class="call">setApp('mathsite'); loadAxiomesPage()</div>
+        <span class="file">axiomes.js</span>
+      </div>
+      <div class="menu-card" style="--card-accent:var(--orange)">
+        <div class="top"><h3>Spécialisation</h3><span class="pill formules">lien stylé à part</span></div>
+        <p>Le même savoir relu par grand chapitre transversal, indépendamment du niveau scolaire. Le clic atterrit directement sur « Vue d'ensemble ». Seule entrée avec sa propre classe CSS (<code>nav-link-formules</code>). Menu de gauche déployé (liste des chapitres, sans « Introduction »).</p>
+        <div class="call">loadSpecialisation()</div>
+        <span class="file">etudes.js</span>
+      </div>
+    </div>
+
+    <div class="home-tiles-note">
+      <h4>Vignettes de l'Accueil ≠ menu horizontal</h4>
+      <p>La page d'accueil (<code>HOME_SECTION_CARDS</code> dans <code>app.js</code>) affiche 6 grandes vignettes qui reprennent presque le menu horizontal (Études, Correspondances, Exercices, Banque d'images, Spécialisation), plus une 7<sup>e</sup> propre à l'accueil : <strong>Présentation du site</strong> — qui ouvre justement ce carnet. MSC et Axiomes ne sont accessibles que depuis le menu horizontal, pas depuis une vignette d'accueil.</p>
+    </div>
+  </section>
+
+  <section id="etudes-spe" style="--sec-accent:var(--orange)">
+    <div class="section-eyebrow">02 — Deux lectures, une seule matière</div>
+    <h2>Études et Spécialisation : quelle différence ?</h2>
+    <p class="lead">C'est la question qu'on pose le plus souvent en découvrant le site. La réponse tient en deux phrases, écrites noir sur blanc dans la page « Présentation du site » elle-même (Accueil → « Présentation du site ») :</p>
+    <blockquote class="quote">
+      « Ces deux rubriques ne racontent pas la même histoire, mais elles reposent sur les mêmes fiches. Études est la bibliothèque Encyclopédie : toutes les fiches, rangées par niveau, classe et chapitre, pour retrouver une notion précise à son niveau exact. Spécialisation est une bibliothèque indépendante : les mêmes résultats, regroupés par grand thème transversal plutôt que par niveau, pour ceux qui préfèrent une lecture par fil conducteur plutôt que par programme. Ces deux lectures partagent les mêmes fiches et le même style visuel, si bien qu'on peut passer de l'une à l'autre sans perdre ses repères. »
+      <cite>— fonction loadPresentation(), app.js</cite>
+    </blockquote>
+
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead><tr><th></th><th>Études</th><th>Spécialisation</th></tr></thead>
+        <tbody>
+          <tr><td>Organisation</td><td>Par niveau → classe → chapitre</td><td>Par grand thème, tous niveaux mêlés</td></tr>
+          <tr><td>Écran d'entrée</td><td>« Introduction » : KPI (domaines, disciplines, notions, fiches, formules) + onglets par niveau, calculés à la volée</td><td>« Vue d'ensemble » (chapitre 01), directement</td></tr>
+          <tr><td>Menu de gauche</td><td>Sommaire complet (comme l'ancienne Encyclopédie)</td><td>Liste des chapitres, sans « Introduction »</td></tr>
+          <tr><td>Point d'entrée du menu horizontal</td><td><code>loadEtudes()</code></td><td><code>loadSpecialisation()</code> = <code>loadFormulesChapter('overview')</code></td></tr>
+          <tr><td>Source des données</td><td><code>MATHSITE_TREE</code> + <code>MATHSITE_FICHES</code></td><td><code>formules-data.js</code> (<code>FORMULES_CHAPTERS</code>)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:1.4rem">L'écran d'introduction d'Études affiche 5 indicateurs recalculés à chaque ouverture (rien n'est écrit en dur) :</p>
+    <div class="kpi-row">
+      <div class="kpi"><div class="n">Domaines MSC</div></div>
+      <div class="kpi"><div class="n">Disciplines MSC</div></div>
+      <div class="kpi"><div class="n">Notions</div></div>
+      <div class="kpi"><div class="n">Fiches</div></div>
+      <div class="kpi"><div class="n">Formules</div></div>
+    </div>
+    <p>Puis, niveau par niveau (onglets), une ligne par classe et un total : notions, fiches, formules, domaines et disciplines MSC impliqués — avec une note quand une fiche n'est rattachée à aucun domaine MSC (« Hors classification »). En bas de page, deux liens guidés : vers « Vue d'ensemble » (Spécialisation) et vers la Classification MSC.</p>
+
+    <div class="bridge-box">
+      <h4>Sous le capot</h4>
+      <ul>
+        <li><strong><code>etudes.js</code> ne modifie ni <code>formules.js</code> ni <code>formules-data.js</code></strong> — il enveloppe <code>renderFormulesSidebar()</code> (pour retirer « Introduction » du menu et renommer le titre en « Spécialisation ») et <code>loadFormulesChapter()</code> (pour retirer le bouton Retour sur « Vue d'ensemble »).</li>
+        <li><strong>Deux anciennes fonctions dorment dans <code>app.js</code></strong> — <code>loadEncyclopedie()</code> et <code>loadConceptsHome()</code> existent toujours mais ne sont plus reliées au menu horizontal ni aux vignettes de l'accueil : elles ne sont accessibles par aucun clic normal.</li>
+        <li><strong>La classification MSC recouvre les deux lectures</strong> — chaque fiche ouverte affiche son classement (Niveau · Classe · Chapitre + Domaine MSC · Discipline MSC).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="correspondances" style="--sec-accent:var(--dom-pro)">
+    <div class="section-eyebrow">03 — Le pont entre les rubriques</div>
+    <h2>Correspondances &amp; Vue d'ensemble</h2>
+    <p class="lead">Ce sont les deux pages les plus étroitement liées du site : elles partagent le même moteur (<code>window.MSC_COMMUN</code>, défini une fois en tête de <code>correspondances.js</code>) et la même idée — montrer qu'une notion n'est jamais isolée dans un seul domaine.</p>
+
+    <h3 style="margin-top:2rem;color:var(--dom-pro)">Correspondances : 39 notions-pivots</h3>
+    <p>Chaque pivot est une notion qui « rayonne » : la page cite plusieurs autres notions qui l'illustrent sous une forme différente, chacune avec <em>la raison mathématique précise</em> du rapprochement — jamais une simple étiquette. Exemple, le tout premier pivot de la liste :</p>
+    <div class="axiom-box">
+      <h4>Pivot <code>sup:1952</code> — l'axiome du choix</h4>
+      <p><strong>En pratique :</strong> existence de bases des espaces vectoriels (algèbre), théorème de Hahn–Banach (analyse), théorème de Tychonoff (topologie), parties non mesurables et tribus (probabilités).</p>
+      <p><strong>Pourquoi :</strong> l'axiome du choix, équivalent au bon ordre de Zermelo et au lemme de Zorn, garantit l'existence d'objets qu'on ne sait pas construire explicitement : c'est la clé de voûte de nombreux théorèmes d'existence dans tous les domaines.</p>
+    </div>
+    <p>Les pivots sont répartis par domaine MSC ; pour la Physique et l'Informatique, hors référentiel MSC, les notions liées viennent directement de l'Encyclopédie et portent une pastille grise plutôt qu'une couleur de domaine.</p>
+
+    <h3 style="margin-top:2rem;color:var(--orange)">Vue d'ensemble : la lecture transversale de Spécialisation</h3>
+    <p>« Vue d'ensemble » est le chapitre <code>overview</code> de Spécialisation, entièrement construit par la seconde moitié de <code>correspondances.js</code>, sans toucher à <code>formules-data.js</code> ni à <code>formules.js</code> : le contenu du chapitre est remplacé au chargement, et <code>renderFormulesBlock()</code> est enveloppée pour 4 nouveaux types de blocs.</p>
+    <div class="anatomy-grid">
+      <div class="anatomy-card">
+        <span class="n">ve_table</span>
+        <h4>Tableau d'équivalences — 15 thèmes</h4>
+        <p>9 thèmes d'origine (Espaces vectoriels, Matrices, Formes quadratiques, Polynômes, Groupes, Topologie, Analyse complexe, Intégration, ED/Fourier) <strong>+ 6 thèmes récemment ajoutés</strong> autour du quantique et de la navigation spatiale (Quaternions et rotations, Espaces hermitiens, Valeurs propres/spectre/SVD, Produit tensoriel, Estimation et filtrage de Kalman, Groupes de Lie et représentations) × 6 colonnes de domaines MSC.</p>
+      </div>
+      <div class="anatomy-card">
+        <span class="n">ve_schema</span>
+        <h4>Schémas conceptuels</h4>
+        <p>3 chaînes de progression (« Fondements → Algèbre → Analyse », « Algèbre → Analyse → Géométrie et Topologie », « Analyse → Probabilités → Mathématiques appliquées »), chaque étape une notion cliquable du sommaire.</p>
+      </div>
+      <div class="anatomy-card">
+        <span class="n">ve_levels</span>
+        <h4>Version pédagogique — L1 → M2</h4>
+        <p>Pour chacun des 6 domaines, 5 jalons de difficulté croissante, du L1 au M2 — une progression verticale à l'intérieur même d'un domaine, complémentaire du tableau horizontal.</p>
+      </div>
+    </div>
+    <p>Autrement dit : <strong>Correspondances</strong> part d'une notion précise et regarde ce qu'elle éclaire ailleurs ; <strong>Vue d'ensemble</strong> part d'un thème et regarde comment les 6 domaines le traitent chacun à leur façon.</p>
+
+    <p style="margin-top:1.6rem">Les 6 domaines de la classification MSC (mêmes couleurs que la page MSC, Correspondances et Vue d'ensemble) :</p>
+    <div class="domain-row">
+      <div class="domain-chip"><span class="dot" style="background:var(--dom-fond)"></span>Fondements et Logique</div>
+      <div class="domain-chip"><span class="dot" style="background:var(--dom-alg)"></span>Algèbre et Théorie des nombres</div>
+      <div class="domain-chip"><span class="dot" style="background:var(--dom-ana)"></span>Analyse mathématique</div>
+      <div class="domain-chip"><span class="dot" style="background:var(--dom-geo)"></span>Géométrie et Topologie</div>
+      <div class="domain-chip"><span class="dot" style="background:var(--dom-pro)"></span>Probabilités et Statistiques</div>
+      <div class="domain-chip"><span class="dot" style="background:var(--dom-app)"></span>Mathématiques appliquées et computationnelles</div>
+    </div>
+  </section>
+
+  <section id="axiomes" style="--sec-accent:var(--violet)">
+    <div class="section-eyebrow">04 — Rubrique à part entière</div>
+    <h2>Axiomes — et l'initiation à l'axiomatisation pour le lycée</h2>
+    <p class="lead">Contrairement à ce que décrivait une version précédente de ce carnet, <strong>Axiomes n'est plus un simple détour pédagogique inventé pour l'occasion : c'est une vraie rubrique du menu horizontal</strong>, insérée juste avant Spécialisation, avec sa propre page liste et ses propres pages de détail (<code>axiomes.js</code>, données dans <code>axiomes-data.js</code>, styles dans <code>axiomes.css</code>).</p>
+
+    <h3 style="margin-top:1.8rem;color:var(--violet)">La page liste</h3>
+    <p>Un tableau à 3 colonnes recense les grands systèmes d'axiomes du site :</p>
+    <table class="axtable">
+      <thead><tr><th>Domaine</th><th>Système d'axiomes</th><th>Exemple de structures</th></tr></thead>
+      <tbody>
+        <tr><td colspan="3" style="font-style:italic;color:var(--ink-dim)">Contenu réel de <code>AXIOMES_INDEX</code> (axiomes-data.js), non transmis dans cette session — la page couvre logique, ensembles, arithmétique, algèbre, géométrie, analyse, probabilités et calcul lambda d'après l'en-tête de <code>axiomes.js</code>.</td></tr>
+      </tbody>
+    </table>
+    <p>Cliquer sur un système ouvre sa page de détail (<code>#axiomes/&lt;slug&gt;</code>) : un résumé « À retenir », puis des sections (introduction, liste d'axiomes avec leur formule, tableaux, notes) et, en bas de page, des liens « Pour aller plus loin » vers d'autres systèmes liés.</p>
+
+    <div class="axiom-box">
+      <h4>Le lien qui répond directement à « axiomatisation pour lycéens »</h4>
+      <p>En haut de la page liste, un lien dédié renvoie vers <code>axiomatisation-initiation.html</code> : <em>« Initiation à l'axiomatisation au lycée »</em>. C'est une page à part (pas encore transmise dans cette session), pensée spécifiquement pour ce public — exactement ce que vous demandiez au tout début de cette conversation.</p>
+    </div>
+
+    <div class="missing-note">
+      <strong>Ce que je n'ai pas pu vérifier :</strong> le contenu exact de <code>axiomes-data.js</code> (la liste réelle des systèmes d'axiomes et leurs pages) et celui de <code>axiomatisation-initiation.html</code> (la page d'initiation pour lycéens elle-même) ne m'ont pas été transmis. Si vous voulez que ce carnet cite précisément les systèmes listés et résume la page d'initiation, envoyez-moi ces deux fichiers et je mettrai cette section à jour.
+    </div>
+
+    <p style="margin-top:1.2rem">Côté navigation : cliquer sur « Axiomes » réduit systématiquement le menu de gauche (<code>collapseSidebar()</code>), la page répond aux adresses directes <code>#axiomes</code> et <code>#axiomes/&lt;slug&gt;</code>, et le clic s'enregistre dans l'historique de navigation du site s'il est présent (<code>window.navHistory</code>) — sans jamais modifier <code>app.js</code> ni <code>styles.css</code>.</p>
+  </section>
+
+  <section id="usages" style="--sec-accent:var(--pink)">
+    <div class="section-eyebrow">05 — Cas d'usage</div>
+    <h2>Qui vient chercher quoi, et par où il passe</h2>
+    <p class="lead">Ce sont, mot pour mot, les quatre profils que le site cite lui-même dans sa page « Présentation » (« Pour qui ? ») — complétés ici par un parcours de clics concret pour chacun.</p>
+
+    <div class="persona">
+      <div class="top"><h3>Le lycéen en révision</h3><span class="goal">« retrouve rapidement une notion de son programme, avec sa fiche complète et ses exercices fondamentaux »</span></div>
+      <ol>
+        <li><span class="tag">Études →</span> l'écran d'introduction donne les totaux du niveau, puis le sommaire à gauche descend jusqu'au chapitre précis</li>
+        <li><span class="tag">Fiche →</span> lit Définition (et, si présente, Définition axiomatique) puis Formules, ouvre la vidéo de cours associée</li>
+        <li><span class="tag">Fiche →</span> vérifie le bandeau MSC (Niveau · Classe · Chapitre · Domaine · Discipline)</li>
+        <li><span class="tag">Exercices →</span> revient sur le chapitre pour s'entraîner sur les exercices fondamentaux</li>
+      </ol>
+    </div>
+
+    <div class="persona">
+      <div class="top"><h3>L'étudiant en prépa</h3><span class="goal">« prépare un oral en s'appuyant sur les correspondances entre domaines et les formules regroupées par thème »</span></div>
+      <ol>
+        <li><span class="tag">Spécialisation →</span> atterrit directement sur « Vue d'ensemble », parcourt le tableau d'équivalences par domaine MSC</li>
+        <li><span class="tag">Spécialisation →</span> ouvre un chapitre transversal, parcourt les niveaux du Collège aux Grandes Écoles en continu</li>
+        <li><span class="tag">Correspondances →</span> suit un lien vers une notion d'un autre domaine, avec la raison mathématique du rapprochement</li>
+        <li><span class="tag">Axiomes →</span> consulte un système d'axiomes pour situer les fondations théoriques d'une notion avancée</li>
+      </ol>
+    </div>
+
+    <div class="persona">
+      <div class="top"><h3>L'enseignant</h3><span class="goal">« compose un TD ou retrouve rapidement un énoncé, une formule ou un schéma à réutiliser »</span></div>
+      <ol>
+        <li><span class="tag">Exercices →</span> ouvre l'index des exercices fondamentaux</li>
+        <li><span class="tag">Études →</span> cible un niveau et un chapitre précis du programme</li>
+        <li><span class="tag">Fiches →</span> pioche énoncés et corrections repliables sur plusieurs notions liées</li>
+        <li><span class="tag">Banque d'images →</span> retrouve les schémas du site</li>
+      </ol>
+    </div>
+
+    <div class="persona">
+      <div class="top"><h3>Le curieux</h3><span class="goal">« découvre les mathématiques du Collège aux Grandes Écoles au fil des correspondances entre notions »</span></div>
+      <ol>
+        <li><span class="tag">MSC →</span> commence par la cartographie générale : les 6 domaines, leurs disciplines</li>
+        <li><span class="tag">Correspondances →</span> choisit un pivot au hasard et suit ses liens vers d'autres domaines</li>
+        <li><span class="tag">Axiomes →</span> ouvre l'initiation à l'axiomatisation pour comprendre d'où partent les mathématiques</li>
+        <li><span class="tag">Accueil →</span> termine sur les tuiles par niveau pour prendre la mesure de l'ensemble</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p>Préparé à partir du code source réel du site que vous m'avez transmis dans cette conversation : <code>index.html</code>, <code>app.js</code>, <code>etudes.js</code>, <code>correspondances.js</code>, <code>formules.js</code>, <code>axiomes.js</code>. Non transmis, et donc non vérifiés directement : <code>msc.js</code>/<code>msc-page.js</code>/<code>msc-data.js</code>, <code>axiomes-data.js</code>, <code>axiomatisation-initiation.html</code>, <code>banque-images.js</code>, <code>presentation-page.js</code> (qui remplace <code>loadPresentation()</code> d'<code>app.js</code>), <code>nav-history.js</code>, <code>styles.css</code> dans sa version actuelle.</p>
+    <p>Les couleurs et la typographie de ce document reprennent celles de l'interface réelle du site (fond <code>#0f1116</code>, panneaux <code>#1a1d24</code>, accent <code>#7aa2ff</code>, police Inter) ; les 6 couleurs de domaine sont copiées telles quelles de la constante <code>DOMAINES</code> de <code>correspondances.js</code>.</p>
+    <p><strong>Intégration :</strong> la vignette « Présentation du site » de l'Accueil ouvre désormais ce fichier (<code>location.href='carnet-visite-alpha-omega-math.html'</code>, modification faite dans <code>app.js</code>) — placez ce fichier dans le même dossier que <code>index.html</code> pour que le logo, en haut à gauche, ramène correctement vers l'accueil du site.</p>
+  </footer>
+</main>
+
+<script>
+  // Mise en surbrillance de l'entrée de menu correspondant à la section visible.
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+    var sections = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+    function onScroll(){
+      var pos = window.scrollY + 140;
+      var activeIdx = 0;
+      sections.forEach(function(sec, i){ if (sec && sec.offsetTop <= pos) activeIdx = i; });
+      links.forEach(function(a, i){ a.classList.toggle('active', i === activeIdx); });
+    }
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>

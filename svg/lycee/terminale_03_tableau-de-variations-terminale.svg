@@ -1,0 +1,15 @@
+<svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
+ <rect x="10" y="10" width="300" height="120" fill="white" stroke="black"/>
+ <text x="25" y="35" font-size="14">x</text>
+ <text x="25" y="75" font-size="14">f'(x)</text>
+ <text x="25" y="115" font-size="14">f(x)</text>
+ <line x1="70" y1="10" x2="70" y2="130" stroke="black" stroke-width="2"/>
+ <line x1="150" y1="10" x2="150" y2="130" stroke="black" stroke-width="2"/>
+ <line x1="230" y1="10" x2="230" y2="130" stroke="black" stroke-width="2"/>
+ <text x="90" y="75" font-size="18">+</text>
+ <text x="170" y="75" font-size="18">−</text>
+ <text x="250" y="75" font-size="18">+</text>
+ <text x="90" y="115" font-size="20">↗</text>
+ <text x="170" y="115" font-size="20">↘</text>
+ <text x="250" y="115" font-size="20">↗</text>
+</svg>

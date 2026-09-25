@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<!-- Version : 1.1 -->
+<html lang="fr">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>Classification Mathématiques MSC — Alpha Omega Math</title>
+
+  <style>
+    
+    /* =====================================================================
+       Codes couleurs et conventions repris de MathSite (styles.css)
+       fond #0f1116 · panneaux #1a1d24 · champs #14161c · bordures #2a2d35
+       accent #7aa2ff · menthe #7ee0c3 · ambre #ffd76e · orange #ffb86b
+       rose #ff6b8b · violet #c8a2ff · police Inter / Arial
+       ===================================================================== */
+    :root {
+      --bg: #0f1116;
+      --panel: #1a1d24;
+      --panel-hover: #23262f;
+      --field: #14161c;
+      --border: #2a2d35;
+      --text: #e6e6e6;
+      --soft: #c8c8c8;
+      --muted: #9aa0ab;
+      --blue: #7aa2ff;
+      --mint: #7ee0c3;
+      --amber: #ffd76e;
+      --orange: #ffb86b;
+      --rose: #ff6b8b;
+      --violet: #c8a2ff;
+      --red: #ff4d4d;
+      --mono: "SFMono-Regular", Consolas, "Courier New", monospace;
+    }
+
+    /* Couleur d'une famille : --c (hex) et --c-rgb (pour les fonds translucides) */
+    .c-blue   { --c: #7aa2ff; --c-rgb: 122, 162, 255; }
+    .c-mint   { --c: #7ee0c3; --c-rgb: 126, 224, 195; }
+    .c-amber  { --c: #ffd76e; --c-rgb: 255, 215, 110; }
+    .c-orange { --c: #ffb86b; --c-rgb: 255, 184, 107; }
+    .c-rose   { --c: #ff6b8b; --c-rgb: 255, 107, 139; }
+    .c-violet { --c: #c8a2ff; --c-rgb: 200, 162, 255; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, p { margin: 0; }
+    :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+    .hidden-sm { display: none; }
+    @media (min-width: 640px) { .hidden-sm { display: inline; } }
+
+    /* ---------- Fond animé ---------- */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .math-symbol-floating {
+      position: absolute;
+      z-index: -1;
+      opacity: .05;
+      user-select: none;
+      pointer-events: none;
+      font-family: serif;
+      animation: float 20s infinite ease-in-out;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(10deg); }
+    }
+
+    /* ---------- Menu horizontal (identique à MathSite) ---------- */
+    #navbar {
+      background: var(--panel);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .nav-left { display: flex; align-items: center; gap: 12px; }
+    .logo-image { width: 64px; height: auto; display: block; border-radius: 8px; }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo { font-size: 22px; font-weight: 700; color: var(--blue); }
+    .logo-tagline { font-size: 13px; font-style: italic; color: var(--red); letter-spacing: .02em; }
+
+    .nav-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+    .nav-links a {
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active {
+      color: #fff;
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 4px;
+    }
+    .nav-link-formules { padding-left: 20px; border-left: 1px solid var(--border); }
+
+    /* ---------- Boutons (btn-primary / btn-secondary de MathSite) ---------- */
+    .btn-primary, .btn-secondary {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 14px;
+      font-family: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+    }
+    .btn-primary { background: var(--blue); color: var(--bg); }
+    .btn-primary:hover { filter: brightness(1.08); }
+    .btn-secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn-secondary:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ---------- Étiquettes ---------- */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      padding: 2px 10px;
+      border-radius: 999px;
+      color: var(--c);
+      background: rgba(var(--c-rgb), .12);
+      border: 1px solid rgba(var(--c-rgb), .3);
+    }
+    .tag-mono { font-family: var(--mono); }
+
+    /* ---------- Couleurs de la hiérarchie (identiques sur toute la page) ---------- */
+    :root {
+      --lvl-domaine: var(--blue);
+      --lvl-discipline: var(--mint);
+      --lvl-notions: var(--violet);
+      --lvl-dots: var(--orange);
+      --line: rgba(154, 160, 171, .5);
+    }
+
+    /* ---------- En-tête de page ---------- */
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 40px 24px 32px;
+      text-align: left;
+    }
+    .hero h1 {
+      font-size: clamp(22px, 3.4vw, 30px);
+      line-height: 1.25;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .hero .lead {
+      max-width: none;
+      margin: 0 0 6px;
+      color: var(--soft);
+      font-size: 15px;
+      line-height: 1.6;
+      text-wrap: pretty;
+    }
+    .toc { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px; margin-top: 20px; }
+    .toc a { text-decoration: none; padding: 5px 15px; font-size: 15px; color: #ff9f1c; }
+    .toc a:hover { background: rgba(var(--c-rgb), .22); }
+
+    /* ---------- Bandeau d'en-tête : vignette principale (80%) + légende des couleurs (20%) ---------- */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .hero-main { min-width: 0; }
+
+    .legend { padding: 20px; }
+    .legend h3 { margin-bottom: 14px; }
+    .legend-tree, .legend-tree ul { list-style: none; margin: 0; padding: 0; }
+    .legend-tree ul { padding-left: 20px; margin-top: 6px; }
+    .legend-tree li {
+      position: relative;
+      padding: 3px 0;
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    /* mêmes traits de hiérarchie que dans les domaines (.tree), à plus petite échelle */
+    .legend-tree ul > li::before {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: calc(3px + .7em);
+      width: 10px;
+      border-top: 1px solid var(--line);
+    }
+    .legend-tree ul > li::after {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: 0;
+      bottom: 0;
+      border-left: 1px solid var(--line);
+    }
+    .legend-tree ul > li:last-child::after { bottom: auto; height: calc(3px + .7em); }
+
+    .legend-domaine    { color: var(--lvl-domaine); }
+    .legend-branche    { color: var(--red); }
+    .legend-discipline { color: var(--lvl-discipline); }
+    .legend-notions    { color: var(--lvl-notions); }
+
+    @media (max-width: 780px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- Structure générale ---------- */
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px 96px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    section { scroll-margin-top: 24px; }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: clamp(20px, 4vw, 40px);
+    }
+    .panel h2 {
+      font-size: clamp(22px, 3.4vw, 30px);
+      line-height: 1.25;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+    .panel h3 { font-size: 16px; color: var(--text); margin-bottom: 10px; }
+    .panel p { color: var(--soft); line-height: 1.65; }
+    .panel p + p { margin-top: 12px; }
+    .panel a { color: var(--blue); }
+    .panel strong { color: var(--text); }
+
+    /* ---------- Domaines : arbre hiérarchique + images (taille réduite de moitié) ---------- */
+    .domain { --tile-w: 206.25px; }
+    .domain-body { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 40px; }
+
+    .tree, .tree ul { list-style: none; margin: 0; padding: 0; }
+    .tree { flex: 1 1 420px; min-width: 0; }
+    .tree ul { padding-left: 30px; }
+    .tree li { position: relative; padding: 4px 0; line-height: 1.5; font-size: 15px; }
+
+    /* traits de la hiérarchie : un trait vertical par niveau + un petit trait horizontal par élément */
+    .tree ul > li::before {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: calc(4px + .75em);
+      width: 16px;
+      border-top: 1px solid var(--line);
+    }
+    .tree ul > li::after {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 0;
+      bottom: 0;
+      border-left: 1px solid var(--line);
+    }
+    .tree ul > li:last-child::after { bottom: auto; height: calc(4px + .75em); }
+
+    .domain .tree h2 { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 700; color: var(--lvl-domaine); }
+    .t-domaine .pre { font-weight: 400; }
+
+    .t-disciplines > .lbl { color: var(--lvl-discipline); font-weight: 600; }
+    .t-discipline { font-size: 16px; }
+    .t-discipline > .lbl { color: var(--lvl-discipline); font-weight: 700; }
+
+    .t-notions { color: var(--lvl-notions); }
+    .t-notions .pre { font-weight: 600; }
+    .t-notions .dots { color: var(--lvl-dots); font-weight: 700; }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 12px;
+      width: calc(var(--tile-w) * 2 + 12px);
+      max-width: 100%;
+    }
+    .fig { margin: 0; width: var(--tile-w); flex: 0 0 auto; }
+    .fig-btn {
+      display: block;
+      width: 100%;
+      aspect-ratio: 10 / 11;
+      padding: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+    .fig-btn:hover { border-color: var(--blue); }
+    .fig-btn img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ---------- Structure d'un code ---------- */
+    .levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin: 24px 0; }
+    .level { background: var(--field); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+    .level-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-weight: 700;
+      color: var(--c);
+      background: rgba(var(--c-rgb), .12);
+      border: 1px solid rgba(var(--c-rgb), .3);
+      margin-bottom: 12px;
+    }
+    .level h3 { color: #fff; margin-bottom: 8px; }
+    .level p { font-size: 14px; }
+
+    .example {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 24px 32px;
+      background: var(--field);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .code-display { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-weight: 700; font-size: clamp(30px, 6vw, 48px); letter-spacing: .04em; }
+    .code-part {
+      color: var(--c);
+      background: rgba(var(--c-rgb), .12);
+      border: 1px solid rgba(var(--c-rgb), .3);
+      border-radius: 8px;
+      padding: 2px 12px;
+    }
+    .example p { flex: 1 1 320px; }
+    .example .k { font-family: var(--mono); font-weight: 700; color: var(--c); }
+
+    /* ---------- Principaux grands domaines ---------- */
+    .ranges { list-style: none; margin: 20px 0 0; padding: 0; }
+    .range { display: grid; grid-template-columns: 84px 1fr; gap: 16px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--border); }
+    .range .tag { justify-self: start; }
+    .range p { color: var(--text); }
+    .range-codes { color: var(--muted); font-size: 14px; }
+
+    /* ---------- Image agrandie (comme la lightbox de MathSite) ---------- */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 5vh 5vw;
+      background: rgba(6, 7, 12, .92);
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox figure { margin: 0; display: flex; flex-direction: column; align-items: center; }
+    .lightbox img { max-width: 100%; max-height: 80vh; border-radius: 4px; background: #fff; }
+    .lightbox figcaption { color: var(--text); font-size: 13.5px; margin-top: 14px; max-width: 60ch; text-align: center; }
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      font-size: 28px;
+      line-height: 1;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .lightbox-close:hover { color: #fff; border-color: var(--blue); }
+
+    @media (max-width: 640px) {
+      #navbar { padding: 12px 16px; }
+      .nav-link-formules { padding-left: 0; border-left: none; }
+      .hero { padding: 28px 16px 24px; }
+      .domain { --tile-w: 187.5px; }
+      main { padding: 0 16px 72px; }
+      .range { grid-template-columns: 1fr; gap: 6px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .math-symbol-floating { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Éléments mathématiques flottants en arrière-plan -->
+  <div class="math-symbol-floating c-blue"   style="font-size: 6rem; top: 3rem; left: 2.5rem; color: var(--c); animation-delay: 0s;" aria-hidden="true">∫</div>
+  <div class="math-symbol-floating c-violet" style="font-size: 8rem; top: 33%; right: 3rem; color: var(--c); animation-delay: -3s;" aria-hidden="true">∑</div>
+  <div class="math-symbol-floating c-mint"   style="font-size: 6rem; bottom: 25%; left: 25%; color: var(--c); animation-delay: -7s;" aria-hidden="true">∞</div>
+  <div class="math-symbol-floating c-rose"   style="font-size: 8rem; bottom: 2.5rem; right: 33%; color: var(--c); animation-delay: -11s;" aria-hidden="true">∇</div>
+
+  <!-- MENU HORIZONTAL : mêmes entrées que MathSite, avec « Classification MSC » avant « Encyclopédie » -->
+  <header id="navbar">
+    <div class="nav-left">
+      <img class="logo-image" src="autres-images/SiteAlphaOmega.png" alt="Alpha Omega Math" onerror="this.style.display='none'">
+      <div class="logo-text">
+        <span class="logo">Alpha Omega Math</span>
+        <span class="logo-tagline">Find a way or find excuses</span>
+      </div>
+    </div>
+    <nav class="nav-links" aria-label="Menu principal">
+      <a href="index.html" data-nav="home">Accueil</a>
+      <a href="classification_msc2020_wow.html" data-nav="msc" class="active" aria-current="page">MSC</a>
+      <a href="index.html" data-nav="encyclopedie">Encyclopédie</a>
+      <a href="index.html" data-nav="concepts">2200 Notions</a>
+      <a href="index.html" data-nav="formules" class="nav-link-formules">5000 Formules</a>
+      <a href="index.html" data-nav="tableau">Correspondances</a>
+      <a href="index.html" data-nav="exos-fondamentaux">Exercices</a>
+      <a href="index.html" data-nav="banque-images">Banques d'images</a>
+    </nav>
+  </header>
+
+  <header class="hero">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <h1>Classification Mathématiques MSC</h1>
+        <p class="lead">La MSC (Mathematics Subject Classification) organise les mathématiques en&nbsp;grands&nbsp;domaines, eux-mêmes divisés en disciplines, qui manipulent des&nbsp;notions.</p>
+        <p class="lead">C’est une cartographie hiérarchique de la structure des mathématiques.</p>
+        <nav class="toc" aria-label="Sommaire de la page"><a class="tag c-blue" href="#fondements">Fondements et Logique</a><a class="tag c-blue" href="#algebre">Algèbre et Théorie des nombres</a><a class="tag c-blue" href="#analyse">Analyse mathématique</a><a class="tag c-blue" href="#geometrie">Géométrie et Topologie</a><a class="tag c-blue" href="#probabilites">Probabilités et Statistiques</a><a class="tag c-blue" href="#appliquees">Mathématiques appliquées et computationnelles</a></nav>
+      </div>
+
+      <aside class="panel legend" aria-label="Légende des couleurs">
+        <h3>Légende des couleurs</h3>
+        <ul class="legend-tree">
+          <li class="legend-domaine">Domaine
+            <ul>
+              <li class="legend-branche">Math théorique ou appliquée
+                <ul>
+                  <li class="legend-discipline">Discipline
+                    <ul>
+                      <li class="legend-notions">Exemples de notions</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="fondements" class="domain">
+      <div class="panel">
+        <div class="domain-body">
+          <ul class="tree">
+            <li class="t-domaine">
+              <h2><span class="pre">Domaine :</span> Fondements et Logique</h2>
+              <ul>
+                <li class="t-disciplines">
+                  <span class="lbl">Disciplines</span>
+                  <ul>
+                  <li class="t-discipline">
+                    <span class="lbl">Logique mathématique</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> systèmes formels, modèles, calculabilité, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Théorie des ensembles</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> infinis, axiomes, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Théorie des catégories</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> morphismes, structures abstraites, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="gallery">
+            <figure class="fig">
+              <button type="button" class="fig-btn" aria-label="Agrandir l’image : Diagramme de Venn de trois ensembles A, B et C avec leurs intersections">
+                <img src="msc-images/msc-fondements-venn.jpg" alt="Diagramme de Venn de trois ensembles A, B et C avec leurs intersections" loading="lazy" onerror="this.closest('.fig').style.display='none'">
+              </button>
+            </figure>
+            <figure class="fig">
+              <button type="button" class="fig-btn" aria-label="Agrandir l’image : Portes logiques AND, OR, NOT, NAND et NOR avec leur fonction algébrique et leur table de vérité">
+                <img src="msc-images/msc-fondements-portes-logiques.png" alt="Portes logiques AND, OR, NOT, NAND et NOR avec leur fonction algébrique et leur table de vérité" loading="lazy" onerror="this.closest('.fig').style.display='none'">
+              </button>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="algebre" class="domain">
+      <div class="panel">
+        <div class="domain-body">
+          <ul class="tree">
+            <li class="t-domaine">
+              <h2><span class="pre">Domaine :</span> Algèbre et Théorie des nombres</h2>
+              <ul>
+                <li class="t-disciplines">
+                  <span class="lbl">Disciplines</span>
+                  <ul>
+                  <li class="t-discipline">
+                    <span class="lbl">Arithmétique et théorie des nombres</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> nombres premiers, congruences, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Algèbre générale</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> groupes, anneaux, corps, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Algèbre linéaire et multilinéaire</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> matrices, espaces vectoriels, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Combinatoire</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> graphes, structures discrètes, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="gallery">
+            <figure class="fig">
+              <button type="button" class="fig-btn" aria-label="Agrandir l’image : Bases de la théorie des groupes en algèbre abstraite : groupes, sous-groupes et tables d’opérations">
+                <img src="msc-images/msc-algebre-theorie-des-groupes.png" alt="Bases de la théorie des groupes en algèbre abstraite : groupes, sous-groupes et tables d’opérations" loading="lazy" onerror="this.closest('.fig').style.display='none'">
+              </button>
+            </figure>
+            <figure class="fig">
+              <button type="button" class="fig-btn" aria-label="Agrandir l’image : Diagramme de Venn des ensembles de nombres : naturels, entiers, rationnels, réels et complexes">
+                <img src="msc-images/msc-algebre-ensembles-de-nombres.jpg" alt="Diagramme de Venn des ensembles de nombres : naturels, entiers, rationnels, réels et complexes" loading="lazy" onerror="this.closest('.fig').style.display='none'">
+              </button>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="analyse" class="domain">
+      <div class="panel">
+        <div class="domain-body">
+          <ul class="tree">
+            <li class="t-domaine">
+              <h2><span class="pre">Domaine :</span> Analyse mathématique</h2>
+              <ul>
+                <li class="t-disciplines">
+                  <span class="lbl">Disciplines</span>
+                  <ul>
+                  <li class="t-discipline">
+                    <span class="lbl">Analyse réelle</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> limites, dérivation, intégration, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Analyse complexe</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> holomorphie, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Analyse fonctionnelle</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> espaces de Banach / Hilbert, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Théorie de la mesure</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> mesure de Lebesgue, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Équations différentielles</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> EDO, EDP, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="gallery">
+            <figure class="fig">
+              <button type="button" class="fig-btn" aria-label="Agrandir l’image : Définition d’une équation différentielle et exemples d’équations différentielles ordinaires">
+                <img src="msc-images/msc-analyse-equations-differentielles.png" alt="Définition d’une équation différentielle et exemples d’équations différentielles ordinaires" loading="lazy" onerror="this.closest('.fig').style.display='none'">
+              </button>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="geometrie" class="domain">
+      <div class="panel">
+        <div class="domain-body">
+          <ul class="tree">
+            <li class="t-domaine">
+              <h2><span class="pre">Domaine :</span> Géométrie et Topologie</h2>
+              <ul>
+                <li class="t-disciplines">
+                  <span class="lbl">Disciplines</span>
+                  <ul>
+                  <li class="t-discipline">
+                    <span class="lbl">Géométrie euclidienne</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> transformations géométriques, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Géométrie algébrique</span>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Géométrie différentielle</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> courbure, variétés, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Topologie</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> invariants topologiques, homotopie, continuité, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="gallery">
+            <figure class="fig">
+              <button type="button" class="fig-btn" aria-label="Agrandir l’image : Exercice de géométrie : démonstration par triangles semblables et calcul de BC">
+                <img src="msc-images/msc-geometrie-triangles-semblables.png" alt="Exercice de géométrie : démonstration par triangles semblables et calcul de BC" loading="lazy" onerror="this.closest('.fig').style.display='none'">
+              </button>
+            </figure>
+            <figure class="fig">
+              <button type="button" class="fig-btn" aria-label="Agrandir l’image : Topologies de réseau : maillée, étoile, bus et anneau">
+                <img src="msc-images/msc-geometrie-topologies-reseau.png" alt="Topologies de réseau : maillée, étoile, bus et anneau" loading="lazy" onerror="this.closest('.fig').style.display='none'">
+              </button>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="probabilites" class="domain">
+      <div class="panel">
+        <div class="domain-body">
+          <ul class="tree">
+            <li class="t-domaine">
+              <h2><span class="pre">Domaine :</span> Probabilités et Statistiques</h2>
+              <ul>
+                <li class="t-disciplines">
+                  <span class="lbl">Disciplines</span>
+                  <ul>
+                  <li class="t-discipline">
+                    <span class="lbl">Théorie des probabilités</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> variables aléatoires, lois de probabilité, martingales, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Statistiques théoriques</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> inférence, estimation, tests, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="gallery">
+            <figure class="fig">
+              <button type="button" class="fig-btn" aria-label="Agrandir l’image : Schéma de l’inférence statistique : de l’échantillon à la population">
+                <img src="msc-images/msc-probabilites-inference-statistique.jpg" alt="Schéma de l’inférence statistique : de l’échantillon à la population" loading="lazy" onerror="this.closest('.fig').style.display='none'">
+              </button>
+            </figure>
+            <figure class="fig">
+              <button type="button" class="fig-btn" aria-label="Agrandir l’image : Schéma d’un processus stochastique : une suite d’événements formée de variables aléatoires">
+                <img src="msc-images/msc-probabilites-processus-stochastique.png" alt="Schéma d’un processus stochastique : une suite d’événements formée de variables aléatoires" loading="lazy" onerror="this.closest('.fig').style.display='none'">
+              </button>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="appliquees" class="domain">
+      <div class="panel">
+        <div class="domain-body">
+          <ul class="tree">
+            <li class="t-domaine">
+              <h2><span class="pre">Domaine :</span> Mathématiques appliquées et computationnelles</h2>
+              <ul>
+                <li class="t-disciplines">
+                  <span class="lbl">Disciplines</span>
+                  <ul>
+                  <li class="t-discipline">
+                    <span class="lbl">Analyse numérique</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> algorithmes, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Optimisation</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> convexité, dualité, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Systèmes dynamiques</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> chaos, bifurcations, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Théorie des jeux</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> équilibres stratégiques, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  <li class="t-discipline">
+                    <span class="lbl">Cryptographie</span>
+                    <ul>
+                      <li class="t-notions"><span class="pre">Exemples de notions :</span> corps finis, <span class="dots">…</span></li>
+                    </ul>
+                  </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="source">
+      <div class="panel">
+        <h2>Classification à la création de MathSite : MSC2020</h2>
+        <p><a href="https://msc2020.org/" target="_blank" rel="noopener">https://msc2020.org/</a></p>
+        <p>La <strong>Classification MSC2020</strong> (<em>Mathematics Subject Classification 2020</em>) est un système hiérarchique alphanumérique géré par <em>Mathematical Reviews</em> et <em>zbMATH</em> pour organiser la littérature en sciences mathématiques.</p>
+      </div>
+    </section>
+
+    <section id="structure">
+      <div class="panel">
+        <h2>Structure hiérarchique à 3 niveaux</h2>
+        <p>Le code MSC est composé de cinq caractères maximum, répartis sur trois niveaux :</p>
+
+        <div class="levels">
+          <div class="level c-mint">
+            <div class="level-num">1</div>
+            <h3>Niveau 1 (2 chiffres)</h3>
+            <p>Le domaine principal (63 catégories de 00 à 97).</p>
+          </div>
+          <div class="level c-violet">
+            <div class="level-num">2</div>
+            <h3>Niveau 2 (1 lettre latine)</h3>
+            <p>La sous-discipline ou la spécialité au sein du domaine.</p>
+          </div>
+          <div class="level c-rose">
+            <div class="level-num">3</div>
+            <h3>Niveau 3 (2 chiffres)</h3>
+            <p>L’objet mathématique précis ou le problème étudié (plus de 6 000 feuilles terminales au total).</p>
+          </div>
+        </div>
+
+        <div class="example">
+          <div class="code-display" aria-label="Code 11G15">
+            <span class="code-part c-mint">11</span>
+            <span class="code-part c-violet">G</span>
+            <span class="code-part c-rose">15</span>
+          </div>
+          <p><strong>Exemple :</strong> le code 11G15 désigne la théorie des nombres <span class="k c-mint">(11)</span>, la géométrie arithmétique/courbes <span class="k c-violet">(G)</span>, et spécifiquement les modules de CM pour les variétés abéliennes <span class="k c-rose">(15)</span>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="grands-domaines">
+      <div class="panel">
+        <h2>Principaux grands domaines (Niveau 1)</h2>
+        <p>La classification couvre les sections de 00 à 97, regroupées ainsi :</p>
+        <ul class="ranges">
+          <li class="range c-blue">
+            <span class="tag tag-mono">00-08</span>
+            <p>Généralités, histoire, logique, combinatoire et algèbre générale <span class="range-codes">(00, 01, 03, 05, 06, 08)</span></p>
+          </li>
+          <li class="range c-blue">
+            <span class="tag tag-mono">11-19</span>
+            <p>Théorie des nombres et algèbre <span class="range-codes">(11, 12, 13, 14, 15, 16, 17, 18, 19)</span></p>
+          </li>
+          <li class="range c-blue">
+            <span class="tag tag-mono">20-22</span>
+            <p>Théorie des groupes et topologie algébrique/de Lie <span class="range-codes">(20, 22)</span></p>
+          </li>
+          <li class="range c-blue">
+            <span class="tag tag-mono">26-49</span>
+            <p>Analyse <span class="range-codes">(fonctions réelles, mesures, équations différentielles, analyse fonctionnelle)</span></p>
+          </li>
+          <li class="range c-blue">
+            <span class="tag tag-mono">51-58</span>
+            <p>Géométrie et variétés <span class="range-codes">(51, 52, 53, 54, 55, 57, 58)</span></p>
+          </li>
+          <li class="range c-blue">
+            <span class="tag tag-mono">60-68</span>
+            <p>Probabilités, statistiques et informatique théorique <span class="range-codes">(60, 62, 65, 68)</span></p>
+          </li>
+          <li class="range c-blue">
+            <span class="tag tag-mono">70-86</span>
+            <p>Mécanique, physique mathématique, astronomie <span class="range-codes">(70, 74, 76, 78, 80, 81, 82, 83, 85, 86)</span></p>
+          </li>
+          <li class="range c-blue">
+            <span class="tag tag-mono">90-94</span>
+            <p>Sciences sociales, recherche opérationnelle, systèmes et information <span class="range-codes">(90, 91, 92, 93, 94)</span></p>
+          </li>
+          <li class="range c-blue">
+            <span class="tag tag-mono">97</span>
+            <p>Enseignement et éducation mathématique <span class="range-codes">(97)</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image agrandie">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Fermer">×</button>
+    <figure>
+      <img id="lightbox-img" src="" alt="">
+      <figcaption id="lightbox-cap"></figcaption>
+    </figure>
+  </div>
+
+  <script>
+    /* ---------- Fond animé (particules aux teintes MathSite) ---------- */
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let width, height;
+    let particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = (Math.random() - 0.5) * 0.8;
+        this.radius = Math.random() * 2 + 1.5;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      const count = Math.floor((width * height) / 18000);
+      for (let i = 0; i < count; i++) particles.push(new Particle());
+    }
+
+    function drawFrame(step) {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = 0; i < particles.length; i++) {
+        if (step) particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(122, 162, 255, ${0.08 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animateCanvas() {
+      drawFrame(true);
+      requestAnimationFrame(animateCanvas);
+    }
+
+    
+    /* ---------- Image agrandie ---------- */
+    let lastOpener = null;
+    const lightbox = document.getElementById('lightbox');
+
+    function openLightbox(btn) {
+      const img = btn.querySelector('img');
+      lastOpener = btn;
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-img').alt = img.alt;
+      document.getElementById('lightbox-cap').textContent = img.alt;
+      lightbox.classList.add('open');
+      document.getElementById('lightbox-close').focus();
+    }
+
+    function closeLightbox() {
+      if (!lightbox.classList.contains('open')) return;
+      lightbox.classList.remove('open');
+      if (lastOpener) lastOpener.focus();
+    }
+
+    document.querySelectorAll('.fig-btn').forEach(btn => btn.addEventListener('click', () => openLightbox(btn)));
+    lightbox.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      resizeCanvas();
+      initParticles();
+      if (reduceMotion) drawFrame(false); else animateCanvas();
+
+      window.addEventListener('resize', () => {
+        resizeCanvas();
+        initParticles();
+        if (reduceMotion) drawFrame(false);
+      });
+    });
+  </script>
+</body>
+</html>

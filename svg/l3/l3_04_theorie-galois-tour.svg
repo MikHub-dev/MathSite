@@ -1,0 +1,18 @@
+<svg viewBox="0 0 320 330" xmlns="http://www.w3.org/2000/svg">
+  <rect x="90" y="42" width="140" height="36" rx="6" fill="#e8f0ff" stroke="#3355aa" stroke-width="1.5"/>
+  <text x="160" y="65" font-size="15" text-anchor="middle">ℚ(√2,√3,i)</text>
+  <rect x="90" y="112" width="140" height="36" rx="6" fill="#e8f0ff" stroke="#3355aa" stroke-width="1.5"/>
+  <text x="160" y="135" font-size="15" text-anchor="middle">ℚ(√2,√3)</text>
+  <rect x="90" y="182" width="140" height="36" rx="6" fill="#e8f0ff" stroke="#3355aa" stroke-width="1.5"/>
+  <text x="160" y="205" font-size="15" text-anchor="middle">ℚ(√2)</text>
+  <rect x="90" y="252" width="140" height="36" rx="6" fill="#e8f0ff" stroke="#3355aa" stroke-width="1.5"/>
+  <text x="160" y="275" font-size="15" text-anchor="middle">ℚ</text>
+  <line x1="160" y1="42" x2="160" y2="148" stroke="black" stroke-width="1.5"/>
+  <text x="175" y="95" font-size="12">degré 2</text>
+  <line x1="160" y1="112" x2="160" y2="218" stroke="black" stroke-width="1.5"/>
+  <text x="175" y="165" font-size="12">degré 2</text>
+  <line x1="160" y1="182" x2="160" y2="288" stroke="black" stroke-width="1.5"/>
+  <text x="175" y="235" font-size="12">degré 2</text>
+  <text x="160" y="30" font-size="13" text-anchor="middle" fill="#555">Tour d'extensions de corps</text>
+  <text x="20" y="310" font-size="10">[ℚ(√2,√3,i):ℚ] = 2×2×2 = 8 = |Gal(ℚ(√2,√3,i)/ℚ)|</text>
+</svg>

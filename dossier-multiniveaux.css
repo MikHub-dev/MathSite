@@ -1,0 +1,55 @@
+/* Version : 1.0 */
+/* =====================================================================
+   DOSSIER MULTI‑NIVEAUX — styles de l'entrée du sommaire vertical, de la page d'accueil du
+   Dossier et du bloc d'information d'une copie de fiche (voir dossier-multiniveaux.js).
+   Réutilise les classes existantes (.sidebar-annee, .sidebar-matiere, .notion-card, .section)
+   et n'ajoute que ce qui leur manque.
+   ===================================================================== */
+
+/* Sommaire vertical : l'entrée « Dossier multi‑niveaux » reprend telle quelle la mise en forme
+   des années (.sidebar-annee : blanc, bleu au survol) — aucune règle spécifique. */
+
+/* Page d'accueil du Dossier : une grille de cartes par année */
+.dossier-annee-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 28px 0 12px;
+}
+
+.dossier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 14px;
+}
+
+.dossier-grid .notion-card {
+  margin-bottom: 0;
+}
+
+.dossier-grid .notion-card p {
+  line-height: 1.45;
+}
+
+/* Copie de fiche : bloc d'information en tête */
+.dossier-note {
+  background: #14161c;
+  border-left: 3px solid #7aa2ff;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.dossier-note h3 {
+  margin-top: 0;
+}
+
+.dossier-note-formules {
+  margin: 6px 0 10px;
+  padding-left: 20px;
+}
+
+.dossier-note-autres {
+  margin: 0;
+  color: #9aa0ab;
+  font-size: 13.5px;
+}

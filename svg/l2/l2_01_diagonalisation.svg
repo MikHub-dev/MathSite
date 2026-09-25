@@ -1,0 +1,15 @@
+<svg viewBox="-1.2 -4.2 7 5" xmlns="http://www.w3.org/2000/svg">
+  <line x1="-1" y1="0" x2="5" y2="0" stroke="black" stroke-width="0.03"/>
+  <line x1="0" y1="1" x2="0" y2="-4" stroke="black" stroke-width="0.03"/>
+  <g font-size="0.21"><line x1="1" y1="-0.06" x2="1" y2="0.06" stroke="black" stroke-width="0.03"/><text x="0.937" y="0.144" >1</text><line x1="2" y1="-0.06" x2="2" y2="0.06" stroke="black" stroke-width="0.03"/><text x="1.937" y="0.144" >2</text><line x1="3" y1="-0.06" x2="3" y2="0.06" stroke="black" stroke-width="0.03"/><text x="2.937" y="0.144" >3</text><line x1="4" y1="-0.06" x2="4" y2="0.06" stroke="black" stroke-width="0.03"/><text x="3.937" y="0.144" >4</text></g>
+  <g font-size="0.21"><line x1="-0.072" y1="-1" x2="0.072" y2="-1" stroke="black" stroke-width="0.03"/><text x="0.0972" y="-1.084" >1</text><line x1="-0.072" y1="-2" x2="0.072" y2="-2" stroke="black" stroke-width="0.03"/><text x="0.0972" y="-2.084" >2</text><line x1="-0.072" y1="-3" x2="0.072" y2="-3" stroke="black" stroke-width="0.03"/><text x="0.0972" y="-3.084" >3</text></g>
+  <polygon points="0,0 1,0 1,-1 0,-1" fill="none" stroke="grey" stroke-width="0.04" stroke-dasharray="0.1 0.1"/>
+  <polygon points="0,0 2,0 2,-0.5 0,-0.5" fill="#cce5ff" stroke="blue" stroke-width="0.06" opacity="0.6"/>
+  <line x1="0" y1="0" x2="2" y2="0" stroke="red" stroke-width="0.07"/>
+  <polygon points="2,0 1.82,-0.09 1.82,0.09" fill="red"/>
+  <text x="2.1" y="0.35" font-size="0.35" fill="red">e1' = 2 e1 (λ1=2)</text>
+  <line x1="0" y1="0" x2="0" y2="-0.5" stroke="green" stroke-width="0.07"/>
+  <polygon points="0,-0.5 -0.09,-0.32 0.09,-0.32" fill="green"/>
+  <text x="0.15" y="-0.7" font-size="0.35" fill="green">e2' = 0,5 e2 (λ2=0,5)</text>
+  <text x="0.3" y="-1.15" font-size="0.3" fill="grey">carré unité</text>
+</svg>
