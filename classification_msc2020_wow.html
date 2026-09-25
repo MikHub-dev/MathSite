@@ -2,7 +2,6 @@
 <!-- Version : 1.1 -->
 <html lang="fr">
 <head>
-  <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="dark">
@@ -187,6 +186,54 @@
     .toc { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 10px; margin-top: 20px; }
     .toc a { text-decoration: none; padding: 5px 15px; font-size: 15px; color: #ff9f1c; }
     .toc a:hover { background: rgba(var(--c-rgb), .22); }
+
+    /* ---------- Bandeau d'en-tête : vignette principale (80%) + légende des couleurs (20%) ---------- */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .hero-main { min-width: 0; }
+
+    .legend { padding: 20px; }
+    .legend h3 { margin-bottom: 14px; }
+    .legend-tree, .legend-tree ul { list-style: none; margin: 0; padding: 0; }
+    .legend-tree ul { padding-left: 20px; margin-top: 6px; }
+    .legend-tree li {
+      position: relative;
+      padding: 3px 0;
+      font-size: 13.5px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    /* mêmes traits de hiérarchie que dans les domaines (.tree), à plus petite échelle */
+    .legend-tree ul > li::before {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: calc(3px + .7em);
+      width: 10px;
+      border-top: 1px solid var(--line);
+    }
+    .legend-tree ul > li::after {
+      content: "";
+      position: absolute;
+      left: -14px;
+      top: 0;
+      bottom: 0;
+      border-left: 1px solid var(--line);
+    }
+    .legend-tree ul > li:last-child::after { bottom: auto; height: calc(3px + .7em); }
+
+    .legend-domaine    { color: var(--lvl-domaine); }
+    .legend-branche    { color: var(--red); }
+    .legend-discipline { color: var(--lvl-discipline); }
+    .legend-notions    { color: var(--lvl-notions); }
+
+    @media (max-width: 780px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
 
     /* ---------- Structure générale ---------- */
     main {
@@ -411,10 +458,33 @@
   </header>
 
   <header class="hero">
-    <h1>Classification Mathématiques MSC</h1>
-    <p class="lead">La MSC (Mathematics Subject Classification) organise les mathématiques en&nbsp;grands&nbsp;domaines, eux-mêmes divisés en disciplines, qui manipulent des&nbsp;notions.</p>
-    <p class="lead">C’est une cartographie hiérarchique de la structure des mathématiques.</p>
-    <nav class="toc" aria-label="Sommaire de la page"><a class="tag c-blue" href="#fondements">Fondements et Logique</a><a class="tag c-blue" href="#algebre">Algèbre et Théorie des nombres</a><a class="tag c-blue" href="#analyse">Analyse mathématique</a><a class="tag c-blue" href="#geometrie">Géométrie et Topologie</a><a class="tag c-blue" href="#probabilites">Probabilités et Statistiques</a><a class="tag c-blue" href="#appliquees">Mathématiques appliquées et computationnelles</a></nav>
+    <div class="hero-grid">
+      <div class="hero-main">
+        <h1>Classification Mathématiques MSC</h1>
+        <p class="lead">La MSC (Mathematics Subject Classification) organise les mathématiques en&nbsp;grands&nbsp;domaines, eux-mêmes divisés en disciplines, qui manipulent des&nbsp;notions.</p>
+        <p class="lead">C’est une cartographie hiérarchique de la structure des mathématiques.</p>
+        <nav class="toc" aria-label="Sommaire de la page"><a class="tag c-blue" href="#fondements">Fondements et Logique</a><a class="tag c-blue" href="#algebre">Algèbre et Théorie des nombres</a><a class="tag c-blue" href="#analyse">Analyse mathématique</a><a class="tag c-blue" href="#geometrie">Géométrie et Topologie</a><a class="tag c-blue" href="#probabilites">Probabilités et Statistiques</a><a class="tag c-blue" href="#appliquees">Mathématiques appliquées et computationnelles</a></nav>
+      </div>
+
+      <aside class="panel legend" aria-label="Légende des couleurs">
+        <h3>Légende des couleurs</h3>
+        <ul class="legend-tree">
+          <li class="legend-domaine">Domaine
+            <ul>
+              <li class="legend-branche">Math théorique ou appliquée
+                <ul>
+                  <li class="legend-discipline">Discipline
+                    <ul>
+                      <li class="legend-notions">Exemples de notions</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </aside>
+    </div>
   </header>
 
   <main>

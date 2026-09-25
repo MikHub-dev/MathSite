@@ -1,4 +1,4 @@
-// Version : 1.1
+// Version : 1.4
 // =====================================================================
 // PAGES « CORRESPONDANCES » ET « VUE D'ENSEMBLE » — domaines du référentiel MSC
 // =====================================================================
@@ -132,6 +132,59 @@
   }
 
   window.MSC_COMMUN = { DOMAINES, PAGE_MSC, index, domaineMsc, domaineObjet, classeNiveau, libelleNiveau, rgba, enteteDomaine };
+})();
+
+
+// ---------------------------------------------------------------------
+// FICHES ENCYCLOPÉDIE — la section « Correspondances » peut désormais pointer
+// vers une notion du sommaire (window.NOTIONS[i].correspondances peut contenir
+// { key: "sup:<id>"|"ecole:<id>", title, raison } en plus de { id, title, raison }).
+// ---------------------------------------------------------------------
+// app.js rend cette section pour CHAQUE type d'entrée avec onclick="openNotion(cor.id)" :
+// pour une entrée à clé sommaire, cor.id est undefined et le clic ne fait rien. On enveloppe
+// openNotion() (comme formules.js le fait déjà pour la section Vidéos) pour, après le rendu
+// d'origine, réparer le clic de ces entrées et leur ajouter une pastille de domaine/niveau.
+// N'écrit rien dans notions-data.js ni app.js.
+// ---------------------------------------------------------------------
+(function () {
+  "use strict";
+  if (typeof window.openNotion !== "function") return;
+  const { domaineObjet, classeNiveau, libelleNiveau, rgba, index } = window.MSC_COMMUN;
+
+  const CSS_CN = `
+    .cn-tags { display: inline-flex; align-items: center; gap: 5px; margin-right: 8px; vertical-align: middle; }
+    .cn-tag { display: inline-block; font-size: 9.5px; font-weight: 600; padding: 2px 7px; border-radius: 999px; }
+    .cn-tag-sommaire { color: #9aa7bd; background: rgba(154, 167, 189, .14); }
+  `;
+  if (!document.getElementById("correspondances-notion-style")) {
+    const st = document.createElement("style");
+    st.id = "correspondances-notion-style";
+    st.textContent = CSS_CN;
+    document.head.appendChild(st);
+  }
+
+  const original = window.openNotion;
+  window.openNotion = function (id) {
+    original(id);
+    const n = (window.NOTIONS || []).find(x => x.id === id);
+    if (!n || !n.correspondances || !n.correspondances.length) return;
+    const items = document.querySelectorAll("#content .correspondances-list li");
+    n.correspondances.forEach((cor, i) => {
+      if (!cor.key) return; // entrée classique vers l'Encyclopédie : rien à faire
+      const li = items[i];
+      if (!li) return;
+      const e = index().get(cor.key);
+      if (!e) { console.warn("Correspondances (fiche) : notion du sommaire introuvable :", cor.key); return; }
+      li.onclick = function () { veOpenNotion(cor.key); };
+      const d = domaineObjet(cor.key);
+      const tag = d
+        ? '<span class="cn-tag" style="color:' + d.couleur + ';background:' + rgba(d.couleur, 0.13) + '">' + escapeHtml(d.court) + '</span>'
+        : '<span class="cn-tag cn-tag-sommaire">Sommaire</span>';
+      const lvl = '<span class="ve-lvl ' + classeNiveau(e.grade) + '">' + escapeHtml(libelleNiveau(e.grade)) + '</span>';
+      const titleEl = li.querySelector(".cor-title");
+      if (titleEl) titleEl.insertAdjacentHTML("beforebegin", '<span class="cn-tags">' + tag + lvl + '</span>');
+    });
+  };
 })();
 
 // ---------------------------------------------------------------------
@@ -431,7 +484,53 @@
       ["sup:218", "Pour x' = Ax, la solution est x(t) = e^(tA)x₀ : l'origine est asymptotiquement stable si et seulement si toutes les valeurs propres de A sont de partie réelle strictement négative."],
       ["sup:287", "Le théorème de Cauchy–Lipschitz assure l'existence et l'unicité locales des trajectoires : sans lui, parler de flot et de stabilité d'un point d'équilibre n'a pas de sens."],
       ["sup:1608", "Un système dynamique est le flot d'un champ de vecteurs ; sur une variété, l'espace des phases est courbe (tore, sphère) et le champ est une section du fibré tangent."],
-      ["sup:1507", "Le théorème ergodique affirme que la moyenne temporelle le long d'une trajectoire converge vers la moyenne sous la loi stationnaire : c'est l'analogue probabiliste de l'étude asymptotique d'un système dynamique."]]]
+      ["sup:1507", "Le théorème ergodique affirme que la moyenne temporelle le long d'une trajectoire converge vers la moyenne sous la loi stationnaire : c'est l'analogue probabiliste de l'étude asymptotique d'un système dynamique."]]],
+    // --- 6 pivots ajoutés : nombres complexes/quaternions, Hilbert/hermitien,
+    //     valeurs propres/SVD, produit tensoriel, estimation/Kalman, groupes de Lie ---
+
+    ["sup:1497", {
+      pratique: "rotations et attitude spatiale sans blocage de cardan (géométrie), filtrage de Kalman pour l'estimation d'attitude (probabilités), spin d'une particule et groupe SU(2) (physique).",
+      pourquoi: "un quaternion unitaire code une rotation de l'espace de façon plus stable qu'une matrice, avec deux quaternions opposés pour chaque rotation : c'est la structure qui pilote l'orientation des satellites et le spin des particules." }, [
+      ["sup:125", "Un quaternion unitaire q agit sur un vecteur par v ↦ q v q⁻¹ et code une rotation de l'espace ; deux quaternions opposés ±q représentent la même rotation (revêtement double de SO(3)), ce qui évite le blocage de cardan."],
+      ["sup:1900", "L'attitude d'un satellite s'estime souvent par un filtre de Kalman étendu dont l'état inclut un quaternion unitaire, plus stable numériquement qu'une paramétrisation par angles d'Euler."],
+      ["enc:420", "Les quaternions unitaires forment le groupe SU(2), qui double-recouvre SO(3) : c'est la même structure mathématique que celle des rotations du spin d'une particule quantique."]]],
+
+    ["sup:489", {
+      pratique: "diagonalisation des matrices hermitiennes (algèbre), orthogonalité via le produit scalaire (géométrie), analyse en composantes principales (probabilités), observables quantiques (physique).",
+      pourquoi: "un opérateur auto-adjoint a des valeurs propres réelles et des vecteurs propres orthogonaux : c'est ce qui garantit, en mécanique quantique, que les résultats de mesure sont des nombres réels." }, [
+      ["sup:210", "En dimension finie, un opérateur auto-adjoint est représenté par une matrice hermitienne (A = A*) ; le théorème spectral dit qu'elle est diagonalisable dans une base orthonormée, à valeurs propres réelles."],
+      ["sup:111", "Un opérateur T est auto-adjoint si (Tu|v) = (u|Tv) pour tout u,v : la notion dépend entièrement du produit scalaire choisi, et ses sous-espaces propres associés à des valeurs propres distinctes sont orthogonaux."],
+      ["enc:420", "En mécanique quantique, une observable (position, impulsion, énergie) est représentée par un opérateur auto-adjoint sur un espace de Hilbert ; ses valeurs propres sont les résultats de mesure possibles."],
+      ["sup:1337", "La matrice de covariance d'un jeu de données est symétrique réelle, donc auto-adjointe : le théorème spectral la diagonalise dans une base orthonormée de vecteurs propres, les axes principaux de l'ACP."]]],
+
+    ["sup:220", {
+      pratique: "régression par moindres carrés (probabilités), pseudo-inverse de Moore-Penrose (calcul appliqué), image de la sphère unité en ellipsoïde (géométrie).",
+      pourquoi: "toute matrice s'écrit A = UΣVᵀ : les valeurs singulières mesurent combien l'application dilate ou contracte l'espace dans chaque direction, ce qui sert à résoudre, approcher ou compresser." }, [
+      ["sup:1119", "La droite de régression des moindres carrés s'obtient à partir d'une SVD de la matrice des données : les plus grandes valeurs singulières captent l'essentiel de la variance expliquée."],
+      ["sup:1250", "Résoudre Ax=b au sens des moindres carrés quand A n'est pas carrée revient à utiliser la pseudo-inverse de Moore-Penrose A⁺ = VΣ⁺Uᵀ, construite à partir de la SVD A = UΣVᵀ."],
+      ["sup:1224", "L'image de la sphère unité par une application linéaire de matrice A est un ellipsoïde (une quadrique) dont les demi-axes sont exactement les valeurs singulières de A."]]],
+
+    ["sup:1632", {
+      pratique: "tenseur métrique d'une variété (géométrie), indépendance de variables aléatoires (probabilités), espace des états de plusieurs qubits (physique).",
+      pourquoi: "le produit tensoriel E⊗F code toutes les façons de combiner un vecteur de E et un vecteur de F : sa dimension, qui se multiplie au lieu de s'additionner, explique la croissance exponentielle de l'espace d'états en calcul quantique." }, [
+      ["sup:545", "La métrique riemannienne g_ij est un tenseur, c'est-à-dire un élément du produit tensoriel E*⊗E* (formes bilinéaires sur l'espace tangent) : le produit tensoriel formalise la notion intuitive de tenseur utilisée en géométrie."],
+      ["sup:335", "Si X et Y sont indépendantes, leur densité jointe se factorise f_(X,Y)(x,y) = f_X(x)·f_Y(y) : c'est le produit tensoriel des densités marginales, comme l'espace de deux qubits indépendants est le produit tensoriel de leurs espaces individuels."],
+      ["enc:420", "L'espace des états de n qubits est le produit tensoriel de n espaces à 2 dimensions, ℂ²⊗...⊗ℂ² = ℂ^(2ⁿ) : cette croissance exponentielle fonde la puissance du calcul quantique ; l'intrication est un état qui ne se factorise pas en produit de facteurs."]]],
+
+    ["sup:1900", {
+      pratique: "propagation de la covariance et valeurs propres (algèbre), orientation par quaternion en navigation inertielle (géométrie), lien avec les moindres carrés (calcul appliqué).",
+      pourquoi: "le filtre de Kalman est l'estimateur récursif optimal d'un système linéaire gaussien : à chaque pas, il combine une prédiction et une mesure en les pondérant par leurs covariances respectives." }, [
+      ["sup:191", "La matrice de covariance de l'erreur P se propage par P ← FPFᵀ + Q : sa positivité et ses valeurs propres, donc sa diagonalisation, gouvernent la stabilité numérique du filtre."],
+      ["sup:125", "En navigation inertielle, le filtre de Kalman étend son état à l'orientation, souvent codée par un quaternion, dont l'évolution suit les équations cinématiques de la rotation plutôt qu'une simple matrice de rotation."],
+      ["sup:1250", "Le filtre de Kalman généralise les moindres carrés récursifs : pour des observations gaussiennes indépendantes, son estimateur coïncide avec la solution des moindres carrés pondérés par l'inverse des covariances."]]],
+
+    ["sup:1617", {
+      pratique: "groupe orthogonal SO(n) (algèbre), analyse harmonique sur SU(2) (analyse), représentations et spin d'une particule (physique).",
+      pourquoi: "un groupe de Lie est à la fois un groupe et une variété différentiable : ses représentations décrivent comment un système physique se transforme sous les symétries du groupe, ce qui classe les états de spin en mécanique quantique." }, [
+      ["sup:1496", "SO(n), le groupe des rotations de l'espace euclidien, est l'exemple le plus simple de groupe de Lie : un groupe qui est aussi une variété différentiable, sur laquelle les opérations de groupe sont lisses."],
+      ["sup:578", "L'analyse harmonique sur un groupe de Lie compact comme SU(2) généralise la transformée de Fourier classique : on décompose une fonction sur le groupe selon ses représentations irréductibles plutôt que sur les exponentielles e^(inθ)."],
+      ["enc:420", "Le groupe SU(2), groupe de Lie des matrices unitaires 2×2 de déterminant 1, est le groupe de symétrie du spin d'une particule ; ses représentations irréductibles de dimension 2j+1 classent les états de spin j."],
+      ["sup:535", "Une représentation unitaire fait agir un groupe de Lie par des opérateurs unitaires sur un espace de Hilbert, ce qui préserve les probabilités en mécanique quantique (théorème de Wigner)."]]]
   ];
 
   window.CORRESPONDANCES_PIVOTS = PIVOTS;
@@ -593,6 +692,767 @@
   window.loadCorrespondanceTable = loadCorrespondanceTable;
 })();
 
+// ---------------------------------------------------------------------
+// CHAPITRES « SPÉCIALISATION » — six priorités communes au calcul quantique,
+// à la physique quantique et à la navigation spatiale
+// ---------------------------------------------------------------------
+// formules-data.js (qui définit window.FORMULES_CHAPTERS) est chargé AVANT ce fichier
+// dans index.html : le tableau existe déjà, on y ajoute 6 chapitres (num 11 à 16), affichés
+// à la suite dans le sommaire vertical de « Spécialisation ». Les blocs (p, h, ul, table,
+// links, ...) sont ceux déjà gérés par renderFormulesBlock() dans formules.js : aucune
+// mise en forme à ajouter, aucune fonction de app.js ou de formules.js n'est modifiée.
+(function () {
+  "use strict";
+  const NOUVEAUX_CHAPITRES = [
+  {
+    "id": "quaternions",
+    "num": "11",
+    "title": "Quaternions et rotations",
+    "subtitle": "Au-delà des nombres complexes : coder une rotation de l'espace sans blocage de cardan — navigation inertielle, robotique, aérospatiale",
+    "blocks": [
+      [
+        "note",
+        "Un quaternion est un nombre à quatre composantes q = a + bi + cj + dk, où i² = j² = k² = ijk = −1. Les quaternions unitaires (|q|=1) forment un groupe qui permet de représenter les rotations de l'espace, sans les défauts des matrices de rotation ou des angles d'Euler."
+      ],
+      [
+        "h",
+        "1 · Un nombre à quatre dimensions"
+      ],
+      [
+        "p",
+        "William Hamilton a cherché, après les nombres complexes qui tournent le plan, une structure qui tourne l'espace à trois dimensions. Il a fallu passer à quatre dimensions : un quaternion s'écrit q = a + bi + cj + dk, avec a, b, c, d réels."
+      ],
+      [
+        "ul",
+        [
+          "a est la partie réelle (scalaire)",
+          "(b,c,d) est la partie imaginaire, un vecteur de ℝ³",
+          "i, j, k anticommutent : ij = k mais ji = −k",
+          "La multiplication des quaternions n'est donc pas commutative"
+        ]
+      ],
+      [
+        "h",
+        "2 · Le groupe des quaternions unitaires"
+      ],
+      [
+        "p",
+        "Un quaternion unitaire vérifie |q|² = a²+b²+c²+d² = 1 : il vit sur la sphère de dimension 3 dans ℝ⁴. Muni de la multiplication des quaternions, cet ensemble est un groupe : c'est le groupe SU(2)."
+      ],
+      [
+        "ul",
+        [
+          "L'inverse de q est son conjugué q̄ = a − bi − cj − dk (car |q| = 1)",
+          "SU(2) est aussi le groupe des matrices unitaires 2×2 de déterminant 1",
+          "L'application q ↦ −q reste dans SU(2) et code la même rotation que q"
+        ]
+      ],
+      [
+        "h",
+        "3 · Coder une rotation de l'espace"
+      ],
+      [
+        "p",
+        "Pour un quaternion unitaire q et un vecteur v de ℝ³ vu comme quaternion pur (0,v), la formule v' = q v q⁻¹ est une rotation de l'espace, d'axe la partie imaginaire de q et d'angle le double de l'angle de q."
+      ],
+      [
+        "ul",
+        [
+          "q et −q donnent exactement la même rotation : c'est un revêtement à deux feuillets de SO(3)",
+          "Composer deux rotations revient à multiplier leurs quaternions : q₂q₁ applique d'abord q₁, puis q₂",
+          "L'identité (rotation nulle) correspond à q = ±1"
+        ]
+      ],
+      [
+        "h",
+        "4 · Pourquoi préférer un quaternion à une matrice ou à des angles"
+      ],
+      [
+        "p",
+        "Une rotation de l'espace peut se coder par une matrice 3×3 (9 nombres, 6 contraintes), par trois angles d'Euler (3 nombres, mais une paramétrisation qui dégénère), ou par un quaternion unitaire (4 nombres, 1 contrainte)."
+      ],
+      [
+        "ul",
+        [
+          "Les angles d'Euler souffrent du blocage de cardan : deux axes de rotation peuvent s'aligner et faire perdre un degré de liberté",
+          "Interpoler entre deux quaternions (SLERP) donne une rotation intermédiaire naturelle, ce que les angles d'Euler ne permettent pas simplement",
+          "Mettre à jour un quaternion ne coûte qu'une multiplication, moins chère qu'un produit de matrices 3×3"
+        ]
+      ],
+      [
+        "h",
+        "5 · En navigation inertielle et en aérospatiale"
+      ],
+      [
+        "p",
+        "L'attitude (l'orientation) d'un avion, d'un satellite ou d'une fusée est en pratique suivie par un quaternion, mis à jour à partir des mesures d'un gyroscope, puis recalé par un filtre de Kalman à partir d'autres capteurs (étoiles, horizon, GPS)."
+      ],
+      [
+        "ul",
+        [
+          "Le quaternion d'attitude évolue selon une équation différentielle linéaire, simple à intégrer numériquement",
+          "Il ne peut pas dégénérer comme les angles d'Euler, ce qui est précieux pour un engin qui peut prendre n'importe quelle orientation",
+          "Manettes de jeu, casques de réalité virtuelle et bras robotiques utilisent la même représentation"
+        ]
+      ],
+      [
+        "h",
+        "6 · Le pont vers la physique quantique"
+      ],
+      [
+        "p",
+        "Le groupe SU(2) des quaternions unitaires n'est pas qu'un outil de géométrie : c'est exactement le groupe qui décrit comment tourne le spin d'une particule quantique, comme un électron. Faire tourner un spin d'un tour complet (360°) ne le ramène pas à son état initial : il faut deux tours, tout comme q et −q codent la même rotation de l'espace."
+      ],
+      [
+        "h",
+        "Synthèse"
+      ],
+      [
+        "table",
+        [
+          "Domaine",
+          "Rôle des quaternions"
+        ],
+        [
+          [
+            "Algèbre",
+            "Corps non commutatif à 4 dimensions, contenant les nombres complexes"
+          ],
+          [
+            "Géométrie",
+            "Codage des rotations de l'espace, sans blocage de cardan"
+          ],
+          [
+            "Probabilités",
+            "État privilégié d'un filtre de Kalman pour l'estimation d'attitude"
+          ],
+          [
+            "Physique",
+            "Groupe SU(2), qui décrit le spin d'une particule quantique"
+          ]
+        ]
+      ],
+      [
+        "links",
+        [
+          "Groupes",
+          "Groupes de Lie et représentations",
+          "Estimation et filtrage de Kalman"
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "hermitiens",
+    "num": "12",
+    "title": "Espaces hermitiens et opérateurs auto-adjoints",
+    "subtitle": "Le produit scalaire complexe et les opérateurs qui le respectent — le langage mathématique des observables quantiques",
+    "blocks": [
+      [
+        "note",
+        "Un espace hermitien est un espace vectoriel complexe muni d'un produit scalaire à valeurs complexes ⟨u|v⟩, linéaire en une variable et antilinéaire en l'autre. Un opérateur auto-adjoint (ou hermitien) T vérifie ⟨Tu|v⟩ = ⟨u|Tv⟩ pour tous u, v : c'est l'analogue complexe d'une matrice symétrique."
+      ],
+      [
+        "h",
+        "1 · Le produit scalaire complexe"
+      ],
+      [
+        "p",
+        "Sur ℂⁿ, le produit scalaire hermitien s'écrit ⟨u|v⟩ = Σ uᵢ v̄ᵢ : le conjugué compense pour que la norme ‖u‖² = ⟨u|u⟩ soit toujours réelle et positive."
+      ],
+      [
+        "ul",
+        [
+          "⟨u|v⟩ = conjugué de ⟨v|u⟩ : le produit n'est pas symétrique mais « hermitien-symétrique »",
+          "Deux vecteurs sont orthogonaux si ⟨u|v⟩ = 0, exactement comme dans le cas réel",
+          "L'inégalité de Cauchy-Schwarz |⟨u|v⟩| ≤ ‖u‖‖v‖ reste valable"
+        ]
+      ],
+      [
+        "h",
+        "2 · Matrices et opérateurs hermitiens"
+      ],
+      [
+        "p",
+        "Une matrice A est hermitienne si A = A* (sa conjuguée-transposée) ; c'est l'analogue complexe d'une matrice symétrique réelle. Une matrice unitaire U vérifie U*U = I : elle conserve le produit scalaire hermitien, comme une matrice orthogonale conserve le produit scalaire réel."
+      ],
+      [
+        "ul",
+        [
+          "Une matrice hermitienne a toutes ses valeurs propres réelles",
+          "Ses vecteurs propres associés à des valeurs propres distinctes sont orthogonaux entre eux",
+          "Le théorème spectral la diagonalise dans une base orthonormée : A = UDU*, D diagonale réelle"
+        ]
+      ],
+      [
+        "h",
+        "3 · Pourquoi les valeurs propres sont réelles"
+      ],
+      [
+        "p",
+        "Si Av = λv avec A hermitienne et v non nul, alors λ⟨v|v⟩ = ⟨Av|v⟩ = ⟨v|Av⟩ = λ̄⟨v|v⟩ en utilisant A = A* ; comme ⟨v|v⟩ ≠ 0, on obtient λ = λ̄, donc λ est réel. C'est ce calcul, presque immédiat, qui garantit que les grandeurs physiques associées à un opérateur auto-adjoint sont des nombres réels mesurables."
+      ],
+      [
+        "h",
+        "4 · En dimension infinie : opérateurs sur un espace de Hilbert"
+      ],
+      [
+        "p",
+        "Sur un espace de Hilbert (un espace hermitien complet), la même notion s'étend aux opérateurs linéaires, bornés ou non : un opérateur auto-adjoint conserve un spectre réel, même quand ce spectre n'est plus une liste finie de valeurs propres mais peut devenir continu."
+      ],
+      [
+        "ul",
+        [
+          "Le théorème spectral se généralise, via des mesures spectrales",
+          "Un opérateur de multiplication (par x, par exemple) est auto-adjoint mais n'a pas de vecteur propre au sens usuel",
+          "Les opérateurs compacts auto-adjoints retrouvent, eux, une base orthonormée de vecteurs propres, comme en dimension finie"
+        ]
+      ],
+      [
+        "h",
+        "5 · Les observables de la mécanique quantique"
+      ],
+      [
+        "p",
+        "En mécanique quantique, l'état d'un système est un vecteur unitaire d'un espace de Hilbert complexe, et chaque grandeur physique mesurable (position, impulsion, énergie, spin) est représentée par un opérateur auto-adjoint. Les résultats de mesure possibles sont exactement les valeurs propres de cet opérateur, et la probabilité d'obtenir chaque résultat se calcule par projection orthogonale sur le sous-espace propre correspondant."
+      ],
+      [
+        "h",
+        "6 · Et en statistique : diagonaliser une matrice de covariance"
+      ],
+      [
+        "p",
+        "Une matrice de covariance, réelle et symétrique, est un cas particulier (réel) de matrice hermitienne : elle est toujours diagonalisable dans une base orthonormée, et ses valeurs propres, toujours positives ou nulles, sont les variances le long des axes principaux — c'est exactement l'analyse en composantes principales."
+      ],
+      [
+        "h",
+        "Synthèse"
+      ],
+      [
+        "table",
+        [
+          "Domaine",
+          "Rôle des espaces hermitiens"
+        ],
+        [
+          [
+            "Algèbre",
+            "Matrices hermitiennes et unitaires, diagonalisation orthogonale"
+          ],
+          [
+            "Géométrie",
+            "Produit scalaire complexe, orthogonalité"
+          ],
+          [
+            "Probabilités",
+            "Diagonalisation d'une matrice de covariance (ACP)"
+          ],
+          [
+            "Physique",
+            "Observables quantiques et résultats de mesure"
+          ]
+        ]
+      ],
+      [
+        "links",
+        [
+          "Espaces vectoriels",
+          "Valeurs propres, spectre et SVD",
+          "Groupes de Lie et représentations"
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "spectral-svd",
+    "num": "13",
+    "title": "Valeurs propres, spectre et SVD",
+    "subtitle": "Diagonaliser, décomposer, approcher — du théorème spectral à la décomposition en valeurs singulières",
+    "blocks": [
+      [
+        "note",
+        "Diagonaliser une matrice, c'est trouver les directions où elle agit comme une simple dilatation. Quand la matrice n'est pas carrée, ou n'est pas diagonalisable, la décomposition en valeurs singulières (SVD) généralise cette idée à toute matrice."
+      ],
+      [
+        "h",
+        "1 · Valeurs propres et vecteurs propres"
+      ],
+      [
+        "p",
+        "Un vecteur propre d'une matrice carrée A est un vecteur v non nul tel que Av = λv : la matrice agit sur lui comme une simple multiplication par le scalaire λ, sa valeur propre."
+      ],
+      [
+        "ul",
+        [
+          "Les valeurs propres sont les racines du polynôme caractéristique det(A − λI) = 0",
+          "Une matrice n×n a au plus n valeurs propres, comptées avec multiplicité",
+          "Si A a n vecteurs propres indépendants, elle est diagonalisable : A = PDP⁻¹"
+        ]
+      ],
+      [
+        "h",
+        "2 · Le théorème spectral"
+      ],
+      [
+        "p",
+        "Quand A est symétrique (réelle) ou hermitienne (complexe), le théorème spectral garantit mieux qu'une simple diagonalisation : ses valeurs propres sont réelles et ses vecteurs propres peuvent être choisis orthonormés, donc A = PDPᵀ (ou PDP*) avec P orthogonale (ou unitaire)."
+      ],
+      [
+        "ul",
+        [
+          "C'est le cas le plus fréquent en pratique : matrices de covariance, matrices d'inertie, hessiennes en un minimum",
+          "La diagonalisation orthogonale ne déforme pas les distances : c'est un simple changement de repère",
+          "Courbures principales d'une surface, modes propres de vibration en sont des applications directes"
+        ]
+      ],
+      [
+        "h",
+        "3 · Quand une matrice n'est pas carrée : la SVD"
+      ],
+      [
+        "p",
+        "La plupart des matrices utiles ne sont ni carrées ni symétriques (une matrice de données, par exemple, a autant de lignes que d'observations et autant de colonnes que de variables). Toute matrice A, de taille m×n, s'écrit A = UΣVᵀ, où U et V sont orthogonales et Σ est diagonale à coefficients positifs ou nuls, les valeurs singulières."
+      ],
+      [
+        "ul",
+        [
+          "Les valeurs singulières sont les racines carrées des valeurs propres de AᵀA (ou AAᵀ)",
+          "Elles mesurent combien A dilate ou contracte l'espace dans chaque direction principale",
+          "L'image de la sphère unité par A est un ellipsoïde dont les demi-axes sont les valeurs singulières"
+        ]
+      ],
+      [
+        "h",
+        "4 · La pseudo-inverse et les moindres carrés"
+      ],
+      [
+        "p",
+        "Quand le système Ax = b n'a pas de solution exacte (plus d'équations que d'inconnues, données bruitées), on cherche le x qui minimise ‖Ax − b‖ : c'est le problème des moindres carrés, résolu par la pseudo-inverse de Moore-Penrose A⁺ = VΣ⁺Uᵀ, construite à partir de la SVD en inversant les valeurs singulières non nulles."
+      ],
+      [
+        "h",
+        "5 · Compression et réduction de dimension"
+      ],
+      [
+        "p",
+        "Si l'on ne garde que les k plus grandes valeurs singulières et les vecteurs associés, on obtient la meilleure approximation de rang k de A au sens des moindres carrés (théorème d'Eckart-Young) : c'est le principe de la compression d'images, de la réduction de dimension et de l'analyse en composantes principales."
+      ],
+      [
+        "ul",
+        [
+          "En ACP, les axes principaux sont les vecteurs propres de la matrice de covariance, donc les vecteurs de la SVD des données centrées",
+          "En traitement d'image, ne garder que les premières valeurs singulières comprime l'image en préservant l'essentiel",
+          "En recommandation (filtrage collaboratif), la SVD factorise une matrice utilisateurs × produits très incomplète"
+        ]
+      ],
+      [
+        "h",
+        "6 · Stabilité numérique et conditionnement"
+      ],
+      [
+        "p",
+        "Le rapport entre la plus grande et la plus petite valeur singulière, le conditionnement, mesure la sensibilité d'un système linéaire aux erreurs d'arrondi ou de mesure : un conditionnement élevé signifie qu'une petite erreur sur les données peut provoquer une grande erreur sur la solution."
+      ],
+      [
+        "h",
+        "Synthèse"
+      ],
+      [
+        "table",
+        [
+          "Domaine",
+          "Rôle du spectre et de la SVD"
+        ],
+        [
+          [
+            "Algèbre",
+            "Diagonalisation, théorème spectral, polynôme caractéristique"
+          ],
+          [
+            "Géométrie",
+            "Ellipsoïde image de la sphère unité, courbures principales"
+          ],
+          [
+            "Probabilités",
+            "Analyse en composantes principales, régression"
+          ],
+          [
+            "Calcul appliqué",
+            "Pseudo-inverse, compression, conditionnement numérique"
+          ]
+        ]
+      ],
+      [
+        "links",
+        [
+          "Matrices",
+          "Espaces hermitiens et opérateurs auto-adjoints",
+          "Estimation et filtrage de Kalman"
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "tenseurs",
+    "num": "14",
+    "title": "Produit tensoriel",
+    "subtitle": "Combiner deux espaces en un seul, plus grand — la structure derrière les tenseurs de la géométrie et les qubits intriqués",
+    "blocks": [
+      [
+        "note",
+        "Le produit tensoriel E⊗F de deux espaces vectoriels combine leurs vecteurs de toutes les façons possibles, sans les mélanger : c'est l'espace le plus général sur lequel une application bilinéaire de E×F se factorise de façon unique."
+      ],
+      [
+        "h",
+        "1 · Combiner deux espaces vectoriels"
+      ],
+      [
+        "p",
+        "Étant donné deux espaces vectoriels E (base e₁,...,eₘ) et F (base f₁,...,fₙ), leur produit tensoriel E⊗F est l'espace vectoriel de base les m×n symboles eᵢ⊗fⱼ. Un élément général n'est pas forcément de la forme u⊗v (un tenseur « pur ») : c'est une combinaison linéaire de tels produits."
+      ],
+      [
+        "ul",
+        [
+          "u⊗v est bilinéaire : (u+u')⊗v = u⊗v + u'⊗v, et (λu)⊗v = λ(u⊗v)",
+          "Toute application bilinéaire B : E×F → G se factorise de façon unique à travers E⊗F : c'est sa propriété universelle",
+          "Le produit tensoriel de deux applications linéaires, (f⊗g)(u⊗v) = f(u)⊗g(v), généralise le produit de matrices"
+        ]
+      ],
+      [
+        "h",
+        "2 · La dimension se multiplie"
+      ],
+      [
+        "p",
+        "Si E est de dimension m et F de dimension n, alors E⊗F est de dimension m×n — le produit, pas la somme, contrairement à E⊕F qui est de dimension m+n : c'est cette croissance multiplicative, et non additive, qui rend le produit tensoriel si différent d'une simple juxtaposition d'espaces."
+      ],
+      [
+        "h",
+        "3 · Les tenseurs de la géométrie"
+      ],
+      [
+        "p",
+        "En géométrie différentielle, un tenseur en un point d'une variété est un élément d'un produit tensoriel d'espaces tangents et cotangents : un vecteur est un tenseur d'ordre 1, une forme bilinéaire, comme la métrique, un tenseur d'ordre 2."
+      ],
+      [
+        "ul",
+        [
+          "La métrique riemannienne g est un élément de E*⊗E*, une forme bilinéaire symétrique sur l'espace tangent",
+          "Le tenseur de courbure de Riemann est d'ordre 4 : il mesure comment le transport parallèle dépend du chemin suivi",
+          "Changer de repère transforme les composantes d'un tenseur par des règles précises, qui le distinguent d'une simple liste de nombres"
+        ]
+      ],
+      [
+        "h",
+        "4 · Deux qubits, un espace à quatre dimensions"
+      ],
+      [
+        "p",
+        "L'état d'un qubit vit dans un espace de dimension 2 (les combinaisons de |0⟩ et |1⟩). L'état de n qubits pris ensemble vit dans le produit tensoriel de leurs n espaces individuels, donc dans un espace de dimension 2ⁿ : avec seulement 50 qubits, cette dimension dépasse déjà le nombre d'atomes observables dans l'univers."
+      ],
+      [
+        "h",
+        "5 · L'intrication, un état qui ne se factorise pas"
+      ],
+      [
+        "p",
+        "Un état de deux qubits est dit intriqué s'il n'est PAS de la forme u⊗v pour des états u et v individuels : par exemple, l'état de Bell (|00⟩+|11⟩)/√2 ne peut s'écrire comme le produit d'un état du premier qubit par un état du second. C'est cette impossibilité de factoriser qui rend l'état de deux particules intriquées inséparable, même à distance."
+      ],
+      [
+        "h",
+        "6 · Indépendance en probabilités"
+      ],
+      [
+        "p",
+        "En probabilités, si X et Y sont deux variables aléatoires indépendantes, leur loi jointe (ou leur densité) se factorise : f_(X,Y)(x,y) = f_X(x)·f_Y(y). C'est le même phénomène vu côté probabiliste : la loi du couple (X,Y) vit dans un produit tensoriel de lois, et l'indépendance correspond exactement à un tenseur pur, non intriqué."
+      ],
+      [
+        "h",
+        "Synthèse"
+      ],
+      [
+        "table",
+        [
+          "Domaine",
+          "Rôle du produit tensoriel"
+        ],
+        [
+          [
+            "Algèbre",
+            "Espace universel des applications bilinéaires, dimension multiplicative"
+          ],
+          [
+            "Géométrie",
+            "Tenseurs : métrique, courbure, changement de repère"
+          ],
+          [
+            "Probabilités",
+            "Factorisation de la loi jointe de variables indépendantes"
+          ],
+          [
+            "Physique",
+            "Espace d'états de plusieurs qubits, intrication quantique"
+          ]
+        ]
+      ],
+      [
+        "links",
+        [
+          "Espaces vectoriels",
+          "Espaces hermitiens et opérateurs auto-adjoints",
+          "Groupes de Lie et représentations"
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "kalman",
+    "num": "15",
+    "title": "Estimation et filtrage de Kalman",
+    "subtitle": "Estimer un état caché à partir de mesures bruitées — la statistique au cœur de la navigation et du GPS",
+    "blocks": [
+      [
+        "note",
+        "Estimer, c'est reconstruire une grandeur qu'on ne peut pas observer directement à partir de mesures imparfaites. Le filtre de Kalman est la méthode de référence quand le système évolue dans le temps et que chaque nouvelle mesure doit mettre à jour l'estimation précédente."
+      ],
+      [
+        "h",
+        "1 · Estimer à partir de données bruitées"
+      ],
+      [
+        "p",
+        "Un estimateur est une formule qui, à partir d'observations, produit une valeur approchée d'une grandeur inconnue : une moyenne empirique pour estimer une espérance, une fréquence pour estimer une probabilité."
+      ],
+      [
+        "ul",
+        [
+          "Un bon estimateur doit être sans biais (juste en moyenne) et de variance la plus petite possible",
+          "Le maximum de vraisemblance choisit le paramètre qui rend les observations les plus probables",
+          "Le théorème central limite garantit, pour de grands échantillons, que l'erreur d'estimation se comporte comme une gaussienne"
+        ]
+      ],
+      [
+        "h",
+        "2 · Le maximum de vraisemblance et les moindres carrés"
+      ],
+      [
+        "p",
+        "Pour un modèle linéaire avec un bruit gaussien, l'estimateur du maximum de vraisemblance coïncide avec celui des moindres carrés : minimiser la somme des carrés des écarts revient à maximiser la probabilité des données observées."
+      ],
+      [
+        "h",
+        "3 · Un état qui évolue dans le temps"
+      ],
+      [
+        "p",
+        "Le filtre de Kalman traite un cas plus riche : un état interne x_k (par exemple une position et une vitesse) qui évolue dans le temps selon une loi connue, mais qu'on ne peut observer qu'à travers des mesures bruitées z_k, liées à l'état par une autre relation linéaire."
+      ],
+      [
+        "ul",
+        [
+          "Modèle d'évolution : x_(k+1) = F x_k + bruit de processus",
+          "Modèle de mesure : z_k = H x_k + bruit de mesure",
+          "Les deux bruits sont supposés gaussiens, indépendants, de covariances connues Q et R"
+        ]
+      ],
+      [
+        "h",
+        "4 · Prédire, puis corriger"
+      ],
+      [
+        "p",
+        "À chaque pas, le filtre alterne deux étapes : une prédiction, qui fait évoluer l'estimation précédente selon le modèle sans nouvelle mesure, puis une correction, qui la recale en fonction de l'écart entre la mesure reçue et la mesure prédite, pondéré par la confiance relative accordée au modèle et à la mesure."
+      ],
+      [
+        "ul",
+        [
+          "Le gain de Kalman K détermine ce poids : il croît quand la mesure est fiable (R petit), il diminue quand le modèle est fiable (Q petit)",
+          "La matrice de covariance de l'erreur P se propage à chaque pas et diminue à chaque correction",
+          "Tout se calcule récursivement : nul besoin de conserver l'historique complet des mesures"
+        ]
+      ],
+      [
+        "h",
+        "5 · Pourquoi c'est l'estimateur optimal"
+      ],
+      [
+        "p",
+        "Parmi tous les estimateurs linéaires sans biais, le filtre de Kalman est celui de variance minimale : dans le cadre linéaire-gaussien, c'est aussi l'estimateur du maximum a posteriori, celui qui utilise au mieux toute l'information disponible."
+      ],
+      [
+        "h",
+        "6 · En navigation : GPS, avions, satellites"
+      ],
+      [
+        "p",
+        "Un GPS combine les mesures, bruitées et parfois interrompues, de plusieurs satellites avec un modèle physique du mouvement du véhicule : c'est un filtre de Kalman qui produit une position lisse et continue même quand un signal satellite est momentanément perdu. Le même principe pilote l'attitude d'un avion de ligne ou d'un lanceur spatial, en fusionnant gyroscopes, accéléromètres et étoiles."
+      ],
+      [
+        "h",
+        "Synthèse"
+      ],
+      [
+        "table",
+        [
+          "Domaine",
+          "Rôle de l'estimation et du filtrage"
+        ],
+        [
+          [
+            "Algèbre",
+            "Propagation de la covariance de l'erreur, valeurs propres"
+          ],
+          [
+            "Géométrie",
+            "Orientation par quaternion en navigation inertielle"
+          ],
+          [
+            "Probabilités",
+            "Maximum de vraisemblance, gaussiennes, variance minimale"
+          ],
+          [
+            "Calcul appliqué",
+            "GPS, guidage, fusion de capteurs en temps réel"
+          ]
+        ]
+      ],
+      [
+        "links",
+        [
+          "Équations différentielles",
+          "Valeurs propres, spectre et SVD",
+          "Quaternions et rotations"
+        ]
+      ]
+    ]
+  },
+  {
+    "id": "lie",
+    "num": "16",
+    "title": "Groupes de Lie et représentations",
+    "subtitle": "Quand un groupe est aussi un espace lisse — symétries continues, rotations et spin d'une particule",
+    "blocks": [
+      [
+        "note",
+        "Un groupe de Lie est à la fois un groupe et une variété différentiable : ses éléments se composent comme dans un groupe, mais on peut aussi les dériver, les approcher les uns des autres, y faire du calcul infinitésimal."
+      ],
+      [
+        "h",
+        "1 · Un groupe qui est aussi un espace lisse"
+      ],
+      [
+        "p",
+        "Le cercle (les rotations du plan), la sphère des quaternions unitaires, ou l'ensemble des matrices inversibles sont des groupes pour la composition, mais ce sont aussi des variétés : on peut y définir des voisinages, des courbes, des vitesses instantanées. Un groupe de Lie réunit ces deux structures, avec la condition que la multiplication et l'inversion soient des applications lisses."
+      ],
+      [
+        "ul",
+        [
+          "Le cercle U(1) = {e^(iθ)}, groupe des rotations du plan, en est le premier exemple",
+          "GL_n(ℝ), le groupe des matrices inversibles n×n, en est un autre : c'est un ouvert de l'espace des matrices",
+          "SO(n), rotations de ℝⁿ, et SU(n), matrices unitaires de déterminant 1, sont les plus utilisés en physique"
+        ]
+      ],
+      [
+        "h",
+        "2 · L'algèbre de Lie : linéariser au voisinage de l'identité"
+      ],
+      [
+        "p",
+        "Au voisinage de l'élément neutre, un groupe de Lie ressemble à son espace tangent en ce point : cet espace tangent, muni d'une opération appelée le crochet [X,Y] qui mesure le défaut de commutativité du groupe, est l'algèbre de Lie du groupe. Pour les groupes de matrices, l'exponentielle de matrice fait le lien : exp(tX) trace une courbe dans le groupe partant de l'identité, de vitesse initiale X."
+      ],
+      [
+        "h",
+        "3 · SO(3) et SU(2), les groupes des rotations"
+      ],
+      [
+        "p",
+        "SO(3), le groupe des rotations de l'espace à trois dimensions, et SU(2), le groupe des quaternions unitaires, décrivent presque la même chose : il existe une application de SU(2) sur SO(3) qui envoie deux quaternions opposés ±q sur la même rotation."
+      ],
+      [
+        "ul",
+        [
+          "SU(2) est un revêtement à deux feuillets de SO(3) : « deux fois plus grand »",
+          "Cette différence, invisible en géométrie classique, devient essentielle en physique quantique",
+          "Les deux groupes ont la même algèbre de Lie : au voisinage de l'identité, ils sont indiscernables"
+        ]
+      ],
+      [
+        "h",
+        "4 · Représenter un groupe par des matrices"
+      ],
+      [
+        "p",
+        "Représenter un groupe, c'est faire agir chacun de ses éléments comme une matrice (ou un opérateur linéaire) sur un espace vectoriel, de façon compatible avec la loi du groupe : ρ(gh) = ρ(g)ρ(h). Deux représentations peuvent être très différentes en apparence tout en correspondant au même groupe abstrait."
+      ],
+      [
+        "ul",
+        [
+          "Une représentation est irréductible si elle ne contient pas de sous-espace stable non trivial : ce sont les « briques » à partir desquelles toutes les autres se construisent",
+          "Une représentation unitaire fait agir le groupe par des opérateurs qui conservent le produit scalaire, donc les longueurs et les probabilités",
+          "Les caractères, traces des matrices de représentation, suffisent souvent à identifier une représentation"
+        ]
+      ],
+      [
+        "h",
+        "5 · Le spin d'une particule quantique"
+      ],
+      [
+        "p",
+        "Les représentations irréductibles de SU(2) sont classées par un entier ou demi-entier j = 0, 1/2, 1, 3/2, ... de dimension 2j+1 : ce sont exactement les états de spin j observés en physique quantique. Un spin 1/2, comme celui de l'électron, correspond à la représentation de dimension 2 de SU(2), celle-là même que les quaternions unitaires réalisent naturellement sur ℂ²."
+      ],
+      [
+        "h",
+        "6 · L'analyse harmonique sur un groupe"
+      ],
+      [
+        "p",
+        "Comme les fonctions périodiques se décomposent en série de Fourier sur les exponentielles e^(inθ), une fonction définie sur un groupe de Lie compact, comme SU(2) ou SO(3), se décompose sur ses représentations irréductibles : c'est l'analyse harmonique non commutative, qui généralise directement les séries de Fourier classiques."
+      ],
+      [
+        "h",
+        "Synthèse"
+      ],
+      [
+        "table",
+        [
+          "Domaine",
+          "Rôle des groupes de Lie"
+        ],
+        [
+          [
+            "Algèbre",
+            "SO(n), SU(n), représentations, caractères"
+          ],
+          [
+            "Analyse",
+            "Analyse harmonique non commutative sur un groupe compact"
+          ],
+          [
+            "Géométrie",
+            "Structure de variété, algèbre de Lie, exponentielle"
+          ],
+          [
+            "Physique",
+            "Classification des états de spin par représentation irréductible"
+          ]
+        ]
+      ],
+      [
+        "links",
+        [
+          "Groupes",
+          "Quaternions et rotations",
+          "Espaces hermitiens et opérateurs auto-adjoints"
+        ]
+      ]
+    ]
+  }
+];
+  window.FORMULES_CHAPTERS = (window.FORMULES_CHAPTERS || []).concat(
+    NOUVEAUX_CHAPITRES.filter(nc => !(window.FORMULES_CHAPTERS || []).some(c => c.id === nc.id))
+  );
+})();
+
 // =====================================================================
 // PAGE « VUE D'ENSEMBLE » (chapitre 01 de « 5000 Formules ») — 6 domaines MSC
 // =====================================================================
@@ -688,7 +1548,51 @@
       ["ecole:1212","sup:312"],
       ["sup:556","sup:573"],
       ["sup:347","sup:1677"],
-      ["sup:1249","sup:527"]]
+      ["sup:1249","sup:527"]],
+
+    // --- 6 thèmes ajoutés (quantique / navigation spatiale) ---
+    ["Quaternions et rotations",
+      [],
+      ["sup:1028","sup:1497"],
+      [],
+      ["sup:1101","sup:125"],
+      ["sup:1900"],
+      []],
+    ["Espaces hermitiens",
+      [],
+      ["sup:209","sup:210"],
+      ["sup:489"],
+      ["sup:111"],
+      ["sup:1337"],
+      []],
+    ["Valeurs propres, spectre, SVD",
+      [],
+      ["sup:191","sup:220"],
+      ["sup:507"],
+      ["sup:1224"],
+      ["sup:1119"],
+      ["sup:1250","sup:1248"]],
+    ["Produit tensoriel",
+      [],
+      ["sup:1216","sup:1632"],
+      [],
+      ["sup:545","sup:550"],
+      ["sup:335","sup:336"],
+      []],
+    ["Estimation et filtrage de Kalman",
+      [],
+      ["sup:191"],
+      [],
+      ["sup:125"],
+      ["sup:351","sup:1900"],
+      ["sup:1250"]],
+    ["Groupes de Lie et représentations",
+      [],
+      ["sup:1496","sup:535"],
+      ["sup:578","sup:579"],
+      ["sup:1617","sup:1618"],
+      [],
+      []]
   ];
 
   // Chaînes de progression : chaque étape est une notion du sommaire ; les chaînes
@@ -804,10 +1708,12 @@
     a.ve-notion:hover .ve-t { color: #7aa2ff; text-decoration: underline; }
     .ve-empty { color: #4a505c; font-size: 14px; padding-left: 4px; cursor: help; }
 
-    table.ve-table { table-layout: fixed; min-width: 1100px; }
+    table.ve-table { table-layout: fixed; min-width: 1250px; box-sizing: border-box; }
     table.ve-table a.ve-notion { font-size: 12px; gap: 5px; }
-    table.ve-table .ve-lvl { min-width: 28px; padding: 1px 5px; }
-    table.ve-table th { white-space: normal; vertical-align: bottom; font-size: 10.5px; line-height: 1.3; padding: 8px 8px; }
+    table.ve-table .ve-lvl { min-width: 26px; padding: 1px 4px; }
+    table.ve-table th, table.ve-table td { box-sizing: border-box; overflow-wrap: break-word; }
+    table.ve-table th { white-space: normal; vertical-align: bottom; font-size: 10px; line-height: 1.3; padding: 8px 6px; }
+    table.ve-table th a.ve-dom { display: inline; }
     table.ve-table td { padding: 10px 8px; }
     table.ve-table td.c { color: #e6e6e6; }
 

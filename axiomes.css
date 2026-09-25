@@ -1,5 +1,46 @@
 /* ===================== PAGE AXIOMES ===================== */
-/* Version 1.2 — les règles d’origine (liste + tableau) sont conservées, suivies des styles des pages de détail (.ax-*) */
+/* Version 1.7 — les règles d’origine (liste + tableau) sont conservées, suivies des styles des pages de détail (.ax-*) */
+
+/* ---------- En-tête de la page liste : titre, puis en dessous à gauche « À lire aussi → » + capsule ---------- */
+.axiomes-page .ax-entete {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.axiomes-page .ax-entete h1 { font-size: 14px; margin: 0; }
+
+.axiomes-page .ax-initiation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  max-width: 100%;
+}
+.axiomes-page .ax-initiation-label { color: #b0b0b0; font-size: 14px; white-space: nowrap; }
+.axiomes-page .ax-initiation-lien {
+  display: inline-block;
+  max-width: 100%;
+  padding: 4px 15px 5px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #7fb7ff;
+  text-decoration: none;
+  background: rgba(200, 162, 255, .16);
+  border: 1px solid rgba(200, 162, 255, .55);
+  border-radius: 999px;
+  box-shadow: 0 0 7px rgba(200, 162, 255, .18);
+  transition: background .2s, border-color .2s, color .2s, box-shadow .2s;
+}
+.axiomes-page .ax-initiation-lien:hover {
+  color: #a4c9ff;
+  background: rgba(200, 162, 255, .26);
+  border-color: rgba(200, 162, 255, .85);
+  box-shadow: 0 0 9px rgba(200, 162, 255, .35);
+}
+.axiomes-page .ax-initiation-lien:focus-visible { outline: 2px solid #7fb7ff; outline-offset: 2px; }
 
 .axiomes-page h1 {
   font-size: 28px;

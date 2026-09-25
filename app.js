@@ -1829,7 +1829,7 @@ function autresImage(chemin) {
 
 // --- Cartes de la page d'accueil : un lien par grande section du site (menu horizontal) ---
 const HOME_SECTION_CARDS = [
-  { icon: "IconeAccueil.png", title: "Présentation du site", desc: "Le mode d'emploi : à quoi sert chaque rubrique et comment naviguer d'un bout à l'autre du site.", onclick: "setApp('mathsite'); loadPresentation()" },
+  { icon: "IconeAccueil.png", title: "Présentation du site", desc: "Le mode d'emploi : à quoi sert chaque rubrique et comment naviguer d'un bout à l'autre du site.", onclick: "location.href='carnet-visite-alpha-omega-math.html'" },
   { icon: "IconeEncyclopédie.png", title: "Études", desc: "La bibliothèque Encyclopédie : toutes les fiches, du Collège aux Grandes Écoles, par niveau, classe et chapitre.", onclick: "loadEtudes()", nav: "etudes" },
   { icon: "IconeCorrespondances.png", title: "Correspondances", desc: "Le tableau croisant notions et niveaux.", onclick: "setApp('mathsite'); loadCorrespondanceTable()", nav: "tableau" },
   { icon: "IconeExercices.png", title: "Exercices", desc: "Des exercices ciblés pour s'entraîner.", onclick: "setApp('mathsite'); loadExosFondamentauxHome()", nav: "exos-fondamentaux" },

@@ -1,6 +1,6 @@
 // =====================================================================
 // PAGE « AXIOMES » — rubrique du menu horizontal, placée avant « Spécialisation ».
-// Version 1.2
+// Version 1.4
 //
 // - Appelée depuis le menu : setApp('mathsite'); loadAxiomesPage()
 // - Page liste (tableau Domaine / Système d’axiomes / Exemple de structures) : openAxiomesList()
@@ -95,7 +95,10 @@
       : "";
     return `
       <div class="axiomes-page">
-        <h1>Axiomes — grands systèmes et structures</h1>
+        <div class="ax-entete">
+          <h1>Axiomes — grands systèmes et structures</h1>
+          <p class="ax-initiation"><span class="ax-initiation-label">À lire aussi →</span><a class="ax-initiation-lien" href="axiomatisation-initiation.html">Initiation à l’axiomatisation au lycée</a></p>
+        </div>
         <p class="axiomes-intro">
           Panorama des principaux systèmes d’axiomes utilisés en logique, ensembles, arithmétique,
           algèbre, géométrie, analyse, probabilités et calcul lambda.
