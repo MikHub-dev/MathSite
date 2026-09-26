@@ -1,20 +1,29 @@
-# Version : 1.1
-# Agent quotidien de la page Évaluations : corrige les copies dont la date limite est passée,
-# publie notes et corrigés, crée les nouvelles évaluations prévues, puis met le site à jour.
-# Lancement : chaque matin, ou à la main depuis l'onglet Actions (bouton « Run workflow »).
+# Version : 2.0
+# Agent hebdomadaire de la page Évaluations : corrige les copies reçues (évaluations sans date
+# limite), crée le lot de la semaine (4 évaluations par classe), publie le corrigé des évaluations
+# clôturées, puis met le site à jour.
+# Lancement : le dimanche à 5 h (heure de Paris), ou à la main depuis l'onglet Actions
+# (« Run workflow ») ou l'espace enseignant du site.
 # Consignes de l'agent : AGENT_EVALUATIONS.md. Authentification : abonnement Claude Pro
 # (secret CLAUDE_CODE_OAUTH_TOKEN, généré avec « claude setup-token »).
 name: Agent évaluations
 
 on:
   schedule:
-    - cron: "0 4 * * *"   # 4 h UTC : 6 h à Paris en été, 5 h en hiver
+    # GitHub planifie en heure UTC, sans changement d'heure : deux horaires le dimanche, et le script
+    # de préparation ne travaille qu'à partir de 5 h à Paris (3 h UTC en été, 4 h UTC en hiver).
+    - cron: "0 3 * * 0"
+    - cron: "0 4 * * 0"
   workflow_dispatch:
     inputs:
       cloturer:
-        description: "Clôturer maintenant l'évaluation (son identifiant, ex. 2026-09-25-priorites-operatoires) pour la corriger"
+        description: "Clôturer l'évaluation (son identifiant) : plus de réponses acceptées, corrigé publié"
         required: false
         default: ""
+      lot_hebdomadaire:
+        description: "Créer maintenant le lot de la semaine (4 évaluations par classe)"
+        type: boolean
+        default: false
       generer_classe:
         description: "Créer une nouvelle évaluation maintenant pour cette classe"
         type: choice
@@ -38,7 +47,7 @@ permissions:
 jobs:
   agent:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 75
     steps:
       - name: Récupérer le dépôt
         uses: actions/checkout@v4
@@ -55,7 +64,9 @@ jobs:
         run: node outils/agent-preparer.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENEMENT: ${{ github.event_name }}
           CLOTURER: ${{ inputs.cloturer }}
+          LOT_HEBDOMADAIRE: ${{ inputs.lot_hebdomadaire }}
           GENERER_CLASSE: ${{ inputs.generer_classe }}
           GENERER_SUJET: ${{ inputs.generer_sujet }}
 
@@ -69,7 +80,7 @@ jobs:
             Lis AGENT_EVALUATIONS.md, puis exécute exactement le travail décrit dans travail/a-faire.json.
             Termine par la compilation et l'écriture de travail/bilan.md.
           claude_args: |
-            --max-turns 80
+            --max-turns 250
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node outils/compiler-evaluations.mjs)"
 
       - name: Vérifier le travail
