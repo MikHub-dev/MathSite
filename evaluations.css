@@ -1,4 +1,4 @@
-/* Version : 1.0 */
+/* Version : 1.1 */
 /* PAGE « ÉVALUATIONS » (evaluations.js) — reprend les couleurs du site :
    fond #0f1116, panneaux #1a1d24, bordures #2a2d35, bleu #7aa2ff.
    Trois états d'évaluation : ouverte (bleu), correction en cours (ambre), corrigée (vert). */
@@ -155,6 +155,7 @@
 .eval-badge--ouverte { color: var(--ev-bleu); background: rgba(122, 162, 255, .08); }
 .eval-badge--correction { color: var(--ev-ambre); background: rgba(227, 176, 83, .08); }
 .eval-badge--corrigee { color: var(--ev-vert); background: rgba(95, 201, 138, .08); }
+.eval-badge--echec { color: var(--ev-rouge); background: rgba(255, 107, 107, .08); }
 
 .eval-vide {
   color: var(--ev-doux);
@@ -554,6 +555,58 @@ textarea.eval-input { resize: vertical; line-height: 1.5; }
 .eval-ma-note .eval-ma-note-com { color: #d5d9e1; font-size: 15px; line-height: 1.5; }
 .eval-ma-note .eval-champ-ligne { max-width: 360px; }
 
+/* Espace enseignant */
+.eval-lien--discret {
+  align-self: flex-start;
+  color: var(--ev-doux);
+  font-size: 13px;
+}
+
+.eval-admin-bloc {
+  margin-bottom: 22px;
+  padding: 18px 20px;
+  background: var(--ev-panneau);
+  border: 1px solid var(--ev-bord);
+  border-radius: 10px;
+}
+
+.eval-admin-bloc h2 { font-size: 17px; margin: 0 0 8px; }
+.eval-admin-bloc .eval-form--etroit { max-width: none; }
+
+.eval-admin-titre {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.eval-admin-aide {
+  margin: 0 0 14px;
+  color: var(--ev-doux);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.eval-admin-passages {
+  list-style: none;
+  margin: 6px 0 12px;
+  padding: 0;
+}
+
+.eval-admin-passages li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--ev-bord);
+  font-size: 14px;
+}
+
+.eval-admin-type { color: var(--ev-doux); }
+
+.eval-form select:disabled, .eval-form input:disabled { opacity: .5; }
+
 @media (max-width: 900px) {
   .eval-grid { grid-template-columns: 1fr; }
   .eval-resultats-corps { grid-template-columns: 1fr; }
@@ -562,5 +615,6 @@ textarea.eval-input { resize: vertical; line-height: 1.5; }
 @media (max-width: 600px) {
   .eval-row { grid-template-columns: 1fr; gap: 6px; }
   .eval-identite { grid-template-columns: 1fr; }
+  .eval-admin-passages li { grid-template-columns: 1fr auto; }
   .eval-classe-nom { font-size: 18px; }
 }

@@ -16,6 +16,7 @@
 | `AGENT_EVALUATIONS.md` | Consignes de l'agent Claude quotidien |
 | `.github/workflows/agent-evaluations.yml` | Lancement de l'agent (chaque matin ou à la demande, voir `GUIDE-etape3.md`) |
 | `outils/agent-preparer.mjs`, `outils/agent-finaliser.mjs` | Préparation et contrôle du travail de l'agent |
+| Espace enseignant (lien sur la page Évaluations) | Lancer l'agent depuis le site et suivre ses passages (voir `GUIDE-etape4.md`) |
 | `outils/compiler-evaluations.mjs` | Vérifie les sources et régénère `evaluations-data.js` |
 | `codes-prives/` | Correspondance nom ↔ code, **jamais commitée** (voir `.gitignore`) |
 

@@ -1,9 +1,14 @@
-// Version : 1.0
+// Version : 1.1
 // Worker Cloudflare « mathsite-formulaires » : reçoit les formulaires du site MathSite.
 //
 // POST /envoyer, corps JSON :
 //   { type: "reponse-evaluation", annee, classe, evaluation, prenom, code, reponses: [{question, reponse}], jeton }
 //   { type: "amelioration", categorie, page, message, prenom, jeton }
+//
+// POST /agent/lancer  { motDePasse, jeton, cloturer, generer_classe, generer_sujet }
+//   Page d'administration : lance le workflow « agent-evaluations.yml » (mot de passe + Turnstile).
+// POST /agent/etat     { motDePasse }
+//   Page d'administration : état des derniers passages de l'agent.
 //
 // Pour chaque envoi valide :
 //   1. vérifie le jeton Turnstile (anti-robot) ;
@@ -16,12 +21,15 @@
 //
 // Variables (wrangler.toml) : GITHUB_REPO, GITHUB_BRANCH, ALLOWED_ORIGINS, SEL
 // Secrets (wrangler secret put) : GITHUB_TOKEN, TURNSTILE_SECRET, BREVO_API_KEY,
-//                                 EMAIL_DESTINATAIRE, EMAIL_EXPEDITEUR
+//                                 EMAIL_DESTINATAIRE, EMAIL_EXPEDITEUR, ADMIN_PASSWORD
+// Le jeton GITHUB_TOKEN doit avoir, sur le dépôt : Issues (écriture), Contents (lecture)
+// et, pour la page d'administration, Actions (lecture et écriture).
 
 const CLASSES = { "5e": "5e", seconde: "Seconde" };
 const CATEGORIES = ["Idée d'amélioration", "Erreur à corriger", "Autre"];
 const TAILLE_MAX_CORPS = 30000;
 const TAILLE_MAX_REPONSE = 3000;
+const WORKFLOW_AGENT = "agent-evaluations.yml";
 
 export default {
   async fetch(request, env) {
@@ -42,7 +50,8 @@ export default {
         headers: { ...cors, "Access-Control-Allow-Methods": "POST", "Access-Control-Allow-Headers": "Content-Type", "Access-Control-Max-Age": "86400" },
       });
     }
-    if (url.pathname !== "/envoyer" || request.method !== "POST") {
+    const routes = ["/envoyer", "/agent/lancer", "/agent/etat"];
+    if (!routes.includes(url.pathname) || request.method !== "POST") {
       return repondre(404, { erreur: "Adresse inconnue." });
     }
     if (!cors["Access-Control-Allow-Origin"]) {
@@ -59,9 +68,11 @@ export default {
     }
 
     try {
+      if (url.pathname === "/agent/etat") return repondre(...(await etatAgent(env, donnees)));
       if (!(await verifierTurnstile(env, donnees.jeton, request.headers.get("CF-Connecting-IP")))) {
         return repondre(403, { erreur: "La vérification anti-robot a échoué. Rechargez la page et réessayez." });
       }
+      if (url.pathname === "/agent/lancer") return repondre(...(await lancerAgent(env, donnees)));
       if (donnees.type === "reponse-evaluation") return repondre(...(await traiterReponse(env, donnees)));
       if (donnees.type === "amelioration") return repondre(...(await traiterAmelioration(env, donnees)));
       return repondre(400, { erreur: "Type de message inconnu." });
@@ -172,6 +183,62 @@ async function traiterAmelioration(env, d) {
       .filter((l, i) => l || i === 3).join("\n"));
 
   return [200, { ok: true }];
+}
+
+// ---------- Administration : lancer l'agent et suivre ses passages ----------
+// Comparaison à durée constante : on compare les empreintes des deux mots de passe.
+async function motDePasseValide(env, saisi) {
+  if (!env.ADMIN_PASSWORD || typeof saisi !== "string" || !saisi) return false;
+  const [a, b] = await Promise.all([sha256(saisi), sha256(env.ADMIN_PASSWORD)]);
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
+}
+async function refusMotDePasse() {
+  await new Promise(r => setTimeout(r, 1000));   // ralentit les essais en série
+  return [401, { erreur: "Mot de passe incorrect." }];
+}
+
+async function lancerAgent(env, d) {
+  if (!(await motDePasseValide(env, d.motDePasse))) return refusMotDePasse();
+  const cloturer = String(d.cloturer || "");
+  const classe = String(d.generer_classe || "");
+  const sujet = nettoyer(d.generer_sujet, 120);
+  if (cloturer && !/^[a-z0-9-]+$/.test(cloturer)) return [400, { erreur: "Identifiant d'évaluation invalide." }];
+  if (classe && !CLASSES[classe]) return [400, { erreur: "Classe inconnue." }];
+
+  const r = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/actions/workflows/${WORKFLOW_AGENT}/dispatches`, {
+    method: "POST",
+    headers: { ...enTetesGitHub(env, "application/vnd.github+json"), "Content-Type": "application/json" },
+    body: JSON.stringify({ ref: env.GITHUB_BRANCH || "main", inputs: { cloturer, generer_classe: classe, generer_sujet: sujet } }),
+  });
+  if (r.status === 403 || r.status === 404) {
+    console.error(`GitHub (lancement) : ${r.status} ${await r.text()}`);
+    return [502, { erreur: "GitHub a refusé le lancement : vérifiez que le jeton du Worker a la permission Actions (lecture et écriture)." }];
+  }
+  if (!r.ok) throw new Error(`GitHub (lancement) : ${r.status} ${await r.text()}`);
+  return [200, { ok: true }];
+}
+
+async function etatAgent(env, d) {
+  if (!(await motDePasseValide(env, d.motDePasse))) return refusMotDePasse();
+  const r = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/actions/workflows/${WORKFLOW_AGENT}/runs?per_page=5`, {
+    headers: enTetesGitHub(env, "application/vnd.github+json"),
+  });
+  if (r.status === 403 || r.status === 404) {
+    return [502, { erreur: "GitHub refuse la lecture des passages : vérifiez la permission Actions du jeton du Worker." }];
+  }
+  if (!r.ok) throw new Error(`GitHub (état) : ${r.status} ${await r.text()}`);
+  const donnees = await r.json();
+  const passages = (donnees.workflow_runs || []).map(p => ({
+    statut: p.status,             // queued, in_progress, completed…
+    conclusion: p.conclusion,     // success, failure, cancelled… (null tant que non terminé)
+    declencheur: p.event,         // schedule ou workflow_dispatch
+    debut: p.run_started_at || p.created_at,
+    maj: p.updated_at,
+    url: p.html_url,
+  }));
+  return [200, { passages }];
 }
 
 // ---------- Services externes ----------

@@ -13,6 +13,7 @@ const env = {
   GITHUB_REPO: "pseudo/mathsite", GITHUB_BRANCH: "main", ALLOWED_ORIGINS: ORIGINE, SEL: "mathsite:",
   GITHUB_TOKEN: "t", TURNSTILE_SECRET: "s", BREVO_API_KEY: "b",
   EMAIL_DESTINATAIRE: "prof@exemple.fr", EMAIL_EXPEDITEUR: "prof@exemple.fr",
+  ADMIN_PASSWORD: "un-mot-de-passe-long",
 };
 
 // Évaluation ouverte fabriquée pour le test (date limite dans un an)
@@ -33,12 +34,14 @@ globalThis.fetch = async (url, opts = {}) => {
   if (u.includes("/contents/")) return new Response("{}", { status: 404 });
   if (u.endsWith("/issues")) return Response.json({ number: 1 }, { status: 201 });
   if (u.includes("brevo")) return Response.json({ messageId: "x" }, { status: 201 });
+  if (u.endsWith("/dispatches")) return new Response(null, { status: globalThis.statutDispatch || 204 });
+  if (u.includes("/runs?")) return Response.json({ workflow_runs: [{ status: "completed", conclusion: "success", event: "workflow_dispatch", run_started_at: "2026-09-26T19:00:00Z", updated_at: "2026-09-26T19:04:00Z", html_url: "https://github.com/x/runs/1" }] });
   throw new Error("appel inattendu " + u);
 };
 
-async function envoyer(corps, origine = ORIGINE) {
+async function envoyer(corps, origine = ORIGINE, chemin = "/envoyer") {
   appels = [];
-  const req = new Request("https://w.workers.dev/envoyer", {
+  const req = new Request("https://w.workers.dev" + chemin, {
     method: "POST", headers: { Origin: origine, "Content-Type": "application/json" }, body: JSON.stringify(corps),
   });
   const res = await worker.fetch(req, env);
@@ -124,5 +127,36 @@ const pre = await worker.fetch(new Request("https://w.workers.dev/envoyer", { me
 assert.equal(pre.status, 204);
 assert.equal(pre.headers.get("Access-Control-Allow-Origin"), ORIGINE);
 console.log("OK  préflight CORS");
+
+// 11. Administration : lancement de l'agent
+r = await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", cloturer: "2026-09-25-priorites-operatoires", generer_classe: "seconde", generer_sujet: "Vecteurs" }, ORIGINE, "/agent/lancer");
+assert.equal(r.statut, 200, JSON.stringify(r.json));
+const dispatch = JSON.parse(appels.find(a => a.url.endsWith("/dispatches")).opts.body);
+assert.deepEqual(dispatch, { ref: "main", inputs: { cloturer: "2026-09-25-priorites-operatoires", generer_classe: "seconde", generer_sujet: "Vecteurs" } });
+assert.ok(appels.find(a => a.url.endsWith("/dispatches")).url.includes("/actions/workflows/agent-evaluations.yml/"));
+console.log("OK  lancement de l'agent");
+
+// 12. Mauvais mot de passe, jeton Turnstile absent, champs piégés, permission manquante
+assert.equal((await envoyer({ motDePasse: "faux", jeton: "bon-jeton" }, ORIGINE, "/agent/lancer")).statut, 401);
+assert.ok(!appels.some(a => a.url.endsWith("/dispatches")));
+assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long" }, ORIGINE, "/agent/lancer")).statut, 403);
+assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", cloturer: "../x" }, ORIGINE, "/agent/lancer")).statut, 400);
+assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", generer_classe: "cm2" }, ORIGINE, "/agent/lancer")).statut, 400);
+globalThis.statutDispatch = 403;
+console.error = () => {};
+r = await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton" }, ORIGINE, "/agent/lancer");
+console.error = erreurConsole;
+globalThis.statutDispatch = undefined;
+assert.equal(r.statut, 502);
+assert.match(r.json.erreur, /permission Actions/);
+console.log("OK  lancement refusé quand il le faut");
+
+// 13. État des passages (mot de passe exigé, sans Turnstile)
+r = await envoyer({ motDePasse: "un-mot-de-passe-long" }, ORIGINE, "/agent/etat");
+assert.equal(r.statut, 200);
+assert.equal(r.json.passages[0].conclusion, "success");
+assert.equal((await envoyer({ motDePasse: "faux" }, ORIGINE, "/agent/etat")).statut, 401);
+assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long" }, "https://pirate.example", "/agent/etat")).statut, 403);
+console.log("OK  état des passages");
 
 console.log("\nTous les tests du Worker passent.");

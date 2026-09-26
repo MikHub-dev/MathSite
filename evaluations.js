@@ -1,4 +1,4 @@
-// Version : 1.5
+// Version : 1.6
 // --- Page « Évaluations » (menu horizontal) ---
 // Données : evaluations-data.js, généré par outils/compiler-evaluations.mjs à partir des dossiers
 // evaluations/, notes/ et eleves/, fournit window.EVALUATIONS, window.EVAL_NOTES et window.EVAL_ELEVES.
@@ -9,6 +9,8 @@
 // partent vers le Worker Cloudflare (dossier worker/), protégé par Turnstile ; sinon le site ouvre
 // la messagerie de l'élève (mailto:) avec le message déjà rédigé.
 // La page n'utilise pas le menu de gauche : il est rétracté, comme pour MSC ou Correspondances.
+// Espace enseignant (loadAdministrationPage) : lance l'agent via le Worker (mot de passe + Turnstile)
+// et affiche ses derniers passages ; le mot de passe n'est gardé que pour la session du navigateur.
 
 const EVAL_CONFIG = {
   emailContact: "",                           // Mode sans Worker uniquement : adresse qui reçoit les messages
@@ -235,6 +237,7 @@ function loadEvaluationsPage(classe) {
             <p>Signalez une erreur ou proposez une amélioration.</p>
             <button type="button" class="eval-btn eval-btn--secondaire" onclick="loadDemandeAmelioration()">Proposer une amélioration</button>
           </div>
+          <button type="button" class="eval-lien eval-lien--discret" onclick="loadAdministrationPage()">Espace enseignant</button>
         </aside>
       </div>
     </div>`;
@@ -708,4 +711,217 @@ function evalChargerTurnstile() {
     if (zone) zone.innerHTML = `<p class="eval-erreur">La vérification anti-robot n'a pas pu se charger. Désactivez un éventuel bloqueur de publicités pour ce site, puis rechargez la page.</p>`;
   };
   document.head.appendChild(script);
+}
+
+// ---------- Espace enseignant : lancer l'agent sans passer par GitHub ----------
+const EVAL_STORAGE_ADMIN = "mathsite-admin";
+let evalSuiviAgent = 0;   // identifiant de la boucle de suivi en cours (0 = aucune)
+
+function evalMotDePasseAdmin() {
+  try { return sessionStorage.getItem(EVAL_STORAGE_ADMIN) || ""; } catch (e) { return ""; }
+}
+function evalEcrireMotDePasseAdmin(m) {
+  try { m ? sessionStorage.setItem(EVAL_STORAGE_ADMIN, m) : sessionStorage.removeItem(EVAL_STORAGE_ADMIN); } catch (e) {}
+}
+
+async function evalAppelWorker(chemin, corps) {
+  let res;
+  try {
+    res = await fetch(EVAL_CONFIG.workerUrl.replace(/\/$/, "") + chemin, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(corps),
+    });
+  } catch (e) {
+    throw new Error("Le serveur est injoignable : vérifiez votre connexion Internet.");
+  }
+  let donnees = {};
+  try { donnees = await res.json(); } catch (e) {}
+  if (!res.ok) {
+    const err = new Error(donnees.erreur || `Erreur ${res.status}.`);
+    err.statut = res.status;
+    throw err;
+  }
+  return donnees;
+}
+
+function loadAdministrationPage() {
+  const c = document.getElementById("content");
+  if (!c) return;
+  evalSuiviAgent = 0;
+  if (typeof setSidebarCollapsed === "function") setSidebarCollapsed(true);
+  if (typeof setActiveNav === "function") setActiveNav("evaluations");
+  const entete = `
+    <button type="button" class="eval-lien eval-retour" onclick="loadEvaluationsPage()">Retour aux évaluations</button>
+    <h1 class="eval-title">Espace enseignant</h1>
+    <p class="subtitle">Lancer l'agent de correction sans passer par GitHub et suivre ses passages.</p>`;
+
+  if (!EVAL_CONFIG.workerUrl) {
+    c.innerHTML = `<div class="eval-page eval-detail">${entete}<p class="eval-info">Le Worker n'est pas configuré (EVAL_CONFIG.workerUrl).</p></div>`;
+    return;
+  }
+  if (!evalMotDePasseAdmin()) {
+    c.innerHTML = `
+      <div class="eval-page eval-detail">${entete}
+        <form id="admin-connexion" class="eval-form eval-form--etroit" novalidate onsubmit="event.preventDefault(); evalConnexionAdmin()">
+          <label>Mot de passe
+            <input name="motDePasse" type="password" class="eval-input" autocomplete="current-password">
+          </label>
+          <div class="eval-actions"><button type="submit" class="eval-btn">Se connecter</button></div>
+          <p class="eval-erreur" id="admin-erreur" role="alert"></p>
+        </form>
+      </div>`;
+    const champ = document.querySelector("#admin-connexion input");
+    if (champ) champ.focus();
+    c.scrollTop = 0;
+    return;
+  }
+
+  const annee = evalAnneeCourante();
+  const ouvertes = EVAL_CLASSES.flatMap(k => evalListe(annee, k.key)
+    .filter(ev => evalStatut(annee, k.key, ev) === "ouverte")
+    .map(ev => `<option value="${ev.id}">${escapeHtml(k.label)} : ${escapeHtml(ev.titre)} (jusqu'au ${evalDate(ev.dateLimite)})</option>`));
+
+  c.innerHTML = `
+    <div class="eval-page eval-detail">${entete}
+      <section class="eval-admin-bloc">
+        <h2>Lancer l'agent maintenant</h2>
+        <p class="eval-admin-aide">Sans option, l'agent fait sa tournée habituelle : il corrige les évaluations dont la date limite est passée et crée celles prévues au calendrier.</p>
+        <form id="admin-lancer" class="eval-form eval-form--etroit" novalidate onsubmit="event.preventDefault(); evalLancerAgent()">
+          <label>Clôturer et corriger tout de suite
+            <select name="cloturer" class="eval-input">
+              <option value="">Aucune évaluation</option>
+              ${ouvertes.join("")}
+            </select>
+          </label>
+          <label>Créer une nouvelle évaluation
+            <select name="generer_classe" class="eval-input" onchange="document.getElementById('admin-sujet').disabled = !this.value">
+              <option value="">Non</option>
+              ${EVAL_CLASSES.map(k => `<option value="${k.key}">${k.label}</option>`).join("")}
+            </select>
+          </label>
+          <label>Sujet de la nouvelle évaluation (facultatif)
+            <input id="admin-sujet" name="generer_sujet" class="eval-input" maxlength="120" disabled
+                   placeholder="Vide : l'agent choisit la notion suivante">
+          </label>
+          <div id="admin-turnstile" class="eval-turnstile"></div>
+          <div class="eval-actions"><button type="submit" class="eval-btn">Lancer l'agent</button></div>
+          <p class="eval-erreur" id="admin-erreur" role="alert"></p>
+          <p class="eval-succes" id="admin-succes" role="status"></p>
+        </form>
+      </section>
+      <section class="eval-admin-bloc">
+        <div class="eval-admin-titre">
+          <h2>Derniers passages</h2>
+          <button type="button" class="eval-lien" onclick="evalAfficherPassages()">Actualiser</button>
+        </div>
+        <div id="admin-passages"><p class="eval-admin-aide">Chargement…</p></div>
+      </section>
+      <button type="button" class="eval-lien eval-lien--discret" onclick="evalDeconnexionAdmin()">Se déconnecter</button>
+    </div>`;
+  evalRenderTurnstile("admin-turnstile");
+  evalAfficherPassages();
+  c.scrollTop = 0;
+}
+
+async function evalConnexionAdmin() {
+  const form = document.getElementById("admin-connexion");
+  const err = document.getElementById("admin-erreur");
+  const motDePasse = form.elements.motDePasse.value;
+  err.textContent = "";
+  if (!motDePasse) { err.textContent = "Saisissez le mot de passe."; return; }
+  const bouton = form.querySelector("button");
+  bouton.disabled = true;
+  try {
+    await evalAppelWorker("/agent/etat", { motDePasse });
+    evalEcrireMotDePasseAdmin(motDePasse);
+    loadAdministrationPage();
+  } catch (e) {
+    err.textContent = e.message;
+    form.elements.motDePasse.select();
+  } finally {
+    bouton.disabled = false;
+  }
+}
+
+function evalDeconnexionAdmin() {
+  evalEcrireMotDePasseAdmin("");
+  loadEvaluationsPage();
+}
+
+async function evalLancerAgent() {
+  const form = document.getElementById("admin-lancer");
+  const err = document.getElementById("admin-erreur");
+  const ok = document.getElementById("admin-succes");
+  err.textContent = "";
+  ok.textContent = "";
+  if (EVAL_CONFIG.turnstileSiteKey && !evalTurnstileJeton) {
+    err.textContent = "Attendez la fin de la vérification anti-robot (ou cochez la case) avant de lancer.";
+    return;
+  }
+  const bouton = form.querySelector("button[type=submit]");
+  bouton.disabled = true;
+  try {
+    await evalAppelWorker("/agent/lancer", {
+      motDePasse: evalMotDePasseAdmin(),
+      jeton: evalTurnstileJeton,
+      cloturer: form.elements.cloturer.value,
+      generer_classe: form.elements.generer_classe.value,
+      generer_sujet: form.elements.generer_classe.value ? form.elements.generer_sujet.value.trim() : "",
+    });
+    ok.textContent = "Agent lancé. Son passage apparaît ci-dessous dans quelques secondes et prend en général 3 à 6 minutes.";
+    setTimeout(() => evalAfficherPassages(true), 4000);
+  } catch (e) {
+    if (e.statut === 401) { evalEcrireMotDePasseAdmin(""); loadAdministrationPage(); return; }
+    err.textContent = e.message;
+  } finally {
+    bouton.disabled = false;
+    if (window.turnstile && evalTurnstileWidget !== null) {
+      evalTurnstileJeton = null;
+      window.turnstile.reset(evalTurnstileWidget);
+    }
+  }
+}
+
+function evalLibellePassage(p) {
+  if (p.statut !== "completed") {
+    return p.statut === "in_progress"
+      ? `<span class="eval-badge eval-badge--ouverte">En cours</span>`
+      : `<span class="eval-badge eval-badge--correction">En attente</span>`;
+  }
+  if (p.conclusion === "success") return `<span class="eval-badge eval-badge--corrigee">Réussi</span>`;
+  if (p.conclusion === "cancelled" || p.conclusion === "skipped") return `<span class="eval-badge eval-badge--correction">Annulé</span>`;
+  return `<span class="eval-badge eval-badge--echec">Échec</span>`;
+}
+
+// Affiche les derniers passages ; si l'un est en cours (ou si « suivre » vient d'un lancement),
+// réinterroge toutes les 15 secondes tant que la page est affichée.
+async function evalAfficherPassages(suivre) {
+  const zone = document.getElementById("admin-passages");
+  if (!zone) return;
+  const boucle = ++evalSuiviAgent;
+  let passages;
+  try {
+    passages = (await evalAppelWorker("/agent/etat", { motDePasse: evalMotDePasseAdmin() })).passages || [];
+  } catch (e) {
+    if (e.statut === 401) { evalEcrireMotDePasseAdmin(""); loadAdministrationPage(); return; }
+    zone.innerHTML = `<p class="eval-erreur">${escapeHtml(e.message)}</p>`;
+    return;
+  }
+  if (boucle !== evalSuiviAgent || !document.getElementById("admin-passages")) return;
+  zone.innerHTML = passages.length ? `<ul class="eval-admin-passages">${passages.map(p => `
+    <li>
+      <span class="eval-admin-quand">${new Date(p.debut).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" })}</span>
+      <span class="eval-admin-type">${p.declencheur === "schedule" ? "Passage planifié" : "Lancement manuel"}</span>
+      ${evalLibellePassage(p)}
+      <a class="eval-lien" href="${escapeHtml(p.url)}" target="_blank" rel="noopener">Détail</a>
+    </li>`).join("")}</ul>
+    ${passages[0].statut === "completed" && passages[0].conclusion === "success"
+      ? `<p class="eval-admin-aide">Le site se met à jour 1 à 2 minutes après la fin d'un passage réussi : rechargez alors la page avec Ctrl + Maj + R.</p>` : ""}`
+    : `<p class="eval-admin-aide">Aucun passage pour l'instant.</p>`;
+
+  const enCours = passages.some(p => p.statut !== "completed");
+  if (enCours || suivre) {
+    setTimeout(() => { if (boucle === evalSuiviAgent) evalAfficherPassages(suivre && !enCours ? false : enCours); }, 15000);
+  }
 }
