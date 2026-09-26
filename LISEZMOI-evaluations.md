@@ -10,6 +10,12 @@
 | `notes/<année>/<classe>/<id>.json` | Les notes de cette évaluation, par empreinte de code |
 | `eleves/<année>.json` | Les empreintes des codes élèves, par classe |
 | `outils/creer-codes.mjs` | Crée les codes élèves |
+| `outils/remplacer-code.mjs` | Remplace un code perdu et transfère les notes |
+| `worker/` | Worker Cloudflare qui reçoit les formulaires (voir `GUIDE-etape2.md`) |
+| `programme-evaluations.json` | Calendrier des évaluations que l'agent crée automatiquement |
+| `AGENT_EVALUATIONS.md` | Consignes de l'agent Claude quotidien |
+| `.github/workflows/agent-evaluations.yml` | Lancement de l'agent (chaque matin ou à la demande, voir `GUIDE-etape3.md`) |
+| `outils/agent-preparer.mjs`, `outils/agent-finaliser.mjs` | Préparation et contrôle du travail de l'agent |
 | `outils/compiler-evaluations.mjs` | Vérifie les sources et régénère `evaluations-data.js` |
 | `codes-prives/` | Correspondance nom ↔ code, **jamais commitée** (voir `.gitignore`) |
 
@@ -27,6 +33,15 @@ Les codes s'affichent à l'écran et sont gardés dans `codes-prives/2026-2027-5
 Un code n'est valable que dans sa classe : son empreinte est calculée avec la classe
 (`sel + classe + ":" + code`). Un code de 5e ne donne aucune empreinte connue en Seconde, il est
 donc refusé à l'envoi des réponses comme à l'affichage des notes.
+
+## Remplacer un code perdu ou divulgué
+
+```
+node outils/remplacer-code.mjs 2026-2027 5e "Léa"
+node outils/compiler-evaluations.mjs
+```
+
+L'ancien code cesse de fonctionner et les notes déjà publiées suivent le nouveau code.
 
 ## Ajouter une évaluation
 
@@ -51,6 +66,13 @@ Créer `evaluations/2026-2027/5e/2026-10-05-fractions.json` :
 Le dépôt est public : **ne pas mettre le corrigé tant que l'évaluation est ouverte**. On ajoute
 `"corrige": { "q1": "<p>...</p>", ... }` en même temps que les notes.
 
+## Planifier les évaluations
+
+Chaque entrée de `programme-evaluations.json` indique la classe, le jour de publication (`date`),
+le `chapitre`, les `notions` attendues, `dureeMinutes`, `points` et `dureeJours` (délai pour répondre).
+Le jour venu, l'agent crée l'évaluation. On peut aussi en créer une tout de suite depuis l'onglet
+Actions (voir `GUIDE-etape3.md`).
+
 ## Publier les notes
 
 Créer `notes/2026-2027/5e/2026-10-05-fractions.json` (même nom que l'évaluation) :
@@ -64,7 +86,7 @@ Créer `notes/2026-2027/5e/2026-10-05-fractions.json` (même nom que l'évaluati
 }
 ```
 
-Dès que ce fichier existe, l'évaluation passe à l'état « Corrigée ». Puis :
+En temps normal, c'est l'agent qui écrit ce fichier. Dès qu'il existe, l'évaluation passe à l'état « Corrigée ». Puis :
 `node outils/compiler-evaluations.mjs`, commit et push.
 
 ## Données de démonstration

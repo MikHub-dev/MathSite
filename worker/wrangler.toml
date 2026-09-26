@@ -1,0 +1,16 @@
+# Version : 1.0
+# Configuration du Worker « mathsite-formulaires » (déploiement : npx wrangler deploy)
+# Les valeurs ci-dessous sont publiques. Les secrets se déclarent avec « npx wrangler secret put NOM »
+# (GITHUB_TOKEN, TURNSTILE_SECRET, BREVO_API_KEY, EMAIL_DESTINATAIRE, EMAIL_EXPEDITEUR).
+name = "mathsite-formulaires"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+[vars]
+# Dépôt GitHub (pseudo/nom-du-depot) et branche publiée par GitHub Pages
+GITHUB_REPO = "MikHub-dev/MathSite"
+GITHUB_BRANCH = "main"
+# Adresse du site GitHub Pages (sans chemin ni / final), séparées par des virgules
+ALLOWED_ORIGINS = "https://mikhub-dev.github.io"
+# Identique à EVAL_CONFIG.sel (evaluations.js) et à SEL (outils/creer-codes.mjs)
+SEL = "mathsite:"

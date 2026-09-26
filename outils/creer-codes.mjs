@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 1.1
+// Version : 1.2
 // Crée les codes personnels des élèves d'une classe.
 //
 // Usage (depuis la racine du dépôt) :
@@ -46,6 +46,14 @@ const dossierPrive = join(racine, "codes-prives");
 mkdirSync(dossierPrive, { recursive: true });
 const cheminPrive = join(dossierPrive, `${annee}-${classe}.csv`);
 if (!existsSync(cheminPrive)) writeFileSync(cheminPrive, "Nom;Code\n");
+
+const dejaNommes = new Set(readFileSync(cheminPrive, "utf8").split("\n").slice(1).map(l => l.split(";")[0].trim().toLowerCase()).filter(Boolean));
+const doublons = noms.filter(n => dejaNommes.has(n.replace(/;/g, ",").trim().toLowerCase()));
+if (doublons.length) {
+  console.error(`Déjà inscrit(s) en ${classe} : ${doublons.join(", ")}.`);
+  console.error('Pour redonner un code à un élève : node outils/remplacer-code.mjs ' + `${annee} ${classe} "Prénom"`);
+  process.exit(1);
+}
 
 const crees = [];
 for (const nom of noms) {

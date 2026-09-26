@@ -1,0 +1,9 @@
+{
+  "_aide": "Calendrier des évaluations. Le jour de « date », l'agent crée l'évaluation (id = date + chapitre). « dureeJours » : nombre de jours pour répondre (6 par défaut). « notions » précise le contenu attendu.",
+  "evaluations": [
+    { "classe": "5e", "date": "2026-10-05", "chapitre": "Fractions", "notions": "fractions égales, simplification, comparaison de fractions de même dénominateur ou de dénominateurs multiples", "dureeMinutes": 30, "points": 10, "dureeJours": 6 },
+    { "classe": "seconde", "date": "2026-10-06", "chapitre": "Calcul littéral", "notions": "développer, factoriser, identités remarquables, réduire une expression", "dureeMinutes": 45, "points": 10, "dureeJours": 6 },
+    { "classe": "5e", "date": "2026-10-19", "chapitre": "Proportionnalité", "notions": "reconnaître une situation de proportionnalité, coefficient, quatrième proportionnelle, pourcentages simples", "dureeMinutes": 30, "points": 10, "dureeJours": 6 },
+    { "classe": "seconde", "date": "2026-10-20", "chapitre": "Fonctions : généralités", "notions": "image, antécédent, courbe représentative, lecture graphique, ensemble de définition", "dureeMinutes": 45, "points": 10, "dureeJours": 6 }
+  ]
+}
