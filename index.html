@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.6 -->
+<!-- Version : 1.7 -->
 <html lang="fr">
 <head>
   <meta name="robots" content="noindex, nofollow">
@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="msc-page.css" />
   <link rel="stylesheet" href="axiomes.css" />
   <link rel="stylesheet" href="presentation-page.css" />
+  <link rel="stylesheet" href="evaluations.css" />
 </head>
 
 
@@ -33,6 +34,7 @@
       <a href="#" data-nav="etudes" onclick="loadEtudes()">Études</a>
       <a href="#" data-nav="tableau" onclick="setApp('mathsite'); loadCorrespondanceTable()">Correspondances</a>
       <a href="#" data-nav="exos-fondamentaux" onclick="setApp('mathsite'); loadExosFondamentauxHome()">Exercices</a>
+      <a href="#" data-nav="evaluations" onclick="setApp('mathsite'); loadEvaluationsPage()">Évaluations</a>
       <a href="#" data-nav="banque-images" onclick="setApp('mathsite'); loadBanqueImages()">Banque d'images</a>
       <a href="#" data-nav="axiomes" onclick="setApp('mathsite'); loadAxiomesPage()">Axiomes</a>
       <a href="#" data-nav="formules" class="nav-link-formules" onclick="loadSpecialisation()">Spécialisation</a>
@@ -113,6 +115,9 @@
   <!-- Classification MSC affichée sur chaque fiche (données puis affichage ; à garder juste avant nav-history.js) -->
   <script src="msc-data.js"></script>
   <script src="msc.js"></script>
+  <!-- Page « Évaluations » (données générées par outils/compiler-evaluations.mjs, puis la page) -->
+  <script src="evaluations-data.js"></script>
+  <script src="evaluations.js"></script>
   <!-- Historique de navigation du bouton « Retour » (accroche les fonctions chargées ci-dessus : à charger APRÈS msc.js, donc tout à la fin) -->
   <script src="nav-history.js"></script>
 </body>
