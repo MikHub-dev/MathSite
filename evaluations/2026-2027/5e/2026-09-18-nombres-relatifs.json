@@ -1,0 +1,29 @@
+{
+  "titre": "Nombres relatifs : repérer et comparer",
+  "chapitre": "Nombres relatifs",
+  "date": "2026-09-18",
+  "dateLimite": "2026-09-24",
+  "dureeMinutes": 30,
+  "consignes": "<p>Évaluation de démonstration. Justifiez vos réponses quand la question le demande.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "points": 2,
+      "enonce": "<p>Quel est le plus petit de ces nombres ?</p>",
+      "choix": ["−3,5", "−3", "−4,2", "0,5"] },
+    { "id": "q2", "type": "numerique", "points": 2,
+      "enonce": "<p>Quelle est la distance à zéro du nombre −7,8 ?</p>" },
+    { "id": "q3", "type": "redaction", "points": 3,
+      "enonce": "<p>Range ces nombres dans l'ordre croissant : 2 ; −1,5 ; −6 ; 0 ; −1 ; 3,2.</p>" },
+    { "id": "q4", "type": "qcm", "points": 1,
+      "enonce": "<p>Sur une droite graduée, le point A a pour abscisse −2 et le point B a pour abscisse 3. Quelle est la longueur AB ?</p>",
+      "choix": ["1", "5", "−5", "6"] },
+    { "id": "q5", "type": "redaction", "points": 2,
+      "enonce": "<p>À 6 h du matin, il faisait −4 °C. À midi, il fait 5 °C. De combien de degrés la température a-t-elle augmenté ? Explique.</p>" }
+  ],
+  "corrige": {
+    "q1": "<p><strong>−4,2</strong>. Parmi des nombres négatifs, le plus petit est celui qui a la plus grande distance à zéro : 4,2 &gt; 3,5 &gt; 3.</p>",
+    "q2": "<p><strong>7,8</strong>. La distance à zéro d'un nombre relatif est le nombre sans son signe.</p>",
+    "q3": "<p>−6 &lt; −1,5 &lt; −1 &lt; 0 &lt; 2 &lt; 3,2</p>",
+    "q4": "<p><strong>5</strong>. De −2 à 0 il y a 2 unités, puis de 0 à 3 il y a 3 unités : 2 + 3 = 5. Une longueur n'est jamais négative.</p>",
+    "q5": "<p><strong>9 °C</strong>. Il faut 4 degrés pour passer de −4 °C à 0 °C, puis 5 degrés pour passer de 0 °C à 5 °C : 4 + 5 = 9.</p>"
+  }
+}
