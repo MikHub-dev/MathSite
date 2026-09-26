@@ -1,4 +1,4 @@
-/* Version : 1.5 */
+/* Version : 1.6 */
 /* PAGE « ÉVALUATIONS » (evaluations.js) — reprend les couleurs du site :
    fond #0f1116, panneaux #1a1d24, bordures #2a2d35, bleu #7aa2ff.
    Trois états d'évaluation : ouverte (bleu), correction en cours (ambre), corrigée (vert). */
@@ -13,7 +13,7 @@
   --ev-ambre: #e3b053;
   --ev-vert: #5fc98a;
   --ev-rouge: #ff6b6b;
-  max-width: 1080px;
+  max-width: none;   /* la page d'accueil (vignettes) occupe toute la largeur disponible */
 }
 
 .eval-title {
