@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 1.0
+// Version : 1.1
 // Compile les fichiers sources des évaluations en un seul fichier evaluations-data.js,
 // chargé par index.html (même principe que jsonMathsite.js : pas de fetch(), le site
 // fonctionne aussi en ouvrant index.html directement).
@@ -37,8 +37,11 @@ function verifierEvaluation(ev, id, f) {
   if (!/^[a-z0-9-]+$/.test(id)) e("le nom du fichier ne doit contenir que a-z, 0-9 et des tirets");
   for (const champ of ["titre", "chapitre"]) if (typeof ev[champ] !== "string" || !ev[champ].trim()) e(`champ "${champ}" manquant`);
   if (!estDate(ev.date)) e('champ "date" invalide (format AAAA-MM-JJ)');
-  if (!estDate(ev.dateLimite)) e('champ "dateLimite" invalide (format AAAA-MM-JJ)');
-  if (estDate(ev.date) && estDate(ev.dateLimite) && ev.dateLimite < ev.date) e('"dateLimite" est antérieure à "date"');
+  // Pas de date limite : une évaluation reste ouverte jusqu'à sa clôture (« cloturee »). Une ancienne
+  // « dateLimite » éventuelle est tolérée mais ignorée par le site.
+  if (ev.dateLimite !== undefined && !estDate(ev.dateLimite)) e('champ "dateLimite" invalide (format AAAA-MM-JJ)');
+  if (ev.cloturee !== undefined && typeof ev.cloturee !== "boolean") e('"cloturee" doit valoir true ou false');
+  if (ev.dureeMinutes !== undefined && (typeof ev.dureeMinutes !== "number" || ev.dureeMinutes <= 0)) e('"dureeMinutes" doit être un nombre positif');
   if (!Array.isArray(ev.questions) || ev.questions.length === 0) { e("aucune question"); return 0; }
   const ids = new Set();
   let total = 0;
@@ -99,7 +102,6 @@ for (const annee of dossiers(join(racine, "evaluations"))) {
         if (!v || typeof v.note !== "number" || v.note < 0 || v.note > total) erreurs.push(`${rel(cheminNotes)} : note invalide (doit être entre 0 et ${total})`);
         if (connues.size && !connues.has(h)) avertissements.push(`${rel(cheminNotes)} : empreinte absente de eleves/${annee}.json (${classe})`);
       }
-      if (!ev.corrige) avertissements.push(`${rel(chemin)} : notes publiées sans "corrige"`);
       EVAL_NOTES[annee][classe] = EVAL_NOTES[annee][classe] || {};
       EVAL_NOTES[annee][classe][id] = n;
     }

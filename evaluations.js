@@ -1,13 +1,21 @@
-// Version : 1.6
+// Version : 1.11
 // --- Page « Évaluations » (menu horizontal) ---
 // Données : evaluations-data.js, généré par outils/compiler-evaluations.mjs à partir des dossiers
 // evaluations/, notes/ et eleves/, fournit window.EVALUATIONS, window.EVAL_NOTES et window.EVAL_ELEVES.
+// Les évaluations n'ont pas de date limite : elles restent ouvertes jusqu'à leur clôture par
+// l'enseignant. Chaque copie est corrigée au passage hebdomadaire de l'agent qui suit son envoi ;
+// l'élève voit alors sa note, son commentaire et sa date de réponse. L'évaluation est clôturée
+// (corrigé publié) dès que tous les élèves inscrits de la classe ont été corrigés, ou à la main.
+// Les résultats de classe (moyenne, répartition) ne s'affichent qu'à partir de EVAL_MIN_STATS inscrits.
 // Chaque élève a un code personnel remis à la main ; le site ne publie que les EMPREINTES SHA-256
 // des codes, jamais les noms ni les codes eux-mêmes. L'empreinte est calculée avec la classe
 // (sel + classe + ":" + code) : un code n'est valable que dans la classe pour laquelle il a été créé.
 // Envoi (réponses et demandes d'amélioration) : si EVAL_CONFIG.workerUrl est renseigné, les envois
 // partent vers le Worker Cloudflare (dossier worker/), protégé par Turnstile ; sinon le site ouvre
 // la messagerie de l'élève (mailto:) avec le message déjà rédigé.
+// Page d'accueil : deux vignettes indépendantes (5e, Seconde), chacune avec la moyenne de la classe
+// dans son titre et son propre champ de code. Le code est mémorisé par classe ; une fois accepté, la
+// vignette de la classe occupe toute la largeur et devient l'espace de travail de l'élève.
 // La page n'utilise pas le menu de gauche : il est rétracté, comme pour MSC ou Correspondances.
 // Espace enseignant (loadAdministrationPage) : lance l'agent via le Worker (mot de passe + Turnstile)
 // et affiche ses derniers passages ; le mot de passe n'est gardé que pour la session du navigateur.
@@ -25,11 +33,13 @@ const EVAL_CLASSES = [
 ];
 
 const EVAL_STORAGE_CODE = "mathsite-code-eleve";
+const EVAL_MIN_STATS = 3;   // en dessous, la moyenne de classe révélerait les notes individuelles
 const EVAL_STORAGE_ENVOIS = "mathsite-envois-evaluations";
 
 let evalEtat = { annee: null, classe: "5e" };
 let evalTurnstileJeton = null;
 let evalTurnstileWidget = null;
+let evalRendu = 0;         // numéro du dernier affichage demandé : un affichage asynchrone dépassé s'abandonne
 let evalApresCode = null;   // ce qu'il faut réafficher une fois un code validé
 let evalTurnstileEnAttente = null;   // conteneur à remplir dès que le script Turnstile est chargé
 
@@ -52,6 +62,9 @@ function evalNotes(annee, classe, id) {
   const n = (((window.EVAL_NOTES || {})[annee] || {})[classe] || {})[id];
   return n && n.notes && Object.keys(n.notes).length ? n : null;
 }
+function evalStatsVisibles(annee, classe) {
+  return evalInscrits(annee, classe).length >= EVAL_MIN_STATS;
+}
 function evalLabelClasse(classe) {
   const k = EVAL_CLASSES.find(c => c.key === classe);
   return k ? k.label : classe;
@@ -60,11 +73,10 @@ function evalAujourdhui() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
-// ouverte : réponses acceptées jusqu'au soir de la date limite ; correction : date passée, pas
-// encore de notes ; corrigee : un fichier de notes existe.
+// ouverte : réponses acceptées (pas de date limite) ; cloturee : clôturée par l'enseignant,
+// corrigé publié, plus de réponses acceptées.
 function evalStatut(annee, classe, ev) {
-  if (evalNotes(annee, classe, ev.id)) return "corrigee";
-  return evalAujourdhui() <= ev.dateLimite ? "ouverte" : "correction";
+  return ev.cloturee === true || ev.corrige ? "cloturee" : "ouverte";
 }
 function evalStats(n, total) {
   const vals = Object.values(n.notes).map(x => x.note);
@@ -98,7 +110,8 @@ function evalNormaliserCode(s) {
   return String(s || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
 }
 function evalFormaterCode(n) {
-  return n.length > 4 ? n.slice(0, 4) + "-" + n.slice(4) : n;
+  // Codes aléatoires de 8 caractères affichés ABCD-EFGH ; les codes choisis (ex. MARCZA) tels quels.
+  return n.length === 8 ? n.slice(0, 4) + "-" + n.slice(4) : n;
 }
 async function evalEmpreinte(code, classe) {
   const texte = `${EVAL_CONFIG.sel}${classe}:${evalNormaliserCode(code)}`;
@@ -125,11 +138,26 @@ async function evalClasseDuCode(annee, code) {
   }
   return null;
 }
-function evalLireCode() {
-  try { return localStorage.getItem(EVAL_STORAGE_CODE) || ""; } catch (e) { return ""; }
+// Codes mémorisés par classe : un même appareil peut servir à l'élève de 5e et à celui de Seconde.
+function evalCleCode(classe) {
+  return `${EVAL_STORAGE_CODE}:${classe}`;
 }
-function evalEcrireCode(code) {
-  try { code ? localStorage.setItem(EVAL_STORAGE_CODE, code) : localStorage.removeItem(EVAL_STORAGE_CODE); } catch (e) {}
+function evalLireCode(classe) {
+  try { return localStorage.getItem(evalCleCode(classe)) || ""; } catch (e) { return ""; }
+}
+function evalEcrireCode(classe, code) {
+  try { code ? localStorage.setItem(evalCleCode(classe), code) : localStorage.removeItem(evalCleCode(classe)); } catch (e) {}
+}
+// Versions précédentes : un seul code mémorisé, sans classe ; on le range dans sa classe.
+async function evalMigrerCode(annee) {
+  let ancien = "";
+  try {
+    ancien = localStorage.getItem(EVAL_STORAGE_CODE) || "";
+    if (ancien) localStorage.removeItem(EVAL_STORAGE_CODE);
+  } catch (e) { return; }
+  if (!ancien) return;
+  const classe = await evalClasseDuCode(annee, ancien);
+  if (classe && !evalLireCode(classe)) evalEcrireCode(classe, ancien);
 }
 function evalEnvoi(annee, classe, id) {
   try { return (JSON.parse(localStorage.getItem(EVAL_STORAGE_ENVOIS)) || {})[`${annee}/${classe}/${id}`] || null; }
@@ -184,10 +212,11 @@ function evalSha256(message) {
 }
 
 // ---------- Page liste ----------
-function loadEvaluationsPage(classe) {
+// classe : "5e" ou "seconde" ouvre l'espace de cette classe (si son code est mémorisé) ;
+// "" revient aux deux vignettes ; sans argument, l'affichage en cours est conservé.
+async function loadEvaluationsPage(classe) {
   const c = document.getElementById("content");
   if (!c) return;
-  if (classe) evalEtat.classe = classe;
   if (typeof setSidebarCollapsed === "function") setSidebarCollapsed(true);
   if (typeof setActiveNav === "function") setActiveNav("evaluations");
 
@@ -197,14 +226,29 @@ function loadEvaluationsPage(classe) {
       <p class="eval-vide">Aucune évaluation publiée. Vérifiez que evaluations-data.js est bien chargé dans index.html, avant evaluations.js.</p></div>`;
     return;
   }
-  const liste = evalListe(annee, evalEtat.classe);
+  const rendu = ++evalRendu;
+  await evalMigrerCode(annee);
+  if (classe !== undefined) evalEtat.actif = classe || null;
+
+  // L'espace d'une classe ne s'ouvre qu'avec un code mémorisé et toujours valable pour elle.
+  let actif = evalEtat.actif && evalLireCode(evalEtat.actif) ? evalEtat.actif : null;
+  let empreinte = null;
+  if (actif) {
+    empreinte = await evalEmpreinteDansClasse(annee, actif, evalLireCode(actif));
+    if (!empreinte) { evalEcrireCode(actif, ""); actif = null; }
+  }
+  if (rendu !== evalRendu) return;   // l'utilisateur a déjà changé de page
+  evalEtat.actif = actif;
+  if (actif) evalEtat.classe = actif;
 
   c.innerHTML = `
     <div class="eval-page">
       <header class="eval-head">
         <div>
           <h1 class="eval-title">Évaluations</h1>
-          <p class="subtitle">Répondez en ligne avant la date limite. La correction et les notes sont publiées ensuite sur cette page.</p>
+          <p class="subtitle">${actif
+            ? "Votre espace de travail : les évaluations à faire, puis celles déjà corrigées."
+            : "Chaque classe a son espace : entrez votre code dans la vignette de votre classe."}</p>
         </div>
         <label class="eval-annee">Année scolaire
           <select class="eval-input" onchange="evalChangerAnnee(this.value)">
@@ -213,37 +257,16 @@ function loadEvaluationsPage(classe) {
         </label>
       </header>
 
-      <div class="eval-classes" role="tablist" aria-label="Classe">
-        ${EVAL_CLASSES.map(k => {
-          const nb = evalListe(annee, k.key).length;
-          const actif = k.key === evalEtat.classe;
-          return `<button type="button" role="tab" aria-selected="${actif}" class="eval-classe${actif ? " active" : ""}" onclick="loadEvaluationsPage('${k.key}')">
-            <span class="eval-classe-nom">${k.label}</span>
-            <span class="eval-classe-niveau">${k.niveau}, ${nb} évaluation${nb > 1 ? "s" : ""}</span>
-          </button>`;
-        }).join("")}
+      <div class="eval-vignettes${actif ? " eval-vignettes--une" : ""}">
+        ${actif ? evalEspaceHtml(annee, actif, empreinte) : EVAL_CLASSES.map(k => evalVignetteHtml(annee, k)).join("")}
       </div>
 
-      <div class="eval-grid">
-        <section class="eval-liste" aria-label="Évaluations de ${escapeHtml(evalLabelClasse(evalEtat.classe))}">
-          ${liste.length
-            ? liste.map(ev => evalLigne(annee, evalEtat.classe, ev)).join("")
-            : `<p class="eval-vide">Pas encore d'évaluation pour cette classe en ${annee}. La prochaine apparaîtra ici dès sa publication.</p>`}
-        </section>
-        <aside class="eval-aside">
-          <div class="eval-box" id="eval-mes-resultats"></div>
-          <div class="eval-box">
-            <h2>Une idée pour le site ?</h2>
-            <p>Signalez une erreur ou proposez une amélioration.</p>
-            <button type="button" class="eval-btn eval-btn--secondaire" onclick="loadDemandeAmelioration()">Proposer une amélioration</button>
-          </div>
-          <button type="button" class="eval-lien eval-lien--discret" onclick="loadAdministrationPage()">Espace enseignant</button>
-        </aside>
-      </div>
+      <footer class="eval-pied">
+        <p>Une idée pour le site ou une erreur à signaler ?
+          <button type="button" class="eval-lien" onclick="loadDemandeAmelioration()">Proposer une amélioration</button></p>
+        <button type="button" class="eval-lien eval-lien--discret" onclick="loadAdministrationPage()">Espace enseignant</button>
+      </footer>
     </div>`;
-
-  evalApresCode = evalAfficherMesResultats;
-  evalAfficherMesResultats();
   c.scrollTop = 0;
 }
 
@@ -252,66 +275,155 @@ function evalChangerAnnee(annee) {
   loadEvaluationsPage();
 }
 
-function evalBadge(annee, classe, ev) {
-  const s = evalStatut(annee, classe, ev);
-  if (s === "ouverte") return `<span class="eval-badge eval-badge--ouverte">Ouverte jusqu'au ${evalDate(ev.dateLimite)}</span>`;
-  if (s === "correction") return `<span class="eval-badge eval-badge--correction">Correction en cours</span>`;
-  const st = evalStats(evalNotes(annee, classe, ev.id), ev.total);
-  return `<span class="eval-badge eval-badge--corrigee">Corrigée, moyenne ${evalNombre(st.moyenne)}/${evalNombre(ev.total)}</span>`;
+// Moyenne sur 20 des notes publiées des élèves inscrits dans la classe (chaque note ramenée sur 20),
+// ou null. Les notes d'anciens codes (démonstration, code remplacé) ne comptent pas.
+function evalMoyenneClasse(annee, classe) {
+  const inscrits = new Set(evalInscrits(annee, classe));
+  const valeurs = [];
+  for (const ev of evalListe(annee, classe)) {
+    const n = evalNotes(annee, classe, ev.id);
+    if (!n) continue;
+    Object.entries(n.notes).forEach(([h, x]) => { if (inscrits.has(h)) valeurs.push(x.note / ev.total * 20); });
+  }
+  return valeurs.length ? valeurs.reduce((a, b) => a + b, 0) / valeurs.length : null;
+}
+function evalMoyenneHtml(annee, classe) {
+  const m = evalMoyenneClasse(annee, classe);
+  return m === null
+    ? `<span class="eval-vignette-moyenne eval-vignette-moyenne--vide">Pas encore de note</span>`
+    : `<span class="eval-vignette-moyenne">Moyenne ${evalNombre(Math.round(m * 10) / 10)}<small>/20</small></span>`;
 }
 
-function evalLigne(annee, classe, ev) {
+function evalVignetteHtml(annee, k) {
+  const liste = evalListe(annee, k.key);
+  const cloturees = liste.filter(ev => evalStatut(annee, k.key, ev) === "cloturee").length;
+  const pluriel = n => (n > 1 ? "s" : "");
+  return `
+    <section class="eval-vignette" aria-labelledby="vignette-${k.key}">
+      <div class="eval-vignette-titre">
+        <h2 id="vignette-${k.key}">${k.label}</h2>
+        ${evalMoyenneHtml(annee, k.key)}
+      </div>
+      <p class="eval-vignette-niveau">${k.niveau}, ${liste.length} évaluation${pluriel(liste.length)}${cloturees ? `, dont ${cloturees} clôturée${pluriel(cloturees)}` : ""}</p>
+      ${evalLireCode(k.key)
+        ? `<button type="button" class="eval-btn" onclick="loadEvaluationsPage('${k.key}')">Ouvrir mon espace</button>`
+        : `<label class="eval-vignette-code" for="eval-code-${k.key}">Mon code</label>
+           <div class="eval-champ-ligne">
+             <input id="eval-code-${k.key}" class="eval-input" placeholder="Votre code" autocomplete="off" spellcheck="false"
+                    onkeydown="if (event.key === 'Enter') evalEntrerCode('${k.key}')"
+                    oninput="document.getElementById('eval-code-erreur-${k.key}').textContent = ''">
+             <button type="button" class="eval-btn" onclick="evalEntrerCode('${k.key}')">Entrer</button>
+           </div>
+           <p class="eval-erreur" id="eval-code-erreur-${k.key}" role="alert"></p>`}
+    </section>`;
+}
+
+// Espace de travail de l'élève : la vignette de sa classe, sur toute la largeur.
+function evalEspaceHtml(annee, classe, empreinte) {
+  const k = EVAL_CLASSES.find(x => x.key === classe) || { label: classe, niveau: "" };
+  const liste = evalListe(annee, classe);
+  const noteDe = ev => { const n = evalNotes(annee, classe, ev.id); return (n && n.notes[empreinte]) || null; };
+  const corrigees = liste.filter(noteDe);
+  const aFaire = liste.filter(ev => !noteDe(ev) && evalStatut(annee, classe, ev) === "ouverte");
+  const sansCopie = liste.filter(ev => !noteDe(ev) && evalStatut(annee, classe, ev) === "cloturee");
+  const groupe = (titre, evs, vide) => `
+    <div class="eval-groupe">
+      <h3>${titre} <span class="eval-groupe-nombre">${evs.length}</span></h3>
+      ${evs.length
+        ? `<div class="eval-liste">${evs.map(ev => evalLigne(annee, classe, ev, noteDe(ev))).join("")}</div>`
+        : `<p class="eval-vide">${vide}</p>`}
+    </div>`;
+  return `
+    <section class="eval-vignette eval-vignette--active" aria-labelledby="vignette-${classe}">
+      <div class="eval-vignette-titre">
+        <h2 id="vignette-${classe}">${k.label}</h2>
+        ${evalMoyenneHtml(annee, classe)}
+      </div>
+      <div class="eval-espace-barre">
+        <p class="eval-vignette-niveau">${k.niveau}, code ${escapeHtml(evalFormaterCode(evalLireCode(classe)))}</p>
+        <div class="eval-espace-actions">
+          <button type="button" class="eval-lien" onclick="loadEvaluationsPage('')">Revenir aux deux classes</button>
+          <button type="button" class="eval-lien" onclick="evalOublierCode('${classe}')">Oublier mon code</button>
+        </div>
+      </div>
+      ${groupe("À faire", aFaire, "Rien à faire pour le moment : les nouvelles évaluations arrivent le dimanche matin.")}
+      ${groupe("Corrigées", corrigees, "Aucune copie corrigée pour l'instant. Les copies sont corrigées chaque dimanche matin.")}
+      ${sansCopie.length ? groupe("Clôturées sans copie", sansCopie, "") : ""}
+    </section>`;
+}
+
+async function evalEntrerCode(classe) {
+  const input = document.getElementById(`eval-code-${classe}`);
+  const err = document.getElementById(`eval-code-erreur-${classe}`);
+  if (!input || !err) return;
+  const code = evalNormaliserCode(input.value);
+  if (code.length < 6) {
+    err.textContent = "Le code comporte au moins 6 caractères : saisissez celui remis par votre enseignant.";
+    input.focus();
+    return;
+  }
+  const annee = evalAnneeCourante();
+  if (!(await evalEmpreinteDansClasse(annee, classe, code))) {
+    const autre = await evalClasseDuCode(annee, code);
+    err.textContent = autre
+      ? `Ce code est celui d'un élève de ${evalLabelClasse(autre)} : utilisez la vignette ${evalLabelClasse(autre)}.`
+      : "Ce code ne correspond à aucun élève de cette classe. Vérifiez-le auprès de votre enseignant.";
+    input.focus();
+    return;
+  }
+  evalEcrireCode(classe, code);
+  loadEvaluationsPage(classe);
+}
+
+function evalOublierCode(classe) {
+  evalEcrireCode(classe, "");
+  loadEvaluationsPage("");
+}
+
+function evalBadge(annee, classe, ev) {
+  const notes = evalNotes(annee, classe, ev.id);
+  if (evalStatut(annee, classe, ev) === "ouverte") return `<span class="eval-badge eval-badge--ouverte">Ouverte</span>`;
+  if (!notes || !evalStatsVisibles(annee, classe)) return `<span class="eval-badge eval-badge--corrigee">Clôturée</span>`;
+  const st = evalStats(notes, ev.total);
+  return `<span class="eval-badge eval-badge--corrigee">Clôturée, moyenne ${evalNombre(st.moyenne)}/${evalNombre(ev.total)}</span>`;
+}
+
+// Ligne d'évaluation dans l'espace de l'élève, avec son état personnel.
+function evalLigne(annee, classe, ev, note) {
   const envoye = evalEnvoi(annee, classe, ev.id);
-  return `<button type="button" class="eval-row eval-row--${evalStatut(annee, classe, ev)}" onclick="openEvaluation('${annee}','${classe}','${ev.id}')">
+  let etat, badge;
+  if (note) {
+    etat = "cloturee";
+    badge = `<span class="eval-badge eval-badge--corrigee">${evalNombre(note.note)}/${evalNombre(ev.total)}</span>`;
+  } else if (evalStatut(annee, classe, ev) === "cloturee") {
+    etat = "cloturee";
+    badge = `<span class="eval-badge eval-badge--corrigee">Clôturée</span>`;
+  } else if (envoye) {
+    etat = "attente";
+    badge = `<span class="eval-badge eval-badge--correction">Envoyée, corrigée dimanche</span>`;
+  } else {
+    etat = "ouverte";
+    badge = `<span class="eval-badge eval-badge--ouverte">À faire</span>`;
+  }
+  return `<button type="button" class="eval-row eval-row--${etat}" onclick="openEvaluation('${annee}','${classe}','${ev.id}')">
     <span class="eval-row-date">${evalDate(ev.date)}</span>
     <span class="eval-row-main">
       <span class="eval-row-titre">${escapeHtml(ev.titre)}</span>
-      <span class="eval-row-chap">${escapeHtml(ev.chapitre)}, ${evalPoints(ev.total)}${envoye ? ", réponses envoyées" : ""}</span>
+      <span class="eval-row-chap">${escapeHtml(ev.chapitre)}, ${evalPoints(ev.total)}${ev.dureeMinutes ? `, ${ev.dureeMinutes} min conseillées` : ""}</span>
     </span>
-    ${evalBadge(annee, classe, ev)}
+    ${badge}
   </button>`;
 }
 
-// ---------- Encadré « Mes notes » ----------
+// ---------- Saisie du code sur la fiche d'une évaluation ----------
 function evalSaisieCodeHtml(intro) {
   return `<p>${intro}</p>
     <div class="eval-champ-ligne">
-      <input id="eval-code-saisie" class="eval-input" placeholder="ABCD-EFGH" autocomplete="off" spellcheck="false"
+      <input id="eval-code-saisie" class="eval-input" placeholder="Votre code" autocomplete="off" spellcheck="false"
              aria-label="Code élève" onkeydown="if (event.key === 'Enter') evalValiderCode()" oninput="document.getElementById('eval-code-erreur').textContent = ''">
       <button type="button" class="eval-btn" onclick="evalValiderCode()">Afficher</button>
     </div>
     <p class="eval-erreur" id="eval-code-erreur" role="alert"></p>`;
-}
-
-async function evalAfficherMesResultats() {
-  const box = document.getElementById("eval-mes-resultats");
-  if (!box) return;
-  const annee = evalAnneeCourante();
-  const code = evalLireCode();
-  if (!code) {
-    box.innerHTML = `<h2>Mes notes</h2>${evalSaisieCodeHtml("Saisissez le code personnel remis par votre enseignant.")}`;
-    return;
-  }
-  const classe = await evalClasseDuCode(annee, code);
-  if (!classe) {
-    box.innerHTML = `<h2>Mes notes</h2>
-      <p>Le code ${evalFormaterCode(code)} n'est pas inscrit pour ${annee}.</p>
-      <button type="button" class="eval-lien" onclick="evalOublierCode()">Saisir un autre code</button>`;
-    return;
-  }
-  const emp = await evalEmpreinte(code, classe);
-  const corrigees = evalListe(annee, classe).filter(ev => evalNotes(annee, classe, ev.id));
-  const lignes = corrigees.map(ev => {
-    const n = evalNotes(annee, classe, ev.id).notes[emp];
-    return `<li><button type="button" onclick="openEvaluation('${annee}','${classe}','${ev.id}')">
-      <span>${escapeHtml(ev.titre)}</span>
-      <span class="eval-note">${n ? `${evalNombre(n.note)}/${evalNombre(ev.total)}` : "Non rendue"}</span>
-    </button></li>`;
-  }).join("");
-  box.innerHTML = `<h2>Mes notes</h2>
-    <p class="eval-code-actif">Code ${evalFormaterCode(code)}, classe de ${escapeHtml(evalLabelClasse(classe))}</p>
-    ${lignes ? `<ul class="eval-mes-notes">${lignes}</ul>` : `<p>Aucune note publiée pour l'instant.</p>`}
-    <button type="button" class="eval-lien" onclick="evalOublierCode()">Changer de code</button>`;
 }
 
 async function evalValiderCode() {
@@ -320,27 +432,27 @@ async function evalValiderCode() {
   if (!input || !err) return;
   const code = evalNormaliserCode(input.value);
   if (code.length < 6) {
-    err.textContent = "Le code comporte 8 caractères, par exemple ABCD-EFGH.";
+    err.textContent = "Le code comporte au moins 6 caractères : saisissez celui remis par votre enseignant.";
     input.focus();
     return;
   }
-  const annee = evalAnneeCourante();
-  if (!(await evalClasseDuCode(annee, code))) {
-    err.textContent = `Ce code ne correspond à aucun élève pour ${annee}. Vérifiez-le auprès de votre enseignant.`;
+  const classe = await evalClasseDuCode(evalAnneeCourante(), code);
+  if (!classe) {
+    err.textContent = "Ce code ne correspond à aucun élève. Vérifiez-le auprès de votre enseignant.";
     input.focus();
     return;
   }
-  evalEcrireCode(code);
+  evalEcrireCode(classe, code);
   if (typeof evalApresCode === "function") evalApresCode();
 }
 
-function evalOublierCode() {
-  evalEcrireCode("");
+function evalChangerCodeFiche(classe) {
+  evalEcrireCode(classe, "");
   if (typeof evalApresCode === "function") evalApresCode();
 }
 
 // ---------- Page d'une évaluation ----------
-function openEvaluation(annee, classe, id) {
+async function openEvaluation(annee, classe, id) {
   const c = document.getElementById("content");
   const ev = evalTrouver(annee, classe, id);
   if (!c) return;
@@ -352,6 +464,28 @@ function openEvaluation(annee, classe, id) {
 
   const statut = evalStatut(annee, classe, ev);
   const label = escapeHtml(evalLabelClasse(classe));
+  const notes = evalNotes(annee, classe, id);
+  // Note personnelle si le code mémorisé appartient à cette classe
+  const rendu = ++evalRendu;
+  const code = evalLireCode(classe);
+  const emp = code ? await evalEmpreinteDansClasse(annee, classe, code) : null;
+  if (rendu !== evalRendu) return;
+  const maNote = emp && notes ? notes.notes[emp] || null : null;
+  const envoye = evalEnvoi(annee, classe, id);
+
+  let corps;
+  if (statut === "cloturee") {
+    corps = (notes ? `<section class="eval-resultats">${evalResultatsHtml(ev, notes, "cloturee", evalStatsVisibles(annee, classe))}</section>` : "")
+      + `<p class="eval-info eval-info--neutre">Évaluation clôturée : le corrigé est affiché sous chaque question.</p>`
+      + evalQuestionsLectureHtml(ev, true);
+  } else if (maNote) {
+    corps = `<section class="eval-resultats">${evalResultatsHtml(ev, notes, "ouverte", evalStatsVisibles(annee, classe))}</section>`
+      + `<p class="eval-info eval-info--neutre">Votre copie est corrigée. Le corrigé détaillé sera publié quand l'évaluation sera clôturée.</p>`
+      + evalQuestionsLectureHtml(ev, false);
+  } else {
+    corps = (envoye ? `<p class="eval-info eval-info--neutre">Réponses envoyées le ${evalDate(envoye.slice(0, 10), true)}. Elles seront corrigées au prochain passage, le dimanche matin ; un nouvel envoi d'ici là remplace le précédent.</p>` : "")
+      + evalFormulaireHtml(annee, classe, ev);
+  }
 
   c.innerHTML = `
     <div class="eval-page eval-detail">
@@ -359,20 +493,19 @@ function openEvaluation(annee, classe, id) {
       <header class="eval-detail-head">
         <p class="eval-detail-chap">${label}, ${escapeHtml(ev.chapitre)}</p>
         <h1 class="eval-title">${escapeHtml(ev.titre)}</h1>
-        <p class="eval-detail-meta">Publiée le ${evalDate(ev.date, true)}.
-          ${ev.dureeMinutes ? `Durée conseillée : ${ev.dureeMinutes} minutes.` : ""}
-          Total : ${evalPoints(ev.total)}.</p>
-        ${evalBadge(annee, classe, ev)}
+        <p class="eval-detail-meta">Publiée le ${evalDate(ev.date, true)}. Total : ${evalPoints(ev.total)}.</p>
+        <div class="eval-detail-etiquettes">
+          ${evalBadge(annee, classe, ev)}
+          ${ev.dureeMinutes ? `<span class="eval-duree">Durée conseillée : ${ev.dureeMinutes} minutes</span>` : ""}
+        </div>
       </header>
       ${ev.consignes ? `<div class="eval-consignes">${ev.consignes}</div>` : ""}
-      ${statut === "corrigee" ? `<section class="eval-resultats">${evalResultatsHtml(ev, evalNotes(annee, classe, id))}</section>` : ""}
-      ${statut === "correction" ? `<p class="eval-info">La date limite est passée. La correction est en cours ; les notes et le corrigé seront publiés ici.</p>` : ""}
-      ${statut === "ouverte" ? evalFormulaireHtml(annee, classe, ev) : evalQuestionsLectureHtml(ev, statut === "corrigee")}
+      ${corps}
     </div>`;
 
-  if (statut === "ouverte") evalRenderTurnstile("eval-turnstile");
-  if (statut === "corrigee") {
-    evalApresCode = () => evalAfficherMaNote(annee, classe, ev);
+  if (statut === "ouverte" && !maNote) evalRenderTurnstile("eval-turnstile");
+  if (document.getElementById("eval-ma-note")) {
+    evalApresCode = () => openEvaluation(annee, classe, id);
     evalAfficherMaNote(annee, classe, ev);
   }
   c.scrollTop = 0;
@@ -393,14 +526,15 @@ function evalQuestionsLectureHtml(ev, avecCorrige) {
     </li>`).join("")}</ol>`;
 }
 
-function evalResultatsHtml(ev, notes) {
+function evalResultatsHtml(ev, notes, statut, avecStats) {
+  if (!avecStats) return `<div id="eval-ma-note" class="eval-ma-note eval-ma-note--seule"></div>`;
   const st = evalStats(notes, ev.total);
   const haut = Math.max(...st.tranches, 1);
   const pas = ev.total / 4;
   const libelles = [0, 1, 2, 3].map(i => `${evalNombre(i * pas)} à ${evalNombre((i + 1) * pas)}`);
   const resume = st.tranches.map((n, i) => `${n} entre ${libelles[i]}`).join(", ");
   return `
-    <h2>Résultats de la classe</h2>
+    <h2>Résultats de la classe <small>(${st.n} copie${st.n > 1 ? "s" : ""} corrigée${st.n > 1 ? "s" : ""}${statut === "ouverte" ? ", résultats provisoires" : ""})</small></h2>
     <div class="eval-resultats-corps">
       <dl class="eval-stats">
         <div><dt>Moyenne</dt><dd>${evalNombre(st.moyenne)}<small>/${evalNombre(ev.total)}</small></dd></div>
@@ -423,7 +557,7 @@ function evalResultatsHtml(ev, notes) {
 async function evalAfficherMaNote(annee, classe, ev) {
   const zone = document.getElementById("eval-ma-note");
   if (!zone) return;
-  const code = evalLireCode();
+  const code = evalLireCode(classe);
   if (!code) {
     zone.innerHTML = `<h3>Ma note</h3>${evalSaisieCodeHtml("Saisissez votre code pour afficher votre note et le commentaire.")}`;
     return;
@@ -436,9 +570,10 @@ async function evalAfficherMaNote(annee, classe, ev) {
       ? `<p>Le code ${evalFormaterCode(code)} n'appartient pas à la classe de ${escapeHtml(evalLabelClasse(classe))}.</p>`
       : n
         ? `<p class="eval-ma-note-val">${evalNombre(n.note)}<small>/${evalNombre(ev.total)}</small></p>
+           ${n.reponduLe ? `<p class="eval-ma-note-date">Répondu le ${evalDate(n.reponduLe.slice(0, 10), true)}${n.corrigeLe ? `, corrigé le ${evalDate(n.corrigeLe, true)}` : ""}.</p>` : ""}
            ${n.commentaire ? `<p class="eval-ma-note-com">${escapeHtml(n.commentaire)}</p>` : ""}`
-        : `<p>Aucune copie reçue pour le code ${evalFormaterCode(code)}.</p>`}
-    <button type="button" class="eval-lien" onclick="evalOublierCode()">Changer de code</button>`;
+        : `<p>Pas encore de copie corrigée pour le code ${evalFormaterCode(code)}.</p>`}
+    <button type="button" class="eval-lien" onclick="evalChangerCodeFiche('${classe}')">Changer de code</button>`;
 }
 
 // ---------- Formulaire de réponse ----------
@@ -455,19 +590,17 @@ function evalChampHtml(q) {
 }
 
 function evalFormulaireHtml(annee, classe, ev) {
-  const envoye = evalEnvoi(annee, classe, ev.id);
-  const code = evalLireCode();
+  const code = evalLireCode(classe);
   return `
     <form id="eval-form" class="eval-form" novalidate
           onsubmit="event.preventDefault(); evalEnvoyerReponses('${annee}','${classe}','${ev.id}')">
-      ${envoye ? `<p class="eval-info">Réponses déjà envoyées le ${evalDate(envoye.slice(0, 10), true)}. Un nouvel envoi remplacera le précédent.</p>` : ""}
       <ol class="eval-questions">${ev.questions.map((q, i) => `
         <li class="eval-question">${evalQuestionTete(q, i)}${evalChampHtml(q)}</li>`).join("")}
       </ol>
       <fieldset class="eval-identite">
         <legend>Vos informations</legend>
         <label>Prénom<input name="prenom" class="eval-input" autocomplete="given-name"></label>
-        <label>Code élève<input name="code" class="eval-input" placeholder="ABCD-EFGH" autocomplete="off" spellcheck="false"
+        <label>Code élève<input name="code" class="eval-input" placeholder="Votre code" autocomplete="off" spellcheck="false"
                value="${code ? evalFormaterCode(code) : ""}"></label>
       </fieldset>
       <div id="eval-turnstile" class="eval-turnstile"></div>
@@ -497,7 +630,7 @@ async function evalEnvoyerReponses(annee, classe, id) {
   const prenom = form.elements.prenom.value.trim();
   const code = evalNormaliserCode(form.elements.code.value);
   if (!prenom) return evalErreurChamp(err, "Indiquez votre prénom.", form.elements.prenom);
-  if (code.length < 6) return evalErreurChamp(err, "Indiquez votre code élève (8 caractères, par exemple ABCD-EFGH).", form.elements.code);
+  if (code.length < 6) return evalErreurChamp(err, "Indiquez votre code élève (au moins 6 caractères), remis par votre enseignant.", form.elements.code);
 
   if (evalInscrits(annee, classe).length && !(await evalEmpreinteDansClasse(annee, classe, code))) {
     const classeCode = await evalClasseDuCode(annee, code);
@@ -539,12 +672,12 @@ async function evalEnvoyerReponses(annee, classe, id) {
   bouton.disabled = true;
   try {
     const mode = await evalExpedier(message, `[MathSite] Réponses ${evalLabelClasse(classe)}, ${ev.titre}, ${message.code}`, corps);
-    evalEcrireCode(code);
+    evalEcrireCode(classe, code);
     if (mode === "mail") {
       ok.textContent = "Votre messagerie s'ouvre avec vos réponses : relisez le message puis cliquez sur Envoyer.";
     } else {
       evalMarquerEnvoi(annee, classe, id);
-      ok.textContent = "Réponses envoyées. Votre note apparaîtra sur cette page après la correction.";
+      ok.textContent = "Réponses envoyées. Elles seront corrigées dimanche matin ; votre note apparaîtra alors sur cette page.";
     }
   } catch (e) {
     err.textContent = e.message;
@@ -557,6 +690,7 @@ async function evalEnvoyerReponses(annee, classe, id) {
 function loadDemandeAmelioration() {
   const c = document.getElementById("content");
   if (!c) return;
+  evalRendu++;
   if (typeof setSidebarCollapsed === "function") setSidebarCollapsed(true);
   if (typeof setActiveNav === "function") setActiveNav("evaluations");
   c.innerHTML = `
@@ -748,6 +882,7 @@ async function evalAppelWorker(chemin, corps) {
 function loadAdministrationPage() {
   const c = document.getElementById("content");
   if (!c) return;
+  evalRendu++;
   evalSuiviAgent = 0;
   if (typeof setSidebarCollapsed === "function") setSidebarCollapsed(true);
   if (typeof setActiveNav === "function") setActiveNav("evaluations");
@@ -780,21 +915,25 @@ function loadAdministrationPage() {
   const annee = evalAnneeCourante();
   const ouvertes = EVAL_CLASSES.flatMap(k => evalListe(annee, k.key)
     .filter(ev => evalStatut(annee, k.key, ev) === "ouverte")
-    .map(ev => `<option value="${ev.id}">${escapeHtml(k.label)} : ${escapeHtml(ev.titre)} (jusqu'au ${evalDate(ev.dateLimite)})</option>`));
+    .map(ev => `<option value="${ev.id}">${escapeHtml(k.label)} : ${escapeHtml(ev.titre)} (publiée le ${evalDate(ev.date)})</option>`));
 
   c.innerHTML = `
     <div class="eval-page eval-detail">${entete}
       <section class="eval-admin-bloc">
         <h2>Lancer l'agent maintenant</h2>
-        <p class="eval-admin-aide">Sans option, l'agent fait sa tournée habituelle : il corrige les évaluations dont la date limite est passée et crée celles prévues au calendrier.</p>
+        <p class="eval-admin-aide">Sans option, l'agent corrige toutes les copies reçues depuis son dernier passage. Il passe de lui-même chaque dimanche à 5 h et crée alors le lot de la semaine.</p>
         <form id="admin-lancer" class="eval-form eval-form--etroit" novalidate onsubmit="event.preventDefault(); evalLancerAgent()">
-          <label>Clôturer et corriger tout de suite
+          <label class="eval-case">
+            <input type="checkbox" name="lot_hebdomadaire">
+            <span>Créer maintenant le lot de la semaine (4 évaluations par classe)</span>
+          </label>
+          <label>Clôturer une évaluation (plus de réponses acceptées, corrigé publié)
             <select name="cloturer" class="eval-input">
               <option value="">Aucune évaluation</option>
               ${ouvertes.join("")}
             </select>
           </label>
-          <label>Créer une nouvelle évaluation
+          <label>Créer une évaluation supplémentaire
             <select name="generer_classe" class="eval-input" onchange="document.getElementById('admin-sujet').disabled = !this.value">
               <option value="">Non</option>
               ${EVAL_CLASSES.map(k => `<option value="${k.key}">${k.label}</option>`).join("")}
@@ -866,10 +1005,13 @@ async function evalLancerAgent() {
       motDePasse: evalMotDePasseAdmin(),
       jeton: evalTurnstileJeton,
       cloturer: form.elements.cloturer.value,
+      lot_hebdomadaire: form.elements.lot_hebdomadaire.checked,
       generer_classe: form.elements.generer_classe.value,
       generer_sujet: form.elements.generer_classe.value ? form.elements.generer_sujet.value.trim() : "",
     });
-    ok.textContent = "Agent lancé. Son passage apparaît ci-dessous dans quelques secondes et prend en général 3 à 6 minutes.";
+    ok.textContent = form.elements.lot_hebdomadaire.checked
+      ? "Agent lancé. Son passage apparaît ci-dessous dans quelques secondes ; avec le lot de la semaine, il peut durer 15 à 40 minutes."
+      : "Agent lancé. Son passage apparaît ci-dessous dans quelques secondes et prend en général 3 à 10 minutes.";
     setTimeout(() => evalAfficherPassages(true), 4000);
   } catch (e) {
     if (e.statut === 401) { evalEcrireMotDePasseAdmin(""); loadAdministrationPage(); return; }
@@ -894,34 +1036,64 @@ function evalLibellePassage(p) {
   return `<span class="eval-badge eval-badge--echec">Échec</span>`;
 }
 
-// Affiche les derniers passages ; si l'un est en cours (ou si « suivre » vient d'un lancement),
-// réinterroge toutes les 15 secondes tant que la page est affichée.
+// Affiche la dernière publication du site et les derniers passages de l'agent ; si l'un d'eux est
+// en cours (ou si « suivre » vient d'un lancement), réinterroge toutes les 15 secondes tant que la
+// page est affichée.
 async function evalAfficherPassages(suivre) {
   const zone = document.getElementById("admin-passages");
   if (!zone) return;
   const boucle = ++evalSuiviAgent;
-  let passages;
+  let passages, publication;
   try {
-    passages = (await evalAppelWorker("/agent/etat", { motDePasse: evalMotDePasseAdmin() })).passages || [];
+    const etat = await evalAppelWorker("/agent/etat", { motDePasse: evalMotDePasseAdmin() });
+    passages = etat.passages || [];
+    publication = etat.publication || null;
   } catch (e) {
     if (e.statut === 401) { evalEcrireMotDePasseAdmin(""); loadAdministrationPage(); return; }
     zone.innerHTML = `<p class="eval-erreur">${escapeHtml(e.message)}</p>`;
     return;
   }
   if (boucle !== evalSuiviAgent || !document.getElementById("admin-passages")) return;
-  zone.innerHTML = passages.length ? `<ul class="eval-admin-passages">${passages.map(p => `
+  zone.innerHTML = evalPublicationHtml(publication) + (passages.length ? `<ul class="eval-admin-passages">${passages.map(p => `
     <li>
       <span class="eval-admin-quand">${new Date(p.debut).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" })}</span>
       <span class="eval-admin-type">${p.declencheur === "schedule" ? "Passage planifié" : "Lancement manuel"}</span>
       ${evalLibellePassage(p)}
       <a class="eval-lien" href="${escapeHtml(p.url)}" target="_blank" rel="noopener">Détail</a>
-    </li>`).join("")}</ul>
-    ${passages[0].statut === "completed" && passages[0].conclusion === "success"
-      ? `<p class="eval-admin-aide">Le site se met à jour 1 à 2 minutes après la fin d'un passage réussi : rechargez alors la page avec Ctrl + Maj + R.</p>` : ""}`
-    : `<p class="eval-admin-aide">Aucun passage pour l'instant.</p>`;
+    </li>`).join("")}</ul>`
+    : `<p class="eval-admin-aide">Aucun passage pour l'instant.</p>`);
 
-  const enCours = passages.some(p => p.statut !== "completed");
+  const enCours = passages.some(p => p.statut !== "completed") || (publication && publication.statut !== "completed");
   if (enCours || suivre) {
     setTimeout(() => { if (boucle === evalSuiviAgent) evalAfficherPassages(suivre && !enCours ? false : enCours); }, 15000);
   }
+}
+
+// Encadré « Publication du site » : après un passage réussi, l'agent lance static.yml. Une fois
+// cette publication terminée, le cache de GitHub Pages peut encore servir l'ancienne version
+// jusqu'à 10 minutes.
+function evalPublicationHtml(p) {
+  if (!p) return "";
+  const heure = iso => new Date(iso).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+  let badge, texte;
+  if (p.statut !== "completed") {
+    badge = `<span class="eval-badge eval-badge--ouverte">${p.statut === "in_progress" ? "En cours" : "En attente"}</span>`;
+    texte = "Le site est en cours de publication. Comptez encore une à deux minutes, puis jusqu'à 10 minutes de cache.";
+  } else if (p.conclusion === "success") {
+    const fin = new Date(p.maj);
+    const limite = new Date(fin.getTime() + 10 * 60000);
+    badge = `<span class="eval-badge eval-badge--corrigee">Terminée à ${heure(p.maj)}</span>`;
+    texte = Date.now() < limite.getTime()
+      ? `Les changements seront visibles au plus tard vers ${heure(limite.toISOString())} (cache de GitHub Pages). Rechargez alors la page avec Ctrl + Maj + R.`
+      : "Le site est à jour. Si une page affiche encore l'ancienne version, rechargez-la avec Ctrl + Maj + R.";
+  } else {
+    badge = `<span class="eval-badge eval-badge--echec">Échec</span>`;
+    texte = "La dernière publication a échoué : le site n'a pas été mis à jour. Ouvrez le détail pour voir l'erreur.";
+  }
+  return `
+    <div class="eval-admin-publication">
+      <div class="eval-admin-publication-tete"><strong>Publication du site</strong>${badge}
+        <a class="eval-lien" href="${escapeHtml(p.url)}" target="_blank" rel="noopener">Détail</a></div>
+      <p class="eval-admin-aide">${texte}</p>
+    </div>`;
 }

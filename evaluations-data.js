@@ -9,7 +9,6 @@ window.EVALUATIONS = {
     "titre": "Enchaînements d'opérations",
     "chapitre": "Calcul et priorités opératoires",
     "date": "2026-09-25",
-    "dateLimite": "2026-09-25",
     "dureeMinutes": 25,
     "consignes": "<p>Évaluation de démonstration. Pour la dernière question, écris chaque étape du calcul sur une nouvelle ligne.</p>",
     "questions": [
@@ -43,13 +42,7 @@ window.EVALUATIONS = {
       "points": 4,
       "enonce": "<p>Calcule en détaillant les étapes : 18 − 12 ÷ 3 + 2 × (5 − 1)</p>"
      }
-    ],
-    "corrige": {
-     "q1": "<p><strong>22</strong>. On calcule d'abord la multiplication : 3 × 5 = 15, puis 7 + 15 = 22.</p>",
-     "q2": "<p><strong>50</strong>. Les parenthèses imposent de calculer 7 + 3 = 10 en premier, puis 10 × 5 = 50.</p>",
-     "q3": "<p><strong>4 + 4 × 4</strong>. On calcule 4 × 4 = 16 puis 4 + 16 = 20. Les autres expressions valent 32, 12 et 12.</p>",
-     "q4": "<p><strong>22</strong>. On calcule d'abord la parenthèse et la division : 5 − 1 = 4 et 12 ÷ 3 = 4, ce qui donne 18 − 4 + 2 × 4. On calcule ensuite la multiplication : 2 × 4 = 8, puis on effectue de gauche à droite : 18 − 4 + 8 = 22.</p>"
-    }
+    ]
    },
    {
     "id": "2026-09-18-nombres-relatifs",
@@ -57,7 +50,6 @@ window.EVALUATIONS = {
     "titre": "Nombres relatifs : repérer et comparer",
     "chapitre": "Nombres relatifs",
     "date": "2026-09-18",
-    "dateLimite": "2026-09-24",
     "dureeMinutes": 30,
     "consignes": "<p>Évaluation de démonstration. Justifiez vos réponses quand la question le demande.</p>",
     "questions": [
@@ -110,7 +102,8 @@ window.EVALUATIONS = {
      "q3": "<p>−6 &lt; −1,5 &lt; −1 &lt; 0 &lt; 2 &lt; 3,2</p>",
      "q4": "<p><strong>5</strong>. De −2 à 0 il y a 2 unités, puis de 0 à 3 il y a 3 unités : 2 + 3 = 5. Une longueur n'est jamais négative.</p>",
      "q5": "<p><strong>9 °C</strong>. Il faut 4 degrés pour passer de −4 °C à 0 °C, puis 5 degrés pour passer de 0 °C à 5 °C : 4 + 5 = 9.</p>"
-    }
+    },
+    "cloturee": true
    }
   ],
   "seconde": [
@@ -228,7 +221,6 @@ window.EVALUATIONS = {
     "titre": "Ensembles de nombres et intervalles",
     "chapitre": "Nombres et calculs",
     "date": "2026-09-24",
-    "dateLimite": "2026-10-02",
     "dureeMinutes": 45,
     "consignes": "<p>Évaluation de démonstration. Vous pouvez écrire les ensembles avec les lettres N, Z, D, Q et R si les symboles ne sont pas disponibles au clavier.</p>",
     "questions": [
@@ -304,17 +296,8 @@ window.EVAL_NOTES = {
       "commentaire": "Bien. Attention au rangement de −1,5 et −1."
      }
     }
-   },
-   "2026-09-25-priorites-operatoires": {
-    "publieLe": "2026-09-26",
-    "notes": {
-     "797d44179d4711553b25ca3c8e987a6c2efc588dc04c3213d521122000fbebd0": {
-      "note": 4,
-      "commentaire": "Bien joué pour les questions 1 et 2, les priorités entre addition, multiplication et parenthèses sont bien comprises. Revois la question 3 (c'est 4 + 4 × 4 qui vaut 20) et pense à détailler chaque étape du calcul en question 4 : cela permet d'obtenir des points même quand le résultat final n'est pas le bon."
-     }
-    }
    }
   }
  }
 };
-window.EVAL_ELEVES = {"2026-2027":{"5e":["4c8bc363d19e7f5c5a83d15712ec6bb2a816a9fdfa3984bfb80b0a222a586395","797d44179d4711553b25ca3c8e987a6c2efc588dc04c3213d521122000fbebd0","b450ed7d5d51a8f3c741acb07d49ea7e48850d81fd5c627b59bbe23e5a17556f","03164f020062140af0e099e804b46268eb71b2f12d3b88c843e4ba4a23ba28b3","db2c864543578ba00a1015541214cf647b00ebf7ab21eb9a98ff6bb1e4fad4cf","700052d0fc1669dc8ee9a5074e89fb3d4b2b727d201f8e6b213cbd300e6114f6"],"seconde":["acd06a1ba996c1754c036810984983acd4c125a8f4339b1d28385a50dcbed66c","b74728059ba6409492e5c9258866cbd5028fed9366ea6f0a1e086f0aef693cf8","715ee7ebaec2d36c2a7b7c11833b01f418c010573b74ef293295525825561376"]}};
+window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};

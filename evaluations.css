@@ -1,4 +1,4 @@
-/* Version : 1.1 */
+/* Version : 1.5 */
 /* PAGE « ÉVALUATIONS » (evaluations.js) — reprend les couleurs du site :
    fond #0f1116, panneaux #1a1d24, bordures #2a2d35, bleu #7aa2ff.
    Trois états d'évaluation : ouverte (bleu), correction en cours (ambre), corrigée (vert). */
@@ -117,8 +117,7 @@
 
 .eval-row:hover { background: #20242d; }
 .eval-row--ouverte { border-left-color: var(--ev-bleu); }
-.eval-row--correction { border-left-color: var(--ev-ambre); }
-.eval-row--corrigee { border-left-color: var(--ev-vert); }
+.eval-row--cloturee { border-left-color: var(--ev-vert); }
 
 .eval-row-date {
   font-size: 13px;
@@ -310,6 +309,41 @@ textarea.eval-input { resize: vertical; line-height: 1.5; }
 }
 
 .eval-detail-head .eval-title { margin-bottom: 8px; }
+
+.eval-detail-etiquettes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.eval-duree {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--ev-bord);
+  color: var(--ev-texte);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.eval-info--neutre {
+  background: var(--ev-panneau-2);
+  border-color: var(--ev-bord);
+  color: #c9ced8;
+}
+
+.eval-resultats h2 small { font-size: 13px; font-weight: 400; color: var(--ev-doux); }
+.eval-ma-note .eval-ma-note-date { font-size: 13px; margin-bottom: 8px; }
+
+.eval-form .eval-case {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  color: var(--ev-texte);
+}
+
+.eval-case input { accent-color: var(--ev-bleu); width: 16px; height: 16px; margin: 0; }
 
 .eval-detail-meta {
   margin: 0 0 12px;
@@ -605,6 +639,25 @@ textarea.eval-input { resize: vertical; line-height: 1.5; }
 
 .eval-admin-type { color: var(--ev-doux); }
 
+.eval-admin-publication {
+  margin: 8px 0 14px;
+  padding: 12px 14px;
+  background: var(--ev-panneau-2);
+  border: 1px solid var(--ev-bord);
+  border-radius: 8px;
+}
+
+.eval-admin-publication-tete {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.eval-admin-publication .eval-admin-aide { margin: 0; }
+
 .eval-form select:disabled, .eval-form input:disabled { opacity: .5; }
 
 @media (max-width: 900px) {
@@ -617,4 +670,125 @@ textarea.eval-input { resize: vertical; line-height: 1.5; }
   .eval-identite { grid-template-columns: 1fr; }
   .eval-admin-passages li { grid-template-columns: 1fr auto; }
   .eval-classe-nom { font-size: 18px; }
+}
+
+/* Sans résultats de classe (moins de 3 inscrits), l'encadré de note est seul dans le bloc. */
+.eval-ma-note--seule { margin-top: 0; padding-top: 0; border-top: none; }
+
+/* ---------- Accueil en deux vignettes (5e, Seconde) ---------- */
+.eval-vignettes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.eval-vignettes--une { grid-template-columns: 1fr; }
+
+.eval-vignette {
+  padding: 20px 22px;
+  background: var(--ev-panneau);
+  border: 1px solid var(--ev-bord);
+  border-radius: 12px;
+}
+
+.eval-vignette--active {
+  border-color: var(--ev-bleu);
+  box-shadow: inset 0 3px 0 var(--ev-bleu);
+  padding: 22px 26px 26px;
+}
+
+.eval-vignette-titre {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.eval-vignette-titre h2 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.eval-vignette-moyenne {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ev-vert);
+  white-space: nowrap;
+}
+
+.eval-vignette-moyenne small { font-size: 14px; font-weight: 400; color: var(--ev-doux); }
+.eval-vignette-moyenne--vide { font-size: 14px; font-weight: 400; color: var(--ev-doux); }
+
+.eval-vignette-niveau {
+  margin: 0 0 16px;
+  color: var(--ev-doux);
+  font-size: 14px;
+}
+
+.eval-vignette-code {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: var(--ev-doux);
+}
+
+.eval-vignette .eval-champ-ligne { max-width: 360px; }
+.eval-vignette .eval-erreur { margin-top: 8px; }
+
+.eval-espace-barre {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.eval-espace-barre .eval-vignette-niveau { margin: 0; }
+.eval-espace-actions { display: flex; gap: 18px; flex-wrap: wrap; }
+
+.eval-groupe { margin-top: 22px; }
+
+.eval-groupe h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  font-size: 17px;
+}
+
+.eval-groupe-nombre {
+  min-width: 22px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--ev-panneau-2);
+  border: 1px solid var(--ev-bord);
+  color: var(--ev-doux);
+  font-size: 12.5px;
+  text-align: center;
+}
+
+.eval-row--attente { border-left-color: var(--ev-ambre); }
+
+.eval-pied {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ev-bord);
+  color: var(--ev-doux);
+  font-size: 14px;
+}
+
+.eval-pied p { margin: 0; }
+
+@media (max-width: 760px) {
+  .eval-vignettes { grid-template-columns: 1fr; }
 }

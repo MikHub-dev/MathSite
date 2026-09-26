@@ -12,9 +12,9 @@
 | `outils/creer-codes.mjs` | Crée les codes élèves |
 | `outils/remplacer-code.mjs` | Remplace un code perdu et transfère les notes |
 | `worker/` | Worker Cloudflare qui reçoit les formulaires (voir `GUIDE-etape2.md`) |
-| `programme-evaluations.json` | Calendrier des évaluations que l'agent crée automatiquement |
-| `AGENT_EVALUATIONS.md` | Consignes de l'agent Claude quotidien |
-| `.github/workflows/agent-evaluations.yml` | Lancement de l'agent (chaque matin ou à la demande, voir `GUIDE-etape3.md`) |
+| `programme-evaluations.json` | Lot hebdomadaire et thèmes des semaines |
+| `AGENT_EVALUATIONS.md` | Consignes de l'agent Claude hebdomadaire |
+| `.github/workflows/agent-evaluations.yml` | Lancement de l'agent (dimanche 5 h ou à la demande, voir `GUIDE-etape3.md`) |
 | `outils/agent-preparer.mjs`, `outils/agent-finaliser.mjs` | Préparation et contrôle du travail de l'agent |
 | Espace enseignant (lien sur la page Évaluations) | Lancer l'agent depuis le site et suivre ses passages (voir `GUIDE-etape4.md`) |
 | `outils/compiler-evaluations.mjs` | Vérifie les sources et régénère `evaluations-data.js` |
@@ -44,16 +44,24 @@ node outils/compiler-evaluations.mjs
 
 L'ancien code cesse de fonctionner et les notes déjà publiées suivent le nouveau code.
 
-## Ajouter une évaluation
+## Fonctionnement des évaluations
 
-Créer `evaluations/2026-2027/5e/2026-10-05-fractions.json` :
+Les évaluations **n'ont pas de date limite** : chacune reste ouverte jusqu'à ce que l'enseignant la
+clôture (espace enseignant ou onglet Actions). Chaque dimanche à 5 h, l'agent corrige toutes les
+copies reçues depuis son dernier passage et crée le lot de la semaine (4 évaluations par classe).
+L'élève voit alors sa note, le commentaire et sa date de réponse. Un élève corrigé ne peut plus
+renvoyer de réponse à la même évaluation. Le **corrigé** n'est publié qu'à la clôture : jusque-là,
+il donnerait les réponses aux élèves qui n'ont pas encore répondu.
+
+## Format d'une évaluation
+
+`evaluations/2026-2027/5e/2026-10-04-lot-1.json` (l'agent les crée ; on peut aussi en écrire à la main) :
 
 ```json
 {
   "titre": "Fractions : comparer et simplifier",
   "chapitre": "Fractions",
-  "date": "2026-10-05",
-  "dateLimite": "2026-10-11",
+  "date": "2026-10-04",
   "dureeMinutes": 30,
   "consignes": "<p>Texte facultatif.</p>",
   "questions": [
@@ -64,31 +72,33 @@ Créer `evaluations/2026-2027/5e/2026-10-05-fractions.json` :
 }
 ```
 
-Le dépôt est public : **ne pas mettre le corrigé tant que l'évaluation est ouverte**. On ajoute
-`"corrige": { "q1": "<p>...</p>", ... }` en même temps que les notes.
+À la clôture, l'agent ajoute `"corrige": { "q1": "<p>...</p>", ... }` et `"cloturee": true`. Le dépôt
+est public : **jamais de corrigé dans une évaluation ouverte**. Un ancien champ `dateLimite` est
+toléré mais ignoré.
 
-## Planifier les évaluations
+## Calendrier : `programme-evaluations.json`
 
-Chaque entrée de `programme-evaluations.json` indique la classe, le jour de publication (`date`),
-le `chapitre`, les `notions` attendues, `dureeMinutes`, `points` et `dureeJours` (délai pour répondre).
-Le jour venu, l'agent crée l'évaluation. On peut aussi en créer une tout de suite depuis l'onglet
-Actions (voir `GUIDE-etape3.md`).
+- `lotHebdomadaire` : nombre d'évaluations créées chaque dimanche par classe (`nombreParClasse`),
+  total de points (`points`) et durée conseillée par classe (`dureeMinutes`).
+- `themes` (facultatif) : pour la semaine qui commence le dimanche `semaine`, les évaluations de la
+  classe portent sur ce `chapitre` et ces `notions`. Sans thème, l'agent choisit les notions
+  suivantes d'une progression annuelle, sans répéter ce qui a déjà été évalué.
 
-## Publier les notes
+## Format des notes
 
-Créer `notes/2026-2027/5e/2026-10-05-fractions.json` (même nom que l'évaluation) :
+`notes/2026-2027/5e/2026-10-04-lot-1.json` (même nom que l'évaluation), complété à chaque passage :
 
 ```json
 {
-  "publieLe": "2026-10-12",
+  "publieLe": "2026-10-11",
   "notes": {
-    "<empreinte du code, calculée avec la classe>": { "note": 8.5, "commentaire": "..." }
+    "<empreinte du code>": { "note": 8.5, "commentaire": "...", "reponduLe": "2026-10-08T17:42:00Z", "corrigeLe": "2026-10-11" }
   }
 }
 ```
 
-En temps normal, c'est l'agent qui écrit ce fichier. Dès qu'il existe, l'évaluation passe à l'état « Corrigée ». Puis :
-`node outils/compiler-evaluations.mjs`, commit et push.
+Une note publiée peut être modifiée à la main, puis `node outils/compiler-evaluations.mjs`, commit
+et push. L'agent, lui, ne modifie jamais une note déjà publiée.
 
 ## Données de démonstration
 

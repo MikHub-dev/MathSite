@@ -1,23 +1,23 @@
-# Étape 3 : mise en service de l'agent Claude quotidien
+# Étape 3 : mise en service de l'agent Claude hebdomadaire
 
-L'agent tourne dans GitHub Actions, chaque matin vers 6 h (heure de Paris), ou à la demande.
+L'agent tourne dans GitHub Actions chaque dimanche à 5 h (heure de Paris, été comme hiver), ou à la
+demande depuis l'espace enseignant du site ou l'onglet Actions.
 Il utilise votre abonnement Claude Pro : aucune clé API payante.
 
 ## Ce que fait l'agent à chaque passage
 
-1. Un script lit les issues « reponse-eval » créées par le Worker. Il ignore toute issue ouverte
-   par un autre compte que le vôtre.
-2. Pour chaque évaluation dont la date limite est passée et qui a reçu des copies, Claude rédige le
-   corrigé, note chaque copie selon le barème et écrit un commentaire. Si un élève a envoyé
-   plusieurs fois, seul le dernier envoi compte.
-3. Claude crée les évaluations prévues dans `programme-evaluations.json` dont le jour est arrivé,
-   ou celle demandée à la main.
-4. Un second script vérifie tout avant publication : compilation, aucun fichier modifié hors de
-   `evaluations/` et `notes/`, une note pour chaque copie reçue et aucune autre, un corrigé pour
-   chaque question, aucun corrigé dans une évaluation encore ouverte. Au moindre écart, rien n'est
-   publié et les réponses sont reprises le lendemain.
-5. Commit et push sur `main`, fermeture des issues traitées, puis lancement du workflow de
-   publication existant `static.yml` (« Deploy static content to Pages ») pour mettre le site à jour.
+1. Un script lit les issues « reponse-eval » créées par le Worker (il ignore celles de tout autre
+   compte) et retient, pour chaque élève et chaque évaluation, le dernier envoi pas encore corrigé.
+2. Claude corrige ces copies : note et commentaire, sans donner les réponses tant que l'évaluation
+   est ouverte. Les notes déjà publiées ne sont jamais modifiées.
+3. Le dimanche (ou sur demande), Claude crée le lot de la semaine : 4 évaluations par classe, sur le
+   thème prévu dans `programme-evaluations.json` ou sur les notions suivantes de la progression.
+4. Si vous avez demandé une clôture, Claude publie le corrigé de l'évaluation, qui n'accepte plus
+   de réponses.
+5. Un second script vérifie tout avant publication, ajoute les dates de réponse et de correction,
+   puis publie sur `main`, ferme les issues traitées et lance la mise à jour du site. Une copie ou
+   une évaluation oubliée par Claude n'empêche pas la publication du reste : elle est reprise au
+   passage suivant.
 
 ## 1. Générer le jeton de votre abonnement Claude
 
@@ -73,17 +73,15 @@ Cliquez sur **Run workflow**, puis sur l'exécution qui apparaît pour suivre le
 - après une ou deux minutes, la page Évaluations affiche « Corrigée » pour cette évaluation, avec
   le corrigé ; avec le code `DEMO-0002`, votre note et le commentaire de l'agent.
 
-## Utilisation au quotidien
+## Utilisation au fil des semaines
 
-- **Rien à faire** : l'agent passe chaque matin. S'il n'y a ni copie à corriger ni évaluation à
-  créer, il s'arrête en quelques secondes sans utiliser votre abonnement.
-- **Planifier les évaluations** : modifiez `programme-evaluations.json` (classe, date de
-  publication, chapitre, notions, durée pour répondre). Les dates passées déjà publiées sont
-  ignorées.
-- **À la demande** (le « bouton ») : **Run workflow**, avec
-  - « Clôturer maintenant » pour corriger une évaluation sans attendre sa date limite ;
-  - « Créer une nouvelle évaluation » avec la classe et, si vous voulez, le sujet.
-  C'est aussi disponible dans l'application mobile GitHub.
+- **Rien à faire** : l'agent passe chaque dimanche à 5 h. GitHub peut décaler un passage planifié
+  de quelques dizaines de minutes.
+- **Thèmes** : dans `programme-evaluations.json`, ajoutez une entrée `themes` par classe et par
+  semaine (date du dimanche) pour imposer un chapitre ; sinon l'agent suit la progression.
+- **Espace enseignant** du site : corriger tout de suite les copies reçues, créer le lot de la
+  semaine sans attendre dimanche, créer une évaluation supplémentaire, ou clôturer une évaluation
+  pour publier son corrigé.
 - **Avant de travailler en local** : faites toujours `git pull`, puisque l'agent pousse lui-même
   sur `main`.
 
@@ -94,7 +92,7 @@ Cliquez sur **Run workflow**, puis sur l'exécution qui apparaît pour suivre le
 - **Relecture** : une note publiée peut être corrigée à la main dans `notes/…`, suivie de
   `node outils/compiler-evaluations.mjs`, d'un commit et d'un push.
 - **Planification suspendue** : GitHub désactive les tâches planifiées d'un dépôt public après
-  60 jours sans activité. Pendant l'année scolaire, les commits de l'agent l'empêchent ; après
-  les vacances, réactivez-la dans l'onglet Actions si nécessaire.
-- **Heure de passage** : elle n'est pas garantie à la minute, GitHub peut décaler un passage
-  planifié de quelques dizaines de minutes.
+  60 jours sans activité. Pendant l'année scolaire, les commits hebdomadaires de l'agent l'empêchent ;
+  après les vacances, réactivez-la dans l'onglet Actions si nécessaire.
+- **Durée d'un passage** : avec le lot de la semaine (8 évaluations) et les corrections, un passage
+  peut prendre 15 à 40 minutes et consomme une part plus importante de votre quota Claude Pro.

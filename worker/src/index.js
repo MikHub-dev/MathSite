@@ -1,20 +1,22 @@
-// Version : 1.1
+// Version : 1.4
 // Worker Cloudflare « mathsite-formulaires » : reçoit les formulaires du site MathSite.
 //
 // POST /envoyer, corps JSON :
 //   { type: "reponse-evaluation", annee, classe, evaluation, prenom, code, reponses: [{question, reponse}], jeton }
 //   { type: "amelioration", categorie, page, message, prenom, jeton }
 //
-// POST /agent/lancer  { motDePasse, jeton, cloturer, generer_classe, generer_sujet }
+// POST /agent/lancer  { motDePasse, jeton, cloturer, lot_hebdomadaire, generer_classe, generer_sujet }
 //   Page d'administration : lance le workflow « agent-evaluations.yml » (mot de passe + Turnstile).
 // POST /agent/etat     { motDePasse }
-//   Page d'administration : état des derniers passages de l'agent.
+//   Page d'administration : état des derniers passages de l'agent et de la dernière publication
+//   du site (workflow « static.yml »).
 //
 // Pour chaque envoi valide :
 //   1. vérifie le jeton Turnstile (anti-robot) ;
-//   2. pour une réponse : relit dans le dépôt l'évaluation et la liste des élèves, vérifie que
-//      l'évaluation est encore ouverte et que le code appartient bien à CETTE classe
-//      (empreinte = SHA-256(SEL + classe + ":" + code)) ;
+//   2. pour une réponse : relit dans le dépôt l'évaluation, la liste des élèves et les notes ;
+//      vérifie que l'évaluation n'est pas clôturée (il n'y a pas de date limite), que le code
+//      appartient bien à CETTE classe (empreinte = SHA-256(SEL + classe + ":" + code)) et que
+//      l'élève n'a pas déjà été corrigé sur cette évaluation ;
 //   3. crée une issue GitHub étiquetée (lue par l'agent Claude de l'étape 3). L'issue est publique :
 //      elle ne contient ni le prénom ni le code, seulement l'empreinte ;
 //   4. envoie un e-mail récapitulatif (avec prénom et code) via Brevo.
@@ -30,6 +32,7 @@ const CATEGORIES = ["Idée d'amélioration", "Erreur à corriger", "Autre"];
 const TAILLE_MAX_CORPS = 30000;
 const TAILLE_MAX_REPONSE = 3000;
 const WORKFLOW_AGENT = "agent-evaluations.yml";
+const WORKFLOW_PUBLICATION = "static.yml";
 
 export default {
   async fetch(request, env) {
@@ -98,8 +101,8 @@ async function traiterReponse(env, d) {
 
   const ev = await lireFichierDepot(env, `evaluations/${annee}/${classe}/${id}.json`);
   if (!ev) return [404, { erreur: "Cette évaluation n'existe pas." }];
-  if (aujourdhuiParis() > ev.dateLimite) {
-    return [409, { erreur: "La date limite de cette évaluation est passée : les réponses ne sont plus acceptées." }];
+  if (ev.cloturee === true || ev.corrige) {
+    return [409, { erreur: "Cette évaluation est clôturée : les réponses ne sont plus acceptées. Son corrigé est sur sa page." }];
   }
 
   const eleves = (await lireFichierDepot(env, `eleves/${annee}.json`)) || {};
@@ -111,6 +114,11 @@ async function traiterReponse(env, d) {
       }
     }
     return [403, { erreur: "Ce code ne correspond à aucun élève. Vérifiez-le auprès de votre enseignant." }];
+  }
+
+  const notes = (await lireFichierDepot(env, `notes/${annee}/${classe}/${id}.json`)) || {};
+  if (notes.notes && notes.notes[empreinte]) {
+    return [409, { erreur: "Votre copie a déjà été corrigée : votre note est affichée sur la page de l'évaluation." }];
   }
 
   // On ne garde que les questions de l'évaluation, dans son ordre ; un choix de QCM doit en être un.
@@ -210,7 +218,10 @@ async function lancerAgent(env, d) {
   const r = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/actions/workflows/${WORKFLOW_AGENT}/dispatches`, {
     method: "POST",
     headers: { ...enTetesGitHub(env, "application/vnd.github+json"), "Content-Type": "application/json" },
-    body: JSON.stringify({ ref: env.GITHUB_BRANCH || "main", inputs: { cloturer, generer_classe: classe, generer_sujet: sujet } }),
+    body: JSON.stringify({
+      ref: env.GITHUB_BRANCH || "main",
+      inputs: { cloturer, lot_hebdomadaire: d.lot_hebdomadaire === true ? "true" : "false", generer_classe: classe, generer_sujet: sujet },
+    }),
   });
   if (r.status === 403 || r.status === 404) {
     console.error(`GitHub (lancement) : ${r.status} ${await r.text()}`);
@@ -222,23 +233,26 @@ async function lancerAgent(env, d) {
 
 async function etatAgent(env, d) {
   if (!(await motDePasseValide(env, d.motDePasse))) return refusMotDePasse();
-  const r = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/actions/workflows/${WORKFLOW_AGENT}/runs?per_page=5`, {
-    headers: enTetesGitHub(env, "application/vnd.github+json"),
-  });
-  if (r.status === 403 || r.status === 404) {
+  const lire = async (workflow, nombre) => {
+    const r = await fetch(`https://api.github.com/repos/${env.GITHUB_REPO}/actions/workflows/${workflow}/runs?per_page=${nombre}`, {
+      headers: enTetesGitHub(env, "application/vnd.github+json"),
+    });
+    if (r.status === 403 || r.status === 404) return null;
+    if (!r.ok) throw new Error(`GitHub (état ${workflow}) : ${r.status} ${await r.text()}`);
+    return ((await r.json()).workflow_runs || []).map(p => ({
+      statut: p.status,             // queued, in_progress, completed…
+      conclusion: p.conclusion,     // success, failure, cancelled… (null tant que non terminé)
+      declencheur: p.event,         // schedule, workflow_dispatch, push…
+      debut: p.run_started_at || p.created_at,
+      maj: p.updated_at,
+      url: p.html_url,
+    }));
+  };
+  const [passages, publications] = await Promise.all([lire(WORKFLOW_AGENT, 5), lire(WORKFLOW_PUBLICATION, 1)]);
+  if (passages === null) {
     return [502, { erreur: "GitHub refuse la lecture des passages : vérifiez la permission Actions du jeton du Worker." }];
   }
-  if (!r.ok) throw new Error(`GitHub (état) : ${r.status} ${await r.text()}`);
-  const donnees = await r.json();
-  const passages = (donnees.workflow_runs || []).map(p => ({
-    statut: p.status,             // queued, in_progress, completed…
-    conclusion: p.conclusion,     // success, failure, cancelled… (null tant que non terminé)
-    declencheur: p.event,         // schedule ou workflow_dispatch
-    debut: p.run_started_at || p.created_at,
-    maj: p.updated_at,
-    url: p.html_url,
-  }));
-  return [200, { passages }];
+  return [200, { passages, publication: (publications || [])[0] || null }];
 }
 
 // ---------- Services externes ----------
@@ -305,7 +319,7 @@ function normaliserCode(s) {
   return String(s || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 20);
 }
 function formaterCode(n) {
-  return n.length > 4 ? n.slice(0, 4) + "-" + n.slice(4) : n;
+  return n.length === 8 ? n.slice(0, 4) + "-" + n.slice(4) : n;
 }
 // Texte d'un visiteur : longueur bornée, sans caractères de contrôle ni triple accent grave
 // (qui fermerait le bloc de code de l'issue).
