@@ -16,7 +16,8 @@ Il utilise votre abonnement Claude Pro : aucune clé API payante.
    `evaluations/` et `notes/`, une note pour chaque copie reçue et aucune autre, un corrigé pour
    chaque question, aucun corrigé dans une évaluation encore ouverte. Au moindre écart, rien n'est
    publié et les réponses sont reprises le lendemain.
-5. Commit et push sur `main`, fermeture des issues traitées, mise à jour de GitHub Pages.
+5. Commit et push sur `main`, fermeture des issues traitées, puis lancement du workflow de
+   publication existant `static.yml` (« Deploy static content to Pages ») pour mettre le site à jour.
 
 ## 1. Générer le jeton de votre abonnement Claude
 
