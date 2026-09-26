@@ -1,0 +1,5 @@
+   codes-prives/
+   node_modules/
+   worker/.dev.vars
+   worker/.wrangler/
+   travail/
