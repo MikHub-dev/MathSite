@@ -1,0 +1,42 @@
+{
+  "titre": "Puissances et racines carrées",
+  "chapitre": "Puissances et racines carrées",
+  "date": "2026-09-26",
+  "dateLimite": "2026-10-02",
+  "dureeMinutes": 30,
+  "consignes": "<p>Travaille sans calculatrice et simplifie chaque racine carrée autant que possible.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Calcule : (√11)²</p>"
+    },
+    {
+      "id": "q2",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Quelle écriture est égale à 6⁴ × 6³ ?</p>",
+      "choix": ["6⁷", "6¹²", "36⁷", "6¹"]
+    },
+    {
+      "id": "q3",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Calcule 10³ × 10⁻¹ et donne le résultat sous la forme d'un nombre entier.</p>"
+    },
+    {
+      "id": "q4",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Quelle est l'écriture simplifiée de √72 ?</p>",
+      "choix": ["6√2", "2√6", "36√2", "9√8"]
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Écris le nombre 0,00032 en notation scientifique, en détaillant la méthode utilisée.</p>"
+    }
+  ]
+}

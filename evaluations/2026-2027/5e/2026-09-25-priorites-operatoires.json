@@ -2,16 +2,45 @@
   "titre": "Enchaînements d'opérations",
   "chapitre": "Calcul et priorités opératoires",
   "date": "2026-09-25",
-  "dateLimite": "2026-10-01",
+  "dateLimite": "2026-09-25",
   "dureeMinutes": 25,
   "consignes": "<p>Évaluation de démonstration. Pour la dernière question, écris chaque étape du calcul sur une nouvelle ligne.</p>",
   "questions": [
-    { "id": "q1", "type": "numerique", "points": 2, "enonce": "<p>Calcule : 7 + 3 × 5</p>" },
-    { "id": "q2", "type": "numerique", "points": 2, "enonce": "<p>Calcule : (7 + 3) × 5</p>" },
-    { "id": "q3", "type": "qcm", "points": 2,
+    {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Calcule : 7 + 3 × 5</p>"
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Calcule : (7 + 3) × 5</p>"
+    },
+    {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
       "enonce": "<p>Quelle expression est égale à 20 ?</p>",
-      "choix": ["4 + 4 × 4", "(4 + 4) × 4", "4 × 4 − 4", "4 + 4 + 4"] },
-    { "id": "q4", "type": "redaction", "points": 4,
-      "enonce": "<p>Calcule en détaillant les étapes : 18 − 12 ÷ 3 + 2 × (5 − 1)</p>" }
-  ]
+      "choix": [
+        "4 + 4 × 4",
+        "(4 + 4) × 4",
+        "4 × 4 − 4",
+        "4 + 4 + 4"
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "points": 4,
+      "enonce": "<p>Calcule en détaillant les étapes : 18 − 12 ÷ 3 + 2 × (5 − 1)</p>"
+    }
+  ],
+  "corrige": {
+    "q1": "<p><strong>22</strong>. On calcule d'abord la multiplication : 3 × 5 = 15, puis 7 + 15 = 22.</p>",
+    "q2": "<p><strong>50</strong>. Les parenthèses imposent de calculer 7 + 3 = 10 en premier, puis 10 × 5 = 50.</p>",
+    "q3": "<p><strong>4 + 4 × 4</strong>. On calcule 4 × 4 = 16 puis 4 + 16 = 20. Les autres expressions valent 32, 12 et 12.</p>",
+    "q4": "<p><strong>22</strong>. On calcule d'abord la parenthèse et la division : 5 − 1 = 4 et 12 ÷ 3 = 4, ce qui donne 18 − 4 + 2 × 4. On calcule ensuite la multiplication : 2 × 4 = 8, puis on effectue de gauche à droite : 18 − 4 + 8 = 22.</p>"
+  }
 }

@@ -9,7 +9,7 @@ window.EVALUATIONS = {
     "titre": "Enchaînements d'opérations",
     "chapitre": "Calcul et priorités opératoires",
     "date": "2026-09-25",
-    "dateLimite": "2026-10-01",
+    "dateLimite": "2026-09-25",
     "dureeMinutes": 25,
     "consignes": "<p>Évaluation de démonstration. Pour la dernière question, écris chaque étape du calcul sur une nouvelle ligne.</p>",
     "questions": [
@@ -43,7 +43,13 @@ window.EVALUATIONS = {
       "points": 4,
       "enonce": "<p>Calcule en détaillant les étapes : 18 − 12 ÷ 3 + 2 × (5 − 1)</p>"
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>22</strong>. On calcule d'abord la multiplication : 3 × 5 = 15, puis 7 + 15 = 22.</p>",
+     "q2": "<p><strong>50</strong>. Les parenthèses imposent de calculer 7 + 3 = 10 en premier, puis 10 × 5 = 50.</p>",
+     "q3": "<p><strong>4 + 4 × 4</strong>. On calcule 4 × 4 = 16 puis 4 + 16 = 20. Les autres expressions valent 32, 12 et 12.</p>",
+     "q4": "<p><strong>22</strong>. On calcule d'abord la parenthèse et la division : 5 − 1 = 4 et 12 ÷ 3 = 4, ce qui donne 18 − 4 + 2 × 4. On calcule ensuite la multiplication : 2 × 4 = 8, puis on effectue de gauche à droite : 18 − 4 + 8 = 22.</p>"
+    }
    },
    {
     "id": "2026-09-18-nombres-relatifs",
@@ -108,6 +114,60 @@ window.EVALUATIONS = {
    }
   ],
   "seconde": [
+   {
+    "id": "2026-09-26-evaluation",
+    "total": 10,
+    "titre": "Puissances et racines carrées",
+    "chapitre": "Puissances et racines carrées",
+    "date": "2026-09-26",
+    "dateLimite": "2026-10-02",
+    "dureeMinutes": 30,
+    "consignes": "<p>Travaille sans calculatrice et simplifie chaque racine carrée autant que possible.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Calcule : (√11)²</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Quelle écriture est égale à 6⁴ × 6³ ?</p>",
+      "choix": [
+       "6⁷",
+       "6¹²",
+       "36⁷",
+       "6¹"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Calcule 10³ × 10⁻¹ et donne le résultat sous la forme d'un nombre entier.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Quelle est l'écriture simplifiée de √72 ?</p>",
+      "choix": [
+       "6√2",
+       "2√6",
+       "36√2",
+       "9√8"
+      ]
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Écris le nombre 0,00032 en notation scientifique, en détaillant la méthode utilisée.</p>"
+     }
+    ]
+   },
    {
     "id": "2026-09-24-ensembles-de-nombres",
     "total": 10,
@@ -188,6 +248,15 @@ window.EVAL_NOTES = {
      "db2c864543578ba00a1015541214cf647b00ebf7ab21eb9a98ff6bb1e4fad4cf": {
       "note": 7,
       "commentaire": "Bien. Attention au rangement de −1,5 et −1."
+     }
+    }
+   },
+   "2026-09-25-priorites-operatoires": {
+    "publieLe": "2026-09-26",
+    "notes": {
+     "797d44179d4711553b25ca3c8e987a6c2efc588dc04c3213d521122000fbebd0": {
+      "note": 4,
+      "commentaire": "Bien joué pour les questions 1 et 2, les priorités entre addition, multiplication et parenthèses sont bien comprises. Revois la question 3 (c'est 4 + 4 × 4 qui vaut 20) et pense à détailler chaque étape du calcul en question 4 : cela permet d'obtenir des points même quand le résultat final n'est pas le bon."
      }
     }
    }
