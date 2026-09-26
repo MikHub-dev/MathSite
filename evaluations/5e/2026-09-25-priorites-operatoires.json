@@ -1,0 +1,17 @@
+{
+  "titre": "Enchaînements d'opérations",
+  "chapitre": "Calcul et priorités opératoires",
+  "date": "2026-09-25",
+  "dateLimite": "2026-10-01",
+  "dureeMinutes": 25,
+  "consignes": "<p>Évaluation de démonstration. Pour la dernière question, écris chaque étape du calcul sur une nouvelle ligne.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "points": 2, "enonce": "<p>Calcule : 7 + 3 × 5</p>" },
+    { "id": "q2", "type": "numerique", "points": 2, "enonce": "<p>Calcule : (7 + 3) × 5</p>" },
+    { "id": "q3", "type": "qcm", "points": 2,
+      "enonce": "<p>Quelle expression est égale à 20 ?</p>",
+      "choix": ["4 + 4 × 4", "(4 + 4) × 4", "4 × 4 − 4", "4 + 4 + 4"] },
+    { "id": "q4", "type": "redaction", "points": 4,
+      "enonce": "<p>Calcule en détaillant les étapes : 18 − 12 ÷ 3 + 2 × (5 − 1)</p>" }
+  ]
+}
