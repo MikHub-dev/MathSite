@@ -1,4 +1,4 @@
-// Version : 1.4
+// Version : 1.5
 // --- Page « Évaluations » (menu horizontal) ---
 // Données : evaluations-data.js, généré par outils/compiler-evaluations.mjs à partir des dossiers
 // evaluations/, notes/ et eleves/, fournit window.EVALUATIONS, window.EVAL_NOTES et window.EVAL_ELEVES.
@@ -677,7 +677,11 @@ function evalRenderTurnstile(idConteneur) {
   if (!EVAL_CONFIG.workerUrl || !EVAL_CONFIG.turnstileSiteKey) return;
   // Le script Turnstile est chargé en asynchrone (index.html) : s'il n'est pas encore prêt,
   // evalTurnstilePret() fera le rendu à son arrivée.
-  if (!window.turnstile) { evalTurnstileEnAttente = idConteneur; return; }
+  if (!window.turnstile) {
+    evalTurnstileEnAttente = idConteneur;
+    evalChargerTurnstile();
+    return;
+  }
   evalTurnstileEnAttente = null;
   evalTurnstileWidget = window.turnstile.render("#" + idConteneur, {
     sitekey: EVAL_CONFIG.turnstileSiteKey,
@@ -691,4 +695,17 @@ function evalRenderTurnstile(idConteneur) {
 // Appelée par le script Turnstile une fois chargé (paramètre onload dans index.html).
 function evalTurnstilePret() {
   if (evalTurnstileEnAttente && document.getElementById(evalTurnstileEnAttente)) evalRenderTurnstile(evalTurnstileEnAttente);
+}
+
+// Charge le script Turnstile s'il n'est pas déjà dans la page (index.html peut l'omettre).
+function evalChargerTurnstile() {
+  if (document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) return;
+  const script = document.createElement("script");
+  script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=evalTurnstilePret";
+  script.async = true;
+  script.onerror = () => {
+    const zone = document.getElementById(evalTurnstileEnAttente || "");
+    if (zone) zone.innerHTML = `<p class="eval-erreur">La vérification anti-robot n'a pas pu se charger. Désactivez un éventuel bloqueur de publicités pour ce site, puis rechargez la page.</p>`;
+  };
+  document.head.appendChild(script);
 }
