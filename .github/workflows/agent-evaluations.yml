@@ -1,0 +1,103 @@
+# Version : 1.0
+# Agent quotidien de la page Évaluations : corrige les copies dont la date limite est passée,
+# publie notes et corrigés, crée les nouvelles évaluations prévues, puis met le site à jour.
+# Lancement : chaque matin, ou à la main depuis l'onglet Actions (bouton « Run workflow »).
+# Consignes de l'agent : AGENT_EVALUATIONS.md. Authentification : abonnement Claude Pro
+# (secret CLAUDE_CODE_OAUTH_TOKEN, généré avec « claude setup-token »).
+name: Agent évaluations
+
+on:
+  schedule:
+    - cron: "0 4 * * *"   # 4 h UTC : 6 h à Paris en été, 5 h en hiver
+  workflow_dispatch:
+    inputs:
+      cloturer:
+        description: "Clôturer maintenant l'évaluation (son identifiant, ex. 2026-09-25-priorites-operatoires) pour la corriger"
+        required: false
+        default: ""
+      generer_classe:
+        description: "Créer une nouvelle évaluation maintenant pour cette classe"
+        type: choice
+        options: ["", "5e", "seconde"]
+        default: ""
+      generer_sujet:
+        description: "Sujet de cette nouvelle évaluation (vide : l'agent choisit la notion suivante)"
+        required: false
+        default: ""
+
+concurrency:
+  group: agent-evaluations
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+jobs:
+  agent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Préparer le travail
+        id: preparer
+        run: node outils/agent-preparer.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLOTURER: ${{ inputs.cloturer }}
+          GENERER_CLASSE: ${{ inputs.generer_classe }}
+          GENERER_SUJET: ${{ inputs.generer_sujet }}
+
+      - name: Agent Claude (correction et rédaction)
+        if: steps.preparer.outputs.claude == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Lis AGENT_EVALUATIONS.md, puis exécute exactement le travail décrit dans travail/a-faire.json.
+            Termine par la compilation et l'écriture de travail/bilan.md.
+          claude_args: |
+            --max-turns 80
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node outils/compiler-evaluations.mjs)"
+
+      - name: Vérifier le travail
+        if: steps.preparer.outputs.travail == 'true'
+        run: node outils/agent-finaliser.mjs verifier
+
+      - name: Publier (commit et push sur main)
+        if: steps.preparer.outputs.travail == 'true'
+        run: |
+          git config user.name "Agent évaluations"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evaluations notes evaluations-data.js
+          if git diff --cached --quiet; then
+            echo "Rien à publier."
+          else
+            git commit -F travail/message-commit.txt
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Fermer les issues traitées
+        if: steps.preparer.outputs.travail == 'true'
+        run: node outils/agent-finaliser.mjs fermer
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Relancer la publication GitHub Pages
+        if: steps.preparer.outputs.travail == 'true'
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Publication déjà en cours ou déclenchée par le push."
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
