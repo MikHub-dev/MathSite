@@ -169,6 +169,60 @@ window.EVALUATIONS = {
     ]
    },
    {
+    "id": "2026-09-26-evaluation-2",
+    "total": 10,
+    "titre": "Statistiques : moyenne, médiane et étendue",
+    "chapitre": "Statistiques descriptives",
+    "date": "2026-09-26",
+    "dateLimite": "2026-10-02",
+    "dureeMinutes": 30,
+    "consignes": "<p>Range chaque série dans l'ordre croissant avant de répondre.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Dans une série statistique, comment appelle-t-on la différence entre la plus grande et la plus petite valeur ?</p>",
+      "choix": [
+       "La moyenne",
+       "La médiane",
+       "L'étendue",
+       "L'effectif"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Cinq élèves ont obtenu les notes suivantes à un contrôle : 12 ; 15 ; 8 ; 14 ; 16. Calcule la moyenne de cette série.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Sept sportifs ont respectivement 14 ; 16 ; 15 ; 19 ; 14 ; 17 et 18 ans. Range ces âges dans l'ordre croissant, puis donne la médiane de cette série.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>On ajoute à une série de salaires une valeur beaucoup plus élevée que les autres. Quel indicateur est le moins modifié par cette valeur extrême ?</p>",
+      "choix": [
+       "La moyenne",
+       "La médiane",
+       "L'étendue",
+       "La somme totale"
+      ]
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Voici les distances, en km, parcourues par 6 coureurs lors d'un footing : 5 ; 8 ; 6 ; 10 ; 7 ; 9. Détermine l'étendue de cette série en détaillant le calcul.</p>"
+     }
+    ]
+   },
+   {
     "id": "2026-09-24-ensembles-de-nombres",
     "total": 10,
     "titre": "Ensembles de nombres et intervalles",
