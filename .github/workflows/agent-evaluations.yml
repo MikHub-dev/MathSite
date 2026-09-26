@@ -1,4 +1,4 @@
-# Version : 1.0
+# Version : 1.1
 # Agent quotidien de la page Évaluations : corrige les copies dont la date limite est passée,
 # publie notes et corrigés, crée les nouvelles évaluations prévues, puis met le site à jour.
 # Lancement : chaque matin, ou à la main depuis l'onglet Actions (bouton « Run workflow »).
@@ -32,7 +32,7 @@ concurrency:
 permissions:
   contents: write
   issues: write
-  pages: write
+  actions: write      # pour relancer le workflow de publication static.yml
   id-token: write
 
 jobs:
@@ -96,8 +96,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Relancer la publication GitHub Pages
+      # Un push fait par l'agent (jeton GITHUB_TOKEN) ne déclenche pas les autres workflows :
+      # on lance donc explicitement « Deploy static content to Pages » (static.yml).
+      - name: Mettre le site à jour (static.yml)
         if: steps.preparer.outputs.travail == 'true'
-        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "Publication déjà en cours ou déclenchée par le push."
+        run: gh workflow run static.yml --ref main
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
