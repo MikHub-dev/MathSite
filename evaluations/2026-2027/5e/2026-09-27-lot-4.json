@@ -1,0 +1,45 @@
+{
+  "titre": "Expressions littérales : distributivité et substitution",
+  "chapitre": "Calcul littéral",
+  "date": "2026-09-27",
+  "dureeMinutes": 30,
+  "consignes": "<p>Remplace la lettre par sa valeur avant de calculer, et développe avant de réduire quand c'est demandé.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>On donne l'expression A = 3x + 7. Calcule A pour x = 4.</p>"
+    },
+    {
+      "id": "q2",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Quelle expression est égale à 5(x + 2) après développement ?</p>",
+      "choix": [
+        "5x + 2",
+        "5x + 10",
+        "x + 10",
+        "5x + 7"
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>On développe et on réduit l'expression 3(x + 4) + 2x pour l'écrire sous la forme ax + b. Quelle est la valeur de a ?</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Développe et réduis l'expression B = 2(x + 3) − (x − 1). Détaille chaque étape.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 5) cm. Exprime le périmètre P du rectangle en fonction de x, sous une forme développée et réduite, en détaillant le calcul.</p>"
+    }
+  ]
+}

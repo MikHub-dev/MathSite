@@ -1,0 +1,45 @@
+{
+  "titre": "Vecteurs : coordonnées, norme et colinéarité",
+  "chapitre": "Vecteurs",
+  "date": "2026-09-27",
+  "dureeMinutes": 45,
+  "consignes": "<p>Le plan est muni d'un repère orthonormé ; détaille les calculs de coordonnées de vecteurs.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>On donne A(1 ; 2) et B(4 ; 6). Quelle est l'abscisse du vecteur AB (c'est-à-dire xB − xA) ?</p>"
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Avec les mêmes points, quelle est l'ordonnée du vecteur AB ?</p>"
+    },
+    {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Quelle est la norme du vecteur AB de coordonnées (3 ; 4) ?</p>",
+      "choix": [
+        "5",
+        "7",
+        "√7",
+        "25"
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>On donne les vecteurs u(2 ; 3) et v(4 ; 6). Ces deux vecteurs sont-ils colinéaires ? Justifie ta réponse à l'aide du déterminant xu × yv − yu × xv.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>On donne les points E(0 ; 1), F(3 ; 2) et G(6 ; 3). Montre, à l'aide des coordonnées des vecteurs EF et FG, que les points E, F et G sont alignés.</p>"
+    }
+  ]
+}

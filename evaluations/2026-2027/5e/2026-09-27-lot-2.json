@@ -1,0 +1,51 @@
+{
+  "titre": "Angles complémentaires, supplémentaires et triangles",
+  "chapitre": "Angles",
+  "date": "2026-09-27",
+  "dureeMinutes": 30,
+  "consignes": "<p>Justifie chaque réponse par un calcul, sans utiliser de rapporteur.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Deux angles sont complémentaires. L'un mesure 35°. Quelle est la mesure de l'autre ?</p>",
+      "choix": [
+        "55°",
+        "65°",
+        "145°",
+        "325°"
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Deux angles sont supplémentaires. L'un mesure 112°. Quelle est la mesure de l'autre, en degrés ?</p>"
+    },
+    {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Dans un triangle, deux angles mesurent 50° et 60°. Quelle est la mesure du troisième angle ?</p>",
+      "choix": [
+        "70°",
+        "110°",
+        "60°",
+        "80°"
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Un triangle a un angle de 42° et un angle de 95°. Ce triangle peut-il avoir un angle droit ? Justifie ta réponse par un calcul.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Deux angles opposés par le sommet sont formés par deux droites sécantes. Explique pourquoi ces deux angles ont la même mesure, à l'aide de la notion d'angles supplémentaires.</p>"
+    }
+  ]
+}

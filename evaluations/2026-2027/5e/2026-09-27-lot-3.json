@@ -1,0 +1,45 @@
+{
+  "titre": "Périmètre et aire du rectangle, du triangle et du disque",
+  "chapitre": "Aires et périmètres",
+  "date": "2026-09-27",
+  "dureeMinutes": 30,
+  "consignes": "<p>Donne chaque résultat avec son unité, en prenant π ≈ 3,14 et en arrondissant au dixième si nécessaire.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Un rectangle a pour longueur 8 cm et pour largeur 5 cm. Quelle est son aire, en cm² ?</p>"
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Quel est le périmètre de ce même rectangle, en cm ?</p>"
+    },
+    {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Un triangle a une base de 10 cm et une hauteur relative à cette base de 6 cm. Quelle est son aire ?</p>",
+      "choix": [
+        "60 cm²",
+        "30 cm²",
+        "16 cm²",
+        "120 cm²"
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Un disque a un rayon de 5 cm. En prenant π ≈ 3,14, quelle est la valeur arrondie au dixième de son aire, en cm² ?</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Un cercle a un diamètre de 12 cm. Calcule son périmètre en détaillant les étapes, en prenant π ≈ 3,14 et en arrondissant au dixième.</p>"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "titre": "Résoudre une équation ou une inéquation du premier degré",
+  "chapitre": "Équations et inéquations",
+  "date": "2026-09-27",
+  "dureeMinutes": 45,
+  "consignes": "<p>Donne chaque solution sous forme d'un nombre ou d'un intervalle, selon la question posée.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Résous l'équation 3x + 5 = 20. Donne la valeur de x.</p>"
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Résous l'équation 7 − 2x = 1. Donne la valeur de x.</p>"
+    },
+    {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Quel est l'ensemble des solutions de l'inéquation 2x − 4 > 6 ?</p>",
+      "choix": [
+        "x > 5",
+        "x < 5",
+        "x > 1",
+        "x < −5"
+      ]
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Résous l'inéquation −3x + 2 ≤ 11, en détaillant chaque étape et en précisant pourquoi le sens de l'inégalité change ou non.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 4) cm. On veut que son périmètre soit strictement supérieur à 30 cm. Détermine, en résolvant une inéquation, les valeurs possibles de x, en détaillant la mise en équation.</p>"
+    }
+  ]
+}

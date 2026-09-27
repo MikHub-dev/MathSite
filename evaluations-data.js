@@ -4,6 +4,200 @@ window.EVALUATIONS = {
  "2026-2027": {
   "5e": [
    {
+    "id": "2026-09-27-lot-1",
+    "total": 10,
+    "titre": "Symétrie centrale et repérage",
+    "chapitre": "Symétrie centrale",
+    "date": "2026-09-27",
+    "dureeMinutes": 30,
+    "consignes": "<p>Le plan est muni d'un repère ; détaille tes calculs de coordonnées quand cela est demandé.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Dans un repère, on donne le point A(2 ; 5) et le point O(0 ; 0), centre de symétrie. Quelle est l'abscisse du symétrique A′ de A par rapport à O ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Avec les mêmes points, quelle est l'ordonnée de A′ ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Le symétrique d'un segment [AB] par rapport à un point O est un segment [A′B′]. Que peut-on dire de la longueur A′B′ ?</p>",
+      "choix": [
+       "A′B′ = AB",
+       "A′B′ = 2 × AB",
+       "A′B′ = AB ÷ 2",
+       "On ne peut pas savoir sans plus d'informations"
+      ]
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Le point B a pour coordonnées (−3 ; 4) et O(1 ; 1) est le centre de symétrie. Détermine les coordonnées du symétrique B′ de B par rapport à O, en détaillant le calcul.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Explique pourquoi le point O est toujours le milieu du segment [MM′] lorsque M′ est le symétrique de M par rapport à O.</p>"
+     }
+    ]
+   },
+   {
+    "id": "2026-09-27-lot-2",
+    "total": 10,
+    "titre": "Angles complémentaires, supplémentaires et triangles",
+    "chapitre": "Angles",
+    "date": "2026-09-27",
+    "dureeMinutes": 30,
+    "consignes": "<p>Justifie chaque réponse par un calcul, sans utiliser de rapporteur.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Deux angles sont complémentaires. L'un mesure 35°. Quelle est la mesure de l'autre ?</p>",
+      "choix": [
+       "55°",
+       "65°",
+       "145°",
+       "325°"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Deux angles sont supplémentaires. L'un mesure 112°. Quelle est la mesure de l'autre, en degrés ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Dans un triangle, deux angles mesurent 50° et 60°. Quelle est la mesure du troisième angle ?</p>",
+      "choix": [
+       "70°",
+       "110°",
+       "60°",
+       "80°"
+      ]
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Un triangle a un angle de 42° et un angle de 95°. Ce triangle peut-il avoir un angle droit ? Justifie ta réponse par un calcul.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Deux angles opposés par le sommet sont formés par deux droites sécantes. Explique pourquoi ces deux angles ont la même mesure, à l'aide de la notion d'angles supplémentaires.</p>"
+     }
+    ]
+   },
+   {
+    "id": "2026-09-27-lot-3",
+    "total": 10,
+    "titre": "Périmètre et aire du rectangle, du triangle et du disque",
+    "chapitre": "Aires et périmètres",
+    "date": "2026-09-27",
+    "dureeMinutes": 30,
+    "consignes": "<p>Donne chaque résultat avec son unité, en prenant π ≈ 3,14 et en arrondissant au dixième si nécessaire.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Un rectangle a pour longueur 8 cm et pour largeur 5 cm. Quelle est son aire, en cm² ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Quel est le périmètre de ce même rectangle, en cm ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Un triangle a une base de 10 cm et une hauteur relative à cette base de 6 cm. Quelle est son aire ?</p>",
+      "choix": [
+       "60 cm²",
+       "30 cm²",
+       "16 cm²",
+       "120 cm²"
+      ]
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Un disque a un rayon de 5 cm. En prenant π ≈ 3,14, quelle est la valeur arrondie au dixième de son aire, en cm² ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Un cercle a un diamètre de 12 cm. Calcule son périmètre en détaillant les étapes, en prenant π ≈ 3,14 et en arrondissant au dixième.</p>"
+     }
+    ]
+   },
+   {
+    "id": "2026-09-27-lot-4",
+    "total": 10,
+    "titre": "Expressions littérales : distributivité et substitution",
+    "chapitre": "Calcul littéral",
+    "date": "2026-09-27",
+    "dureeMinutes": 30,
+    "consignes": "<p>Remplace la lettre par sa valeur avant de calculer, et développe avant de réduire quand c'est demandé.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>On donne l'expression A = 3x + 7. Calcule A pour x = 4.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Quelle expression est égale à 5(x + 2) après développement ?</p>",
+      "choix": [
+       "5x + 2",
+       "5x + 10",
+       "x + 10",
+       "5x + 7"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>On développe et on réduit l'expression 3(x + 4) + 2x pour l'écrire sous la forme ax + b. Quelle est la valeur de a ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Développe et réduis l'expression B = 2(x + 3) − (x − 1). Détaille chaque étape.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 5) cm. Exprime le périmètre P du rectangle en fonction de x, sous une forme développée et réduite, en détaillant le calcul.</p>"
+     }
+    ]
+   },
+   {
     "id": "2026-09-25-priorites-operatoires",
     "total": 10,
     "titre": "Enchaînements d'opérations",
@@ -107,6 +301,200 @@ window.EVALUATIONS = {
    }
   ],
   "seconde": [
+   {
+    "id": "2026-09-27-lot-1",
+    "total": 10,
+    "titre": "Probabilités : premiers calculs",
+    "chapitre": "Probabilités",
+    "date": "2026-09-27",
+    "dureeMinutes": 45,
+    "consignes": "<p>Donne chaque probabilité sous forme décimale, sauf indication contraire.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>On lance un dé cubique équilibré à six faces. Quelle est la probabilité d'obtenir un nombre pair ?</p>",
+      "choix": [
+       "1/6",
+       "1/3",
+       "1/2",
+       "2/3"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Une urne contient 4 boules rouges, 3 boules vertes et 3 boules bleues, indiscernables au toucher. On tire une boule au hasard. Quelle est la probabilité, sous forme décimale, de tirer une boule rouge ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>On tire une carte au hasard dans un jeu de 32 cartes. Quel est l'événement contraire de « tirer un roi » ?</p>",
+      "choix": [
+       "Tirer un as",
+       "Ne pas tirer de roi",
+       "Tirer une carte rouge",
+       "Tirer une carte noire"
+      ]
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Dans ce jeu de 32 cartes, quelle est la probabilité de tirer un roi, sous forme décimale ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Une expérience aléatoire consiste à lancer deux fois de suite une pièce équilibrée. Liste les quatre issues possibles, puis calcule la probabilité d'obtenir exactement une fois « pile ». Détaille ta méthode.</p>"
+     }
+    ]
+   },
+   {
+    "id": "2026-09-27-lot-2",
+    "total": 10,
+    "titre": "Coordonnées, milieu et distance dans le plan",
+    "chapitre": "Repérage dans le plan",
+    "date": "2026-09-27",
+    "dureeMinutes": 45,
+    "consignes": "<p>Le plan est muni d'un repère orthonormé ; laisse les résultats sous forme exacte quand c'est demandé.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>On donne les points A(2 ; 3) et B(6 ; 3). Quelle est l'abscisse du milieu du segment [AB] ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Avec les mêmes points A(2 ; 3) et B(6 ; 3), quelle est la longueur AB ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>On donne C(−1 ; 2) et D(2 ; 6). Quelle formule permet de calculer la distance CD ?</p>",
+      "choix": [
+       "√((2 − (−1))² + (6 − 2)²)",
+       "(2 − (−1)) + (6 − 2)",
+       "√((2 − (−1)) + (6 − 2))",
+       "(2 − (−1))² + (6 − 2)²"
+      ]
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Calcule la distance CD pour C(−1 ; 2) et D(2 ; 6), en détaillant le calcul et en donnant la valeur exacte.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Le point M(4 ; −1) est le milieu du segment [EF] avec E(1 ; 3). Détermine les coordonnées du point F, en expliquant la méthode.</p>"
+     }
+    ]
+   },
+   {
+    "id": "2026-09-27-lot-3",
+    "total": 10,
+    "titre": "Résoudre une équation ou une inéquation du premier degré",
+    "chapitre": "Équations et inéquations",
+    "date": "2026-09-27",
+    "dureeMinutes": 45,
+    "consignes": "<p>Donne chaque solution sous forme d'un nombre ou d'un intervalle, selon la question posée.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Résous l'équation 3x + 5 = 20. Donne la valeur de x.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Résous l'équation 7 − 2x = 1. Donne la valeur de x.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Quel est l'ensemble des solutions de l'inéquation 2x − 4 > 6 ?</p>",
+      "choix": [
+       "x > 5",
+       "x < 5",
+       "x > 1",
+       "x < −5"
+      ]
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Résous l'inéquation −3x + 2 ≤ 11, en détaillant chaque étape et en précisant pourquoi le sens de l'inégalité change ou non.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 4) cm. On veut que son périmètre soit strictement supérieur à 30 cm. Détermine, en résolvant une inéquation, les valeurs possibles de x, en détaillant la mise en équation.</p>"
+     }
+    ]
+   },
+   {
+    "id": "2026-09-27-lot-4",
+    "total": 10,
+    "titre": "Vecteurs : coordonnées, norme et colinéarité",
+    "chapitre": "Vecteurs",
+    "date": "2026-09-27",
+    "dureeMinutes": 45,
+    "consignes": "<p>Le plan est muni d'un repère orthonormé ; détaille les calculs de coordonnées de vecteurs.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>On donne A(1 ; 2) et B(4 ; 6). Quelle est l'abscisse du vecteur AB (c'est-à-dire xB − xA) ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "points": 2,
+      "enonce": "<p>Avec les mêmes points, quelle est l'ordonnée du vecteur AB ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "qcm",
+      "points": 2,
+      "enonce": "<p>Quelle est la norme du vecteur AB de coordonnées (3 ; 4) ?</p>",
+      "choix": [
+       "5",
+       "7",
+       "√7",
+       "25"
+      ]
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>On donne les vecteurs u(2 ; 3) et v(4 ; 6). Ces deux vecteurs sont-ils colinéaires ? Justifie ta réponse à l'aide du déterminant xu × yv − yu × xv.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "points": 2,
+      "enonce": "<p>On donne les points E(0 ; 1), F(3 ; 2) et G(6 ; 3). Montre, à l'aide des coordonnées des vecteurs EF et FG, que les points E, F et G sont alignés.</p>"
+     }
+    ]
+   },
    {
     "id": "2026-09-26-evaluation",
     "total": 10,
@@ -294,6 +682,15 @@ window.EVAL_NOTES = {
      "db2c864543578ba00a1015541214cf647b00ebf7ab21eb9a98ff6bb1e4fad4cf": {
       "note": 7,
       "commentaire": "Bien. Attention au rangement de −1,5 et −1."
+     }
+    }
+   },
+   "2026-09-25-priorites-operatoires": {
+    "publieLe": "2026-09-26",
+    "notes": {
+     "797d44179d4711553b25ca3c8e987a6c2efc588dc04c3213d521122000fbebd0": {
+      "note": 4,
+      "commentaire": "Bien joué pour les questions 1 et 2, les priorités entre addition, multiplication et parenthèses sont bien comprises. Revois la question 3 (c'est 4 + 4 × 4 qui vaut 20) et pense à détailler chaque étape du calcul en question 4 : cela permet d'obtenir des points même quand le résultat final n'est pas le bon."
      }
     }
    }
