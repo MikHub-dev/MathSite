@@ -1,22 +1,22 @@
 {
-  "genereLe": "2026-09-27T08:05:18.892Z",
+  "genereLe": "2026-09-27T13:29:38.182Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 2,
-        "ouvertes": 1,
-        "enAttente": null,
+        "total": 6,
+        "ouvertes": 5,
+        "enAttente": 0,
         "fermees": 1,
         "copiesCorrigees": 0,
         "moyenneSur20": null
       },
       "seconde": {
-        "total": 1,
-        "ouvertes": 1,
-        "enAttente": null,
-        "fermees": 0,
-        "copiesCorrigees": 0,
-        "moyenneSur20": null
+        "total": 8,
+        "ouvertes": 7,
+        "enAttente": 0,
+        "fermees": 1,
+        "copiesCorrigees": 1,
+        "moyenneSur20": 18
       }
     }
   }

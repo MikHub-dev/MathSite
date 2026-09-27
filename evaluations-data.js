@@ -302,6 +302,72 @@ window.EVALUATIONS = {
   ],
   "seconde": [
    {
+    "id": "2026-09-27-intervalles-complexes",
+    "total": 10,
+    "titre": "Intervalles complexes",
+    "chapitre": "Intervalles complexes",
+    "date": "2026-09-27",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Résous chaque exercice portant sur les intervalles de ℝ ; justifie tes réponses et rédige les calculs intermédiaires.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel intervalle représente l'ensemble des réels x vérifiant x &lt; −1 ou x ≥ 4 ?</p>",
+      "choix": [
+       "]−∞ ; −1[ ∪ [4 ; +∞[",
+       "]−∞ ; −1] ∪ ]4 ; +∞[",
+       "]−1 ; 4[",
+       "]−∞ ; −1[ ∩ [4 ; +∞["
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "redaction",
+      "niveau": 1,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Écris sous forme d'intervalle l'ensemble des réels x tels que −3 ≤ x &lt; 2.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Donne, sous la forme d'un intervalle unique, le complémentaire dans ℝ de l'ensemble ]−∞ ; −2] ∪ ]5 ; +∞[. Justifie ta réponse.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>On considère l'ensemble E = ([−6 ; 1] ∪ [3 ; 9]) ∩ [0 ; 5]. Combien l'ensemble E contient-il de nombres entiers ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Un capteur valide une mesure de température x (en °C) lorsque x appartient à l'intervalle [−10 ; 40]. Une mesure est dite « limite » lorsque la distance entre x et 15 est strictement supérieure à 20. Détermine, par le calcul, l'ensemble des mesures x à la fois valides et limites ; on résoudra une inéquation avec une valeur absolue puis on intersectera avec l'intervalle de validité.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 14,
+      "points": 2,
+      "enonce": "<p>Résous l'inéquation (x − 2)(x + 4) ≤ 0 en étudiant le signe du produit, et donne l'ensemble des solutions sous forme d'intervalle. Indique ensuite, en justifiant, si cet intervalle est inclus dans ]−5 ; 3].</p>"
+     }
+    ]
+   },
+   {
     "id": "2026-09-27-lot-1",
     "total": 10,
     "titre": "Probabilités : premiers calculs",
@@ -750,7 +816,7 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-09-27T10:13:42.369Z",
+  "genereLe": "2026-09-27T13:29:38.182Z",
   "annees": {
     "2026-2027": {
       "5e": {
@@ -762,8 +828,8 @@ window.EVAL_KPI = {
         "moyenneSur20": null
       },
       "seconde": {
-        "total": 7,
-        "ouvertes": 6,
+        "total": 8,
+        "ouvertes": 7,
         "enAttente": 0,
         "fermees": 1,
         "copiesCorrigees": 1,
