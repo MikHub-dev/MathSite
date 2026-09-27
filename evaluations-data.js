@@ -652,7 +652,15 @@ window.EVALUATIONS = {
       "points": 2,
       "enonce": "<p>Détermine l'intersection [−1 ; 4] ∩ ]2 ; 7] puis la réunion [−1 ; 4] ∪ ]2 ; 7].</p>"
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p>La bonne réponse est <strong>ℤ</strong>. En effet, −12/4 = −3, qui est un entier relatif négatif : il n'appartient pas à ℕ, et le plus petit ensemble parmi ceux proposés qui le contient est ℤ.</p>",
+     "q2": "<p>La bonne réponse est <strong>Non</strong>. En effet, 1/3 = 0,333… a une écriture décimale illimitée, ce n'est donc pas un nombre décimal, même si c'est un nombre rationnel.</p>",
+     "q3": "<p>L'intervalle est <strong>]−2 ; 5]</strong>. Le crochet ouvert en −2 signifie que −2 n'appartient pas à l'intervalle (x est strictement supérieur à −2), tandis que le crochet fermé en 5 signifie que 5 appartient à l'intervalle (x peut lui être égal).</p>",
+     "q4": "<p>Il y a <strong>5</strong> entiers relatifs dans [−3 ; 2[ : ce sont −3, −2, −1, 0 et 1 (2 est exclu car le crochet est ouvert).</p>",
+     "q5": "<p>L'intersection est <strong>]2 ; 4]</strong> : ce sont les nombres qui appartiennent aux deux intervalles, donc strictement supérieurs à 2 (exclu de ]2 ; 7]) et inférieurs ou égaux à 4 (borne de [−1 ; 4]). La réunion est <strong>[−1 ; 7]</strong> : les deux intervalles se chevauchent entre 2 et 4, leur réunion forme donc un seul intervalle continu de −1 à 7.</p>"
+    },
+    "cloturee": true
    }
   ]
  }
@@ -694,7 +702,73 @@ window.EVAL_NOTES = {
      }
     }
    }
+  },
+  "seconde": {
+   "2026-09-24-ensembles-de-nombres": {
+    "publieLe": "2026-09-27",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 9,
+      "commentaire": "Bonne maîtrise des ensembles de nombres et des intervalles, avec une explication claire des crochets à la question 3. Pense à toujours justifier tes calculs, comme à la question 5, même quand le résultat final est juste.",
+      "details": {
+       "q1": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 3,
+        "remarque": "Intervalle exact et explication correcte des deux crochets."
+       },
+       "q4": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q5": {
+        "points": 1,
+        "remarque": "Résultats corrects (]2 ; 4] et [−1 ; 7]) mais sans justification : explique pourquoi chaque nombre est inclus ou exclu."
+       }
+      },
+      "reponduLe": "2026-09-27T06:27:14.875Z",
+      "corrigeLe": "2026-09-27",
+      "issue": 6,
+      "reponses": {
+       "q1": "ℤ",
+       "q2": "Non",
+       "q3": "]-2;5].\nLe premier crochet est dit ouvert et signifie que x doit être strictement supérieur à -2.\nLe deuxieme crochet est dit fermé et signifie que x peut être inférieur OU égal à 5.",
+       "q4": "5",
+       "q5": "[-1;4] inter ]2;7] = ]2;4]\n[-1;4] union ]2;7] = [-1;7]"
+      }
+     }
+    }
+   }
   }
  }
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
+window.EVAL_KPI = {
+  "genereLe": "2026-09-27T10:13:42.369Z",
+  "annees": {
+    "2026-2027": {
+      "5e": {
+        "total": 6,
+        "ouvertes": 5,
+        "enAttente": 0,
+        "fermees": 1,
+        "copiesCorrigees": 0,
+        "moyenneSur20": null
+      },
+      "seconde": {
+        "total": 7,
+        "ouvertes": 6,
+        "enAttente": 0,
+        "fermees": 1,
+        "copiesCorrigees": 1,
+        "moyenneSur20": 18
+      }
+    }
+  }
+};

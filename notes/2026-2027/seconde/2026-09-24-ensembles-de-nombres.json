@@ -1,0 +1,41 @@
+{
+  "publieLe": "2026-09-27",
+  "notes": {
+    "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 9,
+      "commentaire": "Bonne maîtrise des ensembles de nombres et des intervalles, avec une explication claire des crochets à la question 3. Pense à toujours justifier tes calculs, comme à la question 5, même quand le résultat final est juste.",
+      "details": {
+        "q1": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 3,
+          "remarque": "Intervalle exact et explication correcte des deux crochets."
+        },
+        "q4": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q5": {
+          "points": 1,
+          "remarque": "Résultats corrects (]2 ; 4] et [−1 ; 7]) mais sans justification : explique pourquoi chaque nombre est inclus ou exclu."
+        }
+      },
+      "reponduLe": "2026-09-27T06:27:14.875Z",
+      "corrigeLe": "2026-09-27",
+      "issue": 6,
+      "reponses": {
+        "q1": "ℤ",
+        "q2": "Non",
+        "q3": "]-2;5].\nLe premier crochet est dit ouvert et signifie que x doit être strictement supérieur à -2.\nLe deuxieme crochet est dit fermé et signifie que x peut être inférieur OU égal à 5.",
+        "q4": "5",
+        "q5": "[-1;4] inter ]2;7] = ]2;4]\n[-1;4] union ]2;7] = [-1;7]"
+      }
+    }
+  }
+}
