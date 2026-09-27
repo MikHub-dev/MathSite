@@ -302,6 +302,72 @@ window.EVALUATIONS = {
   ],
   "seconde": [
    {
+    "id": "2026-09-27-intervalles",
+    "total": 10,
+    "titre": "Intervalles de ℝ",
+    "chapitre": "Intervalles",
+    "date": "2026-09-27",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Résous chaque exercice portant sur les intervalles de ℝ ; justifie tes réponses par un calcul ou une explication.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel intervalle représente l'ensemble des réels x tels que −3 &lt; x ≤ 6 ?</p>",
+      "choix": [
+       "]−3 ; 6]",
+       "[−3 ; 6[",
+       "]−3 ; 6[",
+       "[−3 ; 6]"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "redaction",
+      "niveau": 1,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Écris sous forme d'intervalle l'ensemble des réels x tels que x ≥ −5.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Détermine l'intersection [−4 ; 2] ∩ ]0 ; 5] puis la réunion [−4 ; 2] ∪ ]0 ; 5]. Justifie chaque résultat.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Combien de nombres entiers appartiennent à l'intervalle ]−2 ; 5] ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Une machine n'accepte une pièce de monnaie que si son diamètre d (en mm) vérifie |d − 24| ≤ 0,3. Détermine, par le calcul, l'intervalle des diamètres acceptés par la machine ; on interprétera la valeur absolue comme une distance à 24.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 14,
+      "points": 2,
+      "enonce": "<p>Résous l'inéquation (x + 1)(x − 3) &gt; 0 en étudiant le signe du produit, et donne l'ensemble des solutions sous forme de réunion d'intervalles. Indique ensuite, en justifiant, si le nombre 2 appartient à cet ensemble.</p>"
+     }
+    ]
+   },
+   {
     "id": "2026-09-27-intervalles-complexes",
     "total": 10,
     "titre": "Intervalles complexes",
@@ -816,7 +882,7 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-09-27T13:29:38.182Z",
+  "genereLe": "2026-09-27T13:30:57.958Z",
   "annees": {
     "2026-2027": {
       "5e": {
@@ -828,8 +894,8 @@ window.EVAL_KPI = {
         "moyenneSur20": null
       },
       "seconde": {
-        "total": 8,
-        "ouvertes": 7,
+        "total": 9,
+        "ouvertes": 8,
         "enAttente": 0,
         "fermees": 1,
         "copiesCorrigees": 1,
