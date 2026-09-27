@@ -1,8 +1,9 @@
-# Version : 3.0
+# Version : 3.2
 # Agent de la page Évaluations, organisé en skills (dossier skills/, voir AGENT_EVALUATIONS.md) :
 #   hebdomadaire (dimanche 5 h, ou bouton de l'espace enseignant) : creation-evaluation -> kpi -> deploiement
 #   correction   (bouton « Corriger la sélection »)              : correction-evaluation -> kpi -> deploiement
 #   creation     (bouton « Créer une évaluation »)               : creation-evaluation -> kpi -> deploiement
+#   niveaux      (onglet Actions, maintenance)                   : niveau et temps des questions existantes -> kpi -> deploiement
 # Authentification Claude : abonnement Claude Pro (secret CLAUDE_CODE_OAUTH_TOKEN, « claude setup-token »).
 name: Agent évaluations
 
@@ -15,9 +16,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "hebdomadaire (lot de la semaine), creation (une évaluation) ou correction"
+        description: "hebdomadaire (lot de la semaine), creation (une évaluation), correction, ou niveaux (ajouter N1/N2/N3 et temps aux évaluations existantes)"
         type: choice
-        options: ["hebdomadaire", "creation", "correction"]
+        options: ["hebdomadaire", "creation", "correction", "niveaux"]
         default: "hebdomadaire"
       evaluations:
         description: "Mode correction : identifiants des évaluations à corriger, séparés par des virgules"
@@ -80,6 +81,20 @@ jobs:
             à la liste « aGenerer » de travail/a-faire.json. Ne traite pas « aCorriger ».
           claude_args: |
             --max-turns 250
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node outils/compiler-evaluations.mjs)"
+
+      - name: "Skill creation-evaluation : compléter niveaux et temps (Claude)"
+        if: steps.preparer.outputs.niveaux == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Lis AGENT_EVALUATIONS.md, puis applique la section « Compléter les niveaux d'évaluations existantes »
+            de skills/creation-evaluation/SKILL.md à la liste « aNiveler » de travail/a-faire.json.
+            N'ajoute que les champs « niveau » et « tempsMinutes » aux questions ; ne modifie rien d'autre.
+          claude_args: |
+            --max-turns 150
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node outils/compiler-evaluations.mjs)"
 
       - name: "Skill correction-evaluation (Claude)"
