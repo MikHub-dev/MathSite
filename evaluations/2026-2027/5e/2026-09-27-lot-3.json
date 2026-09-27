@@ -8,18 +8,24 @@
     {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Un rectangle a pour longueur 8 cm et pour largeur 5 cm. Quelle est son aire, en cm² ?</p>"
     },
     {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Quel est le périmètre de ce même rectangle, en cm ?</p>"
     },
     {
       "id": "q3",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Un triangle a une base de 10 cm et une hauteur relative à cette base de 6 cm. Quelle est son aire ?</p>",
       "choix": [
@@ -32,12 +38,16 @@
     {
       "id": "q4",
       "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 9,
       "points": 2,
       "enonce": "<p>Un disque a un rayon de 5 cm. En prenant π ≈ 3,14, quelle est la valeur arrondie au dixième de son aire, en cm² ?</p>"
     },
     {
       "id": "q5",
       "type": "redaction",
+      "niveau": 1,
+      "tempsMinutes": 7,
       "points": 2,
       "enonce": "<p>Un cercle a un diamètre de 12 cm. Calcule son périmètre en détaillant les étapes, en prenant π ≈ 3,14 et en arrondissant au dixième.</p>"
     }

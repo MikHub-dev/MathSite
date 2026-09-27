@@ -15,18 +15,24 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
       "points": 2,
       "enonce": "<p>Dans un repère, on donne le point A(2 ; 5) et le point O(0 ; 0), centre de symétrie. Quelle est l'abscisse du symétrique A′ de A par rapport à O ?</p>"
      },
      {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
       "points": 2,
       "enonce": "<p>Avec les mêmes points, quelle est l'ordonnée de A′ ?</p>"
      },
      {
       "id": "q3",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
       "points": 2,
       "enonce": "<p>Le symétrique d'un segment [AB] par rapport à un point O est un segment [A′B′]. Que peut-on dire de la longueur A′B′ ?</p>",
       "choix": [
@@ -39,12 +45,16 @@ window.EVALUATIONS = {
      {
       "id": "q4",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
       "points": 2,
       "enonce": "<p>Le point B a pour coordonnées (−3 ; 4) et O(1 ; 1) est le centre de symétrie. Détermine les coordonnées du symétrique B′ de B par rapport à O, en détaillant le calcul.</p>"
      },
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
       "points": 2,
       "enonce": "<p>Explique pourquoi le point O est toujours le milieu du segment [MM′] lorsque M′ est le symétrique de M par rapport à O.</p>"
      }
@@ -62,6 +72,8 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
       "points": 2,
       "enonce": "<p>Deux angles sont complémentaires. L'un mesure 35°. Quelle est la mesure de l'autre ?</p>",
       "choix": [
@@ -74,12 +86,16 @@ window.EVALUATIONS = {
      {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
       "points": 2,
       "enonce": "<p>Deux angles sont supplémentaires. L'un mesure 112°. Quelle est la mesure de l'autre, en degrés ?</p>"
      },
      {
       "id": "q3",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Dans un triangle, deux angles mesurent 50° et 60°. Quelle est la mesure du troisième angle ?</p>",
       "choix": [
@@ -92,12 +108,16 @@ window.EVALUATIONS = {
      {
       "id": "q4",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
       "points": 2,
       "enonce": "<p>Un triangle a un angle de 42° et un angle de 95°. Ce triangle peut-il avoir un angle droit ? Justifie ta réponse par un calcul.</p>"
      },
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 13,
       "points": 2,
       "enonce": "<p>Deux angles opposés par le sommet sont formés par deux droites sécantes. Explique pourquoi ces deux angles ont la même mesure, à l'aide de la notion d'angles supplémentaires.</p>"
      }
@@ -115,18 +135,24 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Un rectangle a pour longueur 8 cm et pour largeur 5 cm. Quelle est son aire, en cm² ?</p>"
      },
      {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Quel est le périmètre de ce même rectangle, en cm ?</p>"
      },
      {
       "id": "q3",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Un triangle a une base de 10 cm et une hauteur relative à cette base de 6 cm. Quelle est son aire ?</p>",
       "choix": [
@@ -139,12 +165,16 @@ window.EVALUATIONS = {
      {
       "id": "q4",
       "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 9,
       "points": 2,
       "enonce": "<p>Un disque a un rayon de 5 cm. En prenant π ≈ 3,14, quelle est la valeur arrondie au dixième de son aire, en cm² ?</p>"
      },
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 1,
+      "tempsMinutes": 7,
       "points": 2,
       "enonce": "<p>Un cercle a un diamètre de 12 cm. Calcule son périmètre en détaillant les étapes, en prenant π ≈ 3,14 et en arrondissant au dixième.</p>"
      }
@@ -162,12 +192,16 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
       "points": 2,
       "enonce": "<p>On donne l'expression A = 3x + 7. Calcule A pour x = 4.</p>"
      },
      {
       "id": "q2",
       "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Quelle expression est égale à 5(x + 2) après développement ?</p>",
       "choix": [
@@ -180,18 +214,24 @@ window.EVALUATIONS = {
      {
       "id": "q3",
       "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>On développe et on réduit l'expression 3(x + 4) + 2x pour l'écrire sous la forme ax + b. Quelle est la valeur de a ?</p>"
      },
      {
       "id": "q4",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Développe et réduis l'expression B = 2(x + 3) − (x − 1). Détaille chaque étape.</p>"
      },
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
       "points": 2,
       "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 5) cm. Exprime le périmètre P du rectangle en fonction de x, sous une forme développée et réduite, en détaillant le calcul.</p>"
      }
@@ -209,18 +249,24 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Calcule : 7 + 3 × 5</p>"
      },
      {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Calcule : (7 + 3) × 5</p>"
      },
      {
       "id": "q3",
       "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 8,
       "points": 2,
       "enonce": "<p>Quelle expression est égale à 20 ?</p>",
       "choix": [
@@ -233,6 +279,8 @@ window.EVALUATIONS = {
      {
       "id": "q4",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 9,
       "points": 4,
       "enonce": "<p>Calcule en détaillant les étapes : 18 − 12 ÷ 3 + 2 × (5 − 1)</p>"
      }
@@ -250,6 +298,8 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Quel est le plus petit de ces nombres ?</p>",
       "choix": [
@@ -262,18 +312,24 @@ window.EVALUATIONS = {
      {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Quelle est la distance à zéro du nombre −7,8 ?</p>"
      },
      {
       "id": "q3",
       "type": "redaction",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 3,
       "enonce": "<p>Range ces nombres dans l'ordre croissant : 2 ; −1,5 ; −6 ; 0 ; −1 ; 3,2.</p>"
      },
      {
       "id": "q4",
       "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 9,
       "points": 1,
       "enonce": "<p>Sur une droite graduée, le point A a pour abscisse −2 et le point B a pour abscisse 3. Quelle est la longueur AB ?</p>",
       "choix": [
@@ -286,6 +342,8 @@ window.EVALUATIONS = {
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 9,
       "points": 2,
       "enonce": "<p>À 6 h du matin, il faisait −4 °C. À midi, il fait 5 °C. De combien de degrés la température a-t-elle augmenté ? Explique.</p>"
      }
@@ -445,6 +503,8 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>On lance un dé cubique équilibré à six faces. Quelle est la probabilité d'obtenir un nombre pair ?</p>",
       "choix": [
@@ -457,12 +517,16 @@ window.EVALUATIONS = {
      {
       "id": "q2",
       "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 9,
       "points": 2,
       "enonce": "<p>Une urne contient 4 boules rouges, 3 boules vertes et 3 boules bleues, indiscernables au toucher. On tire une boule au hasard. Quelle est la probabilité, sous forme décimale, de tirer une boule rouge ?</p>"
      },
      {
       "id": "q3",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>On tire une carte au hasard dans un jeu de 32 cartes. Quel est l'événement contraire de « tirer un roi » ?</p>",
       "choix": [
@@ -475,12 +539,16 @@ window.EVALUATIONS = {
      {
       "id": "q4",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Dans ce jeu de 32 cartes, quelle est la probabilité de tirer un roi, sous forme décimale ?</p>"
      },
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 18,
       "points": 2,
       "enonce": "<p>Une expérience aléatoire consiste à lancer deux fois de suite une pièce équilibrée. Liste les quatre issues possibles, puis calcule la probabilité d'obtenir exactement une fois « pile ». Détaille ta méthode.</p>"
      }
@@ -498,18 +566,24 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 8,
       "points": 2,
       "enonce": "<p>On donne les points A(2 ; 3) et B(6 ; 3). Quelle est l'abscisse du milieu du segment [AB] ?</p>"
      },
      {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 8,
       "points": 2,
       "enonce": "<p>Avec les mêmes points A(2 ; 3) et B(6 ; 3), quelle est la longueur AB ?</p>"
      },
      {
       "id": "q3",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 8,
       "points": 2,
       "enonce": "<p>On donne C(−1 ; 2) et D(2 ; 6). Quelle formule permet de calculer la distance CD ?</p>",
       "choix": [
@@ -522,12 +596,16 @@ window.EVALUATIONS = {
      {
       "id": "q4",
       "type": "redaction",
+      "niveau": 1,
+      "tempsMinutes": 8,
       "points": 2,
       "enonce": "<p>Calcule la distance CD pour C(−1 ; 2) et D(2 ; 6), en détaillant le calcul et en donnant la valeur exacte.</p>"
      },
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 13,
       "points": 2,
       "enonce": "<p>Le point M(4 ; −1) est le milieu du segment [EF] avec E(1 ; 3). Détermine les coordonnées du point F, en expliquant la méthode.</p>"
      }
@@ -545,18 +623,24 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Résous l'équation 3x + 5 = 20. Donne la valeur de x.</p>"
      },
      {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Résous l'équation 7 − 2x = 1. Donne la valeur de x.</p>"
      },
      {
       "id": "q3",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Quel est l'ensemble des solutions de l'inéquation 2x − 4 > 6 ?</p>",
       "choix": [
@@ -569,12 +653,16 @@ window.EVALUATIONS = {
      {
       "id": "q4",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 11,
       "points": 2,
       "enonce": "<p>Résous l'inéquation −3x + 2 ≤ 11, en détaillant chaque étape et en précisant pourquoi le sens de l'inégalité change ou non.</p>"
      },
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 18,
       "points": 2,
       "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 4) cm. On veut que son périmètre soit strictement supérieur à 30 cm. Détermine, en résolvant une inéquation, les valeurs possibles de x, en détaillant la mise en équation.</p>"
      }
@@ -592,18 +680,24 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>On donne A(1 ; 2) et B(4 ; 6). Quelle est l'abscisse du vecteur AB (c'est-à-dire xB − xA) ?</p>"
      },
      {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Avec les mêmes points, quelle est l'ordonnée du vecteur AB ?</p>"
      },
      {
       "id": "q3",
       "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 8,
       "points": 2,
       "enonce": "<p>Quelle est la norme du vecteur AB de coordonnées (3 ; 4) ?</p>",
       "choix": [
@@ -616,12 +710,16 @@ window.EVALUATIONS = {
      {
       "id": "q4",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 10,
       "points": 2,
       "enonce": "<p>On donne les vecteurs u(2 ; 3) et v(4 ; 6). Ces deux vecteurs sont-ils colinéaires ? Justifie ta réponse à l'aide du déterminant xu × yv − yu × xv.</p>"
      },
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 17,
       "points": 2,
       "enonce": "<p>On donne les points E(0 ; 1), F(3 ; 2) et G(6 ; 3). Montre, à l'aide des coordonnées des vecteurs EF et FG, que les points E, F et G sont alignés.</p>"
      }
@@ -640,12 +738,16 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Calcule : (√11)²</p>"
      },
      {
       "id": "q2",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Quelle écriture est égale à 6⁴ × 6³ ?</p>",
       "choix": [
@@ -658,12 +760,16 @@ window.EVALUATIONS = {
      {
       "id": "q3",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Calcule 10³ × 10⁻¹ et donne le résultat sous la forme d'un nombre entier.</p>"
      },
      {
       "id": "q4",
       "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 9,
       "points": 2,
       "enonce": "<p>Quelle est l'écriture simplifiée de √72 ?</p>",
       "choix": [
@@ -676,6 +782,8 @@ window.EVALUATIONS = {
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Écris le nombre 0,00032 en notation scientifique, en détaillant la méthode utilisée.</p>"
      }
@@ -694,6 +802,8 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Dans une série statistique, comment appelle-t-on la différence entre la plus grande et la plus petite valeur ?</p>",
       "choix": [
@@ -706,18 +816,24 @@ window.EVALUATIONS = {
      {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Cinq élèves ont obtenu les notes suivantes à un contrôle : 12 ; 15 ; 8 ; 14 ; 16. Calcule la moyenne de cette série.</p>"
      },
      {
       "id": "q3",
       "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Sept sportifs ont respectivement 14 ; 16 ; 15 ; 19 ; 14 ; 17 et 18 ans. Range ces âges dans l'ordre croissant, puis donne la médiane de cette série.</p>"
      },
      {
       "id": "q4",
       "type": "qcm",
+      "niveau": 3,
+      "tempsMinutes": 12,
       "points": 2,
       "enonce": "<p>On ajoute à une série de salaires une valeur beaucoup plus élevée que les autres. Quel indicateur est le moins modifié par cette valeur extrême ?</p>",
       "choix": [
@@ -730,6 +846,8 @@ window.EVALUATIONS = {
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Voici les distances, en km, parcourues par 6 coureurs lors d'un footing : 5 ; 8 ; 6 ; 10 ; 7 ; 9. Détermine l'étendue de cette série en détaillant le calcul.</p>"
      }
@@ -747,6 +865,8 @@ window.EVALUATIONS = {
      {
       "id": "q1",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Quel est le plus petit ensemble auquel appartient le nombre −12/4 ?</p>",
       "choix": [
@@ -759,6 +879,8 @@ window.EVALUATIONS = {
      {
       "id": "q2",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Le nombre 1/3 est-il un nombre décimal ?</p>",
       "choix": [
@@ -769,18 +891,24 @@ window.EVALUATIONS = {
      {
       "id": "q3",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 10,
       "points": 3,
       "enonce": "<p>Écris l'ensemble des réels x tels que −2 &lt; x ≤ 5 sous la forme d'un intervalle, puis explique le sens de chaque crochet.</p>"
      },
      {
       "id": "q4",
       "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 10,
       "points": 1,
       "enonce": "<p>Combien de nombres entiers relatifs appartiennent à l'intervalle [−3 ; 2[ ?</p>"
      },
      {
       "id": "q5",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 13,
       "points": 2,
       "enonce": "<p>Détermine l'intersection [−1 ; 4] ∩ ]2 ; 7] puis la réunion [−1 ; 4] ∪ ]2 ; 7].</p>"
      }
@@ -882,7 +1010,7 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-09-27T13:30:57.958Z",
+  "genereLe": "2026-09-27T13:59:54.284Z",
   "annees": {
     "2026-2027": {
       "5e": {

@@ -8,18 +8,24 @@
     {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Calcule : 7 + 3 × 5</p>"
     },
     {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Calcule : (7 + 3) × 5</p>"
     },
     {
       "id": "q3",
       "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 8,
       "points": 2,
       "enonce": "<p>Quelle expression est égale à 20 ?</p>",
       "choix": [
@@ -32,6 +38,8 @@
     {
       "id": "q4",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 9,
       "points": 4,
       "enonce": "<p>Calcule en détaillant les étapes : 18 − 12 ÷ 3 + 2 × (5 − 1)</p>"
     }

@@ -8,6 +8,8 @@
     {
       "id": "q1",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>On lance un dé cubique équilibré à six faces. Quelle est la probabilité d'obtenir un nombre pair ?</p>",
       "choix": [
@@ -20,12 +22,16 @@
     {
       "id": "q2",
       "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 9,
       "points": 2,
       "enonce": "<p>Une urne contient 4 boules rouges, 3 boules vertes et 3 boules bleues, indiscernables au toucher. On tire une boule au hasard. Quelle est la probabilité, sous forme décimale, de tirer une boule rouge ?</p>"
     },
     {
       "id": "q3",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>On tire une carte au hasard dans un jeu de 32 cartes. Quel est l'événement contraire de « tirer un roi » ?</p>",
       "choix": [
@@ -38,12 +44,16 @@
     {
       "id": "q4",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Dans ce jeu de 32 cartes, quelle est la probabilité de tirer un roi, sous forme décimale ?</p>"
     },
     {
       "id": "q5",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 18,
       "points": 2,
       "enonce": "<p>Une expérience aléatoire consiste à lancer deux fois de suite une pièce équilibrée. Liste les quatre issues possibles, puis calcule la probabilité d'obtenir exactement une fois « pile ». Détaille ta méthode.</p>"
     }

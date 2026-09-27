@@ -8,18 +8,24 @@
     {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>On donne A(1 ; 2) et B(4 ; 6). Quelle est l'abscisse du vecteur AB (c'est-à-dire xB − xA) ?</p>"
     },
     {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Avec les mêmes points, quelle est l'ordonnée du vecteur AB ?</p>"
     },
     {
       "id": "q3",
       "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 8,
       "points": 2,
       "enonce": "<p>Quelle est la norme du vecteur AB de coordonnées (3 ; 4) ?</p>",
       "choix": [
@@ -32,12 +38,16 @@
     {
       "id": "q4",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 10,
       "points": 2,
       "enonce": "<p>On donne les vecteurs u(2 ; 3) et v(4 ; 6). Ces deux vecteurs sont-ils colinéaires ? Justifie ta réponse à l'aide du déterminant xu × yv − yu × xv.</p>"
     },
     {
       "id": "q5",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 17,
       "points": 2,
       "enonce": "<p>On donne les points E(0 ; 1), F(3 ; 2) et G(6 ; 3). Montre, à l'aide des coordonnées des vecteurs EF et FG, que les points E, F et G sont alignés.</p>"
     }

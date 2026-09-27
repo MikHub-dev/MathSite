@@ -8,12 +8,16 @@
     {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
       "points": 2,
       "enonce": "<p>On donne l'expression A = 3x + 7. Calcule A pour x = 4.</p>"
     },
     {
       "id": "q2",
       "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Quelle expression est égale à 5(x + 2) après développement ?</p>",
       "choix": [
@@ -26,18 +30,24 @@
     {
       "id": "q3",
       "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>On développe et on réduit l'expression 3(x + 4) + 2x pour l'écrire sous la forme ax + b. Quelle est la valeur de a ?</p>"
     },
     {
       "id": "q4",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Développe et réduis l'expression B = 2(x + 3) − (x − 1). Détaille chaque étape.</p>"
     },
     {
       "id": "q5",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
       "points": 2,
       "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 5) cm. Exprime le périmètre P du rectangle en fonction de x, sous une forme développée et réduite, en détaillant le calcul.</p>"
     }

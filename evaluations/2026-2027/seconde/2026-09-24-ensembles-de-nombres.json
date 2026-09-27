@@ -8,6 +8,8 @@
     {
       "id": "q1",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Quel est le plus petit ensemble auquel appartient le nombre −12/4 ?</p>",
       "choix": [
@@ -20,6 +22,8 @@
     {
       "id": "q2",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Le nombre 1/3 est-il un nombre décimal ?</p>",
       "choix": [
@@ -30,18 +34,24 @@
     {
       "id": "q3",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 10,
       "points": 3,
       "enonce": "<p>Écris l'ensemble des réels x tels que −2 &lt; x ≤ 5 sous la forme d'un intervalle, puis explique le sens de chaque crochet.</p>"
     },
     {
       "id": "q4",
       "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 10,
       "points": 1,
       "enonce": "<p>Combien de nombres entiers relatifs appartiennent à l'intervalle [−3 ; 2[ ?</p>"
     },
     {
       "id": "q5",
       "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 13,
       "points": 2,
       "enonce": "<p>Détermine l'intersection [−1 ; 4] ∩ ]2 ; 7] puis la réunion [−1 ; 4] ∪ ]2 ; 7].</p>"
     }

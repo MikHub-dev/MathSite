@@ -8,18 +8,24 @@
     {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
       "points": 2,
       "enonce": "<p>Dans un repère, on donne le point A(2 ; 5) et le point O(0 ; 0), centre de symétrie. Quelle est l'abscisse du symétrique A′ de A par rapport à O ?</p>"
     },
     {
       "id": "q2",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
       "points": 2,
       "enonce": "<p>Avec les mêmes points, quelle est l'ordonnée de A′ ?</p>"
     },
     {
       "id": "q3",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
       "points": 2,
       "enonce": "<p>Le symétrique d'un segment [AB] par rapport à un point O est un segment [A′B′]. Que peut-on dire de la longueur A′B′ ?</p>",
       "choix": [
@@ -32,12 +38,16 @@
     {
       "id": "q4",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
       "points": 2,
       "enonce": "<p>Le point B a pour coordonnées (−3 ; 4) et O(1 ; 1) est le centre de symétrie. Détermine les coordonnées du symétrique B′ de B par rapport à O, en détaillant le calcul.</p>"
     },
     {
       "id": "q5",
       "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
       "points": 2,
       "enonce": "<p>Explique pourquoi le point O est toujours le milieu du segment [MM′] lorsque M′ est le symétrique de M par rapport à O.</p>"
     }

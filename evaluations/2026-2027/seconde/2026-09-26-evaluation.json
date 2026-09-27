@@ -9,12 +9,16 @@
     {
       "id": "q1",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Calcule : (√11)²</p>"
     },
     {
       "id": "q2",
       "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Quelle écriture est égale à 6⁴ × 6³ ?</p>",
       "choix": ["6⁷", "6¹²", "36⁷", "6¹"]
@@ -22,12 +26,16 @@
     {
       "id": "q3",
       "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Calcule 10³ × 10⁻¹ et donne le résultat sous la forme d'un nombre entier.</p>"
     },
     {
       "id": "q4",
       "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 9,
       "points": 2,
       "enonce": "<p>Quelle est l'écriture simplifiée de √72 ?</p>",
       "choix": ["6√2", "2√6", "36√2", "9√8"]
@@ -35,6 +43,8 @@
     {
       "id": "q5",
       "type": "redaction",
+      "niveau": 1,
+      "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Écris le nombre 0,00032 en notation scientifique, en détaillant la méthode utilisée.</p>"
     }
