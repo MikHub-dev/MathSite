@@ -1,6 +1,6 @@
 ---
 name: creation-evaluation
-description: Crée de nouvelles évaluations de mathématiques (5e ou Seconde) pour le site MathSite, à partir de la liste « aGenerer » de travail/a-faire.json. À utiliser pour le lot hebdomadaire du dimanche ou pour une évaluation demandée par l'enseignant.
+description: Crée de nouvelles évaluations de mathématiques (5e ou Seconde) pour le site MathSite, à partir de la liste « aGenerer » de travail/a-faire.json, et complète le niveau des questions des évaluations existantes (liste « aNiveler »). À utiliser pour le lot hebdomadaire du dimanche, pour une évaluation demandée par l'enseignant, ou pour ajouter les niveaux.
 ---
 
 # Skill : création d'évaluations
@@ -76,3 +76,23 @@ Les entrées d'une même classe forment un lot de `tailleDuLot` évaluations (`r
 Avant d'enregistrer, résous toi-même chaque question pour t'assurer qu'elle a une réponse unique ; ne
 garde pas ces solutions dans le fichier. Termine par `node outils/compiler-evaluations.mjs` et corrige
 toute erreur signalée.
+
+## Compléter les niveaux d'évaluations existantes (liste `aNiveler`)
+
+Pour chaque entrée, ouvre `fichier` et ajoute à **chaque question** qui ne les a pas :
+
+1. un champ `niveau` : `1` (N1 - Application directe), `2` (N2 - Entraînement) ou
+   `3` (N3 - Approfondissement), selon les définitions de `modeles/INDEX.md` et en comparant la
+   question aux modèles du chapitre correspondant :
+   - N1 : une définition ou une règle appliquée en une étape (calcul direct, lecture, reconnaissance) ;
+   - N2 : plusieurs étapes, une méthode à mobiliser et à justifier ;
+   - N3 : un problème en contexte, un raisonnement, plusieurs notions combinées ;
+2. un champ `tempsMinutes` : le temps de résolution recommandé, en minutes entières, en partant des
+   temps indicatifs de l'index pour la classe et le niveau, puis en les ajustant pour que **la somme
+   des temps de l'évaluation soit égale à sa `dureeMinutes`** (à 2 minutes près). Si l'évaluation n'a
+   pas de `dureeMinutes`, utilise simplement les temps indicatifs.
+
+**Ne modifie rien d'autre** : ni les énoncés, ni les points, ni les choix, ni le corrigé, ni l'ordre
+des questions, ni `dureeMinutes`, ni les autres champs ; ne change pas un niveau ou un temps déjà
+présent. Le script de déploiement refuse toute autre modification. Termine par
+`node outils/compiler-evaluations.mjs`.

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 3.1
+// Version : 3.3
 // Skill « deploiement » : contrôles après le passage de Claude, puis fermeture des issues
 // (workflow agent-evaluations.yml ; le commit, le push et la mise à jour du site sont faits par le workflow).
 //
@@ -131,6 +131,32 @@ export function verifier() {
       if (Math.abs(somme - ev.dureeMinutes) > 2) erreurs.push(`${g.fichier} : somme des temps (${somme} min) différente de la durée conseillée (${ev.dureeMinutes} min)`);
     }
     bilan.push(`- Nouvelle évaluation : ${g.classe}, ${ev.titre || g.id}`);
+  }
+
+  // Niveaux : seuls « niveau » et « tempsMinutes » peuvent avoir été ajoutés aux questions ; tout le
+  // reste est identique, et la somme des temps correspond à la durée conseillée (à 2 minutes près).
+  for (const n of travail.aNiveler || []) {
+    attendus.add(n.fichier);
+    const avant = versionPubliee(n.fichier);
+    const apres = lireJson(n.fichier);
+    const sansNiveaux = e => ({ ...e, questions: (e.questions || []).map(({ niveau, tempsMinutes, ...q }) => q) });
+    if (!avant || !memeValeur(sansNiveaux(apres), sansNiveaux(avant))) {
+      erreurs.push(`${n.fichier} : seuls le niveau et le temps des questions peuvent être ajoutés, rien d'autre ne doit changer`);
+      continue;
+    }
+    const avantParQ = Object.fromEntries((avant.questions || []).map(q => [q.id, q]));
+    for (const q of apres.questions) {
+      const a = avantParQ[q.id] || {};
+      if (![1, 2, 3].includes(q.niveau)) erreurs.push(`${n.fichier} : niveau manquant ou invalide pour ${q.id}`);
+      else if ([1, 2, 3].includes(a.niveau) && a.niveau !== q.niveau) erreurs.push(`${n.fichier} : niveau déjà attribué modifié pour ${q.id}`);
+      if (!(typeof q.tempsMinutes === "number" && q.tempsMinutes > 0)) erreurs.push(`${n.fichier} : temps manquant ou invalide pour ${q.id}`);
+      else if (a.tempsMinutes > 0 && a.tempsMinutes !== q.tempsMinutes) erreurs.push(`${n.fichier} : temps déjà attribué modifié pour ${q.id}`);
+    }
+    const somme = apres.questions.reduce((t, q) => t + (q.tempsMinutes || 0), 0);
+    if (apres.dureeMinutes && Math.abs(somme - apres.dureeMinutes) > 2) {
+      erreurs.push(`${n.fichier} : somme des temps (${somme} min) différente de la durée conseillée (${apres.dureeMinutes} min)`);
+    }
+    bilan.push(`- Niveaux et temps ajoutés : ${n.classe}/${n.evaluation}`);
   }
 
   for (const f of modifies) {

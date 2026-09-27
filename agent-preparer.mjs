@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 3.0
+// Version : 3.2
 // Préparation du travail de l'agent (1re étape du workflow .github/workflows/agent-evaluations.yml).
 // Script déterministe : il décide QUOI faire ; Claude applique ensuite les skills du dossier skills/.
 //
@@ -9,6 +9,9 @@
 //                  Le passage planifié a lieu le dimanche : programmé à 3 h et 4 h UTC, il ne
 //                  travaille qu'à partir de 5 h à Paris ; un second passage le même jour ne refait rien.
 //   creation     : une évaluation supplémentaire (« generer_classe », « generer_sujet »).
+//   niveaux      : maintenance ; ajoute le niveau (N1, N2, N3) et le temps de résolution recommandé
+//                  aux questions des évaluations déjà publiées qui n'en ont pas (skill
+//                  creation-evaluation, section « Compléter les niveaux »).
 //   correction   : les copies en attente des évaluations choisies par l'enseignant (« evaluations »,
 //                  identifiants séparés par des virgules) ; skill correction-evaluation. Une évaluation
 //                  est fermée (corrigé publié) dès que tous les élèves inscrits de sa classe sont corrigés.
@@ -115,7 +118,10 @@ export async function preparer() {
   const ecrireSorties = (creation, correction, travail) => {
     if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `creation=${creation}\ncorrection=${correction}\ntravail=${travail}\n`);
   };
-  if (!["hebdomadaire", "creation", "correction"].includes(mode)) throw new Error(`Mode inconnu : ${mode}`);
+  const ecrireNiveaux = niveaux => {
+    if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `niveaux=${niveaux}\n`);
+  };
+  if (!["hebdomadaire", "creation", "correction", "niveaux"].includes(mode)) throw new Error(`Mode inconnu : ${mode}`);
 
   // Passage planifié trop tôt (3 h UTC en hiver = 4 h à Paris) : rien à faire.
   if (evenement === "schedule" && heureParis() < HEURE_PASSAGE) {
@@ -227,12 +233,28 @@ export async function preparer() {
       notions: "",
     });
   }
+  // ---------- Niveaux : évaluations dont au moins une question n'a pas de niveau ou de temps ----------
+  const aNiveler = [];
+  if (mode === "niveaux") {
+    for (const a of existe("evaluations") ? readdirSync(join(racine, "evaluations")) : []) {
+      for (const classe of CLASSES) {
+        for (const id of evaluationsDeClasse(a, classe)) {
+          const fichier = `evaluations/${a}/${classe}/${id}.json`;
+          const ev = lireJson(fichier);
+          const incomplete = (ev.questions || []).some(q => ![1, 2, 3].includes(q.niveau) || !(q.tempsMinutes > 0));
+          if (incomplete) aNiveler.push({ annee: a, classe, evaluation: id, fichier, dureeMinutes: ev.dureeMinutes || null });
+        }
+      }
+    }
+    journal.push(`Évaluations à compléter (niveaux et temps) : ${aNiveler.length}`);
+  }
+
   if (aGenerer.length > MAX_GENERATIONS) {
     journal.push(`Limite de ${MAX_GENERATIONS} créations par passage : ${aGenerer.length - MAX_GENERATIONS} reportée(s)`);
     aGenerer.splice(MAX_GENERATIONS);
   }
 
-  const travail = { aujourdhui, annee, mode, aCorriger, aGenerer, aFermer, issuesIgnorees: ignorees, journal };
+  const travail = { aujourdhui, annee, mode, aCorriger, aGenerer, aNiveler, aFermer, issuesIgnorees: ignorees, journal };
   mkdirSync(join(racine, "travail"), { recursive: true });
   ecrireJson("travail/a-faire.json", travail);
 
@@ -241,6 +263,7 @@ export async function preparer() {
   const creation = aGenerer.length > 0;
   const correction = aCorriger.length > 0;
   ecrireSorties(creation, correction, true);
+  ecrireNiveaux(aNiveler.length > 0);
   journal.forEach(l => console.log(l));
   console.log(`Aujourd'hui (Paris) : ${aujourdhui}`);
   console.log(`À créer : ${aGenerer.map(a => `${a.classe}/${a.id}`).join(", ") || "rien"}`);
