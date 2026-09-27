@@ -41,6 +41,7 @@ build_stage() {
     else cp -a "$it" "$STAGE/"; fi
   done
   shopt -u dotglob
+  if [ -f "$ROOT/.integrer-exclure" ]; then while IFS= read -r x; do [ -z "$x" ] || [ "${x:0:1}" = "#" ] && continue; if [ -e "$STAGE/$x" ]; then rm -rf "$STAGE/$x"; echo "🚫 Exclu : $x"; fi; done < "$ROOT/.integrer-exclure"; fi
   [ "$n" -gt 0 ] || { echo "📭 _inbox/ est vide : rien à intégrer."; exit 0; }
 }
 
