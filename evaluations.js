@@ -1,4 +1,4 @@
-// Version : 2.3
+// Version : 2.4
 // --- Page « Évaluations » (menu horizontal) ---
 // Données : evaluations-data.js, généré par outils/compiler-evaluations.mjs à partir des dossiers
 // evaluations/, notes/ et eleves/, fournit window.EVALUATIONS, window.EVAL_NOTES et window.EVAL_ELEVES.
@@ -1111,53 +1111,62 @@ function evalCocher(cle, coche) {
   evalMajBoutonCorriger();
 }
 
-// Tableau des évaluations de l'année : statut, note, liens vers les réponses et la copie corrigée.
+// Tableaux des évaluations de l'année, un par classe : statut, note, liens vers les réponses et la
+// copie corrigée. Les copies en attente viennent du Worker (/agent/etat, champ « attente »).
 function evalAfficherTableau() {
   const zone = document.getElementById("admin-evaluations");
   if (!zone) return;
   const annee = evalAnneeCourante();
+  // Un Worker antérieur à la version 2.0 ne renvoie pas « attente » : on le signale.
+  const workerAJour = !evalEtatAdmin || Array.isArray(evalEtatAdmin.attente);
   const attente = (evalEtatAdmin && evalEtatAdmin.attente) || [];
-  const lignes = EVAL_CLASSES.flatMap(k => evalListe(annee, k.key).map(ev => ({ k, ev })))
-    .sort((x, y) => y.ev.date.localeCompare(x.ev.date) || x.k.label.localeCompare(y.k.label));
-  if (!lignes.length) { zone.innerHTML = `<p class="eval-admin-aide">Aucune évaluation pour ${annee}.</p>`; return; }
+  const avertissement = workerAJour ? "" : `<p class="eval-info">Le Worker Cloudflare n'est pas à jour : il ne transmet pas les copies reçues, donc aucune évaluation ne peut apparaître « En attente ». Remplacez son code par worker/src/index.js version 2.0 (Cloudflare, Edit code, Deploy).</p>`;
 
-  const html = lignes.map(({ k, ev }) => {
-    const cle = `${annee}/${k.key}/${ev.id}`;
-    const notes = evalNotes(annee, k.key, ev.id);
-    const inscrits = new Set(evalInscrits(annee, k.key));
-    const notees = notes ? Object.entries(notes.notes).filter(([h]) => !inscrits.size || inscrits.has(h)) : [];
-    const recues = attente.filter(a => a.annee === annee && a.classe === k.key && a.evaluation === ev.id && !(notes && notes.notes[a.empreinte]));
-    const fermee = evalStatut(annee, k.key, ev) === "cloturee";
-    let statut, note = "", liens = [];
-    if (fermee) {
-      statut = `<span class="eval-badge eval-badge--corrigee">Fermée</span>`;
-    } else if (recues.length) {
-      statut = `<span class="eval-badge eval-badge--correction">En attente</span>`;
-    } else {
-      statut = `<span class="eval-badge eval-badge--ouverte">Ouverte</span>`;
-      evalSelection.delete(cle);
-    }
-    note = notees.map(([, n]) => `<strong>${evalNote20(n.note, ev.total)}</strong>`).join(", ");
-    if (!note && recues.length) note = `<span class="eval-admin-type">Reçue le ${evalDate(recues[0].recuLe.slice(0, 10))}</span>`;
-    for (const [h, n] of notees) {
-      if (n.issue && EVAL_CONFIG.depot) liens.push(`<a class="eval-lien" href="https://github.com/${EVAL_CONFIG.depot}/issues/${n.issue}" target="_blank" rel="noopener">Réponses</a>`);
-      liens.push(`<button type="button" class="eval-lien" onclick="openEvaluation('${annee}','${k.key}','${ev.id}','${h}')">Copie corrigée</button>`);
-    }
-    for (const r of recues) liens.push(`<a class="eval-lien" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">Réponses reçues</a>`);
-    return `<tr>
-      <td>${recues.length && !fermee
-        ? `<input type="checkbox" aria-label="Corriger ${escapeHtml(ev.titre)}" ${evalSelection.has(cle) ? "checked" : ""} onchange="evalCocher('${cle}', this.checked)">` : ""}</td>
-      <td>${escapeHtml(k.label)}</td>
-      <td><span class="eval-admin-eval">${escapeHtml(ev.titre)}</span><span class="eval-admin-type">Publiée le ${evalDate(ev.date)}</span></td>
-      <td>${statut}</td>
-      <td>${note}</td>
-      <td class="eval-admin-liens">${liens.join("")}</td>
-    </tr>`;
-  }).join("");
-  zone.innerHTML = `<div class="eval-admin-tableau"><table>
-      <thead><tr><th><span class="eval-invisible">Sélection</span></th><th>Classe</th><th>Évaluation</th><th>Statut</th><th>Note</th><th>Liens</th></tr></thead>
-      <tbody>${html}</tbody>
-    </table></div>`;
+  const tableau = k => {
+    const liste = evalListe(annee, k.key);
+    if (!liste.length) return `<p class="eval-admin-aide">Aucune évaluation pour cette classe en ${annee}.</p>`;
+    const compte = { ouverte: 0, attente: 0, fermee: 0 };
+    const lignes = liste.map(ev => {
+      const cle = `${annee}/${k.key}/${ev.id}`;
+      const notes = evalNotes(annee, k.key, ev.id);
+      const inscrits = new Set(evalInscrits(annee, k.key));
+      const notees = notes ? Object.entries(notes.notes).filter(([h]) => !inscrits.size || inscrits.has(h)) : [];
+      const recues = attente.filter(a => a.annee === annee && a.classe === k.key && a.evaluation === ev.id && !(notes && notes.notes[a.empreinte]));
+      const fermee = evalStatut(annee, k.key, ev) === "cloturee";
+      let statut;
+      if (fermee) { statut = `<span class="eval-badge eval-badge--corrigee">Fermée</span>`; compte.fermee++; }
+      else if (recues.length) { statut = `<span class="eval-badge eval-badge--correction">En attente</span>`; compte.attente++; }
+      else { statut = `<span class="eval-badge eval-badge--ouverte">Ouverte</span>`; compte.ouverte++; evalSelection.delete(cle); }
+      let note = notees.map(([, n]) => `<strong>${evalNote20(n.note, ev.total)}</strong>`).join(", ");
+      if (!note && recues.length) note = `<span class="eval-admin-type">Reçue le ${evalDate(recues[0].recuLe.slice(0, 10))}</span>`;
+      const liens = [];
+      for (const [h, n] of notees) {
+        if (n.issue && EVAL_CONFIG.depot) liens.push(`<a class="eval-lien" href="https://github.com/${EVAL_CONFIG.depot}/issues/${n.issue}" target="_blank" rel="noopener">Réponses</a>`);
+        liens.push(`<button type="button" class="eval-lien" onclick="openEvaluation('${annee}','${k.key}','${ev.id}','${h}')">Copie corrigée</button>`);
+      }
+      for (const r of recues) liens.push(`<a class="eval-lien" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">Réponses reçues</a>`);
+      return `<tr${recues.length && !fermee ? ` class="eval-admin-ligne--attente"` : ""}>
+        <td>${recues.length && !fermee
+          ? `<input type="checkbox" aria-label="Corriger ${escapeHtml(ev.titre)}" ${evalSelection.has(cle) ? "checked" : ""} onchange="evalCocher('${cle}', this.checked)">` : ""}</td>
+        <td><span class="eval-admin-eval">${escapeHtml(ev.titre)}</span><span class="eval-admin-type">Publiée le ${evalDate(ev.date)}</span></td>
+        <td>${statut}</td>
+        <td>${note}</td>
+        <td class="eval-admin-liens">${liens.join("")}</td>
+      </tr>`;
+    }).join("");
+    const pl = n => (n > 1 ? "s" : "");
+    return `<p class="eval-admin-resume">${liste.length} évaluation${pl(liste.length)} : ${compte.ouverte} ouverte${pl(compte.ouverte)}, ${compte.attente} en attente, ${compte.fermee} fermée${pl(compte.fermee)}</p>
+      <div class="eval-admin-tableau"><table>
+        <thead><tr><th><span class="eval-invisible">Sélection</span></th><th>Évaluation</th><th>Statut</th><th>Note</th><th>Liens</th></tr></thead>
+        <tbody>${lignes}</tbody>
+      </table></div>`;
+  };
+
+  zone.innerHTML = avertissement + EVAL_CLASSES.map(k => `
+    <div class="eval-admin-classe">
+      <div class="eval-admin-classe-titre"><h3>${escapeHtml(k.label)}</h3>${evalMoyenneHtml(annee, k.key)}</div>
+      ${tableau(k)}
+    </div>`).join("");
   evalMajBoutonCorriger();
 }
 
