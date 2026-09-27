@@ -1,4 +1,4 @@
-/* Version : 2.2 */
+/* Version : 2.4 */
 /* PAGE « ÉVALUATIONS » (evaluations.js) — reprend les couleurs du site :
    fond #0f1116, panneaux #1a1d24, bordures #2a2d35, bleu #7aa2ff.
    Trois états d'évaluation : ouverte (bleu), correction en cours (ambre), corrigée (vert). */
@@ -966,3 +966,26 @@ textarea.eval-input { resize: vertical; line-height: 1.5; }
 
 .eval-info-tableau th[scope="row"] { color: var(--ev-texte); font-size: 14px; white-space: nowrap; }
 .eval-info-tableau td { color: #c9ced8; }
+
+/* Espace enseignant : un tableau par classe */
+.eval-admin-classe { margin-top: 18px; }
+.eval-admin-classe + .eval-admin-classe { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--ev-bord); }
+
+.eval-admin-classe-titre {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.eval-admin-classe-titre h3 { margin: 0; font-size: 22px; }
+.eval-admin-classe-titre .eval-vignette-moyenne { font-size: 17px; }
+.eval-admin-resume { margin: 4px 0 8px; color: var(--ev-doux); font-size: 13.5px; }
+.eval-admin-ligne--attente { background: rgba(227, 176, 83, .06); }
+/* Colonnes identiques d'un tableau de classe à l'autre */
+.eval-admin-classe table { table-layout: fixed; }
+.eval-admin-classe th:nth-child(1) { width: 28px; }
+.eval-admin-classe th:nth-child(3) { width: 130px; }
+.eval-admin-classe th:nth-child(4) { width: 150px; }
+.eval-admin-classe th:nth-child(5) { width: 240px; }
+.eval-admin-classe td { overflow-wrap: anywhere; }
