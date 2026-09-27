@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 1.2
+// Version : 1.3
 // Compile les fichiers sources des évaluations en un seul fichier evaluations-data.js,
 // chargé par index.html (même principe que jsonMathsite.js : pas de fetch(), le site
 // fonctionne aussi en ouvrant index.html directement).
@@ -56,6 +56,8 @@ function verifierEvaluation(ev, id, f) {
     if (typeof q.points !== "number" || q.points <= 0) qe('"points" doit être un nombre positif');
     else total += q.points;
     if (q.type === "qcm" && (!Array.isArray(q.choix) || q.choix.length < 2)) qe('un QCM doit avoir au moins 2 "choix"');
+    if (q.niveau !== undefined && ![1, 2, 3].includes(q.niveau)) qe('"niveau" doit valoir 1, 2 ou 3');
+    if (q.tempsMinutes !== undefined && (typeof q.tempsMinutes !== "number" || q.tempsMinutes <= 0)) qe('"tempsMinutes" doit être un nombre positif');
   });
   if (ev.corrige !== undefined) {
     if (typeof ev.corrige !== "object" || Array.isArray(ev.corrige)) e('"corrige" doit être un objet { idQuestion: "texte" }');

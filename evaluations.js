@@ -1,4 +1,4 @@
-// Version : 2.4
+// Version : 2.5
 // --- Page « Évaluations » (menu horizontal) ---
 // Données : evaluations-data.js, généré par outils/compiler-evaluations.mjs à partir des dossiers
 // evaluations/, notes/ et eleves/, fournit window.EVALUATIONS, window.EVAL_NOTES et window.EVAL_ELEVES.
@@ -37,6 +37,9 @@ const EVAL_CLASSES = [
 ];
 
 const EVAL_STORAGE_CODE = "mathsite-code-eleve";
+// Rappel affiché au début de chaque fiche d'évaluation (texte de l'enseignant).
+const EVAL_RAPPEL_METHODE = "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.";
+const EVAL_NIVEAUX = { 1: "N1 - Application directe", 2: "N2 - Entraînement", 3: "N3 - Approfondissement" };
 const EVAL_MIN_STATS = 3;   // en dessous, la moyenne de classe révélerait les notes individuelles
 const EVAL_STORAGE_ENVOIS = "mathsite-envois-evaluations";
 
@@ -528,6 +531,10 @@ async function openEvaluation(annee, classe, id, empreinteCopie) {
           ${ev.dureeMinutes ? `<span class="eval-duree">Durée conseillée : ${ev.dureeMinutes} minutes</span>` : ""}
         </div>
       </header>
+      <div class="eval-rappel" role="note">
+        <p class="eval-rappel-lib">Méthode de rédaction recommandée</p>
+        <p>${escapeHtml(ev.rappelMethode || EVAL_RAPPEL_METHODE)}</p>
+      </div>
       ${ev.consignes ? `<div class="eval-consignes">${ev.consignes}</div>` : ""}
       ${corps}
     </div>`;
@@ -541,7 +548,8 @@ async function openEvaluation(annee, classe, id, empreinteCopie) {
 }
 
 function evalQuestionTete(q, i) {
-  return `<div class="eval-q-tete"><span class="eval-q-num">Question ${i + 1}</span><span class="eval-q-pts">${evalPoints(q.points)}</span></div>
+  const repere = [EVAL_NIVEAUX[q.niveau], q.tempsMinutes ? `${q.tempsMinutes} min` : ""].filter(Boolean).join(" · ");
+  return `<div class="eval-q-tete"><span class="eval-q-num">Question ${i + 1}${repere ? ` <span class="eval-q-niveau eval-q-niveau--${q.niveau || 0}">${repere}</span>` : ""}</span><span class="eval-q-pts">${evalPoints(q.points)}</span></div>
     <div class="eval-q-enonce">${q.enonce}</div>`;
 }
 

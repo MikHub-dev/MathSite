@@ -1,4 +1,4 @@
-/* Version : 2.4 */
+/* Version : 2.5 */
 /* PAGE « ÉVALUATIONS » (evaluations.js) — reprend les couleurs du site :
    fond #0f1116, panneaux #1a1d24, bordures #2a2d35, bleu #7aa2ff.
    Trois états d'évaluation : ouverte (bleu), correction en cours (ambre), corrigée (vert). */
@@ -989,3 +989,30 @@ textarea.eval-input { resize: vertical; line-height: 1.5; }
 .eval-admin-classe th:nth-child(4) { width: 150px; }
 .eval-admin-classe th:nth-child(5) { width: 240px; }
 .eval-admin-classe td { overflow-wrap: anywhere; }
+
+/* Rappel de la méthode de rédaction (début de fiche) et repère niveau · temps par question */
+.eval-rappel {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border: 1px solid rgba(122, 162, 255, .35);
+  border-left: 3px solid var(--ev-bleu);
+  border-radius: 0 8px 8px 0;
+  background: rgba(122, 162, 255, .06);
+}
+
+.eval-rappel-lib { margin: 0 0 4px; color: var(--ev-bleu); font-size: 13px; font-weight: 700; }
+.eval-rappel p:last-child { margin: 0; line-height: 1.55; color: #d5d9e1; }
+
+.eval-q-niveau {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--ev-bord);
+  color: var(--ev-doux);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.eval-q-niveau--1 { border-color: rgba(95, 201, 138, .5); color: var(--ev-vert); }
+.eval-q-niveau--2 { border-color: rgba(227, 176, 83, .5); color: var(--ev-ambre); }
+.eval-q-niveau--3 { border-color: rgba(255, 107, 107, .5); color: var(--ev-rouge); }

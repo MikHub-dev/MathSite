@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 3.0
+// Version : 3.1
 // Skill « deploiement » : contrôles après le passage de Claude, puis fermeture des issues
 // (workflow agent-evaluations.yml ; le commit, le push et la mise à jour du site sont faits par le workflow).
 //
@@ -27,6 +27,7 @@ const racine = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const existe = chemin => existsSync(join(racine, chemin));
 const lireJson = chemin => JSON.parse(readFileSync(join(racine, chemin), "utf8"));
 const ecrireJson = (chemin, d) => writeFileSync(join(racine, chemin), JSON.stringify(d, null, 2) + "\n");
+const RAPPEL_METHODE = "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.";
 const AUTORISES = [/^evaluations\//, /^notes\//, /^evaluations-data\.js$/, /^kpi\.json$/];
 
 function git(...args) {
@@ -120,6 +121,15 @@ export function verifier() {
     if (ev.cloturee) erreurs.push(`${g.fichier} : une nouvelle évaluation ne peut pas être clôturée`);
     if (ev.date !== g.date) erreurs.push(`${g.fichier} : "date" attendue ${g.date}`);
     if ("dateLimite" in ev) erreurs.push(`${g.fichier} : les évaluations n'ont plus de date limite`);
+    if (ev.rappelMethode !== RAPPEL_METHODE) erreurs.push(`${g.fichier} : "rappelMethode" absent ou différent du texte prévu`);
+    const qs = Array.isArray(ev.questions) ? ev.questions : [];
+    if (qs.some(q => ![1, 2, 3].includes(q.niveau) || typeof q.tempsMinutes !== "number" || q.tempsMinutes <= 0)) {
+      erreurs.push(`${g.fichier} : chaque question doit avoir "niveau" (1, 2 ou 3) et "tempsMinutes"`);
+    } else {
+      for (const n of [1, 2, 3]) if (!qs.some(q => q.niveau === n)) erreurs.push(`${g.fichier} : aucune question de niveau N${n}`);
+      const somme = qs.reduce((t, q) => t + q.tempsMinutes, 0);
+      if (Math.abs(somme - ev.dureeMinutes) > 2) erreurs.push(`${g.fichier} : somme des temps (${somme} min) différente de la durée conseillée (${ev.dureeMinutes} min)`);
+    }
     bilan.push(`- Nouvelle évaluation : ${g.classe}, ${ev.titre || g.id}`);
   }
 
