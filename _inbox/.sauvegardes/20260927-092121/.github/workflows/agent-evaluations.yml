@@ -1,0 +1,117 @@
+# Version : 2.0
+# Agent hebdomadaire de la page Évaluations : corrige les copies reçues (évaluations sans date
+# limite), crée le lot de la semaine (4 évaluations par classe), publie le corrigé des évaluations
+# clôturées, puis met le site à jour.
+# Lancement : le dimanche à 5 h (heure de Paris), ou à la main depuis l'onglet Actions
+# (« Run workflow ») ou l'espace enseignant du site.
+# Consignes de l'agent : AGENT_EVALUATIONS.md. Authentification : abonnement Claude Pro
+# (secret CLAUDE_CODE_OAUTH_TOKEN, généré avec « claude setup-token »).
+name: Agent évaluations
+
+on:
+  schedule:
+    # GitHub planifie en heure UTC, sans changement d'heure : deux horaires le dimanche, et le script
+    # de préparation ne travaille qu'à partir de 5 h à Paris (3 h UTC en été, 4 h UTC en hiver).
+    - cron: "0 3 * * 0"
+    - cron: "0 4 * * 0"
+  workflow_dispatch:
+    inputs:
+      cloturer:
+        description: "Clôturer l'évaluation (son identifiant) : plus de réponses acceptées, corrigé publié"
+        required: false
+        default: ""
+      lot_hebdomadaire:
+        description: "Créer maintenant le lot de la semaine (4 évaluations par classe)"
+        type: boolean
+        default: false
+      generer_classe:
+        description: "Créer une nouvelle évaluation maintenant pour cette classe"
+        type: choice
+        options: ["", "5e", "seconde"]
+        default: ""
+      generer_sujet:
+        description: "Sujet de cette nouvelle évaluation (vide : l'agent choisit la notion suivante)"
+        required: false
+        default: ""
+
+concurrency:
+  group: agent-evaluations
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+  actions: write      # pour relancer le workflow de publication static.yml
+  id-token: write
+
+jobs:
+  agent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Préparer le travail
+        id: preparer
+        run: node outils/agent-preparer.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENEMENT: ${{ github.event_name }}
+          CLOTURER: ${{ inputs.cloturer }}
+          LOT_HEBDOMADAIRE: ${{ inputs.lot_hebdomadaire }}
+          GENERER_CLASSE: ${{ inputs.generer_classe }}
+          GENERER_SUJET: ${{ inputs.generer_sujet }}
+
+      - name: Agent Claude (correction et rédaction)
+        if: steps.preparer.outputs.claude == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Lis AGENT_EVALUATIONS.md, puis exécute exactement le travail décrit dans travail/a-faire.json.
+            Termine par la compilation et l'écriture de travail/bilan.md.
+          claude_args: |
+            --max-turns 250
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node outils/compiler-evaluations.mjs)"
+
+      - name: Vérifier le travail
+        if: steps.preparer.outputs.travail == 'true'
+        run: node outils/agent-finaliser.mjs verifier
+
+      - name: Publier (commit et push sur main)
+        if: steps.preparer.outputs.travail == 'true'
+        run: |
+          git config user.name "Agent évaluations"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evaluations notes evaluations-data.js
+          if git diff --cached --quiet; then
+            echo "Rien à publier."
+          else
+            git commit -F travail/message-commit.txt
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Fermer les issues traitées
+        if: steps.preparer.outputs.travail == 'true'
+        run: node outils/agent-finaliser.mjs fermer
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Un push fait par l'agent (jeton GITHUB_TOKEN) ne déclenche pas les autres workflows :
+      # on lance donc explicitement « Deploy static content to Pages » (static.yml).
+      - name: Mettre le site à jour (static.yml)
+        if: steps.preparer.outputs.travail == 'true'
+        run: gh workflow run static.yml --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}

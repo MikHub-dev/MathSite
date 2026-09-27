@@ -1,0 +1,11 @@
+codes-prives/
+node_modules/
+worker/.dev.vars
+worker/.wrangler/
+travail/
+_inbox/*
+!_inbox/.gitkeep
+.inbox-stage/
+_inbox/*
+!_inbox/.gitkeep
+.inbox-stage/
