@@ -1,11 +1,12 @@
-// Version : 1.11
+// Version : 2.3
 // --- Page « Évaluations » (menu horizontal) ---
 // Données : evaluations-data.js, généré par outils/compiler-evaluations.mjs à partir des dossiers
 // evaluations/, notes/ et eleves/, fournit window.EVALUATIONS, window.EVAL_NOTES et window.EVAL_ELEVES.
-// Les évaluations n'ont pas de date limite : elles restent ouvertes jusqu'à leur clôture par
-// l'enseignant. Chaque copie est corrigée au passage hebdomadaire de l'agent qui suit son envoi ;
-// l'élève voit alors sa note, son commentaire et sa date de réponse. L'évaluation est clôturée
-// (corrigé publié) dès que tous les élèves inscrits de la classe ont été corrigés, ou à la main.
+// Les évaluations n'ont pas de date limite. Statuts : « Ouverte » (pas de copie à corriger),
+// « En attente » (copie reçue, pas encore corrigée), « Fermée » (copies corrigées, corrigé publié).
+// Les copies sont corrigées quand l'enseignant le demande (espace enseignant, skill
+// correction-evaluation) ; l'évaluation est fermée dès que tous les élèves inscrits sont corrigés.
+// L'élève voit alors sa note, le détail par question (sa réponse, les points, une remarque) et le corrigé.
 // Les résultats de classe (moyenne, répartition) ne s'affichent qu'à partir de EVAL_MIN_STATS inscrits.
 // Chaque élève a un code personnel remis à la main ; le site ne publie que les EMPREINTES SHA-256
 // des codes, jamais les noms ni les codes eux-mêmes. L'empreinte est calculée avec la classe
@@ -16,11 +17,14 @@
 // Page d'accueil : deux vignettes indépendantes (5e, Seconde), chacune avec la moyenne de la classe
 // dans son titre et son propre champ de code. Le code est mémorisé par classe ; une fois accepté, la
 // vignette de la classe occupe toute la largeur et devient l'espace de travail de l'élève.
+// Page « Méthode de correction » (loadMethodeCorrectionPage) : méthode française appliquée par
+// le skill correction-evaluation, méthode américaine pour comparaison.
 // La page n'utilise pas le menu de gauche : il est rétracté, comme pour MSC ou Correspondances.
 // Espace enseignant (loadAdministrationPage) : lance l'agent via le Worker (mot de passe + Turnstile)
 // et affiche ses derniers passages ; le mot de passe n'est gardé que pour la session du navigateur.
 
 const EVAL_CONFIG = {
+  depot: "MikHub-dev/MathSite",                // Dépôt GitHub : liens vers les réponses des élèves (issues)
   emailContact: "",                           // Mode sans Worker uniquement : adresse qui reçoit les messages
   workerUrl: "https://mathsite-formulaires.mikhub-dev.workers.dev",  // Worker Cloudflare (dossier worker/)
   turnstileSiteKey: "0x4AAAAAAFETfuoUgTaETXuv",  // Clé de site Cloudflare Turnstile (publique)
@@ -73,8 +77,8 @@ function evalAujourdhui() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
-// ouverte : réponses acceptées (pas de date limite) ; cloturee : clôturée par l'enseignant,
-// corrigé publié, plus de réponses acceptées.
+// ouverte : réponses acceptées (pas de date limite) ; cloturee : fermée, corrigé publié,
+// plus de réponses acceptées. (« En attente » dépend des copies reçues : espace enseignant et KPI.)
 function evalStatut(annee, classe, ev) {
   return ev.cloturee === true || ev.corrige ? "cloturee" : "ouverte";
 }
@@ -100,6 +104,15 @@ function evalDate(iso, avecAnnee) {
 }
 function evalNombre(x) {
   return String(Math.round(x * 100) / 100).replace(".", ",");
+}
+// Toutes les notes s'affichent sur 20 : la note enregistrée (sur le barème de l'évaluation, 10 points
+// en général) est ramenée sur 20, soit doublée pour un barème de 10. Les points par question restent
+// ceux du barème.
+function evalSur20(note, total) {
+  return Math.round(note * 20 / total * 10) / 10;
+}
+function evalNote20(note, total) {
+  return `${evalNombre(evalSur20(note, total))}/20`;
 }
 function evalPoints(p) {
   return `${evalNombre(p)} point${p > 1 ? "s" : ""}`;
@@ -262,7 +275,9 @@ async function loadEvaluationsPage(classe) {
       </div>
 
       <footer class="eval-pied">
-        <p>Une idée pour le site ou une erreur à signaler ?
+        <p><button type="button" class="eval-lien" onclick="loadMethodeCorrectionPage()">Méthode de correction</button>
+          <span class="eval-pied-sep">·</span>
+          Une idée ou une erreur à signaler ?
           <button type="button" class="eval-lien" onclick="loadDemandeAmelioration()">Proposer une amélioration</button></p>
         <button type="button" class="eval-lien eval-lien--discret" onclick="loadAdministrationPage()">Espace enseignant</button>
       </footer>
@@ -296,15 +311,21 @@ function evalMoyenneHtml(annee, classe) {
 
 function evalVignetteHtml(annee, k) {
   const liste = evalListe(annee, k.key);
-  const cloturees = liste.filter(ev => evalStatut(annee, k.key, ev) === "cloturee").length;
   const pluriel = n => (n > 1 ? "s" : "");
+  const kpi = (((window.EVAL_KPI || {}).annees || {})[annee] || {})[k.key];
+  const fermees = kpi ? kpi.fermees : liste.filter(ev => evalStatut(annee, k.key, ev) === "cloturee").length;
+  const detail = [
+    kpi ? `${kpi.ouvertes} ouverte${pluriel(kpi.ouvertes)}` : "",
+    kpi && kpi.enAttente ? `${kpi.enAttente} en attente` : "",
+    fermees ? `${fermees} fermée${pluriel(fermees)}` : "",
+  ].filter(Boolean).join(", ");
   return `
     <section class="eval-vignette" aria-labelledby="vignette-${k.key}">
       <div class="eval-vignette-titre">
         <h2 id="vignette-${k.key}">${k.label}</h2>
         ${evalMoyenneHtml(annee, k.key)}
       </div>
-      <p class="eval-vignette-niveau">${k.niveau}, ${liste.length} évaluation${pluriel(liste.length)}${cloturees ? `, dont ${cloturees} clôturée${pluriel(cloturees)}` : ""}</p>
+      <p class="eval-vignette-niveau">${k.niveau}, ${kpi ? kpi.total : liste.length} évaluation${pluriel(kpi ? kpi.total : liste.length)}${detail ? ` : ${detail}` : ""}</p>
       ${evalLireCode(k.key)
         ? `<button type="button" class="eval-btn" onclick="loadEvaluationsPage('${k.key}')">Ouvrir mon espace</button>`
         : `<label class="eval-vignette-code" for="eval-code-${k.key}">Mon code</label>
@@ -347,8 +368,8 @@ function evalEspaceHtml(annee, classe, empreinte) {
         </div>
       </div>
       ${groupe("À faire", aFaire, "Rien à faire pour le moment : les nouvelles évaluations arrivent le dimanche matin.")}
-      ${groupe("Corrigées", corrigees, "Aucune copie corrigée pour l'instant. Les copies sont corrigées chaque dimanche matin.")}
-      ${sansCopie.length ? groupe("Clôturées sans copie", sansCopie, "") : ""}
+      ${groupe("Corrigées", corrigees, "Aucune copie corrigée pour l'instant. Votre enseignant corrige les copies reçues.")}
+      ${sansCopie.length ? groupe("Fermées sans copie", sansCopie, "") : ""}
     </section>`;
 }
 
@@ -383,9 +404,9 @@ function evalOublierCode(classe) {
 function evalBadge(annee, classe, ev) {
   const notes = evalNotes(annee, classe, ev.id);
   if (evalStatut(annee, classe, ev) === "ouverte") return `<span class="eval-badge eval-badge--ouverte">Ouverte</span>`;
-  if (!notes || !evalStatsVisibles(annee, classe)) return `<span class="eval-badge eval-badge--corrigee">Clôturée</span>`;
+  if (!notes || !evalStatsVisibles(annee, classe)) return `<span class="eval-badge eval-badge--corrigee">Fermée</span>`;
   const st = evalStats(notes, ev.total);
-  return `<span class="eval-badge eval-badge--corrigee">Clôturée, moyenne ${evalNombre(st.moyenne)}/${evalNombre(ev.total)}</span>`;
+  return `<span class="eval-badge eval-badge--corrigee">Fermée, moyenne ${evalNote20(st.moyenne, ev.total)}</span>`;
 }
 
 // Ligne d'évaluation dans l'espace de l'élève, avec son état personnel.
@@ -394,13 +415,13 @@ function evalLigne(annee, classe, ev, note) {
   let etat, badge;
   if (note) {
     etat = "cloturee";
-    badge = `<span class="eval-badge eval-badge--corrigee">${evalNombre(note.note)}/${evalNombre(ev.total)}</span>`;
+    badge = `<span class="eval-badge eval-badge--corrigee">${evalNote20(note.note, ev.total)}</span>`;
   } else if (evalStatut(annee, classe, ev) === "cloturee") {
     etat = "cloturee";
-    badge = `<span class="eval-badge eval-badge--corrigee">Clôturée</span>`;
+    badge = `<span class="eval-badge eval-badge--corrigee">Fermée</span>`;
   } else if (envoye) {
     etat = "attente";
-    badge = `<span class="eval-badge eval-badge--correction">Envoyée, corrigée dimanche</span>`;
+    badge = `<span class="eval-badge eval-badge--correction">Envoyée, en attente de correction</span>`;
   } else {
     etat = "ouverte";
     badge = `<span class="eval-badge eval-badge--ouverte">À faire</span>`;
@@ -409,7 +430,7 @@ function evalLigne(annee, classe, ev, note) {
     <span class="eval-row-date">${evalDate(ev.date)}</span>
     <span class="eval-row-main">
       <span class="eval-row-titre">${escapeHtml(ev.titre)}</span>
-      <span class="eval-row-chap">${escapeHtml(ev.chapitre)}, ${evalPoints(ev.total)}${ev.dureeMinutes ? `, ${ev.dureeMinutes} min conseillées` : ""}</span>
+      <span class="eval-row-chap">${escapeHtml(ev.chapitre)}, noté sur 20${ev.dureeMinutes ? `, ${ev.dureeMinutes} min conseillées` : ""}</span>
     </span>
     ${badge}
   </button>`;
@@ -452,7 +473,8 @@ function evalChangerCodeFiche(classe) {
 }
 
 // ---------- Page d'une évaluation ----------
-async function openEvaluation(annee, classe, id) {
+// empreinteCopie (facultatif) : vue enseignant de la copie de cet élève, depuis l'espace enseignant.
+async function openEvaluation(annee, classe, id, empreinteCopie) {
   const c = document.getElementById("content");
   const ev = evalTrouver(annee, classe, id);
   if (!c) return;
@@ -465,35 +487,42 @@ async function openEvaluation(annee, classe, id) {
   const statut = evalStatut(annee, classe, ev);
   const label = escapeHtml(evalLabelClasse(classe));
   const notes = evalNotes(annee, classe, id);
-  // Note personnelle si le code mémorisé appartient à cette classe
+  const vueEnseignant = !!empreinteCopie;
+  // Copie affichée : celle choisie par l'enseignant, ou celle de l'élève dont le code est mémorisé
   const rendu = ++evalRendu;
-  const code = evalLireCode(classe);
-  const emp = code ? await evalEmpreinteDansClasse(annee, classe, code) : null;
+  const code = vueEnseignant ? "" : evalLireCode(classe);
+  const emp = vueEnseignant ? empreinteCopie : (code ? await evalEmpreinteDansClasse(annee, classe, code) : null);
   if (rendu !== evalRendu) return;
-  const maNote = emp && notes ? notes.notes[emp] || null : null;
+  const entree = emp && notes ? notes.notes[emp] || null : null;
   const envoye = evalEnvoi(annee, classe, id);
 
   let corps;
-  if (statut === "cloturee") {
-    corps = (notes ? `<section class="eval-resultats">${evalResultatsHtml(ev, notes, "cloturee", evalStatsVisibles(annee, classe))}</section>` : "")
-      + `<p class="eval-info eval-info--neutre">Évaluation clôturée : le corrigé est affiché sous chaque question.</p>`
-      + evalQuestionsLectureHtml(ev, true);
-  } else if (maNote) {
-    corps = `<section class="eval-resultats">${evalResultatsHtml(ev, notes, "ouverte", evalStatsVisibles(annee, classe))}</section>`
-      + `<p class="eval-info eval-info--neutre">Votre copie est corrigée. Le corrigé détaillé sera publié quand l'évaluation sera clôturée.</p>`
-      + evalQuestionsLectureHtml(ev, false);
+  if (statut === "cloturee" || entree) {
+    const fermee = statut === "cloturee";
+    const bloc = entree
+      ? `<section class="eval-resultats">${evalNoteHtml(ev, entree, vueEnseignant)}</section>`
+      : `<section class="eval-resultats"><div id="eval-ma-note" class="eval-ma-note eval-ma-note--seule"></div></section>`;
+    const stats = notes && evalStatsVisibles(annee, classe) ? `<section class="eval-resultats">${evalStatsHtml(ev, notes, statut)}</section>` : "";
+    const info = fermee
+      ? "Évaluation fermée : le corrigé est affiché sous chaque question."
+      : "Copie corrigée. Le corrigé détaillé sera publié quand l'évaluation sera fermée.";
+    corps = bloc + stats + `<p class="eval-info eval-info--neutre">${info}</p>`
+      + (entree && entree.details ? evalCopieHtml(ev, entree, fermee) : evalQuestionsLectureHtml(ev, fermee));
   } else {
-    corps = (envoye ? `<p class="eval-info eval-info--neutre">Réponses envoyées le ${evalDate(envoye.slice(0, 10), true)}. Elles seront corrigées au prochain passage, le dimanche matin ; un nouvel envoi d'ici là remplace le précédent.</p>` : "")
+    corps = (envoye ? `<p class="eval-info eval-info--neutre">Réponses envoyées le ${evalDate(envoye.slice(0, 10), true)}. Votre enseignant les corrigera ; d'ici là, un nouvel envoi remplace le précédent.</p>` : "")
       + evalFormulaireHtml(annee, classe, ev);
   }
+  const retour = vueEnseignant
+    ? `<button type="button" class="eval-lien eval-retour" onclick="loadAdministrationPage()">Retour à l'espace enseignant</button>`
+    : `<button type="button" class="eval-lien eval-retour" onclick="loadEvaluationsPage('${classe}')">Retour aux évaluations de ${label}</button>`;
 
   c.innerHTML = `
     <div class="eval-page eval-detail">
-      <button type="button" class="eval-lien eval-retour" onclick="loadEvaluationsPage('${classe}')">Retour aux évaluations de ${label}</button>
+      ${retour}
       <header class="eval-detail-head">
         <p class="eval-detail-chap">${label}, ${escapeHtml(ev.chapitre)}</p>
         <h1 class="eval-title">${escapeHtml(ev.titre)}</h1>
-        <p class="eval-detail-meta">Publiée le ${evalDate(ev.date, true)}. Total : ${evalPoints(ev.total)}.</p>
+        <p class="eval-detail-meta">Publiée le ${evalDate(ev.date, true)}. Barème : ${evalPoints(ev.total)}, note ramenée sur 20.</p>
         <div class="eval-detail-etiquettes">
           ${evalBadge(annee, classe, ev)}
           ${ev.dureeMinutes ? `<span class="eval-duree">Durée conseillée : ${ev.dureeMinutes} minutes</span>` : ""}
@@ -503,7 +532,7 @@ async function openEvaluation(annee, classe, id) {
       ${corps}
     </div>`;
 
-  if (statut === "ouverte" && !maNote) evalRenderTurnstile("eval-turnstile");
+  if (statut === "ouverte" && !entree) evalRenderTurnstile("eval-turnstile");
   if (document.getElementById("eval-ma-note")) {
     evalApresCode = () => openEvaluation(annee, classe, id);
     evalAfficherMaNote(annee, classe, ev);
@@ -526,20 +555,19 @@ function evalQuestionsLectureHtml(ev, avecCorrige) {
     </li>`).join("")}</ol>`;
 }
 
-function evalResultatsHtml(ev, notes, statut, avecStats) {
-  if (!avecStats) return `<div id="eval-ma-note" class="eval-ma-note eval-ma-note--seule"></div>`;
+function evalStatsHtml(ev, notes, statut) {
   const st = evalStats(notes, ev.total);
   const haut = Math.max(...st.tranches, 1);
-  const pas = ev.total / 4;
+  const pas = 20 / 4;   // tranches affichées sur 20
   const libelles = [0, 1, 2, 3].map(i => `${evalNombre(i * pas)} à ${evalNombre((i + 1) * pas)}`);
   const resume = st.tranches.map((n, i) => `${n} entre ${libelles[i]}`).join(", ");
   return `
     <h2>Résultats de la classe <small>(${st.n} copie${st.n > 1 ? "s" : ""} corrigée${st.n > 1 ? "s" : ""}${statut === "ouverte" ? ", résultats provisoires" : ""})</small></h2>
     <div class="eval-resultats-corps">
       <dl class="eval-stats">
-        <div><dt>Moyenne</dt><dd>${evalNombre(st.moyenne)}<small>/${evalNombre(ev.total)}</small></dd></div>
-        <div><dt>Plus basse</dt><dd>${evalNombre(st.min)}</dd></div>
-        <div><dt>Plus haute</dt><dd>${evalNombre(st.max)}</dd></div>
+        <div><dt>Moyenne</dt><dd>${evalNombre(evalSur20(st.moyenne, ev.total))}<small>/20</small></dd></div>
+        <div><dt>Plus basse</dt><dd>${evalNombre(evalSur20(st.min, ev.total))}<small>/20</small></dd></div>
+        <div><dt>Plus haute</dt><dd>${evalNombre(evalSur20(st.max, ev.total))}<small>/20</small></dd></div>
         <div><dt>Copies</dt><dd>${st.n}</dd></div>
       </dl>
       <div class="eval-histo" role="img" aria-label="Répartition des notes : ${resume}">
@@ -550,8 +578,45 @@ function evalResultatsHtml(ev, notes, statut, avecStats) {
             <span class="eval-histo-lib">${libelles[i]}</span>
           </div>`).join("")}
       </div>
-    </div>
-    <div id="eval-ma-note" class="eval-ma-note"></div>`;
+    </div>`;
+}
+
+// Note d'une copie : valeur, dates, commentaire ; en vue enseignant, lien vers les réponses envoyées.
+function evalNoteHtml(ev, n, vueEnseignant) {
+  const lienReponses = n.issue && EVAL_CONFIG.depot
+    ? `<a class="eval-lien" href="https://github.com/${EVAL_CONFIG.depot}/issues/${n.issue}" target="_blank" rel="noopener">Réponses envoyées par l'élève</a>` : "";
+  return `<div class="eval-ma-note eval-ma-note--seule">
+      <h3>${vueEnseignant ? "Note de l'élève" : "Ma note"}</h3>
+      <p class="eval-ma-note-val">${evalNombre(evalSur20(n.note, ev.total))}<small>/20</small></p>
+      ${n.reponduLe ? `<p class="eval-ma-note-date">Répondu le ${evalDate(n.reponduLe.slice(0, 10), true)}${n.corrigeLe ? `, corrigé le ${evalDate(n.corrigeLe, true)}` : ""}.</p>` : ""}
+      ${n.commentaire ? `<p class="eval-ma-note-com">${escapeHtml(n.commentaire)}</p>` : ""}
+      <p class="eval-ma-note-liens">${vueEnseignant ? lienReponses : ""}
+        <button type="button" class="eval-lien" onclick="loadMethodeCorrectionPage()">Comment les copies sont corrigées</button></p>
+    </div>`;
+}
+
+// Copie corrigée : pour chaque question, la réponse de l'élève, les points obtenus, la remarque de
+// correction et, si l'évaluation est fermée, le corrigé.
+function evalCopieHtml(ev, n, avecCorrige) {
+  const details = n.details || {};
+  const reponses = n.reponses || {};
+  return `<ol class="eval-questions">${ev.questions.map((q, i) => {
+    const d = details[q.id] || {};
+    const r = reponses[q.id];
+    const niveau = typeof d.points !== "number" ? "" : d.points >= q.points ? "juste" : d.points > 0 ? "partiel" : "faux";
+    return `
+    <li class="eval-question">
+      ${evalQuestionTete(q, i)}
+      ${q.type === "qcm" ? `<ul class="eval-choix-lecture">${q.choix.map(ch => `<li>${escapeHtml(ch)}</li>`).join("")}</ul>` : ""}
+      <div class="eval-copie eval-copie--${niveau || "neutre"}">
+        <p class="eval-copie-lib">Réponse de l'élève${typeof d.points === "number" ? ` <span class="eval-copie-points">${evalNombre(d.points)}/${evalNombre(q.points)}</span>` : ""}</p>
+        <p class="eval-copie-reponse">${r ? escapeHtml(r).replace(/\n/g, "<br>") : "<em>Sans réponse</em>"}</p>
+        ${d.remarque ? `<p class="eval-copie-remarque">${escapeHtml(d.remarque)}</p>` : ""}
+      </div>
+      ${avecCorrige && ev.corrige && ev.corrige[q.id]
+        ? `<div class="eval-corrige"><p class="eval-corrige-lib">Corrigé</p>${ev.corrige[q.id]}</div>` : ""}
+    </li>`;
+  }).join("")}</ol>`;
 }
 
 async function evalAfficherMaNote(annee, classe, ev) {
@@ -569,7 +634,7 @@ async function evalAfficherMaNote(annee, classe, ev) {
     ${autreClasse
       ? `<p>Le code ${evalFormaterCode(code)} n'appartient pas à la classe de ${escapeHtml(evalLabelClasse(classe))}.</p>`
       : n
-        ? `<p class="eval-ma-note-val">${evalNombre(n.note)}<small>/${evalNombre(ev.total)}</small></p>
+        ? `<p class="eval-ma-note-val">${evalNombre(evalSur20(n.note, ev.total))}<small>/20</small></p>
            ${n.reponduLe ? `<p class="eval-ma-note-date">Répondu le ${evalDate(n.reponduLe.slice(0, 10), true)}${n.corrigeLe ? `, corrigé le ${evalDate(n.corrigeLe, true)}` : ""}.</p>` : ""}
            ${n.commentaire ? `<p class="eval-ma-note-com">${escapeHtml(n.commentaire)}</p>` : ""}`
         : `<p>Pas encore de copie corrigée pour le code ${evalFormaterCode(code)}.</p>`}
@@ -677,7 +742,7 @@ async function evalEnvoyerReponses(annee, classe, id) {
       ok.textContent = "Votre messagerie s'ouvre avec vos réponses : relisez le message puis cliquez sur Envoyer.";
     } else {
       evalMarquerEnvoi(annee, classe, id);
-      ok.textContent = "Réponses envoyées. Elles seront corrigées dimanche matin ; votre note apparaîtra alors sur cette page.";
+      ok.textContent = "Réponses envoyées. Votre enseignant les corrigera ; votre note apparaîtra ensuite sur cette page.";
     }
   } catch (e) {
     err.textContent = e.message;
@@ -912,46 +977,43 @@ function loadAdministrationPage() {
     return;
   }
 
-  const annee = evalAnneeCourante();
-  const ouvertes = EVAL_CLASSES.flatMap(k => evalListe(annee, k.key)
-    .filter(ev => evalStatut(annee, k.key, ev) === "ouverte")
-    .map(ev => `<option value="${ev.id}">${escapeHtml(k.label)} : ${escapeHtml(ev.titre)} (publiée le ${evalDate(ev.date)})</option>`));
-
   c.innerHTML = `
-    <div class="eval-page eval-detail">${entete}
+    <div class="eval-page">${entete}
+      <div id="admin-turnstile" class="eval-turnstile"></div>
+      <p class="eval-erreur" id="admin-erreur" role="alert"></p>
+      <p class="eval-succes" id="admin-succes" role="status"></p>
+
       <section class="eval-admin-bloc">
-        <h2>Lancer l'agent maintenant</h2>
-        <p class="eval-admin-aide">Sans option, l'agent corrige toutes les copies reçues depuis son dernier passage. Il passe de lui-même chaque dimanche à 5 h et crée alors le lot de la semaine.</p>
-        <form id="admin-lancer" class="eval-form eval-form--etroit" novalidate onsubmit="event.preventDefault(); evalLancerAgent()">
-          <label class="eval-case">
-            <input type="checkbox" name="lot_hebdomadaire">
-            <span>Créer maintenant le lot de la semaine (4 évaluations par classe)</span>
-          </label>
-          <label>Clôturer une évaluation (plus de réponses acceptées, corrigé publié)
-            <select name="cloturer" class="eval-input">
-              <option value="">Aucune évaluation</option>
-              ${ouvertes.join("")}
-            </select>
-          </label>
-          <label>Créer une évaluation supplémentaire
-            <select name="generer_classe" class="eval-input" onchange="document.getElementById('admin-sujet').disabled = !this.value">
-              <option value="">Non</option>
+        <div class="eval-admin-titre">
+          <h2>Évaluations</h2>
+          <button type="button" id="admin-corriger" class="eval-btn" onclick="evalLancerAgent('correction')" disabled>Corriger la sélection</button>
+        </div>
+        <p class="eval-admin-aide">« En attente » : une copie a été reçue et n'est pas encore corrigée. Cochez une ou plusieurs de ces évaluations puis lancez la correction ; une évaluation corrigée passe à « Fermée », avec la note en face.</p>
+        <div id="admin-evaluations"><p class="eval-admin-aide">Chargement…</p></div>
+      </section>
+
+      <section class="eval-admin-bloc">
+        <h2>Créer des évaluations</h2>
+        <p class="eval-admin-aide">Le lot de la semaine (4 évaluations par classe) est créé automatiquement chaque dimanche à 5 h. Vous pouvez aussi le créer tout de suite, ou ajouter une évaluation.</p>
+        <div class="eval-admin-actions">
+          <button type="button" class="eval-btn eval-btn--secondaire" onclick="evalLancerAgent('hebdomadaire')">Créer le lot de la semaine maintenant</button>
+        </div>
+        <form id="admin-creer" class="eval-admin-creer" novalidate onsubmit="event.preventDefault(); evalLancerAgent('creation')">
+          <label>Classe
+            <select name="generer_classe" class="eval-input">
               ${EVAL_CLASSES.map(k => `<option value="${k.key}">${k.label}</option>`).join("")}
             </select>
           </label>
-          <label>Sujet de la nouvelle évaluation (facultatif)
-            <input id="admin-sujet" name="generer_sujet" class="eval-input" maxlength="120" disabled
-                   placeholder="Vide : l'agent choisit la notion suivante">
+          <label>Sujet (facultatif)
+            <input name="generer_sujet" class="eval-input" maxlength="120" placeholder="Vide : la notion suivante de la progression">
           </label>
-          <div id="admin-turnstile" class="eval-turnstile"></div>
-          <div class="eval-actions"><button type="submit" class="eval-btn">Lancer l'agent</button></div>
-          <p class="eval-erreur" id="admin-erreur" role="alert"></p>
-          <p class="eval-succes" id="admin-succes" role="status"></p>
+          <button type="submit" class="eval-btn eval-btn--secondaire">Créer une évaluation</button>
         </form>
       </section>
+
       <section class="eval-admin-bloc">
         <div class="eval-admin-titre">
-          <h2>Derniers passages</h2>
+          <h2>Derniers passages de l'agent</h2>
           <button type="button" class="eval-lien" onclick="evalAfficherPassages()">Actualiser</button>
         </div>
         <div id="admin-passages"><p class="eval-admin-aide">Chargement…</p></div>
@@ -962,6 +1024,7 @@ function loadAdministrationPage() {
   evalAfficherPassages();
   c.scrollTop = 0;
 }
+
 
 async function evalConnexionAdmin() {
   const form = document.getElementById("admin-connexion");
@@ -988,41 +1051,114 @@ function evalDeconnexionAdmin() {
   loadEvaluationsPage();
 }
 
-async function evalLancerAgent() {
-  const form = document.getElementById("admin-lancer");
+const evalSelection = new Set();   // évaluations cochées pour la correction (« annee/classe/id »)
+let evalEtatAdmin = null;          // dernier état renvoyé par le Worker (passages, publication, copies en attente)
+
+// mode : "correction" (évaluations cochées), "hebdomadaire" (lot de la semaine) ou "creation".
+async function evalLancerAgent(mode) {
   const err = document.getElementById("admin-erreur");
   const ok = document.getElementById("admin-succes");
+  if (!err || !ok) return;
   err.textContent = "";
   ok.textContent = "";
   if (EVAL_CONFIG.turnstileSiteKey && !evalTurnstileJeton) {
-    err.textContent = "Attendez la fin de la vérification anti-robot (ou cochez la case) avant de lancer.";
+    err.textContent = "Attendez la fin de la vérification anti-robot (en haut de la page) avant de lancer.";
     return;
   }
-  const bouton = form.querySelector("button[type=submit]");
-  bouton.disabled = true;
+  const corps = { motDePasse: evalMotDePasseAdmin(), jeton: evalTurnstileJeton, mode };
+  if (mode === "correction") {
+    corps.evaluations = [...evalSelection].map(cle => cle.split("/")[2]);
+    if (!corps.evaluations.length) { err.textContent = "Cochez au moins une évaluation en attente."; return; }
+  }
+  if (mode === "creation") {
+    const form = document.getElementById("admin-creer");
+    corps.generer_classe = form.elements.generer_classe.value;
+    corps.generer_sujet = form.elements.generer_sujet.value.trim();
+  }
+  const boutons = document.querySelectorAll(".eval-page button");
+  boutons.forEach(b => { b.disabled = true; });
   try {
-    await evalAppelWorker("/agent/lancer", {
-      motDePasse: evalMotDePasseAdmin(),
-      jeton: evalTurnstileJeton,
-      cloturer: form.elements.cloturer.value,
-      lot_hebdomadaire: form.elements.lot_hebdomadaire.checked,
-      generer_classe: form.elements.generer_classe.value,
-      generer_sujet: form.elements.generer_classe.value ? form.elements.generer_sujet.value.trim() : "",
-    });
-    ok.textContent = form.elements.lot_hebdomadaire.checked
-      ? "Agent lancé. Son passage apparaît ci-dessous dans quelques secondes ; avec le lot de la semaine, il peut durer 15 à 40 minutes."
-      : "Agent lancé. Son passage apparaît ci-dessous dans quelques secondes et prend en général 3 à 10 minutes.";
+    await evalAppelWorker("/agent/lancer", corps);
+    ok.textContent = {
+      correction: `Correction lancée pour ${corps.evaluations.length} évaluation${corps.evaluations.length > 1 ? "s" : ""}. Comptez 5 à 15 minutes, puis la mise à jour du site.`,
+      hebdomadaire: "Création du lot de la semaine lancée. Comptez 15 à 40 minutes, puis la mise à jour du site.",
+      creation: "Création lancée. Comptez 5 à 10 minutes, puis la mise à jour du site.",
+    }[mode];
+    if (mode === "correction") evalSelection.clear();
     setTimeout(() => evalAfficherPassages(true), 4000);
   } catch (e) {
     if (e.statut === 401) { evalEcrireMotDePasseAdmin(""); loadAdministrationPage(); return; }
     err.textContent = e.message;
   } finally {
-    bouton.disabled = false;
+    boutons.forEach(b => { b.disabled = false; });
+    evalMajBoutonCorriger();
     if (window.turnstile && evalTurnstileWidget !== null) {
       evalTurnstileJeton = null;
       window.turnstile.reset(evalTurnstileWidget);
     }
   }
+}
+
+function evalMajBoutonCorriger() {
+  const bouton = document.getElementById("admin-corriger");
+  if (!bouton) return;
+  bouton.disabled = evalSelection.size === 0;
+  bouton.textContent = evalSelection.size ? `Corriger la sélection (${evalSelection.size})` : "Corriger la sélection";
+}
+
+function evalCocher(cle, coche) {
+  if (coche) evalSelection.add(cle); else evalSelection.delete(cle);
+  evalMajBoutonCorriger();
+}
+
+// Tableau des évaluations de l'année : statut, note, liens vers les réponses et la copie corrigée.
+function evalAfficherTableau() {
+  const zone = document.getElementById("admin-evaluations");
+  if (!zone) return;
+  const annee = evalAnneeCourante();
+  const attente = (evalEtatAdmin && evalEtatAdmin.attente) || [];
+  const lignes = EVAL_CLASSES.flatMap(k => evalListe(annee, k.key).map(ev => ({ k, ev })))
+    .sort((x, y) => y.ev.date.localeCompare(x.ev.date) || x.k.label.localeCompare(y.k.label));
+  if (!lignes.length) { zone.innerHTML = `<p class="eval-admin-aide">Aucune évaluation pour ${annee}.</p>`; return; }
+
+  const html = lignes.map(({ k, ev }) => {
+    const cle = `${annee}/${k.key}/${ev.id}`;
+    const notes = evalNotes(annee, k.key, ev.id);
+    const inscrits = new Set(evalInscrits(annee, k.key));
+    const notees = notes ? Object.entries(notes.notes).filter(([h]) => !inscrits.size || inscrits.has(h)) : [];
+    const recues = attente.filter(a => a.annee === annee && a.classe === k.key && a.evaluation === ev.id && !(notes && notes.notes[a.empreinte]));
+    const fermee = evalStatut(annee, k.key, ev) === "cloturee";
+    let statut, note = "", liens = [];
+    if (fermee) {
+      statut = `<span class="eval-badge eval-badge--corrigee">Fermée</span>`;
+    } else if (recues.length) {
+      statut = `<span class="eval-badge eval-badge--correction">En attente</span>`;
+    } else {
+      statut = `<span class="eval-badge eval-badge--ouverte">Ouverte</span>`;
+      evalSelection.delete(cle);
+    }
+    note = notees.map(([, n]) => `<strong>${evalNote20(n.note, ev.total)}</strong>`).join(", ");
+    if (!note && recues.length) note = `<span class="eval-admin-type">Reçue le ${evalDate(recues[0].recuLe.slice(0, 10))}</span>`;
+    for (const [h, n] of notees) {
+      if (n.issue && EVAL_CONFIG.depot) liens.push(`<a class="eval-lien" href="https://github.com/${EVAL_CONFIG.depot}/issues/${n.issue}" target="_blank" rel="noopener">Réponses</a>`);
+      liens.push(`<button type="button" class="eval-lien" onclick="openEvaluation('${annee}','${k.key}','${ev.id}','${h}')">Copie corrigée</button>`);
+    }
+    for (const r of recues) liens.push(`<a class="eval-lien" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">Réponses reçues</a>`);
+    return `<tr>
+      <td>${recues.length && !fermee
+        ? `<input type="checkbox" aria-label="Corriger ${escapeHtml(ev.titre)}" ${evalSelection.has(cle) ? "checked" : ""} onchange="evalCocher('${cle}', this.checked)">` : ""}</td>
+      <td>${escapeHtml(k.label)}</td>
+      <td><span class="eval-admin-eval">${escapeHtml(ev.titre)}</span><span class="eval-admin-type">Publiée le ${evalDate(ev.date)}</span></td>
+      <td>${statut}</td>
+      <td>${note}</td>
+      <td class="eval-admin-liens">${liens.join("")}</td>
+    </tr>`;
+  }).join("");
+  zone.innerHTML = `<div class="eval-admin-tableau"><table>
+      <thead><tr><th><span class="eval-invisible">Sélection</span></th><th>Classe</th><th>Évaluation</th><th>Statut</th><th>Note</th><th>Liens</th></tr></thead>
+      <tbody>${html}</tbody>
+    </table></div>`;
+  evalMajBoutonCorriger();
 }
 
 function evalLibellePassage(p) {
@@ -1048,12 +1184,14 @@ async function evalAfficherPassages(suivre) {
     const etat = await evalAppelWorker("/agent/etat", { motDePasse: evalMotDePasseAdmin() });
     passages = etat.passages || [];
     publication = etat.publication || null;
+    evalEtatAdmin = etat;
   } catch (e) {
     if (e.statut === 401) { evalEcrireMotDePasseAdmin(""); loadAdministrationPage(); return; }
     zone.innerHTML = `<p class="eval-erreur">${escapeHtml(e.message)}</p>`;
     return;
   }
   if (boucle !== evalSuiviAgent || !document.getElementById("admin-passages")) return;
+  evalAfficherTableau();
   zone.innerHTML = evalPublicationHtml(publication) + (passages.length ? `<ul class="eval-admin-passages">${passages.map(p => `
     <li>
       <span class="eval-admin-quand">${new Date(p.debut).toLocaleString("fr-FR", { dateStyle: "medium", timeStyle: "short" })}</span>
@@ -1096,4 +1234,163 @@ function evalPublicationHtml(p) {
         <a class="eval-lien" href="${escapeHtml(p.url)}" target="_blank" rel="noopener">Détail</a></div>
       <p class="eval-admin-aide">${texte}</p>
     </div>`;
+}
+
+// ---------- Page « Méthode de correction » ----------
+function loadMethodeCorrectionPage() {
+  const c = document.getElementById("content");
+  if (!c) return;
+  evalRendu++;
+  if (typeof setSidebarCollapsed === "function") setSidebarCollapsed(true);
+  if (typeof setActiveNav === "function") setActiveNav("evaluations");
+  c.innerHTML = `
+    <div class="eval-page eval-methode">
+      <button type="button" class="eval-lien eval-retour" onclick="loadEvaluationsPage()">Retour aux évaluations</button>
+      <h1 class="eval-title">Méthode de correction</h1>
+      <p class="subtitle">Comment les copies sont notées, et pourquoi la justification compte autant que le résultat.</p>
+
+      <div class="eval-methodes">
+        <section class="eval-methode-carte eval-methode-carte--appliquee" aria-labelledby="methode-fr">
+          <p class="eval-methode-etiquette">Méthode appliquée sur ce site</p>
+          <h2 id="methode-fr">Méthode française</h2>
+          <p>La correction porte sur la façon dont le résultat est établi, pas seulement sur le résultat. Elle est centrée sur :</p>
+          <ul>
+            <li><strong>la justification des calculs</strong> : chaque étape est écrite et découle de la précédente ;</li>
+            <li><strong>la rédaction correcte</strong> : phrases complètes, notations exactes, unités, phrase de conclusion ;</li>
+            <li><strong>l'application des propriétés</strong> : la règle ou le théorème utilisé est le bon, et il est appliqué dans ses conditions ;</li>
+            <li><strong>la cohérence du raisonnement</strong> : les étapes s'enchaînent logiquement jusqu'à la conclusion.</li>
+          </ul>
+        </section>
+
+        <section class="eval-methode-carte" aria-labelledby="methode-us">
+          <p class="eval-methode-etiquette">Pour comparaison</p>
+          <h2 id="methode-us">Méthode américaine</h2>
+          <p>La correction valorise surtout la démarche et la compréhension. Elle est centrée sur :</p>
+          <ul>
+            <li><strong>la méthode</strong> : la bonne stratégie est choisie pour résoudre le problème ;</li>
+            <li><strong>la cohérence des étapes</strong> : la démarche suivie tient debout d'un bout à l'autre ;</li>
+            <li><strong>la compréhension intuitive</strong> : l'élève montre qu'il a saisi le sens de ce qu'il calcule.</li>
+          </ul>
+          <p class="eval-methode-note">La forme de la rédaction et la citation des propriétés y pèsent moins.</p>
+        </section>
+      </div>
+
+      <section class="eval-admin-bloc eval-methode-detail" aria-labelledby="methode-points">
+        <h2 id="methode-points">Comment les points sont attribués</h2>
+        <p>Chaque question a un barème en points, indiqué sur l'évaluation. La note finale est la somme des points, ramenée sur 20.</p>
+        <dl class="eval-methode-types">
+          <div>
+            <dt>Questions à choix multiples</dt>
+            <dd>Tous les points si la bonne réponse est choisie, aucun sinon.</dd>
+          </div>
+          <div>
+            <dt>Questions à réponse numérique</dt>
+            <dd>Tous les points si la valeur est juste, quelle que soit son écriture (22, 22,0 ou « = 22 »), aucun sinon.</dd>
+          </div>
+          <div>
+            <dt>Questions à rédiger</dt>
+            <dd>Les points sont répartis entre les quatre critères de la méthode française et le résultat, par demi-points :
+              <ul>
+                <li>un résultat juste sans justification n'obtient <strong>pas plus de la moitié</strong> des points ;</li>
+                <li>une démarche juste avec une erreur de calcul garde les points de la méthode et de la rédaction ;</li>
+                <li>une propriété mal choisie ou appliquée hors de ses conditions fait perdre les points qui en dépendent ;</li>
+                <li>une réponse vide obtient 0.</li>
+              </ul>
+            </dd>
+          </div>
+        </dl>
+        <p>Pour chaque question, la copie corrigée indique les points obtenus et une remarque qui nomme ce qui manque :
+          justification, rédaction, propriété ou raisonnement. Le commentaire général résume ce qui est réussi et ce qu'il faut retravailler.
+          Le corrigé détaillé est publié quand l'évaluation est fermée.</p>
+      </section>
+      ${evalMethodeInfoHtml()}
+    </div>`;
+  c.scrollTop = 0;
+}
+
+// Texte d'information : comparaison des traditions de correction en France et aux États-Unis.
+function evalMethodeInfoHtml() {
+  const liste = items => `<ul>${items.map(x => `<li>${x}</li>`).join("")}</ul>`;
+  const lignes = [
+    ["Objectif principal", "Rigueur, démonstration, logique", "Résolution de problèmes, compréhension"],
+    ["Rédaction", "Très formelle, phrases complètes", "Moins formelle, étapes essentielles"],
+    ["Hypothèses", "Toujours vérifiées et citées", "Souvent implicites"],
+    ["Barème", "Raisonnement > résultat", "Résultat + méthode"],
+    ["Erreurs", "Une erreur conceptuelle peut annuler", "Erreurs partielles souvent tolérées"],
+    ["Style", "« Maths à la française »", "« Problem solving »"],
+    ["Concours / examens", "Très théoriques", "Très appliqués"],
+  ];
+  return `
+    <section class="eval-info-comparee" aria-labelledby="info-comparee">
+      <p class="eval-methode-etiquette">Pour information</p>
+      <h2 id="info-comparee">Corriger les mathématiques en France et aux États‑Unis</h2>
+
+      <div class="eval-info-bloc eval-info-bloc--court">
+        <h3>🎯 Réponse courte</h3>
+        <p><strong>France (lycée + prépa)</strong> : correction rédactionnelle, rigoureuse, centrée sur le raisonnement, la justification, la structure logique, et la vérification des hypothèses. Une erreur de raisonnement peut annuler tout un résultat.</p>
+        <p><strong>États‑Unis (high school + college)</strong> : correction procédurale, centrée sur la méthode employée, la cohérence des étapes, et la compréhension conceptuelle. La rédaction est moins formelle ; l'accent est mis sur la résolution de problèmes, les applications, et la pensée critique.</p>
+      </div>
+
+      <div class="eval-methodes">
+        <div class="eval-methode-carte">
+          <h3>🇫🇷 France : lycée et classes préparatoires</h3>
+          <h4>🧩 Caractéristiques générales</h4>
+          ${liste([
+            "<strong>Rédaction complète obligatoire</strong> : phrases complètes, justification de chaque étape.",
+            "<strong>Vérification systématique des hypothèses</strong> (continuité, dérivabilité, positivité…).",
+            "<strong>Démonstrations formelles</strong> : structure logique, articulation des théorèmes.",
+            "<strong>Barème sévère</strong> : une démonstration incomplète vaut souvent 0 point en prépa.",
+            "<strong>Importance du raisonnement</strong> : le résultat seul ne vaut presque rien.",
+            "<strong>Notation « à la française »</strong> : rigueur, élégance, précision.",
+          ])}
+          <h4>📘 En lycée</h4>
+          <p>Correction centrée sur :</p>
+          ${liste(["justification des calculs,", "rédaction correcte,", "application des propriétés,", "cohérence du raisonnement."])}
+          <h4>🎓 En prépa (MPSI, PCSI, MP, etc.)</h4>
+          <p>Correction très académique, héritée des concours (X, ENS, Mines, Centrale).</p>
+          <p>Le correcteur cherche :</p>
+          ${liste(["définitions parfaitement énoncées,", "théorèmes cités avec leurs hypothèses,", "enchaînement logique impeccable,", "rédaction fluide et lisible,", "absence d'erreurs conceptuelles."])}
+          <p class="eval-info-cle">En prépa, la copie est évaluée comme un mini‑article mathématique.</p>
+        </div>
+
+        <div class="eval-methode-carte">
+          <h3>🇺🇸 États‑Unis : high school et undergraduate</h3>
+          <h4>🧩 Caractéristiques générales</h4>
+          <p>Correction moins formelle, plus orientée vers :</p>
+          ${liste(["la compréhension conceptuelle,", "la procédure,", "la résolution de problèmes,", "les applications (sciences, économie, data)."])}
+          <p>La rédaction est beaucoup moins codifiée qu'en France.</p>
+          <p>Les enseignants valorisent :</p>
+          ${liste(["la pensée critique,", "la créativité,", "la capacité à modéliser un problème."])}
+          <h4>📘 High school (équivalent lycée)</h4>
+          <p>Beaucoup de QCM, exercices courts, problèmes appliqués.</p>
+          <p>Correction centrée sur :</p>
+          ${liste(["la méthode,", "la cohérence des étapes,", "la compréhension intuitive."])}
+          <h4>🎓 Undergraduate (équivalent L1–L2)</h4>
+          ${liste([
+            "En analyse / algèbre : rédaction correcte mais moins formelle qu'en prépa.",
+            "En calcul différentiel / intégral : importance de la procédure (techniques d'intégration, dérivation).",
+            "En statistiques : importance de l'interprétation et de la justification.",
+          ])}
+          <p class="eval-info-cle">Aux États‑Unis, la copie est évaluée comme une résolution de problème, pas comme une démonstration académique.</p>
+        </div>
+      </div>
+
+      <div class="eval-info-bloc">
+        <h3>🆚 Comparaison synthétique</h3>
+        <div class="eval-admin-tableau">
+          <table class="eval-info-tableau">
+            <thead><tr><th>Critère</th><th>🇫🇷 France (lycée + prépa)</th><th>🇺🇸 États‑Unis (high school + college)</th></tr></thead>
+            <tbody>${lignes.map(l => `<tr><th scope="row">${l[0]}</th><td>${l[1]}</td><td>${l[2]}</td></tr>`).join("")}</tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="eval-info-bloc">
+        <h3>📌 Pourquoi cette différence ?</h3>
+        ${liste([
+          "La France a une tradition bourbakiste, centrée sur la structure logique et la démonstration.",
+          "Les États‑Unis ont une tradition appliquée, influencée par l'ingénierie, l'économie, et les sciences expérimentales.",
+        ])}
+      </div>
+    </section>`;
 }

@@ -36,6 +36,10 @@ globalThis.fetch = async (url, opts = {}) => {
   if (u.endsWith("/issues")) return Response.json({ number: 1 }, { status: 201 });
   if (u.includes("brevo")) return Response.json({ messageId: "x" }, { status: 201 });
   if (u.endsWith("/dispatches")) return new Response(null, { status: globalThis.statutDispatch || 204 });
+  if (u.includes("/issues?state=open")) return Response.json([
+    { number: 41, html_url: "https://github.com/x/issues/41", user: { login: "pseudo" }, body: "<!-- mathsite:reponse-evaluation v1 -->\nx\n```json\n" + JSON.stringify({ annee: "2026-2027", classe: "5e", evaluation: "ouverte", empreinte: "a".repeat(64), recuLe: "2026-10-05T10:00:00Z" }) + "\n```" },
+    { number: 42, html_url: "https://github.com/x/issues/42", user: { login: "inconnu" }, body: "<!-- mathsite:reponse-evaluation v1 -->\nx\n```json\n{}\n```" },
+  ]);
   if (u.includes("/static.yml/runs?")) return Response.json({ workflow_runs: [{ status: "in_progress", conclusion: null, event: "workflow_dispatch", run_started_at: "2026-09-26T19:05:00Z", updated_at: "2026-09-26T19:05:30Z", html_url: "https://github.com/x/runs/2" }] });
   if (u.includes("/runs?")) return Response.json({ workflow_runs: [{ status: "completed", conclusion: "success", event: "workflow_dispatch", run_started_at: "2026-09-26T19:00:00Z", updated_at: "2026-09-26T19:04:00Z", html_url: "https://github.com/x/runs/1" }] });
   throw new Error("appel inattendu " + u);
@@ -139,25 +143,30 @@ assert.equal(pre.status, 204);
 assert.equal(pre.headers.get("Access-Control-Allow-Origin"), ORIGINE);
 console.log("OK  préflight CORS");
 
-// 11. Administration : lancement de l'agent
-r = await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", cloturer: "2026-09-25-priorites-operatoires", generer_classe: "seconde", generer_sujet: "Vecteurs" }, ORIGINE, "/agent/lancer");
+// 11. Administration : lancement de l'agent dans les trois modes
+r = await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", mode: "correction", evaluations: ["2026-09-25-priorites-operatoires", "2026-10-04-lot-1"] }, ORIGINE, "/agent/lancer");
 assert.equal(r.statut, 200, JSON.stringify(r.json));
-const dispatch = JSON.parse(appels.find(a => a.url.endsWith("/dispatches")).opts.body);
-assert.deepEqual(dispatch, { ref: "main", inputs: { cloturer: "2026-09-25-priorites-operatoires", lot_hebdomadaire: "false", generer_classe: "seconde", generer_sujet: "Vecteurs" } });
-r = await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", lot_hebdomadaire: true }, ORIGINE, "/agent/lancer");
-assert.equal(JSON.parse(appels.find(a => a.url.endsWith("/dispatches")).opts.body).inputs.lot_hebdomadaire, "true");
+let dispatch = JSON.parse(appels.find(a => a.url.endsWith("/dispatches")).opts.body);
+assert.deepEqual(dispatch, { ref: "main", inputs: { mode: "correction", evaluations: "2026-09-25-priorites-operatoires,2026-10-04-lot-1", generer_classe: "", generer_sujet: "" } });
 assert.ok(appels.find(a => a.url.endsWith("/dispatches")).url.includes("/actions/workflows/agent-evaluations.yml/"));
-console.log("OK  lancement de l'agent");
+r = await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", mode: "creation", generer_classe: "seconde", generer_sujet: "Vecteurs" }, ORIGINE, "/agent/lancer");
+dispatch = JSON.parse(appels.find(a => a.url.endsWith("/dispatches")).opts.body);
+assert.deepEqual(dispatch.inputs, { mode: "creation", evaluations: "", generer_classe: "seconde", generer_sujet: "Vecteurs" });
+r = await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", mode: "hebdomadaire" }, ORIGINE, "/agent/lancer");
+assert.equal(JSON.parse(appels.find(a => a.url.endsWith("/dispatches")).opts.body).inputs.mode, "hebdomadaire");
+console.log("OK  lancement de l'agent (hebdomadaire, création, correction)");
 
-// 12. Mauvais mot de passe, jeton Turnstile absent, champs piégés, permission manquante
-assert.equal((await envoyer({ motDePasse: "faux", jeton: "bon-jeton" }, ORIGINE, "/agent/lancer")).statut, 401);
+// 12. Refus : mot de passe, jeton, mode, liste, classe, permission
+assert.equal((await envoyer({ motDePasse: "faux", jeton: "bon-jeton", mode: "hebdomadaire" }, ORIGINE, "/agent/lancer")).statut, 401);
 assert.ok(!appels.some(a => a.url.endsWith("/dispatches")));
-assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long" }, ORIGINE, "/agent/lancer")).statut, 403);
-assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", cloturer: "../x" }, ORIGINE, "/agent/lancer")).statut, 400);
-assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", generer_classe: "cm2" }, ORIGINE, "/agent/lancer")).statut, 400);
+assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long", mode: "hebdomadaire" }, ORIGINE, "/agent/lancer")).statut, 403);
+assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", mode: "tout" }, ORIGINE, "/agent/lancer")).statut, 400);
+assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", mode: "correction", evaluations: [] }, ORIGINE, "/agent/lancer")).statut, 400);
+assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", mode: "correction", evaluations: ["../x"] }, ORIGINE, "/agent/lancer")).statut, 400);
+assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", mode: "creation", generer_classe: "cm2" }, ORIGINE, "/agent/lancer")).statut, 400);
 globalThis.statutDispatch = 403;
 console.error = () => {};
-r = await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton" }, ORIGINE, "/agent/lancer");
+r = await envoyer({ motDePasse: "un-mot-de-passe-long", jeton: "bon-jeton", mode: "hebdomadaire" }, ORIGINE, "/agent/lancer");
 console.error = erreurConsole;
 globalThis.statutDispatch = undefined;
 assert.equal(r.statut, 502);
@@ -169,6 +178,8 @@ r = await envoyer({ motDePasse: "un-mot-de-passe-long" }, ORIGINE, "/agent/etat"
 assert.equal(r.statut, 200);
 assert.equal(r.json.passages[0].conclusion, "success");
 assert.equal(r.json.publication.statut, "in_progress");
+assert.equal(r.json.attente.length, 1);
+assert.equal(r.json.attente[0].issue, 41);
 assert.ok(appels.some(a => a.url.includes("/actions/workflows/static.yml/runs?per_page=1")));
 assert.equal((await envoyer({ motDePasse: "faux" }, ORIGINE, "/agent/etat")).statut, 401);
 assert.equal((await envoyer({ motDePasse: "un-mot-de-passe-long" }, "https://pirate.example", "/agent/etat")).statut, 403);

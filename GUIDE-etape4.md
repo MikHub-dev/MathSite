@@ -35,10 +35,10 @@ Choisissez un mot de passe long (au moins 12 caractères), que vous n'utilisez n
 1. Toujours dans **mathsite-formulaires**, cliquez sur **Edit code** (icône `</>`, en haut à droite).
 2. Dans l'éditeur, cliquez dans le fichier ouvert (`index.js` ou `worker.js`), faites **Ctrl + A** puis
    **Suppr**.
-3. Ouvrez le fichier `worker/src/index.js` fourni (version 1.1), copiez tout son contenu et collez-le.
+3. Ouvrez le fichier `worker/src/index.js` fourni (version 1.2 ou plus récente), copiez tout son contenu et collez-le.
 4. Cliquez sur **Deploy**.
 
-Si un jour vous redéployez avec `npx wrangler deploy`, utilisez bien cette version 1.1 de
+Si un jour vous redéployez avec `npx wrangler deploy`, utilisez bien la dernière version de
 `worker/src/index.js` : sinon l'ancienne version, sans l'espace enseignant, reviendrait.
 
 ## 4. Mettre à jour le site sur GitHub
@@ -50,7 +50,9 @@ Sur github.com/MikHub-dev/MathSite, branche **main** :
 2. Ouvrez le dossier `worker/src`, puis **Add file**, **Upload files** : glissez `index.js`
    (version 1.1) et faites un commit, pour que le dépôt garde la même version que Cloudflare.
 
-Le workflow « Deploy static content to Pages » met le site à jour tout seul en une ou deux minutes.
+Le workflow « Deploy static content to Pages » met le site à jour tout seul. Comptez une à deux minutes
+de publication, puis jusqu'à 10 minutes de cache de GitHub Pages avant que tous les visiteurs voient
+la nouvelle version. L'espace enseignant affiche l'état de cette publication.
 
 ## 5. Essayer
 
