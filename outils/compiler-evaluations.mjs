@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 1.3
+// Version : 1.4
 // Compile les fichiers sources des évaluations en un seul fichier evaluations-data.js,
 // chargé par index.html (même principe que jsonMathsite.js : pas de fetch(), le site
 // fonctionne aussi en ouvrant index.html directement).
@@ -13,6 +13,9 @@
 //   kpi.json                                 chiffres calculés par outils/kpi.mjs (facultatif)
 // Le script vérifie les fichiers et s'arrête avec un code d'erreur 1 si l'un d'eux est invalide
 // (l'agent Claude de l'étape 3 s'appuie sur ce contrôle avant chaque commit).
+// Question bonus (facultative, au plus une) : { "id": "bonus", "type": "qcm", "bonus": true, "domaine",
+// "enonce", "choix" (4) }, sans « points » : hors barème, elle n'entre pas dans le total. Dans les notes,
+// le champ « bonus » d'une copie vaut { points: 0 ou 0.5 (sur 20), remarque }.
 
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from "node:fs";
 import { join, dirname, resolve, basename } from "node:path";
@@ -46,8 +49,23 @@ function verifierEvaluation(ev, id, f) {
   if (!Array.isArray(ev.questions) || ev.questions.length === 0) { e("aucune question"); return 0; }
   const ids = new Set();
   let total = 0;
+  const bonus = ev.questions.filter(q => q && q.bonus === true);
+  if (bonus.length > 1) e("une seule question bonus par évaluation");
+  if (bonus.length && ev.questions[ev.questions.length - 1].bonus !== true) e("la question bonus doit être la dernière");
+  if (bonus.length === ev.questions.length) e("aucune question hors bonus");
   ev.questions.forEach((q, i) => {
     const qe = msg => e(`question ${i + 1} : ${msg}`);
+    if (q.bonus !== undefined && q.bonus !== true) qe('"bonus" doit valoir true (ou être absent)');
+    if (q.bonus === true) {
+      if (typeof q.id !== "string" || !/^[a-z0-9_-]+$/i.test(q.id)) qe('"id" manquant ou invalide');
+      else if (ids.has(q.id)) qe(`"id" en double (${q.id})`);
+      ids.add(q.id);
+      if (q.type !== "qcm") qe("la question bonus doit être un QCM");
+      if (!Array.isArray(q.choix) || q.choix.length !== 4) qe("la question bonus doit avoir exactement 4 \"choix\"");
+      if (typeof q.enonce !== "string" || !q.enonce.trim()) qe('"enonce" manquant');
+      if (q.points !== undefined) qe('la question bonus n\'a pas de "points" (elle vaut +0,5 sur 20, hors barème)');
+      return;
+    }
     if (typeof q.id !== "string" || !/^[a-z0-9_-]+$/i.test(q.id)) qe('"id" manquant ou invalide');
     else if (ids.has(q.id)) qe(`"id" en double (${q.id})`);
     ids.add(q.id);
@@ -104,6 +122,7 @@ for (const annee of dossiers(join(racine, "evaluations"))) {
         if (!/^[0-9a-f]{64}$/.test(h)) erreurs.push(`${rel(cheminNotes)} : clé qui n'est pas une empreinte (${h.slice(0, 12)}...)`);
         if (!v || typeof v.note !== "number" || v.note < 0 || v.note > total) erreurs.push(`${rel(cheminNotes)} : note invalide (doit être entre 0 et ${total})`);
         if (v && v.details !== undefined && (typeof v.details !== "object" || Array.isArray(v.details))) erreurs.push(`${rel(cheminNotes)} : "details" doit être un objet { idQuestion: { points, remarque } }`);
+        if (v && v.bonus !== undefined && (!v.bonus || ![0, 0.5].includes(v.bonus.points))) erreurs.push(`${rel(cheminNotes)} : "bonus" doit valoir { "points": 0 ou 0.5, "remarque": "..." }`);
         if (connues.size && !connues.has(h)) avertissements.push(`${rel(cheminNotes)} : empreinte absente de eleves/${annee}.json (${classe})`);
       }
       EVAL_NOTES[annee][classe] = EVAL_NOTES[annee][classe] || {};

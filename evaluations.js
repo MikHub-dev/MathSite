@@ -1,4 +1,4 @@
-// Version : 2.5
+// Version : 2.6
 // --- Page « Évaluations » (menu horizontal) ---
 // Données : evaluations-data.js, généré par outils/compiler-evaluations.mjs à partir des dossiers
 // evaluations/, notes/ et eleves/, fournit window.EVALUATIONS, window.EVAL_NOTES et window.EVAL_ELEVES.
@@ -85,10 +85,11 @@ function evalAujourdhui() {
 function evalStatut(annee, classe, ev) {
   return ev.cloturee === true || ev.corrige ? "cloturee" : "ouverte";
 }
+// Statistiques d'une évaluation, en notes ramenées sur 20 (bonus compris).
 function evalStats(n, total) {
-  const vals = Object.values(n.notes).map(x => x.note);
+  const vals = Object.values(n.notes).map(x => evalNoteCopie20(x, total));
   const tranches = [0, 0, 0, 0];
-  vals.forEach(v => { tranches[Math.min(3, Math.floor(v / total * 4))]++; });
+  vals.forEach(v => { tranches[Math.min(3, Math.floor(v / 20 * 4))]++; });
   return {
     n: vals.length,
     moyenne: vals.reduce((a, b) => a + b, 0) / vals.length,
@@ -116,6 +117,23 @@ function evalSur20(note, total) {
 }
 function evalNote20(note, total) {
   return `${evalNombre(evalSur20(note, total))}/20`;
+}
+// Question bonus : un QCM facultatif (« bonus »: true), hors barème, qui ajoute EVAL_BONUS point à la
+// note sur 20 s'il est juste (20,5/20 possible). Ses points obtenus sont dans la note, champ « bonus ».
+const EVAL_BONUS = 0.5;
+function evalBonusObtenu(n) {
+  return n && n.bonus && typeof n.bonus.points === "number" ? n.bonus.points : 0;
+}
+// Note d'une copie ramenée sur 20, bonus compris.
+function evalNoteCopie20(n, total) {
+  return Math.round((n.note * 20 / total + evalBonusObtenu(n)) * 10) / 10;
+}
+function evalNoteCopieTexte(n, total) {
+  return `${evalNombre(evalNoteCopie20(n, total))}/20`;
+}
+// Numéro affiché des questions : le bonus n'est pas numéroté.
+function evalNumeroQuestion(ev, q) {
+  return q.bonus ? "Question bonus" : `Question ${ev.questions.filter(x => !x.bonus).indexOf(q) + 1}`;
 }
 function evalPoints(p) {
   return `${evalNombre(p)} point${p > 1 ? "s" : ""}`;
@@ -301,7 +319,7 @@ function evalMoyenneClasse(annee, classe) {
   for (const ev of evalListe(annee, classe)) {
     const n = evalNotes(annee, classe, ev.id);
     if (!n) continue;
-    Object.entries(n.notes).forEach(([h, x]) => { if (inscrits.has(h)) valeurs.push(x.note / ev.total * 20); });
+    Object.entries(n.notes).forEach(([h, x]) => { if (inscrits.has(h)) valeurs.push(evalNoteCopie20(x, ev.total)); });
   }
   return valeurs.length ? valeurs.reduce((a, b) => a + b, 0) / valeurs.length : null;
 }
@@ -409,7 +427,7 @@ function evalBadge(annee, classe, ev) {
   if (evalStatut(annee, classe, ev) === "ouverte") return `<span class="eval-badge eval-badge--ouverte">Ouverte</span>`;
   if (!notes || !evalStatsVisibles(annee, classe)) return `<span class="eval-badge eval-badge--corrigee">Fermée</span>`;
   const st = evalStats(notes, ev.total);
-  return `<span class="eval-badge eval-badge--corrigee">Fermée, moyenne ${evalNote20(st.moyenne, ev.total)}</span>`;
+  return `<span class="eval-badge eval-badge--corrigee">Fermée, moyenne ${evalNombre(Math.round(st.moyenne * 10) / 10)}/20</span>`;
 }
 
 // Ligne d'évaluation dans l'espace de l'élève, avec son état personnel.
@@ -418,7 +436,7 @@ function evalLigne(annee, classe, ev, note) {
   let etat, badge;
   if (note) {
     etat = "cloturee";
-    badge = `<span class="eval-badge eval-badge--corrigee">${evalNote20(note.note, ev.total)}</span>`;
+    badge = `<span class="eval-badge eval-badge--corrigee">${evalNoteCopieTexte(note, ev.total)}</span>`;
   } else if (evalStatut(annee, classe, ev) === "cloturee") {
     etat = "cloturee";
     badge = `<span class="eval-badge eval-badge--corrigee">Fermée</span>`;
@@ -547,16 +565,24 @@ async function openEvaluation(annee, classe, id, empreinteCopie) {
   c.scrollTop = 0;
 }
 
-function evalQuestionTete(q, i) {
-  const repere = [EVAL_NIVEAUX[q.niveau], q.tempsMinutes ? `${q.tempsMinutes} min` : ""].filter(Boolean).join(" · ");
-  return `<div class="eval-q-tete"><span class="eval-q-num">Question ${i + 1}${repere ? ` <span class="eval-q-niveau eval-q-niveau--${q.niveau || 0}">${repere}</span>` : ""}</span><span class="eval-q-pts">${evalPoints(q.points)}</span></div>
+function evalQuestionTete(q, i, ev) {
+  if (q.bonus) {
+    return `<div class="eval-q-tete"><span class="eval-q-num">Question bonus${q.domaine ? ` <span class="eval-q-niveau eval-q-niveau--bonus">${escapeHtml(q.domaine)}</span>` : ""}</span><span class="eval-q-pts eval-q-pts--bonus">+${evalNombre(EVAL_BONUS)} point sur 20</span></div>
     <div class="eval-q-enonce">${q.enonce}</div>`;
+  }
+  const repere = [EVAL_NIVEAUX[q.niveau], q.tempsMinutes ? `${q.tempsMinutes} min` : ""].filter(Boolean).join(" · ");
+  const numero = ev ? evalNumeroQuestion(ev, q) : `Question ${i + 1}`;
+  return `<div class="eval-q-tete"><span class="eval-q-num">${numero}${repere ? ` <span class="eval-q-niveau eval-q-niveau--${q.niveau || 0}">${repere}</span>` : ""}</span><span class="eval-q-pts">${evalPoints(q.points)}</span></div>
+    <div class="eval-q-enonce">${q.enonce}</div>`;
+}
+function evalClasseQuestion(q) {
+  return q.bonus ? "eval-question eval-question--bonus" : "eval-question";
 }
 
 function evalQuestionsLectureHtml(ev, avecCorrige) {
   return `<ol class="eval-questions">${ev.questions.map((q, i) => `
-    <li class="eval-question">
-      ${evalQuestionTete(q, i)}
+    <li class="${evalClasseQuestion(q)}">
+      ${evalQuestionTete(q, i, ev)}
       ${q.type === "qcm" ? `<ul class="eval-choix-lecture">${q.choix.map(ch => `<li>${escapeHtml(ch)}</li>`).join("")}</ul>` : ""}
       ${avecCorrige && ev.corrige && ev.corrige[q.id]
         ? `<div class="eval-corrige"><p class="eval-corrige-lib">Correction</p>${ev.corrige[q.id]}</div>` : ""}
@@ -573,9 +599,9 @@ function evalStatsHtml(ev, notes, statut) {
     <h2>Résultats de la classe <small>(${st.n} copie${st.n > 1 ? "s" : ""} corrigée${st.n > 1 ? "s" : ""}${statut === "ouverte" ? ", résultats provisoires" : ""})</small></h2>
     <div class="eval-resultats-corps">
       <dl class="eval-stats">
-        <div><dt>Moyenne</dt><dd>${evalNombre(evalSur20(st.moyenne, ev.total))}<small>/20</small></dd></div>
-        <div><dt>Plus basse</dt><dd>${evalNombre(evalSur20(st.min, ev.total))}<small>/20</small></dd></div>
-        <div><dt>Plus haute</dt><dd>${evalNombre(evalSur20(st.max, ev.total))}<small>/20</small></dd></div>
+        <div><dt>Moyenne</dt><dd>${evalNombre(Math.round(st.moyenne * 10) / 10)}<small>/20</small></dd></div>
+        <div><dt>Plus basse</dt><dd>${evalNombre(st.min)}<small>/20</small></dd></div>
+        <div><dt>Plus haute</dt><dd>${evalNombre(st.max)}<small>/20</small></dd></div>
         <div><dt>Copies</dt><dd>${st.n}</dd></div>
       </dl>
       <div class="eval-histo" role="img" aria-label="Répartition des notes : ${resume}">
@@ -595,7 +621,7 @@ function evalNoteHtml(ev, n, vueEnseignant) {
     ? `<a class="eval-lien" href="https://github.com/${EVAL_CONFIG.depot}/issues/${n.issue}" target="_blank" rel="noopener">Réponses envoyées par l'élève</a>` : "";
   return `<div class="eval-ma-note eval-ma-note--seule">
       <h3>${vueEnseignant ? "Note de l'élève" : "Ma note"}</h3>
-      <p class="eval-ma-note-val">${evalNombre(evalSur20(n.note, ev.total))}<small>/20</small></p>
+      <p class="eval-ma-note-val">${evalNombre(evalNoteCopie20(n, ev.total))}<small>/20</small></p>${evalBonusObtenu(n) > 0 ? `<p class="eval-ma-note-bonus">dont +${evalNombre(evalBonusObtenu(n))} de bonus</p>` : ""}
       ${n.reponduLe ? `<p class="eval-ma-note-date">Répondu le ${evalDate(n.reponduLe.slice(0, 10), true)}${n.corrigeLe ? `, corrigé le ${evalDate(n.corrigeLe, true)}` : ""}.</p>` : ""}
       ${n.commentaire ? `<p class="eval-ma-note-com">${escapeHtml(n.commentaire)}</p>` : ""}
       <p class="eval-ma-note-liens">${vueEnseignant ? lienReponses : ""}
@@ -609,15 +635,16 @@ function evalCopieHtml(ev, n, avecCorrige) {
   const details = n.details || {};
   const reponses = n.reponses || {};
   return `<ol class="eval-questions">${ev.questions.map((q, i) => {
-    const d = details[q.id] || {};
+    const d = (q.bonus ? n.bonus : details[q.id]) || {};
     const r = reponses[q.id];
-    const niveau = typeof d.points !== "number" ? "" : d.points >= q.points ? "juste" : d.points > 0 ? "partiel" : "faux";
+    const max = q.bonus ? EVAL_BONUS : q.points;
+    const niveau = typeof d.points !== "number" ? "" : d.points >= max ? "juste" : d.points > 0 ? "partiel" : "faux";
     return `
-    <li class="eval-question">
-      ${evalQuestionTete(q, i)}
+    <li class="${evalClasseQuestion(q)}">
+      ${evalQuestionTete(q, i, ev)}
       ${q.type === "qcm" ? `<ul class="eval-choix-lecture">${q.choix.map(ch => `<li>${escapeHtml(ch)}</li>`).join("")}</ul>` : ""}
       <div class="eval-copie eval-copie--${niveau || "neutre"}">
-        <p class="eval-copie-lib">Réponse de l'élève${typeof d.points === "number" ? ` <span class="eval-copie-points">${evalNombre(d.points)}/${evalNombre(q.points)}</span>` : ""}</p>
+        <p class="eval-copie-lib">Réponse de l'élève${typeof d.points === "number" ? ` <span class="eval-copie-points">${q.bonus ? `+${evalNombre(d.points)} sur 20` : `${evalNombre(d.points)}/${evalNombre(q.points)}`}</span>` : ""}</p>
         <p class="eval-copie-reponse">${r ? escapeHtml(r).replace(/\n/g, "<br>") : "<em>Sans réponse</em>"}</p>
         ${d.remarque ? `<p class="eval-copie-remarque">${escapeHtml(d.remarque)}</p>` : ""}
       </div>
@@ -642,7 +669,7 @@ async function evalAfficherMaNote(annee, classe, ev) {
     ${autreClasse
       ? `<p>Le code ${evalFormaterCode(code)} n'appartient pas à la classe de ${escapeHtml(evalLabelClasse(classe))}.</p>`
       : n
-        ? `<p class="eval-ma-note-val">${evalNombre(evalSur20(n.note, ev.total))}<small>/20</small></p>
+        ? `<p class="eval-ma-note-val">${evalNombre(evalNoteCopie20(n, ev.total))}<small>/20</small></p>${evalBonusObtenu(n) > 0 ? `<p class="eval-ma-note-bonus">dont +${evalNombre(evalBonusObtenu(n))} de bonus</p>` : ""}
            ${n.reponduLe ? `<p class="eval-ma-note-date">Répondu le ${evalDate(n.reponduLe.slice(0, 10), true)}${n.corrigeLe ? `, corrigé le ${evalDate(n.corrigeLe, true)}` : ""}.</p>` : ""}
            ${n.commentaire ? `<p class="eval-ma-note-com">${escapeHtml(n.commentaire)}</p>` : ""}`
         : `<p>Pas encore de copie corrigée pour le code ${evalFormaterCode(code)}.</p>`}
@@ -668,7 +695,7 @@ function evalFormulaireHtml(annee, classe, ev) {
     <form id="eval-form" class="eval-form" novalidate
           onsubmit="event.preventDefault(); evalEnvoyerReponses('${annee}','${classe}','${ev.id}')">
       <ol class="eval-questions">${ev.questions.map((q, i) => `
-        <li class="eval-question">${evalQuestionTete(q, i)}${evalChampHtml(q)}</li>`).join("")}
+        <li class="${evalClasseQuestion(q)}">${evalQuestionTete(q, i, ev)}${evalChampHtml(q)}</li>`).join("")}
       </ol>
       <fieldset class="eval-identite">
         <legend>Vos informations</legend>
@@ -722,7 +749,7 @@ async function evalEnvoyerReponses(annee, classe, id) {
     }
     return { question: q.id, reponse: valeur };
   });
-  const vides = reponses.filter(r => !r.reponse).length;
+  const vides = reponses.filter(r => !r.reponse && !ev.questions.find(q => q.id === r.question).bonus).length;
   if (vides && !confirm(`${vides} question${vides > 1 ? "s" : ""} sans réponse. Envoyer quand même ?`)) return;
 
   const message = {
@@ -738,7 +765,7 @@ async function evalEnvoyerReponses(annee, classe, id) {
     `Prénom : ${prenom}`,
     `Code : ${message.code}`,
     "",
-    ...reponses.map((r, i) => `Question ${i + 1} : ${r.reponse || "(sans réponse)"}`),
+    ...reponses.map(r => `${evalNumeroQuestion(ev, ev.questions.find(q => q.id === r.question))} : ${r.reponse || "(sans réponse)"}`),
   ].join("\n");
 
   const bouton = form.querySelector("button[type=submit]");
@@ -1145,7 +1172,7 @@ function evalAfficherTableau() {
       if (fermee) { statut = `<span class="eval-badge eval-badge--corrigee">Fermée</span>`; compte.fermee++; }
       else if (recues.length) { statut = `<span class="eval-badge eval-badge--correction">En attente</span>`; compte.attente++; }
       else { statut = `<span class="eval-badge eval-badge--ouverte">Ouverte</span>`; compte.ouverte++; evalSelection.delete(cle); }
-      let note = notees.map(([, n]) => `<strong>${evalNote20(n.note, ev.total)}</strong>`).join(", ");
+      let note = notees.map(([, n]) => `<strong>${evalNoteCopieTexte(n, ev.total)}</strong>`).join(", ");
       if (!note && recues.length) note = `<span class="eval-admin-type">Reçue le ${evalDate(recues[0].recuLe.slice(0, 10))}</span>`;
       const liens = [];
       for (const [h, n] of notees) {
@@ -1316,6 +1343,10 @@ function loadMethodeCorrectionPage() {
             </dd>
           </div>
         </dl>
+        <p><strong>Question bonus.</strong> Chaque évaluation se termine par une question bonus facultative : un QCM à quatre
+          choix sur une application concrète d'une formule de l'évaluation (sciences, économie, data, IA, transports…). Une bonne
+          réponse ajoute ${evalNombre(EVAL_BONUS)} point à la note sur 20, même au-delà de 20 (20,5/20 possible) ; une réponse
+          fausse ou vide n'enlève rien. Le corrigé explique la bonne réponse et le piège des autres choix.</p>
         <p>Pour chaque question, la copie corrigée indique les points obtenus et une remarque qui nomme ce qui manque :
           justification, rédaction, propriété ou raisonnement. Le commentaire général résume ce qui est réussi et ce qu'il faut retravailler.
           Le corrigé détaillé est publié quand l'évaluation est fermée.</p>

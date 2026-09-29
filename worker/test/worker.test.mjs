@@ -69,7 +69,7 @@ assert.deepEqual(issue.labels, ["reponse-eval", "5e"]);
 assert.ok(!issue.body.includes("Léa") && !issue.body.includes("MARCZA"), "l'issue ne doit contenir ni prénom ni code");
 const bloc = JSON.parse(issue.body.split("```json\n")[1].split("\n```")[0]);
 assert.equal(bloc.empreinte, h("5e", "MARCZA"));
-assert.deepEqual(bloc.reponses.map(x => x.question), ["q1", "q2", "q3", "q4"]);
+assert.deepEqual(bloc.reponses.map(x => x.question), ouverte.questions.map(q => q.id));   // toutes les questions, bonus compris
 assert.equal(bloc.reponses[2].reponse, "4 + 4 × 4");
 const mail = JSON.parse(appels.find(a => a.url.includes("brevo")).opts.body);
 assert.ok(mail.textContent.includes("Léa") && mail.textContent.includes("MARCZA"));

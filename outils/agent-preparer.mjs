@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 3.2
+// Version : 3.3
 // Préparation du travail de l'agent (1re étape du workflow .github/workflows/agent-evaluations.yml).
 // Script déterministe : il décide QUOI faire ; Claude applique ensuite les skills du dossier skills/.
 //
@@ -188,7 +188,7 @@ export async function preparer() {
       if (fermer) journal.push(`Fermeture : ${id} (tous les élèves de ${classe} corrigés, corrigé publié)`);
       aCorriger.push({
         annee: a, classe, evaluation: id, fichierEvaluation: chemin, fichierNotes: cheminNotes,
-        total: ev.questions.reduce((t, q) => t + q.points, 0), cloturer: fermer, copies,
+        total: ev.questions.filter(q => q.bonus !== true).reduce((t, q) => t + q.points, 0), cloturer: fermer, copies,
       });
     }
   }
@@ -241,7 +241,7 @@ export async function preparer() {
         for (const id of evaluationsDeClasse(a, classe)) {
           const fichier = `evaluations/${a}/${classe}/${id}.json`;
           const ev = lireJson(fichier);
-          const incomplete = (ev.questions || []).some(q => ![1, 2, 3].includes(q.niveau) || !(q.tempsMinutes > 0));
+          const incomplete = (ev.questions || []).some(q => q.bonus !== true && (![1, 2, 3].includes(q.niveau) || !(q.tempsMinutes > 0)));
           if (incomplete) aNiveler.push({ annee: a, classe, evaluation: id, fichier, dureeMinutes: ev.dureeMinutes || null });
         }
       }

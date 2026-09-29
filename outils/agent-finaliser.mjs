@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 3.3
+// Version : 3.4
 // Skill « deploiement » : contrôles après le passage de Claude, puis fermeture des issues
 // (workflow agent-evaluations.yml ; le commit, le push et la mise à jour du site sont faits par le workflow).
 //
@@ -7,6 +7,9 @@
 //     - aucune modification hors de evaluations/, notes/, kpi.json et evaluations-data.js ;
 //     - détail par question (details) : une entrée par question, points entre 0 et le barème,
 //       total égal à la note ; les réponses de l'élève et le numéro de l'issue sont ajoutés ici ;
+//     - question bonus (« bonus »: true, hors barème) : pas dans details, mais dans le champ « bonus »
+//       de la note, { points: 0 ou 0.5 (sur 20), remarque } ; au corrigé, une explication obligatoire ;
+//     - nouvelles évaluations : une question bonus (dernière, QCM à 4 choix, avec « domaine ») ;
 //     - notes : les notes déjà publiées restent identiques ; une note par nouvelle copie
 //       (empreintes des copies reçues uniquement, entre 0 et le total). Une copie oubliée par
 //       l'agent n'est pas bloquante : son issue reste ouverte et elle sera reprise au passage suivant ;
@@ -42,6 +45,8 @@ function versionPubliee(chemin) {
   try { return JSON.parse(git("show", `HEAD:${chemin}`)); } catch (e) { return null; }
 }
 const memeValeur = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+const horsBonus = questions => (questions || []).filter(q => q.bonus !== true);
+const BONUS_POINTS = 0.5;   // sur 20
 
 export function verifier() {
   const travail = lireJson("travail/a-faire.json");
@@ -74,13 +79,20 @@ export function verifier() {
       // Détail par question : une entrée par question, points dans le barème, somme = note
       const d = v.details || {};
       let somme = 0;
-      for (const q of evCorrigee.questions) {
+      for (const q of horsBonus(evCorrigee.questions)) {
         const x = d[q.id];
         if (!x || typeof x.points !== "number" || x.points < 0 || x.points > q.points) {
           erreurs.push(`${c.fichierNotes} : détail manquant ou invalide pour ${q.id} (${h.slice(0, 8)})`);
         } else somme += x.points;
       }
-      if (Object.keys(d).some(k => !evCorrigee.questions.some(q => q.id === k))) erreurs.push(`${c.fichierNotes} : détail pour une question inconnue (${h.slice(0, 8)})`);
+      if (Object.keys(d).some(k => !horsBonus(evCorrigee.questions).some(q => q.id === k))) erreurs.push(`${c.fichierNotes} : détail pour une question inconnue ou pour le bonus (${h.slice(0, 8)})`);
+      // Bonus : obligatoire si l'évaluation en a un, 0 ou 0,5 point (sur 20), avec une remarque
+      if (evCorrigee.questions.some(q => q.bonus === true)) {
+        const b = v.bonus;
+        if (!b || ![0, BONUS_POINTS].includes(b.points) || typeof b.remarque !== "string" || !b.remarque.trim()) {
+          erreurs.push(`${c.fichierNotes} : "bonus" manquant ou invalide ({ points: 0 ou ${BONUS_POINTS}, remarque }) (${h.slice(0, 8)})`);
+        }
+      } else if (v.bonus !== undefined) erreurs.push(`${c.fichierNotes} : "bonus" noté alors que l'évaluation n'a pas de question bonus (${h.slice(0, 8)})`);
       if (Math.abs(somme - v.note) > 0.01) erreurs.push(`${c.fichierNotes} : la note (${v.note}) n'est pas la somme des points par question (${somme}) (${h.slice(0, 8)})`);
     }
     let corrigees = 0;
@@ -88,6 +100,7 @@ export function verifier() {
       if (notes[h] && !(h in anciennes)) {
         notes[h] = {
           note: notes[h].note, commentaire: notes[h].commentaire || "", details: notes[h].details,
+          ...(notes[h].bonus ? { bonus: notes[h].bonus } : {}),
           reponduLe: copie.recuLe, corrigeLe: travail.aujourdhui, issue: copie.issue,
           reponses: Object.fromEntries((copie.reponses || []).map(r => [r.question, r.reponse])),
         };
@@ -122,7 +135,16 @@ export function verifier() {
     if (ev.date !== g.date) erreurs.push(`${g.fichier} : "date" attendue ${g.date}`);
     if ("dateLimite" in ev) erreurs.push(`${g.fichier} : les évaluations n'ont plus de date limite`);
     if (ev.rappelMethode !== RAPPEL_METHODE) erreurs.push(`${g.fichier} : "rappelMethode" absent ou différent du texte prévu`);
-    const qs = Array.isArray(ev.questions) ? ev.questions : [];
+    const toutes = Array.isArray(ev.questions) ? ev.questions : [];
+    const qs = horsBonus(toutes);
+    const bonus = toutes.filter(q => q.bonus === true);
+    if (bonus.length !== 1 || toutes[toutes.length - 1].bonus !== true) erreurs.push(`${g.fichier} : il faut une question bonus, en dernière position`);
+    else {
+      const b = bonus[0];
+      if (b.type !== "qcm" || !Array.isArray(b.choix) || b.choix.length !== 4) erreurs.push(`${g.fichier} : la question bonus doit être un QCM à 4 choix`);
+      if (typeof b.domaine !== "string" || !b.domaine.trim()) erreurs.push(`${g.fichier} : la question bonus doit indiquer son "domaine"`);
+      if ("points" in b || "niveau" in b || "tempsMinutes" in b) erreurs.push(`${g.fichier} : la question bonus n'a ni "points", ni "niveau", ni "tempsMinutes"`);
+    }
     if (qs.some(q => ![1, 2, 3].includes(q.niveau) || typeof q.tempsMinutes !== "number" || q.tempsMinutes <= 0)) {
       erreurs.push(`${g.fichier} : chaque question doit avoir "niveau" (1, 2 ou 3) et "tempsMinutes"`);
     } else {
@@ -139,20 +161,20 @@ export function verifier() {
     attendus.add(n.fichier);
     const avant = versionPubliee(n.fichier);
     const apres = lireJson(n.fichier);
-    const sansNiveaux = e => ({ ...e, questions: (e.questions || []).map(({ niveau, tempsMinutes, ...q }) => q) });
+    const sansNiveaux = e => ({ ...e, questions: (e.questions || []).map(q => { if (q.bonus === true) return q; const { niveau, tempsMinutes, ...r } = q; return r; }) });
     if (!avant || !memeValeur(sansNiveaux(apres), sansNiveaux(avant))) {
       erreurs.push(`${n.fichier} : seuls le niveau et le temps des questions peuvent être ajoutés, rien d'autre ne doit changer`);
       continue;
     }
     const avantParQ = Object.fromEntries((avant.questions || []).map(q => [q.id, q]));
-    for (const q of apres.questions) {
+    for (const q of horsBonus(apres.questions)) {
       const a = avantParQ[q.id] || {};
       if (![1, 2, 3].includes(q.niveau)) erreurs.push(`${n.fichier} : niveau manquant ou invalide pour ${q.id}`);
       else if ([1, 2, 3].includes(a.niveau) && a.niveau !== q.niveau) erreurs.push(`${n.fichier} : niveau déjà attribué modifié pour ${q.id}`);
       if (!(typeof q.tempsMinutes === "number" && q.tempsMinutes > 0)) erreurs.push(`${n.fichier} : temps manquant ou invalide pour ${q.id}`);
       else if (a.tempsMinutes > 0 && a.tempsMinutes !== q.tempsMinutes) erreurs.push(`${n.fichier} : temps déjà attribué modifié pour ${q.id}`);
     }
-    const somme = apres.questions.reduce((t, q) => t + (q.tempsMinutes || 0), 0);
+    const somme = horsBonus(apres.questions).reduce((t, q) => t + (q.tempsMinutes || 0), 0);
     if (apres.dureeMinutes && Math.abs(somme - apres.dureeMinutes) > 2) {
       erreurs.push(`${n.fichier} : somme des temps (${somme} min) différente de la durée conseillée (${apres.dureeMinutes} min)`);
     }

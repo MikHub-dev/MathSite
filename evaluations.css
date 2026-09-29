@@ -1,4 +1,4 @@
-/* Version : 2.5 */
+/* Version : 2.6 */
 /* PAGE « ÉVALUATIONS » (evaluations.js) — reprend les couleurs du site :
    fond #0f1116, panneaux #1a1d24, bordures #2a2d35, bleu #7aa2ff.
    Trois états d'évaluation : ouverte (bleu), correction en cours (ambre), corrigée (vert). */
@@ -1016,3 +1016,13 @@ textarea.eval-input { resize: vertical; line-height: 1.5; }
 .eval-q-niveau--1 { border-color: rgba(95, 201, 138, .5); color: var(--ev-vert); }
 .eval-q-niveau--2 { border-color: rgba(227, 176, 83, .5); color: var(--ev-ambre); }
 .eval-q-niveau--3 { border-color: rgba(255, 107, 107, .5); color: var(--ev-rouge); }
+
+/* Question bonus (version 2.6) : QCM facultatif, hors barème, +0,5 point sur la note sur 20. */
+.eval-question--bonus {
+  border: 1px dashed rgba(227, 176, 83, .6);
+  background: linear-gradient(rgba(227, 176, 83, .05), rgba(227, 176, 83, .05)), var(--ev-panneau);
+}
+.eval-question--bonus .eval-q-num { color: var(--ev-ambre); }
+.eval-q-niveau--bonus { border-color: rgba(227, 176, 83, .5); color: var(--ev-ambre); }
+.eval-q-pts--bonus { color: var(--ev-ambre); font-weight: 700; }
+.eval-ma-note-bonus { margin: 2px 0 0; color: var(--ev-ambre); font-size: 13px; font-weight: 600; }

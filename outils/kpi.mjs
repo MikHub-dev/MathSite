@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 1.0
+// Version : 1.1
 // Skill « kpi » : calcule les chiffres des évaluations et les écrit dans kpi.json, que la compilation
 // intègre à evaluations-data.js (window.EVAL_KPI) pour l'affichage sur le site.
 //
@@ -62,12 +62,12 @@ export async function calculerKpi() {
       const valeurs = [];
       for (const id of ids) {
         const ev = lireJson(`${dossier}/${id}.json`);
-        const total = ev.questions.reduce((t, q) => t + q.points, 0);
+        const total = ev.questions.filter(q => q.bonus !== true).reduce((t, q) => t + q.points, 0);
         const notes = existe(`notes/${annee}/${classe}/${id}.json`) ? (lireJson(`notes/${annee}/${classe}/${id}.json`).notes || {}) : {};
         for (const [h, n] of Object.entries(notes)) {
           if (inscrits.size && !inscrits.has(h)) continue;
           k.copiesCorrigees++;
-          valeurs.push(n.note / total * 20);
+          valeurs.push(n.note / total * 20 + (n.bonus && typeof n.bonus.points === "number" ? n.bonus.points : 0));   // bonus : +0,5 sur 20
         }
         if (estFermee(ev)) { k.fermees++; continue; }
         const enAttente = attente && attente.some(a => a.cle === `${annee}/${classe}/${id}` && !notes[a.empreinte]);

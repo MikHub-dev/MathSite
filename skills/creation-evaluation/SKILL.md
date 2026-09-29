@@ -1,6 +1,6 @@
 ---
 name: creation-evaluation
-description: Crée de nouvelles évaluations de mathématiques (5e ou Seconde) pour le site MathSite, à partir de la liste « aGenerer » de travail/a-faire.json. À utiliser pour le lot hebdomadaire du dimanche ou pour une évaluation demandée par l'enseignant.
+description: Crée de nouvelles évaluations de mathématiques (5e ou Seconde) pour le site MathSite, à partir de la liste « aGenerer » de travail/a-faire.json, et complète le niveau des questions des évaluations existantes (liste « aNiveler »). À utiliser pour le lot hebdomadaire du dimanche, pour une évaluation demandée par l'enseignant, ou pour ajouter les niveaux.
 ---
 
 # Skill : création d'évaluations
@@ -26,7 +26,8 @@ Pour chaque entrée, le fichier `fichier`, au format suivant :
   "questions": [
     { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 2, "enonce": "<p>...</p>", "choix": ["...", "...", "..."] },
     { "id": "q2", "type": "numerique", "niveau": 2, "tempsMinutes": 5, "points": 3, "enonce": "<p>...</p>" },
-    { "id": "q3", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 5, "enonce": "<p>...</p>" }
+    { "id": "q3", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 5, "enonce": "<p>...</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Communication", "enonce": "<p>...</p>", "choix": ["...", "...", "...", "..."] }
   ]
 }
 ```
@@ -47,6 +48,32 @@ Règles :
 - énoncés sans ambiguïté, en HTML simple, avec les notations Unicode (−, ×, ÷, ², √, ≤, ℝ…) et les
   espaces typographiques français (avant « : ; ? ! ») ; tutoiement ;
 - un QCM a une et une seule bonne réponse ; une question numérique a une réponse unique et courte.
+
+## Question bonus (obligatoire, toujours en dernière position)
+
+Chaque évaluation se termine par une question bonus : `"id": "bonus"`, `"type": "qcm"`, `"bonus": true`,
+un `"domaine"`, un `"enonce"` et **exactement 4** `"choix"`. Elle n'a **ni `points`, ni `niveau`, ni
+`tempsMinutes`** : elle est hors barème (elle n'entre ni dans le total, ni dans la somme des temps, ni
+dans la règle « une question de chaque niveau ») et une bonne réponse ajoute 0,5 point à la note sur 20,
+même au-delà de 20.
+
+- **Sujet** : trouver l'application concrète, dans la vie de tous les jours, de **l'une des formules
+  (ou règles) utilisées dans les autres questions**. L'énoncé rappelle cette formule et cite la ou les
+  questions où elle sert (« À la question 4, tu as utilisé A = π × r². Dans laquelle de ces situations… »).
+- **Domaine** tiré au hasard et varié d'une évaluation à l'autre (lis les bonus déjà publiés de la classe
+  pour ne pas reprendre le même domaine d'affilée) : sciences, physique, chimie, économie, data, IA,
+  cryptographie, transports, communication, santé, sport, architecture, astronomie, agriculture, jeux
+  vidéo, météorologie, énergie… `domaine` contient son nom en quelques mots (« IA et data »).
+- **Une seule bonne réponse**, sans discussion possible. Les trois autres choix sont des situations
+  réalistes qui relèvent d'autres formules. **Au moins un choix est un piège instructif** : de
+  préférence une situation qui relève d'**une autre formule de la même évaluation** (le milieu au lieu de
+  la distance, la moyenne au lieu de la médiane…), sinon l'erreur typique sur la formule visée (oublier de
+  distribuer, additionner les coordonnées au lieu de calculer la norme…).
+- Place la bonne réponse à une position différente d'une évaluation à l'autre.
+- Contexte et vocabulaire accessibles à la classe ; aucune connaissance hors programme n'est nécessaire
+  pour trancher.
+- Comme pour les autres questions, **aucune réponse dans le fichier** (dépôt public) : c'est la
+  correction qui l'explique.
 
 ## Banque d'exercices modèles
 
@@ -73,6 +100,27 @@ Les entrées d'une même classe forment un lot de `tailleDuLot` évaluations (`r
 
 ## Vérification
 
-Avant d'enregistrer, résous toi-même chaque question pour t'assurer qu'elle a une réponse unique ; ne
+Avant d'enregistrer, résous toi-même chaque question, bonus compris, pour t'assurer qu'elle a une réponse unique ; ne
 garde pas ces solutions dans le fichier. Termine par `node outils/compiler-evaluations.mjs` et corrige
 toute erreur signalée.
+
+## Compléter les niveaux d'évaluations existantes (liste `aNiveler`)
+
+Pour chaque entrée, ouvre `fichier` et ajoute à **chaque question** qui ne les a pas (sauf la question
+bonus, qui n'a jamais de niveau ni de temps) :
+
+1. un champ `niveau` : `1` (N1 - Application directe), `2` (N2 - Entraînement) ou
+   `3` (N3 - Approfondissement), selon les définitions de `modeles/INDEX.md` et en comparant la
+   question aux modèles du chapitre correspondant :
+   - N1 : une définition ou une règle appliquée en une étape (calcul direct, lecture, reconnaissance) ;
+   - N2 : plusieurs étapes, une méthode à mobiliser et à justifier ;
+   - N3 : un problème en contexte, un raisonnement, plusieurs notions combinées ;
+2. un champ `tempsMinutes` : le temps de résolution recommandé, en minutes entières, en partant des
+   temps indicatifs de l'index pour la classe et le niveau, puis en les ajustant pour que **la somme
+   des temps de l'évaluation soit égale à sa `dureeMinutes`** (à 2 minutes près). Si l'évaluation n'a
+   pas de `dureeMinutes`, utilise simplement les temps indicatifs.
+
+**Ne modifie rien d'autre** : ni les énoncés, ni les points, ni les choix, ni le corrigé, ni l'ordre
+des questions, ni `dureeMinutes`, ni les autres champs ; ne change pas un niveau ou un temps déjà
+présent. Le script de déploiement refuse toute autre modification. Termine par
+`node outils/compiler-evaluations.mjs`.
