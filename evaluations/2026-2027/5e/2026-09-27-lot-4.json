@@ -50,6 +50,19 @@
       "tempsMinutes": 11,
       "points": 2,
       "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 5) cm. Exprime le périmètre P du rectangle en fonction de x, sous une forme développée et réduite, en détaillant le calcul.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Chimie",
+      "enonce": "<p>Aux questions 2, 4 et 5, tu as utilisé la distributivité : k × (a + b) = k × a + k × b. Au laboratoire, un chimiste prépare 3 flacons contenant chacun 20 mL d'eau et 5 mL d'acide. Lequel de ces calculs du volume total de liquide applique correctement la distributivité ?</p>",
+      "choix": [
+        "3 × 20 + 5 = 65 mL",
+        "3 × 20 + 3 × 5 = 75 mL",
+        "3 + 20 + 5 = 28 mL",
+        "(3 + 20) × 5 = 115 mL"
+      ]
     }
   ]
 }

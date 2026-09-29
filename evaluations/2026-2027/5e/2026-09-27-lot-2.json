@@ -56,6 +56,19 @@
       "tempsMinutes": 13,
       "points": 2,
       "enonce": "<p>Deux angles opposés par le sommet sont formés par deux droites sécantes. Explique pourquoi ces deux angles ont la même mesure, à l'aide de la notion d'angles supplémentaires.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Architecture et bâtiment",
+      "enonce": "<p>À la question 3, tu as utilisé la propriété : dans un triangle, la somme des trois angles vaut 180°. Dans laquelle de ces situations utilise-t-on cette propriété ?</p>",
+      "choix": [
+        "Un charpentier construit la charpente triangulaire d'un toit : il connaît les deux angles de la base, 35° chacun, et calcule l'angle au sommet du toit",
+        "Un menuisier assemble deux plinthes dans le coin d'une pièce, qui forme un angle droit : il coupe chacune à 45° pour que les deux coupes fassent 90° ensemble",
+        "Un livreur calcule la durée de son trajet en divisant la distance par sa vitesse",
+        "Un peintre calcule la surface d'un mur rectangulaire en multipliant sa longueur par sa hauteur"
+      ]
     }
   ]
 }

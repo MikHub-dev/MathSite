@@ -42,6 +42,19 @@
       "tempsMinutes": 9,
       "points": 4,
       "enonce": "<p>Calcule en détaillant les étapes : 18 − 12 ÷ 3 + 2 × (5 − 1)</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Économie et commerce",
+      "enonce": "<p>Aux questions 1 et 4, tu as appliqué la règle de priorité : sans parenthèses, on effectue les multiplications et les divisions avant les additions et les soustractions. Dans laquelle de ces situations le calcul écrit <strong>sans parenthèses</strong> donne-t-il bien le résultat cherché ?</p>",
+      "choix": [
+        "Partager équitablement entre 5 amis deux cagnottes de 30 € et 20 € : on écrit 30 + 20 ÷ 5",
+        "Convertir 2 h 30 min en minutes : on écrit 2 + 30 × 60",
+        "Calculer le prix total de 3 croissants à 1 € et de 2 baguettes à 2 € : on écrit 3 × 1 + 2 × 2",
+        "Calculer la moyenne de deux notes, 12 et 16 : on écrit 12 + 16 ÷ 2"
+      ]
     }
   ]
 }

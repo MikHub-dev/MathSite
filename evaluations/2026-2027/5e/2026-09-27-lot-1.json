@@ -50,6 +50,19 @@
       "tempsMinutes": 10,
       "points": 2,
       "enonce": "<p>Explique pourquoi le point O est toujours le milieu du segment [MM′] lorsque M′ est le symétrique de M par rapport à O.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Jeux vidéo",
+      "enonce": "<p>Aux questions 1, 2 et 4, tu as construit le symétrique d'un point par rapport à un point O : la symétrie centrale fait faire à la figure un demi-tour autour de O, et O est le milieu de [MM′]. Dans laquelle de ces situations utilise-t-on une symétrie centrale ?</p>",
+      "choix": [
+        "Une application photo affiche un selfie « en miroir » : la gauche et la droite sont inversées, mais le haut reste en haut",
+        "Un logiciel agrandit une photo en doublant toutes ses dimensions",
+        "Un tapis roulant d'aéroport fait avancer une valise en ligne droite",
+        "Dans un jeu vidéo, un vaisseau fait un demi-tour autour du centre de l'écran : il se retrouve tête en bas, de l'autre côté du centre et à la même distance de lui"
+      ]
     }
   ]
 }

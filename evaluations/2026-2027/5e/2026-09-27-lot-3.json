@@ -50,6 +50,19 @@
       "tempsMinutes": 7,
       "points": 2,
       "enonce": "<p>Un cercle a un diamètre de 12 cm. Calcule son périmètre en détaillant les étapes, en prenant π ≈ 3,14 et en arrondissant au dixième.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Communication",
+      "enonce": "<p>À la question 4, tu as utilisé la formule de l'aire du disque : A = π × r². Dans laquelle de ces situations de la vie courante utilise-t-on cette formule ?</p>",
+      "choix": [
+        "Calculer la vitesse moyenne d'un TGV qui parcourt 450 km en 2 heures",
+        "Calculer la longueur de clôture nécessaire pour faire le tour d'un bassin circulaire de 3 m de rayon",
+        "Estimer la surface couverte par une antenne de téléphonie mobile qui capte jusqu'à 3 km autour d'elle",
+        "Calculer le prix d'un jean à 40 € après une réduction de 25 %"
+      ]
     }
   ]
 }
