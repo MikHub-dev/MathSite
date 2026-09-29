@@ -47,10 +47,12 @@ function bankDisplayName(filename) {
 }
 
 // path : chemin relatif à svg/ (peut contenir des sous-dossiers)
+// Les dossiers sont en minuscules sur le dépôt (lycee, l1, l2…) : GitHub Pages est sensible à la casse.
 function bankSrc(path) {
-  return "svg/" + path.split("/").map(encodeURIComponent).join("/");
+  const parts = path.split("/");
+  const file = parts.pop();
+  return "svg/" + [...parts.map(p => p.toLowerCase()), file].map(encodeURIComponent).join("/");
 }
-
 // Image qui ne se charge pas : on affiche le chemin cherché plutôt qu'un cadre vide
 function bankImgError(img) {
   const box = img.parentElement;
