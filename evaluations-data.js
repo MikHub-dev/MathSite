@@ -57,6 +57,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 10,
       "points": 2,
       "enonce": "<p>Explique pourquoi le point O est toujours le milieu du segment [MM′] lorsque M′ est le symétrique de M par rapport à O.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Jeux vidéo",
+      "enonce": "<p>Aux questions 1, 2 et 4, tu as construit le symétrique d'un point par rapport à un point O : la symétrie centrale fait faire à la figure un demi-tour autour de O, et O est le milieu de [MM′]. Dans laquelle de ces situations utilise-t-on une symétrie centrale ?</p>",
+      "choix": [
+       "Une application photo affiche un selfie « en miroir » : la gauche et la droite sont inversées, mais le haut reste en haut",
+       "Un logiciel agrandit une photo en doublant toutes ses dimensions",
+       "Un tapis roulant d'aéroport fait avancer une valise en ligne droite",
+       "Dans un jeu vidéo, un vaisseau fait un demi-tour autour du centre de l'écran : il se retrouve tête en bas, de l'autre côté du centre et à la même distance de lui"
+      ]
      }
     ]
    },
@@ -120,6 +133,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 13,
       "points": 2,
       "enonce": "<p>Deux angles opposés par le sommet sont formés par deux droites sécantes. Explique pourquoi ces deux angles ont la même mesure, à l'aide de la notion d'angles supplémentaires.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Architecture et bâtiment",
+      "enonce": "<p>À la question 3, tu as utilisé la propriété : dans un triangle, la somme des trois angles vaut 180°. Dans laquelle de ces situations utilise-t-on cette propriété ?</p>",
+      "choix": [
+       "Un charpentier construit la charpente triangulaire d'un toit : il connaît les deux angles de la base, 35° chacun, et calcule l'angle au sommet du toit",
+       "Un menuisier assemble deux plinthes dans le coin d'une pièce, qui forme un angle droit : il coupe chacune à 45° pour que les deux coupes fassent 90° ensemble",
+       "Un livreur calcule la durée de son trajet en divisant la distance par sa vitesse",
+       "Un peintre calcule la surface d'un mur rectangulaire en multipliant sa longueur par sa hauteur"
+      ]
      }
     ]
    },
@@ -177,6 +203,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 7,
       "points": 2,
       "enonce": "<p>Un cercle a un diamètre de 12 cm. Calcule son périmètre en détaillant les étapes, en prenant π ≈ 3,14 et en arrondissant au dixième.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Communication",
+      "enonce": "<p>À la question 4, tu as utilisé la formule de l'aire du disque : A = π × r². Dans laquelle de ces situations de la vie courante utilise-t-on cette formule ?</p>",
+      "choix": [
+       "Calculer la vitesse moyenne d'un TGV qui parcourt 450 km en 2 heures",
+       "Calculer la longueur de clôture nécessaire pour faire le tour d'un bassin circulaire de 3 m de rayon",
+       "Estimer la surface couverte par une antenne de téléphonie mobile qui capte jusqu'à 3 km autour d'elle",
+       "Calculer le prix d'un jean à 40 € après une réduction de 25 %"
+      ]
      }
     ]
    },
@@ -234,6 +273,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 11,
       "points": 2,
       "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 5) cm. Exprime le périmètre P du rectangle en fonction de x, sous une forme développée et réduite, en détaillant le calcul.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Chimie",
+      "enonce": "<p>Aux questions 2, 4 et 5, tu as utilisé la distributivité : k × (a + b) = k × a + k × b. Au laboratoire, un chimiste prépare 3 flacons contenant chacun 20 mL d'eau et 5 mL d'acide. Lequel de ces calculs du volume total de liquide applique correctement la distributivité ?</p>",
+      "choix": [
+       "3 × 20 + 5 = 65 mL",
+       "3 × 20 + 3 × 5 = 75 mL",
+       "3 + 20 + 5 = 28 mL",
+       "(3 + 20) × 5 = 115 mL"
+      ]
      }
     ]
    },
@@ -283,6 +335,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 9,
       "points": 4,
       "enonce": "<p>Calcule en détaillant les étapes : 18 − 12 ÷ 3 + 2 × (5 − 1)</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Économie et commerce",
+      "enonce": "<p>Aux questions 1 et 4, tu as appliqué la règle de priorité : sans parenthèses, on effectue les multiplications et les divisions avant les additions et les soustractions. Dans laquelle de ces situations le calcul écrit <strong>sans parenthèses</strong> donne-t-il bien le résultat cherché ?</p>",
+      "choix": [
+       "Partager équitablement entre 5 amis deux cagnottes de 30 € et 20 € : on écrit 30 + 20 ÷ 5",
+       "Convertir 2 h 30 min en minutes : on écrit 2 + 30 × 60",
+       "Calculer le prix total de 3 croissants à 1 € et de 2 baguettes à 2 € : on écrit 3 × 1 + 2 × 2",
+       "Calculer la moyenne de deux notes, 12 et 16 : on écrit 12 + 16 ÷ 2"
+      ]
      }
     ]
    },
@@ -422,6 +487,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 14,
       "points": 2,
       "enonce": "<p>Résous l'inéquation (x + 1)(x − 3) &gt; 0 en étudiant le signe du produit, et donne l'ensemble des solutions sous forme de réunion d'intervalles. Indique ensuite, en justifiant, si le nombre 2 appartient à cet ensemble.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Santé",
+      "enonce": "<p>À la question 5, tu as traduit |d − 24| ≤ 0,3 par l'intervalle [23,7 ; 24,3] : |x − a| est la distance entre x et a. Dans laquelle de ces situations utilise-t-on exactement ce type de condition, « être à une distance d'au plus r d'une valeur a » ?</p>",
+      "choix": [
+       "Un thermomètre médical affiche 38,5 °C avec une précision de ± 0,1 °C : on cherche les températures réelles possibles",
+       "Un manège est réservé aux personnes mesurant au moins 1,40 m : on cherche les tailles acceptées",
+       "Une pharmacie applique une remise de 20 % sur une crème : on cherche son nouveau prix",
+       "Une entreprise dont le bénéfice vaut (x + 1)(x − 3) milliers d'euros cherche les valeurs de x pour lesquelles ce bénéfice est strictement positif"
+      ]
      }
     ]
    },
@@ -488,6 +566,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 14,
       "points": 2,
       "enonce": "<p>Résous l'inéquation (x − 2)(x + 4) ≤ 0 en étudiant le signe du produit, et donne l'ensemble des solutions sous forme d'intervalle. Indique ensuite, en justifiant, si cet intervalle est inclus dans ]−5 ; 3].</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Agriculture",
+      "enonce": "<p>À la question 1, tu as traduit la condition « x &lt; −1 <strong>ou</strong> x ≥ 4 » par une réunion de deux intervalles (symbole ∪). Dans laquelle de ces situations l'ensemble des valeurs concernées est-il une réunion de deux intervalles disjoints ?</p>",
+      "choix": [
+       "Un vaccin doit être conservé entre 2 °C et 8 °C : l'ensemble des températures autorisées",
+       "Une serre connectée déclenche une alarme lorsque la température descend sous 5 °C ou dépasse 35 °C : l'ensemble des températures qui déclenchent l'alarme",
+       "Un radar flashe les voitures qui roulent à plus de 50 km/h : l'ensemble des vitesses flashées",
+       "Un manège est interdit aux enfants de moins de 1,20 m : l'ensemble des tailles refusées"
+      ]
      }
     ]
    },
@@ -551,6 +642,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 18,
       "points": 2,
       "enonce": "<p>Une expérience aléatoire consiste à lancer deux fois de suite une pièce équilibrée. Liste les quatre issues possibles, puis calcule la probabilité d'obtenir exactement une fois « pile ». Détaille ta méthode.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Cryptographie",
+      "enonce": "<p>Aux questions 1, 2 et 4, tu as utilisé la formule des situations d'équiprobabilité : P(A) = nombre d'issues favorables ÷ nombre d'issues possibles. Un pirate informatique essaie une seule fois, au hasard, un code secret à 4 chiffres (de 0000 à 9999). Quelle affirmation applique correctement cette formule ?</p>",
+      "choix": [
+       "Sa probabilité de trouver le code est 1/2, car soit il le trouve, soit il ne le trouve pas",
+       "Sa probabilité de trouver le code est 1/4, car le code a 4 chiffres",
+       "Sa probabilité de ne pas trouver le code est 1/10 000",
+       "Sa probabilité de trouver le code est 1/10 000, car il y a 10 000 codes possibles et un seul est le bon"
+      ]
      }
     ]
    },
@@ -608,6 +712,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 13,
       "points": 2,
       "enonce": "<p>Le point M(4 ; −1) est le milieu du segment [EF] avec E(1 ; 3). Détermine les coordonnées du point F, en expliquant la méthode.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "IA et data",
+      "enonce": "<p>Aux questions 3 et 4, tu as utilisé la formule de la distance entre deux points : AB = √((x<sub>B</sub> − x<sub>A</sub>)² + (y<sub>B</sub> − y<sub>A</sub>)²). Dans laquelle de ces situations cette formule est-elle directement utilisée ?</p>",
+      "choix": [
+       "Placer une borne de recharge pour voitures électriques pile à mi-chemin entre deux villes repérées sur une carte",
+       "Un algorithme d'intelligence artificielle qui représente chaque client par un point (âge ; nombre d'achats) et cherche le client le plus proche pour lui recommander des produits",
+       "Calculer les intérêts d'un livret d'épargne placé pendant 5 ans",
+       "Chiffrer un message en décalant chaque lettre de 3 rangs dans l'alphabet"
+      ]
      }
     ]
    },
@@ -665,6 +782,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 18,
       "points": 2,
       "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 4) cm. On veut que son périmètre soit strictement supérieur à 30 cm. Détermine, en résolvant une inéquation, les valeurs possibles de x, en détaillant la mise en équation.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Télécommunications",
+      "enonce": "<p>Aux questions 3, 4 et 5, tu as résolu des inéquations du premier degré, comme 2x − 4 &gt; 6. Un forfait mobile coûte 10 € par mois, plus 2 € par Go consommé. Dans laquelle de ces situations doit-on résoudre une inéquation du premier degré ?</p>",
+      "choix": [
+       "On cherche le nombre de Go pour lequel la facture vaut exactement 30 €",
+       "On cherche le montant de la facture pour 5 Go consommés",
+       "On cherche l'aire de la zone couverte par une antenne relais de 3 km de portée",
+       "On cherche combien de Go on peut consommer pour que la facture reste inférieure à 30 €"
+      ]
      }
     ]
    },
@@ -722,6 +852,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 17,
       "points": 2,
       "enonce": "<p>On donne les points E(0 ; 1), F(3 ; 2) et G(6 ; 3). Montre, à l'aide des coordonnées des vecteurs EF et FG, que les points E, F et G sont alignés.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Transports et logistique",
+      "enonce": "<p>À la question 3, tu as calculé la norme d'un vecteur de coordonnées (x ; y) : ‖u‖ = √(x² + y²). Dans laquelle de ces situations utilise-t-on cette formule ?</p>",
+      "choix": [
+       "Un opérateur vérifie que trois antennes relais, repérées par leurs coordonnées sur une carte, sont alignées",
+       "Un drone de livraison se déplace de 300 m vers l'est puis de 400 m vers le nord : on calcule la distance totale parcourue en suivant ces deux trajets",
+       "Pour le même drone, on calcule la distance à vol d'oiseau entre son point de départ et son point d'arrivée",
+       "On convertit la vitesse du drone de km/h en m/s"
+      ]
      }
     ]
    },
@@ -786,6 +929,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Écris le nombre 0,00032 en notation scientifique, en détaillant la méthode utilisée.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Astronomie",
+      "enonce": "<p>À la question 5, tu as écrit un nombre en notation scientifique : a × 10ⁿ, avec 1 ≤ a &lt; 10 et n entier relatif. Les scientifiques l'utilisent pour écrire les très grands et les très petits nombres. Dans laquelle de ces situations le nombre est-il écrit correctement en notation scientifique ?</p>",
+      "choix": [
+       "Une chimiste note la taille d'un atome : 0,1 × 10⁻⁹ m",
+       "Un informaticien note la capacité d'un disque dur : 1 000 Go",
+       "Un économiste note le budget d'une ville : 25 × 10⁶ €",
+       "Une astronome note la distance entre la Terre et le Soleil : 1,5 × 10⁸ km"
+      ]
      }
     ]
    },
@@ -850,6 +1006,19 @@ window.EVALUATIONS = {
       "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Voici les distances, en km, parcourues par 6 coureurs lors d'un footing : 5 ; 8 ; 6 ; 10 ; 7 ; 9. Détermine l'étendue de cette série en détaillant le calcul.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Sport et data",
+      "enonce": "<p>Aux questions 3 et 4, tu as utilisé la médiane : la valeur qui partage la série rangée dans l'ordre croissant en deux groupes de même effectif. Dans laquelle de ces situations est-ce la médiane qui est utilisée ?</p>",
+      "choix": [
+       "Une station météo additionne les températures relevées chaque jour du mois et divise le total par le nombre de jours",
+       "Un entraîneur de natation calcule l'écart entre le meilleur et le moins bon temps de son équipe",
+       "Une application de course à pied range les temps des 9 coureurs d'un club, du plus rapide au plus lent, et affiche le temps du 5e coureur comme « temps de référence » du club",
+       "Une fédération sportive compte le nombre total de licenciés inscrits cette saison"
+      ]
      }
     ]
    },
