@@ -50,6 +50,19 @@
       "tempsMinutes": 18,
       "points": 2,
       "enonce": "<p>Un rectangle a pour largeur x cm et pour longueur (x + 4) cm. On veut que son périmètre soit strictement supérieur à 30 cm. Détermine, en résolvant une inéquation, les valeurs possibles de x, en détaillant la mise en équation.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Télécommunications",
+      "enonce": "<p>Aux questions 3, 4 et 5, tu as résolu des inéquations du premier degré, comme 2x − 4 &gt; 6. Un forfait mobile coûte 10 € par mois, plus 2 € par Go consommé. Dans laquelle de ces situations doit-on résoudre une inéquation du premier degré ?</p>",
+      "choix": [
+        "On cherche le nombre de Go pour lequel la facture vaut exactement 30 €",
+        "On cherche le montant de la facture pour 5 Go consommés",
+        "On cherche l'aire de la zone couverte par une antenne relais de 3 km de portée",
+        "On cherche combien de Go on peut consommer pour que la facture reste inférieure à 30 €"
+      ]
     }
   ]
 }

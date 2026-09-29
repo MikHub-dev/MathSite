@@ -59,6 +59,19 @@
       "tempsMinutes": 14,
       "points": 2,
       "enonce": "<p>Résous l'inéquation (x − 2)(x + 4) ≤ 0 en étudiant le signe du produit, et donne l'ensemble des solutions sous forme d'intervalle. Indique ensuite, en justifiant, si cet intervalle est inclus dans ]−5 ; 3].</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Agriculture",
+      "enonce": "<p>À la question 1, tu as traduit la condition « x &lt; −1 <strong>ou</strong> x ≥ 4 » par une réunion de deux intervalles (symbole ∪). Dans laquelle de ces situations l'ensemble des valeurs concernées est-il une réunion de deux intervalles disjoints ?</p>",
+      "choix": [
+        "Un vaccin doit être conservé entre 2 °C et 8 °C : l'ensemble des températures autorisées",
+        "Une serre connectée déclenche une alarme lorsque la température descend sous 5 °C ou dépasse 35 °C : l'ensemble des températures qui déclenchent l'alarme",
+        "Un radar flashe les voitures qui roulent à plus de 50 km/h : l'ensemble des vitesses flashées",
+        "Un manège est interdit aux enfants de moins de 1,20 m : l'ensemble des tailles refusées"
+      ]
     }
   ]
 }

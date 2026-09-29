@@ -50,6 +50,19 @@
       "tempsMinutes": 17,
       "points": 2,
       "enonce": "<p>On donne les points E(0 ; 1), F(3 ; 2) et G(6 ; 3). Montre, à l'aide des coordonnées des vecteurs EF et FG, que les points E, F et G sont alignés.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Transports et logistique",
+      "enonce": "<p>À la question 3, tu as calculé la norme d'un vecteur de coordonnées (x ; y) : ‖u‖ = √(x² + y²). Dans laquelle de ces situations utilise-t-on cette formule ?</p>",
+      "choix": [
+        "Un opérateur vérifie que trois antennes relais, repérées par leurs coordonnées sur une carte, sont alignées",
+        "Un drone de livraison se déplace de 300 m vers l'est puis de 400 m vers le nord : on calcule la distance totale parcourue en suivant ces deux trajets",
+        "Pour le même drone, on calcule la distance à vol d'oiseau entre son point de départ et son point d'arrivée",
+        "On convertit la vitesse du drone de km/h en m/s"
+      ]
     }
   ]
 }

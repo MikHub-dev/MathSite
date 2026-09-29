@@ -21,7 +21,12 @@
       "tempsMinutes": 5,
       "points": 2,
       "enonce": "<p>Quelle écriture est égale à 6⁴ × 6³ ?</p>",
-      "choix": ["6⁷", "6¹²", "36⁷", "6¹"]
+      "choix": [
+        "6⁷",
+        "6¹²",
+        "36⁷",
+        "6¹"
+      ]
     },
     {
       "id": "q3",
@@ -38,7 +43,12 @@
       "tempsMinutes": 9,
       "points": 2,
       "enonce": "<p>Quelle est l'écriture simplifiée de √72 ?</p>",
-      "choix": ["6√2", "2√6", "36√2", "9√8"]
+      "choix": [
+        "6√2",
+        "2√6",
+        "36√2",
+        "9√8"
+      ]
     },
     {
       "id": "q5",
@@ -47,6 +57,19 @@
       "tempsMinutes": 6,
       "points": 2,
       "enonce": "<p>Écris le nombre 0,00032 en notation scientifique, en détaillant la méthode utilisée.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Astronomie",
+      "enonce": "<p>À la question 5, tu as écrit un nombre en notation scientifique : a × 10ⁿ, avec 1 ≤ a &lt; 10 et n entier relatif. Les scientifiques l'utilisent pour écrire les très grands et les très petits nombres. Dans laquelle de ces situations le nombre est-il écrit correctement en notation scientifique ?</p>",
+      "choix": [
+        "Une chimiste note la taille d'un atome : 0,1 × 10⁻⁹ m",
+        "Un informaticien note la capacité d'un disque dur : 1 000 Go",
+        "Un économiste note le budget d'une ville : 25 × 10⁶ €",
+        "Une astronome note la distance entre la Terre et le Soleil : 1,5 × 10⁸ km"
+      ]
     }
   ]
 }

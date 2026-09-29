@@ -56,6 +56,19 @@
       "tempsMinutes": 18,
       "points": 2,
       "enonce": "<p>Une expérience aléatoire consiste à lancer deux fois de suite une pièce équilibrée. Liste les quatre issues possibles, puis calcule la probabilité d'obtenir exactement une fois « pile ». Détaille ta méthode.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Cryptographie",
+      "enonce": "<p>Aux questions 1, 2 et 4, tu as utilisé la formule des situations d'équiprobabilité : P(A) = nombre d'issues favorables ÷ nombre d'issues possibles. Un pirate informatique essaie une seule fois, au hasard, un code secret à 4 chiffres (de 0000 à 9999). Quelle affirmation applique correctement cette formule ?</p>",
+      "choix": [
+        "Sa probabilité de trouver le code est 1/2, car soit il le trouve, soit il ne le trouve pas",
+        "Sa probabilité de trouver le code est 1/4, car le code a 4 chiffres",
+        "Sa probabilité de ne pas trouver le code est 1/10 000",
+        "Sa probabilité de trouver le code est 1/10 000, car il y a 10 000 codes possibles et un seul est le bon"
+      ]
     }
   ]
 }

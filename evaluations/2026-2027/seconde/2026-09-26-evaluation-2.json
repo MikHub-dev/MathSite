@@ -13,7 +13,12 @@
       "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Dans une série statistique, comment appelle-t-on la différence entre la plus grande et la plus petite valeur ?</p>",
-      "choix": ["La moyenne", "La médiane", "L'étendue", "L'effectif"]
+      "choix": [
+        "La moyenne",
+        "La médiane",
+        "L'étendue",
+        "L'effectif"
+      ]
     },
     {
       "id": "q2",
@@ -38,7 +43,12 @@
       "tempsMinutes": 12,
       "points": 2,
       "enonce": "<p>On ajoute à une série de salaires une valeur beaucoup plus élevée que les autres. Quel indicateur est le moins modifié par cette valeur extrême ?</p>",
-      "choix": ["La moyenne", "La médiane", "L'étendue", "La somme totale"]
+      "choix": [
+        "La moyenne",
+        "La médiane",
+        "L'étendue",
+        "La somme totale"
+      ]
     },
     {
       "id": "q5",
@@ -47,6 +57,19 @@
       "tempsMinutes": 4,
       "points": 2,
       "enonce": "<p>Voici les distances, en km, parcourues par 6 coureurs lors d'un footing : 5 ; 8 ; 6 ; 10 ; 7 ; 9. Détermine l'étendue de cette série en détaillant le calcul.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Sport et data",
+      "enonce": "<p>Aux questions 3 et 4, tu as utilisé la médiane : la valeur qui partage la série rangée dans l'ordre croissant en deux groupes de même effectif. Dans laquelle de ces situations est-ce la médiane qui est utilisée ?</p>",
+      "choix": [
+        "Une station météo additionne les températures relevées chaque jour du mois et divise le total par le nombre de jours",
+        "Un entraîneur de natation calcule l'écart entre le meilleur et le moins bon temps de son équipe",
+        "Une application de course à pied range les temps des 9 coureurs d'un club, du plus rapide au plus lent, et affiche le temps du 5e coureur comme « temps de référence » du club",
+        "Une fédération sportive compte le nombre total de licenciés inscrits cette saison"
+      ]
     }
   ]
 }

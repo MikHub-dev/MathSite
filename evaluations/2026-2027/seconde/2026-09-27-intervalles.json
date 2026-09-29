@@ -59,6 +59,19 @@
       "tempsMinutes": 14,
       "points": 2,
       "enonce": "<p>Résous l'inéquation (x + 1)(x − 3) &gt; 0 en étudiant le signe du produit, et donne l'ensemble des solutions sous forme de réunion d'intervalles. Indique ensuite, en justifiant, si le nombre 2 appartient à cet ensemble.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Santé",
+      "enonce": "<p>À la question 5, tu as traduit |d − 24| ≤ 0,3 par l'intervalle [23,7 ; 24,3] : |x − a| est la distance entre x et a. Dans laquelle de ces situations utilise-t-on exactement ce type de condition, « être à une distance d'au plus r d'une valeur a » ?</p>",
+      "choix": [
+        "Un thermomètre médical affiche 38,5 °C avec une précision de ± 0,1 °C : on cherche les températures réelles possibles",
+        "Un manège est réservé aux personnes mesurant au moins 1,40 m : on cherche les tailles acceptées",
+        "Une pharmacie applique une remise de 20 % sur une crème : on cherche son nouveau prix",
+        "Une entreprise dont le bénéfice vaut (x + 1)(x − 3) milliers d'euros cherche les valeurs de x pour lesquelles ce bénéfice est strictement positif"
+      ]
     }
   ]
 }
