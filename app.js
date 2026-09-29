@@ -1834,7 +1834,8 @@ const HOME_SECTION_CARDS = [
   { icon: "IconeCorrespondances.png", title: "Correspondances", desc: "Le tableau croisant notions et niveaux.", onclick: "setApp('mathsite'); loadCorrespondanceTable()", nav: "tableau" },
   { icon: "IconeExercices.png", title: "Exercices", desc: "Des exercices ciblés pour s'entraîner.", onclick: "setApp('mathsite'); loadExosFondamentauxHome()", nav: "exos-fondamentaux" },
   { icon: "IconeBanque.png", title: "Banque d'images", desc: "Les schémas et illustrations du site.", onclick: "setApp('mathsite'); loadBanqueImages()", nav: "banque-images" },
-  { icon: "IconeFormules.png", title: "Spécialisation", desc: "Les formules regroupées par grand chapitre transversal.", onclick: "loadSpecialisation()", nav: "formules" }
+  { icon: "IconeFormules.png", title: "Spécialisation", desc: "Les formules regroupées par grand chapitre transversal.", onclick: "loadSpecialisation()", nav: "formules" },
+  { icon: "IconeTopologie.png", title: "Dictionnaires de Mathématiques\nFR et EN", desc: "Deux références en ligne pour chercher une définition, en français et en anglais.", onclick: "loadDictionnaires()", titleWrap: true }
 ];
 
 // --- Page d'accueil : présentation du site + accès rapide aux grandes sections ---
@@ -1855,7 +1856,7 @@ function loadHome() {
             <img class="home-link-icon" src="${escapeHtml(ICONES_DIR + card.icon)}" alt="" />
           </div>
           <div class="home-link-text">
-            <div class="home-link-title">${escapeHtml(card.title)}</div>
+            <div class="home-link-title${card.titleWrap ? " home-link-title--wrap" : ""}">${escapeHtml(card.title)}</div>
             <div class="home-link-desc">${escapeHtml(card.desc)}</div>
           </div>
         </div>
@@ -1863,6 +1864,35 @@ function loadHome() {
     </div>
   `;
   setActiveNav("home");
+}
+
+// --- Page "Dictionnaires de Mathématiques FR et EN" (vignette de l'accueil) : deux liens externes,
+// ouverts dans un nouvel onglet pour que le site reste ouvert derrière.
+const DICTIONNAIRES_LIENS = [
+  { title: "Dictionnaire français", url: "https://fr.wikiversity.org/wiki/Facult%C3%A9:Math%C3%A9matiques", desc: "Wikiversité — Faculté de Mathématiques" },
+  { title: "Dictionnaire anglais", url: "https://mathworld.wolfram.com/", desc: "Wolfram MathWorld" }
+];
+
+function loadDictionnaires() {
+  const c = document.getElementById("content");
+  if (!c) return;
+
+  c.innerHTML = `
+    <button class="back-btn" onclick="loadHome()">&larr; Retour</button>
+    <h1>Dictionnaires de Mathématiques FR et EN</h1>
+    <p class="subtitle">Deux références en ligne, en français et en anglais (ouverture dans un nouvel onglet).</p>
+
+    <div class="dico-links">
+      ${DICTIONNAIRES_LIENS.map(l => `
+        <a class="dico-link" href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">
+          <span class="dico-link-title">${escapeHtml(l.title)} &#8599;</span>
+          <span class="dico-link-desc">${escapeHtml(l.desc)}</span>
+        </a>
+      `).join("")}
+    </div>
+  `;
+  setActiveNav("home");
+  window.scrollTo(0, 0);
 }
 
 // --- Tuiles "niveau" (Collège / Lycée / Prépa-CPGE / Grandes Écoles / Tous les niveaux),

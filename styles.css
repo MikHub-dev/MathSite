@@ -2063,3 +2063,42 @@ table.formules-table tr:hover td { background: #1a1d24; }
 .axiome-sources a {
   color: #7aa2ff;
 }
+
+/* ===================== DICTIONNAIRES DE MATHÉMATIQUES (vignette de l'accueil) ===================== */
+/* Titre de tuile sur plusieurs lignes : exception à la règle « Libellés courts » ci-dessus.
+   pre-line respecte les retours à la ligne « \n » écrits dans le titre (app.js). */
+#content .home-link-title.home-link-title--wrap {
+  white-space: pre-line;
+}
+
+.dico-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.dico-link {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #1a1d24;
+  border: 1px solid #2a2d35;
+  border-radius: 10px;
+  padding: 16px 18px;
+  text-decoration: none;
+}
+
+.dico-link:hover {
+  border-color: #7aa2ff;
+}
+
+.dico-link-title {
+  font-weight: 600;
+  color: #7aa2ff;
+}
+
+.dico-link-desc {
+  font-size: 13px;
+  color: #9aa0ab;
+}
