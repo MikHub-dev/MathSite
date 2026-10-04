@@ -56,5 +56,13 @@
         "Calculer la moyenne de deux notes, 12 et 16 : on écrit 12 + 16 ÷ 2"
       ]
     }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>22</strong> : la multiplication est prioritaire, donc 7 + 3 × 5 = 7 + 15 = 22.</p>",
+    "q2": "<p><strong>50</strong> : on calcule d'abord la parenthèse, donc (7 + 3) × 5 = 10 × 5 = 50.</p>",
+    "q3": "<p><strong>4 + 4 × 4</strong> : 4 + 4 × 4 = 4 + 16 = 20. Les autres valent 32, 12 et 12.</p>",
+    "q4": "<p>18 − 12 ÷ 3 + 2 × (5 − 1) = 18 − 12 ÷ 3 + 2 × 4 = 18 − 4 + 8 = 14 + 8 = <strong>22</strong>.</p><p>On calcule la parenthèse, puis la division et la multiplication, enfin l'addition et la soustraction de gauche à droite.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 3e</strong> (le prix total est bien 3 × 1 + 2 × 2 = 7 €, les multiplications étant prioritaires). Le piège était la 4e : pour la moyenne de 12 et 16, il faut des parenthèses, (12 + 16) ÷ 2, comme à la question 2 ; sans elles, on divise seulement 16 par 2. Les deux premiers choix demandent aussi des parenthèses.</p>"
+  },
+  "cloturee": true
 }

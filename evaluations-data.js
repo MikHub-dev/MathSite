@@ -740,7 +740,15 @@ window.EVALUATIONS = {
        "Calculer la moyenne de deux notes, 12 et 16 : on écrit 12 + 16 ÷ 2"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>22</strong> : la multiplication est prioritaire, donc 7 + 3 × 5 = 7 + 15 = 22.</p>",
+     "q2": "<p><strong>50</strong> : on calcule d'abord la parenthèse, donc (7 + 3) × 5 = 10 × 5 = 50.</p>",
+     "q3": "<p><strong>4 + 4 × 4</strong> : 4 + 4 × 4 = 4 + 16 = 20. Les autres valent 32, 12 et 12.</p>",
+     "q4": "<p>18 − 12 ÷ 3 + 2 × (5 − 1) = 18 − 12 ÷ 3 + 2 × 4 = 18 − 4 + 8 = 14 + 8 = <strong>22</strong>.</p><p>On calcule la parenthèse, puis la division et la multiplication, enfin l'addition et la soustraction de gauche à droite.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 3e</strong> (le prix total est bien 3 × 1 + 2 × 2 = 7 €, les multiplications étant prioritaires). Le piège était la 4e : pour la moyenne de 12 et 16, il faut des parenthèses, (12 + 16) ÷ 2, comme à la question 2 ; sans elles, on divise seulement 16 par 2. Les deux premiers choix demandent aussi des parenthèses.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-09-18-nombres-relatifs",
@@ -1835,6 +1843,42 @@ window.EVAL_NOTES = {
      "797d44179d4711553b25ca3c8e987a6c2efc588dc04c3213d521122000fbebd0": {
       "note": 4,
       "commentaire": "Bien joué pour les questions 1 et 2, les priorités entre addition, multiplication et parenthèses sont bien comprises. Revois la question 3 (c'est 4 + 4 × 4 qui vaut 20) et pense à détailler chaque étape du calcul en question 4 : cela permet d'obtenir des points même quand le résultat final n'est pas le bon."
+     },
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 9,
+      "commentaire": "Très bon travail : tu appliques bien les priorités et les parenthèses, ta note est de 18,5/20 avec le bonus. Pour la question 4, présente chaque étape sur une ligne avec le signe « = », sans répéter une ligne, et termine par une phrase de conclusion.",
+      "details": {
+       "q1": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste : 4 + 4 × 4 = 4 + 16 = 20."
+       },
+       "q4": {
+        "points": 3,
+        "remarque": "Démarche et résultat justes (22), mais rédaction : une ligne est recopiée deux fois, les étapes 14 + 8 et 22 sont rangées à côté, il manque les signes « = » et la conclusion."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : 3 × 1 + 2 × 2 = 7 € est bien le prix total ; les autres situations demandaient des parenthèses."
+      },
+      "reponduLe": "2026-10-04T08:16:12.510Z",
+      "corrigeLe": "2026-10-04",
+      "issue": 7,
+      "reponses": {
+       "q1": "22",
+       "q2": "50",
+       "q3": "4 + 4 × 4",
+       "q4": "18 - 12 : 3 + 2 x (5 - 1)             14 + 8\n18 - 12 : 3 + 2 x 4                     22\n18 - 4 + 8\n18 - 4 + 8",
+       "bonus": "Calculer le prix total de 3 croissants à 1 € et de 2 baguettes à 2 € : on écrit 3 × 1 + 2 × 2"
+      }
      }
     }
    }
@@ -1886,16 +1930,16 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-04T05:37:35.956Z",
+  "genereLe": "2026-10-04T10:41:35.553Z",
   "annees": {
     "2026-2027": {
       "5e": {
         "total": 11,
-        "ouvertes": 10,
+        "ouvertes": 9,
         "enAttente": 0,
-        "fermees": 1,
-        "copiesCorrigees": 0,
-        "moyenneSur20": null
+        "fermees": 2,
+        "copiesCorrigees": 1,
+        "moyenneSur20": 18.5
       },
       "seconde": {
         "total": 13,
