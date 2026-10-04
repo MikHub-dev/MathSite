@@ -4,6 +4,91 @@ window.EVALUATIONS = {
  "2026-2027": {
   "5e": [
    {
+    "id": "2026-10-04-evaluation",
+    "total": 10,
+    "titre": "Fractions : simplifier, comparer et additionner",
+    "chapitre": "Fractions",
+    "date": "2026-10-04",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Pour les questions de rédaction, écris les étapes de ton raisonnement et donne les fractions sous forme simplifiée.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Complète l’égalité : 5/6 = …/42. Quel nombre faut-il écrire à la place des points de suspension ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est la forme irréductible de la fraction 18/30 ?</p>",
+      "choix": [
+       "9/15",
+       "6/10",
+       "3/5",
+       "1/2"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Compare 7/8 et 5/6. Justifie ta réponse en utilisant un dénominateur commun.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Calcule 3/4 + 7/20 et donne le résultat sous forme décimale.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 1,
+      "enonce": "<p>Lundi, Inès a lu 3/8 d’un livre. Mardi, elle en a lu 1/4. Quelle fraction du livre a-t-elle lue en tout ?</p>",
+      "choix": [
+       "4/12",
+       "3/32",
+       "5/8",
+       "1/2"
+      ]
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 9,
+      "points": 3,
+      "enonce": "<p>Un jardinier plante des pommes de terre sur 2/5 de son terrain et des carottes sur 1/4 du terrain. Le reste est consacré aux salades.</p><p>a) Quelle fraction du terrain est consacrée aux salades ?</p><p>b) Le terrain a une aire de 400 m². Quelle est l’aire consacrée aux salades ?</p><p>Justifie tes calculs.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Santé et nutrition",
+      "enonce": "<p>Aux questions 4 et 5, tu as additionné des fractions après les avoir mises au même dénominateur : on ajoute les parts d’un même tout. Dans laquelle de ces situations cette méthode permet-elle de répondre à la question posée ?</p>",
+      "choix": [
+       "Calculer la quantité de sucre contenue dans 3/4 d’un pot de confiture de 200 g",
+       "Savoir lequel de deux fruits contient la plus grande part d’eau : 7/8 de sa masse pour l’un, 5/6 pour l’autre",
+       "Trouver quelle part de ses besoins en calcium de la journée un élève a couverte en buvant du lait qui en apporte 1/4 le matin, puis du yaourt qui en apporte 1/3 le midi",
+       "Convertir en millilitres une bouteille de 1,5 L d’eau"
+      ]
+     }
+    ]
+   },
+   {
     "id": "2026-09-27-lot-1",
     "total": 10,
     "titre": "Symétrie centrale et repérage",
@@ -1179,12 +1264,12 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-09-27T13:59:54.284Z",
+  "genereLe": "2026-10-04T04:36:04.788Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 6,
-        "ouvertes": 5,
+        "total": 7,
+        "ouvertes": 6,
         "enAttente": 0,
         "fermees": 1,
         "copiesCorrigees": 0,
