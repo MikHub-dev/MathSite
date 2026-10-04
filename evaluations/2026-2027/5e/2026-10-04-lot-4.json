@@ -1,0 +1,21 @@
+{
+  "titre": "Fractions : comparer, calculer, raisonner",
+  "chapitre": "Fractions",
+  "date": "2026-10-04",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Les derniers exercices demandent de rédiger un raisonnement complet : explique chaque étape.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Complète : 5/6 = 35/…. Quel nombre faut-il écrire à la place des points ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 2, "tempsMinutes": 4, "points": 1, "enonce": "<p>Laquelle de ces fractions est la plus petite ?</p>", "choix": ["5/6", "7/9", "11/18", "2/3"] },
+    { "id": "q3", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Une citerne est remplie aux 5/12 de sa capacité. On y ajoute 1/4 de sa capacité, puis on en retire 1/6 de sa capacité. Quelle fraction de la citerne est alors remplie ? Détaille ton calcul.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 3, "enonce": "<p>Dans une salle de 120 spectateurs, les adultes représentent 5/8 des personnes, les adolescents 1/4 et les autres sont des enfants. Quelle fraction des spectateurs sont des enfants ? Combien y a-t-il d'enfants ?</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 3, "enonce": "<p>Donne toutes les fractions de dénominateur 12 strictement comprises entre 1/3 et 1/2. Même question avec le dénominateur 24. Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Transports", "enonce": "<p>Aux questions 2 et 5, tu as comparé des fractions en les écrivant avec le même dénominateur. Dans laquelle de ces situations utilise-t-on cette méthode ?</p>", "choix": [
+      "Un bus roule à 60 km/h pendant 2 heures : on calcule la distance parcourue",
+      "On achète 12 tickets de bus à 1,90 € l'un : on calcule le prix total",
+      "Un trajet de 45 minutes commence à 8 h 20 : on cherche l'heure d'arrivée",
+      "Deux bus de même capacité : le premier est rempli aux 5/6, le second aux 7/9 ; on cherche lequel est le plus rempli"
+    ] }
+  ]
+}

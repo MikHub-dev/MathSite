@@ -1,0 +1,22 @@
+{
+  "titre": "Calcul littéral : problèmes et démonstrations",
+  "chapitre": "Calcul littéral",
+  "date": "2026-10-04",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Les dernières questions combinent plusieurs techniques : rédige chaque démonstration en entier.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>On développe (x − 4)(x + 4) et on obtient x² + c. Quelle est la valeur de c ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Quelle expression est égale à 3(x − 2) − (x − 5) ?</p>", "choix": ["2x − 1", "2x − 11", "4x − 1", "4x − 11"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Développe et réduis (2x − 3)(x + 4) − (x − 1)².</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 11, "points": 2, "enonce": "<p>Factorise F = (3x − 1)² − (x + 2)², puis résous l'équation F = 0.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 11, "points": 2, "enonce": "<p>Démontre que, pour tout réel x, (x + 3)(x − 5) + 16 = (x − 1)². En déduis la plus petite valeur que peut prendre (x + 3)(x − 5) + 16 et la valeur de x pour laquelle elle est atteinte.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 11, "points": 2, "enonce": "<p>Démontre que, pour tout entier n, (n − 1)(n + 1) + 1 = n². Déduis-en, sans calculatrice, que 1 999 × 2 001 + 1 est le carré d'un entier que tu préciseras.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Économie", "enonce": "<p>Aux questions 1 et 4, tu as utilisé (a + b)(a − b) = a² − b². Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un commerçant calcule le bénéfice en soustrayant le coût d'achat de la recette",
+      "Un grossiste calcule mentalement 99 × 101 € en écrivant 100² − 1² = 9 999 €",
+      "Un commerçant calcule 102² en écrivant (100 + 2)² = 10 000 + 400 + 4",
+      "Un client calcule le prix d'un article soldé de 20 % en le multipliant par 0,8"
+    ] }
+  ]
+}

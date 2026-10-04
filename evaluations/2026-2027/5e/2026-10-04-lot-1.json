@@ -1,0 +1,22 @@
+{
+  "titre": "Fractions égales et simplification",
+  "chapitre": "Fractions",
+  "date": "2026-10-04",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Écris les fractions sous forme simplifiée quand c'est demandé et justifie tes réponses aux questions de rédaction.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Complète : 2/5 = …/35. Quel nombre faut-il écrire à la place des points ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Laquelle de ces fractions est égale à 12/18 ?</p>", "choix": ["3/4", "2/3", "6/8", "4/9"] },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Simplifie la fraction 42/56 au maximum. Quel est le dénominateur de la fraction irréductible obtenue ?</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Compare 5/8 et 3/4. Justifie en écrivant les deux fractions avec le même dénominateur.</p>" },
+    { "id": "q5", "type": "qcm", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Quelle fraction est égale à 28/42 et a pour numérateur 10 ?</p>", "choix": ["10/12", "10/14", "10/15", "10/21"] },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 2, "enonce": "<p>Un sac contient 48 billes : 16 sont rouges, 12 sont bleues et les autres sont vertes. Écris sous forme irréductible la fraction de billes de chaque couleur, puis range ces trois fractions dans l'ordre croissant. Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Météorologie", "enonce": "<p>À la question 3, tu as simplifié une fraction en divisant son numérateur et son dénominateur par un même nombre : la valeur de la fraction ne change pas. Dans laquelle de ces situations utilise-t-on cette règle ?</p>", "choix": [
+      "Un météorologue a relevé de la pluie 6 jours sur 30 et annonce « 1 jour sur 5 » : c'est la même proportion, écrite avec des nombres plus petits",
+      "Un thermomètre indique 18 °C le matin et 25 °C l'après-midi : on calcule la hausse de température",
+      "Une station additionne 12 mm de pluie tombés lundi et 8 mm tombés mardi",
+      "Un satellite météo prend une photo toutes les 15 minutes : on cherche combien il en prend en 3 heures"
+    ] }
+  ]
+}

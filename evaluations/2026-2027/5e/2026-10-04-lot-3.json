@@ -1,0 +1,21 @@
+{
+  "titre": "Fractions : simplifier, reconnaître l'égalité, résoudre un problème",
+  "chapitre": "Fractions",
+  "date": "2026-10-04",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Rédige soigneusement tes réponses : une fraction simplifiée doit être irréductible.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Laquelle de ces fractions est irréductible ?</p>", "choix": ["6/15", "8/20", "9/21", "7/12"] },
+    { "id": "q2", "type": "numerique", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Simplifie la fraction 84/126 au maximum. Quelle est la somme du numérateur et du dénominateur de la fraction irréductible obtenue ?</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Les fractions 15/35 et 9/21 sont-elles égales ? Justifie en simplifiant chacune d'elles.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Un ruban mesure 2 m. On en peint 3/8 en rouge et 1/4 en bleu ; le reste est peint en jaune. Quelle fraction du ruban est jaune ? Quelle est la longueur de la partie jaune, en centimètres ?</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 3, "enonce": "<p>Julie affirme : « Si j'ajoute 1 au numérateur et 1 au dénominateur d'une fraction, j'obtiens une fraction égale. » Teste son affirmation avec la fraction 2/3, puis dis si elle est vraie ou fausse en justifiant. Donne enfin une fraction égale à 2/3 dont le dénominateur est 24.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Physique", "enonce": "<p>À la question 3, tu as vérifié que deux fractions sont égales. Dans laquelle de ces situations vérifie-t-on que deux rapports sont égaux ?</p>", "choix": [
+      "Un train parcourt 150 km en 2 h : on calcule sa vitesse moyenne",
+      "On convertit 3 m en centimètres",
+      "Deux ressorts s'allongent de 6 cm sous 4 N et de 9 cm sous 6 N : on regarde si 6/4 = 9/6 pour savoir s'ils ont la même raideur",
+      "Deux forces de 4 N et de 6 N poussent un objet dans le même sens : on calcule la force totale"
+    ] }
+  ]
+}

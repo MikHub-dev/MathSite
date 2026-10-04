@@ -1,0 +1,22 @@
+{
+  "titre": "Identités remarquables",
+  "chapitre": "Calcul littéral",
+  "date": "2026-10-04",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Reconnais les identités remarquables et cite-les lorsque tu les utilises.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>On développe (x + 5)² et on obtient x² + bx + 25. Quelle est la valeur de b ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 2, "tempsMinutes": 6, "points": 1, "enonce": "<p>Pour tout réel x, l'expression x² − 14x + 49 est égale à :</p>", "choix": ["(x + 7)²", "(x − 14)²", "(x − 7)(x + 7)", "(x − 7)²"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Développe et réduis B = (3x − 2)² + (x + 1)(x − 1).</p>" },
+    { "id": "q4", "type": "numerique", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Calcule mentalement 49 × 51 en utilisant une identité remarquable, sans calculatrice. Donne le résultat.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Factorise C = (2x + 1)² − (x − 3)².</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Démontre que, pour tout réel x, x² − 6x + 10 &gt; 0. Pour quelle valeur de x cette expression est-elle la plus petite ?</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Énergie", "enonce": "<p>À la question 1, tu as utilisé l'identité (a + b)² = a² + 2ab + b². Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Une centrale solaire occupe un carré de 50 m de côté ; on l'agrandit en ajoutant 2 m sur chaque dimension et l'on calcule la nouvelle aire en écrivant 52² = 50² + 2 × 50 × 2 + 2²",
+      "Un fournisseur calcule le prix de 120 kWh facturés 0,20 € le kWh",
+      "Un technicien calcule la puissance électrique d'un appareil en multipliant la tension par l'intensité",
+      "Une centrale solaire occupe un terrain rectangulaire de 52 m sur 48 m ; on calcule l'aire en écrivant 52 × 48 = 50² − 2²"
+    ] }
+  ]
+}

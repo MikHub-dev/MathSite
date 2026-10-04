@@ -1,0 +1,22 @@
+{
+  "titre": "Factorisations et démonstrations",
+  "chapitre": "Calcul littéral",
+  "date": "2026-10-04",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie chaque étape et pense à vérifier tes résultats en testant une valeur de x.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>On développe et on réduit 2x(x − 3) + 5x, ce qui donne ax² + bx. Quelle est la valeur de a + b ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 2, "tempsMinutes": 5, "points": 1, "enonce": "<p>Quelle est la factorisation complète de 6x² − 9x ?</p>", "choix": ["3(2x² − 3x)", "x(6x − 9)", "3x(2x + 3)", "3x(2x − 3)"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Factorise et réduis D = (x − 2)(3x + 1) + (x − 2)(x + 5).</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 2, "enonce": "<p>On pose E = (2x + 3)² − 25. Factorise E, puis résous l'équation E = 0.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 2, "enonce": "<p>Démontre que, pour tout entier n, (n + 2)² − (n − 2)² est un multiple de 8.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 11, "points": 2, "enonce": "<p>Un carré a pour côté x mètres. On construit un rectangle en ajoutant 5 m à la longueur et en retirant 2 m à la largeur (avec x &gt; 2). Exprime l'aire du rectangle sous forme développée et réduite, puis exprime la différence entre cette aire et celle du carré. Pour quelle valeur de x les deux aires sont-elles égales ?</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Environnement et climat", "enonce": "<p>Aux questions 2 et 3, tu as mis un facteur commun en évidence : k × a + k × b = k × (a + b). Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un mètre à ruban indique 3,5 m ; on le convertit en centimètres",
+      "Pour calculer 51² − 49² sans calculatrice, on écrit (51 − 49)(51 + 49)",
+      "On compare la pluie tombée en mars et en avril avec un diagramme en barres",
+      "Un pluviomètre relève 38 mm par jour pendant 6 jours, puis 12 mm par jour pendant 6 jours : on calcule 6 × 38 + 6 × 12 = 6 × (38 + 12) = 300 mm"
+    ] }
+  ]
+}

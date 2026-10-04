@@ -89,6 +89,312 @@ window.EVALUATIONS = {
     ]
    },
    {
+    "id": "2026-10-04-lot-1",
+    "total": 10,
+    "titre": "Fractions égales et simplification",
+    "chapitre": "Fractions",
+    "date": "2026-10-04",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Écris les fractions sous forme simplifiée quand c'est demandé et justifie tes réponses aux questions de rédaction.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Complète : 2/5 = …/35. Quel nombre faut-il écrire à la place des points ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Laquelle de ces fractions est égale à 12/18 ?</p>",
+      "choix": [
+       "3/4",
+       "2/3",
+       "6/8",
+       "4/9"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Simplifie la fraction 42/56 au maximum. Quel est le dénominateur de la fraction irréductible obtenue ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Compare 5/8 et 3/4. Justifie en écrivant les deux fractions avec le même dénominateur.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Quelle fraction est égale à 28/42 et a pour numérateur 10 ?</p>",
+      "choix": [
+       "10/12",
+       "10/14",
+       "10/15",
+       "10/21"
+      ]
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Un sac contient 48 billes : 16 sont rouges, 12 sont bleues et les autres sont vertes. Écris sous forme irréductible la fraction de billes de chaque couleur, puis range ces trois fractions dans l'ordre croissant. Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Météorologie",
+      "enonce": "<p>À la question 3, tu as simplifié une fraction en divisant son numérateur et son dénominateur par un même nombre : la valeur de la fraction ne change pas. Dans laquelle de ces situations utilise-t-on cette règle ?</p>",
+      "choix": [
+       "Un météorologue a relevé de la pluie 6 jours sur 30 et annonce « 1 jour sur 5 » : c'est la même proportion, écrite avec des nombres plus petits",
+       "Un thermomètre indique 18 °C le matin et 25 °C l'après-midi : on calcule la hausse de température",
+       "Une station additionne 12 mm de pluie tombés lundi et 8 mm tombés mardi",
+       "Un satellite météo prend une photo toutes les 15 minutes : on cherche combien il en prend en 3 heures"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-04-lot-2",
+    "total": 10,
+    "titre": "Comparer des fractions",
+    "chapitre": "Fractions",
+    "date": "2026-10-04",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Pour comparer des fractions, pense à les écrire avec le même dénominateur.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Complète : 7/9 = …/54. Quel nombre faut-il écrire à la place des points ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Laquelle de ces fractions est la plus grande ?</p>",
+      "choix": [
+       "5/12",
+       "1/12",
+       "7/12",
+       "4/12"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Écris 3/4 et 5/6 avec le dénominateur 12. Quel est le numérateur de la plus grande des deux fractions ainsi obtenues ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Range dans l'ordre croissant les fractions 5/8, 3/16 et 1/2. Justifie en utilisant un dénominateur commun.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Léa a lu 3/5 d'un roman de 240 pages, Hugo en a lu 13/20 et Inès 7/10. Range les trois élèves du moins avancé au plus avancé, puis calcule combien de pages de plus Inès a lues par rapport à Hugo.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Une pizza est partagée entre trois amis : Tom mange 1/6 de la pizza, Sara 1/3 et Lou 1/4. Qui a mangé la plus grosse part ? Quelle fraction de la pizza reste-t-il ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Énergie",
+      "enonce": "<p>À la question 3, tu as écrit deux fractions avec le même dénominateur pour les comparer. Dans laquelle de ces situations utilise-t-on cette méthode pour comparer ?</p>",
+      "choix": [
+       "Une éolienne produit 2 MW pendant 3 heures : on calcule l'énergie produite",
+       "Deux batteries de même capacité sont chargées, l'une aux 3/4 et l'autre aux 5/6 : on veut savoir laquelle est la plus chargée",
+       "Une facture d'électricité : on multiplie 120 kWh par 0,20 € le kWh",
+       "Une chaudière a utilisé 1/6 du fioul lundi et 1/3 mardi : on additionne pour savoir quelle fraction a été utilisée en tout"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-04-lot-3",
+    "total": 10,
+    "titre": "Fractions : simplifier, reconnaître l'égalité, résoudre un problème",
+    "chapitre": "Fractions",
+    "date": "2026-10-04",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Rédige soigneusement tes réponses : une fraction simplifiée doit être irréductible.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Laquelle de ces fractions est irréductible ?</p>",
+      "choix": [
+       "6/15",
+       "8/20",
+       "9/21",
+       "7/12"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Simplifie la fraction 84/126 au maximum. Quelle est la somme du numérateur et du dénominateur de la fraction irréductible obtenue ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Les fractions 15/35 et 9/21 sont-elles égales ? Justifie en simplifiant chacune d'elles.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Un ruban mesure 2 m. On en peint 3/8 en rouge et 1/4 en bleu ; le reste est peint en jaune. Quelle fraction du ruban est jaune ? Quelle est la longueur de la partie jaune, en centimètres ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Julie affirme : « Si j'ajoute 1 au numérateur et 1 au dénominateur d'une fraction, j'obtiens une fraction égale. » Teste son affirmation avec la fraction 2/3, puis dis si elle est vraie ou fausse en justifiant. Donne enfin une fraction égale à 2/3 dont le dénominateur est 24.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Physique",
+      "enonce": "<p>À la question 3, tu as vérifié que deux fractions sont égales. Dans laquelle de ces situations vérifie-t-on que deux rapports sont égaux ?</p>",
+      "choix": [
+       "Un train parcourt 150 km en 2 h : on calcule sa vitesse moyenne",
+       "On convertit 3 m en centimètres",
+       "Deux ressorts s'allongent de 6 cm sous 4 N et de 9 cm sous 6 N : on regarde si 6/4 = 9/6 pour savoir s'ils ont la même raideur",
+       "Deux forces de 4 N et de 6 N poussent un objet dans le même sens : on calcule la force totale"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-04-lot-4",
+    "total": 10,
+    "titre": "Fractions : comparer, calculer, raisonner",
+    "chapitre": "Fractions",
+    "date": "2026-10-04",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Les derniers exercices demandent de rédiger un raisonnement complet : explique chaque étape.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Complète : 5/6 = 35/…. Quel nombre faut-il écrire à la place des points ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Laquelle de ces fractions est la plus petite ?</p>",
+      "choix": [
+       "5/6",
+       "7/9",
+       "11/18",
+       "2/3"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Une citerne est remplie aux 5/12 de sa capacité. On y ajoute 1/4 de sa capacité, puis on en retire 1/6 de sa capacité. Quelle fraction de la citerne est alors remplie ? Détaille ton calcul.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 3,
+      "enonce": "<p>Dans une salle de 120 spectateurs, les adultes représentent 5/8 des personnes, les adolescents 1/4 et les autres sont des enfants. Quelle fraction des spectateurs sont des enfants ? Combien y a-t-il d'enfants ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 3,
+      "enonce": "<p>Donne toutes les fractions de dénominateur 12 strictement comprises entre 1/3 et 1/2. Même question avec le dénominateur 24. Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Transports",
+      "enonce": "<p>Aux questions 2 et 5, tu as comparé des fractions en les écrivant avec le même dénominateur. Dans laquelle de ces situations utilise-t-on cette méthode ?</p>",
+      "choix": [
+       "Un bus roule à 60 km/h pendant 2 heures : on calcule la distance parcourue",
+       "On achète 12 tickets de bus à 1,90 € l'un : on calcule le prix total",
+       "Un trajet de 45 minutes commence à 8 h 20 : on cherche l'heure d'arrivée",
+       "Deux bus de même capacité : le premier est rempli aux 5/6, le second aux 7/9 ; on cherche lequel est le plus rempli"
+      ]
+     }
+    ]
+   },
+   {
     "id": "2026-09-27-lot-1",
     "total": 10,
     "titre": "Symétrie centrale et repérage",
@@ -509,6 +815,322 @@ window.EVALUATIONS = {
    }
   ],
   "seconde": [
+   {
+    "id": "2026-10-04-lot-1",
+    "total": 10,
+    "titre": "Calcul littéral : développer et factoriser",
+    "chapitre": "Calcul littéral",
+    "date": "2026-10-04",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Détaille les étapes de tes développements et de tes factorisations.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le développement de (x − 3)² ?</p>",
+      "choix": [
+       "x² − 9",
+       "x² − 6x + 9",
+       "x² + 6x + 9",
+       "x² − 6x − 9"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>On développe et on réduit (2x + 1)(x − 4). Quel est le coefficient de x dans l'expression obtenue ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Factorise 9x² − 16.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Factorise 4x² + 12x + 9.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>On pose A = (x + 2)² − (x − 1)(x + 3). Démontre que A = 2x + 7, puis calcule A pour x = 1,5.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Un carré a pour côté x cm, avec x &gt; 3. On construit un rectangle en augmentant une dimension de 3 cm et en diminuant l'autre de 3 cm. Démontre que l'aire du rectangle est toujours inférieure de 9 cm² à celle du carré, quelle que soit la valeur de x.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Architecture",
+      "enonce": "<p>À la question 6, tu as utilisé l'identité (a + b)(a − b) = a² − b². Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un architecte pave une terrasse carrée de 22 m de côté : il calcule son aire en écrivant 22² = (20 + 2)² = 400 + 80 + 4",
+       "Un architecte additionne les longueurs des quatre murs d'une pièce pour en trouver le périmètre",
+       "Un architecte mesure une terrasse rectangulaire de 52 m sur 48 m : il calcule l'aire en écrivant 52 × 48 = 50² − 2² = 2 496 m²",
+       "Un architecte calcule le prix de 85 m² de parquet vendu 34 € le mètre carré"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-04-lot-2",
+    "total": 10,
+    "titre": "Identités remarquables",
+    "chapitre": "Calcul littéral",
+    "date": "2026-10-04",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Reconnais les identités remarquables et cite-les lorsque tu les utilises.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>On développe (x + 5)² et on obtient x² + bx + 25. Quelle est la valeur de b ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Pour tout réel x, l'expression x² − 14x + 49 est égale à :</p>",
+      "choix": [
+       "(x + 7)²",
+       "(x − 14)²",
+       "(x − 7)(x + 7)",
+       "(x − 7)²"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Développe et réduis B = (3x − 2)² + (x + 1)(x − 1).</p>"
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Calcule mentalement 49 × 51 en utilisant une identité remarquable, sans calculatrice. Donne le résultat.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Factorise C = (2x + 1)² − (x − 3)².</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Démontre que, pour tout réel x, x² − 6x + 10 &gt; 0. Pour quelle valeur de x cette expression est-elle la plus petite ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Énergie",
+      "enonce": "<p>À la question 1, tu as utilisé l'identité (a + b)² = a² + 2ab + b². Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Une centrale solaire occupe un carré de 50 m de côté ; on l'agrandit en ajoutant 2 m sur chaque dimension et l'on calcule la nouvelle aire en écrivant 52² = 50² + 2 × 50 × 2 + 2²",
+       "Un fournisseur calcule le prix de 120 kWh facturés 0,20 € le kWh",
+       "Un technicien calcule la puissance électrique d'un appareil en multipliant la tension par l'intensité",
+       "Une centrale solaire occupe un terrain rectangulaire de 52 m sur 48 m ; on calcule l'aire en écrivant 52 × 48 = 50² − 2²"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-04-lot-3",
+    "total": 10,
+    "titre": "Factorisations et démonstrations",
+    "chapitre": "Calcul littéral",
+    "date": "2026-10-04",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque étape et pense à vérifier tes résultats en testant une valeur de x.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>On développe et on réduit 2x(x − 3) + 5x, ce qui donne ax² + bx. Quelle est la valeur de a + b ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 1,
+      "enonce": "<p>Quelle est la factorisation complète de 6x² − 9x ?</p>",
+      "choix": [
+       "3(2x² − 3x)",
+       "x(6x − 9)",
+       "3x(2x + 3)",
+       "3x(2x − 3)"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Factorise et réduis D = (x − 2)(3x + 1) + (x − 2)(x + 5).</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>On pose E = (2x + 3)² − 25. Factorise E, puis résous l'équation E = 0.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Démontre que, pour tout entier n, (n + 2)² − (n − 2)² est un multiple de 8.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
+      "points": 2,
+      "enonce": "<p>Un carré a pour côté x mètres. On construit un rectangle en ajoutant 5 m à la longueur et en retirant 2 m à la largeur (avec x &gt; 2). Exprime l'aire du rectangle sous forme développée et réduite, puis exprime la différence entre cette aire et celle du carré. Pour quelle valeur de x les deux aires sont-elles égales ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Environnement et climat",
+      "enonce": "<p>Aux questions 2 et 3, tu as mis un facteur commun en évidence : k × a + k × b = k × (a + b). Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un mètre à ruban indique 3,5 m ; on le convertit en centimètres",
+       "Pour calculer 51² − 49² sans calculatrice, on écrit (51 − 49)(51 + 49)",
+       "On compare la pluie tombée en mars et en avril avec un diagramme en barres",
+       "Un pluviomètre relève 38 mm par jour pendant 6 jours, puis 12 mm par jour pendant 6 jours : on calcule 6 × 38 + 6 × 12 = 6 × (38 + 12) = 300 mm"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-04-lot-4",
+    "total": 10,
+    "titre": "Calcul littéral : problèmes et démonstrations",
+    "chapitre": "Calcul littéral",
+    "date": "2026-10-04",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Les dernières questions combinent plusieurs techniques : rédige chaque démonstration en entier.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>On développe (x − 4)(x + 4) et on obtient x² + c. Quelle est la valeur de c ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle expression est égale à 3(x − 2) − (x − 5) ?</p>",
+      "choix": [
+       "2x − 1",
+       "2x − 11",
+       "4x − 1",
+       "4x − 11"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Développe et réduis (2x − 3)(x + 4) − (x − 1)².</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
+      "points": 2,
+      "enonce": "<p>Factorise F = (3x − 1)² − (x + 2)², puis résous l'équation F = 0.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
+      "points": 2,
+      "enonce": "<p>Démontre que, pour tout réel x, (x + 3)(x − 5) + 16 = (x − 1)². En déduis la plus petite valeur que peut prendre (x + 3)(x − 5) + 16 et la valeur de x pour laquelle elle est atteinte.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
+      "points": 2,
+      "enonce": "<p>Démontre que, pour tout entier n, (n − 1)(n + 1) + 1 = n². Déduis-en, sans calculatrice, que 1 999 × 2 001 + 1 est le carré d'un entier que tu préciseras.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Économie",
+      "enonce": "<p>Aux questions 1 et 4, tu as utilisé (a + b)(a − b) = a² − b². Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un commerçant calcule le bénéfice en soustrayant le coût d'achat de la recette",
+       "Un grossiste calcule mentalement 99 × 101 € en écrivant 100² − 1² = 9 999 €",
+       "Un commerçant calcule 102² en écrivant (100 + 2)² = 10 000 + 400 + 4",
+       "Un client calcule le prix d'un article soldé de 20 % en le multipliant par 0,8"
+      ]
+     }
+    ]
+   },
    {
     "id": "2026-09-27-intervalles",
     "total": 10,
@@ -1264,20 +1886,20 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-04T04:36:04.788Z",
+  "genereLe": "2026-10-04T04:41:41.531Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 7,
-        "ouvertes": 6,
+        "total": 11,
+        "ouvertes": 10,
         "enAttente": 0,
         "fermees": 1,
         "copiesCorrigees": 0,
         "moyenneSur20": null
       },
       "seconde": {
-        "total": 9,
-        "ouvertes": 8,
+        "total": 13,
+        "ouvertes": 12,
         "enAttente": 0,
         "fermees": 1,
         "copiesCorrigees": 1,

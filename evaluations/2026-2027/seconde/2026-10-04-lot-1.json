@@ -1,0 +1,22 @@
+{
+  "titre": "Calcul littéral : développer et factoriser",
+  "chapitre": "Calcul littéral",
+  "date": "2026-10-04",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Détaille les étapes de tes développements et de tes factorisations.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Quel est le développement de (x − 3)² ?</p>", "choix": ["x² − 9", "x² − 6x + 9", "x² + 6x + 9", "x² − 6x − 9"] },
+    { "id": "q2", "type": "numerique", "niveau": 2, "tempsMinutes": 6, "points": 1, "enonce": "<p>On développe et on réduit (2x + 1)(x − 4). Quel est le coefficient de x dans l'expression obtenue ?</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Factorise 9x² − 16.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Factorise 4x² + 12x + 9.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>On pose A = (x + 2)² − (x − 1)(x + 3). Démontre que A = 2x + 7, puis calcule A pour x = 1,5.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Un carré a pour côté x cm, avec x &gt; 3. On construit un rectangle en augmentant une dimension de 3 cm et en diminuant l'autre de 3 cm. Démontre que l'aire du rectangle est toujours inférieure de 9 cm² à celle du carré, quelle que soit la valeur de x.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Architecture", "enonce": "<p>À la question 6, tu as utilisé l'identité (a + b)(a − b) = a² − b². Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un architecte pave une terrasse carrée de 22 m de côté : il calcule son aire en écrivant 22² = (20 + 2)² = 400 + 80 + 4",
+      "Un architecte additionne les longueurs des quatre murs d'une pièce pour en trouver le périmètre",
+      "Un architecte mesure une terrasse rectangulaire de 52 m sur 48 m : il calcule l'aire en écrivant 52 × 48 = 50² − 2² = 2 496 m²",
+      "Un architecte calcule le prix de 85 m² de parquet vendu 34 € le mètre carré"
+    ] }
+  ]
+}

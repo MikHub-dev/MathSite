@@ -1,0 +1,22 @@
+{
+  "titre": "Comparer des fractions",
+  "chapitre": "Fractions",
+  "date": "2026-10-04",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Pour comparer des fractions, pense à les écrire avec le même dénominateur.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Complète : 7/9 = …/54. Quel nombre faut-il écrire à la place des points ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Laquelle de ces fractions est la plus grande ?</p>", "choix": ["5/12", "1/12", "7/12", "4/12"] },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>Écris 3/4 et 5/6 avec le dénominateur 12. Quel est le numérateur de la plus grande des deux fractions ainsi obtenues ?</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Range dans l'ordre croissant les fractions 5/8, 3/16 et 1/2. Justifie en utilisant un dénominateur commun.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Léa a lu 3/5 d'un roman de 240 pages, Hugo en a lu 13/20 et Inès 7/10. Range les trois élèves du moins avancé au plus avancé, puis calcule combien de pages de plus Inès a lues par rapport à Hugo.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Une pizza est partagée entre trois amis : Tom mange 1/6 de la pizza, Sara 1/3 et Lou 1/4. Qui a mangé la plus grosse part ? Quelle fraction de la pizza reste-t-il ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Énergie", "enonce": "<p>À la question 3, tu as écrit deux fractions avec le même dénominateur pour les comparer. Dans laquelle de ces situations utilise-t-on cette méthode pour comparer ?</p>", "choix": [
+      "Une éolienne produit 2 MW pendant 3 heures : on calcule l'énergie produite",
+      "Deux batteries de même capacité sont chargées, l'une aux 3/4 et l'autre aux 5/6 : on veut savoir laquelle est la plus chargée",
+      "Une facture d'électricité : on multiplie 120 kWh par 0,20 € le kWh",
+      "Une chaudière a utilisé 1/6 du fioul lundi et 1/3 mardi : on additionne pour savoir quelle fraction a été utilisée en tout"
+    ] }
+  ]
+}
