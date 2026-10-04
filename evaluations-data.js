@@ -1216,7 +1216,17 @@ window.EVALUATIONS = {
        "Une entreprise dont le bénéfice vaut (x + 1)(x − 3) milliers d'euros cherche les valeurs de x pour lesquelles ce bénéfice est strictement positif"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p>L'inégalité −3 &lt; x est stricte (crochet ouvert en −3) et x ≤ 6 est large (crochet fermé en 6). <strong>Réponse : ]−3 ; 6]</strong>.</p>",
+     "q2": "<p>x ≥ −5 inclut −5 et n'a pas de borne à droite. <strong>Réponse : [−5 ; +∞[</strong> (le crochet est toujours ouvert en +∞).</p>",
+     "q3": "<p>Les deux intervalles se recouvrent sur les réels qui sont dans les deux. <strong>[−4 ; 2] ∩ ]0 ; 5] = ]0 ; 2]</strong> (0 est exclu du second, 2 est inclus dans les deux). <strong>[−4 ; 2] ∪ ]0 ; 5] = [−4 ; 5]</strong> : comme ils se recouvrent, la réunion est un seul intervalle, de −4 (inclus) à 5 (inclus).</p>",
+     "q4": "<p>Les entiers de ]−2 ; 5] sont −1, 0, 1, 2, 3, 4 et 5 (−2 est exclu, 5 est inclus). <strong>Réponse : 7</strong>.</p>",
+     "q5": "<p>|d − 24| ≤ 0,3 signifie que d est à une distance d'au plus 0,3 de 24, soit 24 − 0,3 ≤ d ≤ 24 + 0,3. <strong>Les diamètres acceptés sont dans [23,7 ; 24,3]</strong> (en mm).</p>",
+     "q6": "<p>(x + 1)(x − 3) s'annule en −1 et 3. Le tableau de signes montre que le produit est positif quand les deux facteurs ont le même signe, donc pour x &lt; −1 ou x &gt; 3. <strong>S = ]−∞ ; −1[ ∪ ]3 ; +∞[</strong>. Pour x = 2 : (2 + 1)(2 − 3) = −3 &lt; 0, donc <strong>2 n'appartient pas à S</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 1re</strong> (la température réelle t vérifie |t − 38,5| ≤ 0,1, soit t dans [38,4 ; 38,6]). Le piège était la 4e : le bénéfice (x + 1)(x − 3) &gt; 0 relève de l'étude du signe d'un produit, la formule de la question 6, pas de la distance à une valeur. La 2e est une simple inégalité x ≥ 1,40 et la 3e un calcul de pourcentage.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-09-27-intervalles-complexes",
@@ -1924,13 +1934,64 @@ window.EVAL_NOTES = {
       }
      }
     }
+   },
+   "2026-09-27-intervalles": {
+    "publieLe": "2026-10-04",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 8,
+      "commentaire": "Très bonne maîtrise des intervalles : tes résultats sont justes partout, et tu sais justifier les crochets. Ta note est de 16,5/20, bonus compris. Retravaille l'étude du signe d'un produit (tableau de signes) : ton raisonnement de la question 6 n'est pas cohérent, même si le résultat final est bon.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste, et bien justifié : le crochet fermé en −5 et le crochet ouvert en +∞."
+       },
+       "q3": {
+        "points": 1.5,
+        "remarque": "Intersection et réunion justes. Justification : pour la réunion, explique pourquoi les deux intervalles se recouvrent (ils ont ]0 ; 2] en commun) et donc forment un seul intervalle."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste : il y a 7 entiers, et tu les as listés."
+       },
+       "q5": {
+        "points": 1.5,
+        "remarque": "Intervalle juste, bien justifié. Rédaction : écris l'équivalence |d − 24| ≤ 0,3 ⇔ 24 − 0,3 ≤ d ≤ 24 + 0,3 (distance à 24) et termine par une phrase de conclusion."
+       },
+       "q6": {
+        "points": 1,
+        "remarque": "Racines et propriété du produit nul bien utilisées, résultat et vérification avec 2 justes. Raisonnement : « x + 1 > 0 donne ]−∞ ; −1[ » est faux (x + 1 > 0 donne x > −1), et un produit positif exige deux facteurs de même signe ; il fallait un tableau de signes."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné. Le thermomètre à ± 0,1 °C est bien une condition « distance à 38,5 au plus 0,1 » ; le bénéfice (x + 1)(x − 3) était le piège, c'est la question 6 (signe d'un produit)."
+      },
+      "reponduLe": "2026-10-04T12:34:16.062Z",
+      "corrigeLe": "2026-10-04",
+      "issue": 8,
+      "reponses": {
+       "q1": "]−3 ; 6]",
+       "q2": "[-5;+infini[\n-5 est représenté avec un crochet fermé car le signe >= signifie superieur ou égal (donc -5 est inclus), et infini est représenté avec un crochet ouvert car infini ne se termine jamais.",
+       "q3": "[-4;2]inter]0;5] = ]0;2]. On trouve cela car l'intersection démarre après 0 (]0 signifie que 0 est exclu) et finit à 2 (2] signifie que 2 est inclus).\n[-4;2]U]0;5]=[-4;5]. On conserve le sens des crochets aux extrèmes ( les deux sont fermés).",
+       "q4": "7: {-1;0;1;2;3;4;5} (-2 est exclu car il y a un crochet ouvert).",
+       "q5": "On commence par trouver les diametres acceptés:\n24+0,3=24,3mm et 24-0,3=23,7mm.\nL'inégalité est inférieur ou égale, donc on inclus les valeurs trouvées ( avec des crochets fermés ):\ndonc on obtient: [23,7 ; 24,3]",
+       "q6": "Tout d'abord on résout l'équation:\n(x+1)(x-3)=0 Si un produit de facteurs est nul, alors l'un au moins des facteurs est nul:\nSoit x+1=0 ou x-3=0:\nx+1=0              x-3=0\nx=-1                 x=3\nS={3;-1}\nDonc pour (x+1)>0, tout chiffre plus grand que -1 fonctionne: ]-infini;-1[\nEt pour (x-3)>0, tout chiffre plus grand que 3 fonctionne: ]3 ; + infini[\nCela parait inversé parce que si on ajoute le deuxieme facteur celui ci devient plus grand que l'autre, et donne donc une valeur positive.\nL'union est donc: ]-infini ; -1[U]3 ; + infini[.\n2 n'appartient pas a cet intervalle, puisque l'union n'inclut pas 2.\nOn peut aussi vérifier:\n(2+1)(2-3)=3 * -1 = -3, et -3<0 ce qui ne respecte pas l'inégalité.",
+       "bonus": "Un thermomètre médical affiche 38,5 °C avec une précision de ± 0,1 °C : on cherche les températures réelles possibles"
+      }
+     }
+    }
    }
   }
  }
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-04T10:41:35.553Z",
+  "genereLe": "2026-10-04T12:57:32.470Z",
   "annees": {
     "2026-2027": {
       "5e": {
@@ -1943,11 +2004,11 @@ window.EVAL_KPI = {
       },
       "seconde": {
         "total": 13,
-        "ouvertes": 12,
+        "ouvertes": 11,
         "enAttente": 0,
-        "fermees": 1,
-        "copiesCorrigees": 1,
-        "moyenneSur20": 18
+        "fermees": 2,
+        "copiesCorrigees": 2,
+        "moyenneSur20": 17.3
       }
     }
   }

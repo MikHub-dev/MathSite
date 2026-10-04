@@ -73,5 +73,15 @@
         "Une entreprise dont le bénéfice vaut (x + 1)(x − 3) milliers d'euros cherche les valeurs de x pour lesquelles ce bénéfice est strictement positif"
       ]
     }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p>L'inégalité −3 &lt; x est stricte (crochet ouvert en −3) et x ≤ 6 est large (crochet fermé en 6). <strong>Réponse : ]−3 ; 6]</strong>.</p>",
+    "q2": "<p>x ≥ −5 inclut −5 et n'a pas de borne à droite. <strong>Réponse : [−5 ; +∞[</strong> (le crochet est toujours ouvert en +∞).</p>",
+    "q3": "<p>Les deux intervalles se recouvrent sur les réels qui sont dans les deux. <strong>[−4 ; 2] ∩ ]0 ; 5] = ]0 ; 2]</strong> (0 est exclu du second, 2 est inclus dans les deux). <strong>[−4 ; 2] ∪ ]0 ; 5] = [−4 ; 5]</strong> : comme ils se recouvrent, la réunion est un seul intervalle, de −4 (inclus) à 5 (inclus).</p>",
+    "q4": "<p>Les entiers de ]−2 ; 5] sont −1, 0, 1, 2, 3, 4 et 5 (−2 est exclu, 5 est inclus). <strong>Réponse : 7</strong>.</p>",
+    "q5": "<p>|d − 24| ≤ 0,3 signifie que d est à une distance d'au plus 0,3 de 24, soit 24 − 0,3 ≤ d ≤ 24 + 0,3. <strong>Les diamètres acceptés sont dans [23,7 ; 24,3]</strong> (en mm).</p>",
+    "q6": "<p>(x + 1)(x − 3) s'annule en −1 et 3. Le tableau de signes montre que le produit est positif quand les deux facteurs ont le même signe, donc pour x &lt; −1 ou x &gt; 3. <strong>S = ]−∞ ; −1[ ∪ ]3 ; +∞[</strong>. Pour x = 2 : (2 + 1)(2 − 3) = −3 &lt; 0, donc <strong>2 n'appartient pas à S</strong>.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 1re</strong> (la température réelle t vérifie |t − 38,5| ≤ 0,1, soit t dans [38,4 ; 38,6]). Le piège était la 4e : le bénéfice (x + 1)(x − 3) &gt; 0 relève de l'étude du signe d'un produit, la formule de la question 6, pas de la distance à une valeur. La 2e est une simple inégalité x ≥ 1,40 et la 3e un calcul de pourcentage.</p>"
+  },
+  "cloturee": true
 }
