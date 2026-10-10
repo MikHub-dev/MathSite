@@ -1668,7 +1668,16 @@ window.EVALUATIONS = {
        "Une astronome note la distance entre la Terre et le Soleil : 1,5 × 10⁸ km"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>Réponse : 11.</strong> Pour a positif, (√a)² = a, donc (√11)² = 11.</p>",
+     "q2": "<p><strong>Réponse : 6⁷.</strong> On multiplie deux puissances de même base : on additionne les exposants, 6⁴ × 6³ = 6⁴⁺³ = 6⁷.</p>",
+     "q3": "<p><strong>Réponse : 100.</strong> 10³ × 10⁻¹ = 10³⁻¹ = 10² = 100.</p>",
+     "q4": "<p><strong>Réponse : 6√2.</strong> On écrit 72 = 36 × 2, donc √72 = √36 × √2 = 6√2. Le choix 9√8 n'est pas simplifié au maximum.</p>",
+     "q5": "<p><strong>Réponse : 3,2 × 10⁻⁴.</strong> On place la virgule après le premier chiffre non nul pour avoir 1 ≤ a &lt; 10, soit a = 3,2. On l'a décalée de 4 rangs vers la droite, donc l'exposant est −4.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 4e</strong> (1,5 × 10⁸ est de la forme a × 10ⁿ avec a = 1,5 compris entre 1 et 10). Le piège était la 1re : 0,1 × 10⁻⁹ a un a inférieur à 1, il faudrait écrire 1 × 10⁻¹⁰ ; la 3e a un a = 25 trop grand, et la 2e n'est pas une puissance de 10.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-09-26-evaluation-2",
@@ -1935,6 +1944,52 @@ window.EVAL_NOTES = {
      }
     }
    },
+   "2026-09-26-evaluation": {
+    "publieLe": "2026-10-10",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 10,
+      "commentaire": "Excellente copie : tous les calculs sont justes et ta méthode de notation scientifique est bien expliquée. Tu obtiens 20,5/20 avec le bonus, bravo !",
+      "details": {
+       "q1": {
+        "points": 2,
+        "remarque": "Juste : (√11)² = 11."
+       },
+       "q2": {
+        "points": 2,
+        "remarque": "Juste : 6⁴ × 6³ = 6⁷, on additionne les exposants."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste : 10³ × 10⁻¹ = 10² = 100."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste : √72 = √(36 × 2) = 6√2."
+       },
+       "q5": {
+        "points": 2,
+        "remarque": "Juste et bien rédigé : 3,2 × 10⁻⁴, avec la condition sur a et le sens du décalage de la virgule."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné. 1,5 × 10⁸ est bien de la forme a × 10ⁿ avec 1 ≤ a < 10 ; les autres choix ne respectent pas cette condition sur a."
+      },
+      "reponduLe": "2026-10-10T06:35:27.301Z",
+      "corrigeLe": "2026-10-10",
+      "issue": 10,
+      "reponses": {
+       "q1": "11, la racine carée élevée au carrée est annulée.",
+       "q2": "6⁷",
+       "q3": "10ˆ3*10ˆ-1=10ˆ3-1=10²=100",
+       "q4": "6√2",
+       "q5": "Le resultat est 3,2*10ˆ-4. Une notation scientifique s'écrit sous form a*10ˆn, avec a qui appartient à [1;10[. 3,2 est inclus dans l'intervalle, ce qui signifie que c'est une ecriture scientifique. Ensuite pour trouver 10ˆ-4, on décale la virgule vers la droite, donc on agrandit le nombre, ce qui insunue que n sera négatif. Et on décale la virgule 4 fois.",
+       "bonus": "Une astronome note la distance entre la Terre et le Soleil : 1,5 × 10⁸ km"
+      }
+     }
+    }
+   },
    "2026-09-27-intervalles": {
     "publieLe": "2026-10-04",
     "notes": {
@@ -1991,7 +2046,7 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-10T06:27:39.561Z",
+  "genereLe": "2026-10-10T07:12:09.182Z",
   "annees": {
     "2026-2027": {
       "5e": {
@@ -2004,11 +2059,11 @@ window.EVAL_KPI = {
       },
       "seconde": {
         "total": 13,
-        "ouvertes": 10,
-        "enAttente": 1,
-        "fermees": 2,
-        "copiesCorrigees": 2,
-        "moyenneSur20": 17.3
+        "ouvertes": 8,
+        "enAttente": 2,
+        "fermees": 3,
+        "copiesCorrigees": 3,
+        "moyenneSur20": 18.3
       }
     }
   }

@@ -1,0 +1,46 @@
+{
+  "publieLe": "2026-10-10",
+  "notes": {
+    "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 10,
+      "commentaire": "Excellente copie : tous les calculs sont justes et ta méthode de notation scientifique est bien expliquée. Tu obtiens 20,5/20 avec le bonus, bravo !",
+      "details": {
+        "q1": {
+          "points": 2,
+          "remarque": "Juste : (√11)² = 11."
+        },
+        "q2": {
+          "points": 2,
+          "remarque": "Juste : 6⁴ × 6³ = 6⁷, on additionne les exposants."
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Juste : 10³ × 10⁻¹ = 10² = 100."
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste : √72 = √(36 × 2) = 6√2."
+        },
+        "q5": {
+          "points": 2,
+          "remarque": "Juste et bien rédigé : 3,2 × 10⁻⁴, avec la condition sur a et le sens du décalage de la virgule."
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonus gagné. 1,5 × 10⁸ est bien de la forme a × 10ⁿ avec 1 ≤ a < 10 ; les autres choix ne respectent pas cette condition sur a."
+      },
+      "reponduLe": "2026-10-10T06:35:27.301Z",
+      "corrigeLe": "2026-10-10",
+      "issue": 10,
+      "reponses": {
+        "q1": "11, la racine carée élevée au carrée est annulée.",
+        "q2": "6⁷",
+        "q3": "10ˆ3*10ˆ-1=10ˆ3-1=10²=100",
+        "q4": "6√2",
+        "q5": "Le resultat est 3,2*10ˆ-4. Une notation scientifique s'écrit sous form a*10ˆn, avec a qui appartient à [1;10[. 3,2 est inclus dans l'intervalle, ce qui signifie que c'est une ecriture scientifique. Ensuite pour trouver 10ˆ-4, on décale la virgule vers la droite, donc on agrandit le nombre, ce qui insunue que n sera négatif. Et on décale la virgule 4 fois.",
+        "bonus": "Une astronome note la distance entre la Terre et le Soleil : 1,5 × 10⁸ km"
+      }
+    }
+  }
+}

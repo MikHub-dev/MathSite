@@ -71,5 +71,14 @@
         "Une astronome note la distance entre la Terre et le Soleil : 1,5 × 10⁸ km"
       ]
     }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>Réponse : 11.</strong> Pour a positif, (√a)² = a, donc (√11)² = 11.</p>",
+    "q2": "<p><strong>Réponse : 6⁷.</strong> On multiplie deux puissances de même base : on additionne les exposants, 6⁴ × 6³ = 6⁴⁺³ = 6⁷.</p>",
+    "q3": "<p><strong>Réponse : 100.</strong> 10³ × 10⁻¹ = 10³⁻¹ = 10² = 100.</p>",
+    "q4": "<p><strong>Réponse : 6√2.</strong> On écrit 72 = 36 × 2, donc √72 = √36 × √2 = 6√2. Le choix 9√8 n'est pas simplifié au maximum.</p>",
+    "q5": "<p><strong>Réponse : 3,2 × 10⁻⁴.</strong> On place la virgule après le premier chiffre non nul pour avoir 1 ≤ a &lt; 10, soit a = 3,2. On l'a décalée de 4 rangs vers la droite, donc l'exposant est −4.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 4e</strong> (1,5 × 10⁸ est de la forme a × 10ⁿ avec a = 1,5 compris entre 1 et 10). Le piège était la 1re : 0,1 × 10⁻⁹ a un a inférieur à 1, il faudrait écrire 1 × 10⁻¹⁰ ; la 3e a un a = 25 trop grand, et la 2e n'est pas une puissance de 10.</p>"
+  },
+  "cloturee": true
 }
