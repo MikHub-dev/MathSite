@@ -1991,7 +1991,7 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-04T12:57:32.470Z",
+  "genereLe": "2026-10-10T06:27:24.061Z",
   "annees": {
     "2026-2027": {
       "5e": {
@@ -2004,8 +2004,8 @@ window.EVAL_KPI = {
       },
       "seconde": {
         "total": 13,
-        "ouvertes": 11,
-        "enAttente": 0,
+        "ouvertes": 10,
+        "enAttente": 1,
         "fermees": 2,
         "copiesCorrigees": 2,
         "moyenneSur20": 17.3
