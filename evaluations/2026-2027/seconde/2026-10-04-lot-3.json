@@ -18,5 +18,15 @@
       "On compare la pluie tombée en mars et en avril avec un diagramme en barres",
       "Un pluviomètre relève 38 mm par jour pendant 6 jours, puis 12 mm par jour pendant 6 jours : on calcule 6 × 38 + 6 × 12 = 6 × (38 + 12) = 300 mm"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p>2x(x − 3) + 5x = 2x² − 6x + 5x = 2x² − x, donc a = 2 et b = −1 : <strong>a + b = 1</strong>.</p>",
+    "q2": "<p><strong>3x(2x − 3)</strong> : le facteur commun le plus grand de 6x² et 9x est 3x. Les choix 3(2x² − 3x) et x(6x − 9) ne sont pas complets, et 3x(2x + 3) a un mauvais signe.</p>",
+    "q3": "<p>D = (x − 2)[(3x + 1) + (x + 5)] = (x − 2)(4x + 6) = <strong>2(x − 2)(2x + 3)</strong>.</p><p>On met le facteur commun (x − 2) en évidence, puis on factorise 4x + 6 = 2(2x + 3).</p>",
+    "q4": "<p>E = (2x + 3)² − 5² = (2x + 3 + 5)(2x + 3 − 5) = (2x + 8)(2x − 2) = <strong>4(x + 4)(x − 1)</strong>, avec a² − b² = (a + b)(a − b).</p><p>Un produit est nul si l'un au moins de ses facteurs est nul : x + 4 = 0 ou x − 1 = 0, donc <strong>S = {−4 ; 1}</strong>.</p>",
+    "q5": "<p>(n + 2)² − (n − 2)² = [(n + 2) + (n − 2)] × [(n + 2) − (n − 2)] = 2n × 4 = <strong>8n</strong>.</p><p>Comme n est un entier, 8n est le produit de 8 par un entier : c'est un multiple de 8.</p>",
+    "q6": "<p>Le rectangle a pour longueur x + 5 et pour largeur x − 2 : A = (x + 5)(x − 2) = <strong>x² + 3x − 10</strong>. La différence avec l'aire du carré (x²) est <strong>3x − 10</strong>.</p><p>Les aires sont égales si 3x − 10 = 0, donc pour <strong>x = 10/3</strong> m (environ 3,33 m), valeur bien supérieure à 2.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 4e</strong> (6 × 38 + 6 × 12 = 6 × (38 + 12) : le facteur 6, nombre de jours, est commun aux deux relevés). Le piège était la 2e : écrire 51² − 49² = (51 − 49)(51 + 49) utilise l'identité a² − b² = (a + b)(a − b), une autre technique de factorisation de l'évaluation, qui ne met pas en évidence un facteur commun. Les autres choix sont une conversion et une lecture de diagramme.</p>"
+  },
+  "cloturee": true
 }

@@ -18,5 +18,15 @@
       "Un technicien calcule la puissance électrique d'un appareil en multipliant la tension par l'intensité",
       "Une centrale solaire occupe un terrain rectangulaire de 52 m sur 48 m ; on calcule l'aire en écrivant 52 × 48 = 50² − 2²"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>b = 10</strong> : (x + 5)² = x² + 2 × x × 5 + 5² = x² + 10x + 25.</p>",
+    "q2": "<p><strong>(x − 7)²</strong> : x² − 14x + 49 = x² − 2 × x × 7 + 7², c'est l'identité (a − b)² = a² − 2ab + b² avec a = x et b = 7.</p>",
+    "q3": "<p>B = (3x − 2)² + (x + 1)(x − 1) = (9x² − 12x + 4) + (x² − 1) = <strong>10x² − 12x + 3</strong>.</p><p>On utilise (a − b)² = a² − 2ab + b² pour le premier terme et (a + b)(a − b) = a² − b² pour le second.</p>",
+    "q4": "<p>49 × 51 = (50 − 1)(50 + 1) = 50² − 1² = 2 500 − 1 = <strong>2 499</strong>, avec l'identité (a − b)(a + b) = a² − b².</p>",
+    "q5": "<p>C = (2x + 1)² − (x − 3)² = [(2x + 1) + (x − 3)] × [(2x + 1) − (x − 3)] = (3x − 2)(x + 4), soit <strong>C = (3x − 2)(x + 4)</strong>.</p><p>On utilise a² − b² = (a + b)(a − b) avec a = 2x + 1 et b = x − 3 ; attention au signe en retirant la parenthèse : 2x + 1 − x + 3 = x + 4.</p>",
+    "q6": "<p>x² − 6x + 10 = (x² − 6x + 9) + 1 = <strong>(x − 3)² + 1</strong>. Un carré est toujours positif ou nul, donc (x − 3)² + 1 ≥ 1 &gt; 0 pour tout réel x.</p><p>L'expression est la plus petite quand (x − 3)² = 0, c'est-à-dire pour <strong>x = 3</strong> ; son minimum vaut alors 1.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 1re</strong> (le carré de côté 50 m devient un carré de côté 52 m, et 52² = (50 + 2)² = 50² + 2 × 50 × 2 + 2² est le développement de (a + b)²). Le piège était la 4e : 52 × 48 = 50² − 2² utilise l'identité (a + b)(a − b) = a² − b², l'autre identité de l'évaluation, pas le carré d'une somme. Les 2e et 3e sont de simples multiplications.</p>"
+  },
+  "cloturee": true
 }

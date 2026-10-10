@@ -1,0 +1,51 @@
+{
+  "publieLe": "2026-10-10",
+  "notes": {
+    "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 9.5,
+      "commentaire": "Très bon travail sur les identités remarquables : tes développements et factorisations sont justes et bien rédigés. Ta note est de 19,5/20, bonus compris. Pour la question 6, pense à écrire explicitement qu'un carré est toujours positif ou nul.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste : b = 10."
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste : x² − 14x + 49 = (x − 7)²."
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Juste, avec les deux identités citées et les étapes écrites."
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste : (50 − 1)(50 + 1) = 50² − 1² = 2 499, identité bien utilisée."
+        },
+        "q5": {
+          "points": 2,
+          "remarque": "Juste : a² − b² bien citée et signes soignés dans le second facteur."
+        },
+        "q6": {
+          "points": 1.5,
+          "remarque": "Forme (x − 3)² + 1 et minimum en x = 3 justes. Raisonnement : la positivité vient de (x − 3)² ≥ 0 (un carré est positif ou nul), puis on ajoute 1 ; ne te contente pas de « 1 > 0 »."
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonus gagné : agrandir un carré de 50 m à 52 m utilise (a + b)². La 4e situation utilisait l'autre identité, (a + b)(a − b) = a² − b²."
+      },
+      "reponduLe": "2026-10-04T14:07:19.876Z",
+      "corrigeLe": "2026-10-10",
+      "issue": 9,
+      "reponses": {
+        "q1": "10",
+        "q2": "(x − 7)²",
+        "q3": "Formules utilisées: (a-b)²=a²-2ab+b²\n                                   (a+b)(a-b)=a²-b²\nB= (3x-2)²+(x+1)(x-1)\nB= 9x²-12x+4 + x²-1\nB=10x²-12x+3",
+        "q4": "(50-1)(50+1)=50²-1²=2499",
+        "q5": "C=(2x+1)²-(x-3)²\nOn utilise a²-b²=(a+b)(a-b)\nC=(2x+1+x-3)(2x+1-x+3)\nC=(3x-2)(x+4)",
+        "q6": "Tout d'abord, il faut faire en sorte que le 10 soit réduit au carré parfait le plus proche:\nx²-6x+9+1.\nMaintenant, en excluant le 1, on peut appliquer l'identité remarquable a²-2ab+b²=(a-b)²:\n(x-3)²+1.\nComme le 1 reste constant, et que 1>0, le résultat sera toujours positif.\nPour que l'expression soit plus petite, il faut que le facteur soit egal a 0:\nx-3=0\nx=3, donc la valeur de x qui rend l'expression sous la forme la plus petite est 3.",
+        "bonus": "Une centrale solaire occupe un carré de 50 m de côté ; on l'agrandit en ajoutant 2 m sur chaque dimension et l'on calcule la nouvelle aire en écrivant 52² = 50² + 2 × 50 × 2 + 2²"
+      }
+    }
+  }
+}

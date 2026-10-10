@@ -988,7 +988,17 @@ window.EVALUATIONS = {
        "Une centrale solaire occupe un terrain rectangulaire de 52 m sur 48 m ; on calcule l'aire en écrivant 52 × 48 = 50² − 2²"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>b = 10</strong> : (x + 5)² = x² + 2 × x × 5 + 5² = x² + 10x + 25.</p>",
+     "q2": "<p><strong>(x − 7)²</strong> : x² − 14x + 49 = x² − 2 × x × 7 + 7², c'est l'identité (a − b)² = a² − 2ab + b² avec a = x et b = 7.</p>",
+     "q3": "<p>B = (3x − 2)² + (x + 1)(x − 1) = (9x² − 12x + 4) + (x² − 1) = <strong>10x² − 12x + 3</strong>.</p><p>On utilise (a − b)² = a² − 2ab + b² pour le premier terme et (a + b)(a − b) = a² − b² pour le second.</p>",
+     "q4": "<p>49 × 51 = (50 − 1)(50 + 1) = 50² − 1² = 2 500 − 1 = <strong>2 499</strong>, avec l'identité (a − b)(a + b) = a² − b².</p>",
+     "q5": "<p>C = (2x + 1)² − (x − 3)² = [(2x + 1) + (x − 3)] × [(2x + 1) − (x − 3)] = (3x − 2)(x + 4), soit <strong>C = (3x − 2)(x + 4)</strong>.</p><p>On utilise a² − b² = (a + b)(a − b) avec a = 2x + 1 et b = x − 3 ; attention au signe en retirant la parenthèse : 2x + 1 − x + 3 = x + 4.</p>",
+     "q6": "<p>x² − 6x + 10 = (x² − 6x + 9) + 1 = <strong>(x − 3)² + 1</strong>. Un carré est toujours positif ou nul, donc (x − 3)² + 1 ≥ 1 &gt; 0 pour tout réel x.</p><p>L'expression est la plus petite quand (x − 3)² = 0, c'est-à-dire pour <strong>x = 3</strong> ; son minimum vaut alors 1.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 1re</strong> (le carré de côté 50 m devient un carré de côté 52 m, et 52² = (50 + 2)² = 50² + 2 × 50 × 2 + 2² est le développement de (a + b)²). Le piège était la 4e : 52 × 48 = 50² − 2² utilise l'identité (a + b)(a − b) = a² − b², l'autre identité de l'évaluation, pas le carré d'une somme. Les 2e et 3e sont de simples multiplications.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-04-lot-3",
@@ -1067,7 +1077,17 @@ window.EVALUATIONS = {
        "Un pluviomètre relève 38 mm par jour pendant 6 jours, puis 12 mm par jour pendant 6 jours : on calcule 6 × 38 + 6 × 12 = 6 × (38 + 12) = 300 mm"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p>2x(x − 3) + 5x = 2x² − 6x + 5x = 2x² − x, donc a = 2 et b = −1 : <strong>a + b = 1</strong>.</p>",
+     "q2": "<p><strong>3x(2x − 3)</strong> : le facteur commun le plus grand de 6x² et 9x est 3x. Les choix 3(2x² − 3x) et x(6x − 9) ne sont pas complets, et 3x(2x + 3) a un mauvais signe.</p>",
+     "q3": "<p>D = (x − 2)[(3x + 1) + (x + 5)] = (x − 2)(4x + 6) = <strong>2(x − 2)(2x + 3)</strong>.</p><p>On met le facteur commun (x − 2) en évidence, puis on factorise 4x + 6 = 2(2x + 3).</p>",
+     "q4": "<p>E = (2x + 3)² − 5² = (2x + 3 + 5)(2x + 3 − 5) = (2x + 8)(2x − 2) = <strong>4(x + 4)(x − 1)</strong>, avec a² − b² = (a + b)(a − b).</p><p>Un produit est nul si l'un au moins de ses facteurs est nul : x + 4 = 0 ou x − 1 = 0, donc <strong>S = {−4 ; 1}</strong>.</p>",
+     "q5": "<p>(n + 2)² − (n − 2)² = [(n + 2) + (n − 2)] × [(n + 2) − (n − 2)] = 2n × 4 = <strong>8n</strong>.</p><p>Comme n est un entier, 8n est le produit de 8 par un entier : c'est un multiple de 8.</p>",
+     "q6": "<p>Le rectangle a pour longueur x + 5 et pour largeur x − 2 : A = (x + 5)(x − 2) = <strong>x² + 3x − 10</strong>. La différence avec l'aire du carré (x²) est <strong>3x − 10</strong>.</p><p>Les aires sont égales si 3x − 10 = 0, donc pour <strong>x = 10/3</strong> m (environ 3,33 m), valeur bien supérieure à 2.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 4e</strong> (6 × 38 + 6 × 12 = 6 × (38 + 12) : le facteur 6, nombre de jours, est commun aux deux relevés). Le piège était la 2e : écrire 51² − 49² = (51 − 49)(51 + 49) utilise l'identité a² − b² = (a + b)(a − b), une autre technique de factorisation de l'évaluation, qui ne met pas en évidence un facteur commun. Les autres choix sont une conversion et une lecture de diagramme.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-04-lot-4",
@@ -2095,13 +2115,115 @@ window.EVAL_NOTES = {
       }
      }
     }
+   },
+   "2026-10-04-lot-2": {
+    "publieLe": "2026-10-10",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 9.5,
+      "commentaire": "Très bon travail sur les identités remarquables : tes développements et factorisations sont justes et bien rédigés. Ta note est de 19,5/20, bonus compris. Pour la question 6, pense à écrire explicitement qu'un carré est toujours positif ou nul.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste : b = 10."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste : x² − 14x + 49 = (x − 7)²."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste, avec les deux identités citées et les étapes écrites."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste : (50 − 1)(50 + 1) = 50² − 1² = 2 499, identité bien utilisée."
+       },
+       "q5": {
+        "points": 2,
+        "remarque": "Juste : a² − b² bien citée et signes soignés dans le second facteur."
+       },
+       "q6": {
+        "points": 1.5,
+        "remarque": "Forme (x − 3)² + 1 et minimum en x = 3 justes. Raisonnement : la positivité vient de (x − 3)² ≥ 0 (un carré est positif ou nul), puis on ajoute 1 ; ne te contente pas de « 1 > 0 »."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : agrandir un carré de 50 m à 52 m utilise (a + b)². La 4e situation utilisait l'autre identité, (a + b)(a − b) = a² − b²."
+      },
+      "reponduLe": "2026-10-04T14:07:19.876Z",
+      "corrigeLe": "2026-10-10",
+      "issue": 9,
+      "reponses": {
+       "q1": "10",
+       "q2": "(x − 7)²",
+       "q3": "Formules utilisées: (a-b)²=a²-2ab+b²\n                                   (a+b)(a-b)=a²-b²\nB= (3x-2)²+(x+1)(x-1)\nB= 9x²-12x+4 + x²-1\nB=10x²-12x+3",
+       "q4": "(50-1)(50+1)=50²-1²=2499",
+       "q5": "C=(2x+1)²-(x-3)²\nOn utilise a²-b²=(a+b)(a-b)\nC=(2x+1+x-3)(2x+1-x+3)\nC=(3x-2)(x+4)",
+       "q6": "Tout d'abord, il faut faire en sorte que le 10 soit réduit au carré parfait le plus proche:\nx²-6x+9+1.\nMaintenant, en excluant le 1, on peut appliquer l'identité remarquable a²-2ab+b²=(a-b)²:\n(x-3)²+1.\nComme le 1 reste constant, et que 1>0, le résultat sera toujours positif.\nPour que l'expression soit plus petite, il faut que le facteur soit egal a 0:\nx-3=0\nx=3, donc la valeur de x qui rend l'expression sous la forme la plus petite est 3.",
+       "bonus": "Une centrale solaire occupe un carré de 50 m de côté ; on l'agrandit en ajoutant 2 m sur chaque dimension et l'on calcule la nouvelle aire en écrivant 52² = 50² + 2 × 50 × 2 + 2²"
+      }
+     }
+    }
+   },
+   "2026-10-04-lot-3": {
+    "publieLe": "2026-10-10",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 8.5,
+      "commentaire": "Bon travail : factorisations et résolutions justes, avec des démarches claires. Ta note est de 17,5/20, bonus compris. Soigne la rédaction des conclusions (q4, q5, q6) et évite d'écrire des égalités fausses dans une chaîne de calculs.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste : a + b = 1."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste : 3x(2x − 3) est la factorisation complète."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste : facteur commun (x − 2) bien repéré, puis factorisation complète par 2."
+       },
+       "q4": {
+        "points": 1.5,
+        "remarque": "Factorisation et solutions {−4 ; 1} justes, propriété du produit nul citée. Rédaction : « E = 0 » est écrit à la suite de E = 4(x + 4)(x − 1), ce qui est faux ; écris plutôt « E = 0 équivaut à (2x + 8)(2x − 2) = 0 »."
+       },
+       "q5": {
+        "points": 1.5,
+        "remarque": "Calcul juste jusqu'à 8n. Rédaction : conclus clairement « 8n = 8 × n avec n entier, donc c'est un multiple de 8 » et écris l'étape (n + 2) − (n − 2) = 4."
+       },
+       "q6": {
+        "points": 1.5,
+        "remarque": "Aire x² + 3x − 10, différence 3x − 10 et x = 10/3 justes. Rédaction : vérifie que 10/3 > 2 (condition de l'énoncé) et écris la valeur exacte ou « environ 3,33 » plutôt que « 3,3333 à l'infini »."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : 6 × 38 + 6 × 12 = 6 × (38 + 12) met le facteur commun 6 en évidence. La 2e situation utilisait plutôt a² − b² = (a + b)(a − b)."
+      },
+      "reponduLe": "2026-10-10T07:07:53.767Z",
+      "corrigeLe": "2026-10-10",
+      "issue": 11,
+      "reponses": {
+       "q1": "2x(x-3)+5x=2x²-6x+5x=2x²-x. a vaut donc 2 et b vaut -1. a+b=2+(-1)=2-1=1",
+       "q2": "3x(2x − 3)",
+       "q3": "D= (x-2)(3x+1)+(x-2)(x+5)\nD=(x-2)(3x+1+x+5)\nD=(x-2)(4x+6)\nD=2(x-2)(2x+3)",
+       "q4": "E= (2x+3)²-25\nE= (2x+3)²-5²\nE=(2x+3+5)(2x+3-5)\nE=(2x+8)(2x-2)\nE=2(x+4)*2(x-1)\nE=4(x+4)(x-1)\nE=0\n(Je vais utiliser la factorisation intermediaire, donc (2x+8)(2x-2) pour résoudre cette équation).\n(2x+8)(2x-2)=0 \nSi un produit de facteurs est nul, alors l'un au moins des facteurs est nul.\nSoit 2x+8=0 OU 2x-2=0:\n2x+8-8=-8           2x-2+2=2\n2x=-8                   2x=2\n2x/2=-8/2            2x/2=2/2\nx=-4                      x=1\nS={-4;1}",
+       "q5": "Soit n appartient à Z:\n(n+2)²-(n-2)²\n(n+2+n-2)(n+2-n+2)\n(2n)(4)\n2n*4=8n\n8 est le coefficient, cela signifie que peu importe l'entier, il sera multiplié par 8, ce qui valide que (n+2)²-(n-2)² est un multiple de 8.",
+       "q6": "Traduction de l'énoncé:\nL=x+5; l=x-2 (avec x >2).\nA=L*l\nA=(x+5)(x-2)\nA=x²+5x-2x-10\nArec=x²+3x-10\nL'aire du carrée est donc x², alors qu'avec le rectangle, on rajoute 3x-10.\nPour que les deux aires soit egales, il faut mettre les aires sous forme d'équation:\nArec=Acar\nx²+3x-10=x²\nx²-x²+3x-10=x²-x²\n3x-10=0\n3x-10+10=10\n3x=10\n3x/3=10/3\nx=10/3\nS={10/3}\nLa valeur de x pour que les deux aires soient égales est 10/3 (ou bien 3,3333 à l'infini).",
+       "bonus": "Un pluviomètre relève 38 mm par jour pendant 6 jours, puis 12 mm par jour pendant 6 jours : on calcule 6 × 38 + 6 × 12 = 6 × (38 + 12) = 300 mm"
+      }
+     }
+    }
    }
   }
  }
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-10T08:27:56.155Z",
+  "genereLe": "2026-10-10T10:51:44.806Z",
   "annees": {
     "2026-2027": {
       "5e": {
@@ -2115,10 +2237,10 @@ window.EVAL_KPI = {
       "seconde": {
         "total": 13,
         "ouvertes": 8,
-        "enAttente": 2,
-        "fermees": 3,
-        "copiesCorrigees": 3,
-        "moyenneSur20": 18.3
+        "enAttente": 0,
+        "fermees": 5,
+        "copiesCorrigees": 5,
+        "moyenneSur20": 18.4
       }
     }
   }
