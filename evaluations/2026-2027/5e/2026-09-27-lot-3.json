@@ -64,5 +64,14 @@
         "Calculer le prix d'un jean à 40 € après une réduction de 25 %"
       ]
     }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>40 cm²</strong> : l'aire d'un rectangle est longueur × largeur, soit 8 × 5 = 40.</p>",
+    "q2": "<p><strong>26 cm</strong> : le périmètre d'un rectangle est 2 × (longueur + largeur), soit 2 × (8 + 5) = 26.</p>",
+    "q3": "<p><strong>30 cm²</strong> : l'aire d'un triangle est base × hauteur ÷ 2, soit 10 × 6 ÷ 2 = 30. Le choix 60 cm² oublie la division par 2.</p>",
+    "q4": "<p><strong>78,5 cm²</strong> : l'aire d'un disque est π × r², soit 3,14 × 5 × 5 = 78,5.</p>",
+    "q5": "<p>Le périmètre d'un cercle est P = π × d, soit P = 3,14 × 12 = 37,68. <strong>Le périmètre est environ 37,7 cm</strong> au dixième près.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 3e</strong> (la zone captée par l'antenne est un disque de rayon 3 km : on cherche donc une aire, A = π × r²). Le piège était la 2e : la clôture autour du bassin circulaire demande un périmètre, qui utilise l'autre formule du cercle, P = 2 × π × r, et non l'aire. Les deux autres choix (vitesse et pourcentage) n'ont aucun lien avec le disque.</p>"
+  },
+  "cloturee": true
 }

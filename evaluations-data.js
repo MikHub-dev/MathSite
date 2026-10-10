@@ -608,7 +608,16 @@ window.EVALUATIONS = {
        "Calculer le prix d'un jean à 40 € après une réduction de 25 %"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>40 cm²</strong> : l'aire d'un rectangle est longueur × largeur, soit 8 × 5 = 40.</p>",
+     "q2": "<p><strong>26 cm</strong> : le périmètre d'un rectangle est 2 × (longueur + largeur), soit 2 × (8 + 5) = 26.</p>",
+     "q3": "<p><strong>30 cm²</strong> : l'aire d'un triangle est base × hauteur ÷ 2, soit 10 × 6 ÷ 2 = 30. Le choix 60 cm² oublie la division par 2.</p>",
+     "q4": "<p><strong>78,5 cm²</strong> : l'aire d'un disque est π × r², soit 3,14 × 5 × 5 = 78,5.</p>",
+     "q5": "<p>Le périmètre d'un cercle est P = π × d, soit P = 3,14 × 12 = 37,68. <strong>Le périmètre est environ 37,7 cm</strong> au dixième près.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 3e</strong> (la zone captée par l'antenne est un disque de rayon 3 km : on cherche donc une aire, A = π × r²). Le piège était la 2e : la clôture autour du bassin circulaire demande un périmètre, qui utilise l'autre formule du cercle, P = 2 × π × r, et non l'aire. Les deux autres choix (vitesse et pourcentage) n'ont aucun lien avec le disque.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-09-27-lot-4",
@@ -1900,6 +1909,52 @@ window.EVAL_NOTES = {
       }
      }
     }
+   },
+   "2026-09-27-lot-3": {
+    "publieLe": "2026-10-10",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 8.5,
+      "commentaire": "Très bon début : les aires du rectangle, du triangle et du disque et le périmètre du rectangle sont justes (17/20, 17,5/20 avec le bonus). Pour le périmètre du cercle, relis bien la formule : c'est P = π × d, et pas une aire ; pense aussi à écrire l'unité et une phrase de conclusion.",
+      "details": {
+       "q1": {
+        "points": 2,
+        "remarque": "Juste : 8 × 5 = 40 cm²."
+       },
+       "q2": {
+        "points": 2,
+        "remarque": "Juste : 2 × (8 + 5) = 26 cm."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste : 10 × 6 ÷ 2 = 30 cm²."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste : 3,14 × 5² = 78,5 cm²."
+       },
+       "q5": {
+        "points": 0.5,
+        "remarque": "Propriété : tu calcules une aire (rayon × rayon × π) alors que l'énoncé demande un périmètre, qui se calcule avec P = π × diamètre = 3,14 × 12 ≈ 37,7 cm. Tu as bien trouvé le rayon, mais il y a aussi une erreur de calcul (6 × 6 × 3,14 = 113,04) et il manque l'unité et la conclusion."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : l'antenne qui capte jusqu'à 3 km autour d'elle couvre un disque, donc on cherche une aire. La clôture du bassin était le piège : elle demande un périmètre, avec P = 2 × π × r."
+      },
+      "reponduLe": "2026-10-10T07:17:21.868Z",
+      "corrigeLe": "2026-10-10",
+      "issue": 12,
+      "reponses": {
+       "q1": "40",
+       "q2": "26",
+       "q3": "30 cm²",
+       "q4": "78,5",
+       "q5": "A = (12 : 2 x 6 ) x 3,14 \nA = 6 x 6 x 3,14\nA = 113,22",
+       "bonus": "Estimer la surface couverte par une antenne de téléphonie mobile qui capte jusqu'à 3 km autour d'elle"
+      }
+     }
+    }
    }
   },
   "seconde": {
@@ -2046,16 +2101,16 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-10T07:18:14.636Z",
+  "genereLe": "2026-10-10T07:21:24.417Z",
   "annees": {
     "2026-2027": {
       "5e": {
         "total": 11,
         "ouvertes": 8,
-        "enAttente": 1,
-        "fermees": 2,
-        "copiesCorrigees": 1,
-        "moyenneSur20": 18.5
+        "enAttente": 0,
+        "fermees": 3,
+        "copiesCorrigees": 2,
+        "moyenneSur20": 18
       },
       "seconde": {
         "total": 13,
