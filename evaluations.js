@@ -1,4 +1,4 @@
-// Version : 2.6
+// Version : 2.9
 // --- Page « Évaluations » (menu horizontal) ---
 // Données : evaluations-data.js, généré par outils/compiler-evaluations.mjs à partir des dossiers
 // evaluations/, notes/ et eleves/, fournit window.EVALUATIONS, window.EVAL_NOTES et window.EVAL_ELEVES.
@@ -22,6 +22,8 @@
 // La page n'utilise pas le menu de gauche : il est rétracté, comme pour MSC ou Correspondances.
 // Espace enseignant (loadAdministrationPage) : lance l'agent via le Worker (mot de passe + Turnstile)
 // et affiche ses derniers passages ; le mot de passe n'est gardé que pour la session du navigateur.
+// Impression (evalImprimerCopie) : bouton « Imprimer » de l'espace enseignant, en face de chaque copie
+// corrigée ; ouvre la fenêtre d'impression du navigateur. Mise en page : evalImpressionHtml.
 
 const EVAL_CONFIG = {
   depot: "MikHub-dev/MathSite",                // Dépôt GitHub : liens vers les réponses des élèves (issues)
@@ -534,7 +536,8 @@ async function openEvaluation(annee, classe, id, empreinteCopie) {
       + evalFormulaireHtml(annee, classe, ev);
   }
   const retour = vueEnseignant
-    ? `<button type="button" class="eval-lien eval-retour" onclick="loadAdministrationPage()">Retour à l'espace enseignant</button>`
+    ? `<div class="eval-retour eval-retour--actions"><button type="button" class="eval-lien" onclick="loadAdministrationPage()">Retour à l'espace enseignant</button>
+        ${entree ? `<button type="button" class="eval-btn eval-btn--secondaire" onclick="evalImprimerCopie('${annee}','${classe}','${id}','${empreinteCopie}')">Imprimer la copie</button>` : ""}</div>`
     : `<button type="button" class="eval-lien eval-retour" onclick="loadEvaluationsPage('${classe}')">Retour aux évaluations de ${label}</button>`;
 
   c.innerHTML = `
@@ -1178,6 +1181,7 @@ function evalAfficherTableau() {
       for (const [h, n] of notees) {
         if (n.issue && EVAL_CONFIG.depot) liens.push(`<a class="eval-lien" href="https://github.com/${EVAL_CONFIG.depot}/issues/${n.issue}" target="_blank" rel="noopener">Réponses</a>`);
         liens.push(`<button type="button" class="eval-lien" onclick="openEvaluation('${annee}','${k.key}','${ev.id}','${h}')">Copie corrigée</button>`);
+        liens.push(`<button type="button" class="eval-lien" onclick="evalImprimerCopie('${annee}','${k.key}','${ev.id}','${h}')">Imprimer</button>`);
       }
       for (const r of recues) liens.push(`<a class="eval-lien" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">Réponses reçues</a>`);
       return `<tr${recues.length && !fermee ? ` class="eval-admin-ligne--attente"` : ""}>
@@ -1278,6 +1282,120 @@ function evalPublicationHtml(p) {
         <a class="eval-lien" href="${escapeHtml(p.url)}" target="_blank" rel="noopener">Détail</a></div>
       <p class="eval-admin-aide">${texte}</p>
     </div>`;
+}
+
+// ---------- Impression d'une copie corrigée (espace enseignant) ----------
+// La copie est rendue dans un bloc #eval-impression ajouté à la page, puis le navigateur ouvre sa
+// fenêtre d'impression (choix de l'imprimante, ou « Enregistrer au format PDF »). Pendant
+// l'impression, evaluations.css (@media print) masque tout le site sauf ce bloc.
+// FORMAT : toute la mise en page imprimée est dans evalImpressionHtml ci-dessous (et ses styles
+// .imp-… dans evaluations.css) ; c'est le seul endroit à modifier pour changer le format.
+// Couleurs d'origine (noir) ; en rouge seulement les lignes fausses ou incomplètes de la réponse de
+// l'élève et la note finale.
+
+// Mention selon la note sur 20, bonus compris.
+function evalMention(note20) {
+  if (note20 >= 18) return "Félicitations";
+  if (note20 >= 16) return "Très bien";
+  if (note20 >= 14) return "Bien";
+  if (note20 >= 12) return "Assez bien";
+  return "Échec";
+}
+
+// Réponse de l'élève, ligne par ligne. Champs facultatifs du détail d'une question, relevés par la
+// correction (extraits exacts de la réponse) : « erreurs » (ce qui est faux : extrait barré, ligne en
+// rouge) et « incompletes » (ligne incomplète : en rouge). Une réponse à 0 point est toute en rouge, barrée.
+function evalReponseBarreeHtml(texte, d, toutFaux) {
+  const liste = v => (Array.isArray(v) ? v : []).filter(e => typeof e === "string" && e.trim());
+  const erreurs = liste(d.erreurs), incompletes = liste(d.incompletes);
+  return texte.split("\n").map(l => {
+    if (toutFaux && l.trim()) return `<span class="imp-ligne-fausse"><del class="imp-erreur">${escapeHtml(l)}</del></span>`;
+    const fautes = erreurs.filter(e => l.includes(e));
+    if (!fautes.length) {
+      return incompletes.some(e => l.includes(e)) ? `<span class="imp-ligne-fausse">${escapeHtml(l)}</span>` : escapeHtml(l);
+    }
+    const plages = [];
+    for (const e of fautes) for (let i = l.indexOf(e); i !== -1; i = l.indexOf(e, i + e.length)) plages.push([i, i + e.length]);
+    plages.sort((a, b) => a[0] - b[0]);
+    let html = "", pos = 0;
+    for (const [debut, fin] of plages) {
+      if (fin <= pos) continue;
+      const x = Math.max(debut, pos);
+      html += escapeHtml(l.slice(pos, x)) + `<del class="imp-erreur">${escapeHtml(l.slice(x, fin))}</del>`;
+      pos = fin;
+    }
+    return `<span class="imp-ligne-fausse">${html}${escapeHtml(l.slice(pos))}</span>`;
+  }).join("<br>");
+}
+
+function evalImpressionHtml(annee, classe, ev, n) {
+  const details = n.details || {};
+  const reponses = n.reponses || {};
+  const fermee = evalStatut(annee, classe, ev) === "cloturee";
+  const questions = ev.questions.map((q, i) => {
+    const d = (q.bonus ? n.bonus : details[q.id]) || {};
+    const r = reponses[q.id];
+    const bareme = q.bonus ? `bonus, +${evalNombre(EVAL_BONUS)} sur 20` : evalPoints(q.points);
+    const obtenu = typeof d.points !== "number" ? ""
+      : q.bonus ? `+${evalNombre(d.points)} sur 20` : `${evalNombre(d.points)} / ${evalNombre(q.points)}`;
+    const zero = typeof d.points === "number" && d.points === 0;
+    return `
+      <section class="imp-question">
+        <h3>${evalNumeroQuestion(ev, q)} <span class="imp-bareme">(${bareme})</span>${obtenu ? `<span class="imp-obtenu">${obtenu}</span>` : ""}</h3>
+        <div class="imp-enonce">${q.enonce}</div>
+        ${q.type === "qcm" ? `<ol class="imp-choix" type="a">${q.choix.map(ch => `<li>${escapeHtml(ch)}</li>`).join("")}</ol>` : ""}
+        <div class="imp-reponse"><p class="imp-lib">Réponse de l'élève</p>
+          <p>${r ? evalReponseBarreeHtml(r, d, zero) : "<em>Sans réponse</em>"}</p></div>
+        ${d.remarque ? `<div class="imp-remarque"><p class="imp-lib">Correction</p><p>${escapeHtml(d.remarque)}</p></div>` : ""}
+        ${fermee && ev.corrige && ev.corrige[q.id] ? `<div class="imp-corrige"><p class="imp-lib">Corrigé</p>${ev.corrige[q.id]}</div>` : ""}
+      </section>`;
+  }).join("");
+  const note20 = evalNoteCopie20(n, ev.total);
+  return `
+    <article class="imp-copie">
+      <header class="imp-tete">
+        <div>
+          <p class="imp-site">Alpha Omega Math</p>
+          <h1>${escapeHtml(ev.titre)}</h1>
+          <p>${escapeHtml(evalLabelClasse(classe))}, ${escapeHtml(ev.chapitre)}. Publiée le ${evalDate(ev.date, true)}, année ${escapeHtml(annee)}.</p>
+          <p class="imp-nom">Nom : ……………………………………</p>
+        </div>
+        <div class="imp-note">
+          <p class="imp-note-val">${evalNombre(note20)}/20</p>
+          <p class="imp-mention">${evalMention(note20)}</p>
+          ${evalBonusObtenu(n) > 0 ? `<p>dont +${evalNombre(evalBonusObtenu(n))} de bonus</p>` : ""}
+        </div>
+      </header>
+      <p class="imp-dates">${n.reponduLe ? `Répondu le ${evalDate(n.reponduLe.slice(0, 10), true)}` : ""}${n.corrigeLe ? `${n.reponduLe ? ", c" : "C"}orrigé le ${evalDate(n.corrigeLe, true)}` : ""}.</p>
+      ${n.commentaire ? `<div class="imp-commentaire"><p class="imp-lib">Appréciation</p><p>${escapeHtml(n.commentaire)}</p></div>` : ""}
+      ${questions}
+    </article>`;
+}
+
+function evalImprimerCopie(annee, classe, id, empreinte) {
+  const ev = evalTrouver(annee, classe, id);
+  const notes = evalNotes(annee, classe, id);
+  const n = notes && notes.notes[empreinte];
+  if (!ev || !n) { alert("Cette copie corrigée est introuvable : rechargez la page puis réessayez."); return; }
+  let zone = document.getElementById("eval-impression");
+  if (!zone) {
+    zone = document.createElement("div");
+    zone.id = "eval-impression";
+    document.body.appendChild(zone);
+  }
+  zone.innerHTML = evalImpressionHtml(annee, classe, ev, n);
+  const titre = document.title;
+  // Nom proposé pour « Enregistrer au format PDF »
+  document.title = `${evalLabelClasse(classe)} ${id} copie corrigée`;
+  document.body.classList.add("eval-impression-active");
+  const fin = () => {
+    window.removeEventListener("afterprint", fin);
+    document.body.classList.remove("eval-impression-active");
+    document.title = titre;
+    zone.innerHTML = "";
+  };
+  window.addEventListener("afterprint", fin);
+  window.print();
 }
 
 // ---------- Page « Méthode de correction » ----------

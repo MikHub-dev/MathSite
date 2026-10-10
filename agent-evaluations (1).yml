@@ -1,0 +1,152 @@
+# Version : 3.2
+# Agent de la page Évaluations, organisé en skills (dossier skills/, voir AGENT_EVALUATIONS.md) :
+#   hebdomadaire (dimanche 5 h, ou bouton de l'espace enseignant) : creation-evaluation -> kpi -> deploiement
+#   correction   (bouton « Corriger la sélection »)              : correction-evaluation -> kpi -> deploiement
+#   creation     (bouton « Créer une évaluation »)               : creation-evaluation -> kpi -> deploiement
+#   niveaux      (onglet Actions, maintenance)                   : niveau et temps des questions existantes -> kpi -> deploiement
+# Authentification Claude : abonnement Claude Pro (secret CLAUDE_CODE_OAUTH_TOKEN, « claude setup-token »).
+name: Agent évaluations
+
+on:
+  schedule:
+    # GitHub planifie en heure UTC, sans changement d'heure : deux horaires le dimanche, et le script
+    # de préparation ne travaille qu'à partir de 5 h à Paris (3 h UTC en été, 4 h UTC en hiver).
+    - cron: "0 3 * * 0"
+    - cron: "0 4 * * 0"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "hebdomadaire (lot de la semaine), creation (une évaluation), correction, ou niveaux (ajouter N1/N2/N3 et temps aux évaluations existantes)"
+        type: choice
+        options: ["hebdomadaire", "creation", "correction", "niveaux"]
+        default: "hebdomadaire"
+      evaluations:
+        description: "Mode correction : identifiants des évaluations à corriger, séparés par des virgules"
+        required: false
+        default: ""
+      generer_classe:
+        description: "Mode creation : classe de la nouvelle évaluation"
+        type: choice
+        options: ["", "5e", "seconde"]
+        default: ""
+      generer_sujet:
+        description: "Mode creation : sujet (vide : la notion suivante de la progression)"
+        required: false
+        default: ""
+
+concurrency:
+  group: agent-evaluations
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+  actions: write      # pour relancer le workflow de publication static.yml
+  id-token: write
+
+jobs:
+  agent:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Préparer le travail
+        id: preparer
+        run: node outils/agent-preparer.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENEMENT: ${{ github.event_name }}
+          MODE: ${{ inputs.mode }}
+          EVALUATIONS: ${{ inputs.evaluations }}
+          GENERER_CLASSE: ${{ inputs.generer_classe }}
+          GENERER_SUJET: ${{ inputs.generer_sujet }}
+
+      - name: "Skill creation-evaluation (Claude)"
+        if: steps.preparer.outputs.creation == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Lis AGENT_EVALUATIONS.md, puis applique le skill décrit dans skills/creation-evaluation/SKILL.md
+            à la liste « aGenerer » de travail/a-faire.json. Ne traite pas « aCorriger ».
+          claude_args: |
+            --max-turns 250
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node outils/compiler-evaluations.mjs)"
+
+      - name: "Skill creation-evaluation : compléter niveaux et temps (Claude)"
+        if: steps.preparer.outputs.niveaux == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Lis AGENT_EVALUATIONS.md, puis applique la section « Compléter les niveaux d'évaluations existantes »
+            de skills/creation-evaluation/SKILL.md à la liste « aNiveler » de travail/a-faire.json.
+            N'ajoute que les champs « niveau » et « tempsMinutes » aux questions ; ne modifie rien d'autre.
+          claude_args: |
+            --max-turns 150
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node outils/compiler-evaluations.mjs)"
+
+      - name: "Skill correction-evaluation (Claude)"
+        if: steps.preparer.outputs.correction == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Lis AGENT_EVALUATIONS.md, puis applique le skill décrit dans skills/correction-evaluation/Correction-SKILL.md
+            à la liste « aCorriger » de travail/a-faire.json. Ne traite pas « aGenerer ».
+          claude_args: |
+            --max-turns 150
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node outils/compiler-evaluations.mjs)"
+
+      - name: "Skill kpi"
+        if: steps.preparer.outputs.travail == 'true'
+        run: node outils/kpi.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Skill deploiement : vérifier"
+        if: steps.preparer.outputs.travail == 'true'
+        run: node outils/agent-finaliser.mjs verifier
+
+      - name: "Skill deploiement : publier (commit et push sur main)"
+        id: publier
+        if: steps.preparer.outputs.travail == 'true'
+        run: |
+          git config user.name "Agent évaluations"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add evaluations notes kpi.json evaluations-data.js
+          if git diff --cached --quiet; then
+            echo "Rien à publier."
+          else
+            git commit -F travail/message-commit.txt
+            git pull --rebase origin main
+            git push origin HEAD:main
+            echo "publie=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: "Skill deploiement : fermer les issues traitées"
+        if: steps.preparer.outputs.travail == 'true'
+        run: node outils/agent-finaliser.mjs fermer
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Un push fait avec GITHUB_TOKEN ne déclenche pas les autres workflows :
+      # on lance donc explicitement « Deploy static content to Pages » (static.yml).
+      - name: "Skill deploiement : mettre le site à jour (static.yml)"
+        if: steps.publier.outputs.publie == 'true'
+        run: gh workflow run static.yml --ref main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}

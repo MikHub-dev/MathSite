@@ -16,7 +16,7 @@ Déroulement (`.github/workflows/agent-evaluations.yml`) :
 - **« Créer une évaluation »** dans l'espace enseignant : création → kpi → déploiement.
 
 Le travail de chaque passage est décrit dans `travail/a-faire.json`, préparé par
-`outils/agent-preparer.mjs`. Claude fait uniquement ce qui y figure, en suivant le `SKILL.md` indiqué.
+`outils/agent-preparer.mjs`. Claude fait uniquement ce qui y figure, en suivant le fichier de skill indiqué (`SKILL.md`, ou `Correction-SKILL.md` pour la correction).
 
 ## Règles communes
 
