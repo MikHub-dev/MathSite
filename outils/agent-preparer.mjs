@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Version : 3.3
+// Version : 3.4
 // Préparation du travail de l'agent (1re étape du workflow .github/workflows/agent-evaluations.yml).
 // Script déterministe : il décide QUOI faire ; Claude applique ensuite les skills du dossier skills/.
 //
@@ -56,13 +56,16 @@ function evaluationsDeClasse(annee, classe) {
   const dossier = `evaluations/${annee}/${classe}`;
   return existe(dossier) ? readdirSync(join(racine, dossier)).filter(f => f.endsWith(".json")).map(f => f.slice(0, -5)) : [];
 }
-function trouverEvaluation(id) {
+// Un même identifiant peut exister dans les deux classes (les lots du dimanche s'appellent
+// <date>-lot-1 à <date>-lot-4 en 5e comme en Seconde) : on renvoie toutes les classes concernées.
+function trouverEvaluations(id) {
+  const trouvees = [];
   for (const annee of existe("evaluations") ? readdirSync(join(racine, "evaluations")) : []) {
     for (const classe of CLASSES) {
-      if (existe(`evaluations/${annee}/${classe}/${id}.json`)) return { annee, classe };
+      if (existe(`evaluations/${annee}/${classe}/${id}.json`)) trouvees.push({ annee, classe });
     }
   }
-  return null;
+  return trouvees;
 }
 function idLibre(annee, classe, base, dejaPris) {
   let id = base;
@@ -157,39 +160,40 @@ export async function preparer() {
       if (!e.dernier || s.recuLe > e.dernier.recuLe) e.dernier = s;
     }
     for (const id of choisies) {
-      const trouvee = trouverEvaluation(id);
-      if (!trouvee) { journal.push(`Évaluation introuvable : ${id}`); continue; }
-      const { annee: a, classe } = trouvee;
-      const eleves = groupes.get(`${a}/${classe}/${id}`) || new Map();
-      const chemin = `evaluations/${a}/${classe}/${id}.json`;
-      const cheminNotes = `notes/${a}/${classe}/${id}.json`;
-      const ev = lireJson(chemin);
-      if (estCloturee(ev)) {
-        aFermer.push(...[...eleves.values()].flatMap(e => e.issues).map(n => ({ issue: n, raison: "Évaluation fermée : réponse non prise en compte." })));
-        journal.push(`Déjà fermée : ${id}`);
-        continue;
-      }
-      const notes = existe(cheminNotes) ? (lireJson(cheminNotes).notes || {}) : {};
-      const inscrits = new Set(((existe(`eleves/${a}.json`) ? lireJson(`eleves/${a}.json`) : {})[classe]) || []);
-      const copies = [];
-      for (const [empreinte, e] of eleves) {
-        if (notes[empreinte]) {
-          aFermer.push(...e.issues.map(n => ({ issue: n, raison: "Copie déjà corrigée : ce nouvel envoi n'est pas pris en compte." })));
-        } else if (inscrits.size && !inscrits.has(empreinte)) {
-          ignorees.push(...e.issues);
-        } else {
-          copies.push({ empreinte, recuLe: e.dernier.recuLe, issue: e.dernier.issue, reponses: e.dernier.reponses, issues: e.issues });
+      const trouvees = trouverEvaluations(id);
+      if (!trouvees.length) { journal.push(`Évaluation introuvable : ${id}`); continue; }
+      for (const { annee: a, classe } of trouvees) {
+        const eleves = groupes.get(`${a}/${classe}/${id}`) || new Map();
+        const chemin = `evaluations/${a}/${classe}/${id}.json`;
+        const cheminNotes = `notes/${a}/${classe}/${id}.json`;
+        const ev = lireJson(chemin);
+        if (estCloturee(ev)) {
+          aFermer.push(...[...eleves.values()].flatMap(e => e.issues).map(n => ({ issue: n, raison: "Évaluation fermée : réponse non prise en compte." })));
+          journal.push(`Déjà fermée : ${classe}/${id}`);
+          continue;
         }
+        const notes = existe(cheminNotes) ? (lireJson(cheminNotes).notes || {}) : {};
+        const inscrits = new Set(((existe(`eleves/${a}.json`) ? lireJson(`eleves/${a}.json`) : {})[classe]) || []);
+        const copies = [];
+        for (const [empreinte, e] of eleves) {
+          if (notes[empreinte]) {
+            aFermer.push(...e.issues.map(n => ({ issue: n, raison: "Copie déjà corrigée : ce nouvel envoi n'est pas pris en compte." })));
+          } else if (inscrits.size && !inscrits.has(empreinte)) {
+            ignorees.push(...e.issues);
+          } else {
+            copies.push({ empreinte, recuLe: e.dernier.recuLe, issue: e.dernier.issue, reponses: e.dernier.reponses, issues: e.issues });
+          }
+        }
+        if (!copies.length) { journal.push(`Aucune copie en attente : ${classe}/${id}`); continue; }
+        // Fermeture : tous les inscrits de la classe auront une note après ce passage.
+        const noteesApres = new Set([...Object.keys(notes), ...copies.map(x => x.empreinte)]);
+        const fermer = inscrits.size > 0 && [...inscrits].every(h => noteesApres.has(h));
+        if (fermer) journal.push(`Fermeture : ${classe}/${id} (tous les élèves de ${classe} corrigés, corrigé publié)`);
+        aCorriger.push({
+          annee: a, classe, evaluation: id, fichierEvaluation: chemin, fichierNotes: cheminNotes,
+          total: ev.questions.filter(q => q.bonus !== true).reduce((t, q) => t + q.points, 0), cloturer: fermer, copies,
+        });
       }
-      if (!copies.length) { journal.push(`Aucune copie en attente : ${id}`); continue; }
-      // Fermeture : tous les inscrits de la classe auront une note après ce passage.
-      const noteesApres = new Set([...Object.keys(notes), ...copies.map(x => x.empreinte)]);
-      const fermer = inscrits.size > 0 && [...inscrits].every(h => noteesApres.has(h));
-      if (fermer) journal.push(`Fermeture : ${id} (tous les élèves de ${classe} corrigés, corrigé publié)`);
-      aCorriger.push({
-        annee: a, classe, evaluation: id, fichierEvaluation: chemin, fichierNotes: cheminNotes,
-        total: ev.questions.filter(q => q.bonus !== true).reduce((t, q) => t + q.points, 0), cloturer: fermer, copies,
-      });
     }
   }
 
