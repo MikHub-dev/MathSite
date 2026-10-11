@@ -1,0 +1,22 @@
+{
+  "titre": "Volumes : pavé droit, prisme droit et cylindre",
+  "chapitre": "Volumes",
+  "date": "2026-10-11",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Indique toujours l'unité de ta réponse et détaille les conversions.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Calcule le volume, en cm³, d'un pavé droit de 6 cm sur 5 cm sur 4 cm.</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Combien de centimètres cubes y a-t-il dans 3 litres ?</p>", "choix": ["30 cm³", "300 cm³", "3 000 cm³", "30 000 cm³"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Un prisme droit a pour base un triangle rectangle dont les côtés de l'angle droit mesurent 6 cm et 8 cm. Sa hauteur est de 12 cm. Calcule l'aire de sa base, puis son volume.</p>" },
+    { "id": "q4", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>Calcule le volume, en cm³, d'un cylindre de rayon 3 cm et de hauteur 10 cm. Donne l'arrondi au dixième.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Un bassin en forme de pavé droit mesure 2 m de long, 1,5 m de large et 0,8 m de profondeur. Il est rempli aux 3/4. Combien de litres d'eau contient-il ? Justifie.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Une boîte de conserve cylindrique a un rayon de 4 cm et une hauteur de 11 cm. Peut-elle contenir 0,5 L de soupe ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Cuisine", "enonce": "<p>Aux questions 3 et 4, tu as utilisé la formule : volume = aire de la base × hauteur. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un cuisinier sait qu'il faut 20 minutes de cuisson pour 500 g de viande et cherche la durée pour 750 g",
+      "Un cuisinier partage une pizza en 8 parts égales et en mange 3",
+      "Un cuisinier découpe une bande de papier sulfurisé pour entourer un moule rond : il calcule la longueur du bord du moule",
+      "Un pâtissier veut savoir quelle quantité de pâte contient un moule cylindrique : il multiplie l'aire du disque de base par la hauteur"
+    ] }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "titre": "Fonctions affines : expression, signe et tarifs",
+  "chapitre": "Fonctions affines",
+  "date": "2026-10-11",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Pour les problèmes, commence par définir clairement l'inconnue et les fonctions utilisées.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Soit f la fonction définie par f(x) = −4x + 7. Calcule f(3).</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Quelle est l'ordonnée à l'origine de la droite d'équation y = 5 − 3x ?</p>", "choix": ["−3", "5", "3", "−5"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Soit f une fonction affine telle que f(2) = 1 et f(6) = 13. Détermine l'expression de f(x).</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 11, "points": 2, "enonce": "<p>Étudie le signe de 3x − 12 et de 5 − x, puis dresse le tableau de signes de (3x − 12)(5 − x). En déduis l'ensemble des solutions de l'inéquation (3x − 12)(5 − x) ≥ 0.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 11, "points": 2, "enonce": "<p>Une plateforme de jeux propose deux formules. Formule A : 12 € d'abonnement, puis 1,50 € par jeu téléchargé. Formule B : 3 € par jeu téléchargé, sans abonnement. On note x le nombre de jeux téléchargés. Exprime le prix de chaque formule en fonction de x, puis détermine à partir de combien de jeux la formule A est strictement moins chère que la formule B.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 11, "points": 2, "enonce": "<p>Dans un repère, la droite d passe par les points A(1 ; 2) et B(4 ; 11).</p><p>1) Détermine l'équation réduite de d.</p><p>2) Le point C(−2 ; −8) appartient-il à d ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Jeux vidéo", "enonce": "<p>À la question 5, tu as modélisé un coût par une fonction affine f(x) = ax + b : un montant fixe plus un montant proportionnel au nombre d'articles. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un joueur a gagné 12 parties sur 20 : on calcule son pourcentage de victoires",
+      "Sur la carte d'un jeu, deux personnages sont placés en A(1 ; 2) et B(4 ; 11) : on calcule la distance qui les sépare",
+      "Un terrain de jeu carré de côté c a pour aire c² : on cherche son aire pour c = 12 m",
+      "Un jeu en ligne facture 4 € d'inscription puis 0,50 € par partie jouée : on exprime le coût total en fonction du nombre de parties"
+    ] }
+  ]
+}

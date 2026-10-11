@@ -1,0 +1,22 @@
+{
+  "titre": "Parallélogrammes : propriétés et reconnaissance",
+  "chapitre": "Parallélogrammes",
+  "date": "2026-10-11",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Dans les questions de rédaction, nomme les propriétés du cours que tu utilises.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>ABCD est un parallélogramme et BC = 6,4 cm. Quelle est la longueur AD, en centimètres ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Que peut-on affirmer des diagonales de n'importe quel parallélogramme ?</p>", "choix": ["Elles se coupent en leur milieu", "Elles sont perpendiculaires", "Elles ont la même longueur", "Elles sont parallèles"] },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 5, "points": 1, "enonce": "<p>ABCD est un parallélogramme et l'angle en A mesure 65°. Quelle est la mesure, en degrés, de l'angle en B ?</p>" },
+    { "id": "q4", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 1, "enonce": "<p>Les diagonales du parallélogramme ABCD se coupent en O et BD = 13 cm. Quelle est la longueur OB, en centimètres ?</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 3, "enonce": "<p>ABCD est un parallélogramme tel que AB = BC. Quelle est sa nature ? Justifie. Que pourrais-tu dire de plus s'il avait en plus un angle droit ?</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 3, "enonce": "<p>EFGH est un parallélogramme de périmètre 34 cm tel que EF = 9 cm. Calcule FG. L'angle en E mesure le double de l'angle en F : calcule les mesures des quatre angles du parallélogramme. Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Agriculture", "enonce": "<p>À la question 4, tu as utilisé la propriété : les diagonales d'un parallélogramme se coupent en leur milieu. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Pour trouver le centre d'un champ en forme de parallélogramme, un agriculteur tend une corde entre deux coins opposés puis une autre entre les deux autres coins : le centre est le milieu de chaque corde",
+      "Un agriculteur connaît l'angle d'un coin de son champ en parallélogramme et calcule l'angle du coin voisin en faisant 180° moins cet angle",
+      "Un agriculteur veut clôturer un champ rectangulaire : il additionne les longueurs de ses quatre côtés",
+      "Un agriculteur calcule le volume d'eau d'une citerne cylindrique en multipliant l'aire du disque de base par la hauteur"
+    ] }
+  ]
+}

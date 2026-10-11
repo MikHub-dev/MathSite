@@ -1,0 +1,22 @@
+{
+  "titre": "Triangles : inégalité triangulaire et triangles particuliers",
+  "chapitre": "Triangles",
+  "date": "2026-10-11",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Cite la propriété que tu utilises à chaque fois que l'énoncé te demande de justifier.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Peut-on construire un triangle dont les côtés mesurent 5 cm, 6 cm et 12 cm ?</p>", "choix": ["Oui, car 12 cm est le plus grand côté", "Non, car 5 + 6 est inférieur à 12", "Oui, car la somme 5 + 6 + 12 est un nombre entier", "Non, car les trois côtés sont différents"] },
+    { "id": "q2", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Un triangle isocèle a un périmètre de 31 cm et sa base mesure 9 cm. Quelle est la longueur, en centimètres, de chacun des deux autres côtés ?</p>" },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>Le triangle ABC est isocèle en A et l'angle en A mesure 40°. Quelle est la mesure, en degrés, de l'angle en B ?</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Trois points A, B et C vérifient AB = 4,5 cm, BC = 3,5 cm et AC = 8 cm. Que peut-on dire de ces trois points ? Justifie.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Un triangle a deux côtés de 7 cm et de 10 cm. Entre quelles valeurs est comprise la longueur x du troisième côté ? Justifie. Quelles valeurs peut prendre x si le triangle est isocèle ?</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Écris un programme de construction du triangle EFG tel que EF = 5 cm, EG = 4 cm et FG = 6 cm, en nommant les instruments utilisés. Pourquoi ce triangle existe-t-il ?</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Astronomie", "enonce": "<p>À la question 5, tu as utilisé l'inégalité triangulaire : dans un triangle, chaque côté est plus petit que la somme des deux autres. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un astronome mesure deux angles du triangle formé par trois étoiles et en déduit le troisième",
+      "Un astronome calcule la durée d'un trajet à partir d'une distance et d'une vitesse moyenne",
+      "On explique que la distance en ligne droite entre la Terre et Mars ne peut pas dépasser la somme des distances Terre-Vénus et Vénus-Mars",
+      "Un astronome calcule la température moyenne d'une planète à partir de trois relevés"
+    ] }
+  ]
+}

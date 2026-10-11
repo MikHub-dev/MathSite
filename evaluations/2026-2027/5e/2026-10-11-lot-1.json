@@ -1,0 +1,22 @@
+{
+  "titre": "Proportionnalité : coefficient, pourcentages et échelles",
+  "chapitre": "Proportionnalité",
+  "date": "2026-10-11",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Lis chaque énoncé en entier et explique tes calculs dans les questions de rédaction.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Dans un tableau de proportionnalité, 6 correspond à 21. À quel nombre correspond 10 ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Lequel de ces tableaux est un tableau de proportionnalité ?</p>", "choix": ["3 → 7 et 9 → 20", "2 → 5 et 6 → 15", "4 → 6 et 10 → 12", "5 → 8 et 15 → 25"] },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>5 cahiers identiques coûtent 11,50 €. Combien coûtent 8 de ces cahiers, en euros ?</p>" },
+    { "id": "q4", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>Calcule 35 % de 240.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Une chemise coûte 60 €. Pendant les soldes, son prix baisse de 30 %. Calcule le montant de la réduction, puis le nouveau prix. Justifie.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Sur un plan à l'échelle 1/200, une salle mesure 7,5 cm de long et 4 cm de large. Quelles sont les dimensions réelles de la salle, en mètres ? Justifie les conversions.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Sport", "enonce": "<p>À la question 3, tu as utilisé un coefficient de proportionnalité pour passer d'une quantité à une autre. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un joueur a marqué 12, 8 et 20 points lors de trois matchs : on calcule sa moyenne de points par match",
+      "Un coureur garde la même allure : il parcourt 3 km en 15 minutes ; on cherche en combien de temps il parcourt 7 km",
+      "Un club demande 30 € d'inscription puis 12 € par mois : on calcule le coût au bout de 5 mois",
+      "Un joueur mesure 1,92 m, soit 12 cm de plus que son coéquipier : on cherche la taille de ce dernier"
+    ] }
+  ]
+}

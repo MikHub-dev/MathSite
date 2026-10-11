@@ -1,0 +1,22 @@
+{
+  "titre": "Fonctions de référence : variations, équations et inéquations",
+  "chapitre": "Fonctions de référence",
+  "date": "2026-10-11",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Cite le sens de variation de la fonction de référence utilisée chaque fois que tu compares ou encadres des nombres.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Parmi ces fonctions, laquelle est décroissante sur ]0 ; +∞[ ?</p>", "choix": ["x ↦ x²", "x ↦ x³", "x ↦ √x", "x ↦ 1/x"] },
+    { "id": "q2", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 1, "enonce": "<p>Compare (−3,2)² et (−2,7)² sans calculatrice, en utilisant le sens de variation de la fonction carré.</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Résous dans ℝ l'équation (x − 1)² = 16, puis l'équation 1/x = 0,2.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 2, "enonce": "<p>Résous dans ℝ l'inéquation x² ≥ 9, puis l'inéquation √x < 4. Donne chaque ensemble de solutions sous forme d'intervalle ou de réunion d'intervalles.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 2, "enonce": "<p>1) Sachant que 4 ≤ x ≤ 25, encadre √x, puis 1/x.</p><p>2) Sachant que −4 ≤ x ≤ 1, donne le meilleur encadrement de x². Justifie avec les variations des fonctions.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 2, "enonce": "<p>Le volume d'un cube d'arête a (en cm) est V(a) = a³.</p><p>1) Calcule V(4).</p><p>2) Quelle doit être l'arête d'un cube de volume 125 cm³ ?</p><p>3) Par combien est multiplié le volume quand on double l'arête ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Musique et son", "enonce": "<p>Aux questions 3 et 5, tu as utilisé la fonction inverse x ↦ 1/x. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un caisson de basses cubique d'arête a (en dm) a pour volume a³ : on cherche son volume pour a = 4",
+      "Un panneau acoustique carré a une aire de 0,81 m² : on cherche la longueur de son côté",
+      "La longueur d'onde d'un son est λ = 340/f (en mètres, f en hertz) : on étudie comment λ varie quand la fréquence f augmente",
+      "Un concert dure 2 h 15 min : on convertit cette durée en minutes"
+    ] }
+  ]
+}

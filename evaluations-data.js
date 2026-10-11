@@ -4,6 +4,322 @@ window.EVALUATIONS = {
  "2026-2027": {
   "5e": [
    {
+    "id": "2026-10-11-lot-1",
+    "total": 10,
+    "titre": "Proportionnalité : coefficient, pourcentages et échelles",
+    "chapitre": "Proportionnalité",
+    "date": "2026-10-11",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Lis chaque énoncé en entier et explique tes calculs dans les questions de rédaction.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Dans un tableau de proportionnalité, 6 correspond à 21. À quel nombre correspond 10 ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Lequel de ces tableaux est un tableau de proportionnalité ?</p>",
+      "choix": [
+       "3 → 7 et 9 → 20",
+       "2 → 5 et 6 → 15",
+       "4 → 6 et 10 → 12",
+       "5 → 8 et 15 → 25"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>5 cahiers identiques coûtent 11,50 €. Combien coûtent 8 de ces cahiers, en euros ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Calcule 35 % de 240.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Une chemise coûte 60 €. Pendant les soldes, son prix baisse de 30 %. Calcule le montant de la réduction, puis le nouveau prix. Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Sur un plan à l'échelle 1/200, une salle mesure 7,5 cm de long et 4 cm de large. Quelles sont les dimensions réelles de la salle, en mètres ? Justifie les conversions.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Sport",
+      "enonce": "<p>À la question 3, tu as utilisé un coefficient de proportionnalité pour passer d'une quantité à une autre. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un joueur a marqué 12, 8 et 20 points lors de trois matchs : on calcule sa moyenne de points par match",
+       "Un coureur garde la même allure : il parcourt 3 km en 15 minutes ; on cherche en combien de temps il parcourt 7 km",
+       "Un club demande 30 € d'inscription puis 12 € par mois : on calcule le coût au bout de 5 mois",
+       "Un joueur mesure 1,92 m, soit 12 cm de plus que son coéquipier : on cherche la taille de ce dernier"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-11-lot-2",
+    "total": 10,
+    "titre": "Triangles : inégalité triangulaire et triangles particuliers",
+    "chapitre": "Triangles",
+    "date": "2026-10-11",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Cite la propriété que tu utilises à chaque fois que l'énoncé te demande de justifier.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Peut-on construire un triangle dont les côtés mesurent 5 cm, 6 cm et 12 cm ?</p>",
+      "choix": [
+       "Oui, car 12 cm est le plus grand côté",
+       "Non, car 5 + 6 est inférieur à 12",
+       "Oui, car la somme 5 + 6 + 12 est un nombre entier",
+       "Non, car les trois côtés sont différents"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Un triangle isocèle a un périmètre de 31 cm et sa base mesure 9 cm. Quelle est la longueur, en centimètres, de chacun des deux autres côtés ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Le triangle ABC est isocèle en A et l'angle en A mesure 40°. Quelle est la mesure, en degrés, de l'angle en B ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Trois points A, B et C vérifient AB = 4,5 cm, BC = 3,5 cm et AC = 8 cm. Que peut-on dire de ces trois points ? Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Un triangle a deux côtés de 7 cm et de 10 cm. Entre quelles valeurs est comprise la longueur x du troisième côté ? Justifie. Quelles valeurs peut prendre x si le triangle est isocèle ?</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Écris un programme de construction du triangle EFG tel que EF = 5 cm, EG = 4 cm et FG = 6 cm, en nommant les instruments utilisés. Pourquoi ce triangle existe-t-il ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Astronomie",
+      "enonce": "<p>À la question 5, tu as utilisé l'inégalité triangulaire : dans un triangle, chaque côté est plus petit que la somme des deux autres. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un astronome mesure deux angles du triangle formé par trois étoiles et en déduit le troisième",
+       "Un astronome calcule la durée d'un trajet à partir d'une distance et d'une vitesse moyenne",
+       "On explique que la distance en ligne droite entre la Terre et Mars ne peut pas dépasser la somme des distances Terre-Vénus et Vénus-Mars",
+       "Un astronome calcule la température moyenne d'une planète à partir de trois relevés"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-11-lot-3",
+    "total": 10,
+    "titre": "Parallélogrammes : propriétés et reconnaissance",
+    "chapitre": "Parallélogrammes",
+    "date": "2026-10-11",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Dans les questions de rédaction, nomme les propriétés du cours que tu utilises.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>ABCD est un parallélogramme et BC = 6,4 cm. Quelle est la longueur AD, en centimètres ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Que peut-on affirmer des diagonales de n'importe quel parallélogramme ?</p>",
+      "choix": [
+       "Elles se coupent en leur milieu",
+       "Elles sont perpendiculaires",
+       "Elles ont la même longueur",
+       "Elles sont parallèles"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 1,
+      "enonce": "<p>ABCD est un parallélogramme et l'angle en A mesure 65°. Quelle est la mesure, en degrés, de l'angle en B ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Les diagonales du parallélogramme ABCD se coupent en O et BD = 13 cm. Quelle est la longueur OB, en centimètres ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 3,
+      "enonce": "<p>ABCD est un parallélogramme tel que AB = BC. Quelle est sa nature ? Justifie. Que pourrais-tu dire de plus s'il avait en plus un angle droit ?</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 3,
+      "enonce": "<p>EFGH est un parallélogramme de périmètre 34 cm tel que EF = 9 cm. Calcule FG. L'angle en E mesure le double de l'angle en F : calcule les mesures des quatre angles du parallélogramme. Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Agriculture",
+      "enonce": "<p>À la question 4, tu as utilisé la propriété : les diagonales d'un parallélogramme se coupent en leur milieu. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Pour trouver le centre d'un champ en forme de parallélogramme, un agriculteur tend une corde entre deux coins opposés puis une autre entre les deux autres coins : le centre est le milieu de chaque corde",
+       "Un agriculteur connaît l'angle d'un coin de son champ en parallélogramme et calcule l'angle du coin voisin en faisant 180° moins cet angle",
+       "Un agriculteur veut clôturer un champ rectangulaire : il additionne les longueurs de ses quatre côtés",
+       "Un agriculteur calcule le volume d'eau d'une citerne cylindrique en multipliant l'aire du disque de base par la hauteur"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-11-lot-4",
+    "total": 10,
+    "titre": "Volumes : pavé droit, prisme droit et cylindre",
+    "chapitre": "Volumes",
+    "date": "2026-10-11",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Indique toujours l'unité de ta réponse et détaille les conversions.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Calcule le volume, en cm³, d'un pavé droit de 6 cm sur 5 cm sur 4 cm.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Combien de centimètres cubes y a-t-il dans 3 litres ?</p>",
+      "choix": [
+       "30 cm³",
+       "300 cm³",
+       "3 000 cm³",
+       "30 000 cm³"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Un prisme droit a pour base un triangle rectangle dont les côtés de l'angle droit mesurent 6 cm et 8 cm. Sa hauteur est de 12 cm. Calcule l'aire de sa base, puis son volume.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Calcule le volume, en cm³, d'un cylindre de rayon 3 cm et de hauteur 10 cm. Donne l'arrondi au dixième.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Un bassin en forme de pavé droit mesure 2 m de long, 1,5 m de large et 0,8 m de profondeur. Il est rempli aux 3/4. Combien de litres d'eau contient-il ? Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Une boîte de conserve cylindrique a un rayon de 4 cm et une hauteur de 11 cm. Peut-elle contenir 0,5 L de soupe ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Cuisine",
+      "enonce": "<p>Aux questions 3 et 4, tu as utilisé la formule : volume = aire de la base × hauteur. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un cuisinier sait qu'il faut 20 minutes de cuisson pour 500 g de viande et cherche la durée pour 750 g",
+       "Un cuisinier partage une pizza en 8 parts égales et en mange 3",
+       "Un cuisinier découpe une bande de papier sulfurisé pour entourer un moule rond : il calcule la longueur du bord du moule",
+       "Un pâtissier veut savoir quelle quantité de pâte contient un moule cylindrique : il multiplie l'aire du disque de base par la hauteur"
+      ]
+     }
+    ]
+   },
+   {
     "id": "2026-10-04-evaluation",
     "total": 10,
     "titre": "Fractions : simplifier, comparer et additionner",
@@ -832,6 +1148,322 @@ window.EVALUATIONS = {
    }
   ],
   "seconde": [
+   {
+    "id": "2026-10-11-lot-1",
+    "total": 10,
+    "titre": "Fonctions : image, antécédent et ensemble de définition",
+    "chapitre": "Fonctions : généralités",
+    "date": "2026-10-11",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Rédige soigneusement les questions de raisonnement : une réponse sans justification ne rapporte pas tous les points.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Soit f la fonction définie par f(x) = 3x² − 5. Calcule f(−2).</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Soit g la fonction définie par g(x) = 2x + 5. Quel est l'antécédent de 11 par g ?</p>",
+      "choix": [
+       "3",
+       "8",
+       "27",
+       "−3"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Soit h la fonction définie par h(x) = 2x² − 1. Détermine les antécédents éventuels de 17 par h.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Soit k la fonction définie par k(x) = x³ + 5. Les points B(−1 ; 4) et C(2 ; 12) appartiennent-ils à la courbe représentative de k ? Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Détermine l'ensemble de définition de la fonction f définie par f(x) = 5/(x + 4), puis celui de la fonction g définie par g(x) = √(3 − x). Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 13,
+      "points": 2,
+      "enonce": "<p>Un fil de 40 cm est plié pour former un rectangle dont la largeur mesure x cm.</p><p>1) Exprime la longueur du rectangle en fonction de x.</p><p>2) Montre que l'aire du rectangle est A(x) = x(20 − x).</p><p>3) Quelles valeurs de x ont un sens dans ce contexte ? Calcule A(5) et A(15).</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Physique",
+      "enonce": "<p>À la question 1, tu as calculé l'image d'un nombre par une fonction en remplaçant x par sa valeur dans la formule. Dans laquelle de ces situations le fait-on ?</p>",
+      "choix": [
+       "Un objet tombe en chute libre et la distance de chute est d(t) = 4,9 t² : on cherche au bout de combien de temps il a chuté de 100 m",
+       "Un objet tombe en chute libre et la distance de chute est d(t) = 4,9 t² : on calcule la distance parcourue au bout de 3 s",
+       "On pèse trois cailloux de 120 g, 135 g et 150 g et on calcule leur masse moyenne",
+       "On mesure à la règle la longueur d'un ressort au repos"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-11-lot-2",
+    "total": 10,
+    "titre": "Fonctions affines : expression, signe et tarifs",
+    "chapitre": "Fonctions affines",
+    "date": "2026-10-11",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Pour les problèmes, commence par définir clairement l'inconnue et les fonctions utilisées.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Soit f la fonction définie par f(x) = −4x + 7. Calcule f(3).</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est l'ordonnée à l'origine de la droite d'équation y = 5 − 3x ?</p>",
+      "choix": [
+       "−3",
+       "5",
+       "3",
+       "−5"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Soit f une fonction affine telle que f(2) = 1 et f(6) = 13. Détermine l'expression de f(x).</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
+      "points": 2,
+      "enonce": "<p>Étudie le signe de 3x − 12 et de 5 − x, puis dresse le tableau de signes de (3x − 12)(5 − x). En déduis l'ensemble des solutions de l'inéquation (3x − 12)(5 − x) ≥ 0.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
+      "points": 2,
+      "enonce": "<p>Une plateforme de jeux propose deux formules. Formule A : 12 € d'abonnement, puis 1,50 € par jeu téléchargé. Formule B : 3 € par jeu téléchargé, sans abonnement. On note x le nombre de jeux téléchargés. Exprime le prix de chaque formule en fonction de x, puis détermine à partir de combien de jeux la formule A est strictement moins chère que la formule B.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
+      "points": 2,
+      "enonce": "<p>Dans un repère, la droite d passe par les points A(1 ; 2) et B(4 ; 11).</p><p>1) Détermine l'équation réduite de d.</p><p>2) Le point C(−2 ; −8) appartient-il à d ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Jeux vidéo",
+      "enonce": "<p>À la question 5, tu as modélisé un coût par une fonction affine f(x) = ax + b : un montant fixe plus un montant proportionnel au nombre d'articles. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un joueur a gagné 12 parties sur 20 : on calcule son pourcentage de victoires",
+       "Sur la carte d'un jeu, deux personnages sont placés en A(1 ; 2) et B(4 ; 11) : on calcule la distance qui les sépare",
+       "Un terrain de jeu carré de côté c a pour aire c² : on cherche son aire pour c = 12 m",
+       "Un jeu en ligne facture 4 € d'inscription puis 0,50 € par partie jouée : on exprime le coût total en fonction du nombre de parties"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-11-lot-3",
+    "total": 10,
+    "titre": "Proportions et évolutions successives",
+    "chapitre": "Proportions et évolutions",
+    "date": "2026-10-11",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque évolution par son coefficient multiplicateur et arrondis les résultats demandés au dixième.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule 35 % de 480.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le coefficient multiplicateur associé à une baisse de 12 % ?</p>",
+      "choix": [
+       "0,12",
+       "0,88",
+       "1,12",
+       "0,78"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Le prix d'un article passe de 80 € à 92 €. Quel est le taux d'évolution, en pourcentage ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Le prix d'un article augmente de 25 %, puis baisse de 20 %. Ce prix revient-il à sa valeur initiale ? Justifie avec les coefficients multiplicateurs.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
+      "points": 2,
+      "enonce": "<p>Un lac contient 1 800 poissons. Leur nombre diminue de 15 % une année, puis augmente de 10 % l'année suivante. Combien de poissons y a-t-il au bout des deux années ? Détermine le taux d'évolution global, en pourcentage.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
+      "points": 2,
+      "enonce": "<p>Après une baisse de 12 %, un club compte 440 adhérents. Quel était son effectif initial ? Quel pourcentage de hausse permettrait de retrouver cet effectif initial, arrondi au dixième ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Biologie",
+      "enonce": "<p>À la question 5, tu as enchaîné deux évolutions en multipliant leurs coefficients multiplicateurs. Dans laquelle de ces situations le fait-on ?</p>",
+      "choix": [
+       "Une population d'insectes baisse de 5 % une année, puis de 8 % l'année suivante : on cherche la baisse globale sur les deux années",
+       "Dans un échantillon de 250 insectes, 40 sont des femelles : on calcule la proportion de femelles",
+       "Après une baisse de 20 %, une population compte 400 individus : on cherche l'effectif de départ",
+       "On mesure la taille de trois plantes et on calcule la taille moyenne"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-11-lot-4",
+    "total": 10,
+    "titre": "Fonctions de référence : variations, équations et inéquations",
+    "chapitre": "Fonctions de référence",
+    "date": "2026-10-11",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Cite le sens de variation de la fonction de référence utilisée chaque fois que tu compares ou encadres des nombres.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Parmi ces fonctions, laquelle est décroissante sur ]0 ; +∞[ ?</p>",
+      "choix": [
+       "x ↦ x²",
+       "x ↦ x³",
+       "x ↦ √x",
+       "x ↦ 1/x"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Compare (−3,2)² et (−2,7)² sans calculatrice, en utilisant le sens de variation de la fonction carré.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Résous dans ℝ l'équation (x − 1)² = 16, puis l'équation 1/x = 0,2.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Résous dans ℝ l'inéquation x² ≥ 9, puis l'inéquation √x < 4. Donne chaque ensemble de solutions sous forme d'intervalle ou de réunion d'intervalles.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>1) Sachant que 4 ≤ x ≤ 25, encadre √x, puis 1/x.</p><p>2) Sachant que −4 ≤ x ≤ 1, donne le meilleur encadrement de x². Justifie avec les variations des fonctions.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Le volume d'un cube d'arête a (en cm) est V(a) = a³.</p><p>1) Calcule V(4).</p><p>2) Quelle doit être l'arête d'un cube de volume 125 cm³ ?</p><p>3) Par combien est multiplié le volume quand on double l'arête ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Musique et son",
+      "enonce": "<p>Aux questions 3 et 5, tu as utilisé la fonction inverse x ↦ 1/x. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un caisson de basses cubique d'arête a (en dm) a pour volume a³ : on cherche son volume pour a = 4",
+       "Un panneau acoustique carré a une aire de 0,81 m² : on cherche la longueur de son côté",
+       "La longueur d'onde d'un son est λ = 340/f (en mètres, f en hertz) : on étudie comment λ varie quand la fréquence f augmente",
+       "Un concert dure 2 h 15 min : on convertit cette durée en minutes"
+      ]
+     }
+    ]
+   },
    {
     "id": "2026-10-04-lot-1",
     "total": 10,
@@ -2223,20 +2855,20 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-10T10:51:44.806Z",
+  "genereLe": "2026-10-11T03:21:56.395Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 11,
-        "ouvertes": 8,
+        "total": 15,
+        "ouvertes": 12,
         "enAttente": 0,
         "fermees": 3,
         "copiesCorrigees": 2,
         "moyenneSur20": 18
       },
       "seconde": {
-        "total": 13,
-        "ouvertes": 8,
+        "total": 17,
+        "ouvertes": 12,
         "enAttente": 0,
         "fermees": 5,
         "copiesCorrigees": 5,

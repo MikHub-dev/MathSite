@@ -1,0 +1,22 @@
+{
+  "titre": "Proportions et évolutions successives",
+  "chapitre": "Proportions et évolutions",
+  "date": "2026-10-11",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie chaque évolution par son coefficient multiplicateur et arrondis les résultats demandés au dixième.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Calcule 35 % de 480.</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Quel est le coefficient multiplicateur associé à une baisse de 12 % ?</p>", "choix": ["0,12", "0,88", "1,12", "0,78"] },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Le prix d'un article passe de 80 € à 92 €. Quel est le taux d'évolution, en pourcentage ?</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Le prix d'un article augmente de 25 %, puis baisse de 20 %. Ce prix revient-il à sa valeur initiale ? Justifie avec les coefficients multiplicateurs.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 11, "points": 2, "enonce": "<p>Un lac contient 1 800 poissons. Leur nombre diminue de 15 % une année, puis augmente de 10 % l'année suivante. Combien de poissons y a-t-il au bout des deux années ? Détermine le taux d'évolution global, en pourcentage.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 11, "points": 2, "enonce": "<p>Après une baisse de 12 %, un club compte 440 adhérents. Quel était son effectif initial ? Quel pourcentage de hausse permettrait de retrouver cet effectif initial, arrondi au dixième ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Biologie", "enonce": "<p>À la question 5, tu as enchaîné deux évolutions en multipliant leurs coefficients multiplicateurs. Dans laquelle de ces situations le fait-on ?</p>", "choix": [
+      "Une population d'insectes baisse de 5 % une année, puis de 8 % l'année suivante : on cherche la baisse globale sur les deux années",
+      "Dans un échantillon de 250 insectes, 40 sont des femelles : on calcule la proportion de femelles",
+      "Après une baisse de 20 %, une population compte 400 individus : on cherche l'effectif de départ",
+      "On mesure la taille de trois plantes et on calcule la taille moyenne"
+    ] }
+  ]
+}
