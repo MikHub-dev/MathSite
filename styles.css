@@ -96,6 +96,47 @@ body {
   margin-left: 20px;
 }
 
+/* Loupe : seule visible tant que la barre est fermée ; un clic (toggleSearchBar dans app.js) pose
+   la classe .open sur .nav-search et affiche le champ à côté de la loupe. */
+.search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: #7aa2ff;
+  cursor: pointer;
+}
+
+.search-toggle svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.search-toggle:hover,
+.nav-search.open .search-toggle {
+  color: #ffffff;
+}
+
+.search-toggle:focus-visible {
+  outline: 2px solid #7aa2ff;
+  outline-offset: 2px;
+}
+
+.nav-search:not(.open) #global-search {
+  display: none;
+}
+
+.nav-search #global-search {
+  margin-left: 6px;
+}
+
 #global-search {
   width: 200px;
   box-sizing: border-box;

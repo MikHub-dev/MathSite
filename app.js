@@ -2694,9 +2694,36 @@ document.addEventListener("input", e => {
 // l'événement "input", donc la page ne repasse pas par l'accueil.
 document.addEventListener("pointerdown", e => {
   const input = document.getElementById("global-search");
-  if (!input || !input.value) return;
+  if (!input) return;
   if (e.target.closest && e.target.closest(".nav-search")) return;
   input.value = "";
+  setSearchBarOpen(false);
+});
+
+// --- Loupe du menu horizontal : ouvre / referme la barre de recherche ---
+// Fermée, seule la loupe est visible ; ouverte (classe .open sur .nav-search), le champ apparaît
+// à côté et reçoit le focus. Un clic en dehors (voir ci-dessus) ou la touche Échap la referme.
+function setSearchBarOpen(open) {
+  const box = document.getElementById("nav-search");
+  const btn = document.getElementById("search-toggle");
+  const input = document.getElementById("global-search");
+  if (!box || !btn || !input) return;
+  box.classList.toggle("open", open);
+  btn.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) input.focus();
+}
+
+function toggleSearchBar() {
+  const box = document.getElementById("nav-search");
+  setSearchBarOpen(!(box && box.classList.contains("open")));
+}
+
+document.addEventListener("keydown", e => {
+  if (e.key !== "Escape" || e.target.id !== "global-search") return;
+  e.target.value = "";
+  setSearchBarOpen(false);
+  const btn = document.getElementById("search-toggle");
+  if (btn) btn.focus();
 });
 
 // Construit l'index de recherche (texte des fiches compris) en tâche de fond après le

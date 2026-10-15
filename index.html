@@ -38,8 +38,14 @@
       <a href="#" data-nav="banque-images" onclick="setApp('mathsite'); loadBanqueImages()">Banque d'images</a>
       <a href="#" data-nav="axiomes" onclick="setApp('mathsite'); loadAxiomesPage()">Axiomes</a>
       <a href="#" data-nav="formules" class="nav-link-formules" onclick="loadSpecialisation()">Spécialisation</a>
-      <div class="nav-search">
-        <input id="global-search" placeholder="Rechercher... (+ = ET, espace = OU)" />
+      <!-- Concours : la page des archives FFJM s'ouvre dans un nouvel onglet -->
+      <a href="concours.html" target="_blank" rel="noopener" data-nav="concours">Concours</a>
+      <!-- Recherche : une loupe qui ouvre (et referme) la barre de recherche -->
+      <div class="nav-search" id="nav-search">
+        <button type="button" id="search-toggle" class="search-toggle" onclick="toggleSearchBar()" aria-controls="global-search" aria-expanded="false" aria-label="Rechercher" title="Rechercher">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg>
+        </button>
+        <input id="global-search" placeholder="Rechercher... (+ = ET, espace = OU)" aria-label="Rechercher" />
       </div>
     </nav>
   </header>
