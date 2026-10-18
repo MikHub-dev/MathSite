@@ -1,0 +1,22 @@
+{
+  "titre": "Fonctions : lecture d'un tableau, image, antécédent et ensemble de définition",
+  "chapitre": "Fonctions : généralités",
+  "date": "2026-10-18",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Rédige chaque réponse avec soin et justifie tes calculs.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Soit f la fonction définie par f(x) = x² − 4x + 1. Calcule f(3).</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Soit g la fonction définie par g(x) = 4 − 3x. Quel est l'antécédent de −5 par g ?</p>", "choix": ["3", "19", "−3", "1"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Une fonction f est définie sur [−2 ; 5]. Voici quelques-unes de ses valeurs :</p><p>x : −2 ; 0 ; 1 ; 3 ; 5<br>f(x) : 4 ; 1 ; −2 ; 0 ; 4</p><p>1) Quelle est l'image de 0 par f ?</p><p>2) D'après ce tableau, quels sont les antécédents de 4 par f ?</p><p>3) Quelle valeur de x vérifie f(x) = 0 ?</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 2, "enonce": "<p>Soit f la fonction définie par f(x) = (2x + 1)/(x − 3).</p><p>1) Détermine l'ensemble de définition de f.</p><p>2) Calcule f(1).</p><p>3) Le point B(4 ; 9) appartient-il à la courbe représentative de f ? Justifie.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 11, "points": 2, "enonce": "<p>Soit f la fonction définie par f(x) = √(2x + 6).</p><p>1) Détermine l'ensemble de définition de f.</p><p>2) Détermine l'antécédent de 4 par f.</p><p>3) Le nombre −2 a-t-il un antécédent par f ? Justifie.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Une balle est lancée vers le haut. Sa hauteur, en mètres, au bout de t secondes est h(t) = −5t² + 20t, pour t appartenant à [0 ; 4].</p><p>1) Calcule h(1), h(2) et h(3).</p><p>2) Donne deux antécédents de 15 par h et interprète ce résultat dans le contexte.</p><p>3) Calcule h(4). Que se passe-t-il à cet instant ?</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Santé", "enonce": "<p>À la question 2, tu as cherché un antécédent : la valeur de départ qui donne un résultat connu. Dans laquelle de ces situations cherche-t-on un antécédent ?</p>", "choix": [
+      "Une infirmière connaît la masse d'un patient (60 kg) : elle applique la formule de dosage pour calculer la dose de médicament à lui administrer",
+      "Un cardiologue relève cinq fréquences cardiaques au cours de la journée : il calcule la fréquence cardiaque moyenne",
+      "Un médecin connaît la dose de médicament prescrite à un patient : il utilise la formule de dosage pour retrouver la masse du patient correspondante",
+      "Un patient pèse 72 kg et mesure 1,80 m : il calcule le nombre obtenu en divisant sa masse par le carré de sa taille"
+    ] }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "titre": "Proportionnalité : coefficient, débit et pourcentages",
+  "chapitre": "Proportionnalité",
+  "date": "2026-10-18",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Lis chaque énoncé en entier et explique tes calculs dans les questions de rédaction.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Calcule 25 % de 60.</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Dans un tableau de proportionnalité, 5 correspond à 35 et 8 correspond à 56. Quel est le coefficient de proportionnalité pour passer de la première à la deuxième valeur ?</p>", "choix": ["5", "7", "0,14", "30"] },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>Un robinet a un débit constant : il fournit 12 L d'eau en 4 minutes. Combien de litres fournit-il en 10 minutes ?</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Léa mesurait 1,10 m à 6 ans et 1,40 m à 10 ans. La taille de Léa est-elle proportionnelle à son âge ? Justifie.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Un téléphone coûte 250 €. Son prix augmente de 12 %. Calcule le montant de l'augmentation, puis le nouveau prix. Justifie.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 7, "points": 2, "enonce": "<p>Un collège compte 480 élèves. 35 % d'entre eux sont demi-pensionnaires. Combien d'élèves ne sont pas demi-pensionnaires ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Chimie", "enonce": "<p>À la question 3, tu as utilisé la proportionnalité avec une grandeur constante (le débit). Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "On relève la température d'une solution à trois moments de l'expérience : on calcule la température moyenne",
+      "Un laborantin dispose de 30 g d'un produit et en utilise 12 g : on cherche la masse qui reste",
+      "Une solution chauffe de 2 °C au départ, puis de 3 °C de plus chaque minute : on calcule sa température au bout de 5 minutes",
+      "Une solution contient 5 g de sel par litre d'eau : on cherche la masse de sel nécessaire pour préparer 3 L de solution identique"
+    ] }
+  ]
+}

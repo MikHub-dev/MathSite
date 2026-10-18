@@ -1,0 +1,22 @@
+{
+  "titre": "Fonctions : appartenance à une courbe, antécédents et ensemble de définition",
+  "chapitre": "Fonctions : généralités",
+  "date": "2026-10-18",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Rédige chaque réponse avec soin et justifie tes calculs.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Soit f la fonction définie par f(x) = x² + 3x. Quelle est l'image de −4 par f ?</p>", "choix": ["4", "−28", "28", "−4"] },
+    { "id": "q2", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 1, "enonce": "<p>Soit h la fonction définie sur ℝ* par h(x) = 4/x. Les points M(2 ; 2) et N(−4 ; 1) appartiennent-ils à la courbe représentative de h ? Justifie.</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Soit f la fonction définie par f(x) = x² + 3. Détermine les antécédents éventuels de 7, puis ceux de 2, par f.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 2, "enonce": "<p>Détermine l'ensemble de définition de chacune des fonctions suivantes. Justifie.</p><p>1) f(x) = (x + 1)/(x² − 9)</p><p>2) h(x) = √(5 − 2x)</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 2, "enonce": "<p>Soit f la fonction définie sur [0 ; 6] par f(x) = x² − 4x + 3.</p><p>1) Calcule f(0), f(2) et f(5).</p><p>2) Montre que 3 a exactement deux antécédents par f et détermine-les.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 2, "enonce": "<p>Une course en taxi de d kilomètres (0 ≤ d ≤ 30) coûte p(d) = 2,5 + 1,2d euros.</p><p>1) Calcule p(10).</p><p>2) Quelle distance a été parcourue pour une course de 20,50 € ?</p><p>3) Peut-on payer exactement 2 € pour une course ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Informatique et IA", "enonce": "<p>À la question 4, tu as déterminé l'ensemble de définition de fonctions : les valeurs de x pour lesquelles le calcul est possible (pas de division par 0, pas de racine carrée d'un nombre négatif). Dans laquelle de ces situations s'en préoccupe-t-on ?</p>", "choix": [
+      "Un programme calcule 1/(n − 5) pour des entiers n saisis par l'utilisateur : le développeur doit empêcher la saisie de n = 5 pour que le programme ne plante pas",
+      "Un programme calcule la moyenne des notes contenues dans une liste de nombres",
+      "Un programme multiplie par 2 chaque nombre saisi par l'utilisateur",
+      "Un algorithme range une liste de nombres du plus petit au plus grand"
+    ] }
+  ]
+}

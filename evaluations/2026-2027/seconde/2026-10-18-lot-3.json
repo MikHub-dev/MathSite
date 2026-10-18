@@ -1,0 +1,21 @@
+{
+  "titre": "Fonctions : ensemble de définition, aire en fonction d'une longueur et antécédents",
+  "chapitre": "Fonctions : généralités",
+  "date": "2026-10-18",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Rédige chaque réponse avec soin et justifie tes calculs.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Soit f la fonction définie par f(x) = (3x − 2)/4. Calcule f(6).</p>" },
+    { "id": "q2", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Soit g la fonction définie par g(x) = 2x² − x. Les points A(−1 ; 3) et B(2 ; 4) appartiennent-ils à la courbe représentative de g ? Justifie.</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Soit f la fonction définie par f(x) = √(x + 5)/(x − 1).</p><p>1) Détermine l'ensemble de définition de f. Justifie.</p><p>2) Calcule f(4).</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>On souhaite construire un enclos rectangulaire de périmètre 60 m. On note x sa largeur, en mètres.</p><p>1) Exprime la longueur de l'enclos en fonction de x, puis montre que son aire est A(x) = x(30 − x). Quelles valeurs de x ont un sens ?</p><p>2) Calcule A(10).</p><p>3) Montre que A(x) = 225 équivaut à (x − 15)² = 0, puis détermine l'antécédent de 225 par A.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 3, "enonce": "<p>Soit f la fonction définie sur ℝ par f(x) = x² + 4x.</p><p>1) Calcule f(−5), f(1) et f(−2).</p><p>2) Montre que f(x) − 5 = (x + 5)(x − 1), puis détermine les antécédents de 5 par f.</p><p>3) Montre que f(x) = (x + 2)² − 4. En déduire que −5 n'a aucun antécédent par f.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Économie et gestion", "enonce": "<p>À la question 4, tu as exprimé l'aire en fonction de la largeur x, puis cherché la valeur de x qui donne une aire fixée. Dans laquelle de ces situations cherche-t-on un antécédent ?</p>", "choix": [
+      "Une entreprise sait que son bénéfice dépend de la quantité produite : elle calcule le bénéfice obtenu en produisant 300 pièces",
+      "Un comptable additionne les recettes des quatre trimestres de l'année",
+      "Un commerçant ajoute 20 % de taxe au prix hors taxe d'un article : il calcule le prix affiché",
+      "Une entreprise sait que son bénéfice dépend de la quantité produite : elle cherche la quantité à produire pour atteindre un bénéfice de 5 000 €"
+    ] }
+  ]
+}

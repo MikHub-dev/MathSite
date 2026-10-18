@@ -1,0 +1,21 @@
+{
+  "titre": "Proportionnalité : quatrième proportionnelle, échelle et réductions",
+  "chapitre": "Proportionnalité",
+  "date": "2026-10-18",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Lis chaque énoncé en entier et explique tes calculs dans les questions de rédaction.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>3 kg de cerises coûtent 13,50 €. Quel est le prix d'un kilogramme de cerises, en euros ?</p>" },
+    { "id": "q2", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Un cycliste roule à vitesse constante et parcourt 18 km en 45 minutes. Quelle distance parcourt-il en 1 h 30 min ? Justifie.</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Sur le plan d'une chambre à l'échelle 1/20, un lit mesure 8 cm de long.</p><p>1) Quelle est la longueur réelle du lit, en centimètres ?</p><p>2) Une table mesure 1,2 m en réalité. Quelle longueur mesure-t-elle sur le plan, en centimètres ?</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Une veste affichée à 120 € est vendue 90 € pendant les soldes.</p><p>1) Quel pourcentage de réduction a été appliqué ?</p><p>2) Avec le même pourcentage de réduction, quel est le nouveau prix d'un manteau affiché à 150 € ?</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 7, "points": 3, "enonce": "<p>Une bouteille de 1,5 L de boisson contient 40 % de pur jus d'orange.</p><p>1) Quelle quantité de pur jus contient une bouteille, en litres ?</p><p>2) Combien de bouteilles faut-il pour obtenir 2,4 L de pur jus ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Architecture", "enonce": "<p>À la question 3, tu as utilisé une échelle : une longueur réelle est égale à la longueur sur le plan multipliée par le nombre qui suit « 1/ ». Dans laquelle de ces situations utilise-t-on une échelle ?</p>", "choix": [
+      "Un maçon coupe une poutre de 4,2 m en trois morceaux de même longueur : on cherche la longueur de chaque morceau",
+      "Un terrain rectangulaire mesure 30 m sur 20 m : on calcule la longueur de sa clôture",
+      "Sur une maquette à l'échelle 1/500, un bâtiment mesure 6 cm de haut : on cherche sa hauteur réelle",
+      "Un chantier prévu pour 12 jours a déjà 5 jours de retard : on cherche sa durée totale"
+    ] }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "titre": "Fonctions : ensemble de définition, bénéfice et intersection de deux courbes",
+  "chapitre": "Fonctions : généralités",
+  "date": "2026-10-18",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Rédige chaque réponse avec soin et justifie tes calculs.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Quel est l'ensemble de définition de la fonction f définie par f(x) = 1/(x + 6) ?</p>", "choix": ["ℝ \\ {6}", "ℝ \\ {−6}", "ℝ", "]−6 ; +∞["] },
+    { "id": "q2", "type": "redaction", "niveau": 2, "tempsMinutes": 6, "points": 2, "enonce": "<p>Soit h la fonction définie sur ℝ par h(x) = (x + 3)² − 4. Calcule h(−3), puis détermine les antécédents de 0 par h.</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>1) Détermine l'ensemble de définition de la fonction g définie par g(x) = 1/√(x − 2). Justifie.</p><p>2) Montre que la fonction k définie par k(x) = x/(x² + 1) est définie sur ℝ, puis calcule k(−2).</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Une entreprise fabrique x centaines d'objets (0 ≤ x ≤ 10). Son bénéfice, en milliers d'euros, est B(x) = −x² + 12x − 20.</p><p>1) Calcule B(0), B(2) et B(10).</p><p>2) Montre que B(x) = −(x − 2)(x − 10).</p><p>3) Pour quelles quantités le bénéfice est-il nul ? Interprète le résultat dans le contexte.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 3, "enonce": "<p>On considère les fonctions f et g définies sur ℝ par f(x) = x² et g(x) = 2x + 3. On note C<sub>f</sub> et C<sub>g</sub> leurs courbes représentatives.</p><p>1) Calcule f(−1), g(−1), f(3) et g(3).</p><p>2) Montre que f(x) − g(x) = (x − 3)(x + 1).</p><p>3) En déduire les coordonnées des points d'intersection de C<sub>f</sub> et C<sub>g</sub>.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Astronomie", "enonce": "<p>À la question 5, tu as cherché les points communs à deux courbes en résolvant f(x) = g(x). Dans laquelle de ces situations résout-on une équation de ce type ?</p>", "choix": [
+      "L'altitude d'une sonde est donnée par une fonction du temps : on calcule son altitude à l'instant t = 10 s",
+      "Les altitudes de deux sondes sont données par deux fonctions du temps : on cherche à quels instants elles sont à la même altitude",
+      "L'altitude d'une sonde est donnée par une fonction du temps : on cherche à quel instant elle atteint 400 km",
+      "On relève la masse de cinq planètes : on calcule la masse moyenne"
+    ] }
+  ]
+}

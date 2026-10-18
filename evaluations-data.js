@@ -4,6 +4,294 @@ window.EVALUATIONS = {
  "2026-2027": {
   "5e": [
    {
+    "id": "2026-10-18-lot-1",
+    "total": 10,
+    "titre": "Proportionnalité : reconnaître et utiliser un coefficient",
+    "chapitre": "Proportionnalité",
+    "date": "2026-10-18",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Lis chaque énoncé en entier et explique tes calculs dans les questions de rédaction.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Dans un tableau de proportionnalité, 4 correspond à 18. À quel nombre correspond 10 ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Lequel de ces tableaux est un tableau de proportionnalité ?</p>",
+      "choix": [
+       "2 → 5 et 4 → 9",
+       "3 → 12 et 5 → 20",
+       "1 → 3 et 4 → 10",
+       "6 → 4 et 9 → 7"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>6 stylos identiques coûtent 8,40 €. Combien coûtent 9 de ces stylos, en euros ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Calcule 20 % de 65.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Une recette de crêpes pour 6 personnes demande 300 g de farine, 3 œufs et 60 cl de lait. Calcule les quantités nécessaires pour 10 personnes. Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Une paire de baskets coûte 80 €. Pendant les soldes, son prix baisse de 15 %. Calcule le montant de la réduction, puis le nouveau prix. Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Transports",
+      "enonce": "<p>À la question 3, tu as utilisé la proportionnalité : si la quantité est multipliée par un nombre, le prix l'est aussi. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un taxi facture 4 € de prise en charge puis 2 € par kilomètre : on calcule le prix d'une course de 10 km",
+       "Un train roule à vitesse constante : il parcourt 90 km en 30 minutes ; on cherche la distance parcourue en 2 heures",
+       "Un automobiliste a mesuré son temps de trajet pendant 5 jours : on calcule son temps de trajet moyen",
+       "Un réservoir de 50 L contient déjà 12 L d'essence : on cherche combien de litres il faut ajouter pour le remplir"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-18-lot-2",
+    "total": 10,
+    "titre": "Proportionnalité : coefficient, débit et pourcentages",
+    "chapitre": "Proportionnalité",
+    "date": "2026-10-18",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Lis chaque énoncé en entier et explique tes calculs dans les questions de rédaction.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Calcule 25 % de 60.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Dans un tableau de proportionnalité, 5 correspond à 35 et 8 correspond à 56. Quel est le coefficient de proportionnalité pour passer de la première à la deuxième valeur ?</p>",
+      "choix": [
+       "5",
+       "7",
+       "0,14",
+       "30"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Un robinet a un débit constant : il fournit 12 L d'eau en 4 minutes. Combien de litres fournit-il en 10 minutes ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Léa mesurait 1,10 m à 6 ans et 1,40 m à 10 ans. La taille de Léa est-elle proportionnelle à son âge ? Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Un téléphone coûte 250 €. Son prix augmente de 12 %. Calcule le montant de l'augmentation, puis le nouveau prix. Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Un collège compte 480 élèves. 35 % d'entre eux sont demi-pensionnaires. Combien d'élèves ne sont pas demi-pensionnaires ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Chimie",
+      "enonce": "<p>À la question 3, tu as utilisé la proportionnalité avec une grandeur constante (le débit). Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "On relève la température d'une solution à trois moments de l'expérience : on calcule la température moyenne",
+       "Un laborantin dispose de 30 g d'un produit et en utilise 12 g : on cherche la masse qui reste",
+       "Une solution chauffe de 2 °C au départ, puis de 3 °C de plus chaque minute : on calcule sa température au bout de 5 minutes",
+       "Une solution contient 5 g de sel par litre d'eau : on cherche la masse de sel nécessaire pour préparer 3 L de solution identique"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-18-lot-3",
+    "total": 10,
+    "titre": "Proportionnalité : échelles, pourcentages et consommation",
+    "chapitre": "Proportionnalité",
+    "date": "2026-10-18",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Lis chaque énoncé en entier et explique tes calculs dans les questions de rédaction.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Calcule 15 % de 80.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Le tableau suivant est-il un tableau de proportionnalité ? Justifie.</p><p>4 → 14 ; 6 → 21 ; 10 → 35</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Sur une carte à l'échelle 1/50 000, deux villes sont distantes de 4,5 cm. Quelle est la distance réelle entre ces deux villes, en kilomètres ? Justifie les conversions.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Un club compte 60 membres, dont 27 filles.</p><p>1) Quel pourcentage de filles le club compte-t-il ?</p><p>2) À la rentrée suivante, le nombre de membres augmente de 20 %. Combien de membres le club compte-t-il alors ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 3,
+      "enonce": "<p>Une voiture consomme 6,5 L de carburant pour 100 km. On suppose que la consommation est proportionnelle à la distance parcourue.</p><p>1) Quelle quantité de carburant consomme-t-elle pour 260 km ?</p><p>2) Son réservoir plein contient 52 L. Quelle distance maximale peut-elle parcourir avec un plein ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Économie",
+      "enonce": "<p>À la question 4, tu as calculé un pourcentage : la part, divisée par le total, exprimée sur 100. Dans laquelle de ces situations le fait-on ?</p>",
+      "choix": [
+       "Une entreprise compte 400 salariés, dont 100 travaillent à temps partiel : on exprime la part du temps partiel en pourcentage",
+       "Un commerçant achète 5 cahiers à 2 € l'un : on calcule le prix total",
+       "Un salarié gagne 1 500 € et reçoit une prime de 120 € : on calcule la somme perçue",
+       "Un commerçant vend trois articles à 12 €, 15 € et 18 € : on calcule le prix moyen d'un article"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-18-lot-4",
+    "total": 10,
+    "titre": "Proportionnalité : quatrième proportionnelle, échelle et réductions",
+    "chapitre": "Proportionnalité",
+    "date": "2026-10-18",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Lis chaque énoncé en entier et explique tes calculs dans les questions de rédaction.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>3 kg de cerises coûtent 13,50 €. Quel est le prix d'un kilogramme de cerises, en euros ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Un cycliste roule à vitesse constante et parcourt 18 km en 45 minutes. Quelle distance parcourt-il en 1 h 30 min ? Justifie.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Sur le plan d'une chambre à l'échelle 1/20, un lit mesure 8 cm de long.</p><p>1) Quelle est la longueur réelle du lit, en centimètres ?</p><p>2) Une table mesure 1,2 m en réalité. Quelle longueur mesure-t-elle sur le plan, en centimètres ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Une veste affichée à 120 € est vendue 90 € pendant les soldes.</p><p>1) Quel pourcentage de réduction a été appliqué ?</p><p>2) Avec le même pourcentage de réduction, quel est le nouveau prix d'un manteau affiché à 150 € ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 7,
+      "points": 3,
+      "enonce": "<p>Une bouteille de 1,5 L de boisson contient 40 % de pur jus d'orange.</p><p>1) Quelle quantité de pur jus contient une bouteille, en litres ?</p><p>2) Combien de bouteilles faut-il pour obtenir 2,4 L de pur jus ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Architecture",
+      "enonce": "<p>À la question 3, tu as utilisé une échelle : une longueur réelle est égale à la longueur sur le plan multipliée par le nombre qui suit « 1/ ». Dans laquelle de ces situations utilise-t-on une échelle ?</p>",
+      "choix": [
+       "Un maçon coupe une poutre de 4,2 m en trois morceaux de même longueur : on cherche la longueur de chaque morceau",
+       "Un terrain rectangulaire mesure 30 m sur 20 m : on calcule la longueur de sa clôture",
+       "Sur une maquette à l'échelle 1/500, un bâtiment mesure 6 cm de haut : on cherche sa hauteur réelle",
+       "Un chantier prévu pour 12 jours a déjà 5 jours de retard : on cherche sa durée totale"
+      ]
+     }
+    ]
+   },
+   {
     "id": "2026-10-11-lot-1",
     "total": 10,
     "titre": "Proportionnalité : coefficient, pourcentages et échelles",
@@ -1148,6 +1436,300 @@ window.EVALUATIONS = {
    }
   ],
   "seconde": [
+   {
+    "id": "2026-10-18-lot-1",
+    "total": 10,
+    "titre": "Fonctions : lecture d'un tableau, image, antécédent et ensemble de définition",
+    "chapitre": "Fonctions : généralités",
+    "date": "2026-10-18",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Rédige chaque réponse avec soin et justifie tes calculs.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Soit f la fonction définie par f(x) = x² − 4x + 1. Calcule f(3).</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Soit g la fonction définie par g(x) = 4 − 3x. Quel est l'antécédent de −5 par g ?</p>",
+      "choix": [
+       "3",
+       "19",
+       "−3",
+       "1"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Une fonction f est définie sur [−2 ; 5]. Voici quelques-unes de ses valeurs :</p><p>x : −2 ; 0 ; 1 ; 3 ; 5<br>f(x) : 4 ; 1 ; −2 ; 0 ; 4</p><p>1) Quelle est l'image de 0 par f ?</p><p>2) D'après ce tableau, quels sont les antécédents de 4 par f ?</p><p>3) Quelle valeur de x vérifie f(x) = 0 ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Soit f la fonction définie par f(x) = (2x + 1)/(x − 3).</p><p>1) Détermine l'ensemble de définition de f.</p><p>2) Calcule f(1).</p><p>3) Le point B(4 ; 9) appartient-il à la courbe représentative de f ? Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 11,
+      "points": 2,
+      "enonce": "<p>Soit f la fonction définie par f(x) = √(2x + 6).</p><p>1) Détermine l'ensemble de définition de f.</p><p>2) Détermine l'antécédent de 4 par f.</p><p>3) Le nombre −2 a-t-il un antécédent par f ? Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Une balle est lancée vers le haut. Sa hauteur, en mètres, au bout de t secondes est h(t) = −5t² + 20t, pour t appartenant à [0 ; 4].</p><p>1) Calcule h(1), h(2) et h(3).</p><p>2) Donne deux antécédents de 15 par h et interprète ce résultat dans le contexte.</p><p>3) Calcule h(4). Que se passe-t-il à cet instant ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Santé",
+      "enonce": "<p>À la question 2, tu as cherché un antécédent : la valeur de départ qui donne un résultat connu. Dans laquelle de ces situations cherche-t-on un antécédent ?</p>",
+      "choix": [
+       "Une infirmière connaît la masse d'un patient (60 kg) : elle applique la formule de dosage pour calculer la dose de médicament à lui administrer",
+       "Un cardiologue relève cinq fréquences cardiaques au cours de la journée : il calcule la fréquence cardiaque moyenne",
+       "Un médecin connaît la dose de médicament prescrite à un patient : il utilise la formule de dosage pour retrouver la masse du patient correspondante",
+       "Un patient pèse 72 kg et mesure 1,80 m : il calcule le nombre obtenu en divisant sa masse par le carré de sa taille"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-18-lot-2",
+    "total": 10,
+    "titre": "Fonctions : appartenance à une courbe, antécédents et ensemble de définition",
+    "chapitre": "Fonctions : généralités",
+    "date": "2026-10-18",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Rédige chaque réponse avec soin et justifie tes calculs.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Soit f la fonction définie par f(x) = x² + 3x. Quelle est l'image de −4 par f ?</p>",
+      "choix": [
+       "4",
+       "−28",
+       "28",
+       "−4"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Soit h la fonction définie sur ℝ* par h(x) = 4/x. Les points M(2 ; 2) et N(−4 ; 1) appartiennent-ils à la courbe représentative de h ? Justifie.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Soit f la fonction définie par f(x) = x² + 3. Détermine les antécédents éventuels de 7, puis ceux de 2, par f.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Détermine l'ensemble de définition de chacune des fonctions suivantes. Justifie.</p><p>1) f(x) = (x + 1)/(x² − 9)</p><p>2) h(x) = √(5 − 2x)</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Soit f la fonction définie sur [0 ; 6] par f(x) = x² − 4x + 3.</p><p>1) Calcule f(0), f(2) et f(5).</p><p>2) Montre que 3 a exactement deux antécédents par f et détermine-les.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Une course en taxi de d kilomètres (0 ≤ d ≤ 30) coûte p(d) = 2,5 + 1,2d euros.</p><p>1) Calcule p(10).</p><p>2) Quelle distance a été parcourue pour une course de 20,50 € ?</p><p>3) Peut-on payer exactement 2 € pour une course ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Informatique et IA",
+      "enonce": "<p>À la question 4, tu as déterminé l'ensemble de définition de fonctions : les valeurs de x pour lesquelles le calcul est possible (pas de division par 0, pas de racine carrée d'un nombre négatif). Dans laquelle de ces situations s'en préoccupe-t-on ?</p>",
+      "choix": [
+       "Un programme calcule 1/(n − 5) pour des entiers n saisis par l'utilisateur : le développeur doit empêcher la saisie de n = 5 pour que le programme ne plante pas",
+       "Un programme calcule la moyenne des notes contenues dans une liste de nombres",
+       "Un programme multiplie par 2 chaque nombre saisi par l'utilisateur",
+       "Un algorithme range une liste de nombres du plus petit au plus grand"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-18-lot-3",
+    "total": 10,
+    "titre": "Fonctions : ensemble de définition, aire en fonction d'une longueur et antécédents",
+    "chapitre": "Fonctions : généralités",
+    "date": "2026-10-18",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Rédige chaque réponse avec soin et justifie tes calculs.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Soit f la fonction définie par f(x) = (3x − 2)/4. Calcule f(6).</p>"
+     },
+     {
+      "id": "q2",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Soit g la fonction définie par g(x) = 2x² − x. Les points A(−1 ; 3) et B(2 ; 4) appartiennent-ils à la courbe représentative de g ? Justifie.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Soit f la fonction définie par f(x) = √(x + 5)/(x − 1).</p><p>1) Détermine l'ensemble de définition de f. Justifie.</p><p>2) Calcule f(4).</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>On souhaite construire un enclos rectangulaire de périmètre 60 m. On note x sa largeur, en mètres.</p><p>1) Exprime la longueur de l'enclos en fonction de x, puis montre que son aire est A(x) = x(30 − x). Quelles valeurs de x ont un sens ?</p><p>2) Calcule A(10).</p><p>3) Montre que A(x) = 225 équivaut à (x − 15)² = 0, puis détermine l'antécédent de 225 par A.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 3,
+      "enonce": "<p>Soit f la fonction définie sur ℝ par f(x) = x² + 4x.</p><p>1) Calcule f(−5), f(1) et f(−2).</p><p>2) Montre que f(x) − 5 = (x + 5)(x − 1), puis détermine les antécédents de 5 par f.</p><p>3) Montre que f(x) = (x + 2)² − 4. En déduire que −5 n'a aucun antécédent par f.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Économie et gestion",
+      "enonce": "<p>À la question 4, tu as exprimé l'aire en fonction de la largeur x, puis cherché la valeur de x qui donne une aire fixée. Dans laquelle de ces situations cherche-t-on un antécédent ?</p>",
+      "choix": [
+       "Une entreprise sait que son bénéfice dépend de la quantité produite : elle calcule le bénéfice obtenu en produisant 300 pièces",
+       "Un comptable additionne les recettes des quatre trimestres de l'année",
+       "Un commerçant ajoute 20 % de taxe au prix hors taxe d'un article : il calcule le prix affiché",
+       "Une entreprise sait que son bénéfice dépend de la quantité produite : elle cherche la quantité à produire pour atteindre un bénéfice de 5 000 €"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-18-lot-4",
+    "total": 10,
+    "titre": "Fonctions : ensemble de définition, bénéfice et intersection de deux courbes",
+    "chapitre": "Fonctions : généralités",
+    "date": "2026-10-18",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Rédige chaque réponse avec soin et justifie tes calculs.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est l'ensemble de définition de la fonction f définie par f(x) = 1/(x + 6) ?</p>",
+      "choix": [
+       "ℝ \\ {6}",
+       "ℝ \\ {−6}",
+       "ℝ",
+       "]−6 ; +∞["
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Soit h la fonction définie sur ℝ par h(x) = (x + 3)² − 4. Calcule h(−3), puis détermine les antécédents de 0 par h.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>1) Détermine l'ensemble de définition de la fonction g définie par g(x) = 1/√(x − 2). Justifie.</p><p>2) Montre que la fonction k définie par k(x) = x/(x² + 1) est définie sur ℝ, puis calcule k(−2).</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Une entreprise fabrique x centaines d'objets (0 ≤ x ≤ 10). Son bénéfice, en milliers d'euros, est B(x) = −x² + 12x − 20.</p><p>1) Calcule B(0), B(2) et B(10).</p><p>2) Montre que B(x) = −(x − 2)(x − 10).</p><p>3) Pour quelles quantités le bénéfice est-il nul ? Interprète le résultat dans le contexte.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 3,
+      "enonce": "<p>On considère les fonctions f et g définies sur ℝ par f(x) = x² et g(x) = 2x + 3. On note C<sub>f</sub> et C<sub>g</sub> leurs courbes représentatives.</p><p>1) Calcule f(−1), g(−1), f(3) et g(3).</p><p>2) Montre que f(x) − g(x) = (x − 3)(x + 1).</p><p>3) En déduire les coordonnées des points d'intersection de C<sub>f</sub> et C<sub>g</sub>.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Astronomie",
+      "enonce": "<p>À la question 5, tu as cherché les points communs à deux courbes en résolvant f(x) = g(x). Dans laquelle de ces situations résout-on une équation de ce type ?</p>",
+      "choix": [
+       "L'altitude d'une sonde est donnée par une fonction du temps : on calcule son altitude à l'instant t = 10 s",
+       "Les altitudes de deux sondes sont données par deux fonctions du temps : on cherche à quels instants elles sont à la même altitude",
+       "L'altitude d'une sonde est donnée par une fonction du temps : on cherche à quel instant elle atteint 400 km",
+       "On relève la masse de cinq planètes : on calcule la masse moyenne"
+      ]
+     }
+    ]
+   },
    {
     "id": "2026-10-11-lot-1",
     "total": 10,
@@ -2855,20 +3437,20 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-11T04:09:03.948Z",
+  "genereLe": "2026-10-18T03:29:33.872Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 15,
-        "ouvertes": 12,
+        "total": 19,
+        "ouvertes": 16,
         "enAttente": 0,
         "fermees": 3,
         "copiesCorrigees": 2,
         "moyenneSur20": 18
       },
       "seconde": {
-        "total": 17,
-        "ouvertes": 12,
+        "total": 21,
+        "ouvertes": 16,
         "enAttente": 0,
         "fermees": 5,
         "copiesCorrigees": 5,

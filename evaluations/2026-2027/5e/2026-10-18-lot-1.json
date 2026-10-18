@@ -1,0 +1,22 @@
+{
+  "titre": "Proportionnalité : reconnaître et utiliser un coefficient",
+  "chapitre": "Proportionnalité",
+  "date": "2026-10-18",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Lis chaque énoncé en entier et explique tes calculs dans les questions de rédaction.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Dans un tableau de proportionnalité, 4 correspond à 18. À quel nombre correspond 10 ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Lequel de ces tableaux est un tableau de proportionnalité ?</p>", "choix": ["2 → 5 et 4 → 9", "3 → 12 et 5 → 20", "1 → 3 et 4 → 10", "6 → 4 et 9 → 7"] },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>6 stylos identiques coûtent 8,40 €. Combien coûtent 9 de ces stylos, en euros ?</p>" },
+    { "id": "q4", "type": "numerique", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Calcule 20 % de 65.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Une recette de crêpes pour 6 personnes demande 300 g de farine, 3 œufs et 60 cl de lait. Calcule les quantités nécessaires pour 10 personnes. Justifie.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 7, "points": 2, "enonce": "<p>Une paire de baskets coûte 80 €. Pendant les soldes, son prix baisse de 15 %. Calcule le montant de la réduction, puis le nouveau prix. Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Transports", "enonce": "<p>À la question 3, tu as utilisé la proportionnalité : si la quantité est multipliée par un nombre, le prix l'est aussi. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un taxi facture 4 € de prise en charge puis 2 € par kilomètre : on calcule le prix d'une course de 10 km",
+      "Un train roule à vitesse constante : il parcourt 90 km en 30 minutes ; on cherche la distance parcourue en 2 heures",
+      "Un automobiliste a mesuré son temps de trajet pendant 5 jours : on calcule son temps de trajet moyen",
+      "Un réservoir de 50 L contient déjà 12 L d'essence : on cherche combien de litres il faut ajouter pour le remplir"
+    ] }
+  ]
+}
