@@ -31,6 +31,7 @@ ul{margin:0 0 14px;padding-left:20px} li{margin:2px 0}
 .pourquoi{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 18px;margin:18px 0 8px}
 .pourquoi .pt{color:#15803d;font-weight:700;margin-bottom:6px}
 .pourquoi ol{margin:0;padding-left:20px}
+pre.grille{font-family:'DejaVu Sans Mono',Consolas,monospace;font-size:15px;line-height:1.35;background:#f8fafc;border:1px solid #e5e9f0;border-radius:6px;padding:10px 14px;margin:0 0 16px;text-align:center;overflow-x:auto}
 .claude{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:0 0 8px}
 .claude .ct{color:#1d4ed8;font-weight:700;margin-bottom:6px}
 @media (max-width:640px){.page{padding:28px 18px 0}.cartes{grid-template-columns:1fr}h1{font-size:23px}}
@@ -39,7 +40,7 @@ ul{margin:0 0 14px;padding-left:20px} li{margin:2px 0}
 <p>Le réflexe est de <strong>chercher ce qui compte vraiment</strong> dans une suite de coups.</p>
 <ul><li><strong>L’ordre des coups ne compte pas :</strong> la couleur finale d’un jeton dépend seulement du nombre de fois où il a été retourné (pair : inchangé ; impair : changé).</li><li><strong>Jouer deux fois le même coup ne sert à rien :</strong> le second annule le premier.</li><li>Une solution est donc un <strong>ensemble</strong> de coups distincts parmi les 8 alignements (3 lignes, 3 colonnes, 2 diagonales).</li></ul>
 <h3>2. Amel : un minimum par la parité</h3>
-<p>Amel a 6 jetons blancs. Un coup retourne 3 jetons dont <em>w</em> blancs : le nombre de blancs varie de 3 − 2*w*, un nombre toujours impair.</p>
+<p>Amel a 6 jetons blancs. Un coup retourne 3 jetons dont <em>w</em> blancs : le nombre de blancs varie de 3 − 2<em>w</em>, un nombre toujours impair.</p>
 <div class="formule">La parité du nombre de blancs change à chaque coup<br>6 (pair) → 0 (pair) ⇒ <strong>nombre pair de coups</strong></div>
 <p>Deux coups ne suffisent pas : il faudrait deux alignements sans case commune couvrant exactement les 6 cases blanches, or le milieu du haut, le milieu de gauche et le centre ne sont pas alignés. Il faut donc au moins 4 coups, et 4 suffisent : diagonale montante, ligne du milieu, colonne du milieu, colonne de droite. <strong>Réponse : 4.</strong></p>
 <h3>3. Sofia : chercher un invariant</h3>

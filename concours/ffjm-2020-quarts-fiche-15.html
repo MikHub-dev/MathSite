@@ -1,0 +1,54 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Aires et périmètres — résolution</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"><style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#e9edf2;font-family:Roboto,Arial,sans-serif;color:#1e293b;line-height:1.55;font-size:15px}
+.nav{max-width:820px;margin:0 auto;padding:14px 16px 0;font-size:14px}
+.nav a{color:#2563eb;text-decoration:none;font-weight:500}
+.page{max-width:820px;margin:16px auto;background:#fff;border:1px solid #dfe3e8;padding:56px 70px 0;display:flow-root}
+.foot{display:flex;justify-content:space-between;border-top:1px solid #dbe3ee;margin:40px -0px 0;padding:12px 0 16px;color:#64748b;font-size:12.5px}
+h1{font-size:28px;line-height:1.2;margin:0 0 14px;color:#0f172a;font-weight:700;letter-spacing:-.01em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:12px;border-bottom:2px solid #0f172a;margin-bottom:22px}
+.chip{font-size:12px;font-weight:700;padding:4px 9px;border-radius:4px;border:1px solid #cbd5e1;background:#f1f5f9;color:#334155}
+.chip.coef{background:#fef3c7;border-color:#fcd34d;color:#92400e}
+.enonce{border:1px solid #cbd5e1;background:#f8fafc;border-radius:8px;padding:16px 18px;margin-bottom:22px}
+.enonce p{margin:0 0 8px}
+.enonce .t{font-weight:700;margin-bottom:2px}
+.enonce .q{font-weight:700}
+.enonce .note{font-style:italic;font-size:12px;color:#64748b;margin:0}
+.enonce .plateaux{display:flex;gap:28px;flex-wrap:wrap;margin:6px 0 10px;font-family:'DejaVu Sans Mono',monospace;font-size:16px;line-height:1.25}
+.reponse{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#f0fdf4;border:1px solid #bbf7d0;border-left:5px solid #16a34a;border-radius:6px;padding:14px 18px;margin-bottom:24px}
+.reponse .l{color:#15803d;font-weight:700}
+.reponse .v{color:#14532d;font-weight:700;font-size:20px}
+.reponse .v small{font-weight:400;font-size:14px;color:#15803d;margin-left:8px}
+h2{font-size:20px;margin:26px 0 12px;padding-left:12px;border-left:5px solid #2563eb;color:#0f172a;font-weight:700;line-height:1.25}
+h3{font-size:15.5px;margin:20px 0 8px;color:#0f172a;font-weight:700}
+p{margin:0 0 14px}
+.cartes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px}
+.carte{border:1px solid #dbe3ee;border-radius:6px;padding:12px 14px}
+.carte .ct{color:#2563eb;font-weight:700;font-size:13.5px;margin-bottom:4px}
+.formule{background:#f8fafc;border:1px solid #e5e9f0;border-radius:6px;padding:10px 14px;margin:0 0 16px;text-align:center;line-height:1.7}
+ul{margin:0 0 14px;padding-left:20px} li{margin:2px 0}
+.pourquoi{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 18px;margin:18px 0 8px}
+.pourquoi .pt{color:#15803d;font-weight:700;margin-bottom:6px}
+.pourquoi ol{margin:0;padding-left:20px}
+pre.grille{font-family:'DejaVu Sans Mono',Consolas,monospace;font-size:15px;line-height:1.35;background:#f8fafc;border:1px solid #e5e9f0;border-radius:6px;padding:10px 14px;margin:0 0 16px;text-align:center;overflow-x:auto}
+.claude{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:0 0 8px}
+.claude .ct{color:#1d4ed8;font-weight:700;margin-bottom:6px}
+@media (max-width:640px){.page{padding:28px 18px 0}.cartes{grid-template-columns:1fr}h1{font-size:23px}}
+@media print{body{background:#fff}.nav{display:none}.page{border:0;margin:0;break-after:page;max-width:none}}
+</style></head><body><div class="nav"><a href="ffjm-2020-quarts.html#p15">← Corrigé des quarts de finale 2020</a></div><section class="page"><h1>Aires et périmètres</h1><div class="chips"><span class="chip coef">Coefficient 15</span><span class="chip">FFJM - Jeux Mathématiques</span><span class="chip">Résolution Complète</span></div><div class="enonce"><p class="t">Énoncé du problème</p><p>Un rectangle a un périmètre égal à 65 cm. On partage ce rectangle en neuf rectangles plus petits en traçant des lignes parallèles aux bords. Le périmètre de certains de ces petits rectangles est indiqué sur la figure : 14 cm (milieu du haut), 18 cm (milieu du bas), 28 cm (milieu de gauche) et 26 cm (milieu de droite).</p><p>La somme des aires des quatre rectangles grisés (les coins) est égale à 120 cm².</p><p class="q">Quelle est, en cm², l’aire du rectangle central ?</p><p class="note">Le dessin ne respecte pas les proportions.</p></div><div class="reponse"><span class="l">Réponse exacte :</span><span class="v">17 cm² ou 22,5 cm²<small>(2 solutions)</small></span></div><h2>1. Niveau de classe &amp; Catégorie officielle</h2><p>Ce problème est extrait du <strong>Championnat International des Jeux Mathématiques et Logiques</strong> organisé par la <strong>FFJM</strong> (Fédération Française des Jeux Mathématiques).</p><p>Dans ces compétitions, les problèmes attribués au <strong>coefficient 15</strong> correspondent aux catégories suivantes :</p><div class="cartes"><div class="carte"><div class="ct">Catégories L1 &amp; GP</div><strong>L1 :</strong> lycéens (Seconde, Première, Terminale).<br><strong>GP :</strong> Grand Public (toute personne n’étant plus scolarisée).</div><div class="carte"><div class="ct">Catégories L2 &amp; HC</div><strong>L2 :</strong> étudiants de l’enseignement supérieur.<br><strong>HC :</strong> Haute Compétition (participants chevronnés / niveau expert).</div></div><h3>Précisions sur la difficulté théorique</h3><p>Même si le niveau scolaire formel rattaché au coefficient 15 est le <strong>niveau Lycée</strong>, la résolution de ce type d’épreuve repose sur la mise en équations et le second degré plutôt que sur un programme de cours strictement scolaire.</p><div class="foot"><span>Résolution de problème : Aires et périmètres</span><span>Page 1 / 4</span></div></section><section class="page"><h2>2. Méthode de raisonnement pas à pas (Niveau Seconde)</h2><p>C’est un excellent défi ! Ce problème s’appuie sur des concepts très simples : <strong>les demi-périmètres, une équation du second degré et un peu de bon sens.</strong></p><h3>1. Nommer les longueurs</h3>
+<p>Largeurs des colonnes : <em>c</em>, <em>d</em>, <em>y</em> ; hauteurs des lignes : <em>x</em>, <em>a</em>, <em>b</em>. Le central mesure <em>d</em> × <em>a</em>.</p>
+<div class="formule"><em>d</em> + <em>x</em> = 7 · <em>d</em> + <em>b</em> = 9 · <em>c</em> + <em>a</em> = 14 · <em>y</em> + <em>a</em> = 13<br>⇒ <em>d</em> = 7 − <em>x</em>, <em>b</em> = <em>x</em> + 2, <em>a</em> = 13 − <em>y</em>, <em>c</em> = <em>y</em> + 1</div>
+<h3>2. Le périmètre</h3>
+<div class="formule"><em>c</em> + <em>d</em> + <em>y</em> + <em>x</em> + <em>a</em> + <em>b</em> = 32,5 ⇒ <em>x</em> + <em>y</em> + 23 = 32,5 ⇒ <em>y</em> = 9,5 − <em>x</em></div>
+<h3>3. Les coins</h3>
+<div class="formule">Les quatre coins rapprochés forment un rectangle (<em>c</em> + <em>y</em>) × (<em>x</em> + <em>b</em>) = 120<br>(2<em>y</em> + 1)(2<em>x</em> + 2) = 120 ⇒ (10 − <em>x</em>)(<em>x</em> + 1) = 30 ⇒ <em>x</em>² − 9<em>x</em> + 20 = 0</div>
+<h3>4. Conclure</h3>
+<div class="formule"><em>x</em> = 4 : <em>d</em> = 3, <em>a</em> = 7,5 ⇒ <strong>22,5 cm²</strong> · <em>x</em> = 5 : <em>d</em> = 2, <em>a</em> = 8,5 ⇒ <strong>17 cm²</strong></div><div class="foot"><span>Résolution de problème : Aires et périmètres</span><span>Page 2 / 4</span></div></section><section class="page"><h2>3. Résolution expliquée comme si tu étais en 5ème</h2><p>C’est un super défi ! En 5ème, tu n’as pas encore appris les équations du second degré. Mais tu as déjà tous les outils nécessaires : <strong>le périmètre, l’aire du rectangle, les essais et un peu de logique !</strong></p><h3>Étape 1 : Les demi-périmètres</h3>
+<p>Haut : 7 ; bas : 9 ; gauche : 14 ; droite : 13 ; grand rectangle : 32,5.</p>
+<h3>Étape 2 : Choisir la hauteur du haut</h3>
+<p>Si la ligne du haut a une hauteur de 4, la colonne du milieu a une largeur de 3, la ligne du bas une hauteur de 6, etc.</p>
+<h3>Étape 3 : Vérifier les coins</h3>
+<ul><li>Hauteur du haut 4 : les coins font 120 cm² ✓ ; central 3 × 7,5 = 22,5.</li><li>Hauteur du haut 5 : les coins font aussi 120 cm² ✓ ; central 2 × 8,5 = 17.</li></ul>
+<h3>Étape 4 : Conclure (la réponse finale)</h3>
+<div class="formule">Deux solutions : <strong>22,5 cm²</strong> ou <strong>17 cm²</strong></div><div class="pourquoi"><div class="pt">Pourquoi c’est compréhensible dès la 5ème ?</div><ol><li><strong>Le périmètre :</strong> Tu sais que longueur + largeur = périmètre ÷ 2.</li><li><strong>L’aire :</strong> Tu sais calculer l’aire d’un rectangle.</li><li><strong>Les essais :</strong> Tu sais tester une valeur et vérifier toutes les conditions.</li></ol></div><div class="foot"><span>Résolution de problème : Aires et périmètres</span><span>Page 3 / 4</span></div></section><section class="page"><h2>Méthode Claude</h2><p>La méthode est complète. Voici ce que j’ajoute :</p><div class="claude"><div class="ct">Les points en plus par rapport à la « Méthode Gemini »</div><ul><li><strong>L’astuce des coins :</strong> les quatre coins rapprochés forment un seul rectangle, ce qui transforme quatre aires en un seul produit.</li><li><strong>Deux solutions :</strong> l’équation du second degré a deux racines positives, et les deux découpages sont valides (toutes les longueurs positives).</li><li><strong>Contrôle :</strong> pour <em>x</em> = 4, les largeurs sont 6,5 ; 3 ; 5,5 et les hauteurs 4 ; 7,5 ; 6 : périmètre 2 × 32,5 = 65 ✓.</li></ul></div><div class="foot"><span>Résolution de problème : Aires et périmètres</span><span>Page 4 / 4</span></div></section></body></html>
