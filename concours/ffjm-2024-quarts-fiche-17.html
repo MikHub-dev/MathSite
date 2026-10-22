@@ -31,6 +31,7 @@ ul{margin:0 0 14px;padding-left:20px} li{margin:2px 0}
 .pourquoi{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 18px;margin:18px 0 8px}
 .pourquoi .pt{color:#15803d;font-weight:700;margin-bottom:6px}
 .pourquoi ol{margin:0;padding-left:20px}
+pre.grille{font-family:'DejaVu Sans Mono',Consolas,monospace;font-size:15px;line-height:1.35;background:#f8fafc;border:1px solid #e5e9f0;border-radius:6px;padding:10px 14px;margin:0 0 16px;text-align:center;overflow-x:auto}
 .claude{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:0 0 8px}
 .claude .ct{color:#1d4ed8;font-weight:700;margin-bottom:6px}
 @media (max-width:640px){.page{padding:28px 18px 0}.cartes{grid-template-columns:1fr}h1{font-size:23px}}
@@ -39,7 +40,7 @@ ul{margin:0 0 14px;padding-left:20px} li{margin:2px 0}
 <p>Avec <em>b</em> bleues et <em>r</em> rouges (<em>n</em> = <em>b</em> + <em>r</em>), le nombre de paires est <em>n</em>(<em>n</em> − 1)/2. Le jeu est équilibré si les paires de même couleur sont exactement la moitié :</p>
 <div class="formule"><em>b</em>(<em>b</em> − 1)/2 + <em>r</em>(<em>r</em> − 1)/2 = <em>b</em> × <em>r</em> (paires unicolores = paires bicolores)</div>
 <h3>2. Faire apparaître une identité remarquable</h3>
-<div class="formule"><em>b*² − *b</em> + <em>r*² − *r</em> = 2*br* ⇔ (<em>b</em> − <em>r</em>)² = <em>b</em> + <em>r</em> = <em>n</em><br>Le nombre de billes est un <strong>carré parfait</strong></div>
+<div class="formule"><em>b</em>² − <em>b</em> + <em>r</em>² − <em>r</em> = 2<em>br</em> ⇔ (<em>b</em> − <em>r</em>)² = <em>b</em> + <em>r</em> = <em>n</em><br>Le nombre de billes est un <strong>carré parfait</strong></div>
 <h3>3. Conclure</h3>
 <div class="formule"><em>n</em> ∈ {4 ; 9 ; 16} (entre 2 et 24) avec <em>b</em> − <em>r</em> = ±2, ±3, ±4<br>4 billes (1 et 3), 9 billes (3 et 6), 16 billes (6 et 10)</div>
 <p><strong>Condition cruciale :</strong> les deux billes sont tirées sans remise ; le second tirage se fait parmi <em>n</em> − 1 billes.</p><div class="foot"><span>Résolution de problème : Jeu de billes</span><span>Page 2 / 4</span></div></section><section class="page"><h2>3. Résolution expliquée comme si tu étais en 5ème</h2><p>C’est un super défi ! En 5ème, tu n’as pas encore appris les probabilités de tirages successifs. Mais tu as déjà tous les outils nécessaires : <strong>le dénombrement des paires, les tableaux et un peu de logique !</strong></p><h3>Étape 1 : Comprendre « équilibré »</h3>

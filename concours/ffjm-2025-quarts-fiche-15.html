@@ -31,6 +31,7 @@ ul{margin:0 0 14px;padding-left:20px} li{margin:2px 0}
 .pourquoi{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 18px;margin:18px 0 8px}
 .pourquoi .pt{color:#15803d;font-weight:700;margin-bottom:6px}
 .pourquoi ol{margin:0;padding-left:20px}
+pre.grille{font-family:'DejaVu Sans Mono',Consolas,monospace;font-size:15px;line-height:1.35;background:#f8fafc;border:1px solid #e5e9f0;border-radius:6px;padding:10px 14px;margin:0 0 16px;text-align:center;overflow-x:auto}
 .claude{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:0 0 8px}
 .claude .ct{color:#1d4ed8;font-weight:700;margin-bottom:6px}
 @media (max-width:640px){.page{padding:28px 18px 0}.cartes{grid-template-columns:1fr}h1{font-size:23px}}
@@ -41,8 +42,8 @@ ul{margin:0 0 14px;padding-left:20px} li{margin:2px 0}
 <div class="formule">Joueur 1 : de 0, il va à 1 ; de 1 : vers 2 avec 1/4, vers 0 avec 1/4, reste avec 1/2<br>Joueur 2 : de 0, vers 1 avec 2/3 ; de 1 : vers 2 avec 1/6, vers 0 avec 1/6, reste avec 2/3</div>
 <p><strong>• Pourquoi le joueur 2 est désavantagé :</strong><br>au moment de son second tirage, son urne noire contient 3 balles.</p>
 <h3>3. Poser le système</h3>
-<p>Soit <em>x*<sub>ab</sub> la probabilité que le joueur 1 gagne depuis l’état (*a</em> ; <em>b</em>). Au tour suivant : si le joueur 1 atteint 2, il gagne (même si l’autre aussi) ; sinon, si le joueur 2 atteint 2, il perd ; sinon on recommence. On obtient 4 équations linéaires.</p>
-<div class="formule">*x*<sub>11</sub> = 585/902 ; *x*<sub>10</sub> = 333/451 ; *x*<sub>01</sub> = 501/902<br>Départ : *x*<sub>00</sub> = <strong>306/451</strong></div>
+<p>Soit <em>x</em><sub>ab</sub> la probabilité que le joueur 1 gagne depuis l’état (<em>a</em> ; <em>b</em>). Au tour suivant : si le joueur 1 atteint 2, il gagne (même si l’autre aussi) ; sinon, si le joueur 2 atteint 2, il perd ; sinon on recommence. On obtient 4 équations linéaires.</p>
+<div class="formule"><em>x</em><sub>11</sub> = 585/902 ; <em>x</em><sub>10</sub> = 333/451 ; <em>x</em><sub>01</sub> = 501/902<br>Départ : <em>x</em><sub>00</sub> = <strong>306/451</strong></div>
 <p><strong>Condition cruciale :</strong> l’égalité compte comme une victoire ; en l’excluant on trouverait 269/451.</p><div class="foot"><span>Résolution de problème : Des urnes et des boules</span><span>Page 2 / 4</span></div></section><section class="page"><h2>3. Résolution expliquée comme si tu étais en 5ème</h2><p>C’est un super défi ! En 5ème, tu n’as pas encore appris les probabilités ni les systèmes d’équations. Mais tu as déjà tous les outils nécessaires : <strong>les fractions, la comparaison et un peu de logique !</strong></p><h3>Étape 1 : Jouer quelques tours</h3>
 <p>Dessine les deux urnes de chaque joueur et joue avec des jetons. Au premier tour, le joueur 1 a <strong>forcément</strong> une balle blanche dans son urne blanche.</p>
 <h3>Étape 2 : Suivre un seul nombre</h3>
