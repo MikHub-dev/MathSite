@@ -18,5 +18,15 @@
       "Une facture d'électricité : on multiplie 120 kWh par 0,20 € le kWh",
       "Une chaudière a utilisé 1/6 du fioul lundi et 1/3 mardi : on additionne pour savoir quelle fraction a été utilisée en tout"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>42</strong> : on passe de 9 à 54 en multipliant par 6, donc 7 × 6 = 42.</p>",
+    "q2": "<p><strong>7/12</strong> : les dénominateurs sont égaux, la plus grande fraction a le plus grand numérateur.</p>",
+    "q3": "<p>3/4 = <strong>9/12</strong> et 5/6 = <strong>10/12</strong>. La plus grande est 10/12 : le numérateur est <strong>10</strong>.</p>",
+    "q4": "<p>Avec le dénominateur 16 : 5/8 = 10/16, 1/2 = 8/16 et 3/16. Donc <strong>3/16 &lt; 1/2 &lt; 5/8</strong>.</p>",
+    "q5": "<p>Avec le dénominateur 20 : Léa 12/20, Hugo 13/20, Inès 14/20. Ordre : <strong>Léa, Hugo, Inès</strong>. Inès a lu 1/20 de 240 pages de plus que Hugo, soit <strong>12 pages</strong>.</p>",
+    "q6": "<p>Avec le dénominateur 12 : Tom 2/12, Sara 4/12, Lou 3/12. <strong>Sara</strong> a mangé la plus grosse part. Ensemble : 9/12, donc il reste 12/12 − 9/12 = <strong>3/12 = 1/4</strong> de la pizza.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 2e</strong> (pour savoir quelle batterie est la plus chargée, on compare 3/4 et 5/6 en les écrivant avec le même dénominateur). Le piège était la 4e : additionner 1/6 et 1/3 utilise aussi un dénominateur commun, mais pour calculer une somme, pas pour comparer.</p>"
+  },
+  "cloturee": true
 }

@@ -1,0 +1,60 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 7.5,
+      "commentaire": "Très bonne copie (15,5/20 avec le bonus) : factorisation et démonstrations bien menées. Relis soigneusement l'énoncé en le recopiant et surveille le signe de c ; termine chaque démonstration par une phrase de conclusion.",
+      "details": {
+        "q1": {
+          "points": 0,
+          "remarque": "Tu as trouvé x² − 16, donc x² + c avec c = −16 et non 16."
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 1.5,
+          "remarque": "Méthode et calculs justes, mais tu as recopié (x − 4) au lieu de (x + 4) : le bon résultat est x² + 7x − 13.",
+          "erreurs": [
+            "(2x-3)(x-4)-(x-1)²"
+          ]
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste : identité remarquable citée, factorisation et résolution par produit nul bien rédigées."
+        },
+        "q5": {
+          "points": 1.5,
+          "remarque": "Démonstration juste, minimum 0 atteint en x = 1. Précise qu'un carré est positif ou nul (c'est ce qui permet d'affirmer que 0 est le minimum).",
+          "incompletes": [
+            "car un carré donne toujours un résultat positif"
+          ]
+        },
+        "q6": {
+          "points": 1.5,
+          "remarque": "Démonstration et calcul justes (4 000 000), mais il manque la phrase de conclusion : 1 999 × 2 001 + 1 est le carré de l'entier 2 000.",
+          "incompletes": [
+            "2000²-1+1=2000²=4000000"
+          ]
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonne réponse : la 2e (99 × 101 = (100 − 1)(100 + 1) = 100² − 1²). Le piège était la 3e : 102² = (100 + 2)² utilise l'identité (a + b)² et non (a + b)(a − b)."
+      },
+      "reponduLe": "2026-10-20T07:55:10.192Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 33,
+      "reponses": {
+        "q1": "(x-4)(x+4)=x²-16. La valeur de c est 16.",
+        "q2": "2x − 1",
+        "q3": "Formule: (a-b)²=a²-2ab+b²\n(2x-3)(x-4)-(x-1)²\n2x²-11x+12-(x²-2x+1)\n2x²-11x+12-x²+2x-1\nx²-9x+11",
+        "q4": "Formules: a²-b²= (a+b)(a-b)\nF=(3x-1)²-(x+2)²\nF=(3x-1+x+2)(3x-1-x-2)\nF=(4x+1)(2x-3)\nSoit F=0:\n(4x+1)(2x-3)=0\nSi AB=0 alors A=0 ou B=0:\n4x+1=0 OU 2x-3=0\n4x=-1           2x=3\n4x/4=-1/4   2x/2=3/2\nx=-1/4         x=3/2\nS={3/2;-1/4}",
+        "q5": "D'une part:\n(x+3)(x-5)+16 = x²-2x-15+16 = x²-2x+1\nD'autre part:\n(x-1)²=x²-2x+1 (Identité remarquable)\nOn remarque que les deux membres sont égaux, donc l'expression est vraie quelque soit la valeur de x.\nLa plus petite valeur que peut prendre (x+3)(x-5)+16 est 0, car un carré donne toujours un résultat positif. Et pour atteindre cela, il faut que x soit égal à 1, puisque (1-1)²=0²=0",
+        "q6": "D'une part:\n(n-1)(n+1)+1= n²-1²+1=n²-1+1=n² (Identité remarquable)\nD'autre part:\nn²=n²\nOn remarque que les deux membres sont égaux, donc pour tout entier n, l'équation est vraie.\n1999*2001+1= (2000-1)(2000+1)+1= 2000²-1+1=2000²=4000000",
+        "bonus": "Un grossiste calcule mentalement 99 × 101 € en écrivant 100² − 1² = 9 999 €"
+      }
+    }
+  }
+}

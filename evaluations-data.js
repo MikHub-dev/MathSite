@@ -894,7 +894,17 @@ window.EVALUATIONS = {
        "Une chaudière a utilisé 1/6 du fioul lundi et 1/3 mardi : on additionne pour savoir quelle fraction a été utilisée en tout"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>42</strong> : on passe de 9 à 54 en multipliant par 6, donc 7 × 6 = 42.</p>",
+     "q2": "<p><strong>7/12</strong> : les dénominateurs sont égaux, la plus grande fraction a le plus grand numérateur.</p>",
+     "q3": "<p>3/4 = <strong>9/12</strong> et 5/6 = <strong>10/12</strong>. La plus grande est 10/12 : le numérateur est <strong>10</strong>.</p>",
+     "q4": "<p>Avec le dénominateur 16 : 5/8 = 10/16, 1/2 = 8/16 et 3/16. Donc <strong>3/16 &lt; 1/2 &lt; 5/8</strong>.</p>",
+     "q5": "<p>Avec le dénominateur 20 : Léa 12/20, Hugo 13/20, Inès 14/20. Ordre : <strong>Léa, Hugo, Inès</strong>. Inès a lu 1/20 de 240 pages de plus que Hugo, soit <strong>12 pages</strong>.</p>",
+     "q6": "<p>Avec le dénominateur 12 : Tom 2/12, Sara 4/12, Lou 3/12. <strong>Sara</strong> a mangé la plus grosse part. Ensemble : 9/12, donc il reste 12/12 − 9/12 = <strong>3/12 = 1/4</strong> de la pizza.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 2e</strong> (pour savoir quelle batterie est la plus chargée, on compare 3/4 et 5/6 en les écrivant avec le même dénominateur). Le piège était la 4e : additionner 1/6 et 1/3 utilise aussi un dénominateur commun, mais pour calculer une somme, pas pour comparer.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-04-lot-3",
@@ -965,7 +975,16 @@ window.EVALUATIONS = {
        "Deux forces de 4 N et de 6 N poussent un objet dans le même sens : on calcule la force totale"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>7/12</strong> : 6/15 = 2/5, 8/20 = 2/5 et 9/21 = 3/7 se simplifient, alors que 7 et 12 n'ont aucun diviseur commun autre que 1.</p>",
+     "q2": "<p>84/126 = 42/63 = <strong>2/3</strong> (on divise par 42). La somme est 2 + 3 = <strong>5</strong>.</p>",
+     "q3": "<p>15/35 = 3/7 (÷ 5) et 9/21 = 3/7 (÷ 3). Les deux fractions se simplifient en 3/7 : <strong>elles sont égales</strong>.</p>",
+     "q4": "<p>3/8 + 1/4 = 3/8 + 2/8 = 5/8, donc la partie jaune est 8/8 − 5/8 = <strong>3/8</strong> du ruban. Longueur : 3/8 × 200 cm = <strong>75 cm</strong>.</p>",
+     "q5": "<p>Pour 2/3 : (2 + 1)/(3 + 1) = 3/4, et 3/4 ≠ 2/3 (9 ≠ 8 avec les produits en croix). L'affirmation est <strong>fausse</strong> : un contre-exemple suffit. Enfin 2/3 = <strong>16/24</strong> (on multiplie par 8).</p>",
+     "bonus": "<p><strong>Bonne réponse : la 3e</strong> (on vérifie que 6/4 et 9/6 sont égaux, ce qui revient à vérifier une égalité de rapports, comme pour 15/35 et 9/21). Le piège était la 1re : calculer une vitesse moyenne donne un seul quotient, 150/2, sans égalité à vérifier. Les deux autres choix sont une conversion et une addition.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-04-lot-4",
@@ -1036,7 +1055,16 @@ window.EVALUATIONS = {
        "Deux bus de même capacité : le premier est rempli aux 5/6, le second aux 7/9 ; on cherche lequel est le plus rempli"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>42</strong> : on passe de 5 à 35 en multipliant par 7, donc 6 × 7 = 42 et 5/6 = 35/42.</p>",
+     "q2": "<p>Avec le dénominateur 18 : 15/18, 14/18, 11/18 et 12/18. La plus petite est <strong>11/18</strong>.</p>",
+     "q3": "<p>5/12 + 3/12 = 8/12, puis 8/12 − 2/12 = 6/12. La citerne est remplie aux <strong>6/12</strong>, soit 1/2.</p>",
+     "q4": "<p>Adultes et adolescents : 5/8 + 2/8 = 7/8, donc les enfants représentent 8/8 − 7/8 = <strong>1/8</strong>. Leur nombre : 120 ÷ 8 = <strong>15 enfants</strong>.</p>",
+     "q5": "<p>1/3 = 4/12 et 1/2 = 6/12 : avec le dénominateur 12, il n'y a que <strong>5/12</strong>. Avec 24 : 1/3 = 8/24 et 1/2 = 12/24, donc <strong>9/24, 10/24 et 11/24</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 4e</strong> (pour savoir quel bus est le plus rempli, on compare 5/6 et 7/9 avec le même dénominateur). Le piège était la 3e : trouver l'heure d'arrivée se fait en additionnant des durées, il n'y a aucune comparaison de fractions. Les autres choix sont des multiplications.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-09-27-lot-1",
@@ -2430,7 +2458,17 @@ window.EVALUATIONS = {
        "Un client calcule le prix d'un article soldé de 20 % en le multipliant par 0,8"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p>(x − 4)(x + 4) = x² − 16 : <strong>c = −16</strong>.</p>",
+     "q2": "<p>3(x − 2) − (x − 5) = 3x − 6 − x + 5 = <strong>2x − 1</strong>.</p>",
+     "q3": "<p>(2x − 3)(x + 4) = 2x² + 5x − 12 et (x − 1)² = x² − 2x + 1. Donc l'expression vaut 2x² + 5x − 12 − x² + 2x − 1 = <strong>x² + 7x − 13</strong>.</p>",
+     "q4": "<p>Avec a² − b² = (a + b)(a − b) : F = (4x + 1)(2x − 3). F = 0 équivaut à 4x + 1 = 0 ou 2x − 3 = 0, donc <strong>S = {−1/4 ; 3/2}</strong>.</p>",
+     "q5": "<p>(x + 3)(x − 5) + 16 = x² − 2x − 15 + 16 = x² − 2x + 1 = (x − 1)². Un carré est positif ou nul : la plus petite valeur est <strong>0</strong>, atteinte pour <strong>x = 1</strong>.</p>",
+     "q6": "<p>(n − 1)(n + 1) + 1 = n² − 1 + 1 = n². Avec n = 2 000 : 1 999 × 2 001 + 1 = 2 000² = 4 000 000, c'est <strong>le carré de 2 000</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 2e</strong> (99 × 101 = (100 − 1)(100 + 1) = 100² − 1² = 9 999 €). Le piège était la 3e : 102² = (100 + 2)² utilise l'identité (a + b)² de la même évaluation, pas (a + b)(a − b). Les deux autres choix sont une soustraction et un pourcentage.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-09-27-intervalles",
@@ -3358,6 +3396,181 @@ window.EVAL_NOTES = {
      }
     }
    },
+   "2026-10-04-lot-2": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 8,
+      "commentaire": "Bonne copie (16,5/20 avec le bonus) : les comparaisons simples sont réussies et la pizza est bien traitée. Pour les problèmes avec des pages lues, vérifie chaque calcul et justifie l'ordre trouvé.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q4": {
+        "points": 1.5,
+        "remarque": "Ordre et dénominateur commun justes, mais rédaction incomplète : écris 5/8 = 10/16 et 1/2 = 8/16, utilise le signe < et termine par une phrase de conclusion.",
+        "incompletes": [
+         "3/16 - 8/16 - 10/16"
+        ]
+       },
+       "q5": {
+        "points": 1,
+        "remarque": "L'ordre Léa, Hugo, Inès est juste mais non justifié (écris les fractions avec le dénominateur 20 : 12/20, 13/20, 14/20). Hugo a lu 13/20 × 240 = 156 pages et non 144, donc Inès en a lu 12 de plus, pas 24.",
+        "erreurs": [
+         "168 - 144 = 24"
+        ],
+        "incompletes": [
+         "Léa - Hugo - Inès"
+        ]
+       },
+       "q6": {
+        "points": 1.5,
+        "remarque": "Sara et la fraction 3/12 restante sont justes, mais la rédaction manque de précision : écris 12/12 − 9/12 = 3/12 (soit 1/4) et conclus par une phrase.",
+        "incompletes": [
+         "12 - 9 = 3"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonne réponse : la 2e (on compare deux fractions de la même capacité). Le piège était la 4e : additionner 1/6 et 1/3 utilise aussi un dénominateur commun, mais pour calculer une somme, pas pour comparer."
+      },
+      "reponduLe": "2026-10-19T12:03:28.987Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 25,
+      "reponses": {
+       "q1": "42",
+       "q2": "7/12",
+       "q3": "9/12      10/12     10",
+       "q4": "3/16 - 1/2 - 5/8\n3/16 - 8/16 - 10/16",
+       "q5": "Léa - Hugo - Inès\n\n168 - 144 = 24",
+       "q6": "Sara a mangé la plus grosse part\nIl reste 3/12 de pizza car 2/12 (1/6) + 4/12 (1/3) + 3/12 (1/4) = 9/12    12 - 9 = 3",
+       "bonus": "Deux batteries de même capacité sont chargées, l'une aux 3/4 et l'autre aux 5/6 : on veut savoir laquelle est la plus chargée"
+      }
+     }
+    }
+   },
+   "2026-10-04-lot-3": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 6.5,
+      "commentaire": "Copie correcte (13,5/20 avec le bonus) : la simplification est maîtrisée. Reste vigilant sur le dénominateur d'une fraction restante et compare toujours avec la bonne fraction quand tu testes une affirmation.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 2,
+        "remarque": "Juste : 84/126 = 2/3, et 2 + 3 = 5."
+       },
+       "q3": {
+        "points": 1.5,
+        "remarque": "Les deux simplifications et la conclusion sont justes. Précise par quel nombre tu divises (÷ 5 puis ÷ 3) et accorde : « elles sont égales »."
+       },
+       "q4": {
+        "points": 1,
+        "remarque": "Méthode juste (3/8 + 2/8 = 5/8), mais 8/8 − 5/8 = 3/8 et non 3/5 : le dénominateur ne change pas. La partie jaune mesure donc 3/8 × 200 = 75 cm, pas 40 cm.",
+        "erreurs": [
+         "8/8 - 5/8 = 3/5",
+         "Il y a 3/5 de jaune sur le ruban",
+         "3/5 = 40 cm de 200"
+        ]
+       },
+       "q5": {
+        "points": 1,
+        "remarque": "Le test donne bien 3/4, mais il faut le comparer à 2/3 (et non à 1) : 3/4 ≠ 2/3, donc l'affirmation est fausse. Une fraction égale à 2/3 de dénominateur 24 est 16/24, pas 8/24.",
+        "erreurs": [
+         "n'est pas un fraction égal à 1",
+         "8/24"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonne réponse : la 3e (on vérifie que deux rapports sont égaux). Le piège était la 1re : calculer une vitesse donne un seul quotient, il n'y a aucune égalité à vérifier."
+      },
+      "reponduLe": "2026-10-19T15:10:13.305Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 28,
+      "reponses": {
+       "q1": "7/12",
+       "q2": "2/3          5",
+       "q3": "15/35 = 3/7   9/21 = 3/7    Oui elles sont égaux.",
+       "q4": "1/4 = 2/8                                        2 m = 200 cm    3/5 = 40 cm de 200\n3/8 + 2/8 = 5/8                                  Donc 40 cm du ruban est peins en jaune\n8/8 - 5/8 = 3/5\nIl y a 3/5 de jaune sur le ruban",
+       "q5": "Son affirmation n'est pas bonne car 3 (2+1)/4 (3+1) n'est pas un fraction égal à 1\n\n8/24",
+       "bonus": "Deux ressorts s'allongent de 6 cm sous 4 N et de 9 cm sous 6 N : on regarde si 6/4 = 9/6 pour savoir s'ils ont la même raideur"
+      }
+     }
+    }
+   },
+   "2026-10-04-lot-4": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 7,
+      "commentaire": "Bonne copie (14,5/20 avec le bonus) : les calculs de fractions sont bien menés. Fais attention à l'ordre d'une soustraction et à l'expression « strictement comprises » : les bornes sont exclues.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 1.5,
+        "remarque": "Démarche et résultat justes (6/12), mais la soustraction est écrite à l'envers : 8/12 − 2/12 = 6/12.",
+        "erreurs": [
+         "2/12 - 8/12 = 6/12"
+        ]
+       },
+       "q4": {
+        "points": 2.5,
+        "remarque": "Fraction d'enfants juste (1/8). Écris le calcul 120 ÷ 8 = 15 et évite « 1/8 enfant » : dis plutôt que les enfants représentent 1/8 des 120 spectateurs.",
+        "incompletes": [
+         "Il y a du coup 15 enfants"
+        ]
+       },
+       "q5": {
+        "points": 1,
+        "remarque": "« Strictement » exclut les bornes : avec 1/3 = 4/12 et 1/2 = 6/12, seule 5/12 convient ; avec 24, ce sont 9/24, 10/24 et 11/24. Il y a aussi une faute de recopie (11/42 au lieu de 11/24) et aucune justification.",
+        "erreurs": [
+         "4/12 - 5/12",
+         "8/24 - 9/24",
+         "11/42"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonne réponse : la 4e (on compare deux fractions de la même capacité). Le piège était la 3e : chercher l'heure d'arrivée se fait par une addition de durées, il n'y a rien à comparer."
+      },
+      "reponduLe": "2026-10-19T14:17:28.859Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 26,
+      "reponses": {
+       "q1": "42",
+       "q2": "11/18",
+       "q3": "1/4 = 3/12 \n3/12 + 5/12 = 8/12                     la citerne est remplie de 6/12\n1/6 = 2/12\n2/12 - 8/12 = 6/12",
+       "q4": "1/4 = 2/8\n5/8 + 2/8 = 7/8\n8/8 - 7/8 =1/8\nIl y a 1/8 enfant sur 120. Il y a du coup 15 enfants",
+       "q5": "4/12 - 5/12 -  6/12\n\n8/24 - 9/24 - 10/24 - 11/42 - 12/24",
+       "bonus": "Deux bus de même capacité : le premier est rempli aux 5/6, le second aux 7/9 ; on cherche lequel est le plus rempli"
+      }
+     }
+    }
+   },
    "2026-10-18-lot-1": {
     "publieLe": "2026-10-22",
     "notes": {
@@ -3767,30 +3980,90 @@ window.EVAL_NOTES = {
       }
      }
     }
+   },
+   "2026-10-04-lot-4": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 7.5,
+      "commentaire": "Très bonne copie (15,5/20 avec le bonus) : factorisation et démonstrations bien menées. Relis soigneusement l'énoncé en le recopiant et surveille le signe de c ; termine chaque démonstration par une phrase de conclusion.",
+      "details": {
+       "q1": {
+        "points": 0,
+        "remarque": "Tu as trouvé x² − 16, donc x² + c avec c = −16 et non 16."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 1.5,
+        "remarque": "Méthode et calculs justes, mais tu as recopié (x − 4) au lieu de (x + 4) : le bon résultat est x² + 7x − 13.",
+        "erreurs": [
+         "(2x-3)(x-4)-(x-1)²"
+        ]
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste : identité remarquable citée, factorisation et résolution par produit nul bien rédigées."
+       },
+       "q5": {
+        "points": 1.5,
+        "remarque": "Démonstration juste, minimum 0 atteint en x = 1. Précise qu'un carré est positif ou nul (c'est ce qui permet d'affirmer que 0 est le minimum).",
+        "incompletes": [
+         "car un carré donne toujours un résultat positif"
+        ]
+       },
+       "q6": {
+        "points": 1.5,
+        "remarque": "Démonstration et calcul justes (4 000 000), mais il manque la phrase de conclusion : 1 999 × 2 001 + 1 est le carré de l'entier 2 000.",
+        "incompletes": [
+         "2000²-1+1=2000²=4000000"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonne réponse : la 2e (99 × 101 = (100 − 1)(100 + 1) = 100² − 1²). Le piège était la 3e : 102² = (100 + 2)² utilise l'identité (a + b)² et non (a + b)(a − b)."
+      },
+      "reponduLe": "2026-10-20T07:55:10.192Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 33,
+      "reponses": {
+       "q1": "(x-4)(x+4)=x²-16. La valeur de c est 16.",
+       "q2": "2x − 1",
+       "q3": "Formule: (a-b)²=a²-2ab+b²\n(2x-3)(x-4)-(x-1)²\n2x²-11x+12-(x²-2x+1)\n2x²-11x+12-x²+2x-1\nx²-9x+11",
+       "q4": "Formules: a²-b²= (a+b)(a-b)\nF=(3x-1)²-(x+2)²\nF=(3x-1+x+2)(3x-1-x-2)\nF=(4x+1)(2x-3)\nSoit F=0:\n(4x+1)(2x-3)=0\nSi AB=0 alors A=0 ou B=0:\n4x+1=0 OU 2x-3=0\n4x=-1           2x=3\n4x/4=-1/4   2x/2=3/2\nx=-1/4         x=3/2\nS={3/2;-1/4}",
+       "q5": "D'une part:\n(x+3)(x-5)+16 = x²-2x-15+16 = x²-2x+1\nD'autre part:\n(x-1)²=x²-2x+1 (Identité remarquable)\nOn remarque que les deux membres sont égaux, donc l'expression est vraie quelque soit la valeur de x.\nLa plus petite valeur que peut prendre (x+3)(x-5)+16 est 0, car un carré donne toujours un résultat positif. Et pour atteindre cela, il faut que x soit égal à 1, puisque (1-1)²=0²=0",
+       "q6": "D'une part:\n(n-1)(n+1)+1= n²-1²+1=n²-1+1=n² (Identité remarquable)\nD'autre part:\nn²=n²\nOn remarque que les deux membres sont égaux, donc pour tout entier n, l'équation est vraie.\n1999*2001+1= (2000-1)(2000+1)+1= 2000²-1+1=2000²=4000000",
+       "bonus": "Un grossiste calcule mentalement 99 × 101 € en écrivant 100² − 1² = 9 999 €"
+      }
+     }
+    }
    }
   }
  }
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-22T03:54:15.637Z",
+  "genereLe": "2026-10-22T03:59:44.702Z",
   "annees": {
     "2026-2027": {
       "5e": {
         "total": 19,
         "ouvertes": 9,
-        "enAttente": 3,
-        "fermees": 7,
-        "copiesCorrigees": 6,
-        "moyenneSur20": 16.4
+        "enAttente": 0,
+        "fermees": 10,
+        "copiesCorrigees": 9,
+        "moyenneSur20": 15.9
       },
       "seconde": {
         "total": 21,
         "ouvertes": 12,
-        "enAttente": 3,
-        "fermees": 6,
-        "copiesCorrigees": 6,
-        "moyenneSur20": 18.3
+        "enAttente": 2,
+        "fermees": 7,
+        "copiesCorrigees": 7,
+        "moyenneSur20": 17.9
       }
     }
   }

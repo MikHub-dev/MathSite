@@ -1,0 +1,57 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 7,
+      "commentaire": "Bonne copie (14,5/20 avec le bonus) : les calculs de fractions sont bien menés. Fais attention à l'ordre d'une soustraction et à l'expression « strictement comprises » : les bornes sont exclues.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 1.5,
+          "remarque": "Démarche et résultat justes (6/12), mais la soustraction est écrite à l'envers : 8/12 − 2/12 = 6/12.",
+          "erreurs": [
+            "2/12 - 8/12 = 6/12"
+          ]
+        },
+        "q4": {
+          "points": 2.5,
+          "remarque": "Fraction d'enfants juste (1/8). Écris le calcul 120 ÷ 8 = 15 et évite « 1/8 enfant » : dis plutôt que les enfants représentent 1/8 des 120 spectateurs.",
+          "incompletes": [
+            "Il y a du coup 15 enfants"
+          ]
+        },
+        "q5": {
+          "points": 1,
+          "remarque": "« Strictement » exclut les bornes : avec 1/3 = 4/12 et 1/2 = 6/12, seule 5/12 convient ; avec 24, ce sont 9/24, 10/24 et 11/24. Il y a aussi une faute de recopie (11/42 au lieu de 11/24) et aucune justification.",
+          "erreurs": [
+            "4/12 - 5/12",
+            "8/24 - 9/24",
+            "11/42"
+          ]
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonne réponse : la 4e (on compare deux fractions de la même capacité). Le piège était la 3e : chercher l'heure d'arrivée se fait par une addition de durées, il n'y a rien à comparer."
+      },
+      "reponduLe": "2026-10-19T14:17:28.859Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 26,
+      "reponses": {
+        "q1": "42",
+        "q2": "11/18",
+        "q3": "1/4 = 3/12 \n3/12 + 5/12 = 8/12                     la citerne est remplie de 6/12\n1/6 = 2/12\n2/12 - 8/12 = 6/12",
+        "q4": "1/4 = 2/8\n5/8 + 2/8 = 7/8\n8/8 - 7/8 =1/8\nIl y a 1/8 enfant sur 120. Il y a du coup 15 enfants",
+        "q5": "4/12 - 5/12 -  6/12\n\n8/24 - 9/24 - 10/24 - 11/42 - 12/24",
+        "bonus": "Deux bus de même capacité : le premier est rempli aux 5/6, le second aux 7/9 ; on cherche lequel est le plus rempli"
+      }
+    }
+  }
+}

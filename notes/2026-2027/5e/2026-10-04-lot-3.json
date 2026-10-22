@@ -1,0 +1,55 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 6.5,
+      "commentaire": "Copie correcte (13,5/20 avec le bonus) : la simplification est maîtrisée. Reste vigilant sur le dénominateur d'une fraction restante et compare toujours avec la bonne fraction quand tu testes une affirmation.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 2,
+          "remarque": "Juste : 84/126 = 2/3, et 2 + 3 = 5."
+        },
+        "q3": {
+          "points": 1.5,
+          "remarque": "Les deux simplifications et la conclusion sont justes. Précise par quel nombre tu divises (÷ 5 puis ÷ 3) et accorde : « elles sont égales »."
+        },
+        "q4": {
+          "points": 1,
+          "remarque": "Méthode juste (3/8 + 2/8 = 5/8), mais 8/8 − 5/8 = 3/8 et non 3/5 : le dénominateur ne change pas. La partie jaune mesure donc 3/8 × 200 = 75 cm, pas 40 cm.",
+          "erreurs": [
+            "8/8 - 5/8 = 3/5",
+            "Il y a 3/5 de jaune sur le ruban",
+            "3/5 = 40 cm de 200"
+          ]
+        },
+        "q5": {
+          "points": 1,
+          "remarque": "Le test donne bien 3/4, mais il faut le comparer à 2/3 (et non à 1) : 3/4 ≠ 2/3, donc l'affirmation est fausse. Une fraction égale à 2/3 de dénominateur 24 est 16/24, pas 8/24.",
+          "erreurs": [
+            "n'est pas un fraction égal à 1",
+            "8/24"
+          ]
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonne réponse : la 3e (on vérifie que deux rapports sont égaux). Le piège était la 1re : calculer une vitesse donne un seul quotient, il n'y a aucune égalité à vérifier."
+      },
+      "reponduLe": "2026-10-19T15:10:13.305Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 28,
+      "reponses": {
+        "q1": "7/12",
+        "q2": "2/3          5",
+        "q3": "15/35 = 3/7   9/21 = 3/7    Oui elles sont égaux.",
+        "q4": "1/4 = 2/8                                        2 m = 200 cm    3/5 = 40 cm de 200\n3/8 + 2/8 = 5/8                                  Donc 40 cm du ruban est peins en jaune\n8/8 - 5/8 = 3/5\nIl y a 3/5 de jaune sur le ruban",
+        "q5": "Son affirmation n'est pas bonne car 3 (2+1)/4 (3+1) n'est pas un fraction égal à 1\n\n8/24",
+        "bonus": "Deux ressorts s'allongent de 6 cm sous 4 N et de 9 cm sous 6 N : on regarde si 6/4 = 9/6 pour savoir s'ils ont la même raideur"
+      }
+    }
+  }
+}

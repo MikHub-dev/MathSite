@@ -17,5 +17,14 @@
       "Deux ressorts s'allongent de 6 cm sous 4 N et de 9 cm sous 6 N : on regarde si 6/4 = 9/6 pour savoir s'ils ont la même raideur",
       "Deux forces de 4 N et de 6 N poussent un objet dans le même sens : on calcule la force totale"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>7/12</strong> : 6/15 = 2/5, 8/20 = 2/5 et 9/21 = 3/7 se simplifient, alors que 7 et 12 n'ont aucun diviseur commun autre que 1.</p>",
+    "q2": "<p>84/126 = 42/63 = <strong>2/3</strong> (on divise par 42). La somme est 2 + 3 = <strong>5</strong>.</p>",
+    "q3": "<p>15/35 = 3/7 (÷ 5) et 9/21 = 3/7 (÷ 3). Les deux fractions se simplifient en 3/7 : <strong>elles sont égales</strong>.</p>",
+    "q4": "<p>3/8 + 1/4 = 3/8 + 2/8 = 5/8, donc la partie jaune est 8/8 − 5/8 = <strong>3/8</strong> du ruban. Longueur : 3/8 × 200 cm = <strong>75 cm</strong>.</p>",
+    "q5": "<p>Pour 2/3 : (2 + 1)/(3 + 1) = 3/4, et 3/4 ≠ 2/3 (9 ≠ 8 avec les produits en croix). L'affirmation est <strong>fausse</strong> : un contre-exemple suffit. Enfin 2/3 = <strong>16/24</strong> (on multiplie par 8).</p>",
+    "bonus": "<p><strong>Bonne réponse : la 3e</strong> (on vérifie que 6/4 et 9/6 sont égaux, ce qui revient à vérifier une égalité de rapports, comme pour 15/35 et 9/21). Le piège était la 1re : calculer une vitesse moyenne donne un seul quotient, 150/2, sans égalité à vérifier. Les deux autres choix sont une conversion et une addition.</p>"
+  },
+  "cloturee": true
 }

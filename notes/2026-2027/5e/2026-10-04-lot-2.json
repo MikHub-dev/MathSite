@@ -1,0 +1,63 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 8,
+      "commentaire": "Bonne copie (16,5/20 avec le bonus) : les comparaisons simples sont réussies et la pizza est bien traitée. Pour les problèmes avec des pages lues, vérifie chaque calcul et justifie l'ordre trouvé.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q4": {
+          "points": 1.5,
+          "remarque": "Ordre et dénominateur commun justes, mais rédaction incomplète : écris 5/8 = 10/16 et 1/2 = 8/16, utilise le signe < et termine par une phrase de conclusion.",
+          "incompletes": [
+            "3/16 - 8/16 - 10/16"
+          ]
+        },
+        "q5": {
+          "points": 1,
+          "remarque": "L'ordre Léa, Hugo, Inès est juste mais non justifié (écris les fractions avec le dénominateur 20 : 12/20, 13/20, 14/20). Hugo a lu 13/20 × 240 = 156 pages et non 144, donc Inès en a lu 12 de plus, pas 24.",
+          "erreurs": [
+            "168 - 144 = 24"
+          ],
+          "incompletes": [
+            "Léa - Hugo - Inès"
+          ]
+        },
+        "q6": {
+          "points": 1.5,
+          "remarque": "Sara et la fraction 3/12 restante sont justes, mais la rédaction manque de précision : écris 12/12 − 9/12 = 3/12 (soit 1/4) et conclus par une phrase.",
+          "incompletes": [
+            "12 - 9 = 3"
+          ]
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonne réponse : la 2e (on compare deux fractions de la même capacité). Le piège était la 4e : additionner 1/6 et 1/3 utilise aussi un dénominateur commun, mais pour calculer une somme, pas pour comparer."
+      },
+      "reponduLe": "2026-10-19T12:03:28.987Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 25,
+      "reponses": {
+        "q1": "42",
+        "q2": "7/12",
+        "q3": "9/12      10/12     10",
+        "q4": "3/16 - 1/2 - 5/8\n3/16 - 8/16 - 10/16",
+        "q5": "Léa - Hugo - Inès\n\n168 - 144 = 24",
+        "q6": "Sara a mangé la plus grosse part\nIl reste 3/12 de pizza car 2/12 (1/6) + 4/12 (1/3) + 3/12 (1/4) = 9/12    12 - 9 = 3",
+        "bonus": "Deux batteries de même capacité sont chargées, l'une aux 3/4 et l'autre aux 5/6 : on veut savoir laquelle est la plus chargée"
+      }
+    }
+  }
+}
