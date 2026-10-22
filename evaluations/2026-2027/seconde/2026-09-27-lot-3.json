@@ -64,5 +64,14 @@
         "On cherche combien de Go on peut consommer pour que la facture reste inférieure à 30 €"
       ]
     }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p>3x + 5 = 20 donne 3x = 15, donc <strong>x = 5</strong>.</p>",
+    "q2": "<p>7 − 2x = 1 donne −2x = −6, donc <strong>x = 3</strong>.</p>",
+    "q3": "<p>2x − 4 &gt; 6 donne 2x &gt; 10, donc <strong>x &gt; 5</strong>.</p>",
+    "q4": "<p>−3x + 2 ≤ 11 donne −3x ≤ 9. On divise par −3, nombre négatif : le sens de l'inégalité change, donc <strong>x ≥ −3</strong>, soit S = [−3 ; +∞[.</p>",
+    "q5": "<p>Le périmètre est 2(x + x + 4) = 4x + 8. On veut 4x + 8 &gt; 30, soit 4x &gt; 22, donc <strong>x &gt; 5,5</strong> (5,5 exclu).</p>",
+    "bonus": "<p><strong>Bonne réponse : la 4e</strong> (« rester inférieure à 30 € » s'écrit 10 + 2x &lt; 30, une inégalité). Le piège était la 1re : « exactement 30 € » donne l'équation 10 + 2x = 30, pas une inéquation ; la 2e est un simple calcul et la 3e relève d'une aire (π × 3²).</p>"
+  },
+  "cloturee": true
 }

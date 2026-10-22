@@ -73,5 +73,15 @@
         "Un manège est interdit aux enfants de moins de 1,20 m : l'ensemble des tailles refusées"
       ]
     }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p>« x &lt; −1 » donne ]−∞ ; −1[ (−1 exclu) et « x ≥ 4 » donne [4 ; +∞[ (4 inclus) ; le mot « ou » correspond à la réunion. <strong>Réponse : ]−∞ ; −1[ ∪ [4 ; +∞[</strong>.</p>",
+    "q2": "<p>−3 ≤ x est large (−3 inclus) et x &lt; 2 est stricte (2 exclu). <strong>Réponse : [−3 ; 2[</strong>.</p>",
+    "q3": "<p>L'ensemble ]−∞ ; −2] ∪ ]5 ; +∞[ contient tous les réels sauf ceux compris entre −2 (exclu) et 5 (inclus). Les bornes changent de nature : −2 est dans l'ensemble donc pas dans son complémentaire, 5 n'y est pas donc il est dans le complémentaire. <strong>Réponse : ]−2 ; 5]</strong>.</p>",
+    "q4": "<p>([−6 ; 1] ∪ [3 ; 9]) ∩ [0 ; 5] = [0 ; 1] ∪ [3 ; 5]. Les entiers sont 0, 1, 3, 4 et 5. <strong>Réponse : 5</strong>.</p>",
+    "q5": "<p>La mesure est limite si |x − 15| &gt; 20, soit x − 15 &lt; −20 ou x − 15 &gt; 20, donc x &lt; −5 ou x &gt; 35, c'est-à-dire x ∈ ]−∞ ; −5[ ∪ ]35 ; +∞[. On intersecte avec [−10 ; 40] : <strong>x ∈ [−10 ; −5[ ∪ ]35 ; 40]</strong>.</p>",
+    "q6": "<p>(x − 2)(x + 4) s'annule en 2 et −4, et un produit est négatif ou nul lorsque les facteurs sont de signes contraires (ou nuls) : <strong>S = [−4 ; 2]</strong>. Comme −5 &lt; −4 et 2 &lt; 3, avec −4 et 2 appartenant à ]−5 ; 3], <strong>[−4 ; 2] est bien inclus dans ]−5 ; 3]</strong>.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 2e</strong> (la serre se déclenche pour x &lt; 5 ou x &gt; 35, soit ]−∞ ; 5[ ∪ ]35 ; +∞[, deux intervalles disjoints). Le piège était la 3e ou la 4e : « plus de 50 km/h » ou « moins de 1,20 m » donnent un seul intervalle, comme à la question 2 ; la 1re, entre 2 °C et 8 °C, donne aussi un seul intervalle [2 ; 8].</p>"
+  },
+  "cloturee": true
 }

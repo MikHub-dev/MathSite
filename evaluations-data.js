@@ -2636,7 +2636,17 @@ window.EVALUATIONS = {
        "Un manège est interdit aux enfants de moins de 1,20 m : l'ensemble des tailles refusées"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p>« x &lt; −1 » donne ]−∞ ; −1[ (−1 exclu) et « x ≥ 4 » donne [4 ; +∞[ (4 inclus) ; le mot « ou » correspond à la réunion. <strong>Réponse : ]−∞ ; −1[ ∪ [4 ; +∞[</strong>.</p>",
+     "q2": "<p>−3 ≤ x est large (−3 inclus) et x &lt; 2 est stricte (2 exclu). <strong>Réponse : [−3 ; 2[</strong>.</p>",
+     "q3": "<p>L'ensemble ]−∞ ; −2] ∪ ]5 ; +∞[ contient tous les réels sauf ceux compris entre −2 (exclu) et 5 (inclus). Les bornes changent de nature : −2 est dans l'ensemble donc pas dans son complémentaire, 5 n'y est pas donc il est dans le complémentaire. <strong>Réponse : ]−2 ; 5]</strong>.</p>",
+     "q4": "<p>([−6 ; 1] ∪ [3 ; 9]) ∩ [0 ; 5] = [0 ; 1] ∪ [3 ; 5]. Les entiers sont 0, 1, 3, 4 et 5. <strong>Réponse : 5</strong>.</p>",
+     "q5": "<p>La mesure est limite si |x − 15| &gt; 20, soit x − 15 &lt; −20 ou x − 15 &gt; 20, donc x &lt; −5 ou x &gt; 35, c'est-à-dire x ∈ ]−∞ ; −5[ ∪ ]35 ; +∞[. On intersecte avec [−10 ; 40] : <strong>x ∈ [−10 ; −5[ ∪ ]35 ; 40]</strong>.</p>",
+     "q6": "<p>(x − 2)(x + 4) s'annule en 2 et −4, et un produit est négatif ou nul lorsque les facteurs sont de signes contraires (ou nuls) : <strong>S = [−4 ; 2]</strong>. Comme −5 &lt; −4 et 2 &lt; 3, avec −4 et 2 appartenant à ]−5 ; 3], <strong>[−4 ; 2] est bien inclus dans ]−5 ; 3]</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 2e</strong> (la serre se déclenche pour x &lt; 5 ou x &gt; 35, soit ]−∞ ; 5[ ∪ ]35 ; +∞[, deux intervalles disjoints). Le piège était la 3e ou la 4e : « plus de 50 km/h » ou « moins de 1,20 m » donnent un seul intervalle, comme à la question 2 ; la 1re, entre 2 °C et 8 °C, donne aussi un seul intervalle [2 ; 8].</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-09-27-lot-1",
@@ -2852,7 +2862,16 @@ window.EVALUATIONS = {
        "On cherche combien de Go on peut consommer pour que la facture reste inférieure à 30 €"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p>3x + 5 = 20 donne 3x = 15, donc <strong>x = 5</strong>.</p>",
+     "q2": "<p>7 − 2x = 1 donne −2x = −6, donc <strong>x = 3</strong>.</p>",
+     "q3": "<p>2x − 4 &gt; 6 donne 2x &gt; 10, donc <strong>x &gt; 5</strong>.</p>",
+     "q4": "<p>−3x + 2 ≤ 11 donne −3x ≤ 9. On divise par −3, nombre négatif : le sens de l'inégalité change, donc <strong>x ≥ −3</strong>, soit S = [−3 ; +∞[.</p>",
+     "q5": "<p>Le périmètre est 2(x + x + 4) = 4x + 8. On veut 4x + 8 &gt; 30, soit 4x &gt; 22, donc <strong>x &gt; 5,5</strong> (5,5 exclu).</p>",
+     "bonus": "<p><strong>Bonne réponse : la 4e</strong> (« rester inférieure à 30 € » s'écrit 10 + 2x &lt; 30, une inégalité). Le piège était la 1re : « exactement 30 € » donne l'équation 10 + 2x = 30, pas une inéquation ; la 2e est un simple calcul et la 3e relève d'une aire (π × 3²).</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-09-27-lot-4",
@@ -3771,6 +3790,66 @@ window.EVAL_NOTES = {
      }
     }
    },
+   "2026-09-27-intervalles-complexes": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 7.5,
+      "commentaire": "Bonne maîtrise des intervalles simples, de la valeur absolue et du signe d'un produit : 15,5/20 avec le bonus. Retravaille le complémentaire (q3) et soigne la rédaction des justifications finales.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste et bien justifié."
+       },
+       "q3": {
+        "points": 0.5,
+        "remarque": "Le complémentaire demandé est un intervalle unique, mais tu as écrit ℝ − ]-2;5], qui désigne en fait l'ensemble de départ ; la justification sur les crochets est confuse (5 et non −5). Rédaction et propriété à reprendre.",
+        "erreurs": [
+         "Le complémentaire dans R de cet ensemble est: IR - ]-2;5]"
+        ]
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste : 5 entiers."
+       },
+       "q5": {
+        "points": 1.5,
+        "remarque": "Méthode juste et conclusion correcte, mais une écriture intermédiaire fausse ([-10;5[ au lieu de [-10;-5[) : soigne la rédaction.",
+        "erreurs": [
+         "Cela donne [-10;5[U]35;40]"
+        ]
+       },
+       "q6": {
+        "points": 1.5,
+        "remarque": "Étude de signe et solution justes ; la vérification de l'inclusion contient une justification fausse (« x<-5 ») : rédaction et raisonnement à soigner.",
+        "erreurs": [
+         "-5<-4 donc x<-5"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : l'alarme se déclenche pour x < 5 ou x > 35, deux intervalles disjoints ; les autres situations ne donnent qu'un seul intervalle."
+      },
+      "reponduLe": "2026-10-20T08:44:43.842Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 34,
+      "reponses": {
+       "q1": "]−∞ ; −1[ ∪ [4 ; +∞[",
+       "q2": "x appartient à[-3;2[.\n-3 est inclus dans les valeurs de x, donc on utilise un crochet fermé, alors que le deux n'est pas inclus dans les valeurs de x, donc on utilise un crochet ouvert.",
+       "q3": "Le complémentaire dans R de cet ensemble est: IR - ]-2;5]\nOn inverse le sens des crochets puisque si -2 est inclus dans l'union, il faut donc l'exclure de la soustraction. Et -5 est exclu dans l'union, donc on doit l'inclure dans la soustraction.",
+       "q4": "L'ensemble E contient 5 nombres entiers: {0;1;3;4;5}. L'intervalle [0;5] est plus petite que l'union, et l'intersection devient cette meme intervalle; mais, comme l'union rejette l'intervalle ]1;3[, 2, l'intersection devient donc [0;1]U[3;5].",
+       "q5": "On résoud d'abord l'inéquation: (Formule: d(x;y)=|x-y|=|y-x|)\nd(x;15)>20\n|x-15|>20\n15+20=35 et 15-20=-5\nx doit etre inférieur à -5 ou supérieur à 35.\nx appartient à ]-infini;-5[U]35;+infini[ Les crochets sont ouverts puisque x doit être strictement supérieur à 20.\nPour trouver les mesures de x valides et limites, il faut faire une intersection:\n[-10;40]Inter( ]-infini;-5[U]35;+infini[ ).\nCela donne [-10;5[U]35;40]\nLes mesures de x sont à la fois valides et limites:\nSi -10<=x<-5 OU si 35<x<=40",
+       "q6": "Tout d'abord, on cherche les valeurs d'annulations:\nx-2=0      x+4=0\nx=2         x=-4\nLe produit de deux facteurs est négatif ou nul si les facteurs ont des signes contraires:\nx-2>=0 et x+4<=0                Ou                           x-2<=0 et x+4>=0\nx>=2 et x<=-4, mais ce n' est pas possible.  x<=2 et x>=-4, ce qui donne l'intervalle [-4;2].\nLa solution est donc l'intervalle [-4;2].\nEnsuite, on vérifie si la solution est inclus dans l'intervalle ]-5;3]:\n-5<-4 donc x<-5 et 2<3 donc x<3.\nDonc l'intervalle [-4;2] est inclus dans ]-5;3].",
+       "bonus": "Une serre connectée déclenche une alarme lorsque la température descend sous 5 °C ou dépasse 35 °C : l'ensemble des températures qui déclenchent l'alarme"
+      }
+     }
+    }
+   },
    "2026-09-27-intervalles": {
     "publieLe": "2026-10-04",
     "notes": {
@@ -3818,6 +3897,52 @@ window.EVAL_NOTES = {
        "q5": "On commence par trouver les diametres acceptés:\n24+0,3=24,3mm et 24-0,3=23,7mm.\nL'inégalité est inférieur ou égale, donc on inclus les valeurs trouvées ( avec des crochets fermés ):\ndonc on obtient: [23,7 ; 24,3]",
        "q6": "Tout d'abord on résout l'équation:\n(x+1)(x-3)=0 Si un produit de facteurs est nul, alors l'un au moins des facteurs est nul:\nSoit x+1=0 ou x-3=0:\nx+1=0              x-3=0\nx=-1                 x=3\nS={3;-1}\nDonc pour (x+1)>0, tout chiffre plus grand que -1 fonctionne: ]-infini;-1[\nEt pour (x-3)>0, tout chiffre plus grand que 3 fonctionne: ]3 ; + infini[\nCela parait inversé parce que si on ajoute le deuxieme facteur celui ci devient plus grand que l'autre, et donne donc une valeur positive.\nL'union est donc: ]-infini ; -1[U]3 ; + infini[.\n2 n'appartient pas a cet intervalle, puisque l'union n'inclut pas 2.\nOn peut aussi vérifier:\n(2+1)(2-3)=3 * -1 = -3, et -3<0 ce qui ne respecte pas l'inégalité.",
        "bonus": "Un thermomètre médical affiche 38,5 °C avec une précision de ± 0,1 °C : on cherche les températures réelles possibles"
+      }
+     }
+    }
+   },
+   "2026-09-27-lot-3": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 10,
+      "commentaire": "Excellent travail : toutes les réponses sont justes, bien rédigées et justifiées, bonus compris (20,5/20). Continue ainsi.",
+      "details": {
+       "q1": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste, et la règle du changement de sens est bien expliquée."
+       },
+       "q5": {
+        "points": 2,
+        "remarque": "Mise en équation claire, résolution juste et conclusion précise (5,5 exclu)."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : « rester inférieure à 30 € » conduit à 10 + 2x < 30, une inéquation ; « exactement 30 € » aurait donné une équation."
+      },
+      "reponduLe": "2026-10-20T07:33:34.420Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 32,
+      "reponses": {
+       "q1": "3x+5=20 ; 3x=15; 3x/3= 15/3 ; x=5 S={5}",
+       "q2": "7-2x=1 ; -2x= -6 ; -2x/-2=-6/-2 ; x=3 S={3}",
+       "q3": "x > 5",
+       "q4": "-3x+2<=11\n-3x+2-2<=11-2\n-3x<=9\n-3x/-3>=9/-3\nx>=-3\nLe sens de l'inégalité change puisque si on divise ou on multiplie par un nombre négatif dans une inéquation, le sens de l'inégalité change. Par exemple, si 5>3 et qu'on multiplie les deux cotés par -1, cela fait -5>-3, mais -3 est supérieur à -5: il faut donc changer le sens de l'inégalité.",
+       "q5": "Prectangle = 2(L+l)\nPrectangle = 2(x+x+4)\nPrectangle = 2(2x+4)\nPrectangle = 4x+8\nOn a l'inéquation suivante:\n4x+8>30\n4x>22\n4x/4>22/4\nx>5,5\nLes valeurs possible de x doivent etre strictement supérieures à 5,5 (exclu).",
+       "bonus": "On cherche combien de Go on peut consommer pour que la facture reste inférieure à 30 €"
       }
      }
     }
@@ -4046,7 +4171,7 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-22T03:59:44.702Z",
+  "genereLe": "2026-10-22T04:03:43.280Z",
   "annees": {
     "2026-2027": {
       "5e": {
@@ -4060,9 +4185,9 @@ window.EVAL_KPI = {
       "seconde": {
         "total": 21,
         "ouvertes": 12,
-        "enAttente": 2,
-        "fermees": 7,
-        "copiesCorrigees": 7,
+        "enAttente": 0,
+        "fermees": 9,
+        "copiesCorrigees": 9,
         "moyenneSur20": 17.9
       }
     }

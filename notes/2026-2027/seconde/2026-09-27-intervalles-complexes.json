@@ -1,0 +1,60 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 7.5,
+      "commentaire": "Bonne maîtrise des intervalles simples, de la valeur absolue et du signe d'un produit : 15,5/20 avec le bonus. Retravaille le complémentaire (q3) et soigne la rédaction des justifications finales.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste et bien justifié."
+        },
+        "q3": {
+          "points": 0.5,
+          "remarque": "Le complémentaire demandé est un intervalle unique, mais tu as écrit ℝ − ]-2;5], qui désigne en fait l'ensemble de départ ; la justification sur les crochets est confuse (5 et non −5). Rédaction et propriété à reprendre.",
+          "erreurs": [
+            "Le complémentaire dans R de cet ensemble est: IR - ]-2;5]"
+          ]
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste : 5 entiers."
+        },
+        "q5": {
+          "points": 1.5,
+          "remarque": "Méthode juste et conclusion correcte, mais une écriture intermédiaire fausse ([-10;5[ au lieu de [-10;-5[) : soigne la rédaction.",
+          "erreurs": [
+            "Cela donne [-10;5[U]35;40]"
+          ]
+        },
+        "q6": {
+          "points": 1.5,
+          "remarque": "Étude de signe et solution justes ; la vérification de l'inclusion contient une justification fausse (« x<-5 ») : rédaction et raisonnement à soigner.",
+          "erreurs": [
+            "-5<-4 donc x<-5"
+          ]
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonus gagné : l'alarme se déclenche pour x < 5 ou x > 35, deux intervalles disjoints ; les autres situations ne donnent qu'un seul intervalle."
+      },
+      "reponduLe": "2026-10-20T08:44:43.842Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 34,
+      "reponses": {
+        "q1": "]−∞ ; −1[ ∪ [4 ; +∞[",
+        "q2": "x appartient à[-3;2[.\n-3 est inclus dans les valeurs de x, donc on utilise un crochet fermé, alors que le deux n'est pas inclus dans les valeurs de x, donc on utilise un crochet ouvert.",
+        "q3": "Le complémentaire dans R de cet ensemble est: IR - ]-2;5]\nOn inverse le sens des crochets puisque si -2 est inclus dans l'union, il faut donc l'exclure de la soustraction. Et -5 est exclu dans l'union, donc on doit l'inclure dans la soustraction.",
+        "q4": "L'ensemble E contient 5 nombres entiers: {0;1;3;4;5}. L'intervalle [0;5] est plus petite que l'union, et l'intersection devient cette meme intervalle; mais, comme l'union rejette l'intervalle ]1;3[, 2, l'intersection devient donc [0;1]U[3;5].",
+        "q5": "On résoud d'abord l'inéquation: (Formule: d(x;y)=|x-y|=|y-x|)\nd(x;15)>20\n|x-15|>20\n15+20=35 et 15-20=-5\nx doit etre inférieur à -5 ou supérieur à 35.\nx appartient à ]-infini;-5[U]35;+infini[ Les crochets sont ouverts puisque x doit être strictement supérieur à 20.\nPour trouver les mesures de x valides et limites, il faut faire une intersection:\n[-10;40]Inter( ]-infini;-5[U]35;+infini[ ).\nCela donne [-10;5[U]35;40]\nLes mesures de x sont à la fois valides et limites:\nSi -10<=x<-5 OU si 35<x<=40",
+        "q6": "Tout d'abord, on cherche les valeurs d'annulations:\nx-2=0      x+4=0\nx=2         x=-4\nLe produit de deux facteurs est négatif ou nul si les facteurs ont des signes contraires:\nx-2>=0 et x+4<=0                Ou                           x-2<=0 et x+4>=0\nx>=2 et x<=-4, mais ce n' est pas possible.  x<=2 et x>=-4, ce qui donne l'intervalle [-4;2].\nLa solution est donc l'intervalle [-4;2].\nEnsuite, on vérifie si la solution est inclus dans l'intervalle ]-5;3]:\n-5<-4 donc x<-5 et 2<3 donc x<3.\nDonc l'intervalle [-4;2] est inclus dans ]-5;3].",
+        "bonus": "Une serre connectée déclenche une alarme lorsque la température descend sous 5 °C ou dépasse 35 °C : l'ensemble des températures qui déclenchent l'alarme"
+      }
+    }
+  }
+}

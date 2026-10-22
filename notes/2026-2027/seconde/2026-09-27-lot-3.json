@@ -1,0 +1,46 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 10,
+      "commentaire": "Excellent travail : toutes les réponses sont justes, bien rédigées et justifiées, bonus compris (20,5/20). Continue ainsi.",
+      "details": {
+        "q1": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste, et la règle du changement de sens est bien expliquée."
+        },
+        "q5": {
+          "points": 2,
+          "remarque": "Mise en équation claire, résolution juste et conclusion précise (5,5 exclu)."
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonus gagné : « rester inférieure à 30 € » conduit à 10 + 2x < 30, une inéquation ; « exactement 30 € » aurait donné une équation."
+      },
+      "reponduLe": "2026-10-20T07:33:34.420Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 32,
+      "reponses": {
+        "q1": "3x+5=20 ; 3x=15; 3x/3= 15/3 ; x=5 S={5}",
+        "q2": "7-2x=1 ; -2x= -6 ; -2x/-2=-6/-2 ; x=3 S={3}",
+        "q3": "x > 5",
+        "q4": "-3x+2<=11\n-3x+2-2<=11-2\n-3x<=9\n-3x/-3>=9/-3\nx>=-3\nLe sens de l'inégalité change puisque si on divise ou on multiplie par un nombre négatif dans une inéquation, le sens de l'inégalité change. Par exemple, si 5>3 et qu'on multiplie les deux cotés par -1, cela fait -5>-3, mais -3 est supérieur à -5: il faut donc changer le sens de l'inégalité.",
+        "q5": "Prectangle = 2(L+l)\nPrectangle = 2(x+x+4)\nPrectangle = 2(2x+4)\nPrectangle = 4x+8\nOn a l'inéquation suivante:\n4x+8>30\n4x>22\n4x/4>22/4\nx>5,5\nLes valeurs possible de x doivent etre strictement supérieures à 5,5 (exclu).",
+        "bonus": "On cherche combien de Go on peut consommer pour que la facture reste inférieure à 30 €"
+      }
+    }
+  }
+}
