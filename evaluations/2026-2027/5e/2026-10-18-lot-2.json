@@ -18,5 +18,15 @@
       "Une solution chauffe de 2 °C au départ, puis de 3 °C de plus chaque minute : on calcule sa température au bout de 5 minutes",
       "Une solution contient 5 g de sel par litre d'eau : on cherche la masse de sel nécessaire pour préparer 3 L de solution identique"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>15</strong> : 25 % de 60 = 60 × 25 ÷ 100 = 15 (c'est aussi le quart de 60).</p>",
+    "q2": "<p><strong>7</strong> : 35 ÷ 5 = 7 et 56 ÷ 8 = 7, le coefficient est bien le même.</p>",
+    "q3": "<p><strong>30 L</strong> : le débit est de 12 ÷ 4 = 3 L par minute, donc en 10 minutes 3 × 10 = 30 L.</p>",
+    "q4": "<p>On calcule les quotients taille ÷ âge : 1,10 ÷ 6 ≈ 0,183 et 1,40 ÷ 10 = 0,14. <strong>Les quotients sont différents, donc la taille n'est pas proportionnelle à l'âge.</strong></p>",
+    "q5": "<p>Augmentation : 250 × 12 ÷ 100 = <strong>30 €</strong>. Nouveau prix : 250 + 30 = <strong>280 €</strong>.</p>",
+    "q6": "<p>Demi-pensionnaires : 480 × 35 ÷ 100 = 168. Élèves qui ne le sont pas : 480 − 168 = <strong>312 élèves</strong>.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 4e</strong> (5 g de sel par litre : la masse de sel est proportionnelle au volume, 3 × 5 = 15 g). Le piège était la 3e : la température part de 2 °C et non de 0, elle évolue régulièrement mais n'est pas proportionnelle au temps.</p>"
+  },
+  "cloturee": true
 }

@@ -1,0 +1,57 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 8.5,
+      "commentaire": "Très bonne copie (17/20) : les problèmes de proportionnalité et de pourcentages sont bien menés et justifiés. Revois le calcul d'un pourcentage simple (25 % de 60) et rédige davantage la comparaison des quotients.",
+      "details": {
+        "q1": {
+          "points": 0,
+          "remarque": "25 % de 60 vaut 60 × 25 ÷ 100 = 15, ou le quart de 60, et non 18.",
+          "erreurs": [
+            "18"
+          ]
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q4": {
+          "points": 1.5,
+          "remarque": "Conclusion juste, mais rédaction incomplète : écris explicitement que les quotients 0,183… et 0,14 sont différents, donc que la situation n'est pas proportionnelle, et utilise ≈ pour la valeur arrondie.",
+          "incompletes": [
+            "1,10 : 6 = 0,183"
+          ]
+        },
+        "q5": {
+          "points": 2,
+          "remarque": "Juste : calcul de l'augmentation justifié, puis nouveau prix et phrase de conclusion."
+        },
+        "q6": {
+          "points": 2,
+          "remarque": "Juste : pourcentage calculé, soustraction pour obtenir les élèves non demi-pensionnaires, conclusion claire."
+        }
+      },
+      "bonus": {
+        "points": 0,
+        "remarque": "Bonne réponse : la 4e (5 g de sel par litre : la masse est proportionnelle au volume). Le piège était la 3e : une température qui augmente de 3 °C par minute en partant de 2 °C n'est pas proportionnelle au temps, puisque la valeur de départ n'est pas nulle."
+      },
+      "reponduLe": "2026-10-21T14:49:27.626Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 37,
+      "reponses": {
+        "q1": "18",
+        "q2": "7",
+        "q3": "30 L",
+        "q4": "1,10 : 6 = 0,183 \n1,40 : 10 = 0,14 \nLa taille de Léa n'est pas proportionnelle à son âge.",
+        "q5": "250 x 12 = 3000      3000 : 100 = 30\nLe téléphone augmente de 30 €\n250 + 30 = 280\nSon nouveau prix est à 280 €",
+        "q6": "480 x 35 = 16800     16800 : 100 = 168      480 - 168 = 312\n\n312 élèves ne sont pas demi-pensionnaires.",
+        "bonus": "Une solution chauffe de 2 °C au départ, puis de 3 °C de plus chaque minute : on calcule sa température au bout de 5 minutes"
+      }
+    }
+  }
+}

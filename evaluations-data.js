@@ -159,7 +159,17 @@ window.EVALUATIONS = {
        "Une solution contient 5 g de sel par litre d'eau : on cherche la masse de sel nécessaire pour préparer 3 L de solution identique"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>15</strong> : 25 % de 60 = 60 × 25 ÷ 100 = 15 (c'est aussi le quart de 60).</p>",
+     "q2": "<p><strong>7</strong> : 35 ÷ 5 = 7 et 56 ÷ 8 = 7, le coefficient est bien le même.</p>",
+     "q3": "<p><strong>30 L</strong> : le débit est de 12 ÷ 4 = 3 L par minute, donc en 10 minutes 3 × 10 = 30 L.</p>",
+     "q4": "<p>On calcule les quotients taille ÷ âge : 1,10 ÷ 6 ≈ 0,183 et 1,40 ÷ 10 = 0,14. <strong>Les quotients sont différents, donc la taille n'est pas proportionnelle à l'âge.</strong></p>",
+     "q5": "<p>Augmentation : 250 × 12 ÷ 100 = <strong>30 €</strong>. Nouveau prix : 250 + 30 = <strong>280 €</strong>.</p>",
+     "q6": "<p>Demi-pensionnaires : 480 × 35 ÷ 100 = 168. Élèves qui ne le sont pas : 480 − 168 = <strong>312 élèves</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 4e</strong> (5 g de sel par litre : la masse de sel est proportionnelle au volume, 3 × 5 = 15 g). Le piège était la 3e : la température part de 2 °C et non de 0, elle évolue régulièrement mais n'est pas proportionnelle au temps.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-18-lot-3",
@@ -3189,6 +3199,63 @@ window.EVAL_NOTES = {
       }
      }
     }
+   },
+   "2026-10-18-lot-2": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 8.5,
+      "commentaire": "Très bonne copie (17/20) : les problèmes de proportionnalité et de pourcentages sont bien menés et justifiés. Revois le calcul d'un pourcentage simple (25 % de 60) et rédige davantage la comparaison des quotients.",
+      "details": {
+       "q1": {
+        "points": 0,
+        "remarque": "25 % de 60 vaut 60 × 25 ÷ 100 = 15, ou le quart de 60, et non 18.",
+        "erreurs": [
+         "18"
+        ]
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q4": {
+        "points": 1.5,
+        "remarque": "Conclusion juste, mais rédaction incomplète : écris explicitement que les quotients 0,183… et 0,14 sont différents, donc que la situation n'est pas proportionnelle, et utilise ≈ pour la valeur arrondie.",
+        "incompletes": [
+         "1,10 : 6 = 0,183"
+        ]
+       },
+       "q5": {
+        "points": 2,
+        "remarque": "Juste : calcul de l'augmentation justifié, puis nouveau prix et phrase de conclusion."
+       },
+       "q6": {
+        "points": 2,
+        "remarque": "Juste : pourcentage calculé, soustraction pour obtenir les élèves non demi-pensionnaires, conclusion claire."
+       }
+      },
+      "bonus": {
+       "points": 0,
+       "remarque": "Bonne réponse : la 4e (5 g de sel par litre : la masse est proportionnelle au volume). Le piège était la 3e : une température qui augmente de 3 °C par minute en partant de 2 °C n'est pas proportionnelle au temps, puisque la valeur de départ n'est pas nulle."
+      },
+      "reponduLe": "2026-10-21T14:49:27.626Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 37,
+      "reponses": {
+       "q1": "18",
+       "q2": "7",
+       "q3": "30 L",
+       "q4": "1,10 : 6 = 0,183 \n1,40 : 10 = 0,14 \nLa taille de Léa n'est pas proportionnelle à son âge.",
+       "q5": "250 x 12 = 3000      3000 : 100 = 30\nLe téléphone augmente de 30 €\n250 + 30 = 280\nSon nouveau prix est à 280 €",
+       "q6": "480 x 35 = 16800     16800 : 100 = 168      480 - 168 = 312\n\n312 élèves ne sont pas demi-pensionnaires.",
+       "bonus": "Une solution chauffe de 2 °C au départ, puis de 3 °C de plus chaque minute : on calcule sa température au bout de 5 minutes"
+      }
+     }
+    }
    }
   },
   "seconde": {
@@ -3437,21 +3504,21 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-18T04:19:00.120Z",
+  "genereLe": "2026-10-22T03:49:39.503Z",
   "annees": {
     "2026-2027": {
       "5e": {
         "total": 19,
-        "ouvertes": 16,
-        "enAttente": 0,
-        "fermees": 3,
-        "copiesCorrigees": 2,
-        "moyenneSur20": 18
+        "ouvertes": 9,
+        "enAttente": 6,
+        "fermees": 4,
+        "copiesCorrigees": 3,
+        "moyenneSur20": 17.7
       },
       "seconde": {
         "total": 21,
-        "ouvertes": 16,
-        "enAttente": 0,
+        "ouvertes": 12,
+        "enAttente": 4,
         "fermees": 5,
         "copiesCorrigees": 5,
         "moyenneSur20": 18.4
