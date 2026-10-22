@@ -1,0 +1,57 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 8.5,
+      "commentaire": "Très bonne copie (17,5/20 bonus compris) : les identités remarquables sont bien reconnues et citées. Attention aux signes quand tu lis un coefficient, et conclus la démonstration de la question 6 par la différence des aires.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 0,
+          "remarque": "Ton développement 2x² − 7x − 4 est juste, mais le coefficient de x est −7, pas 7 : le signe fait partie du coefficient.",
+          "erreurs": [
+            "Le coefficient de x dans l'expression est 7."
+          ]
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Juste : identité a² − b² = (a + b)(a − b) bien reconnue et citée."
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste : identité a² + 2ab + b² = (a + b)² bien reconnue et citée."
+        },
+        "q5": {
+          "points": 2,
+          "remarque": "Juste : développement détaillé, signe moins bien distribué, puis calcul correct pour x = 1,5."
+        },
+        "q6": {
+          "points": 1.5,
+          "remarque": "Les aires x² et x² − 9 sont justes et l'identité est citée, mais la conclusion n'est pas démontrée : calcule la différence x² − (x² − 9) = 9, et écris l'unité cm² partout.",
+          "incompletes": [
+            "On remarque que les deux aires possèdent un x²"
+          ]
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonus gagné : 52 × 48 = (50 + 2)(50 − 2) = 50² − 2² utilise bien l'identité (a + b)(a − b) = a² − b²."
+      },
+      "reponduLe": "2026-10-20T07:20:30.376Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 31,
+      "reponses": {
+        "q1": "x² − 6x + 9",
+        "q2": "L'expression développée est 2x²-7x-4. Le coefficient de x dans l'expression est 7.",
+        "q3": "9x²-16\n(3x)²-4²\n(3x+4)(3x-4)\nOn obtient ce résultat grace à l'identité remarquable a²-b²=(a+b)(a-b).",
+        "q4": "4x²+12x+9\n(2x)²+2*2x*3+3²\n(2x+3)²\nOn obtient ce résultat avec l'utilisation de l'identité remarquable a²+2ab+b²= (a+b)²",
+        "q5": "A= (x+2)²-(x-1)(x+3)\nA= x²+4x+4-(x²+2x-3)\nA=x²+4x+4-x²-2x+3\nA=2x+7.\nPour x= 1,5:\nA=2*1,5+7\nA=3+7\nA=10",
+        "q6": "Formules: Acarré=c² ; Arectangle = L*l ; (a+b)(a-b)=a²-b²\nAcarré= x²cm²\nArectangle = (x+3)(x-3)\nArectangle = x²-9 cm²\nOn remarque que les deux aires possèdent un x², mais l'aire du rectangle est inférieur à 9cm² de l'aire du carré quelque soit la valeur de x (tant que x>3)",
+        "bonus": "Un architecte mesure une terrasse rectangulaire de 52 m sur 48 m : il calcule l'aire en écrivant 52 × 48 = 50² − 2² = 2 496 m²"
+      }
+    }
+  }
+}

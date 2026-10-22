@@ -80,7 +80,17 @@ window.EVALUATIONS = {
        "Un réservoir de 50 L contient déjà 12 L d'essence : on cherche combien de litres il faut ajouter pour le remplir"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>45</strong> : 18 ÷ 4 = 4,5 et 4,5 × 10 = 45.</p>",
+     "q2": "<p><strong>3 → 12 et 5 → 20</strong> : 12 ÷ 3 = 4 et 20 ÷ 5 = 4, le coefficient est le même. Pour les autres tableaux, les quotients sont différents.</p>",
+     "q3": "<p><strong>12,60 €</strong> : un stylo coûte 8,40 ÷ 6 = 1,40 €, donc 9 stylos coûtent 1,40 × 9 = 12,60 €.</p>",
+     "q4": "<p><strong>13</strong> : 20 % de 65 = 65 × 20 ÷ 100 = 13.</p>",
+     "q5": "<p>La recette est proportionnelle au nombre de personnes. Pour 1 personne : 300 ÷ 6 = 50 g, 3 ÷ 6 = 0,5 œuf, 60 ÷ 6 = 10 cl. Pour 10 personnes : <strong>500 g de farine, 5 œufs et 100 cl de lait</strong>.</p>",
+     "q6": "<p>La réduction est de 80 × 15 ÷ 100 = <strong>12 €</strong>. Le nouveau prix est 80 − 12 = <strong>68 €</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 2e</strong> (à vitesse constante, la distance est proportionnelle à la durée : 90 km en 30 minutes donnent 360 km en 2 heures). Le piège était la 1re : avec la prise en charge de 4 €, le prix n'est pas proportionnel au nombre de kilomètres ; on utilise un calcul en deux étapes, 4 + 2 × 10. Les deux autres choix relèvent de la moyenne et de la soustraction.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-18-lot-2",
@@ -700,7 +710,17 @@ window.EVALUATIONS = {
        "Convertir en millilitres une bouteille de 1,5 L d’eau"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>35</strong> : 42 ÷ 6 = 7 et 5 × 7 = 35, donc 5/6 = 35/42.</p>",
+     "q2": "<p><strong>3/5</strong> : 18 et 30 se divisent par 6, donc 18/30 = 3/5, et 3 et 5 n'ont plus de diviseur commun.</p>",
+     "q3": "<p>7/8 = 21/24 et 5/6 = 20/24. Comme 20/24 &lt; 21/24, on a <strong>5/6 &lt; 7/8</strong>.</p>",
+     "q4": "<p>3/4 + 7/20 = 15/20 + 7/20 = 22/20 = <strong>1,1</strong>.</p>",
+     "q5": "<p>3/8 + 1/4 = 3/8 + 2/8 = <strong>5/8</strong>.</p>",
+     "q6": "<p>a) 2/5 + 1/4 = 8/20 + 5/20 = 13/20, donc les salades occupent 1 − 13/20 = <strong>7/20</strong> du terrain.</p><p>b) 7/20 × 400 = <strong>140 m²</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 3e</strong> (1/4 + 1/3 = 3/12 + 4/12 = 7/12 : on ajoute deux parts d'un même tout, les besoins de la journée). Le piège était la 2e : pour comparer 7/8 et 5/6, on utilise aussi un dénominateur commun, comme à la question 3, mais on compare au lieu d'additionner. Les deux autres choix demandent de multiplier par une fraction ou de convertir.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-04-lot-1",
@@ -785,7 +805,17 @@ window.EVALUATIONS = {
        "Un satellite météo prend une photo toutes les 15 minutes : on cherche combien il en prend en 3 heures"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>14</strong> : 35 ÷ 5 = 7 et 2 × 7 = 14, donc 2/5 = 14/35.</p>",
+     "q2": "<p><strong>2/3</strong> : 12 et 18 se divisent par 6, donc 12/18 = 2/3.</p>",
+     "q3": "<p>42 et 56 se divisent par 14 : 42/56 = 3/4. Le dénominateur est <strong>4</strong>.</p>",
+     "q4": "<p>3/4 = 6/8 et 5/8 &lt; 6/8, donc <strong>5/8 &lt; 3/4</strong>.</p>",
+     "q5": "<p>28/42 = 2/3 = 10/15, donc la bonne réponse est <strong>10/15</strong>.</p>",
+     "q6": "<p>Rouges : 16/48 = <strong>1/3</strong> ; bleues : 12/48 = <strong>1/4</strong> ; vertes : 48 − 16 − 12 = 20 billes, 20/48 = <strong>5/12</strong>. Au dénominateur 12 : 1/4 = 3/12, 1/3 = 4/12, donc <strong>1/4 &lt; 1/3 &lt; 5/12</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 1re</strong> (6/30 = 1/5 : on divise numérateur et dénominateur par 6). Le piège était la 4e : « une photo toutes les 15 minutes » demande une division (180 ÷ 15), pas une simplification de fraction. Les deux autres choix demandent une soustraction et une addition.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-04-lot-2",
@@ -2133,7 +2163,17 @@ window.EVALUATIONS = {
        "Un architecte calcule le prix de 85 m² de parquet vendu 34 € le mètre carré"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>x² − 6x + 9</strong> : (x − 3)² = x² − 2 × x × 3 + 3² = x² − 6x + 9.</p>",
+     "q2": "<p>(2x + 1)(x − 4) = 2x² − 8x + x − 4 = 2x² − 7x − 4. Le coefficient de x est <strong>−7</strong>.</p>",
+     "q3": "<p>9x² − 16 = (3x)² − 4² = <strong>(3x + 4)(3x − 4)</strong>, avec l'identité a² − b² = (a + b)(a − b).</p>",
+     "q4": "<p>4x² + 12x + 9 = (2x)² + 2 × 2x × 3 + 3² = <strong>(2x + 3)²</strong>, avec l'identité a² + 2ab + b² = (a + b)².</p>",
+     "q5": "<p>A = x² + 4x + 4 − (x² + 2x − 3) = x² + 4x + 4 − x² − 2x + 3 = <strong>2x + 7</strong>. Pour x = 1,5 : A = 2 × 1,5 + 7 = <strong>10</strong>.</p>",
+     "q6": "<p>Aire du carré : x² cm². Le rectangle mesure (x + 3) cm sur (x − 3) cm, avec x &gt; 3, donc son aire est (x + 3)(x − 3) = x² − 9 cm². Ainsi x² − (x² − 9) = <strong>9 cm²</strong> : l'aire du rectangle est inférieure de 9 cm² à celle du carré, pour tout x &gt; 3.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 3e</strong> (52 × 48 = (50 + 2)(50 − 2) = 50² − 2² = 2 496). Le piège était la 1re : 22² = (20 + 2)² utilise l'identité (a + b)² de la question 5, pas (a + b)(a − b). Les deux autres choix ne demandent qu'une addition et une multiplication.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-04-lot-2",
@@ -3200,6 +3240,178 @@ window.EVAL_NOTES = {
      }
     }
    },
+   "2026-10-04-evaluation": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 8.5,
+      "commentaire": "Très bonne copie (17/20) : les calculs sur les fractions sont maîtrisés. Termine toujours tes comparaisons et tes problèmes par une phrase de conclusion, et écris le calcul qui mène à chaque résultat.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 1.5,
+        "remarque": "Dénominateur commun et comparaison justes, mais il manque la conclusion : 5/6 < 7/8.",
+        "incompletes": [
+         "20/24 < 21/24"
+        ]
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q5": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q6": {
+        "points": 2,
+        "remarque": "La question a) est bien justifiée, mais en b) le résultat 140 m² n'est pas justifié : écris 7/20 × 400 = 140 et non « 7/20 = 140 m² », puis conclus par une phrase.",
+        "incompletes": [
+         "b) 7/20 = 140 m2"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0,
+       "remarque": "Bonus non obtenu : la bonne réponse était la 3e, où l'on additionne deux parts d'un même tout (1/4 + 1/3). Comparer 7/8 et 5/6 utilise aussi le dénominateur commun, mais pour comparer, pas pour additionner."
+      },
+      "reponduLe": "2026-10-21T11:38:56.892Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 35,
+      "reponses": {
+       "q1": "35",
+       "q2": "3/5",
+       "q3": "7/8 = 21/24\n5/6 = 20/24\n20/24 < 21/24",
+       "q4": "1,1",
+       "q5": "5/8",
+       "q6": "a) 2/5 = 8/20 1/4 = 5/20   8/20 + 5/20 = 13/20  20/20 - 13/20 = 7/20\nb) 7/20 = 140 m2",
+       "bonus": "Savoir lequel de deux fruits contient la plus grande part d’eau : 7/8 de sa masse pour l’un, 5/6 pour l’autre"
+      }
+     }
+    }
+   },
+   "2026-10-04-lot-1": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 4.5,
+      "commentaire": "Copie de 9,5/20 bonus compris : les fractions égales simples sont acquises, mais la simplification de 42/56 et l'identification de 28/42 sont à retravailler. Cherche le plus grand diviseur commun, et rédige tes comparaisons avec une conclusion.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 0,
+        "remarque": "42/56 se simplifie par 14 : 42/56 = 3/4, le dénominateur est 4. Ta fraction 6/7 n'est pas égale à 42/56.",
+        "erreurs": [
+         "6/7"
+        ]
+       },
+       "q4": {
+        "points": 1,
+        "remarque": "La comparaison des numérateurs est juste, mais tu n'écris pas que 3/4 = 6/8 et il manque la conclusion : 5/8 < 3/4.",
+        "incompletes": [
+         "5/8 < 6/8"
+        ]
+       },
+       "q5": {
+        "points": 0,
+        "remarque": "28/42 se simplifie en 2/3, et 2/3 = 10/15 : la bonne réponse était 10/15."
+       },
+       "q6": {
+        "points": 1.5,
+        "remarque": "Les fractions 1/3, 1/4 et 5/12 sont justes, mais la simplification de 16/48 et de 12/48 n'est pas justifiée et la conclusion finale (1/4 < 1/3 < 5/12) n'est pas écrite avec les fractions de départ.",
+        "incompletes": [
+         "1/3 sont rouges 1/4 sont bleues",
+         "3/12 < 4/12 < 5/12"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : 6 jours sur 30 et 1 jour sur 5 sont des fractions égales, 6/30 = 1/5, obtenues en divisant par 6."
+      },
+      "reponduLe": "2026-10-19T14:42:29.813Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 27,
+      "reponses": {
+       "q1": "14",
+       "q2": "2/3",
+       "q3": "6/7   Le dénominateur est 7",
+       "q4": "5/8 < 6/8",
+       "q5": "10/21",
+       "q6": "1/3 sont rouges 1/4 sont bleues 5/12 sont vertes (16/48 + 12/48 = 28/48  48 - 28 = 20   20/48 = 5/12)\n1/3 = 4/12    1/4 = 3/12 \n3/12 < 4/12 < 5/12",
+       "bonus": "Un météorologue a relevé de la pluie 6 jours sur 30 et annonce « 1 jour sur 5 » : c'est la même proportion, écrite avec des nombres plus petits"
+      }
+     }
+    }
+   },
+   "2026-10-18-lot-1": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 9.5,
+      "commentaire": "Très bonne copie (19/20) : tous les calculs sont justes et la recette est bien menée. Pense à écrire les unités dans tes calculs et à rédiger des phrases correctes ; relis la question bonus, où il fallait reconnaître la situation de proportionnalité.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q5": {
+        "points": 2,
+        "remarque": "Juste : tu passes par la quantité pour 1 personne puis tu multiplies, et tu conclus par une phrase."
+       },
+       "q6": {
+        "points": 1.5,
+        "remarque": "Calculs et résultat justes, mais la rédaction perd 0,5 point : les unités manquent dans les calculs et la phrase « La réduction des baskets sont à 12 € » n'est pas accordée (« La réduction est de 12 € »).",
+        "incompletes": [
+         "La réduction des baskets sont à 12 €"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0,
+       "remarque": "Bonus non obtenu : la bonne réponse était la 2e (vitesse constante, la distance est proportionnelle à la durée). Le taxi a une prise en charge de 4 €, donc le prix n'est pas proportionnel aux kilomètres."
+      },
+      "reponduLe": "2026-10-21T14:13:06.295Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 36,
+      "reponses": {
+       "q1": "45",
+       "q2": "3 → 12 et 5 → 20",
+       "q3": "12,6",
+       "q4": "13",
+       "q5": "300 : 6 = 50 / 3 : 6 = 0,5  / 60 : 6 = 10 \n50 x 10 = 500  /  0,5 x 10 = 5  /  10 x 10 = 100 \n\nIl faut 500 g de farine, 5 œufs et 100 cl de lait",
+       "q6": "80 x 15 = 1200     1200 : 100 = 12      80 - 12 = 68\nLa réduction des baskets sont à 12 €. Donc son nouveau prix est à 68 €.",
+       "bonus": "Un taxi facture 4 € de prise en charge puis 2 € par kilomètre : on calcule le prix d'une course de 10 km"
+      }
+     }
+    }
+   },
    "2026-10-18-lot-2": {
     "publieLe": "2026-10-22",
     "notes": {
@@ -3397,6 +3609,63 @@ window.EVAL_NOTES = {
      }
     }
    },
+   "2026-10-04-lot-1": {
+    "publieLe": "2026-10-22",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 8.5,
+      "commentaire": "Très bonne copie (17,5/20 bonus compris) : les identités remarquables sont bien reconnues et citées. Attention aux signes quand tu lis un coefficient, et conclus la démonstration de la question 6 par la différence des aires.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 0,
+        "remarque": "Ton développement 2x² − 7x − 4 est juste, mais le coefficient de x est −7, pas 7 : le signe fait partie du coefficient.",
+        "erreurs": [
+         "Le coefficient de x dans l'expression est 7."
+        ]
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste : identité a² − b² = (a + b)(a − b) bien reconnue et citée."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste : identité a² + 2ab + b² = (a + b)² bien reconnue et citée."
+       },
+       "q5": {
+        "points": 2,
+        "remarque": "Juste : développement détaillé, signe moins bien distribué, puis calcul correct pour x = 1,5."
+       },
+       "q6": {
+        "points": 1.5,
+        "remarque": "Les aires x² et x² − 9 sont justes et l'identité est citée, mais la conclusion n'est pas démontrée : calcule la différence x² − (x² − 9) = 9, et écris l'unité cm² partout.",
+        "incompletes": [
+         "On remarque que les deux aires possèdent un x²"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : 52 × 48 = (50 + 2)(50 − 2) = 50² − 2² utilise bien l'identité (a + b)(a − b) = a² − b²."
+      },
+      "reponduLe": "2026-10-20T07:20:30.376Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 31,
+      "reponses": {
+       "q1": "x² − 6x + 9",
+       "q2": "L'expression développée est 2x²-7x-4. Le coefficient de x dans l'expression est 7.",
+       "q3": "9x²-16\n(3x)²-4²\n(3x+4)(3x-4)\nOn obtient ce résultat grace à l'identité remarquable a²-b²=(a+b)(a-b).",
+       "q4": "4x²+12x+9\n(2x)²+2*2x*3+3²\n(2x+3)²\nOn obtient ce résultat avec l'utilisation de l'identité remarquable a²+2ab+b²= (a+b)²",
+       "q5": "A= (x+2)²-(x-1)(x+3)\nA= x²+4x+4-(x²+2x-3)\nA=x²+4x+4-x²-2x+3\nA=2x+7.\nPour x= 1,5:\nA=2*1,5+7\nA=3+7\nA=10",
+       "q6": "Formules: Acarré=c² ; Arectangle = L*l ; (a+b)(a-b)=a²-b²\nAcarré= x²cm²\nArectangle = (x+3)(x-3)\nArectangle = x²-9 cm²\nOn remarque que les deux aires possèdent un x², mais l'aire du rectangle est inférieur à 9cm² de l'aire du carré quelque soit la valeur de x (tant que x>3)",
+       "bonus": "Un architecte mesure une terrasse rectangulaire de 52 m sur 48 m : il calcule l'aire en écrivant 52 × 48 = 50² − 2² = 2 496 m²"
+      }
+     }
+    }
+   },
    "2026-10-04-lot-2": {
     "publieLe": "2026-10-10",
     "notes": {
@@ -3504,24 +3773,24 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-22T03:49:39.503Z",
+  "genereLe": "2026-10-22T03:54:15.637Z",
   "annees": {
     "2026-2027": {
       "5e": {
         "total": 19,
         "ouvertes": 9,
-        "enAttente": 6,
-        "fermees": 4,
-        "copiesCorrigees": 3,
-        "moyenneSur20": 17.7
+        "enAttente": 3,
+        "fermees": 7,
+        "copiesCorrigees": 6,
+        "moyenneSur20": 16.4
       },
       "seconde": {
         "total": 21,
         "ouvertes": 12,
-        "enAttente": 4,
-        "fermees": 5,
-        "copiesCorrigees": 5,
-        "moyenneSur20": 18.4
+        "enAttente": 3,
+        "fermees": 6,
+        "copiesCorrigees": 6,
+        "moyenneSur20": 18.3
       }
     }
   }

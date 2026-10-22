@@ -1,0 +1,57 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 8.5,
+      "commentaire": "Très bonne copie (17/20) : les calculs sur les fractions sont maîtrisés. Termine toujours tes comparaisons et tes problèmes par une phrase de conclusion, et écris le calcul qui mène à chaque résultat.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 1.5,
+          "remarque": "Dénominateur commun et comparaison justes, mais il manque la conclusion : 5/6 < 7/8.",
+          "incompletes": [
+            "20/24 < 21/24"
+          ]
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q5": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q6": {
+          "points": 2,
+          "remarque": "La question a) est bien justifiée, mais en b) le résultat 140 m² n'est pas justifié : écris 7/20 × 400 = 140 et non « 7/20 = 140 m² », puis conclus par une phrase.",
+          "incompletes": [
+            "b) 7/20 = 140 m2"
+          ]
+        }
+      },
+      "bonus": {
+        "points": 0,
+        "remarque": "Bonus non obtenu : la bonne réponse était la 3e, où l'on additionne deux parts d'un même tout (1/4 + 1/3). Comparer 7/8 et 5/6 utilise aussi le dénominateur commun, mais pour comparer, pas pour additionner."
+      },
+      "reponduLe": "2026-10-21T11:38:56.892Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 35,
+      "reponses": {
+        "q1": "35",
+        "q2": "3/5",
+        "q3": "7/8 = 21/24\n5/6 = 20/24\n20/24 < 21/24",
+        "q4": "1,1",
+        "q5": "5/8",
+        "q6": "a) 2/5 = 8/20 1/4 = 5/20   8/20 + 5/20 = 13/20  20/20 - 13/20 = 7/20\nb) 7/20 = 140 m2",
+        "bonus": "Savoir lequel de deux fruits contient la plus grande part d’eau : 7/8 de sa masse pour l’un, 5/6 pour l’autre"
+      }
+    }
+  }
+}

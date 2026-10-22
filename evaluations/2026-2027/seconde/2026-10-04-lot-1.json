@@ -18,5 +18,15 @@
       "Un architecte mesure une terrasse rectangulaire de 52 m sur 48 m : il calcule l'aire en écrivant 52 × 48 = 50² − 2² = 2 496 m²",
       "Un architecte calcule le prix de 85 m² de parquet vendu 34 € le mètre carré"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>x² − 6x + 9</strong> : (x − 3)² = x² − 2 × x × 3 + 3² = x² − 6x + 9.</p>",
+    "q2": "<p>(2x + 1)(x − 4) = 2x² − 8x + x − 4 = 2x² − 7x − 4. Le coefficient de x est <strong>−7</strong>.</p>",
+    "q3": "<p>9x² − 16 = (3x)² − 4² = <strong>(3x + 4)(3x − 4)</strong>, avec l'identité a² − b² = (a + b)(a − b).</p>",
+    "q4": "<p>4x² + 12x + 9 = (2x)² + 2 × 2x × 3 + 3² = <strong>(2x + 3)²</strong>, avec l'identité a² + 2ab + b² = (a + b)².</p>",
+    "q5": "<p>A = x² + 4x + 4 − (x² + 2x − 3) = x² + 4x + 4 − x² − 2x + 3 = <strong>2x + 7</strong>. Pour x = 1,5 : A = 2 × 1,5 + 7 = <strong>10</strong>.</p>",
+    "q6": "<p>Aire du carré : x² cm². Le rectangle mesure (x + 3) cm sur (x − 3) cm, avec x &gt; 3, donc son aire est (x + 3)(x − 3) = x² − 9 cm². Ainsi x² − (x² − 9) = <strong>9 cm²</strong> : l'aire du rectangle est inférieure de 9 cm² à celle du carré, pour tout x &gt; 3.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 3e</strong> (52 × 48 = (50 + 2)(50 − 2) = 50² − 2² = 2 496). Le piège était la 1re : 22² = (20 + 2)² utilise l'identité (a + b)² de la question 5, pas (a + b)(a − b). Les deux autres choix ne demandent qu'une addition et une multiplication.</p>"
+  },
+  "cloturee": true
 }

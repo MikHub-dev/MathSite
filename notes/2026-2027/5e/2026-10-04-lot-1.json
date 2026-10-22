@@ -1,0 +1,61 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 4.5,
+      "commentaire": "Copie de 9,5/20 bonus compris : les fractions égales simples sont acquises, mais la simplification de 42/56 et l'identification de 28/42 sont à retravailler. Cherche le plus grand diviseur commun, et rédige tes comparaisons avec une conclusion.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 0,
+          "remarque": "42/56 se simplifie par 14 : 42/56 = 3/4, le dénominateur est 4. Ta fraction 6/7 n'est pas égale à 42/56.",
+          "erreurs": [
+            "6/7"
+          ]
+        },
+        "q4": {
+          "points": 1,
+          "remarque": "La comparaison des numérateurs est juste, mais tu n'écris pas que 3/4 = 6/8 et il manque la conclusion : 5/8 < 3/4.",
+          "incompletes": [
+            "5/8 < 6/8"
+          ]
+        },
+        "q5": {
+          "points": 0,
+          "remarque": "28/42 se simplifie en 2/3, et 2/3 = 10/15 : la bonne réponse était 10/15."
+        },
+        "q6": {
+          "points": 1.5,
+          "remarque": "Les fractions 1/3, 1/4 et 5/12 sont justes, mais la simplification de 16/48 et de 12/48 n'est pas justifiée et la conclusion finale (1/4 < 1/3 < 5/12) n'est pas écrite avec les fractions de départ.",
+          "incompletes": [
+            "1/3 sont rouges 1/4 sont bleues",
+            "3/12 < 4/12 < 5/12"
+          ]
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonus gagné : 6 jours sur 30 et 1 jour sur 5 sont des fractions égales, 6/30 = 1/5, obtenues en divisant par 6."
+      },
+      "reponduLe": "2026-10-19T14:42:29.813Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 27,
+      "reponses": {
+        "q1": "14",
+        "q2": "2/3",
+        "q3": "6/7   Le dénominateur est 7",
+        "q4": "5/8 < 6/8",
+        "q5": "10/21",
+        "q6": "1/3 sont rouges 1/4 sont bleues 5/12 sont vertes (16/48 + 12/48 = 28/48  48 - 28 = 20   20/48 = 5/12)\n1/3 = 4/12    1/4 = 3/12 \n3/12 < 4/12 < 5/12",
+        "bonus": "Un météorologue a relevé de la pluie 6 jours sur 30 et annonce « 1 jour sur 5 » : c'est la même proportion, écrite avec des nombres plus petits"
+      }
+    }
+  }
+}

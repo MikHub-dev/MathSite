@@ -18,5 +18,15 @@
       "Un automobiliste a mesuré son temps de trajet pendant 5 jours : on calcule son temps de trajet moyen",
       "Un réservoir de 50 L contient déjà 12 L d'essence : on cherche combien de litres il faut ajouter pour le remplir"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>45</strong> : 18 ÷ 4 = 4,5 et 4,5 × 10 = 45.</p>",
+    "q2": "<p><strong>3 → 12 et 5 → 20</strong> : 12 ÷ 3 = 4 et 20 ÷ 5 = 4, le coefficient est le même. Pour les autres tableaux, les quotients sont différents.</p>",
+    "q3": "<p><strong>12,60 €</strong> : un stylo coûte 8,40 ÷ 6 = 1,40 €, donc 9 stylos coûtent 1,40 × 9 = 12,60 €.</p>",
+    "q4": "<p><strong>13</strong> : 20 % de 65 = 65 × 20 ÷ 100 = 13.</p>",
+    "q5": "<p>La recette est proportionnelle au nombre de personnes. Pour 1 personne : 300 ÷ 6 = 50 g, 3 ÷ 6 = 0,5 œuf, 60 ÷ 6 = 10 cl. Pour 10 personnes : <strong>500 g de farine, 5 œufs et 100 cl de lait</strong>.</p>",
+    "q6": "<p>La réduction est de 80 × 15 ÷ 100 = <strong>12 €</strong>. Le nouveau prix est 80 − 12 = <strong>68 €</strong>.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 2e</strong> (à vitesse constante, la distance est proportionnelle à la durée : 90 km en 30 minutes donnent 360 km en 2 heures). Le piège était la 1re : avec la prise en charge de 4 €, le prix n'est pas proportionnel au nombre de kilomètres ; on utilise un calcul en deux étapes, 4 + 2 × 10. Les deux autres choix relèvent de la moyenne et de la soustraction.</p>"
+  },
+  "cloturee": true
 }

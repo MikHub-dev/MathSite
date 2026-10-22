@@ -1,0 +1,54 @@
+{
+  "publieLe": "2026-10-22",
+  "notes": {
+    "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 9.5,
+      "commentaire": "Très bonne copie (19/20) : tous les calculs sont justes et la recette est bien menée. Pense à écrire les unités dans tes calculs et à rédiger des phrases correctes ; relis la question bonus, où il fallait reconnaître la situation de proportionnalité.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q5": {
+          "points": 2,
+          "remarque": "Juste : tu passes par la quantité pour 1 personne puis tu multiplies, et tu conclus par une phrase."
+        },
+        "q6": {
+          "points": 1.5,
+          "remarque": "Calculs et résultat justes, mais la rédaction perd 0,5 point : les unités manquent dans les calculs et la phrase « La réduction des baskets sont à 12 € » n'est pas accordée (« La réduction est de 12 € »).",
+          "incompletes": [
+            "La réduction des baskets sont à 12 €"
+          ]
+        }
+      },
+      "bonus": {
+        "points": 0,
+        "remarque": "Bonus non obtenu : la bonne réponse était la 2e (vitesse constante, la distance est proportionnelle à la durée). Le taxi a une prise en charge de 4 €, donc le prix n'est pas proportionnel aux kilomètres."
+      },
+      "reponduLe": "2026-10-21T14:13:06.295Z",
+      "corrigeLe": "2026-10-22",
+      "issue": 36,
+      "reponses": {
+        "q1": "45",
+        "q2": "3 → 12 et 5 → 20",
+        "q3": "12,6",
+        "q4": "13",
+        "q5": "300 : 6 = 50 / 3 : 6 = 0,5  / 60 : 6 = 10 \n50 x 10 = 500  /  0,5 x 10 = 5  /  10 x 10 = 100 \n\nIl faut 500 g de farine, 5 œufs et 100 cl de lait",
+        "q6": "80 x 15 = 1200     1200 : 100 = 12      80 - 12 = 68\nLa réduction des baskets sont à 12 €. Donc son nouveau prix est à 68 €.",
+        "bonus": "Un taxi facture 4 € de prise en charge puis 2 € par kilomètre : on calcule le prix d'une course de 10 km"
+      }
+    }
+  }
+}
