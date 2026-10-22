@@ -1,0 +1,51 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Tic-Tac-Toc — résolution</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"><style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#e9edf2;font-family:Roboto,Arial,sans-serif;color:#1e293b;line-height:1.55;font-size:15px}
+.nav{max-width:820px;margin:0 auto;padding:14px 16px 0;font-size:14px}
+.nav a{color:#2563eb;text-decoration:none;font-weight:500}
+.page{max-width:820px;margin:16px auto;background:#fff;border:1px solid #dfe3e8;padding:56px 70px 0;display:flow-root}
+.foot{display:flex;justify-content:space-between;border-top:1px solid #dbe3ee;margin:40px -0px 0;padding:12px 0 16px;color:#64748b;font-size:12.5px}
+h1{font-size:28px;line-height:1.2;margin:0 0 14px;color:#0f172a;font-weight:700;letter-spacing:-.01em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:12px;border-bottom:2px solid #0f172a;margin-bottom:22px}
+.chip{font-size:12px;font-weight:700;padding:4px 9px;border-radius:4px;border:1px solid #cbd5e1;background:#f1f5f9;color:#334155}
+.chip.coef{background:#fef3c7;border-color:#fcd34d;color:#92400e}
+.enonce{border:1px solid #cbd5e1;background:#f8fafc;border-radius:8px;padding:16px 18px;margin-bottom:22px}
+.enonce p{margin:0 0 8px}
+.enonce .t{font-weight:700;margin-bottom:2px}
+.enonce .q{font-weight:700}
+.enonce .note{font-style:italic;font-size:12px;color:#64748b;margin:0}
+.enonce .plateaux{display:flex;gap:28px;flex-wrap:wrap;margin:6px 0 10px;font-family:'DejaVu Sans Mono',monospace;font-size:16px;line-height:1.25}
+.reponse{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#f0fdf4;border:1px solid #bbf7d0;border-left:5px solid #16a34a;border-radius:6px;padding:14px 18px;margin-bottom:24px}
+.reponse .l{color:#15803d;font-weight:700}
+.reponse .v{color:#14532d;font-weight:700;font-size:20px}
+.reponse .v small{font-weight:400;font-size:14px;color:#15803d;margin-left:8px}
+h2{font-size:20px;margin:26px 0 12px;padding-left:12px;border-left:5px solid #2563eb;color:#0f172a;font-weight:700;line-height:1.25}
+h3{font-size:15.5px;margin:20px 0 8px;color:#0f172a;font-weight:700}
+p{margin:0 0 14px}
+.cartes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px}
+.carte{border:1px solid #dbe3ee;border-radius:6px;padding:12px 14px}
+.carte .ct{color:#2563eb;font-weight:700;font-size:13.5px;margin-bottom:4px}
+.formule{background:#f8fafc;border:1px solid #e5e9f0;border-radius:6px;padding:10px 14px;margin:0 0 16px;text-align:center;line-height:1.7}
+ul{margin:0 0 14px;padding-left:20px} li{margin:2px 0}
+.pourquoi{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 18px;margin:18px 0 8px}
+.pourquoi .pt{color:#15803d;font-weight:700;margin-bottom:6px}
+.pourquoi ol{margin:0;padding-left:20px}
+.claude{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:0 0 8px}
+.claude .ct{color:#1d4ed8;font-weight:700;margin-bottom:6px}
+@media (max-width:640px){.page{padding:28px 18px 0}.cartes{grid-template-columns:1fr}h1{font-size:23px}}
+@media print{body{background:#fff}.nav{display:none}.page{border:0;margin:0;break-after:page;max-width:none}}
+</style></head><body><div class="nav"><a href="ffjm-2025-quarts.html#p18">← Corrigé des quarts de finale 2025</a></div><section class="page"><h1>Tic-Tac-Toc</h1><div class="chips"><span class="chip coef">Coefficient 18</span><span class="chip">FFJM - Jeux Mathématiques</span><span class="chip">Résolution Complète</span></div><div class="enonce"><p class="t">Énoncé du problème</p><p>Un élastique relie les extrémités des deux aiguilles d’une horloge : la petite mesure 2 cm, la grande 3 cm. Un point de l’élastique le partage dans un rapport a/b constant (a du côté de la petite aiguille). En 12 heures, ce point trace une courbe.</p><p class="q">Quelle est la plus grande valeur de a/b pour laquelle la courbe ne se croise pas ?</p><p class="note">On donnera la réponse sous forme de fraction irréductible.</p></div><div class="reponse"><span class="l">Réponse exacte :</span><span class="v">a/b = 1/18</span></div><h2>1. Niveau de classe &amp; Catégorie officielle</h2><p>Ce problème est extrait du <strong>Championnat International des Jeux Mathématiques et Logiques</strong> organisé par la <strong>FFJM</strong> (Fédération Française des Jeux Mathématiques).</p><p>Dans ces compétitions, les problèmes attribués au <strong>coefficient 18</strong> correspondent aux catégories suivantes :</p><div class="cartes"><div class="carte"><div class="ct">Catégorie L2</div>Étudiants de l’enseignement supérieur (Classes Préparatoires / Licence / Master / Écoles d’ingénieurs).</div><div class="carte"><div class="ct">Catégorie HC</div><strong>HC :</strong> Haute Compétition (participants chevronnés / niveau expert).</div></div><h3>Précisions sur la difficulté théorique</h3><p>Même si le niveau scolaire formel rattaché au coefficient 18 est le <strong>niveau Universitaire / Post-Bac (Supérieur)</strong>, la résolution de ce type d’épreuve repose sur la composition de mouvements de rotation et l’étude des vitesses plutôt que sur un programme de cours strictement scolaire.</p><div class="foot"><span>Résolution de problème : Tic-Tac-Toc</span><span>Page 1 / 4</span></div></section><section class="page"><h2>2. Méthode de raisonnement pas à pas (Niveau Seconde)</h2><p>C’est un excellent défi ! Même si ce problème vient de la catégorie la plus avancée, il s’appuie sur des concepts très simples : <strong>les vecteurs, le barycentre et la comparaison de vitesses.</strong></p><h3>1. Écrire la position du point</h3>
+<p>Le point partage le segment [HM] (H au bout de la petite aiguille, M au bout de la grande) :</p>
+<div class="formule">P = <em>b</em>/(<em>a</em> + <em>b</em>) × H + <em>a</em>/(<em>a</em> + <em>b</em>) × M<br>P est la somme de deux vecteurs tournants : longueur 2*b*/(<em>a</em> + <em>b</em>) (1 tour en 12 h) et 3*a*/(<em>a</em> + <em>b</em>) (12 tours)</div>
+<h3>2. Comparer les vitesses</h3>
+<p>La vitesse du premier vecteur vaut <em>A</em> × ω, celle du second <em>B</em> × 12ω. Si le second va plus vite que le premier, le point <strong>recule par moments</strong> et dessine une petite boucle qui croise la courbe.</p>
+<div class="formule">Pas de croisement ⇔ 12 × 3*a* ≤ 2*b* ⇔ <em>a</em>/<em>b</em> ≤ 2/36 = <strong>1/18</strong></div>
+<p><strong>Condition cruciale :</strong> pour <em>a</em>/<em>b</em> = 1/18, la courbe présente des pointes mais ne se croise pas ; dès 1/17, de petites boucles apparaissent.</p><div class="foot"><span>Résolution de problème : Tic-Tac-Toc</span><span>Page 2 / 4</span></div></section><section class="page"><h2>3. Résolution expliquée comme si tu étais en 5ème</h2><p>C’est un super défi ! En 5ème, tu n’as pas encore appris les vecteurs ni les vitesses angulaires. Mais tu as déjà tous les outils nécessaires : <strong>l’horloge, les fractions, le dessin et un peu de logique !</strong></p><h3>Étape 1 : Dessiner l’horloge</h3>
+<p>Dessine une horloge et l’élastique entre les bouts des deux aiguilles. La grande aiguille fait <strong>12 tours</strong> pendant que la petite en fait <strong>un</strong>.</p>
+<h3>Étape 2 : Deux mouvements à la fois</h3>
+<p>Le point suit en partie la petite aiguille (lente) et en partie la grande (rapide). Tout près de la petite aiguille, il dessine presque un cercle.</p>
+<h3>Étape 3 : Quand une boucle apparaît</h3>
+<p>Si la part de la grande aiguille, multipliée par sa vitesse 12, dépasse la part de la petite, le point recule par moments et fait une boucle.</p>
+<h3>Étape 4 : Le calcul (la réponse finale)</h3>
+<div class="formule">12 × 3 × <em>a</em> ≤ 2 × <em>b</em> ⇒ <em>a</em>/<em>b</em> ≤ 2/36 = <strong>1/18</strong></div><div class="pourquoi"><div class="pt">Pourquoi c’est compréhensible dès la 5ème ?</div><ol><li><strong>Les fractions :</strong> Tu sais simplifier 2/36 en 1/18.</li><li><strong>L’horloge :</strong> Tu sais que la grande aiguille va 12 fois plus vite que la petite.</li><li><strong>Le dessin :</strong> Tracer la courbe pour plusieurs rapports montre l’apparition des boucles.</li></ol></div><div class="foot"><span>Résolution de problème : Tic-Tac-Toc</span><span>Page 3 / 4</span></div></section><section class="page"><h2>Méthode Claude</h2><p>La méthode est juste. Voici les points que j’ajoute :</p><div class="claude"><div class="ct">Les points en plus par rapport à la « Méthode Gemini »</div><ul><li><strong>Le piège 2/3 :</strong> comparer seulement les longueurs des aiguilles oublie que la grande va 12 fois plus vite.</li><li><strong>Prouver l’absence de croisement :</strong> pour <em>a</em>/<em>b</em> ≤ 1/18, l’angle du point autour du centre augmente toujours (on le vérifie en dérivant cet angle) ; la courbe tourne sans revenir en arrière.</li><li><strong>Contrôle numérique :</strong> le tracé de la courbe confirme les pointes sans croisement à 1/18, et les boucles dès 1/17.</li></ul></div><div class="foot"><span>Résolution de problème : Tic-Tac-Toc</span><span>Page 4 / 4</span></div></section></body></html>
