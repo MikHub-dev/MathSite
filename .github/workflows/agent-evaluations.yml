@@ -106,8 +106,11 @@ jobs:
           prompt: |
             Lis AGENT_EVALUATIONS.md, puis applique le skill décrit dans skills/correction-evaluation/Correction-SKILL.md
             à la liste « aCorriger » de travail/a-faire.json. Ne traite pas « aGenerer ».
+          # Diagnostic : sortie complète du run (outils refusés visibles) et acceptation des écritures.
+          show_full_output: true
           claude_args: |
             --max-turns 150
+            --permission-mode acceptEdits
             --allowedTools "Read,Write,Edit,Glob,Grep,Bash(node outils/compiler-evaluations.mjs)"
 
       - name: "Skill kpi"
