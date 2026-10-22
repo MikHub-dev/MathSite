@@ -1,0 +1,56 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Jetons à retourner — résolution</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"><style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#e9edf2;font-family:Roboto,Arial,sans-serif;color:#1e293b;line-height:1.55;font-size:15px}
+.nav{max-width:820px;margin:0 auto;padding:14px 16px 0;font-size:14px}
+.nav a{color:#2563eb;text-decoration:none;font-weight:500}
+.page{max-width:820px;margin:16px auto;background:#fff;border:1px solid #dfe3e8;padding:56px 70px 0;display:flow-root}
+.foot{display:flex;justify-content:space-between;border-top:1px solid #dbe3ee;margin:40px -0px 0;padding:12px 0 16px;color:#64748b;font-size:12.5px}
+h1{font-size:28px;line-height:1.2;margin:0 0 14px;color:#0f172a;font-weight:700;letter-spacing:-.01em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:12px;border-bottom:2px solid #0f172a;margin-bottom:22px}
+.chip{font-size:12px;font-weight:700;padding:4px 9px;border-radius:4px;border:1px solid #cbd5e1;background:#f1f5f9;color:#334155}
+.chip.coef{background:#fef3c7;border-color:#fcd34d;color:#92400e}
+.enonce{border:1px solid #cbd5e1;background:#f8fafc;border-radius:8px;padding:16px 18px;margin-bottom:22px}
+.enonce p{margin:0 0 8px}
+.enonce .t{font-weight:700;margin-bottom:2px}
+.enonce .q{font-weight:700}
+.enonce .note{font-style:italic;font-size:12px;color:#64748b;margin:0}
+.enonce .plateaux{display:flex;gap:28px;flex-wrap:wrap;margin:6px 0 10px;font-family:'DejaVu Sans Mono',monospace;font-size:16px;line-height:1.25}
+.reponse{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#f0fdf4;border:1px solid #bbf7d0;border-left:5px solid #16a34a;border-radius:6px;padding:14px 18px;margin-bottom:24px}
+.reponse .l{color:#15803d;font-weight:700}
+.reponse .v{color:#14532d;font-weight:700;font-size:20px}
+.reponse .v small{font-weight:400;font-size:14px;color:#15803d;margin-left:8px}
+h2{font-size:20px;margin:26px 0 12px;padding-left:12px;border-left:5px solid #2563eb;color:#0f172a;font-weight:700;line-height:1.25}
+h3{font-size:15.5px;margin:20px 0 8px;color:#0f172a;font-weight:700}
+p{margin:0 0 14px}
+.cartes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px}
+.carte{border:1px solid #dbe3ee;border-radius:6px;padding:12px 14px}
+.carte .ct{color:#2563eb;font-weight:700;font-size:13.5px;margin-bottom:4px}
+.formule{background:#f8fafc;border:1px solid #e5e9f0;border-radius:6px;padding:10px 14px;margin:0 0 16px;text-align:center;line-height:1.7}
+ul{margin:0 0 14px;padding-left:20px} li{margin:2px 0}
+.pourquoi{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 18px;margin:18px 0 8px}
+.pourquoi .pt{color:#15803d;font-weight:700;margin-bottom:6px}
+.pourquoi ol{margin:0;padding-left:20px}
+.claude{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:0 0 8px}
+.claude .ct{color:#1d4ed8;font-weight:700;margin-bottom:6px}
+@media (max-width:640px){.page{padding:28px 18px 0}.cartes{grid-template-columns:1fr}h1{font-size:23px}}
+@media print{body{background:#fff}.nav{display:none}.page{border:0;margin:0;break-after:page;max-width:none}}
+</style></head><body><div class="nav"><a href="ffjm-2026-quarts.html#p13">← Corrigé des quarts de finale 2026</a></div><section class="page"><h1>Jetons à retourner</h1><div class="chips"><span class="chip coef">Coefficient 13</span><span class="chip">FFJM - Jeux Mathématiques</span><span class="chip">Résolution Complète</span></div><div class="enonce"><p class="t">Énoncé du problème</p><p>Sur un plateau 3 × 3 sont posés neuf jetons, blancs d’un côté et noirs de l’autre. Un coup consiste à retourner trois jetons alignés : sur une même ligne, une même colonne ou une des deux diagonales. Le but est que tous les jetons montrent leur face noire.</p><p>Voici les positions de départ d’Amel et de Sofia (○ = blanc, ● = noir) :</p><div class="plateaux"><div><strong>Amel</strong><br>● ○ ●<br>○ ○ ●<br>○ ○ ○</div><div><strong>Sofia</strong><br>● ○ ●<br>○ ● ○<br>○ ○ ○</div></div><p class="q">Combien de coups faut-il, au minimum, à Amel et à Sofia pour réussir ?</p><p class="note">On répondra 0 si c’est impossible.</p></div><div class="reponse"><span class="l">Réponse exacte :</span><span class="v">Amel : 4 coups · Sofia : 0<small>(0 signifie : impossible)</small></span></div><h2>1. Niveau de classe &amp; Catégorie officielle</h2><p>Ce problème est extrait du <strong>Championnat International des Jeux Mathématiques et Logiques</strong> organisé par la <strong>FFJM</strong> (Fédération Française des Jeux Mathématiques).</p><p>Dans ces compétitions, les problèmes attribués au <strong>coefficient 13</strong> correspondent aux catégories suivantes :</p><div class="cartes"><div class="carte"><div class="ct">Catégorie C2</div>Classes de 4e et 3e (collège).</div><div class="carte"><div class="ct">Catégories L1, GP, L2 &amp; HC</div><strong>L1 :</strong> lycéens (Seconde, Première, Terminale).<br><strong>GP :</strong> Grand Public ; <strong>L2 / HC :</strong> études supérieures et Haute Compétition.</div></div><h3>Précisions sur la difficulté théorique</h3><p>Même si le niveau scolaire formel rattaché au coefficient 13 est le <strong>niveau Collège (4e – 3e)</strong>, la résolution de ce type d’épreuve repose sur le raisonnement par parité et la recherche d’un invariant plutôt que sur un programme de cours strictement scolaire.</p><div class="foot"><span>Résolution de problème : Jetons à retourner</span><span>Page 1 / 4</span></div></section><section class="page"><h2>2. Méthode de raisonnement pas à pas (Niveau Seconde)</h2><p>C’est un excellent défi ! Même s’il ressemble à un jeu, ce problème s’appuie sur des concepts très simples : <strong>le pair et l’impair, la logique et un peu de bon sens.</strong></p><h3>1. Simplifier le jeu</h3>
+<p>Le réflexe est de <strong>chercher ce qui compte vraiment</strong> dans une suite de coups.</p>
+<ul><li><strong>L’ordre des coups ne compte pas :</strong> la couleur finale d’un jeton dépend seulement du nombre de fois où il a été retourné (pair : inchangé ; impair : changé).</li><li><strong>Jouer deux fois le même coup ne sert à rien :</strong> le second annule le premier.</li><li>Une solution est donc un <strong>ensemble</strong> de coups distincts parmi les 8 alignements (3 lignes, 3 colonnes, 2 diagonales).</li></ul>
+<h3>2. Amel : un minimum par la parité</h3>
+<p>Amel a 6 jetons blancs. Un coup retourne 3 jetons dont <em>w</em> blancs : le nombre de blancs varie de 3 − 2*w*, un nombre toujours impair.</p>
+<div class="formule">La parité du nombre de blancs change à chaque coup<br>6 (pair) → 0 (pair) ⇒ <strong>nombre pair de coups</strong></div>
+<p>Deux coups ne suffisent pas : il faudrait deux alignements sans case commune couvrant exactement les 6 cases blanches, or le milieu du haut, le milieu de gauche et le centre ne sont pas alignés. Il faut donc au moins 4 coups, et 4 suffisent : diagonale montante, ligne du milieu, colonne du milieu, colonne de droite. <strong>Réponse : 4.</strong></p>
+<h3>3. Sofia : chercher un invariant</h3>
+<p>Colorions 6 cases : le coin en haut à gauche, le coin en bas à droite et les quatre milieux de côtés. <strong>Chacun des 8 coups touche 0 ou 2 de ces cases.</strong></p>
+<div class="formule">Le nombre de blancs sur ces 6 cases varie de −2, 0 ou +2 : <strong>sa parité ne change jamais</strong><br>Sofia : 5 blancs (impair) → but : 0 blanc (pair) ⇒ <strong>impossible</strong></div>
+<p><strong>Condition cruciale :</strong> pour Amel, ce nombre vaut 4 (pair), ce qui est compatible. Pour Sofia, la réponse est <strong>0</strong>.</p><div class="foot"><span>Résolution de problème : Jetons à retourner</span><span>Page 2 / 4</span></div></section><section class="page"><h2>3. Résolution expliquée comme si tu étais en 5ème</h2><p>C’est un super défi ! En 5ème, tu n’as pas encore appris l’algèbre. Mais tu as déjà tous les outils nécessaires : <strong>les nombres pairs et impairs, le coloriage et un peu de logique !</strong></p><h3>Étape 1 : Jouer pour de vrai</h3>
+<p>Prends neuf pièces de monnaie (pile = noir, face = blanc) et essaie quelques coups. Tu remarques deux choses : <strong>l’ordre des coups ne change rien</strong>, et <strong>jouer deux fois le même coup l’annule</strong>.</p>
+<h3>Étape 2 : Amel en 4 coups</h3>
+<p>Un essai guidé : diagonale qui monte vers la droite, puis ligne du milieu, puis colonne du milieu, puis colonne de droite. Tout est noir en <strong>4 coups</strong>.</p>
+<h3>Étape 3 : Peut-on faire moins ?</h3>
+<ul><li>Amel a 6 blancs. Un coup retourne 3 jetons : le nombre de blancs change toujours d’un nombre impair (−3, −1, +1 ou +3).</li><li>Il passe donc de pair à impair, puis à pair… Pour aller de 6 à 0 (deux nombres pairs), il faut un nombre pair de coups : 2 ou 4.</li><li>En 2 coups, on essaie : impossible. Le minimum est <strong>4</strong>.</li></ul>
+<h3>Étape 4 : Sofia (la réponse finale)</h3>
+<p>Colorie en jaune les 4 milieux de côtés, le coin en haut à gauche et le coin en bas à droite. Chaque coup touche 0 ou 2 cases jaunes : le nombre de blancs sur le jaune reste toujours pair ou toujours impair.</p>
+<div class="formule">Sofia a <strong>5</strong> blancs sur le jaune (impair) ; « tout noir » veut dire 0 blanc (pair)<br>C’est impossible : réponse <strong>0</strong></div><div class="pourquoi"><div class="pt">Pourquoi c’est compréhensible dès la 5ème ?</div><ol><li><strong>Pair et impair :</strong> Tu sais qu’ajouter un nombre impair change la parité.</li><li><strong>Le coloriage :</strong> Colorier des cases aide à voir ce qui ne change pas.</li><li><strong>La logique :</strong> Tu sais qu’une raison qui marche à tous les coups prouve une impossibilité.</li></ol></div><div class="foot"><span>Résolution de problème : Jetons à retourner</span><span>Page 3 / 4</span></div></section><section class="page"><h2>Méthode Claude</h2><p>La méthode est complète. Voici ce que j’ajoute :</p><div class="claude"><div class="ct">Les points en plus par rapport à la « Méthode Gemini »</div><ul><li><strong>Lire le code de réponse :</strong> ici 0 veut dire « impossible », pas « aucun coup » — un piège de lecture fréquent.</li><li><strong>Une vue d’ensemble :</strong> les 8 coups ne permettent d’atteindre que 128 des 512 positions possibles. Toutes les positions atteignables se reconnaissent par deux invariants de parité (celui des cases jaunes et son symétrique avec l’autre paire de coins).</li><li><strong>Deux solutions pour Amel :</strong> en résolvant le problème modulo 2, on trouve exactement deux ensembles de 4 coups ; ils diffèrent de l’ensemble « 3 lignes + 3 colonnes », qui retourne chaque jeton deux fois.</li><li><strong>Vérification exhaustive :</strong> les 512 positions ont été examinées par programme ; les réponses 4 et 0 sont confirmées.</li></ul></div><div class="foot"><span>Résolution de problème : Jetons à retourner</span><span>Page 4 / 4</span></div></section></body></html>
