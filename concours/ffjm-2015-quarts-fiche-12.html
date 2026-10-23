@@ -1,0 +1,51 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>Deux arcs de cercle — résolution</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet"><style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#e9edf2;font-family:Roboto,Arial,sans-serif;color:#1e293b;line-height:1.55;font-size:15px}
+.nav{max-width:820px;margin:0 auto;padding:14px 16px 0;font-size:14px}
+.nav a{color:#2563eb;text-decoration:none;font-weight:500}
+.page{max-width:820px;margin:16px auto;background:#fff;border:1px solid #dfe3e8;padding:56px 70px 0;display:flow-root}
+.foot{display:flex;justify-content:space-between;border-top:1px solid #dbe3ee;margin:40px -0px 0;padding:12px 0 16px;color:#64748b;font-size:12.5px}
+h1{font-size:28px;line-height:1.2;margin:0 0 14px;color:#0f172a;font-weight:700;letter-spacing:-.01em}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:12px;border-bottom:2px solid #0f172a;margin-bottom:22px}
+.chip{font-size:12px;font-weight:700;padding:4px 9px;border-radius:4px;border:1px solid #cbd5e1;background:#f1f5f9;color:#334155}
+.chip.coef{background:#fef3c7;border-color:#fcd34d;color:#92400e}
+.enonce{border:1px solid #cbd5e1;background:#f8fafc;border-radius:8px;padding:16px 18px;margin-bottom:22px}
+.enonce p{margin:0 0 8px}
+.enonce .t{font-weight:700;margin-bottom:2px}
+.enonce .q{font-weight:700}
+.enonce .note{font-style:italic;font-size:12px;color:#64748b;margin:0}
+.enonce .plateaux{display:flex;gap:28px;flex-wrap:wrap;margin:6px 0 10px;font-family:'DejaVu Sans Mono',monospace;font-size:16px;line-height:1.25}
+.reponse{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#f0fdf4;border:1px solid #bbf7d0;border-left:5px solid #16a34a;border-radius:6px;padding:14px 18px;margin-bottom:24px}
+.reponse .l{color:#15803d;font-weight:700}
+.reponse .v{color:#14532d;font-weight:700;font-size:20px}
+.reponse .v small{font-weight:400;font-size:14px;color:#15803d;margin-left:8px}
+h2{font-size:20px;margin:26px 0 12px;padding-left:12px;border-left:5px solid #2563eb;color:#0f172a;font-weight:700;line-height:1.25}
+h3{font-size:15.5px;margin:20px 0 8px;color:#0f172a;font-weight:700}
+p{margin:0 0 14px}
+.cartes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px}
+.carte{border:1px solid #dbe3ee;border-radius:6px;padding:12px 14px}
+.carte .ct{color:#2563eb;font-weight:700;font-size:13.5px;margin-bottom:4px}
+.formule{background:#f8fafc;border:1px solid #e5e9f0;border-radius:6px;padding:10px 14px;margin:0 0 16px;text-align:center;line-height:1.7}
+ul{margin:0 0 14px;padding-left:20px} li{margin:2px 0}
+.pourquoi{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:14px 18px;margin:18px 0 8px}
+.pourquoi .pt{color:#15803d;font-weight:700;margin-bottom:6px}
+.pourquoi ol{margin:0;padding-left:20px}
+pre.grille{font-family:'DejaVu Sans Mono',Consolas,monospace;font-size:15px;line-height:1.35;background:#f8fafc;border:1px solid #e5e9f0;border-radius:6px;padding:10px 14px;margin:0 0 16px;text-align:center;overflow-x:auto}
+.claude{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 18px;margin:0 0 8px}
+.claude .ct{color:#1d4ed8;font-weight:700;margin-bottom:6px}
+@media (max-width:640px){.page{padding:28px 18px 0}.cartes{grid-template-columns:1fr}h1{font-size:23px}}
+@media print{body{background:#fff}.nav{display:none}.page{border:0;margin:0;break-after:page;max-width:none}}
+</style></head><body><div class="nav"><a href="ffjm-2015-quarts.html#p12">← Corrigé des quarts de finale 2015</a></div><section class="page"><h1>Deux arcs de cercle</h1><div class="chips"><span class="chip coef">Coefficient 12</span><span class="chip">FFJM - Jeux Mathématiques</span><span class="chip">Résolution Complète</span></div><div class="enonce"><p class="t">Énoncé du problème</p><p>Un arc de 45° sur le cercle d’Alain a la même longueur qu’un arc de 30° sur le cercle de Béatrice. Le disque d’Alain a une aire de 60 cm².</p><p class="q">Quelle est, en cm², l’aire du disque de Béatrice ?</p><p class="note">Problèmes 9 à 18 : s’il y a plusieurs solutions, on donnera leur nombre et deux d’entre elles.</p></div><div class="reponse"><span class="l">Réponse exacte :</span><span class="v">135 cm²</span></div><h2>1. Niveau de classe &amp; Catégorie officielle</h2><p>Ce problème est extrait du <strong>Championnat International des Jeux Mathématiques et Logiques</strong> organisé par la <strong>FFJM</strong> (Fédération Française des Jeux Mathématiques).</p><p>Dans ces compétitions, les problèmes attribués au <strong>coefficient 12</strong> correspondent aux catégories suivantes :</p><div class="cartes"><div class="carte"><div class="ct">Catégorie C2</div>Classes de 4e et 3e (collège).</div><div class="carte"><div class="ct">Catégories L1, GP, L2 &amp; HC</div><strong>L1 :</strong> lycéens (Seconde, Première, Terminale).<br><strong>GP :</strong> Grand Public ; <strong>L2 / HC :</strong> études supérieures et Haute Compétition.</div></div><h3>Précisions sur la difficulté théorique</h3><p>Même si le niveau scolaire formel rattaché au coefficient 12 est le <strong>niveau Collège (4e – 3e)</strong>, la résolution de ce type d’épreuve repose sur la proportionnalité et les agrandissements plutôt que sur un programme de cours strictement scolaire.</p><div class="foot"><span>Résolution de problème : Deux arcs de cercle</span><span>Page 1 / 4</span></div></section><section class="page"><h2>2. Méthode de raisonnement pas à pas (Niveau Seconde)</h2><p>C’est un excellent défi ! Ce problème s’appuie sur des concepts très simples : <strong>la longueur d’un arc, les rapports et l’effet d’un agrandissement sur les aires.</strong></p><h3>1. Les longueurs d’arcs</h3>
+<div class="formule">(45/360) × 2π<em>R</em><sub>A</sub> = (30/360) × 2π<em>R</em><sub>B</sub> ⇒ 45<em>R</em><sub>A</sub> = 30<em>R</em><sub>B</sub> ⇒ <em>R</em><sub>B</sub> = 1,5 <em>R</em><sub>A</sub></div>
+<h3>2. Les aires</h3>
+<div class="formule">Rayons × 1,5 ⇒ aires × 1,5² = 2,25</div>
+<h3>3. Conclure</h3>
+<div class="formule">60 × 2,25 = <strong>135 cm²</strong></div><div class="foot"><span>Résolution de problème : Deux arcs de cercle</span><span>Page 2 / 4</span></div></section><section class="page"><h2>3. Résolution expliquée comme si tu étais en 5ème</h2><p>C’est un super défi ! En 5ème, tu as déjà tous les outils nécessaires : <strong>le périmètre du cercle, les fractions et un peu de logique !</strong></p><h3>Étape 1 : Les parts de cercle</h3>
+<p>45° est 1/8 du tour, 30° est 1/12 du tour.</p>
+<h3>Étape 2 : Comparer les cercles</h3>
+<p>1/8 du cercle d’Alain = 1/12 du cercle de Béatrice : le cercle de Béatrice est 12/8 = 1,5 fois plus long, donc son rayon est 1,5 fois plus grand.</p>
+<h3>Étape 3 : L’aire</h3>
+<p>Quand le rayon est multiplié par 1,5, l’aire est multipliée par 1,5 × 1,5 = 2,25.</p>
+<h3>Étape 4 : Conclure (la réponse finale)</h3>
+<div class="formule">60 × 2,25 = <strong>135 cm²</strong></div><div class="pourquoi"><div class="pt">Pourquoi c’est compréhensible dès la 5ème ?</div><ol><li><strong>Les fractions de tour :</strong> Tu sais que 45° est un huitième de tour.</li><li><strong>Le périmètre :</strong> Tu sais qu’il est proportionnel au rayon.</li><li><strong>L’aire :</strong> Tu sais qu’elle dépend de r × r.</li></ol></div><div class="foot"><span>Résolution de problème : Deux arcs de cercle</span><span>Page 3 / 4</span></div></section><section class="page"><h2>Méthode Claude</h2><p>La méthode est complète. Voici ce que j’ajoute :</p><div class="claude"><div class="ct">Les points en plus par rapport à la « Méthode Gemini »</div><ul><li><strong>Le piège :</strong> multiplier l’aire par 1,5 (on trouverait 90) ; l’aire varie comme le carré du rayon.</li><li><strong>Contrôle :</strong> <em>R</em><sub>A</sub>² = 60/π ≈ 19,1 ; <em>R</em><sub>B</sub>² = 2,25 × 19,1 ≈ 43,0 ; π × 43,0 ≈ 135 ✓.</li><li><strong>L’intuition :</strong> un angle plus petit pour la même longueur d’arc signifie un cercle plus grand.</li></ul></div><div class="foot"><span>Résolution de problème : Deux arcs de cercle</span><span>Page 4 / 4</span></div></section></body></html>
