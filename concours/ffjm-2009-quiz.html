@@ -1,0 +1,174 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2009 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2009">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2009</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2009</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2009/23_Quarts_ind_Enonces.pdf" target="_blank" rel="noopener noreferrer">sujet 2009 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Autoréférence</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Compléter « Ce cadre contient ___ fois la lettre « c » » avec le plus grand nombre possible écrit en lettres, pour que la phrase soit vraie.</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Les cerises</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Découper un gâteau quadrillé en quatre parts de même forme contenant chacune une cerise.</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les carrés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Combien de carrés entièrement dessinés compte la figure (losange découpé par des traits) ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Produit + somme</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">À partir d’un nombre à deux chiffres, on ajoute le produit et la somme de ses chiffres. En partant de 75, quel est le 20<sup>e</sup> nombre écrit ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Des creux et des bosses</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Parmi les pièces A à G (à creux et bosses arrondis), lesquelles ont une aire égale à celle du carré jaune ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Des taches qui cachent</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">(aa + aa + 1) × a = aaa, chaque tache cachant le même chiffre a non nul. Quel est ce chiffre ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Devine-figure</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dessiner, en reliant des sommets du quadrillage, une figure C ayant le même périmètre que la figure A et la même aire que la figure B.</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Les étiquettes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq opérations (+ 2, + 9, × 2, × 3, × 9) ont été mélangées dans une chaîne de calcul qui aboutit à 2009. Quel était le nombre de départ ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Le 2010e</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">2009 est le 21<sup>e</sup> entier qui commence par 20. Quel est le 2010<sup>e</sup> entier dont l’écriture commence par 2009 ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Un sept renversant</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">2009 et 9002 sont divisibles par 7. Quelle est la prochaine année dont le numéro et son renversé sont divisibles par 7 ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · La suite de Fibo et de Géo</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois entiers positifs <var>a</var>, <var>b</var>, <var>c</var> ; <var>d</var> = <var>c</var>(<var>b</var> + <var>a</var>) et <var>e</var> = <var>d</var>(<var>c</var> + <var>b</var>) = 2008. Quels sont <var>a</var>, <var>b</var>, <var>c</var> ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Ah les vaches !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Chaque vache broute la même quantité par jour ; l’herbe initiale et la pousse journalière par are sont identiques. 10 vaches broutent 10 ares en 10 jours ; 15 vaches, 22 ares en 44 jours. En combien de jours 20 vaches broutent-elles 17 ares ?</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Les boulets de canon monégasques</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un tas de boulets en couches rectangulaires ; chaque couche a un boulet de moins en largeur et en longueur que celle du dessous ; la dernière est une rangée d’un boulet de large, de longueur égale à la largeur de la première. Le total est un carré parfait. Combien de boulets ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2009, "problemes": [{"num": "2", "titre": "Autoréférence"}, {"num": "3", "titre": "Les cerises"}, {"num": "4", "titre": "Les carrés"}, {"num": "5", "titre": "Produit + somme"}, {"num": "6", "titre": "Des creux et des bosses"}, {"num": "7", "titre": "Des taches qui cachent"}, {"num": "9", "titre": "Devine-figure"}, {"num": "10", "titre": "Les étiquettes"}, {"num": "11", "titre": "Le 2010e"}, {"num": "12", "titre": "Un sept renversant"}, {"num": "15", "titre": "La suite de Fibo et de Géo"}, {"num": "17", "titre": "Ah les vaches !"}, {"num": "18", "titre": "Les boulets de canon monégasques"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

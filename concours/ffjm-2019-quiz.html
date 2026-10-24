@@ -1,0 +1,190 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2019 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2019">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2019</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2019</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2019/QuartsdeFinale2019.pdf" target="_blank" rel="noopener noreferrer">sujet 2019 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Du six au neuf</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathilde forme un 6 avec 12 cartes carrées sur un quadrillage de 3 × 5 cases. Un mouvement déplace une carte vers une case voisine libre (par un côté). En combien de mouvements au minimum passe-t-elle du 6 au 9 ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Sans les chiffres de l’année</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathias écrit dans l’ordre les entiers dont l’écriture ne comporte aucun des chiffres 2, 0, 1 ou 9 : 3, 4, 5, 6, 7, 8, 33, 34… Quel sera le 29<sup>e</sup> nombre écrit ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Le solide</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Toutes les faces du solide sont horizontales ou verticales. Le cube a 6 faces ; combien en a le solide en forme de « h » ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les crayons</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathilde a 2 crayons de moins qu’Alice, qui a deux fois plus de crayons que Julie. Julie a 3 crayons de moins que Mathilde. Combien Mathilde a-t-elle de crayons ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Le sac de billes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un sac contient moins de 100 billes. On peut les partager en parts égales entre 2, 3 ou 5 enfants, mais pas entre 4. Combien de billes au minimum ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Le nombre mystérieux</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathilde ajoute à un nombre la somme de ses chiffres, puis recommence avec le résultat. Elle obtient 60. Quel était le premier nombre ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Des billes de toutes les couleurs</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un sac contient 15 billes blanches, 15 noires, 6 rouges et 5 vertes. Combien faut-il en sortir au minimum, sans regarder, pour être certain d’en avoir 10 de la même couleur ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · La course à pied</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Six observateurs : A avant B ; C avant A ; A avant D ; B avant C ; D avant B ; C avant D. Un seul s’est trompé. Quel est le classement ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · La roue magique</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sept disques (un centre et six autour) reçoivent 1, 2, 3, 5, 6, 7, 8 pour que les trois alignements de trois nombres aient la même somme. Quel nombre est au centre ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Le nombre de Mathias</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathias choisit un nombre à deux chiffres inférieur à 60 et lui ajoute le nombre obtenu en intervertissant ses chiffres. Le résultat est un carré. Quel est le nombre choisi ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Dissection d’un rectangle</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un rectangle de base 9 cm est partagé en quatre rectangles par deux droites perpendiculaires. Les aires, du plus petit au plus grand, valent au moins 7, 9, 12 et 15 cm². Quelle est l’aire minimale du rectangle ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · L’hexagone</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les côtés d’un hexagone sont tous horizontaux ou verticaux. Ils mesurent 3, 5, 6, 8, 10 et 16 cm. Quelle est l’aire de cet hexagone ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Un carré qui tourne rond</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Huit cases en carré reliées par des opérations : : 5, + 6, : 7, − 8, × 9, + 114, × 3, − 4, en revenant à la case de départ (en haut à gauche). Quel nombre écrire dans cette case ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Rectangle de carrés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On partage intégralement un rectangle de 72 cm sur 37 cm en un nombre minimal de carrés (de dimensions différentes ou non). Combien de carrés au minimum ?</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · La suite de Mathias</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une suite de 1 et de 2, sans trois chiffres identiques consécutifs. La deuxième suite donne les longueurs des blocs de la première, la troisième celles de la deuxième. Mathias trouve une suite commençant par 1, dont la deuxième suite est différente de la première et la troisième identique à la première. Quels sont ses 19<sup>e</sup>, 20<sup>e</sup>, 21<sup>e</sup> et 22<sup>e</sup> chiffres ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2019, "problemes": [{"num": "1", "titre": "Du six au neuf"}, {"num": "2", "titre": "Sans les chiffres de l’année"}, {"num": "3", "titre": "Le solide"}, {"num": "4", "titre": "Les crayons"}, {"num": "5", "titre": "Le sac de billes"}, {"num": "6", "titre": "Le nombre mystérieux"}, {"num": "7", "titre": "Des billes de toutes les couleurs"}, {"num": "8", "titre": "La course à pied"}, {"num": "9", "titre": "La roue magique"}, {"num": "10", "titre": "Le nombre de Mathias"}, {"num": "12", "titre": "Dissection d’un rectangle"}, {"num": "13", "titre": "L’hexagone"}, {"num": "14", "titre": "Un carré qui tourne rond"}, {"num": "17", "titre": "Rectangle de carrés"}, {"num": "18", "titre": "La suite de Mathias"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

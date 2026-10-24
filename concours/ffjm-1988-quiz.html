@@ -1,0 +1,222 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 1988 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a1988">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 1988</span>
+  <h1>Quiz des <span class="ink">patterns</span> 1988</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ1988/quart%20finale.pdf" target="_blank" rel="noopener noreferrer">sujet 1988 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="pC1">
+        <span class="pb-num" aria-hidden="true">C1</span>
+        <div class="pb-body">
+          <h3>Problème C1 · Le grand-père</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le grand-père a 4 fois l’âge de son petit-fils. En inversant les deux chiffres de chaque âge, le nouvel âge du petit-fils vaut 3 fois le nouvel âge du grand-père. Âge du grand-père ?</p></details>
+          <div class="choix"><label for="sC1">Pattern</label><select id="sC1" data-pb="C1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pC2">
+        <span class="pb-num" aria-hidden="true">C2</span>
+        <div class="pb-body">
+          <h3>Problème C2 · Une somme astronomique</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Somme des chiffres de N = 10<sup>1988</sup> − 1988.</p></details>
+          <div class="choix"><label for="sC2">Pattern</label><select id="sC2" data-pb="C2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pC4">
+        <span class="pb-num" aria-hidden="true">C4</span>
+        <div class="pb-body">
+          <h3>Problème C4 · La grenouille</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une grenouille monte 13 marches par bonds de 1 ou 2 marches. Combien de façons différentes ?</p></details>
+          <div class="choix"><label for="sC4">Pattern</label><select id="sC4" data-pb="C4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pC5">
+        <span class="pb-num" aria-hidden="true">C5</span>
+        <div class="pb-body">
+          <h3>Problème C5 · L’encyclopédie</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Pour numéroter les pages, on a imprimé 1988 fois le chiffre 1. Combien de pages ?</p></details>
+          <div class="choix"><label for="sC5">Pattern</label><select id="sC5" data-pb="C5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pC6">
+        <span class="pb-num" aria-hidden="true">C6</span>
+        <div class="pb-body">
+          <h3>Problème C6 · Addition tournante</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">abc + dab + cda + bcd = abcd. Trouver abcd.</p></details>
+          <div class="choix"><label for="sC6">Pattern</label><select id="sC6" data-pb="C6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pI1">
+        <span class="pb-num" aria-hidden="true">I1</span>
+        <div class="pb-body">
+          <h3>Problème I1 · Les trois factorielles</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trouver les chiffres a, b, c tels que a! + b! + c! = abc. (La série D demande toutes les solutions.)</p></details>
+          <div class="choix"><label for="sI1">Pattern</label><select id="sI1" data-pb="I1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pI2">
+        <span class="pb-num" aria-hidden="true">I2</span>
+        <div class="pb-body">
+          <h3>Problème I2 · Les diviseurs</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le plus petit nombre ayant 1988 diviseurs s’écrit 2<sup>a</sup> · 3<sup>b</sup> · 5<sup>c</sup> · 7<sup>d</sup>. Trouver a, b, c, d.</p></details>
+          <div class="choix"><label for="sI2">Pattern</label><select id="sI2" data-pb="I2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pI4">
+        <span class="pb-num" aria-hidden="true">I4</span>
+        <div class="pb-body">
+          <h3>Problème I4 · Un sac de monnaie</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">De combien de manières payer 1988 F avec des pièces de 2, 3 et 5 F ?</p></details>
+          <div class="choix"><label for="sI4">Pattern</label><select id="sI4" data-pb="I4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pI6">
+        <span class="pb-num" aria-hidden="true">I6</span>
+        <div class="pb-body">
+          <h3>Problème I6 · Les régions</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">10 points sur un cercle, tous reliés deux à deux, jamais trois cordes concourantes. Nombre de régions dans le disque ?</p></details>
+          <div class="choix"><label for="sI6">Pattern</label><select id="sI6" data-pb="I6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pL1">
+        <span class="pb-num" aria-hidden="true">L1</span>
+        <div class="pb-body">
+          <h3>Problème L1 · L’ailier de génie</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un ailier court parallèlement à la ligne de touche ; sa trajectoire coupe la ligne de but en S, à 16,50 m du poteau le plus proche ; le but mesure 7,32 m. Distance X de S au point de tir T où l’angle de tir est maximal ?</p></details>
+          <div class="choix"><label for="sL1">Pattern</label><select id="sL1" data-pb="L1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pL2">
+        <span class="pb-num" aria-hidden="true">L2</span>
+        <div class="pb-body">
+          <h3>Problème L2 · Moto-macho</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un prix de cinq chiffres multiplié par le nombre de fiancées donne le même nombre écrit à l’envers. Prix d’une moto ?</p></details>
+          <div class="choix"><label for="sL2">Pattern</label><select id="sL2" data-pb="L2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pL5">
+        <span class="pb-num" aria-hidden="true">L5</span>
+        <div class="pb-body">
+          <h3>Problème L5 · La multiplication</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Compléter … × .. = ....1 pour que les dix chiffres de 0 à 9 y figurent (une fois chacun).</p></details>
+          <div class="choix"><label for="sL5">Pattern</label><select id="sL5" data-pb="L5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pD3">
+        <span class="pb-num" aria-hidden="true">D3</span>
+        <div class="pb-body">
+          <h3>Problème D3 · Triangles en tous genres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un triangle LRA ; de L partent 5 droites vers le côté RA, de R 5 droites vers le côté LA. Combien de triangles sur la figure ?</p></details>
+          <div class="choix"><label for="sD3">Pattern</label><select id="sD3" data-pb="D3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pD4">
+        <span class="pb-num" aria-hidden="true">D4</span>
+        <div class="pb-body">
+          <h3>Problème D4 · Le poids des ans</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le produit des âges de Pierre et d’Aure s’écrit avec exactement les chiffres de leurs deux âges. Leurs âges ?</p></details>
+          <div class="choix"><label for="sD4">Pattern</label><select id="sD4" data-pb="D4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pD5">
+        <span class="pb-num" aria-hidden="true">D5</span>
+        <div class="pb-body">
+          <h3>Problème D5 · Nombres conjoints</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">La somme des carrés des chiffres de X vaut Y, celle de Y vaut X, avec X ≤ Y. Trouver X et Y.</p></details>
+          <div class="choix"><label for="sD5">Pattern</label><select id="sD5" data-pb="D5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pD6">
+        <span class="pb-num" aria-hidden="true">D6</span>
+        <div class="pb-body">
+          <h3>Problème D6 · À la rivière !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">A et B sont à 200 m l’un de l’autre, sur une route parallèle à la rivière, à 100 m d’elle. Xavier va de A à la rivière en C, puis de C à B, trois fois plus lentement chargé. Distance x = OC qui minimise la durée ?</p></details>
+          <div class="choix"><label for="sD6">Pattern</label><select id="sD6" data-pb="D6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pE1">
+        <span class="pb-num" aria-hidden="true">E1</span>
+        <div class="pb-body">
+          <h3>Problème E1 · Les neuf fils du docteur Septembre</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Neuf fils d’âges régulièrement espacés ; en 1988, le carré de l’âge du docteur égale la somme des carrés des âges des fils. Âge du docteur ?</p></details>
+          <div class="choix"><label for="sE1">Pattern</label><select id="sE1" data-pb="E1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pE2">
+        <span class="pb-num" aria-hidden="true">E2</span>
+        <div class="pb-body">
+          <h3>Problème E2 · La moquette</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un hall en couronne ; AB = 10 m est tangent au cercle intérieur en A et va jusqu’au cercle extérieur. Pose à 19,88 F le m². Prix au centime ?</p></details>
+          <div class="choix"><label for="sE2">Pattern</label><select id="sE2" data-pb="E2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pE6">
+        <span class="pb-num" aria-hidden="true">E6</span>
+        <div class="pb-body">
+          <h3>Problème E6 · Addition</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">bdac + dcba = abcd. Trouver abcd.</p></details>
+          <div class="choix"><label for="sE6">Pattern</label><select id="sE6" data-pb="E6"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 1988, "problemes": [{"num": "C1", "titre": "Le grand-père"}, {"num": "C2", "titre": "Une somme astronomique"}, {"num": "C4", "titre": "La grenouille"}, {"num": "C5", "titre": "L’encyclopédie"}, {"num": "C6", "titre": "Addition tournante"}, {"num": "I1", "titre": "Les trois factorielles"}, {"num": "I2", "titre": "Les diviseurs"}, {"num": "I4", "titre": "Un sac de monnaie"}, {"num": "I6", "titre": "Les régions"}, {"num": "L1", "titre": "L’ailier de génie"}, {"num": "L2", "titre": "Moto-macho"}, {"num": "L5", "titre": "La multiplication"}, {"num": "D3", "titre": "Triangles en tous genres"}, {"num": "D4", "titre": "Le poids des ans"}, {"num": "D5", "titre": "Nombres conjoints"}, {"num": "D6", "titre": "À la rivière !"}, {"num": "E1", "titre": "Les neuf fils du docteur Septembre"}, {"num": "E2", "titre": "La moquette"}, {"num": "E6", "titre": "Addition"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

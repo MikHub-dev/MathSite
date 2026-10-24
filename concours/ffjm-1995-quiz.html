@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 1995 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a1995">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 1995</span>
+  <h1>Quiz des <span class="ink">patterns</span> 1995</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ1995/quart%20finale.pdf" target="_blank" rel="noopener noreferrer">sujet 1995 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Maya et ses sœurs</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">L’abeille Maya et ses cinq sœurs, toutes de même forme, recouvrent exactement une forme dessinée sur un quadrillage, sans chevauchement. Dessiner le contour des six abeilles.</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Le voyage de Maya</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sur un rayon de quatre alvéoles hexagonales, Maya va du point de départ (en haut) au point d’arrivée (en bas) le long des bords, par le plus court chemin. Combien de chemins ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Des chiffres et des lettres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Entre 1 et 69, combien de nombres s’écrivent avec autant de lettres que la somme de leurs chiffres (comme quarante-huit : 12 lettres, 4 + 8 = 12) ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les cinq poids</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Poids de 1, 2, 5, 6 et 10 g. Quelles masses de 1 à 24 g peut-on équilibrer ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Le coup du menhir</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un bloc de 8 tonnes ; un autre de dimensions quatre fois plus petites. Masse ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Le piège des matheux</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq phrases : PARIS a 3 consonnes et 2 voyelles ; le Snowdon culmine à 1 085 m ; 2 + 3 + … + 23 = 100 ; « la phrase d’Irène est fausse » ; « une seule des phrases précédentes est vraie ». Combien sont vraies ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Les pentaminos de Léon Tine</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Bande 3 × 20 où trois pentaminos (V, T, P en noir) sont déjà placés ; placer les 9 autres (F, I, L, N, U, W, X, Y, Z).</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Troncadivisible</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un nombre est troncadivisible si, en supprimant son chiffre des unités, on obtient un diviseur du nombre (24 → 2 divise 24). Combien sont inférieurs à 1 995 ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · La quadrichromie nette</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cube 4 × 4 × 4 de petits cubes blancs, jaunes, noirs et verts ; toute rangée de 4 petits cubes (sauf en diagonale) contient les 4 couleurs. Quelques faces sont notées sur la figure ; sous le cube vert du coin supérieur se trouve un cube blanc. Couleurs des étages 1 et 2 ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · La montre de Nicolas</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Montre à cristaux (7 par chiffre). Combien de cristaux, au maximum, peuvent tomber en panne sans qu’aucune heure de 0.00 à 23.59 ne devienne ambiguë ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Une opération volcanique</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">LAVE / MAGMA = 0,VALLEEVALLEE… (cryptarithme). Que vaut VALLEE ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Le théorème discret</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Nombre minimal de points à coordonnées entières (dans l’espace) pour être sûr qu’un des triangles formés a un centre de gravité à coordonnées entières.</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 1995, "problemes": [{"num": "1", "titre": "Maya et ses sœurs"}, {"num": "2", "titre": "Le voyage de Maya"}, {"num": "3", "titre": "Des chiffres et des lettres"}, {"num": "4", "titre": "Les cinq poids"}, {"num": "6", "titre": "Le coup du menhir"}, {"num": "7", "titre": "Le piège des matheux"}, {"num": "8", "titre": "Les pentaminos de Léon Tine"}, {"num": "9", "titre": "Troncadivisible"}, {"num": "10", "titre": "La quadrichromie nette"}, {"num": "11", "titre": "La montre de Nicolas"}, {"num": "14", "titre": "Une opération volcanique"}, {"num": "16", "titre": "Le théorème discret"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

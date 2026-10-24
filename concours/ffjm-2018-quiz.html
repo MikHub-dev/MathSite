@@ -1,0 +1,174 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2018 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2018">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2018</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2018</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2018/1_4individuels2018.pdf" target="_blank" rel="noopener noreferrer">sujet 2018 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Quatre nombres à placer</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Placer 1, 2, 3 et 4 dans les quatre disques (un en haut, trois en bas) pour que chaque petit carré soit la somme des deux disques qu’il relie : 4, 5, 7 (avec le disque du haut), 3 et 6 (entre les disques du bas).</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Les carrés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une grille de 6 × 3 petits carrés. Combien de carrés (petits, moyens et grands) sont entièrement dessinés ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · La coccinelle</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une coccinelle se déplace sur les 13 cases jaunes d’une grille 5 × 3 (deux cases blanches au milieu). Elle part du coin en haut à gauche vers la droite, avance d’une case par seconde, peut tourner quand elle a le choix, mais ne fait jamais demi-tour. Sur quelles cases peut-elle être après 11 secondes ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · L’anniversaire</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">« Avant-hier, je n’avais encore que 8 ans, mais à la fin de l’année, j’aurai déjà 10 ans », dit Mathis. Quel jour fête-t-il son anniversaire ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Suite</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le premier terme d’une suite est 718. Chaque terme suivant est la somme des chiffres du précédent multipliée par 13. Quel est le 2018<sup>e</sup> terme ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Le livre de Mathilde</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un livre de 225 pages a trois chapitres. La somme des chiffres des numéros des deux premières pages du 2<sup>e</sup> chapitre vaut 18 ; celle des deux dernières pages de ce chapitre (qui compte plus de 2 pages) vaut aussi 18. Combien de pages a le 2<sup>e</sup> chapitre ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Le club de basket</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un club compte exactement 40 % de garçons. Six nouveaux garçons s’inscrivent ; il y a alors autant de garçons que de filles. Combien d’inscrits y a-t-il maintenant ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Loterie</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les billets vont de 0000 à 9999. On tire 116 ; gagnent tous les billets contenant au moins deux 1 et au moins un 6. Combien y a-t-il de gagnants ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Le bateau</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Après la moitié de son trajet, un bateau augmente sa vitesse de 25 %. Il arrive une demi-heure plus tôt que prévu. Combien de temps a-t-il navigué ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Course automobile</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux voitures partent en même temps, l’une d’Arithméville vers Géocity, l’autre en sens inverse (200 km). Vitesses entières différentes, différence multiple de 7. Après 2 h, la distance de la plus rapide à Géocity est cinq fois plus petite que celle de la plus lente à Arithméville. Quelle est la vitesse de la plus rapide ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · La pyramide de Mick Erinos</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une pyramide de briques sur 5 étages ; en bas : 17, 44, ?, ?, 32. Chaque brique est la somme des deux briques sous elle. La somme de toutes les briques vaut 2018. Quel nombre est écrit dans la brique grise (au milieu du 3<sup>e</sup> étage) ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Le terrain du père Fide</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un terrain quadrilatère a deux côtés perpendiculaires de 100 m, deux angles opposés droits, et deux autres angles dont l’un vaut le double de l’autre. Quelle est son aire ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Somme des cubes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On remplace un nombre par la somme des cubes de ses chiffres, et on recommence jusqu’à retomber sur un nombre déjà écrit. Quel est le plus petit nombre supérieur à 2018 qui s’arrête sur 1 ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2018, "problemes": [{"num": "1", "titre": "Quatre nombres à placer"}, {"num": "2", "titre": "Les carrés"}, {"num": "4", "titre": "La coccinelle"}, {"num": "5", "titre": "L’anniversaire"}, {"num": "6", "titre": "Suite"}, {"num": "7", "titre": "Le livre de Mathilde"}, {"num": "9", "titre": "Le club de basket"}, {"num": "10", "titre": "Loterie"}, {"num": "11", "titre": "Le bateau"}, {"num": "12", "titre": "Course automobile"}, {"num": "15", "titre": "La pyramide de Mick Erinos"}, {"num": "16", "titre": "Le terrain du père Fide"}, {"num": "18", "titre": "Somme des cubes"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2000 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2000">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2000</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2000</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2000/quart%20finale%20sujet.pdf" target="_blank" rel="noopener noreferrer">sujet 2000 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Le X-ième X</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On écrit en lettres UN DEUX TROIS QUATRE… Le 10<sup>e</sup> E est dans QUINZE, le 10<sup>e</sup> U dans DIX-NEUF. Dans quel nombre apparaît le 10<sup>e</sup> X ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Les 8 nombres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Grille de 8 cases (1 à gauche, 8 à droite, 2 en haut au milieu) ; placer 3 à 7 pour que deux nombres consécutifs ne soient jamais dans des cases qui se touchent.</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · La vieille calculatrice</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">La calculatrice ne sait que +12 ou −7. Elle affiche 1999 ; combien d’opérations au minimum pour afficher 2000 ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Histoire de billes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathilde a 2 billes de plus que Mathias ; Mathias a le double de Matthieu ; Matthieu a 7 billes de moins que Mathilde. Total ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Le carreleur américain</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq carreaux identiques, non retournables, à bords ondulés suivant le quadrillage, recouvrent une forme de 15 cases (carré 4 × 4 privé d’un coin). Retrouver leur position.</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Autoréférence</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">« Dans ce cadre, il y a … consonnes de plus que de voyelles. » Compléter avec un nombre en toutes lettres.</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · La furibarde</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le lapgourou fait un saut de 4 m en 2 s puis se repose 1 s. La furibarde avance de 3 m par seconde sans arrêt, 32 m derrière. Elle ne peut le capturer que s’il est arrêté. Dans combien de secondes ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Chaîne de dominos</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Jeu de dominos sans les 7 dominos contenant un 6 (il en reste 21). Chaîne fermée la plus longue ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Téléphone</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Numéro de 10 chiffres tous différents, groupés par deux ; chaque groupe est supérieur à la somme des précédents ; le plus petit possible ; commence par 0, second chiffre de 1 à 6.</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Le masque inca</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un masque dessiné sur quadrillage (cornes, bosses arrondies, découpes) ; aire en carreaux, sans les yeux, la bouche, le nez et les sourcils (π = 355113).</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Le carré et le rectangle</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un carré de 144 cm² et un rectangle ont des diagonales égales ; on superpose une diagonale du rectangle à une diagonale du carré : partie commune 96 cm². Aire du rectangle ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Les briques de Mark Ov</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Briques (<var>a</var> ; <var>b</var> ; <var>c</var>) entières, sans face carrée, avec <var>a</var>² + <var>b</var>² + <var>c</var>² = 3<var>abc</var>. Quatre briques différentes en coin, faces de contact identiques deux à deux. Volume minimal de la plus grosse ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2000, "problemes": [{"num": "1", "titre": "Le X-ième X"}, {"num": "2", "titre": "Les 8 nombres"}, {"num": "4", "titre": "La vieille calculatrice"}, {"num": "5", "titre": "Histoire de billes"}, {"num": "6", "titre": "Le carreleur américain"}, {"num": "7", "titre": "Autoréférence"}, {"num": "8", "titre": "La furibarde"}, {"num": "9", "titre": "Chaîne de dominos"}, {"num": "10", "titre": "Téléphone"}, {"num": "11", "titre": "Le masque inca"}, {"num": "14", "titre": "Le carré et le rectangle"}, {"num": "15", "titre": "Les briques de Mark Ov"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

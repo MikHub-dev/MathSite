@@ -1,0 +1,142 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2015 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2015">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2015</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2015</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2015/29_FFJM%20-%20Quarts_Indiv_Enonces_F.pdf" target="_blank" rel="noopener noreferrer">sujet 2015 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Futoshiki</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Grille 3 × 3 : chaque case contient 1, 2 ou 3, une fois par ligne et par colonne. Le 1 est en haut à gauche ; en ligne 1, la 2<sup>e</sup> case est plus petite que la 3<sup>e</sup> ; en ligne 3, la 1<sup>re</sup> est plus petite que la 2<sup>e</sup>.</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Autoréférence</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre phrases, dont au moins une vraie : 1. Exactement une est fausse. 2. Exactement deux sont fausses. 3. Exactement trois sont fausses. 4. Exactement trois sont vraies. Lesquelles sont vraies ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Le cadenas</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le code est un nombre de trois chiffres qui ne commence pas par 0. En lui ajoutant 3, la somme des chiffres du résultat vaut le tiers de celle du code. Quel est le code ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Deux arcs de cercle</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un arc de 45° sur le cercle d’Alain a la même longueur qu’un arc de 30° sur celui de Béatrice. Le disque d’Alain a une aire de 60 cm². Quelle est l’aire du disque de Béatrice ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Le limaçon magique</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Écrire dans certaines cases d’une grille 5 × 5 en spirale un chiffre de 1 à 3 : chaque chiffre une fois exactement par ligne et par colonne ; le 1 est à l’entrée ; en suivant la spirale jusqu’au centre, on lit 1, 2, 3, 1, 2, 3…</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Les nombres de l’année</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce"><var>x</var> entier naturel, <var>y</var> et <var>z</var> réels strictement positifs avec <var>xz</var> + <var>yz</var> = 20 et <var>x</var> + <var>y</var> + <var>z</var> = 15. Combien vaut <var>x</var> ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Moyenne de carrés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">La moyenne des carrés de 1 à 77 vaut 2015. Combien d’entiers positifs inférieurs à 2015 sont égaux à la moyenne des carrés de 1 à <var>n</var> pour un certain <var>n</var> ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Le nombre du bonheur</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un nombre de 4 chiffres égal à la somme des puissances quatrièmes de ses chiffres.</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Les polygones de Pytha Gore</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois polygones réguliers inscrits dans un même cercle ; l’un a deux fois plus de côtés qu’un autre. Leurs côtés forment un triangle rectangle. Donner les trois nombres de côtés.</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2015, "problemes": [{"num": "1", "titre": "Futoshiki"}, {"num": "3", "titre": "Autoréférence"}, {"num": "10", "titre": "Le cadenas"}, {"num": "12", "titre": "Deux arcs de cercle"}, {"num": "14", "titre": "Le limaçon magique"}, {"num": "15", "titre": "Les nombres de l’année"}, {"num": "16", "titre": "Moyenne de carrés"}, {"num": "17", "titre": "Le nombre du bonheur"}, {"num": "18", "titre": "Les polygones de Pytha Gore"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

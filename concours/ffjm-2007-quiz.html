@@ -1,0 +1,182 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2007 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2007">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2007</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2007</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2007/21_Quarts_ind.pdf" target="_blank" rel="noopener noreferrer">sujet 2007 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Les carreaux de Caroline</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Des carreaux carrés sont partagés par leurs diagonales en quatre triangles, blancs ou gris. Six carreaux tous différents (on peut les tourner) ; cinq sont dessinés. Dessiner le sixième.</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · La bonne réponse</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathias donne le nombre de lettres de l’expression au lieu du résultat : trois plus dix, trois fois cinq, quatre fois quatre, deux plus neuf. Une fois, c’est juste. Laquelle ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Le satellite</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un cube plein porte une lampe à chacun de ses 8 sommets. Combien de lampes peut-on voir en même temps, au maximum ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Le sapin</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Découper le sapin (12 petits triangles en pointillé) en quatre parties superposables.</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Les nombres de l’année</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec les chiffres 2, 0, 0, 7, combien de nombres différents à quatre chiffres (pas de 0 en tête) ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Les choristes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">La semaine dernière, deux filles absentes : autant de garçons que de filles. Aujourd’hui, tout le monde est là et trois nouvelles filles arrivent : deux fois plus de filles que de garçons. Combien de filles aujourd’hui ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Barrons, barrons</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On écrit 123456789101112…2930 (51 chiffres) et on barre 44 chiffres pour que le nombre restant soit le plus grand possible.</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Inflation</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le prix payé (entier, &lt; 100 €) est le prix de la veille, augmenté de 20 %, et a les mêmes chiffres que lui, intervertis. Quel est ce prix ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Eux ou lui</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cryptarithme LUI + LUI + LUI + LUI = EUX ; les chiffres de LUI sont croissants. Que vaut LUI ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Les momies</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une pyramide de lettres (M ; O M I ; M O M I E). Compter les trajets qui lisent MOMIE, en passant d’une case à une voisine (côté ou coin), sans repasser par une case.</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Les montres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une montre avance de 3 min par heure, l’autre retarde de 5 min par heure ; mises à l’heure ensemble ce matin. En fin de journée, l’une marque 15 h 55 et l’autre 17 h 07. À quelle heure les avait-on réglées ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · De 1 à 16</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Compléter la grille 4 × 4 (six nombres donnés) avec 1 à 16 : deux cases qui se touchent (côté ou coin) diffèrent d’au moins 3 ; dans une ligne ou une colonne, aucun nombre n’est la somme de deux autres.</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Enlève allumettes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un quadrillage 4 × 4 fait de 40 allumettes. Combien faut-il en enlever, au minimum, pour qu’il ne reste plus aucun rectangle (carrés compris) ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Auto-commentaire</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois lignes A, B, C de 10 chiffres (1, 2 ou 3). B décrit A (« un 3, … »), C décrit B, A décrit C ; deux commentaires consécutifs portent sur des chiffres différents ; on ne garde que les 10 premiers chiffres. Débuts donnés : A = 3 1…, B = 1 3…, C = 1 1 1 3…</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2007, "problemes": [{"num": "1", "titre": "Les carreaux de Caroline"}, {"num": "2", "titre": "La bonne réponse"}, {"num": "3", "titre": "Le satellite"}, {"num": "4", "titre": "Le sapin"}, {"num": "6", "titre": "Les nombres de l’année"}, {"num": "7", "titre": "Les choristes"}, {"num": "8", "titre": "Barrons, barrons"}, {"num": "9", "titre": "Inflation"}, {"num": "10", "titre": "Eux ou lui"}, {"num": "11", "titre": "Les momies"}, {"num": "12", "titre": "Les montres"}, {"num": "14", "titre": "De 1 à 16"}, {"num": "15", "titre": "Enlève allumettes"}, {"num": "16", "titre": "Auto-commentaire"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

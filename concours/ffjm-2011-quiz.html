@@ -1,0 +1,182 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2011 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2011">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2011</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2011</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2011/25_Quarts_ind_enonces_F.pdf" target="_blank" rel="noopener noreferrer">sujet 2011 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Chocolat</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq morceaux de 3, 4, 6, 10 et 11 carrés. Sans casser de morceau, Mathilde donne le même nombre de carrés à Mathias et à Matthieu et mange le reste. Combien en a-t-elle mangé ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Palindrome</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les dates s’écrivent jjmmaaaa. Le 1<sup>er</sup> février 2010 s’écrit 01022010, palindrome. Quelle sera la prochaine date palindrome ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Le poisson</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Parmi six formes dessinées sur quadrillage, laquelle a la même aire que le poisson ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · L’âge de Mathias</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathias a deux sœurs plus jeunes. Le produit des trois âges vaut 396 et leur somme 23. Quel est l’âge de Mathias ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Les timbres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Six timbres : 3, 3, 5, 5, 9 et 9 ludos. Avec au plus quatre timbres, Mathilde fait toutes les sommes de 8 à 26 sauf une. Laquelle ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Au musée</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">En 2010, un gardien travaille les jours pairs du mois, tous les mercredis et tous les samedis. Combien de jours successifs aura-t-il travaillé, au maximum ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Les sept baguettes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec sept baguettes de 2, 4, 6, 7, 8, 9 et 10 cm, posées bout à bout, on dessine un rectangle. Quelle est sa longueur ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Les trente segments</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathilde trace trente segments distincts et compte les points qui sont l’extrémité d’au moins un segment. Combien de points au minimum ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Les cent multiples</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathilde écrit les 100 premiers multiples de 2010 en lettres et les range par ordre alphabétique. Quelle est la première étiquette (en chiffres) ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Quelle heure est-il ?</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Entre 10 h 15 et 10 h 30, les deux aiguilles sont exactement alignées (de part et d’autre du centre). Quelle heure est-il ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Bon jeu !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">2011 + BON + JEU = MATH ; chaque lettre est un chiffre, lettres différentes chiffres différents, pas de zéro en tête. Valeur maximale de MATH ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Qui perd triple</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">À chaque tour, un perdant triple la somme de chacun des deux autres. S’il ne peut pas, la partie s’arrête. À un moment, Anatole a 243 €, Béatrice 81 €, Camille 3 €. Combien de fois chacun a-t-il lancé les dés, au maximum ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · L’âge de Matt Usalem</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un grand-père de plus de 80 ans et moins de 150 ans, et deux petits-enfants d’âges différents : le produit des trois âges est égal à la somme de leurs carrés. Quel est l’âge du grand-père ?</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · La forêt de Triena</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un triangle a pour côtés trois entiers consécutifs ; la hauteur relative au côté moyen est entière et supérieure à 2010 m. Aire minimale ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2011, "problemes": [{"num": "2", "titre": "Chocolat"}, {"num": "4", "titre": "Palindrome"}, {"num": "5", "titre": "Le poisson"}, {"num": "6", "titre": "L’âge de Mathias"}, {"num": "7", "titre": "Les timbres"}, {"num": "8", "titre": "Au musée"}, {"num": "9", "titre": "Les sept baguettes"}, {"num": "10", "titre": "Les trente segments"}, {"num": "11", "titre": "Les cent multiples"}, {"num": "12", "titre": "Quelle heure est-il ?"}, {"num": "13", "titre": "Bon jeu !"}, {"num": "14", "titre": "Qui perd triple"}, {"num": "17", "titre": "L’âge de Matt Usalem"}, {"num": "18", "titre": "La forêt de Triena"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

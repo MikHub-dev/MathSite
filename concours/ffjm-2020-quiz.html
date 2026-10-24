@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2020 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2020">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2020</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2020</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2020/Quartsdefinale2020couleur.pdf" target="_blank" rel="noopener noreferrer">sujet 2020 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · La bande des six</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Six disques forment un anneau. On y place les nombres de 1 à 6 (le 1 est déjà placé) de sorte que deux disques voisins aient une somme égale à 6, 7 ou 8. Quel nombre va dans la case grisée, opposée au 1 ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Triple exigence</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une grille 3 × 3 contient 1, 2, 3 écrits de trois façons : chiffres indo-arabes, chiffres romains, faces de dé. Chaque ligne et chaque colonne contient les trois valeurs et les trois écritures. Données : en haut à gauche 1 (indo-arabe), en haut à droite III (romain), en bas à gauche un dé à 3 points. Que contient la case grisée, en bas à droite ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Échange de cavaliers</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sur un mini-échiquier en forme de croix (12 cases), deux cavaliers noirs sont à gauche (a2, a3) et deux blancs à droite (d2, d3). En combien de mouvements au minimum peut-on les échanger ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Le dé de Mathilde</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois vues d’un même dé (dessus, avant, droite) : (1 ; 6 ; 4), (5 ; 4 ; 2), (2 ; 3 ; 5). Les faces opposées ne font pas forcément 7. Quel est le nombre de points sur la face du dessous de la vue de droite ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Une année heureuse</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quelle est la prochaine année après 2020 dont la somme des chiffres vaut 7 et qui est divisible par 7 ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Les couleurs</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dix sommets (un pentagone, une étoile à l’intérieur, et cinq rayons) doivent être coloriés pour que deux sommets reliés n’aient jamais la même couleur. Combien de couleurs au minimum ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Etadate</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une date s’écrit en 8 chiffres JJMMAAAA (02022020 pour le 2 février 2020). Une date palindrome se lit de la même façon dans les deux sens. Quelle sera la dernière date palindrome du millénaire (2001 à 3000) ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · La combinaison</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trouver la combinaison de quatre chiffres sachant que : 3-4-7-6 a trois chiffres communs avec elle, tous bien placés ; 3-5-6-8 en a deux, un bien placé et un mal placé ; 3-5-7-8 en a deux, bien placés ; 9-6-4-3 en a trois, tous mal placés.</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Deux fois OOUUI</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">(OUI)² = 2 × OOUUI. Une même lettre remplace toujours le même chiffre et deux lettres différentes deux chiffres différents. Que vaut OUI ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Deux fois trois</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Six nombres différents sont écrits autour d’un cercle. Chacun est le produit de ses deux voisins. Trois sont entiers, les trois autres sont des fractions de numérateur 1. Quelle est la somme des six nombres, sachant qu’elle est entière ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Les pions tricolores</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Six jetons : 2 bleus (1 point), 2 verts (2 points), 2 rouges (3 points), tous distincts. On en tire deux sans remise ; l’ordre compte. De combien de façons obtient-on au moins 4 points ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Aires et périmètres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un rectangle de périmètre 65 cm est découpé en 3 × 3 rectangles. Les périmètres des rectangles du milieu de chaque bord sont 14 cm (haut), 18 cm (bas), 28 cm (gauche), 26 cm (droite). Les quatre coins (grisés) ont une aire totale de 120 cm². Quelle est l’aire du rectangle central ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2020, "problemes": [{"num": "1", "titre": "La bande des six"}, {"num": "2", "titre": "Triple exigence"}, {"num": "3", "titre": "Échange de cavaliers"}, {"num": "4", "titre": "Le dé de Mathilde"}, {"num": "6", "titre": "Une année heureuse"}, {"num": "7", "titre": "Les couleurs"}, {"num": "8", "titre": "Etadate"}, {"num": "10", "titre": "La combinaison"}, {"num": "11", "titre": "Deux fois OOUUI"}, {"num": "12", "titre": "Deux fois trois"}, {"num": "13", "titre": "Les pions tricolores"}, {"num": "15", "titre": "Aires et périmètres"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

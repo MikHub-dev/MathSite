@@ -1,0 +1,174 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2026 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2026">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2026</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2026</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/Championnat%202026/QF2026_Fran%C3%A7ais.pdf" target="_blank" rel="noopener noreferrer">sujet 2026 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Le défi du chocolatier</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une boîte carrée de 7 cm de côté doit recevoir des chocolats carrés de 2 cm de côté, posés à plat, sans empilement, entièrement dans la boîte. Combien de chocolats au maximum ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Le chapeau de l&#x27;année</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le « chapeau » est formé de trois triangles. La somme des trois nombres placés aux sommets de chaque triangle doit valoir 26. Il faut placer 7, 8, 9 et 11 dans les quatre cases vides (12, 6 et 10 sont déjà placés).</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Tirelire</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Tom a 26 centimes en pièces de 5, 2 et 1 centime, avec au moins une pièce de chaque sorte. Combien de pièces a-t-il au minimum ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les intrus</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq nombres sont écrits en chiffres « digitaux » (7 segments) : 15182, 18152, 28151, 58121, 58151. Trois d'entre eux se déduisent l'un de l'autre en tournant la carte (rotation) ou en la retournant (symétrie). Quels sont les deux intrus ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Noël a trop par rapport à Léon</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Noël a 2026 mathsous, Léon 206. Noël donne des mathsous à Léon, et il lui en reste encore deux fois plus que Léon. Combien Noël a-t-il donné ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Ma recette</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">La recette d'œufs brouillés pour 4 personnes demande 60 g de beurre, 12 œufs et 6 cuillères à soupe de lait. On n'a que 10 œufs. Combien de beurre et de lait faut-il pour respecter les proportions ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · À la chasse aux œufs</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre poules : la première pond tous les jours, la deuxième tous les deux jours, la troisième tous les trois jours, la quatrième tous les quatre jours. Le 1<sup>er</sup> octobre, Claude a ramassé 4 œufs pondus le jour même. Quel jour pourra-t-il de nouveau en ramasser 4 ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Le train mexicain</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les dominos sont tous différents et chaque demi-domino porte de 0 à 10 points. Max n'utilise que les dominos dont au moins un côté porte 0, 2 ou 6. Il veut la plus longue suite possible en respectant la règle : deux demi-dominos qui se touchent portent le même nombre. Combien de dominos au maximum ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Les dates d&#x27;Annie Versaire</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Annie a coché douze dates en 2025 : le 1<sup>er</sup> janvier, le 2 février, le 3 mars, le 5 avril, le 7 mai… Ces dates sont formées, dans l'ordre, du nombre 1 suivi des nombres premiers consécutifs. Quelle date sera cochée en décembre ? (Répondre 0 si c'est impossible.)</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Diviseurs</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">24 et son « retourné » 42 ont un diviseur commun différent de 1 (par exemple 6). Combien de paires de nombres à deux chiffres AB et BA, avec A et B chiffres différents et non nuls, ont au moins un diviseur positif commun différent de 1 ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · L&#x27;escalier roulant</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Immobile sur la première marche d'un escalier roulant qui descend, Mathias met 25 s pour arriver en bas. En descendant les marches à allure constante, il ne met que 10 s. S'il prend l'escalier à contresens, combien de temps mettra-t-il pour arriver en haut, sachant que sur un escalier fixe sa vitesse en montée vaut les 4/5 de sa vitesse en descente ? (Répondre 0 s'il ne peut pas arriver en haut.)</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Jetons à retourner</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un plateau 3 × 3 porte neuf jetons, blancs d'un côté et noirs de l'autre. Un coup consiste à retourner trois jetons alignés : sur une même ligne, une même colonne ou une des deux diagonales. Le but est que tous les jetons montrent leur face noire. Combien de coups au minimum pour la position d'Amel et pour celle de Sofia ? (0 si c'est impossible.)</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Rapporteur</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le rapporteur de Mathilde est un demi-disque de 12 cm de diamètre. On veut le ranger à plat dans une boîte carrée. Quelle est, au minimum, la longueur du côté de cette boîte ? (Prendre 1,4142 pour √2, arrondir au centième.)</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2026, "problemes": [{"num": "1", "titre": "Le défi du chocolatier"}, {"num": "2", "titre": "Le chapeau de l'année"}, {"num": "3", "titre": "Tirelire"}, {"num": "4", "titre": "Les intrus"}, {"num": "5", "titre": "Noël a trop par rapport à Léon"}, {"num": "6", "titre": "Ma recette"}, {"num": "7", "titre": "À la chasse aux œufs"}, {"num": "8", "titre": "Le train mexicain"}, {"num": "9", "titre": "Les dates d'Annie Versaire"}, {"num": "10", "titre": "Diviseurs"}, {"num": "12", "titre": "L'escalier roulant"}, {"num": "13", "titre": "Jetons à retourner"}, {"num": "14", "titre": "Rapporteur"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

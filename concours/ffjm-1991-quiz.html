@@ -1,0 +1,134 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 1991 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a1991">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 1991</span>
+  <h1>Quiz des <span class="ink">patterns</span> 1991</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ1991/quart%20finale.pdf" target="_blank" rel="noopener noreferrer">sujet 1991 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Eh ! les gants !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans le noir, on tire au hasard dans un tiroir qui contient 3 paires de chaussettes bleues, 3 paires rouges, 5 paires de gants marron et 5 paires jaunes, sans distinguer un gant d’une chaussette. Combien d’éléments faut-il sortir au minimum pour être certain d’avoir une paire de chaussettes assorties et une paire de gants assortis ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · La revue aérienne</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une formation parfaite est un triangle d’avions (1, 3, 6, 10… avions). Une démonstration est une formation parfaite qui se sépare en deux formations parfaites de même taille. Combien d’avions, sachant qu’il y en a nettement plus de 6 et moins de 1991 ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Jean de La Fontaine</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec une cruche de 8 pintes et une de 11, rapporter exactement 15 pintes. Chaque remplissage, chaque vidage et chaque transvasement coûte un écu. Coût minimal ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les régions</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">1 droite partage la feuille en 2 régions, 2 droites sécantes en 4, 3 droites en 7. Combien de régions, au plus, avec 100 droites ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Le facteur X</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le facteur part de A (sortie de la poste), arrive en B (entrée) et doit passer devant les 24 maisons du plan. Blocs de 200 m, rues de largeur négligeable. Longueur minimale du trajet ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Le lièvre et la tortue</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Piste en huit (deux arcs de trois quarts de cercle et les deux diagonales d’un carré qui se coupent au carrefour). Tortue et lièvre partent du carrefour par deux diagonales différentes ; le lièvre va 363 fois plus vite. Après 1991 rencontres (dépassements ou croisements au carrefour), le lièvre abandonne. Combien de croisements au carrefour ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Le pantalon d’Achille</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Veste, pantalon et chemise : trois prix entiers en francs, écrits avec neuf chiffres tous différents. La veste vaut le double de la chemise, le total fait 1991 F. Prix du pantalon ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Quel punch !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un planteur de 60 cl devrait contenir sirop, rhum et jus d’orange dans les proportions 1, 2, 3. Il a la bonne quantité de jus d’orange. L’expert boit un verre et le remplace par un verre de sirop, boit un verre et le remplace par du rhum, boit un verre et le remplace par du jus d’orange : le mélange est alors parfait. Capacité du verre au dixième de cl ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 1991, "problemes": [{"num": "1", "titre": "Eh ! les gants !"}, {"num": "2", "titre": "La revue aérienne"}, {"num": "3", "titre": "Jean de La Fontaine"}, {"num": "4", "titre": "Les régions"}, {"num": "5", "titre": "Le facteur X"}, {"num": "6", "titre": "Le lièvre et la tortue"}, {"num": "7", "titre": "Le pantalon d’Achille"}, {"num": "8", "titre": "Quel punch !"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

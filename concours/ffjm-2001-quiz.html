@@ -1,0 +1,126 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2001 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2001">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2001</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2001</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2001/%C3%87nonc%C3%87-15e%20Championnat%20International%20des%20Jeux%20Math%C3%87matiques%20et%20Logiques.pdf" target="_blank" rel="noopener noreferrer">sujet 2001 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Les dix verres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dix verres (gobelets et verres à pied, en alternance). Trois contiennent du jus de pomme (clair), deux du jus de raisin (foncé). À la fin, seuls les cinq verres de droite contiennent du jus, et deux verres de même forme contiennent le même jus. Une manipulation : vider un verre dans un verre vide. Combien au minimum ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Rangement pénible</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Combien de pièces en forme de croix (6 carreaux) peut-on ranger à plat, au maximum, dans une boîte 11 × 8 ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Les cinq nombres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq disques (4 coins d’un carré, 1 au centre) ; chaque segment porte la somme des deux disques qu’il relie : 30, 36, 36, 42 sur les côtés, 24, 28, 34, 30 vers le centre.</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Un château médiéval</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le rempart a 8 murs de 10, 20, 30, 40, 50, 60, 80 et 110 m ; chaque mur est perpendiculaire à ses voisins. Aire maximale du domaine, en dam² ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · La petite grenouille et les pavés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">20 pavés entre D et A. La grenouille avance toujours, peut tout sauter d’un coup, mais ne saute jamais d’un pavé au pavé voisin. Nombre de parcours ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Cadres autoréférents</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">A : « Le cadre A contient … lettres de moins que le cadre B. » B : « … de moins que le cadre C. » C : « Le cadre C contient … lettres de moins que n’en contiennent les cadres A et B ensemble. » Compléter en toutes lettres.</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Le cerf-volant aux 4 lunules</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quadrilatère inscrit dans un cercle, côtés entiers tous différents ; sur chaque côté, une lunule (demi-disque extérieur moins le segment de cercle). La somme des lunules égale l’aire du quadrilatère. Aire minimale ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2001, "problemes": [{"num": "1", "titre": "Les dix verres"}, {"num": "3", "titre": "Rangement pénible"}, {"num": "8", "titre": "Les cinq nombres"}, {"num": "11", "titre": "Un château médiéval"}, {"num": "14", "titre": "La petite grenouille et les pavés"}, {"num": "15", "titre": "Cadres autoréférents"}, {"num": "16", "titre": "Le cerf-volant aux 4 lunules"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

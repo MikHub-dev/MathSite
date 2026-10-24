@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2017 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2017">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2017</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2017</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2017/1_4individuels2017-couleur.pdf" target="_blank" rel="noopener noreferrer">sujet 2017 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Les chemins des maths</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans une grille d’hexagones, on lit MATHS en passant d’une case à une case voisine. Il y a un M, deux A, trois T, deux H et un S. Combien de chemins différents permettent de lire le mot ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Les carrés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un réseau de 4 × 3 points. En reliant quatre points, combien de carrés peut-on former, de toutes tailles et orientations ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · La bande des neuf</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Chaque rond contient un chiffre de 1 à 9, tous différents (8 et 1 sont donnés). Sur chacun des six alignements de deux ou trois ronds, la somme vaut 14. Compléter la grille.</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Le numérotage des pages</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathilde numérote les pages de son cahier à partir de 1. Elle a écrit exactement 21 chiffres de plus que le nombre de pages. Combien de pages ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Les trois dominos</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois dominos : 3|2, 1|1 et 1|0. En les juxtaposant (on peut les retourner), combien de nombres de six chiffres différents peut-on former ? Un nombre ne commence pas par 0.</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Garçons et filles</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">À la rentrée, exactement 3 élèves sur 7 étaient des filles. Puis quatre nouvelles filles sont arrivées : il y a alors autant de garçons que de filles. Combien de garçons ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Les carrés semi-magiques</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans un carré semi-magique formé avec 1 à 9, chaque ligne et chaque colonne fait 15, mais pas forcément les diagonales. Quel est le maximum du total des deux diagonales ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Un cryptarithme</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">AAD + EMTI = FFJM. Chaque lettre représente un chiffre de 1 à 8, deux lettres différentes des chiffres différents. Que vaut FFJM ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · L’anniversaire</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dates possibles : 15, 16, 19 mai ; 17, 18 juin ; 14, 16 juillet ; 14, 15, 17 août. Julie connaît le jour, Manon le mois. Manon : « Je ne sais pas, et je sais que tu ne sais pas non plus. » Julie : « Je ne savais pas, mais maintenant je sais. » Manon : « Alors je sais aussi. » Quelle est la date ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Devine labyrinthe</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sur les lignes intérieures d’une grille 5 × 5, on dessine des murs. Les nombres en bord indiquent le nombre de murs sur certaines lignes (2 sur la 2<sup>e</sup> ligne verticale, 1 sur la 1<sup>re</sup> ligne horizontale, 0 sur la 3<sup>e</sup>). On doit aller de D (en bas à gauche) à A (en haut à droite) en passant par toutes les cases, en traversant une fois et une seule chaque côté de case qui n’est ni un mur ni un bord. Dessiner les murs.</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Entre chien et chat</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">L’arbre est à 8 m de la niche. Une haie droite passe à 4 m de l’arbre et 12 m de la niche. Les écureuils restent à 8 m au plus de l’arbre, au moins 8 m de la niche, sans traverser la haie. Quelle est l’aire de leur zone ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Palindromie carrée</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On calcule 0² + 1² + 2² + … On s’arrête dès qu’on vient d’ajouter le carré d’un palindrome d’au moins deux chiffres et que la somme est aussi un palindrome. Quel est le dernier carré ajouté ?</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2017, "problemes": [{"num": "1", "titre": "Les chemins des maths"}, {"num": "2", "titre": "Les carrés"}, {"num": "3", "titre": "La bande des neuf"}, {"num": "4", "titre": "Le numérotage des pages"}, {"num": "5", "titre": "Les trois dominos"}, {"num": "7", "titre": "Garçons et filles"}, {"num": "8", "titre": "Les carrés semi-magiques"}, {"num": "10", "titre": "Un cryptarithme"}, {"num": "11", "titre": "L’anniversaire"}, {"num": "12", "titre": "Devine labyrinthe"}, {"num": "16", "titre": "Entre chien et chat"}, {"num": "17", "titre": "Palindromie carrée"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

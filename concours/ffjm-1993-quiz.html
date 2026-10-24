@@ -1,0 +1,174 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 1993 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a1993">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 1993</span>
+  <h1>Quiz des <span class="ink">patterns</span> 1993</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ1993/quart%20finale.pdf" target="_blank" rel="noopener noreferrer">sujet 1993 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="pA">
+        <span class="pb-num" aria-hidden="true">A</span>
+        <div class="pb-body">
+          <h3>Problème A · Sûr de gagner !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">50 billets gagnants et 50 perdants. Combien en acheter pour être certain d’avoir au moins un gagnant ?</p></details>
+          <div class="choix"><label for="sA">Pattern</label><select id="sA" data-pb="A"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pB">
+        <span class="pb-num" aria-hidden="true">B</span>
+        <div class="pb-body">
+          <h3>Problème B · Quatre-vingt-treize</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec la nouvelle orthographe (traits d’union partout : vingt-et-un…), combien de traits d’union pour écrire tous les nombres de 1 à 93 ?</p></details>
+          <div class="choix"><label for="sB">Pattern</label><select id="sB" data-pb="B"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pC">
+        <span class="pb-num" aria-hidden="true">C</span>
+        <div class="pb-body">
+          <h3>Problème C · Le partage équitable</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Partager un champ carré de 4 × 4 en 4 parcelles de même forme, contenant chacune autant d’arbres (8 arbres).</p></details>
+          <div class="choix"><label for="sC">Pattern</label><select id="sC" data-pb="C"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pE">
+        <span class="pb-num" aria-hidden="true">E</span>
+        <div class="pb-body">
+          <h3>Problème E · La maison du golf</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une maison a 18 ouvertures (portes et fenêtres) ; chaque pièce a 2 ouvertures vers l’extérieur et 2 vers d’autres pièces. Nombre de pièces ?</p></details>
+          <div class="choix"><label for="sE">Pattern</label><select id="sE" data-pb="E"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Nestor le chanceux</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Nestor est né le samedi 13 septembre 1980 ; combien de vendredis 13 aura-t-il connus le lundi 13 septembre 1993 ? (Problème D des écoliers.)</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Que de neuf !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un nombre de 1 993 chiffres multiplié par 7 donne un nombre fait de 9, sauf le dernier chiffre. Quel est ce dernier chiffre ? (Problème F des écoliers.)</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Autoréférence littérale mutuelle</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">A : « La phrase B contient … voyelles. » B : « La phrase A contient … consonnes. » Compléter en toutes lettres pour que les deux soient vraies.</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les calissons d’X</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Ranger 12 calissons (losanges) dans une boîte hexagonale de côté 2 ; les rotations de la boîte ne comptent pas (la mini-boîte de côté 1 a un seul rangement).</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Le jeu du retourne-verre</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq verres : 1, 3, 5 à l’envers, 2 et 4 à l’endroit. Un coup : remettre un verre à l’endroit, ou inverser deux verres dont celui de droite passe de l’envers à l’endroit. Gagne celui qui met tout à l’endroit. Quel coup joue-t-on ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Les couleurs de la discorde</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Seize pays (anneau extérieur, deux anneaux de 7 pays, centre) ; quatre couleurs, deux voisins de couleurs différentes ; rouge, jaune et vert déjà choisis. Compléter et dire combien de solutions.</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Échange : le bon procédé</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Bande de 11 cases, pions 1 à 10, case de gauche libre. Glissements vers une case voisine libre et sauts par-dessus un pion. Nombre minimal de mouvements pour inverser l’ordre (case de gauche libre à la fin) ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Le code secret</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Machine : 0X0 affiche X ; si X affiche Y, alors 2X affiche YY, 1X affiche Y renversé, 9X affiche 0Y. Le coffre s’ouvre si l’affichage est égal au nombre tapé. Plus petite combinaison ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Comme la Lune</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Triangle équilatéral DJM ; point W intérieur avec WD = 57, WJ = 65, WM = 73. Côté du triangle ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 1993, "problemes": [{"num": "A", "titre": "Sûr de gagner !"}, {"num": "B", "titre": "Quatre-vingt-treize"}, {"num": "C", "titre": "Le partage équitable"}, {"num": "E", "titre": "La maison du golf"}, {"num": "1", "titre": "Nestor le chanceux"}, {"num": "2", "titre": "Que de neuf !"}, {"num": "3", "titre": "Autoréférence littérale mutuelle"}, {"num": "4", "titre": "Les calissons d’X"}, {"num": "5", "titre": "Le jeu du retourne-verre"}, {"num": "6", "titre": "Les couleurs de la discorde"}, {"num": "7", "titre": "Échange : le bon procédé"}, {"num": "11", "titre": "Le code secret"}, {"num": "12", "titre": "Comme la Lune"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

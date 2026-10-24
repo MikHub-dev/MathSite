@@ -1,0 +1,182 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 1990 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a1990">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 1990</span>
+  <h1>Quiz des <span class="ink">patterns</span> 1990</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ1990/quart%20finale.pdf" target="_blank" rel="noopener noreferrer">sujet 1990 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="pC2">
+        <span class="pb-num" aria-hidden="true">C2</span>
+        <div class="pb-body">
+          <h3>Problème C2 · Le chiffre de naissance</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le chiffre de naissance s’obtient en ajoutant le jour et le mois, puis en additionnant les chiffres jusqu’à n’en garder qu’un. Sur une année non bissextile, quels sont les 2 chiffres de naissance les plus fréquents ?</p></details>
+          <div class="choix"><label for="sC2">Pattern</label><select id="sC2" data-pb="C2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pC3">
+        <span class="pb-num" aria-hidden="true">C3</span>
+        <div class="pb-body">
+          <h3>Problème C3 · Le carré incomplet</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Compléter un tableau 3 × 3 (12 au milieu de la première ligne, 8 en bas à droite) avec des entiers strictement positifs, de sorte que dans chaque ligne, colonne et diagonale, le nombre du milieu soit la moyenne des deux autres. Nombre de solutions ?</p></details>
+          <div class="choix"><label for="sC3">Pattern</label><select id="sC3" data-pb="C3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pC4">
+        <span class="pb-num" aria-hidden="true">C4</span>
+        <div class="pb-body">
+          <h3>Problème C4 · L’architecte</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Partager le lotissement (une croix de 40 carreaux : rectangle 8 × 4 et deux rectangles 4 × 1 au-dessus et au-dessous du milieu) en 8 parcelles d’un seul tenant, superposables à un retournement près, faites de carreaux entiers.</p></details>
+          <div class="choix"><label for="sC4">Pattern</label><select id="sC4" data-pb="C4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pC6">
+        <span class="pb-num" aria-hidden="true">C6</span>
+        <div class="pb-body">
+          <h3>Problème C6 · Triangle patriotique</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Colorier les 9 petits triangles d’un triangle de côté 3 en bleu, blanc ou rouge, deux zones à côté commun de couleurs différentes, 3 zones de chaque couleur. Les figures qui se déduisent l’une de l’autre en tournant ou en retournant ne comptent qu’une fois. Combien de figures ?</p></details>
+          <div class="choix"><label for="sC6">Pattern</label><select id="sC6" data-pb="C6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pL3">
+        <span class="pb-num" aria-hidden="true">L3</span>
+        <div class="pb-body">
+          <h3>Problème L3 · Rien à déclarer ?</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">À chacune des 5 frontières, la douane confisque le tiers du chargement plus le tiers d’une caisse, sans jamais ouvrir de caisse. Plus petit nombre de caisses au départ ?</p></details>
+          <div class="choix"><label for="sL3">Pattern</label><select id="sL3" data-pb="L3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pL5">
+        <span class="pb-num" aria-hidden="true">L5</span>
+        <div class="pb-body">
+          <h3>Problème L5 · Les derniers seront les premiers</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On déplace les deux derniers chiffres de <var>X</var> au début ; on veut obtenir 2<var>X</var>. Somme des chiffres du plus petit <var>X</var> ?</p></details>
+          <div class="choix"><label for="sL5">Pattern</label><select id="sL5" data-pb="L5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pLC1">
+        <span class="pb-num" aria-hidden="true">LC1</span>
+        <div class="pb-body">
+          <h3>Problème LC1 · Mon quartier</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un quartier rectangulaire est coupé par deux rues perpendiculaires en 4 pâtés rectangulaires. Les 4 rectangles formés de deux pâtés voisins ont pour périmètres 600, 700, 800 et 900 m. Périmètre du quartier ?</p></details>
+          <div class="choix"><label for="sLC1">Pattern</label><select id="sLC1" data-pb="LC1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pLC2">
+        <span class="pb-num" aria-hidden="true">LC2</span>
+        <div class="pb-body">
+          <h3>Problème LC2 · L’hexagone magique</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un hexagone de 19 cases contient les entiers de 1 à 19 ; dans les 15 rangées (trois directions), les sommes sont égales. On connaît 14, 13, 1, 18 et 17. Reconstituer l’hexagone.</p></details>
+          <div class="choix"><label for="sLC2">Pattern</label><select id="sLC2" data-pb="LC2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pLC5">
+        <span class="pb-num" aria-hidden="true">LC5</span>
+        <div class="pb-body">
+          <h3>Problème LC5 · Le ravitaillement</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois pistes forment un triangle équilatéral ; sur chacune, le poste est le pied de la perpendiculaire issue du QG (intérieur). Postes à 4 km de Brulissimo, 7 km de Célenferre, 1 km d’Akilfécho. Somme des distances du QG aux postes, au mètre ?</p></details>
+          <div class="choix"><label for="sLC5">Pattern</label><select id="sLC5" data-pb="LC5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pLC6">
+        <span class="pb-num" aria-hidden="true">LC6</span>
+        <div class="pb-body">
+          <h3>Problème LC6 · Carré de six</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un nombre s’écrit avec 1990 chiffres 6. Somme des chiffres de son carré ?</p></details>
+          <div class="choix"><label for="sLC6">Pattern</label><select id="sLC6" data-pb="LC6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pG1">
+        <span class="pb-num" aria-hidden="true">G1</span>
+        <div class="pb-body">
+          <h3>Problème G1 · Un bon chrétien</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une année de naissance est paire, et diminuée de 1, 2, 3, 4 elle est divisible par 3, 5, 7, 11. Quelle année, sachant que l’ancêtre était un bon chrétien ?</p></details>
+          <div class="choix"><label for="sG1">Pattern</label><select id="sG1" data-pb="G1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pG3">
+        <span class="pb-num" aria-hidden="true">G3</span>
+        <div class="pb-body">
+          <h3>Problème G3 · Le bal des batraciens</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce"><var>n</var> grenouilles et <var>n</var> crapauds face à face, une place libre entre eux. Chacun avance (glisse ou saute par-dessus un batracien) dans son sens ; un mouvement par seconde. À la fin, ils ont échangé leurs places ; à 3 h, le ballet est fini. Nombre maximal de batraciens ?</p></details>
+          <div class="choix"><label for="sG3">Pattern</label><select id="sG3" data-pb="G3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pG4">
+        <span class="pb-num" aria-hidden="true">G4</span>
+        <div class="pb-body">
+          <h3>Problème G4 · Le cadeau cambodgien</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un pavé à arêtes entières a une aire (en cm²) égale à son volume (en cm³). C’est le plus grand pavé qui a cette propriété. Volume ?</p></details>
+          <div class="choix"><label for="sG4">Pattern</label><select id="sG4" data-pb="G4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pG5">
+        <span class="pb-num" aria-hidden="true">G5</span>
+        <div class="pb-body">
+          <h3>Problème G5 · Les rouges et les noirs</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Damier 100 × 50 de pions noirs (rouges au dos). On retourne des rangées entières. Nombre minimal de retournements pour voir 1990 pions rouges ?</p></details>
+          <div class="choix"><label for="sG5">Pattern</label><select id="sG5" data-pb="G5"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 1990, "problemes": [{"num": "C2", "titre": "Le chiffre de naissance"}, {"num": "C3", "titre": "Le carré incomplet"}, {"num": "C4", "titre": "L’architecte"}, {"num": "C6", "titre": "Triangle patriotique"}, {"num": "L3", "titre": "Rien à déclarer ?"}, {"num": "L5", "titre": "Les derniers seront les premiers"}, {"num": "LC1", "titre": "Mon quartier"}, {"num": "LC2", "titre": "L’hexagone magique"}, {"num": "LC5", "titre": "Le ravitaillement"}, {"num": "LC6", "titre": "Carré de six"}, {"num": "G1", "titre": "Un bon chrétien"}, {"num": "G3", "titre": "Le bal des batraciens"}, {"num": "G4", "titre": "Le cadeau cambodgien"}, {"num": "G5", "titre": "Les rouges et les noirs"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* Version : 1.0 — Quiz des patterns FFJM (pages concours/ffjm-AAAA-quiz.html) */
+:root{--bg:#f4f6f9;--paper:#ffffff;--fg:#1a2130;--muted:#5b6577;--line:#d6dce6;--grid:#c5d1e4;--sec:#1f4fa3;--sec-soft:#e1e9f8;--cin:#17734d;--cin-soft:#dbefe4;--hi:#ffd64a;--hi-soft:#fff2c2;--warn:#c2410c;--warn-soft:#fde3d4;--margin:#d9534f;--on-strong:#ffffff;--font-body:"Literata",Georgia,"Times New Roman",serif;--font-head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--font-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#10141a;--paper:#171c24;--fg:#e4e8ef;--muted:#9ba4b4;--line:#2a3240;--grid:#2e3a4f;--sec:#8fb3ff;--sec-soft:#1b2742;--cin:#6dd3a1;--cin-soft:#12302a;--hi:#8a6a0f;--hi-soft:#39310f;--warn:#ff8a52;--warn-soft:#3d2317;--margin:#e06d6a;--on-strong:#0f131a;color-scheme:dark}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.6}
+a{color:var(--sec)}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--sec);outline-offset:2px;border-radius:4px}
+h1,h2,h3{font-family:var(--font-head);line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0}
+var{font-style:italic;font-family:var(--font-body)}
+sup{line-height:0}
+.wrap{max-width:860px;margin-inline:auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+
+.site{background:var(--paper);border-bottom:1px solid var(--line);font-family:var(--font-head)}
+.site .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding-block:12px}
+.site .logo{font-weight:800;font-size:19px;text-decoration:none;color:var(--sec)}
+.site .retour{margin-left:auto;font-weight:600;font-size:15px;text-decoration:none}
+.site .retour:hover{text-decoration:underline}
+
+.masthead{background-color:var(--paper);background-image:repeating-linear-gradient(0deg,color-mix(in srgb,var(--grid) 45%,transparent) 0 1px,transparent 1px 8px),repeating-linear-gradient(90deg,color-mix(in srgb,var(--grid) 70%,transparent) 0 1px,transparent 1px 8px);border-bottom:1px solid var(--line)}
+.masthead .wrap{padding-block:34px 28px}
+.mast-inner{border-left:2px solid var(--margin);padding-left:22px;display:grid;gap:12px}
+.eyebrow{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.masthead h1{font-size:clamp(30px,6vw,52px);font-weight:800;letter-spacing:-.01em}
+.masthead h1 .ink{color:var(--sec)}
+.lede{font-size:18px;max-width:62ch}
+.steps{margin:0;padding-left:1.2em;max-width:62ch}
+.steps li{margin-block:2px}
+.src{font-size:15px;color:var(--muted)}
+
+main{padding-bottom:110px}
+.bloc{padding-block:30px 6px}
+.bloc>h2{font-size:clamp(23px,3.4vw,30px);font-weight:800;margin-bottom:6px}
+.note{font-size:15px;color:var(--muted)}
+
+/* Rappel des 24 patterns */
+.patterns{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:12px}
+.pat{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;align-items:start;align-content:start}
+.pat-n{font:800 28px/1 var(--font-head);color:var(--sec);min-width:1.4em;font-variant-numeric:tabular-nums}
+.pat h3{font-size:17px;font-weight:700}
+.pat p{grid-column:2;font-size:15px;color:var(--muted);line-height:1.5}
+
+/* Formulaire */
+.nom{display:grid;gap:6px;max-width:420px;margin-top:14px;font-family:var(--font-head)}
+.nom label{font-weight:700}
+.nom input{font:500 18px var(--font-body);padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;background:var(--paper);color:var(--fg)}
+.nom input[aria-invalid="true"]{border-color:var(--warn);background:var(--warn-soft)}
+.err{color:var(--warn);font:600 15px var(--font-head);min-height:1.2em}
+
+.questions{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:14px}
+.pb{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;align-items:start;scroll-margin-top:12px}
+.pb.fait{border-color:var(--cin);background:var(--cin-soft)}
+.pb-num{font:800 38px/1 var(--font-head);min-width:1.3em;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.pb h3{font-size:21px;font-weight:800}
+.pb-body{display:grid;gap:10px;min-width:0}
+.pb details{font-size:15.5px}
+.pb summary{cursor:pointer;color:var(--sec);font-family:var(--font-head);font-weight:600}
+.pb .enonce{margin-top:6px;padding:10px 12px;border:1px dashed color-mix(in srgb,var(--fg) 30%,var(--line));border-radius:8px}
+.choix{display:grid;gap:4px;font-family:var(--font-head)}
+.choix label{font-size:13px;font-family:var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.choix select{font:600 16px var(--font-head);padding:9px 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--paper);color:var(--fg);max-width:100%}
+
+/* Barre du bas */
+.barre{position:fixed;inset:auto 0 0 0;z-index:20;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(6px);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.barre .wrap{display:flex;align-items:center;gap:12px 18px;padding-block:10px;flex-wrap:wrap}
+.compteur{font:600 15px var(--font-head);color:var(--muted);flex:1 1 160px}
+.btn{font:800 17px var(--font-head);padding:11px 26px;border:0;border-radius:999px;background:var(--sec);color:var(--on-strong);cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.second{background:transparent;color:var(--sec);border:1.5px solid var(--sec);padding:9px 18px;font-size:15px;text-decoration:none;display:inline-block}
+
+/* Résultat */
+.resultat{margin-top:26px;background:var(--hi-soft);border:1.5px solid var(--hi);border-radius:12px;padding:16px 18px;display:grid;gap:12px}
+.resultat[hidden]{display:none}
+.resultat h2{font-size:24px;font-weight:800}
+.resultat pre{margin:0;padding:12px 14px;background:var(--paper);border:1px solid var(--line);border-radius:8px;font:500 14px/1.5 var(--font-mono);white-space:pre-wrap;overflow-wrap:anywhere}
+.resultat .actions{display:flex;flex-wrap:wrap;gap:10px}
+
+@media (max-width:520px){.pb{grid-template-columns:minmax(0,1fr)}.pb-num{font-size:30px}.pat{grid-template-columns:minmax(0,1fr)}.pat p{grid-column:1}.choix select{width:100%}}
+@media print{.barre{display:none}}

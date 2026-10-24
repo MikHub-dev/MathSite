@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2013 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2013">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2013</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2013</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2013/27_Quarts_ind_enonces_F.pdf" target="_blank" rel="noopener noreferrer">sujet 2013 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Deux menteurs sur trois</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Abel : « J’ai lu au moins 4 livres. » Béatrice : « Non, moins de 4. » Camille : « Abel en a lu au moins 2. » Un seul dit vrai. Abel a lu au moins un livre. Combien ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les trois triangles</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux triangles identiques posés en étoile créent 7 régions fermées. Combien de régions fermées au maximum avec un troisième triangle ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Les dominos</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les 10 dominos de 0 à 3 points forment des chaînes (demi-dominos voisins égaux). Combien faut-il en enlever, au minimum, pour qu’aucune chaîne ouverte de 5 dominos ne soit possible ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · La crème ne compte pas pour du beurre</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le lait donne 1/6 de son poids en crème, la crème 1/4 de son poids en beurre. Deux vaches donnent 8 L et 10 L par jour du 1<sup>er</sup> mars au 31 mai inclus. Un litre pèse 1,03 kg. Quel poids de beurre ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Drôle de rectangle</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un rectangle non carré à côtés entiers a une aire (en cm²) égale à son périmètre (en cm). Quelle est sa longueur ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · La pendule</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Grande aiguille de 75 mm, petite de 60 mm. Quelle est la longueur totale parcourue par leurs extrémités en 7 heures ? (π ≈ 22/7)</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Distance de freinage</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">La distance de freinage est proportionnelle au carré de la vitesse. Si la vitesse croît de 100 %, de combien croît la distance ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Le serpent de l’année</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Écrire 1 à 25 dans les cases d’un serpent (20 et 13 placés) pour que deux cases voisines aient toujours pour somme un carré.</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Recouvrement de triangles</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un triangle équilatéral de 600 cm² est coupé selon une hauteur. On retourne un des morceaux et on le glisse pour obtenir la figure. Quelle est l’aire du recouvrement (en rouge) ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · La sphère entre les deux cubes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un grand cube de 504 cm³ contient une sphère, qui contient un petit cube. Volume maximal du petit cube ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Tourne hexagone</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un hexagone régulier de 56 cm² est dupliqué et tourné de 30°. La partie commune est un dodécagone régulier. Quelle est son aire ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Cinq quarts de pizza</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une boîte carrée contient cinq quarts de pizza identiques (rayon 16 cm) sans recouvrement, disposés symétriquement. Quelle est l’aire minimale du fond ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2013, "problemes": [{"num": "3", "titre": "Deux menteurs sur trois"}, {"num": "4", "titre": "Les trois triangles"}, {"num": "5", "titre": "Les dominos"}, {"num": "7", "titre": "La crème ne compte pas pour du beurre"}, {"num": "8", "titre": "Drôle de rectangle"}, {"num": "10", "titre": "La pendule"}, {"num": "11", "titre": "Distance de freinage"}, {"num": "13", "titre": "Le serpent de l’année"}, {"num": "14", "titre": "Recouvrement de triangles"}, {"num": "15", "titre": "La sphère entre les deux cubes"}, {"num": "16", "titre": "Tourne hexagone"}, {"num": "18", "titre": "Cinq quarts de pizza"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

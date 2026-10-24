@@ -1,0 +1,126 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 1997 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a1997">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 1997</span>
+  <h1>Quiz des <span class="ink">patterns</span> 1997</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ1997/quart%20finale.pdf" target="_blank" rel="noopener noreferrer">sujet 1997 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Les deux fourmis</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sur un cube en fil de fer, la fourmi A rejoint B (sommet opposé) par un chemin de longueur 3 arêtes. Combien de tels chemins ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Il y a plus d’un âne qui s’appelle Martin</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Neuf colis de 1 à 9 kg ; trois ânes, même nombre de colis et même charge ; Martin1 porte 1 kg, Martin2 2 kg, Martin3 3 kg.</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Les trois amis</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Maisons 34, 36, 38 ; le brun fait de la plongée ; le blond habite au numéro divisible par 4 ; le footballeur habite au numéro dont la somme des chiffres vaut 11. Numéro du musicien ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les fourmis déménagent</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux familles de 5 fourmis échangent leurs nids ; chacune met 3 min 30 ; départs simultanés des premières, puis une par minute dans chaque famille. Chaque croisement sur la route : chacune souhaite bonnes vacances à l’autre (pas dans les nids). Combien de souhaits ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Points de vue symétriques</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq cubes identiques alignés ; de face on lit 06129. Que lirait-on de l’autre côté ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Le jeu de Lam</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Solitaire sur une étoile à 5 branches (10 cases, 9 pions, case vide à l’intérieur). Un pion saute le long d’une ligne par-dessus un pion vers une case vide ; le pion sauté sort. Finir avec les pions 1 et 2 aux places indiquées, en 7 coups, en commençant par 3-9.</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · La montre de Jules</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Montre en chiffres romains « heures-minutes » (VI-IV pour 6 h 04). Combien d’affichages palindromes de 0 h 01 à 23 h 59 ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 1997, "problemes": [{"num": "1", "titre": "Les deux fourmis"}, {"num": "2", "titre": "Il y a plus d’un âne qui s’appelle Martin"}, {"num": "3", "titre": "Les trois amis"}, {"num": "4", "titre": "Les fourmis déménagent"}, {"num": "5", "titre": "Points de vue symétriques"}, {"num": "6", "titre": "Le jeu de Lam"}, {"num": "7", "titre": "La montre de Jules"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>
