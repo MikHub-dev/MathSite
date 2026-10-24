@@ -1,0 +1,182 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2024 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2024">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2024</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2024</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/1-4individuels2024-NB.pdf" target="_blank" rel="noopener noreferrer">sujet 2024 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Tétraminos</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre exemplaires de chaque pièce (tétramino) doivent recouvrir entièrement une grille de 4 × 4 cases, sans chevauchement. Quelle pièce ne le permet pas ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Les fléchettes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">La cible rapporte 9 points au centre, 5 points dans l’anneau du milieu et 2 points à l’extérieur. Un score total de 24 points. Combien de fléchettes au minimum ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · La bibliothèque</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les recueils de jeux ont une couverture bleue ; les romans de plus de 100 pages ont une couverture blanche. Quel livre ne peut certainement pas venir de la bibliothèque ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les bonbons</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Alice, Bernard, Chloé et Damien ont chacun au moins un bonbon, à eux quatre 24. Bernard a deux fois plus que Damien, Alice six fois plus que Chloé. Combien Alice a-t-elle de bonbons ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Un partage facile</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Partager la figure de 24 cases en quatre pièces de six cases, chaque pièce étant d’un seul morceau le long des côtés du quadrillage. Donner les numéros des cases de la pièce qui contient la case 24.</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · L’escargot</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un escargot tombe au fond d’un puits de 24 m. Chaque heure de montée lui fait gagner 3 m, puis chaque heure de descente lui fait perdre 2 m. Il part un dimanche à midi. Quand et à quelle heure atteint-il le haut du puits ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · La tirelire de Mathias</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">24 pièces : une pièce de 1 €, puis une pile de 50 c, une pile de 20 c et une pile de 10 c, chaque pile ayant plus de pièces que la précédente. Quelle est la somme maximale ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Les quatre carrés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathilde colle trois petits carrés sur les cases blanches d’un grand carré ; elle découpe ensuite les parties foncées, pour que la partie gris clair soit d’un seul morceau. Combien de formes différentes peut avoir cette partie bleue ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Les deux calendriers</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un ancien calendrier du 21e siècle coïncide avec celui de 2024 à partir du vendredi 1er mars et jusqu’à la fin de l’année. De quelle année est-il ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Drôle de calcul</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathias divise un nombre de quatre chiffres ABBA par un nombre de deux chiffres BB ; le quotient est un nombre de trois chiffres qui se termine par B. A et B sont des chiffres non nuls et A est différent de B. Que vaut ABBA ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Optimisons…</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les entiers positifs x, y, z vérifient (2024 − x)(2024 − y)(2024 − z) = 1. Quelle est la plus grande valeur de x + y + z ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Une égalité lumineuse</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans le cryptarithme UN × UN = NEON, une même lettre représente toujours le même chiffre, deux lettres différentes des chiffres différents, et le premier chiffre d’un nombre n’est jamais 0. Combien vaut ONE ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Pyramide de cubes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec 2024 cubes orange et 2024 cubes verts, on construit une pyramide : un cube en haut, puis un carré de 2 × 2 de l’autre couleur, puis un carré de 3 × 3, etc., en alternant les couleurs. Tous les étages sont complets et tous les cubes orange ont été utilisés. Combien de cubes verts reste-t-il ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Un nombre bien mystérieux</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un nombre de quatre chiffres est égal au produit de la somme de ses chiffres par le carré de la somme des carrés de ses chiffres. Quel est ce nombre ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2024, "problemes": [{"num": "1", "titre": "Tétraminos"}, {"num": "2", "titre": "Les fléchettes"}, {"num": "3", "titre": "La bibliothèque"}, {"num": "4", "titre": "Les bonbons"}, {"num": "5", "titre": "Un partage facile"}, {"num": "6", "titre": "L’escargot"}, {"num": "7", "titre": "La tirelire de Mathias"}, {"num": "8", "titre": "Les quatre carrés"}, {"num": "9", "titre": "Les deux calendriers"}, {"num": "11", "titre": "Drôle de calcul"}, {"num": "13", "titre": "Optimisons…"}, {"num": "14", "titre": "Une égalité lumineuse"}, {"num": "16", "titre": "Pyramide de cubes"}, {"num": "18", "titre": "Un nombre bien mystérieux"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

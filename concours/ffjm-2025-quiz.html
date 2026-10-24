@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2025 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2025">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2025</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2025</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2025/1-4individuels2025-Couleur.pdf" target="_blank" rel="noopener noreferrer">sujet 2025 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Deux dates</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathias a douze cartes : deux 0, deux 1, deux 2, deux 3, deux 4 et deux 5. Une date s'écrit avec 8 cartes : deux pour le jour, deux pour le mois, quatre pour l'année. En 2025, la première date possible est le 13 janvier (13 01 2025). Quelle est la dernière date de 2025 qu'il peut former ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Intersections</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux cercles et une droite donnent au plus 6 points d'intersection. Combien de points d'intersection obtient-on au maximum avec deux cercles et deux droites (droite-droite, cercle-cercle et droite-cercle comptent) ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Jus de pomme</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une bouteille de jus à moitié pleine pèse autant que quatre bouteilles vides identiques. Combien de bouteilles vides équilibrent une bouteille pleine ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · L&#x27;aquarium</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un aquarium contient des pieuvres (8 bras) et des étoiles de mer (5 bras), en tout 41 bras. Combien y a-t-il d'étoiles de mer ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Labyrinthe</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un labyrinthe de 4 × 4 pièces numérotées de 0 à 15. Passer d'une pièce à une pièce voisine ne déclenche pas l'alarme seulement si le nouveau numéro vaut l'ancien + 3 ou l'ancien − 13. On entre par la pièce 0 et on sort par la pièce 1. Combien de pièces traverse-t-on, 0 et 1 comprises ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Les quatre amis</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Annabelle, Bertrand, Clarisse et Damien seront archéologue, bibliothécaire, cardiologue et dentiste ; Bertrand sera dentiste. Une seule personne a un métier de même initiale que son prénom, et ce n'est pas Annabelle, qui ne veut pas de métier médical. Quels métiers pour Annabelle et Damien ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Donnez-nous le LA</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans l'addition PLAY + LA = 2025, des lettres différentes représentent des chiffres différents et aucun nombre ne commence par 0. Que vaut LA ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · La planète Maths</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sur la planète Maths, le cadran d'une horloge porte toutes les heures de la journée, régulièrement espacées en cercle. L'aiguille des heures parcourt la même distance de 1 h à 9 h que de 10 h à 2 h. Combien d'heures affiche cette horloge ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Des entiers somme-somme-produit</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un entier est « somme-somme-produit » s'il est égal à la somme de ses chiffres plus le produit de ses chiffres, comme 59 = (5 + 9) + 5 × 9. Combien y a-t-il de tels entiers à deux chiffres ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Moyennons</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans la suite 25, A, B, 250, C, …, chaque nombre à partir du deuxième est la moyenne des deux nombres qui l'encadrent. Que vaut C ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Atteindre 2025</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On passe d'un nombre au suivant en lui ajoutant le double de la somme de ses chiffres (1000 → 1002 → 1008 → 1026…). Combien de nombres de départ strictement inférieurs à 2025 permettent d'arriver à 2025 ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Tic-Tac-Toc</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un élastique relie les extrémités des aiguilles d'une horloge : la petite mesure 2 cm, la grande 3 cm. Un point de l'élastique le partage dans le rapport a/b constant (a du côté de la petite aiguille). En 12 heures, ce point trace une courbe. Quelle est la plus grande valeur de a/b pour laquelle la courbe ne se croise pas ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2025, "problemes": [{"num": "1", "titre": "Deux dates"}, {"num": "2", "titre": "Intersections"}, {"num": "3", "titre": "Jus de pomme"}, {"num": "4", "titre": "L'aquarium"}, {"num": "5", "titre": "Labyrinthe"}, {"num": "6", "titre": "Les quatre amis"}, {"num": "8", "titre": "Donnez-nous le LA"}, {"num": "9", "titre": "La planète Maths"}, {"num": "10", "titre": "Des entiers somme-somme-produit"}, {"num": "12", "titre": "Moyennons"}, {"num": "14", "titre": "Atteindre 2025"}, {"num": "18", "titre": "Tic-Tac-Toc"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

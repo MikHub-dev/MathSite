@@ -1,0 +1,134 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 1989 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a1989">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 1989</span>
+  <h1>Quiz des <span class="ink">patterns</span> 1989</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ1989/quart%20finale.pdf" target="_blank" rel="noopener noreferrer">sujet 1989 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Succession difficile</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Partager le terrain dessiné (fait de carrés) en quatre parties exactement superposables.</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Rectangle à reconstituer</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec neuf carrés de côtés 18, 15, 14, 10, 9, 8, 7, 4 et 1, reconstituer un rectangle.</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Saute-mouton</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois garçons à l’ouest, trois filles à l’est, une case libre au milieu. Les garçons vont vers l’est, les filles vers l’ouest, en avançant d’une case libre ou en sautant par-dessus une personne de l’autre groupe. Nombre minimal de mouvements pour échanger les groupes ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Les mètres du mystère</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un marchand fixe ses prix pour gagner 40 %, mais ne gagne que 39 % avec un premier fournisseur, puis 41 % avec un second, car il débite le tissu avec un mètre faux. Longueur réelle du mètre du second fournisseur ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Sans calculatrice</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Parmi A 1117263, B 1054485, C 2825761, D 3400251, E 3917218, F 3956121, G 4253622, H 4322094, lesquels sont des carrés parfaits ? Donner leur racine.</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Les polygones</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux polygones ont, à eux deux, 89 diagonales. Combien ont-ils de côtés à eux deux ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Les trois cercles</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois cercles de 2 m de diamètre sont alignés et tangents. Une droite partant de A (sur le premier cercle) est tangente au troisième en T et coupe le deuxième en B et C. Longueur BC ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · La liste de Maximilien</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On écrit à la suite les multiples de 89 : 89, 178, 267, … Quel est le 89 000e chiffre écrit, et les 4 suivants ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 1989, "problemes": [{"num": "1", "titre": "Succession difficile"}, {"num": "2", "titre": "Rectangle à reconstituer"}, {"num": "4", "titre": "Saute-mouton"}, {"num": "5", "titre": "Les mètres du mystère"}, {"num": "6", "titre": "Sans calculatrice"}, {"num": "7", "titre": "Les polygones"}, {"num": "8", "titre": "Les trois cercles"}, {"num": "10", "titre": "La liste de Maximilien"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

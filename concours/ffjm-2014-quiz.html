@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2014 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2014">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2014</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2014</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2014/28_FFJM%20-%20Quarts_Indiv_Enonces_F.pdf" target="_blank" rel="noopener noreferrer">sujet 2014 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Les 10 pièces</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq pièces de 1 € et cinq de 0,50 € sont partagées entre Mathilde, Mathias et Mathieu ; chacun reçoit la même somme. Mathilde et Mathias ont le même nombre de pièces. Combien de pièces de chaque sorte reçoit Mathieu ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Les dates de l’année</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Combien de dates JJ-MM s’écrivent avec les quatre chiffres 2, 0, 1 et 4, dans un ordre quelconque ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Autoréférence</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Compléter le cadre « 1. il y a … nombre(s) impair(s) ; 2. il y a … nombre(s) pair(s) » avec deux chiffres pour que la phrase soit vraie (1 et 2 comptent aussi).</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Les bracelets</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois bracelets ronds de même taille délimitent au maximum 7 régions fermées. Combien avec quatre ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Les chansons</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre filles ; chaque chanson est interprétée par trois d’entre elles. Adèle a chanté le moins (4 chansons), Dalila le plus (8). Combien de chansons ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · La toupie magique</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les onze disques d’une toupie contiennent 1 à 11. Chaque alignement matérialisé (3 ou 5 disques) a pour somme 22. 1, 2, 3 et 11 sont placés ; retrouver les autres.</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · La suite de Mathias</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le premier nombre est 7. Le suivant est 1 + la somme des chiffres du carré du précédent. Quel est le millième nombre ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Les amis</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans un groupe, il y a plus de 40 % de garçons et plus de 50 % de filles. Combien sont-ils au minimum ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · En toute transparence</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les chiffres 1 à 9, écrits en style « afficheur », sont imprimés sur cinq quadraminos transparents (retournables). Les placer dans une grille 3 × 3 pour que chaque chiffre apparaisse seul sur une case et se lise à l’endroit.</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Les deux rectangles</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans une feuille A5 (14,8 × 21 cm), on découpe deux rectangles à côtés entiers, de même périmètre, l’aire du second double de celle du premier. Quel est le périmètre ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Les nombres de l’année</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">2014 + 2 × 0 × 1 × 4 = 2014. Trouver un autre nombre qui donne 2014 quand on lui ajoute le produit de ses chiffres.</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · L’enclos</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sur un quadrillage de 1 m, on construit un enclos avec 20 barrières de 5 m dont les extrémités sont sur des nœuds. Quelle surface maximale ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2014, "problemes": [{"num": "1", "titre": "Les 10 pièces"}, {"num": "2", "titre": "Les dates de l’année"}, {"num": "3", "titre": "Autoréférence"}, {"num": "5", "titre": "Les bracelets"}, {"num": "6", "titre": "Les chansons"}, {"num": "7", "titre": "La toupie magique"}, {"num": "10", "titre": "La suite de Mathias"}, {"num": "11", "titre": "Les amis"}, {"num": "12", "titre": "En toute transparence"}, {"num": "14", "titre": "Les deux rectangles"}, {"num": "15", "titre": "Les nombres de l’année"}, {"num": "16", "titre": "L’enclos"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 2010 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a2010">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 2010</span>
+  <h1>Quiz des <span class="ink">patterns</span> 2010</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ2010/24_Quarts_ind_enonces.pdf" target="_blank" rel="noopener noreferrer">sujet 2010 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Le jeu de l’année</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre cases contiennent 2, 0, 0 et 10 pions. Un coup déplace un pion vers une case voisine. Combien de coups au minimum pour qu’aucune case ne soit vide et que les quatre nombres soient tous différents ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · La boum</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre filles et quatre garçons dansent par couples fille-garçon. Les garçons répondent 2, 0, 0 et 10 danses ; trois filles 1, 2 et 3. Que répond la quatrième fille ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Addition littérale</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Compléter « ___ ET ___ FONT ___ » pour que la phrase soit vraie, que les nombres des trois phrases soient tous différents, que les trois phrases aient le même nombre de lettres et que les nombres soient rangés du plus petit au plus grand. (Phrases données : UN ET QUATRE FONT CINQ ; TROIS ET SIX FONT NEUF.)</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les bus</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Ligne circulaire de 40 minutes. Des bus partent toutes les 20 minutes dès 7 h dans un sens, et toutes les 20 minutes dès 7 h 10 dans l’autre sens. Combien de bus croise le bus parti à 8 h ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · La différence de l’année</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les nombres de quatre chiffres utilisant au moins une fois 2, 1 et 0, et seulement eux. Différence entre le plus grand et le plus petit ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Pyramide logique</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Placer 1 à 6 dans les six petits triangles blancs ; chaque triangle noir (10, 12, 14) vaut la somme des trois chiffres qui l’entourent.</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Le code</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Code de 6 chiffres utilisant 1 à 6 une fois, pair ; pour chaque paire de chiffres voisins, l’un est multiple de l’autre. Quel est le code ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Trois symboles à barrer</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Barrer trois symboles (chiffres ou signes ×) dans 2 × 3 × 4 × 5 × 6 × 7 pour obtenir 2010.</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · L’encyclopédie Universalis</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">28 tomes en désordre. Un mouvement : sortir un tome, faire glisser d’autres tomes, remettre le tome. Dans la situation la plus défavorable, combien de mouvements au minimum pour tout ranger ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Mastermind glissant</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Retrouver un code de six chiffres (1 à 6 une fois chacun). Trois essais de quatre pions sur des colonnes différentes : 5314 en colonnes 1-4 (1 noir, 2 blancs), 2563 en colonnes 2-5 (1 noir, 1 blanc), 6421 en colonnes 3-6 (4 blancs). Les indications ne portent que sur les colonnes couvertes.</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · L’anagramme sextuple</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un nombre de quatre chiffres multiplié par 6 donne un nombre de quatre chiffres écrit avec les mêmes chiffres dans un autre ordre. Quel est-il ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Le grand nombre</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un nombre multiplié par 5 donne un nombre de 40 chiffres : trente « 5 » et dix « 7 ». Somme des chiffres du nombre de départ ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Les nombres de Michel</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le premier chiffre d’un nombre de Michel diffère de 0 et du dernier. En mettant le chiffre des unités en tête, on obtient un multiple du nombre. Quel est le plus petit ?</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · La farce du concierge</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux entiers de 1 à 100. Le premier jour, Pierre reçoit la somme en croyant avoir le produit, Serge l’inverse. Pierre : « Ce produit ne me suffit pas. » Serge : « Je le savais. » Le lendemain, avec les bonnes informations, Serge : « Ce produit ne me suffit pas, mais je sais que Pierre le sait. » Pierre : « Alors j’ai deviné. » Serge : « Moi aussi. » Quels sont les nombres ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 2010, "problemes": [{"num": "1", "titre": "Le jeu de l’année"}, {"num": "2", "titre": "La boum"}, {"num": "3", "titre": "Addition littérale"}, {"num": "4", "titre": "Les bus"}, {"num": "5", "titre": "La différence de l’année"}, {"num": "6", "titre": "Pyramide logique"}, {"num": "7", "titre": "Le code"}, {"num": "8", "titre": "Trois symboles à barrer"}, {"num": "9", "titre": "L’encyclopédie Universalis"}, {"num": "10", "titre": "Mastermind glissant"}, {"num": "14", "titre": "L’anagramme sextuple"}, {"num": "15", "titre": "Le grand nombre"}, {"num": "17", "titre": "Les nombres de Michel"}, {"num": "18", "titre": "La farce du concierge"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

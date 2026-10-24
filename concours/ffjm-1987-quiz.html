@@ -1,0 +1,126 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 1987 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a1987">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 1987</span>
+  <h1>Quiz des <span class="ink">patterns</span> 1987</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ1987/FFJM%201987%20J%26S43-fevrier-mars1987.pdf" target="_blank" rel="noopener noreferrer">sujet 1987 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="pC1">
+        <span class="pb-num" aria-hidden="true">C1</span>
+        <div class="pb-body">
+          <h3>Problème C1 · Trente-trois… dites !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trouver le plus petit entier commençant par 4 tel qu’en supprimant ce 4, on trouve le nombre initial divisé par 33.</p></details>
+          <div class="choix"><label for="sC1">Pattern</label><select id="sC1" data-pb="C1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pC2">
+        <span class="pb-num" aria-hidden="true">C2</span>
+        <div class="pb-body">
+          <h3>Problème C2 · Gagner, c’est spormidable</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une grille de Loto sportif est une suite de 16 symboles 1, N ou 2. S’il suffisait de 6 bons résultats pour gagner, combien de grilles faudrait-il remplir pour être sûr de gagner ?</p></details>
+          <div class="choix"><label for="sC2">Pattern</label><select id="sC2" data-pb="C2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pL2">
+        <span class="pb-num" aria-hidden="true">L2</span>
+        <div class="pb-body">
+          <h3>Problème L2 · Le motard qui monte au nez… du peloton</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un peloton de 100 m roule à vitesse constante. Une moto part du dernier coureur, rejoint le premier, fait demi-tour et retrouve le dernier quand celui-ci a parcouru 100 m. Distance parcourue par la moto ?</p></details>
+          <div class="choix"><label for="sL2">Pattern</label><select id="sL2" data-pb="L2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pO1">
+        <span class="pb-num" aria-hidden="true">O1</span>
+        <div class="pb-body">
+          <h3>Problème O1 · Tirez le premier ?</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On étale les quatre as, quatre 2, quatre 3 et quatre 4. À tour de rôle, chacun prend une carte (écartée du jeu) et l’on additionne. Gagne celui qui atteint exactement 21, ou qui oblige l’autre à dépasser 21. Antoine peut laisser Bernard commencer (0) ou jouer une carte : laquelle ?</p></details>
+          <div class="choix"><label for="sO1">Pattern</label><select id="sO1" data-pb="O1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pO3">
+        <span class="pb-num" aria-hidden="true">O3</span>
+        <div class="pb-body">
+          <h3>Problème O3 · Le cent millième ?</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les 362 880 nombres écrits avec les chiffres 1 à 9 (chacun une fois) sont rangés dans l’ordre croissant. Quel est le 100 000e ?</p></details>
+          <div class="choix"><label for="sO3">Pattern</label><select id="sO3" data-pb="O3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pO5">
+        <span class="pb-num" aria-hidden="true">O5</span>
+        <div class="pb-body">
+          <h3>Problème O5 · Nombres secrets</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois entiers au moins égaux à 2 ont pour produit 120 ; chacun de trois « matheux » connaît un des nombres. Aucun ne trouve les deux autres. Puis l’un dit : « Je connais maintenant les trois nombres. Un de ces nombres est inférieur à celui qu’on m’a dévoilé. » Quels sont-ils ?</p></details>
+          <div class="choix"><label for="sO5">Pattern</label><select id="sO5" data-pb="O5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pO6">
+        <span class="pb-num" aria-hidden="true">O6</span>
+        <div class="pb-body">
+          <h3>Problème O6 · Si ou alors ?</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">A et B réels. Si A et B sont entiers, alors A &gt; B &gt; 1. A + B ∈ {11, 12, 13} ou A = B + 9. Si AB ≠ 400, alors A et B sont entiers et B divise A. Nombre de couples et liste, par A décroissant.</p></details>
+          <div class="choix"><label for="sO6">Pattern</label><select id="sO6" data-pb="O6"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 1987, "problemes": [{"num": "C1", "titre": "Trente-trois… dites !"}, {"num": "C2", "titre": "Gagner, c’est spormidable"}, {"num": "L2", "titre": "Le motard qui monte au nez… du peloton"}, {"num": "O1", "titre": "Tirez le premier ?"}, {"num": "O3", "titre": "Le cent millième ?"}, {"num": "O5", "titre": "Nombres secrets"}, {"num": "O6", "titre": "Si ou alors ?"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>

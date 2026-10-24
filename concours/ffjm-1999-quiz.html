@@ -1,0 +1,166 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiz des patterns — Quarts de finale FFJM 1999 — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&amp;display=swap">
+<link rel="stylesheet" href="quiz-patterns.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html#a1999">← Archives du concours</a>
+</div></header>
+
+<div class="masthead"><div class="wrap"><div class="mast-inner">
+  <span class="eyebrow">FFJM · quarts de finale · 1999</span>
+  <h1>Quiz des <span class="ink">patterns</span> 1999</h1>
+  <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
+  <ol class="steps">
+    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
+    <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
+  </ol>
+  <p class="src">Énoncés officiels : <a href="https://cdn.eu.yapla.com/company/CPYlKW3zLaj6BkeZEMsOhQ7bD/asset/files/archivesChampionnatJM/champ1999/quart%20finale.pdf" target="_blank" rel="noopener noreferrer">sujet 1999 (PDF de la FFJM)</a>. Page de travail indépendante, non affiliée à la FFJM.</p>
+</div></div></div>
+
+<main class="wrap">
+  <section class="bloc" id="rappel" aria-labelledby="rappel-t">
+    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
+    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <ol class="patterns" id="patterns"></ol>
+    <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
+  </section>
+
+  <form class="bloc" id="quiz" aria-labelledby="quiz-t" novalidate>
+    <h2 id="quiz-t">Vos réponses</h2>
+    <div class="nom">
+      <label for="prenom">Votre prénom</label>
+      <input id="prenom" name="prenom" type="text" autocomplete="given-name" maxlength="60" required aria-describedby="erreur">
+      <div class="err" id="erreur" role="alert"></div>
+    </div>
+    <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Les longueurs</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Combien de longueurs différentes entre les points d’un réseau de 3 × 3 points ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Le dé voyageur</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un dé normal roule de la case A à la case L d’un damier 4 × 3 en cinq basculements ; on additionne les faces du dessous sur les six cases. Plus grand total (on choisit la position de départ) ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · La classe de Mathilde</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux groupes de fans, effectifs impairs entre 10 et 20, l’un a 4 de plus que l’autre ; deux fois plus de filles que de garçons. Nombre de filles ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Les billes de Mathias</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">30 billes de trois couleurs ; si on en retire 25 au hasard, on a toujours au moins 3 blanches, 5 bleues et 7 vertes. Combien de bleues ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Petit déjeuner</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux cruches identiques (café, lait). Chacun boit 125 ml de café au lait. Mathias a pris le quart du lait et le sixième du café. À la fin, il reste moins de 125 ml. Combien de personnes ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Le terrain du Père Siffleur</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Terrain carré (côté entier en hm) partagé en quatre rectangles par deux droites ; trois aires : 27, 18 et 72 hm². Quatrième ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Cryptarithme</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">JEU + UME = FFJM (lettres différentes = chiffres différents, pas de 0 en tête). Nombre de solutions ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Le champ des six reines</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Partager un champ (rectangle de 4 × 3 carreaux bordé de demi-cercles de rayon 1) en six parts de même aire et de même forme (retournement permis).</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Les quadrilatères</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Combien de quadrilatères non superposables (même retournés) avec 4 points d’un réseau 3 × 3 ? Croisés acceptés, aplatis exclus.</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Les dominos</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sur une bande de <var>n</var> cases (2 ≤ <var>n</var> ≤ 11), chacun pose à son tour un domino sur deux cases libres voisines ; celui qui ne peut plus jouer perd. Bernard commence. Quel <var>n</var> doit choisir Gilles pour gagner à coup sûr ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Le jouet de Francis</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Voiture en marche avant, en ligne droite ou sur des arcs de rayon 63 cm. Partir de A vers le nord, revenir en A vers le sud. Distance minimale ? (π = 227.)</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Les dés de la FFJM</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre dés tétraédriques F, F, J, M ; on les lance quatre fois. Probabilité que les faces cachées donnent au moins une fois F, F, J, M ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+    </ol>
+
+    <section class="resultat" id="resultat" hidden aria-live="polite">
+      <h2>Dernière étape : envoyez le mail</h2>
+      <p>Votre messagerie vient de s’ouvrir avec un message déjà rédigé. <strong>Il vous reste à cliquer sur « Envoyer ».</strong></p>
+      <pre id="apercu"></pre>
+      <div class="actions">
+        <a class="btn second" id="rouvrir" href="#">Ouvrir à nouveau le message</a>
+        <button class="btn second" type="button" id="copie">Copier le message</button>
+      </div>
+      <p class="note">Si rien ne s’ouvre, copiez le message et envoyez-le vous-même à <strong id="adresse"></strong>.</p>
+    </section>
+
+    <div class="barre"><div class="wrap">
+      <span class="compteur" id="compteur" aria-live="polite"></span>
+      <button class="btn" type="button" id="termine">Terminé</button>
+    </div></div>
+  </form>
+</main>
+
+<script>window.QUIZ = {"annee": 1999, "problemes": [{"num": "1", "titre": "Les longueurs"}, {"num": "3", "titre": "Le dé voyageur"}, {"num": "4", "titre": "La classe de Mathilde"}, {"num": "5", "titre": "Les billes de Mathias"}, {"num": "6", "titre": "Petit déjeuner"}, {"num": "7", "titre": "Le terrain du Père Siffleur"}, {"num": "10", "titre": "Cryptarithme"}, {"num": "11", "titre": "Le champ des six reines"}, {"num": "12", "titre": "Les quadrilatères"}, {"num": "13", "titre": "Les dominos"}, {"num": "14", "titre": "Le jouet de Francis"}, {"num": "15", "titre": "Les dés de la FFJM"}]};</script>
+<script src="quiz-patterns.js"></script>
+</body>
+</html>
