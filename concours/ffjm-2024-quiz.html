@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2024</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -116,12 +116,28 @@
           <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
         </div>
       </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Une poule matheuse et pondeuse</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une poule compte 2024 œufs placés en un tas. Elle en place un par un dans un second tas. Chaque fois qu’elle a compté 4 œufs, elle pond un œuf qu’elle ajoute au tas qu’il reste à compter. Combien d’œufs a-t-elle comptés quand il ne reste plus qu’un seul tas ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p11">
         <span class="pb-num" aria-hidden="true">11</span>
         <div class="pb-body">
           <h3>Problème 11 · Drôle de calcul</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathias divise un nombre de quatre chiffres ABBA par un nombre de deux chiffres BB ; le quotient est un nombre de trois chiffres qui se termine par B. A et B sont des chiffres non nuls et A est différent de B. Que vaut ABBA ?</p></details>
           <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Les trapèzes de l’année</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Combien existe-t-il de trapèzes isocèles, non croisés et non aplatis, dont les côtés sont des nombres entiers de centimètres et dont le périmètre est 24 cm ? Un rectangle et un carré comptent comme trapèzes isocèles.</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
         </div>
       </li>
       <li class="pb" id="p13">
@@ -140,12 +156,28 @@
           <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
         </div>
       </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Mosaïque</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une mosaïque : le pourtour est formé de triangles rectangles isocèles, et le centre de quatre losanges dont la petite diagonale est la moitié de la grande. Quelle proportion du grand carré est blanche ? Donner une fraction irréductible.</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p16">
         <span class="pb-num" aria-hidden="true">16</span>
         <div class="pb-body">
           <h3>Problème 16 · Pyramide de cubes</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec 2024 cubes orange et 2024 cubes verts, on construit une pyramide : un cube en haut, puis un carré de 2 × 2 de l’autre couleur, puis un carré de 3 × 3, etc., en alternant les couleurs. Tous les étages sont complets et tous les cubes orange ont été utilisés. Combien de cubes verts reste-t-il ?</p></details>
           <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Jeu de billes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un sac contient entre 2 et 24 billes, bleues ou rouges. On tire deux billes au hasard : Arthur gagne si elles sont de la même couleur, Blandine sinon. Combien de billes le sac contient-il quand le jeu est équilibré ?</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
         </div>
       </li>
       <li class="pb" id="p18">
@@ -176,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2024, "problemes": [{"num": "1", "titre": "Tétraminos"}, {"num": "2", "titre": "Les fléchettes"}, {"num": "3", "titre": "La bibliothèque"}, {"num": "4", "titre": "Les bonbons"}, {"num": "5", "titre": "Un partage facile"}, {"num": "6", "titre": "L’escargot"}, {"num": "7", "titre": "La tirelire de Mathias"}, {"num": "8", "titre": "Les quatre carrés"}, {"num": "9", "titre": "Les deux calendriers"}, {"num": "11", "titre": "Drôle de calcul"}, {"num": "13", "titre": "Optimisons…"}, {"num": "14", "titre": "Une égalité lumineuse"}, {"num": "16", "titre": "Pyramide de cubes"}, {"num": "18", "titre": "Un nombre bien mystérieux"}]};</script>
+<script>window.QUIZ = {"annee": 2024, "problemes": [{"num": "1", "titre": "Tétraminos"}, {"num": "2", "titre": "Les fléchettes"}, {"num": "3", "titre": "La bibliothèque"}, {"num": "4", "titre": "Les bonbons"}, {"num": "5", "titre": "Un partage facile"}, {"num": "6", "titre": "L’escargot"}, {"num": "7", "titre": "La tirelire de Mathias"}, {"num": "8", "titre": "Les quatre carrés"}, {"num": "9", "titre": "Les deux calendriers"}, {"num": "10", "titre": "Une poule matheuse et pondeuse"}, {"num": "11", "titre": "Drôle de calcul"}, {"num": "12", "titre": "Les trapèzes de l’année"}, {"num": "13", "titre": "Optimisons…"}, {"num": "14", "titre": "Une égalité lumineuse"}, {"num": "15", "titre": "Mosaïque"}, {"num": "16", "titre": "Pyramide de cubes"}, {"num": "17", "titre": "Jeu de billes"}, {"num": "18", "titre": "Un nombre bien mystérieux"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

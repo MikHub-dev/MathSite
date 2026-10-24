@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2006</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -84,6 +84,14 @@
           <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
         </div>
       </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Une petite somme</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Pour payer 1,82 €, sans le compte exact, on me rend de la monnaie ; trois pièces seulement ont changé de main. Combien m’a-t-on rendu ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p7">
         <span class="pb-num" aria-hidden="true">7</span>
         <div class="pb-body">
@@ -116,6 +124,14 @@
           <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
         </div>
       </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Les régions</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Partager le carré 6 × 6 en régions d’un seul tenant, chacune contenant un indice égal à son nombre de cases ; aucune région ne contient un carré 2 × 2 ; les cinq régions de 4 ou 5 cases sont toutes différentes (même avec retournement).</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p12">
         <span class="pb-num" aria-hidden="true">12</span>
         <div class="pb-body">
@@ -140,12 +156,36 @@
           <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
         </div>
       </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · D’une année à l’autre</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Compléter 2005 + 2006 = •••² − •••² avec deux nombres à trois chiffres.</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Trois points intérieurs</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sur un réseau de points espacés de 1 cm, un carré d’aire 2 cm² contient exactement un point intérieur. Quelle est l’aire maximale d’un carré contenant exactement trois points intérieurs ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p17">
         <span class="pb-num" aria-hidden="true">17</span>
         <div class="pb-body">
           <h3>Problème 17 · Quatre figures et c’est tout</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On trace deux triangles et deux cercles dans un plan. Combien de régions au maximum ?</p></details>
           <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Les cartes du mage Hic</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq morceaux forment un 4 de cœur ; on retire le rectangle central (rapport 2, un dixième de l’aire) ; les quatre autres, retournés, forment le dos d’une carte. Rapport longueur/largeur de cette carte ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
         </div>
       </li>
     </ol>
@@ -168,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2006, "problemes": [{"num": "1", "titre": "Le patron du dé"}, {"num": "2", "titre": "Les triangles"}, {"num": "3", "titre": "Le quarantième championnat"}, {"num": "4", "titre": "Le recueil"}, {"num": "5", "titre": "Découpage"}, {"num": "7", "titre": "Les rectangles"}, {"num": "8", "titre": "La bonne réponse"}, {"num": "9", "titre": "Une année difficile"}, {"num": "10", "titre": "Octuple"}, {"num": "12", "titre": "La terrasse"}, {"num": "13", "titre": "Moyennes à la carte"}, {"num": "14", "titre": "Les deux nombres de l’année"}, {"num": "17", "titre": "Quatre figures et c’est tout"}]};</script>
+<script>window.QUIZ = {"annee": 2006, "problemes": [{"num": "1", "titre": "Le patron du dé"}, {"num": "2", "titre": "Les triangles"}, {"num": "3", "titre": "Le quarantième championnat"}, {"num": "4", "titre": "Le recueil"}, {"num": "5", "titre": "Découpage"}, {"num": "6", "titre": "Une petite somme"}, {"num": "7", "titre": "Les rectangles"}, {"num": "8", "titre": "La bonne réponse"}, {"num": "9", "titre": "Une année difficile"}, {"num": "10", "titre": "Octuple"}, {"num": "11", "titre": "Les régions"}, {"num": "12", "titre": "La terrasse"}, {"num": "13", "titre": "Moyennes à la carte"}, {"num": "14", "titre": "Les deux nombres de l’année"}, {"num": "15", "titre": "D’une année à l’autre"}, {"num": "16", "titre": "Trois points intérieurs"}, {"num": "17", "titre": "Quatre figures et c’est tout"}, {"num": "18", "titre": "Les cartes du mage Hic"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 1990</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -44,6 +44,14 @@
       <div class="err" id="erreur" role="alert"></div>
     </div>
     <ol class="questions">
+      <li class="pb" id="pC1">
+        <span class="pb-num" aria-hidden="true">C1</span>
+        <div class="pb-body">
+          <h3>Problème C1 · Chemin de fer à défaire</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un réseau relie 8 gares (rectangle ABHG de deux carrés, avec leurs diagonales qui se croisent en C et F). Garder des voies qui relient toutes les gares pour une longueur totale minimale.</p></details>
+          <div class="choix"><label for="sC1">Pattern</label><select id="sC1" data-pb="C1"></select></div>
+        </div>
+      </li>
       <li class="pb" id="pC2">
         <span class="pb-num" aria-hidden="true">C2</span>
         <div class="pb-body">
@@ -68,12 +76,28 @@
           <div class="choix"><label for="sC4">Pattern</label><select id="sC4" data-pb="C4"></select></div>
         </div>
       </li>
+      <li class="pb" id="pC5">
+        <span class="pb-num" aria-hidden="true">C5</span>
+        <div class="pb-body">
+          <h3>Problème C5 · Le matricule</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les matricules ont 5 chiffres. Les policiers ont un premier chiffre strictement supérieur à la somme des 4 autres. Combien de policiers, au plus ?</p></details>
+          <div class="choix"><label for="sC5">Pattern</label><select id="sC5" data-pb="C5"></select></div>
+        </div>
+      </li>
       <li class="pb" id="pC6">
         <span class="pb-num" aria-hidden="true">C6</span>
         <div class="pb-body">
           <h3>Problème C6 · Triangle patriotique</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Colorier les 9 petits triangles d’un triangle de côté 3 en bleu, blanc ou rouge, deux zones à côté commun de couleurs différentes, 3 zones de chaque couleur. Les figures qui se déduisent l’une de l’autre en tournant ou en retournant ne comptent qu’une fois. Combien de figures ?</p></details>
           <div class="choix"><label for="sC6">Pattern</label><select id="sC6" data-pb="C6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pL1">
+        <span class="pb-num" aria-hidden="true">L1</span>
+        <div class="pb-body">
+          <h3>Problème L1 · Les allumettes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq triangles équilatéraux sont formés de 12 allumettes. En déplaçant 2 allumettes, obtenir seulement 4 triangles équilatéraux égaux, chaque allumette dans au moins un triangle, sans superposition. Combien de figures différentes ?</p></details>
+          <div class="choix"><label for="sL1">Pattern</label><select id="sL1" data-pb="L1"></select></div>
         </div>
       </li>
       <li class="pb" id="pL3">
@@ -84,12 +108,28 @@
           <div class="choix"><label for="sL3">Pattern</label><select id="sL3" data-pb="L3"></select></div>
         </div>
       </li>
+      <li class="pb" id="pL4">
+        <span class="pb-num" aria-hidden="true">L4</span>
+        <div class="pb-body">
+          <h3>Problème L4 · Le numéro manquant</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Des maisons numérotées 1, 2, 3, … sans trou ; on en abat une, la moyenne des numéros restants devient 995,8. Numéro de la maison abattue ?</p></details>
+          <div class="choix"><label for="sL4">Pattern</label><select id="sL4" data-pb="L4"></select></div>
+        </div>
+      </li>
       <li class="pb" id="pL5">
         <span class="pb-num" aria-hidden="true">L5</span>
         <div class="pb-body">
           <h3>Problème L5 · Les derniers seront les premiers</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On déplace les deux derniers chiffres de <var>X</var> au début ; on veut obtenir 2<var>X</var>. Somme des chiffres du plus petit <var>X</var> ?</p></details>
           <div class="choix"><label for="sL5">Pattern</label><select id="sL5" data-pb="L5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pL6">
+        <span class="pb-num" aria-hidden="true">L6</span>
+        <div class="pb-body">
+          <h3>Problème L6 · L’étoile noire</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une étoile à 8 pointes en moulinet ; les pointes les plus éloignées sont à 10 cm ; les points qui semblent alignés le sont. Aire au millième ?</p></details>
+          <div class="choix"><label for="sL6">Pattern</label><select id="sL6" data-pb="L6"></select></div>
         </div>
       </li>
       <li class="pb" id="pLC1">
@@ -106,6 +146,14 @@
           <h3>Problème LC2 · L’hexagone magique</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un hexagone de 19 cases contient les entiers de 1 à 19 ; dans les 15 rangées (trois directions), les sommes sont égales. On connaît 14, 13, 1, 18 et 17. Reconstituer l’hexagone.</p></details>
           <div class="choix"><label for="sLC2">Pattern</label><select id="sLC2" data-pb="LC2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pLC3">
+        <span class="pb-num" aria-hidden="true">LC3</span>
+        <div class="pb-body">
+          <h3>Problème LC3 · La planète Krypton</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Placer des entiers strictement positifs tous différents dans les cercles du plan, de sorte que sur chaque segment la somme des carrés soit 1990.</p></details>
+          <div class="choix"><label for="sLC3">Pattern</label><select id="sLC3" data-pb="LC3"></select></div>
         </div>
       </li>
       <li class="pb" id="pLC5">
@@ -156,6 +204,14 @@
           <div class="choix"><label for="sG5">Pattern</label><select id="sG5" data-pb="G5"></select></div>
         </div>
       </li>
+      <li class="pb" id="pG6">
+        <span class="pb-num" aria-hidden="true">G6</span>
+        <div class="pb-body">
+          <h3>Problème G6 · Il pleut des carrés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Somme des carrés des 720 nombres écrits avec les chiffres 1 à 6, chacun une fois.</p></details>
+          <div class="choix"><label for="sG6">Pattern</label><select id="sG6" data-pb="G6"></select></div>
+        </div>
+      </li>
     </ol>
 
     <section class="resultat" id="resultat" hidden aria-live="polite">
@@ -176,7 +232,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 1990, "problemes": [{"num": "C2", "titre": "Le chiffre de naissance"}, {"num": "C3", "titre": "Le carré incomplet"}, {"num": "C4", "titre": "L’architecte"}, {"num": "C6", "titre": "Triangle patriotique"}, {"num": "L3", "titre": "Rien à déclarer ?"}, {"num": "L5", "titre": "Les derniers seront les premiers"}, {"num": "LC1", "titre": "Mon quartier"}, {"num": "LC2", "titre": "L’hexagone magique"}, {"num": "LC5", "titre": "Le ravitaillement"}, {"num": "LC6", "titre": "Carré de six"}, {"num": "G1", "titre": "Un bon chrétien"}, {"num": "G3", "titre": "Le bal des batraciens"}, {"num": "G4", "titre": "Le cadeau cambodgien"}, {"num": "G5", "titre": "Les rouges et les noirs"}]};</script>
+<script>window.QUIZ = {"annee": 1990, "problemes": [{"num": "C1", "titre": "Chemin de fer à défaire"}, {"num": "C2", "titre": "Le chiffre de naissance"}, {"num": "C3", "titre": "Le carré incomplet"}, {"num": "C4", "titre": "L’architecte"}, {"num": "C5", "titre": "Le matricule"}, {"num": "C6", "titre": "Triangle patriotique"}, {"num": "L1", "titre": "Les allumettes"}, {"num": "L3", "titre": "Rien à déclarer ?"}, {"num": "L4", "titre": "Le numéro manquant"}, {"num": "L5", "titre": "Les derniers seront les premiers"}, {"num": "L6", "titre": "L’étoile noire"}, {"num": "LC1", "titre": "Mon quartier"}, {"num": "LC2", "titre": "L’hexagone magique"}, {"num": "LC3", "titre": "La planète Krypton"}, {"num": "LC5", "titre": "Le ravitaillement"}, {"num": "LC6", "titre": "Carré de six"}, {"num": "G1", "titre": "Un bon chrétien"}, {"num": "G3", "titre": "Le bal des batraciens"}, {"num": "G4", "titre": "Le cadeau cambodgien"}, {"num": "G5", "titre": "Les rouges et les noirs"}, {"num": "G6", "titre": "Il pleut des carrés"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

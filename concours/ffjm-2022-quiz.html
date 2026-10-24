@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2022</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -60,6 +60,30 @@
           <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
         </div>
       </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Jeu de cartes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Aline doit éliminer trois cartes B portant la même lettre en même temps, sans soulever d’autres cartes. Dans quel ordre pourrait-elle retirer le paquet ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Les gommettes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathias colle 5 gommettes rouges et 4 gommettes bleues sur les disques d’un dessin. Aucune gommette bleue ne touche une autre bleue ; chaque rouge touche au moins une autre rouge. Combien de gommettes rouges ne touchent aucune gommette bleue ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · La grille</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans une grille de 42 cases, on colorie des cases de telle sorte que deux cases coloriées ne se touchent ni par un côté ni par un sommet. Combien de cases peut-on colorier au maximum ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p6">
         <span class="pb-num" aria-hidden="true">6</span>
         <div class="pb-body">
@@ -74,6 +98,14 @@
           <h3>Problème 7 · Le triangle de l’année</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les sept disques d’un triangle portent les nombres de 5 à 11, avec 10 et 11 déjà placés, de sorte que la somme des trois nombres de chaque alignement soit 22. Placer les autres nombres.</p></details>
           <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Le cadenas</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le code ABCD d’un cadenas vérifie : A est le double de B ; B + C = 13 ; A + B = C + D. Quel est le code ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
         </div>
       </li>
       <li class="pb" id="p9">
@@ -100,6 +132,14 @@
           <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
         </div>
       </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Que d’élastiques !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une boîte d’élastiques de trois périmètres (12 cm, 20 cm, 25 cm) pèse 81 g au total, en trois sortes. Le même poids total par sorte, chaque élastique pèse entre 0,3 g et 1 g, et il y a plus de 100 élastiques. Combien d’élastiques de 12 cm ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p13">
         <span class="pb-num" aria-hidden="true">13</span>
         <div class="pb-body">
@@ -114,6 +154,14 @@
           <h3>Problème 14 · Quatorze nombres effacés</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sophie a écrit les nombres de 1 à 22 dans des disques d’une figure en hexagones. Chaque nombre au centre d’un hexagone est la somme des nombres aux sommets de cet hexagone ; deux disques reliés par un segment ne contiennent jamais deux entiers consécutifs. Retrouver les nombres a, b, c, d et e effacés.</p></details>
           <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · L’âge de Dominique</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">L’âge de Dominique est un nombre premier inférieur à 100. Lu à l’envers, il est encore premier (éventuellement le même). La somme des nombres premiers strictement inférieurs à cet âge est divisible par l’âge. Quel est l’âge de Dominique ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
         </div>
       </li>
       <li class="pb" id="p16">
@@ -160,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2022, "problemes": [{"num": "1", "titre": "L’enclos"}, {"num": "2", "titre": "La tirelire"}, {"num": "6", "titre": "Les pierres de Joe"}, {"num": "7", "titre": "Le triangle de l’année"}, {"num": "9", "titre": "Nombre et carré retournables"}, {"num": "10", "titre": "Deux additions et un café"}, {"num": "11", "titre": "La loterie"}, {"num": "13", "titre": "Les tuyaux"}, {"num": "14", "titre": "Quatorze nombres effacés"}, {"num": "16", "titre": "Il est généreux, Laux !"}, {"num": "17", "titre": "Perdu dans la forêt"}, {"num": "18", "titre": "La rosace de Papy Francis"}]};</script>
+<script>window.QUIZ = {"annee": 2022, "problemes": [{"num": "1", "titre": "L’enclos"}, {"num": "2", "titre": "La tirelire"}, {"num": "3", "titre": "Jeu de cartes"}, {"num": "4", "titre": "Les gommettes"}, {"num": "5", "titre": "La grille"}, {"num": "6", "titre": "Les pierres de Joe"}, {"num": "7", "titre": "Le triangle de l’année"}, {"num": "8", "titre": "Le cadenas"}, {"num": "9", "titre": "Nombre et carré retournables"}, {"num": "10", "titre": "Deux additions et un café"}, {"num": "11", "titre": "La loterie"}, {"num": "12", "titre": "Que d’élastiques !"}, {"num": "13", "titre": "Les tuyaux"}, {"num": "14", "titre": "Quatorze nombres effacés"}, {"num": "15", "titre": "L’âge de Dominique"}, {"num": "16", "titre": "Il est généreux, Laux !"}, {"num": "17", "titre": "Perdu dans la forêt"}, {"num": "18", "titre": "La rosace de Papy Francis"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

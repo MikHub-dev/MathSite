@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2016</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -148,6 +148,14 @@
           <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
         </div>
       </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Le nombre de Mathias</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">En ajoutant 1 à une puissance de 2, Mathias obtient un nombre de 8 chiffres s’écrivant <var>aabbccaa</var>, avec trois chiffres différents. Quel est ce nombre ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p15">
         <span class="pb-num" aria-hidden="true">15</span>
         <div class="pb-body">
@@ -172,6 +180,14 @@
           <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
         </div>
       </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · (Tétra et octa)èdres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec des tétraèdres et des octaèdres réguliers d’arête 5 cm, Mathilde construit un octaèdre régulier plein d’arête 15 cm. Combien de chaque ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
     </ol>
 
     <section class="resultat" id="resultat" hidden aria-live="polite">
@@ -192,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2016, "problemes": [{"num": "1", "titre": "Kakuro"}, {"num": "2", "titre": "Les pesées"}, {"num": "3", "titre": "L’encyclopédie"}, {"num": "4", "titre": "Les polyminos"}, {"num": "5", "titre": "Que d’eau !"}, {"num": "6", "titre": "Un petit nombre"}, {"num": "7", "titre": "Hitori"}, {"num": "8", "titre": "Avec des A et des B"}, {"num": "9", "titre": "Le nombre de Mathilde"}, {"num": "10", "titre": "Coloriage"}, {"num": "11", "titre": "Les quotients"}, {"num": "12", "titre": "La voyante"}, {"num": "13", "titre": "L’âge du capitaine"}, {"num": "15", "titre": "Les deux puces"}, {"num": "16", "titre": "Deux sphères dans un cube"}, {"num": "17", "titre": "Cubez les chiffres"}]};</script>
+<script>window.QUIZ = {"annee": 2016, "problemes": [{"num": "1", "titre": "Kakuro"}, {"num": "2", "titre": "Les pesées"}, {"num": "3", "titre": "L’encyclopédie"}, {"num": "4", "titre": "Les polyminos"}, {"num": "5", "titre": "Que d’eau !"}, {"num": "6", "titre": "Un petit nombre"}, {"num": "7", "titre": "Hitori"}, {"num": "8", "titre": "Avec des A et des B"}, {"num": "9", "titre": "Le nombre de Mathilde"}, {"num": "10", "titre": "Coloriage"}, {"num": "11", "titre": "Les quotients"}, {"num": "12", "titre": "La voyante"}, {"num": "13", "titre": "L’âge du capitaine"}, {"num": "14", "titre": "Le nombre de Mathias"}, {"num": "15", "titre": "Les deux puces"}, {"num": "16", "titre": "Deux sphères dans un cube"}, {"num": "17", "titre": "Cubez les chiffres"}, {"num": "18", "titre": "(Tétra et octa)èdres"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

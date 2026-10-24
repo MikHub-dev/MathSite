@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2012</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -108,6 +108,14 @@
           <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
         </div>
       </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Onzaines à gogo</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un nombre de quatre chiffres, de somme de chiffres 11, est multiple de 11. Quel est-il ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p10">
         <span class="pb-num" aria-hidden="true">10</span>
         <div class="pb-body">
@@ -140,12 +148,28 @@
           <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
         </div>
       </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Polygones autoréférents</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Placer 1 à 7, un par polygone : le triangle vaut le premier chiffre du produit de ses voisins, le carré le dernier chiffre de ce produit, le pentagone le premier chiffre de la somme de ses voisins, chaque hexagone le dernier chiffre de la somme de ses voisins.</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p15">
         <span class="pb-num" aria-hidden="true">15</span>
         <div class="pb-body">
           <h3>Problème 15 · Mini-péri</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les triangles de base BC = 2012 mm et d’aire 254 526 048 mm². Quel périmètre minimal ?</p></details>
           <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Multiplication première</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Multiplication posée <b>* × </b> avec deux produits partiels de quatre chiffres et un résultat de cinq chiffres ; tous les chiffres appartiennent à {2 ; 3 ; 5 ; 7}. Compléter.</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
         </div>
       </li>
       <li class="pb" id="p17">
@@ -184,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2012, "problemes": [{"num": "1", "titre": "Le verre vide"}, {"num": "2", "titre": "En toutes lettres"}, {"num": "3", "titre": "Quatre cases"}, {"num": "4", "titre": "Labyrinthe"}, {"num": "5", "titre": "Le fer à cheval"}, {"num": "6", "titre": "Devine-âge"}, {"num": "7", "titre": "La suite de Mathilde"}, {"num": "8", "titre": "Les cinq mercredis"}, {"num": "10", "titre": "À treize heures"}, {"num": "11", "titre": "Les carrés de Mathias"}, {"num": "12", "titre": "Le collège de l’année"}, {"num": "13", "titre": "Carrément givré !"}, {"num": "15", "titre": "Mini-péri"}, {"num": "17", "titre": "Les divisions de l’année"}, {"num": "18", "titre": "Une boule dans un tétraèdre"}]};</script>
+<script>window.QUIZ = {"annee": 2012, "problemes": [{"num": "1", "titre": "Le verre vide"}, {"num": "2", "titre": "En toutes lettres"}, {"num": "3", "titre": "Quatre cases"}, {"num": "4", "titre": "Labyrinthe"}, {"num": "5", "titre": "Le fer à cheval"}, {"num": "6", "titre": "Devine-âge"}, {"num": "7", "titre": "La suite de Mathilde"}, {"num": "8", "titre": "Les cinq mercredis"}, {"num": "9", "titre": "Onzaines à gogo"}, {"num": "10", "titre": "À treize heures"}, {"num": "11", "titre": "Les carrés de Mathias"}, {"num": "12", "titre": "Le collège de l’année"}, {"num": "13", "titre": "Carrément givré !"}, {"num": "14", "titre": "Polygones autoréférents"}, {"num": "15", "titre": "Mini-péri"}, {"num": "16", "titre": "Multiplication première"}, {"num": "17", "titre": "Les divisions de l’année"}, {"num": "18", "titre": "Une boule dans un tétraèdre"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2002</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -52,12 +52,60 @@
           <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
         </div>
       </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Le carrefour</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">À un carrefour : « Mathville 88 km » et « Calculcity 40 km ». Distance maximale entre les deux villes ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Le cube incomplet</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un cube 5 × 5 × 5 inachevé (sans trous) ; combien de petits cubes manquent ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Visite éclair au musée</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Plan de 12 salles (tableaux : 2, 4, 3, 1 / 6, 12, 5, 11 / 10, 8, 9, 7), entrée en haut à gauche, sortie en bas à droite. Six salles au plus : le plus de tableaux possible.</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · La tablette de Mathilde</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Tablette 5 × 8 ; à chaque amie, elle casse une rangée (ligne ou colonne) du reste. Combien d’amies au maximum, si elle garde le dernier carré ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p6">
         <span class="pb-num" aria-hidden="true">6</span>
         <div class="pb-body">
           <h3>Problème 6 · Les bougies</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cinq bougies (couleurs et tailles) pour Alain, Béatrice, Claire, Daniel, Élodie. Alain et Béatrice : même taille ; Béatrice et Claire : même couleur ; Claire et Daniel : tailles différentes ; Daniel et Alain : couleurs différentes. Bougie d’Élodie ?</p></details>
           <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · La ficelle de Ludo</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sur une ficelle, AB vaut un quinzième de la longueur et AC un sixième. AB fait exactement deux tours d’un tronc. Combien de tours avec BC ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Le plan du musée</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Neuf salles en carré 3 × 3, Braque au milieu à droite. V communique avec P, C, K ; K avec B, M, R ; D pas avec B ; M avec P et D. Compléter.</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
         </div>
       </li>
       <li class="pb" id="p9">
@@ -76,12 +124,36 @@
           <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
         </div>
       </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Bon pour un 421</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Entre 1 2 3 4 5 6 7 8 9 (dans cet ordre), placer des +, −, × et / (ou rien) pour obtenir 421. Donner une autre solution que les deux de l’énoncé.</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p12">
         <span class="pb-num" aria-hidden="true">12</span>
         <div class="pb-body">
           <h3>Problème 12 · La cible</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cible de trois cercles de rayons <var>r</var>, 2<var>r</var>, 3<var>r</var> ; aire totale 1 113 cm². Aire de la zone blanche (entre <var>r</var> et 2<var>r</var>) ?</p></details>
           <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Le parallélogramme</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On plie un parallélogramme ABCD selon [AE] (D vient en D′) puis selon [CF] (B vient en B′) ; (EF) est perpendiculaire à [AB] et [DC] ; AD = 10 cm, AF = 5 cm. Aire ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Rectangle de hasard</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux dés donnent la longueur et la largeur d’un rectangle. En ajoutant un même entier aux deux, l’aire double. Aire du rectangle doublé ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
         </div>
       </li>
       <li class="pb" id="p15">
@@ -108,6 +180,14 @@
           <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
         </div>
       </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Le terrain du père C. Cussion</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Triangle avec un cercle inscrit de diamètre 42 m ; un point de tangence partage un côté en 23 m et 27 m. Périmètre du terrain ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
     </ol>
 
     <section class="resultat" id="resultat" hidden aria-live="polite">
@@ -128,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2002, "problemes": [{"num": "1", "titre": "Les carrés"}, {"num": "6", "titre": "Les bougies"}, {"num": "9", "titre": "Février palindrome"}, {"num": "10", "titre": "Les maisons amies"}, {"num": "12", "titre": "La cible"}, {"num": "15", "titre": "Le vélo sans chaîne"}, {"num": "16", "titre": "Le retour de Pent’X"}, {"num": "17", "titre": "Le polygone mystérieux"}]};</script>
+<script>window.QUIZ = {"annee": 2002, "problemes": [{"num": "1", "titre": "Les carrés"}, {"num": "2", "titre": "Le carrefour"}, {"num": "3", "titre": "Le cube incomplet"}, {"num": "4", "titre": "Visite éclair au musée"}, {"num": "5", "titre": "La tablette de Mathilde"}, {"num": "6", "titre": "Les bougies"}, {"num": "7", "titre": "La ficelle de Ludo"}, {"num": "8", "titre": "Le plan du musée"}, {"num": "9", "titre": "Février palindrome"}, {"num": "10", "titre": "Les maisons amies"}, {"num": "11", "titre": "Bon pour un 421"}, {"num": "12", "titre": "La cible"}, {"num": "13", "titre": "Le parallélogramme"}, {"num": "14", "titre": "Rectangle de hasard"}, {"num": "15", "titre": "Le vélo sans chaîne"}, {"num": "16", "titre": "Le retour de Pent’X"}, {"num": "17", "titre": "Le polygone mystérieux"}, {"num": "18", "titre": "Le terrain du père C. Cussion"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

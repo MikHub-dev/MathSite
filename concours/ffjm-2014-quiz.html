@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2014</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -68,6 +68,14 @@
           <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
         </div>
       </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Le chamboultout</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Pyramide de boîtes : 1 2 3 4 en bas, 5 6 7, puis 8 9, puis 10. Une boîte qui tombe fait tomber celles posées sur elle. Mathias marque 40 points. Quelle boîte a-t-il touchée ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p5">
         <span class="pb-num" aria-hidden="true">5</span>
         <div class="pb-body">
@@ -90,6 +98,22 @@
           <h3>Problème 7 · La toupie magique</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les onze disques d’une toupie contiennent 1 à 11. Chaque alignement matérialisé (3 ou 5 disques) a pour somme 22. 1, 2, 3 et 11 sont placés ; retrouver les autres.</p></details>
           <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Le nombre de Mathias</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un nombre de trois chiffres se terminant par 5. Le produit de ses deux premiers chiffres est 25 fois plus petit que le nombre. Quel est-il ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Les triangles de bambou</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec trois des cinq tiges de 2, 3, 4, 5 et 6 cm placées bout à bout, combien de triangles différents (non aplatis) peut-on former ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
         </div>
       </li>
       <li class="pb" id="p10">
@@ -116,6 +140,14 @@
           <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
         </div>
       </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · La rose des vents</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une rose des vents est construite dans un carré de 18 cm, tous les segments joignant des sommets et milieux de côtés. Quelle est l’aire de la rose grise ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p14">
         <span class="pb-num" aria-hidden="true">14</span>
         <div class="pb-body">
@@ -140,6 +172,22 @@
           <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
         </div>
       </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Le panneau routier</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un panneau triangulaire contient trois carrés gris de 2,8 dm de côté, sans recouvrement, qui partagent un sommet commun et ont chacun deux sommets sur un côté du triangle. Un angle de 75° est opposé à un côté de 10,8 dm. Quelle est l’aire du triangle (cm² près) ?</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · La monnaie de Maths-Pays</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois pièces : 1 matho et deux autres valeurs entières supérieures à 1, choisies pour que le nombre moyen de pièces nécessaires pour payer 0 à 99 mathos soit le plus petit possible. Quel est ce nombre moyen ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
     </ol>
 
     <section class="resultat" id="resultat" hidden aria-live="polite">
@@ -160,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2014, "problemes": [{"num": "1", "titre": "Les 10 pièces"}, {"num": "2", "titre": "Les dates de l’année"}, {"num": "3", "titre": "Autoréférence"}, {"num": "5", "titre": "Les bracelets"}, {"num": "6", "titre": "Les chansons"}, {"num": "7", "titre": "La toupie magique"}, {"num": "10", "titre": "La suite de Mathias"}, {"num": "11", "titre": "Les amis"}, {"num": "12", "titre": "En toute transparence"}, {"num": "14", "titre": "Les deux rectangles"}, {"num": "15", "titre": "Les nombres de l’année"}, {"num": "16", "titre": "L’enclos"}]};</script>
+<script>window.QUIZ = {"annee": 2014, "problemes": [{"num": "1", "titre": "Les 10 pièces"}, {"num": "2", "titre": "Les dates de l’année"}, {"num": "3", "titre": "Autoréférence"}, {"num": "4", "titre": "Le chamboultout"}, {"num": "5", "titre": "Les bracelets"}, {"num": "6", "titre": "Les chansons"}, {"num": "7", "titre": "La toupie magique"}, {"num": "8", "titre": "Le nombre de Mathias"}, {"num": "9", "titre": "Les triangles de bambou"}, {"num": "10", "titre": "La suite de Mathias"}, {"num": "11", "titre": "Les amis"}, {"num": "12", "titre": "En toute transparence"}, {"num": "13", "titre": "La rose des vents"}, {"num": "14", "titre": "Les deux rectangles"}, {"num": "15", "titre": "Les nombres de l’année"}, {"num": "16", "titre": "L’enclos"}, {"num": "17", "titre": "Le panneau routier"}, {"num": "18", "titre": "La monnaie de Maths-Pays"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

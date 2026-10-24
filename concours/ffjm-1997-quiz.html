@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 1997</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -100,6 +100,22 @@
           <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
         </div>
       </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Rendez-vous à Carréville</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Ville en quadrillage ; trouver les carrefours à égale distance (en vélo, le long des rues) de B et C, et de A et D.</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Les 7 nombres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Disque central relié à 6 disques ; 7 entiers positifs différents ; la somme de deux disques reliés n’est divisible ni par 2 ni par 3. Plus petite somme ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
     </ol>
 
     <section class="resultat" id="resultat" hidden aria-live="polite">
@@ -120,7 +136,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 1997, "problemes": [{"num": "1", "titre": "Les deux fourmis"}, {"num": "2", "titre": "Il y a plus d’un âne qui s’appelle Martin"}, {"num": "3", "titre": "Les trois amis"}, {"num": "4", "titre": "Les fourmis déménagent"}, {"num": "5", "titre": "Points de vue symétriques"}, {"num": "6", "titre": "Le jeu de Lam"}, {"num": "7", "titre": "La montre de Jules"}]};</script>
+<script>window.QUIZ = {"annee": 1997, "problemes": [{"num": "1", "titre": "Les deux fourmis"}, {"num": "2", "titre": "Il y a plus d’un âne qui s’appelle Martin"}, {"num": "3", "titre": "Les trois amis"}, {"num": "4", "titre": "Les fourmis déménagent"}, {"num": "5", "titre": "Points de vue symétriques"}, {"num": "6", "titre": "Le jeu de Lam"}, {"num": "7", "titre": "La montre de Jules"}, {"num": "8", "titre": "Rendez-vous à Carréville"}, {"num": "9", "titre": "Les 7 nombres"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

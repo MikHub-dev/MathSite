@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2009</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -44,6 +44,14 @@
       <div class="err" id="erreur" role="alert"></div>
     </div>
     <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · La pyramide</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Placer 1, 2, 3 et 4 dans les briques vides d’une pyramide (8 en haut, 5 au milieu à gauche) ; chaque brique des 2<sup>e</sup> et 3<sup>e</sup> niveaux vaut la somme des deux briques qui la portent.</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p2">
         <span class="pb-num" aria-hidden="true">2</span>
         <div class="pb-body">
@@ -92,6 +100,14 @@
           <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
         </div>
       </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Cinq poids, deux mesures</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Masses A à E distinctes de 1 à 5 kg. A + B &gt; C + D + E et B + C = E. Valeur de chaque masse ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p9">
         <span class="pb-num" aria-hidden="true">9</span>
         <div class="pb-body">
@@ -124,12 +140,36 @@
           <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
         </div>
       </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Les thermomètres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Noircir chaque thermomètre depuis la boule pour indiquer le niveau du liquide. Aucun n’est vide ; chaque ligne et chaque colonne contient le même nombre de cases noircies, différent de 5.</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · En carrés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Il y a 6 façons de découper une grille 3 × 3 en carrés. Combien pour une grille 4 × 4 ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p15">
         <span class="pb-num" aria-hidden="true">15</span>
         <div class="pb-body">
           <h3>Problème 15 · La suite de Fibo et de Géo</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trois entiers positifs <var>a</var>, <var>b</var>, <var>c</var> ; <var>d</var> = <var>c</var>(<var>b</var> + <var>a</var>) et <var>e</var> = <var>d</var>(<var>c</var> + <var>b</var>) = 2008. Quels sont <var>a</var>, <var>b</var>, <var>c</var> ?</p></details>
           <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Dans les deux sens</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Écrire 2 à 7 dans un tableau 2 × 3 : le produit des deux nombres horizontaux égale le produit des trois nombres verticaux.</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
         </div>
       </li>
       <li class="pb" id="p17">
@@ -168,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2009, "problemes": [{"num": "2", "titre": "Autoréférence"}, {"num": "3", "titre": "Les cerises"}, {"num": "4", "titre": "Les carrés"}, {"num": "5", "titre": "Produit + somme"}, {"num": "6", "titre": "Des creux et des bosses"}, {"num": "7", "titre": "Des taches qui cachent"}, {"num": "9", "titre": "Devine-figure"}, {"num": "10", "titre": "Les étiquettes"}, {"num": "11", "titre": "Le 2010e"}, {"num": "12", "titre": "Un sept renversant"}, {"num": "15", "titre": "La suite de Fibo et de Géo"}, {"num": "17", "titre": "Ah les vaches !"}, {"num": "18", "titre": "Les boulets de canon monégasques"}]};</script>
+<script>window.QUIZ = {"annee": 2009, "problemes": [{"num": "1", "titre": "La pyramide"}, {"num": "2", "titre": "Autoréférence"}, {"num": "3", "titre": "Les cerises"}, {"num": "4", "titre": "Les carrés"}, {"num": "5", "titre": "Produit + somme"}, {"num": "6", "titre": "Des creux et des bosses"}, {"num": "7", "titre": "Des taches qui cachent"}, {"num": "8", "titre": "Cinq poids, deux mesures"}, {"num": "9", "titre": "Devine-figure"}, {"num": "10", "titre": "Les étiquettes"}, {"num": "11", "titre": "Le 2010e"}, {"num": "12", "titre": "Un sept renversant"}, {"num": "13", "titre": "Les thermomètres"}, {"num": "14", "titre": "En carrés"}, {"num": "15", "titre": "La suite de Fibo et de Géo"}, {"num": "16", "titre": "Dans les deux sens"}, {"num": "17", "titre": "Ah les vaches !"}, {"num": "18", "titre": "Les boulets de canon monégasques"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2008</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -60,6 +60,14 @@
           <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
         </div>
       </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Addition à compléter</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Placer 1, 2, 7, 8 et 0 dans les cases de l’addition 7□ + □9 = □□□ ; un nombre ne commence pas par 0.</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p4">
         <span class="pb-num" aria-hidden="true">4</span>
         <div class="pb-body">
@@ -84,12 +92,36 @@
           <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
         </div>
       </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · En partant de 2008</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Si le nombre est pair, on le divise par 2 ; s’il est impair, on ajoute 9 puis on divise par 2. On part de 2 008 et on s’arrête au premier 1. Combien de nombres sont écrits ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p8">
         <span class="pb-num" aria-hidden="true">8</span>
         <div class="pb-body">
           <h3>Problème 8 · Les neuf jetons</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Neuf jetons en cercle ; trois jetons qui se suivent ont toujours pour somme 2 008. Un jeton porte 501, un autre 703 ; quel nombre porte le jeton gris ?</p></details>
           <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Symétrie</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une figure en losange faite de petits carrés, dont certains sont noirs. Combien faut-il noircir de carrés, au minimum, pour que la figure ait un axe de symétrie ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Le jeu vidéo de Victor</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Labyrinthe de 3 × 4 salles (pièces : 1, 4, 6, 5 / 2, 12, 3, 11 / 10, 8, 9, 7) ; entrée en haut à gauche, sortie en bas à droite. Victor ne peut traverser que huit salles. Combien de pièces au maximum ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
         </div>
       </li>
       <li class="pb" id="p11">
@@ -116,12 +148,28 @@
           <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
         </div>
       </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Dans l’ordre</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Placer 1 à 16 dans une grille 4 × 4 : sommes de lignes 50, 44, 32, 10, de colonnes 31, 33, 35, 37 ; deux nombres consécutifs sont toujours dans une même ligne ou une même colonne.</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p15">
         <span class="pb-num" aria-hidden="true">15</span>
         <div class="pb-body">
           <h3>Problème 15 · Le télésiège</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sièges numérotés et régulièrement espacés sur une boucle à vitesse constante. En montant, vous croisez le siège 100 qui descend, puis une minute plus tard le 124. Durée minimale de la montée ?</p></details>
           <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Les nombres premiers</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre nombres premiers ont pour somme un nombre premier ; tous les chiffres des cinq nombres sont différents. Quels sont-ils ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
         </div>
       </li>
       <li class="pb" id="p17">
@@ -160,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2008, "problemes": [{"num": "1", "titre": "Les six départements"}, {"num": "2", "titre": "Les timbres"}, {"num": "4", "titre": "La pyramide"}, {"num": "5", "titre": "La course"}, {"num": "6", "titre": "Les 4 opérations"}, {"num": "8", "titre": "Les neuf jetons"}, {"num": "11", "titre": "Jeu de nombres"}, {"num": "12", "titre": "Bateau sur l’eau"}, {"num": "13", "titre": "Découpage"}, {"num": "15", "titre": "Le télésiège"}, {"num": "17", "titre": "Dames chinoises en solitaire"}, {"num": "18", "titre": "Les ruches d’Abella"}]};</script>
+<script>window.QUIZ = {"annee": 2008, "problemes": [{"num": "1", "titre": "Les six départements"}, {"num": "2", "titre": "Les timbres"}, {"num": "3", "titre": "Addition à compléter"}, {"num": "4", "titre": "La pyramide"}, {"num": "5", "titre": "La course"}, {"num": "6", "titre": "Les 4 opérations"}, {"num": "7", "titre": "En partant de 2008"}, {"num": "8", "titre": "Les neuf jetons"}, {"num": "9", "titre": "Symétrie"}, {"num": "10", "titre": "Le jeu vidéo de Victor"}, {"num": "11", "titre": "Jeu de nombres"}, {"num": "12", "titre": "Bateau sur l’eau"}, {"num": "13", "titre": "Découpage"}, {"num": "14", "titre": "Dans l’ordre"}, {"num": "15", "titre": "Le télésiège"}, {"num": "16", "titre": "Les nombres premiers"}, {"num": "17", "titre": "Dames chinoises en solitaire"}, {"num": "18", "titre": "Les ruches d’Abella"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

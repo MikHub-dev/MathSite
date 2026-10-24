@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 1992</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -44,12 +44,28 @@
       <div class="err" id="erreur" role="alert"></div>
     </div>
     <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · Taille de guêpe</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec 108, faire les quatre opérations +10, :10, ×10, −10 dans tous les ordres possibles (calculette sans priorités), puis la moyenne des 24 résultats.</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p2">
         <span class="pb-num" aria-hidden="true">2</span>
         <div class="pb-body">
           <h3>Problème 2 · Un dé non pipé</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un dé (3 dessus, 1 et 2 sur les faces visibles) bascule autour d’une arête au sol ; jamais deux fois de suite autour de la même arête. On additionne les faces du dessus (3 compris) jusqu’à 12. Combien de cheminements ?</p></details>
           <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · La place pavée</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Place hexagonale régulière pavée de triangles équilatéraux de 0,50 m ; entre 1 900 et 1 992 pavés. Périmètre ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
         </div>
       </li>
       <li class="pb" id="p4">
@@ -66,6 +82,14 @@
           <h3>Problème 5 · Presque carrément</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Grille de 6 × 6 points ; un parcours le long des lignes, sans repasser sur un segment, relie les 36 points. Chaque carré rapporte le nombre de ses côtés tracés. Score maximal ?</p></details>
           <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Le château de cartes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un château de <var>k</var> étages (comme l’exemple de 3 étages : 15 cartes) utilise toutes les cartes d’un nombre entier de jeux de 52. Nombre minimal d’étages ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
         </div>
       </li>
       <li class="pb" id="p7">
@@ -112,7 +136,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 1992, "problemes": [{"num": "2", "titre": "Un dé non pipé"}, {"num": "4", "titre": "La tête contre les murs"}, {"num": "5", "titre": "Presque carrément"}, {"num": "7", "titre": "Le pin’s tourneur"}, {"num": "8", "titre": "Que de 8 !"}, {"num": "9", "titre": "Amédée cède ses dés"}]};</script>
+<script>window.QUIZ = {"annee": 1992, "problemes": [{"num": "1", "titre": "Taille de guêpe"}, {"num": "2", "titre": "Un dé non pipé"}, {"num": "3", "titre": "La place pavée"}, {"num": "4", "titre": "La tête contre les murs"}, {"num": "5", "titre": "Presque carrément"}, {"num": "6", "titre": "Le château de cartes"}, {"num": "7", "titre": "Le pin’s tourneur"}, {"num": "8", "titre": "Que de 8 !"}, {"num": "9", "titre": "Amédée cède ses dés"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

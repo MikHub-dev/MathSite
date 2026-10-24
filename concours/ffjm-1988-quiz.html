@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 1988</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -58,6 +58,14 @@
           <h3>Problème C2 · Une somme astronomique</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Somme des chiffres de N = 10<sup>1988</sup> − 1988.</p></details>
           <div class="choix"><label for="sC2">Pattern</label><select id="sC2" data-pb="C2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pC3">
+        <span class="pb-num" aria-hidden="true">C3</span>
+        <div class="pb-body">
+          <h3>Problème C3 · Le grand nombre</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trouver un entier entre 1988 et 1 988 000 000 000 qui soit à la fois un carré, un cube et une puissance cinquième.</p></details>
+          <div class="choix"><label for="sC3">Pattern</label><select id="sC3" data-pb="C3"></select></div>
         </div>
       </li>
       <li class="pb" id="pC4">
@@ -108,6 +116,14 @@
           <div class="choix"><label for="sI4">Pattern</label><select id="sI4" data-pb="I4"></select></div>
         </div>
       </li>
+      <li class="pb" id="pI5">
+        <span class="pb-num" aria-hidden="true">I5</span>
+        <div class="pb-body">
+          <h3>Problème I5 · Radio-crochet</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les questions valent 4, 11 ou 17 points. Plus grand total impossible ?</p></details>
+          <div class="choix"><label for="sI5">Pattern</label><select id="sI5" data-pb="I5"></select></div>
+        </div>
+      </li>
       <li class="pb" id="pI6">
         <span class="pb-num" aria-hidden="true">I6</span>
         <div class="pb-body">
@@ -132,12 +148,36 @@
           <div class="choix"><label for="sL2">Pattern</label><select id="sL2" data-pb="L2"></select></div>
         </div>
       </li>
+      <li class="pb" id="pL3">
+        <span class="pb-num" aria-hidden="true">L3</span>
+        <div class="pb-body">
+          <h3>Problème L3 · Les boulons</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Prix décimal P d’un boulon, N boulons (N &lt; 1988) ; le prix total N × P vaut P + N. Plus grand N ?</p></details>
+          <div class="choix"><label for="sL3">Pattern</label><select id="sL3" data-pb="L3"></select></div>
+        </div>
+      </li>
       <li class="pb" id="pL5">
         <span class="pb-num" aria-hidden="true">L5</span>
         <div class="pb-body">
           <h3>Problème L5 · La multiplication</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Compléter … × .. = ....1 pour que les dix chiffres de 0 à 9 y figurent (une fois chacun).</p></details>
           <div class="choix"><label for="sL5">Pattern</label><select id="sL5" data-pb="L5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pL6">
+        <span class="pb-num" aria-hidden="true">L6</span>
+        <div class="pb-body">
+          <h3>Problème L6 · Les deux amis</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux amis sont nés la même année du XXe siècle, à une semaine d’intervalle. En écrivant jour, mois (sans 0 devant) et les deux derniers chiffres de l’année, l’un des nombres vaut 6 fois l’autre. Date de naissance du plus âgé ?</p></details>
+          <div class="choix"><label for="sL6">Pattern</label><select id="sL6" data-pb="L6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pD2">
+        <span class="pb-num" aria-hidden="true">D2</span>
+        <div class="pb-body">
+          <h3>Problème D2 · Et toujours un carré !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Trouver N = abcd tel que N = abcd, P = cbad et Q = bcad soient trois carrés parfaits. Toutes les solutions.</p></details>
+          <div class="choix"><label for="sD2">Pattern</label><select id="sD2" data-pb="D2"></select></div>
         </div>
       </li>
       <li class="pb" id="pD3">
@@ -188,6 +228,14 @@
           <div class="choix"><label for="sE2">Pattern</label><select id="sE2" data-pb="E2"></select></div>
         </div>
       </li>
+      <li class="pb" id="pE5">
+        <span class="pb-num" aria-hidden="true">E5</span>
+        <div class="pb-body">
+          <h3>Problème E5 · De quoi avons-nous l’aire ?</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Champ en triangle rectangle de côtés 60 m et 35 m. Chaque sommet est relié au point situé au tiers du côté opposé (toujours du même côté en tournant). Aire du triangle central, au m² ?</p></details>
+          <div class="choix"><label for="sE5">Pattern</label><select id="sE5" data-pb="E5"></select></div>
+        </div>
+      </li>
       <li class="pb" id="pE6">
         <span class="pb-num" aria-hidden="true">E6</span>
         <div class="pb-body">
@@ -216,7 +264,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 1988, "problemes": [{"num": "C1", "titre": "Le grand-père"}, {"num": "C2", "titre": "Une somme astronomique"}, {"num": "C4", "titre": "La grenouille"}, {"num": "C5", "titre": "L’encyclopédie"}, {"num": "C6", "titre": "Addition tournante"}, {"num": "I1", "titre": "Les trois factorielles"}, {"num": "I2", "titre": "Les diviseurs"}, {"num": "I4", "titre": "Un sac de monnaie"}, {"num": "I6", "titre": "Les régions"}, {"num": "L1", "titre": "L’ailier de génie"}, {"num": "L2", "titre": "Moto-macho"}, {"num": "L5", "titre": "La multiplication"}, {"num": "D3", "titre": "Triangles en tous genres"}, {"num": "D4", "titre": "Le poids des ans"}, {"num": "D5", "titre": "Nombres conjoints"}, {"num": "D6", "titre": "À la rivière !"}, {"num": "E1", "titre": "Les neuf fils du docteur Septembre"}, {"num": "E2", "titre": "La moquette"}, {"num": "E6", "titre": "Addition"}]};</script>
+<script>window.QUIZ = {"annee": 1988, "problemes": [{"num": "C1", "titre": "Le grand-père"}, {"num": "C2", "titre": "Une somme astronomique"}, {"num": "C3", "titre": "Le grand nombre"}, {"num": "C4", "titre": "La grenouille"}, {"num": "C5", "titre": "L’encyclopédie"}, {"num": "C6", "titre": "Addition tournante"}, {"num": "I1", "titre": "Les trois factorielles"}, {"num": "I2", "titre": "Les diviseurs"}, {"num": "I4", "titre": "Un sac de monnaie"}, {"num": "I5", "titre": "Radio-crochet"}, {"num": "I6", "titre": "Les régions"}, {"num": "L1", "titre": "L’ailier de génie"}, {"num": "L2", "titre": "Moto-macho"}, {"num": "L3", "titre": "Les boulons"}, {"num": "L5", "titre": "La multiplication"}, {"num": "L6", "titre": "Les deux amis"}, {"num": "D2", "titre": "Et toujours un carré !"}, {"num": "D3", "titre": "Triangles en tous genres"}, {"num": "D4", "titre": "Le poids des ans"}, {"num": "D5", "titre": "Nombres conjoints"}, {"num": "D6", "titre": "À la rivière !"}, {"num": "E1", "titre": "Les neuf fils du docteur Septembre"}, {"num": "E2", "titre": "La moquette"}, {"num": "E5", "titre": "De quoi avons-nous l’aire ?"}, {"num": "E6", "titre": "Addition"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

@@ -1,9 +1,9 @@
-// Version : 1.0
+// Version : 1.1
 // =====================================================================
 // QUIZ DES PATTERNS FFJM — logique commune aux pages ffjm-AAAA-quiz.html.
 // Chaque page définit window.QUIZ = { annee, problemes:[{num, titre}] }
 // puis charge ce fichier. Il :
-//   1. affiche le rappel des 24 patterns (numérotés, avec explications) ;
+//   1. affiche le rappel des 26 patterns (numérotés, avec explications) ;
 //   2. remplit la liste de choix de chaque problème ;
 //   3. au clic sur « Terminé », ouvre un e-mail (mailto:) contenant le
 //      prénom et le pattern choisi pour chaque problème.
@@ -14,7 +14,7 @@
 // Adresse qui reçoit les réponses (même adresse que exo-email.js).
 const QUIZ_EMAIL = "az.autres@gmail.com";
 
-// Numérotation = celle de « Méthodes de raisonnement — 24 patterns FFJM ».
+// Numérotation = celle de « Méthodes de raisonnement — 26 patterns FFJM ».
 const QUIZ_PATTERNS = [
   { n: 1, court: "Maximum ou minimum", titre: "Trouver un maximum ou un minimum : une borne, puis un exemple",
     texte: "Une réponse « au plus » ou « au moins » a toujours deux moitiés : un exemple qui atteint la valeur, et une raison pour laquelle on ne peut pas faire mieux. Pour « être certain », la raison est le pire cas." },
@@ -63,7 +63,11 @@ const QUIZ_PATTERNS = [
   { n: 23, court: "Figures inscrites", titre: "Figures inscrites",
     texte: "Une figure inscrite touche le cercle ou la sphère par ses sommets : sa plus grande diagonale est un diamètre. On ramène tout à un triangle rectangle ou à un angle au centre." },
   { n: 24, court: "Solides, dés et patrons", titre: "Solides, dés et patrons",
-    texte: "On suit un petit nombre d'éléments (trois faces autour d'un coin, les faces opposées) et on compte faces, arêtes et sommets avec la relation d'Euler : sommets − arêtes + faces = 2." }
+    texte: "On suit un petit nombre d'éléments (trois faces autour d'un coin, les faces opposées) et on compte faces, arêtes et sommets avec la relation d'Euler : sommets − arêtes + faces = 2." },
+  { n: 25, court: "Géométrie du triangle", titre: "Géométrie du triangle : Pythagore, Thalès, trigonométrie, aires relatives", nouveau: true,
+    texte: "On nomme les longueurs et on repère les triangles rectangles et semblables : Pythagore donne les longueurs, Thalès et les rapports d'aires donnent les proportions, la trigonométrie sert dès qu'un angle est connu. Une aire dans une figure se ramène à des aires de triangles de même base ou de même hauteur." },
+  { n: 26, court: "Probabilités", titre: "Probabilités : cas favorables sur cas possibles", nouveau: true,
+    texte: "Une probabilité est un nombre de cas favorables divisé par le nombre de cas possibles équiprobables : on dénombre avec soin (arbre, tableau), ou on suit l'évolution d'un état d'un tour au suivant. Un jeu équilibré se traduit par l'égalité de deux probabilités." }
 ];
 
 (function () {
@@ -73,13 +77,14 @@ const QUIZ_PATTERNS = [
   var CLE = "quiz-patterns-" + Q.annee;
   var $ = function (id) { return document.getElementById(id); };
 
-  // ---------- 1. Rappel des 24 patterns ----------
+  // ---------- 1. Rappel des 26 patterns ----------
   var liste = $("patterns");
   QUIZ_PATTERNS.forEach(function (p) {
     var li = document.createElement("li");
     li.className = "pat";
     var n = document.createElement("span"); n.className = "pat-n"; n.textContent = p.n;
     var h = document.createElement("h3"); h.textContent = p.titre;
+    if (p.nouveau) { var nv = document.createElement("span"); nv.className = "nv"; nv.textContent = "nouveau"; h.appendChild(document.createTextNode(" ")); h.appendChild(nv); }
     var t = document.createElement("p"); t.textContent = p.texte;
     li.appendChild(n); li.appendChild(h); li.appendChild(t);
     liste.appendChild(li);
@@ -136,7 +141,7 @@ const QUIZ_PATTERNS = [
   });
 
   // ---------- 3. Bouton « Terminé » ----------
-  function construireMessage(prenom) {
+  function construireMessage(prenom, court) {
     var L = [];
     L.push("Bonjour,");
     L.push("");
@@ -148,7 +153,7 @@ const QUIZ_PATTERNS = [
       var num = s.dataset.pb;
       if (s.value) {
         var p = QUIZ_PATTERNS[Number(s.value) - 1];
-        L.push("Problème " + num + " : pattern " + p.n + " (" + p.court + ")");
+        L.push("Problème " + num + " : pattern " + p.n + (court ? " (" + p.court + ")" : ""));
       } else {
         L.push("Problème " + num + " : pas de réponse");
       }
@@ -171,7 +176,9 @@ const QUIZ_PATTERNS = [
     if (vides > 0 && !window.confirm(vides + " problème" + (vides > 1 ? "s sont" : " est") + " sans réponse. Terminer quand même ?")) return;
 
     var sujet = "Quiz patterns FFJM " + Q.annee + " – " + prenom;
-    var corps = construireMessage(prenom);
+    var corps = construireMessage(prenom, true);
+    // Certains logiciels de messagerie coupent les liens mailto trop longs : on retire alors les noms des patterns.
+    if (encodeURIComponent(corps).length > 1800) corps = construireMessage(prenom, false);
     var lien = "mailto:" + QUIZ_EMAIL + "?subject=" + encodeURIComponent(sujet) + "&body=" + encodeURIComponent(corps);
 
     $("apercu").textContent = "À : " + QUIZ_EMAIL + "\r\nObjet : " + sujet + "\r\n\r\n" + corps;

@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2023</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -58,6 +58,22 @@
           <h3>Problème 2 · Les timbres</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un colis coûte 41 ludics. On dispose de timbres de 2 ludics et de timbres de 5 ludics, en quantité suffisante. De combien de façons peut-on l’affranchir ?</p></details>
           <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Les jetons</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre jetons portent 13, 8, 6 et 18 sur une face ; l’autre face porte les mêmes nombres, sans répétition sur un même jeton. Quel nombre est sur la face cachée du jeton 1 ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Le radio-réveil</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le radio-réveil affiche 20 h 23. Combien de minutes s’écouleront avant qu’il n’affiche un même chiffre quatre fois ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
         </div>
       </li>
       <li class="pb" id="p5">
@@ -116,6 +132,14 @@
           <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
         </div>
       </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Le cube de Cunégonde</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Cunégonde note le volume, en mm³, d’un cube d’albâtre. Trois taches cachent des chiffres du résultat. Quelle est la longueur de l’arête, nombre entier de millimètres ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p13">
         <span class="pb-num" aria-hidden="true">13</span>
         <div class="pb-body">
@@ -130,6 +154,38 @@
           <h3>Problème 14 · Parallélépipèdes</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un parallélépipède à base carrée a pour dimensions les trois facteurs premiers de 2023 : 7, 17 et 17 (somme 41). Combien de parallélépipèdes différents, avec une face carrée, dont les dimensions sont trois nombres premiers de somme 41, peut-on construire ?</p></details>
           <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Le collier</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un collier formé d’heptagones emboîtés, avec des rangs alternés de perles blanches et rouges. Le rang extérieur, complet, est blanc. Le collier compte 2023 perles blanches. Combien compte-t-il de perles rouges ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Les pépites d’or</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Picsou a 100 pépites, dont une seule est fausse. Chaque présentation à Poudre d’Or coûte 600 $ si la fausse est dans le groupe, 400 $ sinon. Quel est le total maximal payé, avec la meilleure stratégie ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Kaléidoscope</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un kaléidoscope fait de cercles et de carrés imbriqués, à l’infini. Quel pourcentage de l’aire du kaléidoscope représentent les zones bleues ? Arrondir à l’unité.</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Le potager du Père Sil</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un triangle ABC, avec BC = 13 m et un angle en B légèrement obtus. Deux allées [BF] et [CD] de 10 m et 15 m se croisent en E. Les longueurs AD, AF, BD, BE, CE et CF sont des entiers. Quelle est l’aire du potager, en m², arrondie au plus près ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
         </div>
       </li>
     </ol>
@@ -152,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2023, "problemes": [{"num": "1", "titre": "Quatre pièces pour un carré"}, {"num": "2", "titre": "Les timbres"}, {"num": "5", "titre": "Carré magique"}, {"num": "6", "titre": "Les pommes"}, {"num": "7", "titre": "Date et diviseurs"}, {"num": "8", "titre": "Une date qui se répète"}, {"num": "9", "titre": "Six carrés pour un rectangle"}, {"num": "10", "titre": "Léa va à Lima"}, {"num": "11", "titre": "Les dominos"}, {"num": "13", "titre": "Éclipse"}, {"num": "14", "titre": "Parallélépipèdes"}]};</script>
+<script>window.QUIZ = {"annee": 2023, "problemes": [{"num": "1", "titre": "Quatre pièces pour un carré"}, {"num": "2", "titre": "Les timbres"}, {"num": "3", "titre": "Les jetons"}, {"num": "4", "titre": "Le radio-réveil"}, {"num": "5", "titre": "Carré magique"}, {"num": "6", "titre": "Les pommes"}, {"num": "7", "titre": "Date et diviseurs"}, {"num": "8", "titre": "Une date qui se répète"}, {"num": "9", "titre": "Six carrés pour un rectangle"}, {"num": "10", "titre": "Léa va à Lima"}, {"num": "11", "titre": "Les dominos"}, {"num": "12", "titre": "Le cube de Cunégonde"}, {"num": "13", "titre": "Éclipse"}, {"num": "14", "titre": "Parallélépipèdes"}, {"num": "15", "titre": "Le collier"}, {"num": "16", "titre": "Les pépites d’or"}, {"num": "17", "titre": "Kaléidoscope"}, {"num": "18", "titre": "Le potager du Père Sil"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>
