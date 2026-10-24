@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2005</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -68,6 +68,22 @@
           <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
         </div>
       </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Au balai furieux</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">35 heures d’ouverture par semaine ; le dimanche de 1 h à 7 h ; les autres jours, ouverture à 19 h. À quelle heure ferme-t-elle du lundi au samedi ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Message codé</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Chaque nombre code toujours la même lettre : 25 12 13 13 22 / 24 19 26 13 24 22 / 11 12 6 9 / 15 26 / 8 6 18 7 22. Décoder.</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p6">
         <span class="pb-num" aria-hidden="true">6</span>
         <div class="pb-body">
@@ -82,6 +98,14 @@
           <h3>Problème 7 · Le cube de Colin</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une pyramide de cubes : 1 cube en haut, puis 3 × 3, 5 × 5… Combien de cubes pour 7 étages ?</p></details>
           <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Les emplettes de Maléficine</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">5 chapeaux, 3 robes ; 6 baguettes en cèdre et 4 en saule ; 2 balais en cèdre et 3 en saule ; baguette et balai du même bois. Combien de tenues ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
         </div>
       </li>
       <li class="pb" id="p9">
@@ -108,12 +132,60 @@
           <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
         </div>
       </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Arrosage imparfait</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un arroseur au centre d’une pelouse carrée arrose tout juste les bords. Quel pourcentage n’est pas arrosé ? (π = 3,142.)</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p13">
         <span class="pb-num" aria-hidden="true">13</span>
         <div class="pb-body">
           <h3>Problème 13 · Un long circuit</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sur un damier en croix de 20 cases, un pion se déplace comme un roi et fait un circuit fermé passant une fois par chaque case. Le plus long possible : combien de segments longs (en diagonale) ?</p></details>
           <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Quatre-cent-vingt-et-un</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Combien de nombres inférieurs à 311 204 contiennent les chiffres 4, 2, 1 consécutifs, dans cet ordre ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Télécom</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un mât sur un toit rectangulaire ; câbles de la cime aux quatre coins. Deux câbles opposés mesurent 10 et 11 m, un troisième 14 m. Longueur du quatrième ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Le cheval de Trois</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Découper le plan du cheval (fait de petits triangles équilatéraux) en trois morceaux qui, sans retournement, forment un grand triangle équilatéral ; on peut couper à l’intérieur des petits triangles.</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Les cubes de Rama et Nujean</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre cubes différents (arêtes entières) se partagent en deux paires de même volume total. Plus petite somme commune ?</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Qui veut gagner un million ?</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Billet à 10 € : 36 cases à gratter, 6 « 10 », 9 « 1 », 21 « 0 ». On gratte autant de cases qu’on veut, on gagne le produit des nombres grattés. Avec la stratégie optimale, quelle proportion des mises est reversée ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
         </div>
       </li>
     </ol>
@@ -136,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2005, "problemes": [{"num": "1", "titre": "Les polygones"}, {"num": "2", "titre": "Les patrons"}, {"num": "3", "titre": "Les six nombres"}, {"num": "6", "titre": "Pas si vieille !"}, {"num": "7", "titre": "Le cube de Colin"}, {"num": "9", "titre": "Bouts de carton"}, {"num": "10", "titre": "L’hepta-jeu"}, {"num": "11", "titre": "Les pions d’Alice"}, {"num": "13", "titre": "Un long circuit"}]};</script>
+<script>window.QUIZ = {"annee": 2005, "problemes": [{"num": "1", "titre": "Les polygones"}, {"num": "2", "titre": "Les patrons"}, {"num": "3", "titre": "Les six nombres"}, {"num": "4", "titre": "Au balai furieux"}, {"num": "5", "titre": "Message codé"}, {"num": "6", "titre": "Pas si vieille !"}, {"num": "7", "titre": "Le cube de Colin"}, {"num": "8", "titre": "Les emplettes de Maléficine"}, {"num": "9", "titre": "Bouts de carton"}, {"num": "10", "titre": "L’hepta-jeu"}, {"num": "11", "titre": "Les pions d’Alice"}, {"num": "12", "titre": "Arrosage imparfait"}, {"num": "13", "titre": "Un long circuit"}, {"num": "14", "titre": "Quatre-cent-vingt-et-un"}, {"num": "15", "titre": "Télécom"}, {"num": "16", "titre": "Le cheval de Trois"}, {"num": "17", "titre": "Les cubes de Rama et Nujean"}, {"num": "18", "titre": "Qui veut gagner un million ?"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

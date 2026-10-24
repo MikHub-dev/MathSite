@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2015</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -52,12 +52,68 @@
           <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
         </div>
       </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Répétitions</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Compléter 2015 + _ _ _ = 2 _ _ _ pour que, dans toute l’opération, le chiffre 2 apparaisse 5 fois, le 0 deux fois, le 1 deux fois et le 5 deux fois.</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p3">
         <span class="pb-num" aria-hidden="true">3</span>
         <div class="pb-body">
           <h3>Problème 3 · Autoréférence</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Quatre phrases, dont au moins une vraie : 1. Exactement une est fausse. 2. Exactement deux sont fausses. 3. Exactement trois sont fausses. 4. Exactement trois sont vraies. Lesquelles sont vraies ?</p></details>
           <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Le panneau routier</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Découper un rectangle de 31 × 65 cm en un minimum de morceaux pour former un panneau : un carré posé sur sa pointe et un poteau rectangulaire.</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · L’enseigne lumineuse</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">18 lampes reliées par des câbles. Une lampe s’allume d’abord au hasard ; chaque seconde, les lampes reliées à une lampe allumée s’allument. Au minimum, après combien de secondes tout est-il allumé, et quelle lampe était allumée au départ ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · L’opération de Mathilde</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec quatre dominos (1|6, 2|3, 2|6, 4|5), Mathilde forme une multiplication : un nombre de trois chiffres par un nombre d’un chiffre (un domino couché et un domino debout), le résultat de quatre chiffres (deux dominos couchés). Quel est le résultat ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Les nombres de Mathias</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Combien de nombres à trois chiffres sont divisibles par 15 et ont une somme de chiffres égale à 15 ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Le réveil de M. de la Palice</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le réveil sonne à intervalles réguliers (nombre entier de minutes). À 8 h, il sonne pour la 5<sup>e</sup> fois. Un quart d’heure avant, il avait déjà sonné exactement une fois. À quelle heure a-t-il sonné la première fois ?</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Le puzzle de Mathilde</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Avec six pièces de bois (triangles rectangles et un rectangle dont les dimensions sont indiquées), former un carré.</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
         </div>
       </li>
       <li class="pb" id="p10">
@@ -68,12 +124,28 @@
           <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
         </div>
       </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · La bande de Marius</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une bande de 30 cm sur 4 cm est pliée trois fois autour d’un petit carré central ; ses deux extrémités se recouvrent exactement en un carré de 4 cm de côté. Quel est le côté du petit carré central ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p12">
         <span class="pb-num" aria-hidden="true">12</span>
         <div class="pb-body">
           <h3>Problème 12 · Deux arcs de cercle</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un arc de 45° sur le cercle d’Alain a la même longueur qu’un arc de 30° sur celui de Béatrice. Le disque d’Alain a une aire de 60 cm². Quelle est l’aire du disque de Béatrice ?</p></details>
           <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Le coloriage du bateau</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les 24 triangles d’un bateau sont coloriés avec quatre couleurs. Chaque fois qu’une pièce de quatre triangles (parallélogramme) est posée, dans n’importe quelle orientation, elle doit recouvrir quatre couleurs différentes. Noircir les triangles dont la couleur diffère de celles de a, b et c.</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
         </div>
       </li>
       <li class="pb" id="p14">
@@ -136,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2015, "problemes": [{"num": "1", "titre": "Futoshiki"}, {"num": "3", "titre": "Autoréférence"}, {"num": "10", "titre": "Le cadenas"}, {"num": "12", "titre": "Deux arcs de cercle"}, {"num": "14", "titre": "Le limaçon magique"}, {"num": "15", "titre": "Les nombres de l’année"}, {"num": "16", "titre": "Moyenne de carrés"}, {"num": "17", "titre": "Le nombre du bonheur"}, {"num": "18", "titre": "Les polygones de Pytha Gore"}]};</script>
+<script>window.QUIZ = {"annee": 2015, "problemes": [{"num": "1", "titre": "Futoshiki"}, {"num": "2", "titre": "Répétitions"}, {"num": "3", "titre": "Autoréférence"}, {"num": "4", "titre": "Le panneau routier"}, {"num": "5", "titre": "L’enseigne lumineuse"}, {"num": "6", "titre": "L’opération de Mathilde"}, {"num": "7", "titre": "Les nombres de Mathias"}, {"num": "8", "titre": "Le réveil de M. de la Palice"}, {"num": "9", "titre": "Le puzzle de Mathilde"}, {"num": "10", "titre": "Le cadenas"}, {"num": "11", "titre": "La bande de Marius"}, {"num": "12", "titre": "Deux arcs de cercle"}, {"num": "13", "titre": "Le coloriage du bateau"}, {"num": "14", "titre": "Le limaçon magique"}, {"num": "15", "titre": "Les nombres de l’année"}, {"num": "16", "titre": "Moyenne de carrés"}, {"num": "17", "titre": "Le nombre du bonheur"}, {"num": "18", "titre": "Les polygones de Pytha Gore"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

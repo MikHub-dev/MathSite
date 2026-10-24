@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 1987</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -60,6 +60,14 @@
           <div class="choix"><label for="sC2">Pattern</label><select id="sC2" data-pb="C2"></select></div>
         </div>
       </li>
+      <li class="pb" id="pL1">
+        <span class="pb-num" aria-hidden="true">L1</span>
+        <div class="pb-body">
+          <h3>Problème L1 · Bonne année !</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les entiers sont rangés en pyramide : 1 ; 2 3 4 ; 5 6 7 8 9 ; 10 … 16 ; … Une ligne est désignée par son premier nombre, une colonne par le nombre du haut. Où est 1987 ?</p></details>
+          <div class="choix"><label for="sL1">Pattern</label><select id="sL1" data-pb="L1"></select></div>
+        </div>
+      </li>
       <li class="pb" id="pL2">
         <span class="pb-num" aria-hidden="true">L2</span>
         <div class="pb-body">
@@ -76,12 +84,28 @@
           <div class="choix"><label for="sO1">Pattern</label><select id="sO1" data-pb="O1"></select></div>
         </div>
       </li>
+      <li class="pb" id="pO2">
+        <span class="pb-num" aria-hidden="true">O2</span>
+        <div class="pb-body">
+          <h3>Problème O2 · Des p’tits cubes…</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un cube 3 × 3 × 3 de 27 petits cubes bleus ou blancs ; N cubes bleus. Pour deux faces opposées, le nombre total de cubes bleus visibles n’excède jamais N/2. Valeur maximale de N ?</p></details>
+          <div class="choix"><label for="sO2">Pattern</label><select id="sO2" data-pb="O2"></select></div>
+        </div>
+      </li>
       <li class="pb" id="pO3">
         <span class="pb-num" aria-hidden="true">O3</span>
         <div class="pb-body">
           <h3>Problème O3 · Le cent millième ?</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les 362 880 nombres écrits avec les chiffres 1 à 9 (chacun une fois) sont rangés dans l’ordre croissant. Quel est le 100 000e ?</p></details>
           <div class="choix"><label for="sO3">Pattern</label><select id="sO3" data-pb="O3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pO4">
+        <span class="pb-num" aria-hidden="true">O4</span>
+        <div class="pb-body">
+          <h3>Problème O4 · Suites logiques</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Compléter : A : 2, 7, 24, 77, 238… ; B : 1, 3, 9, 13, 65… ; C : 11111000011, 2201121, 133003, 30423, 13111…</p></details>
+          <div class="choix"><label for="sO4">Pattern</label><select id="sO4" data-pb="O4"></select></div>
         </div>
       </li>
       <li class="pb" id="pO5">
@@ -98,6 +122,14 @@
           <h3>Problème O6 · Si ou alors ?</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">A et B réels. Si A et B sont entiers, alors A &gt; B &gt; 1. A + B ∈ {11, 12, 13} ou A = B + 9. Si AB ≠ 400, alors A et B sont entiers et B divise A. Nombre de couples et liste, par A décroissant.</p></details>
           <div class="choix"><label for="sO6">Pattern</label><select id="sO6" data-pb="O6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="pD">
+        <span class="pb-num" aria-hidden="true">D</span>
+        <div class="pb-body">
+          <h3>Problème D · L’escalier des différences</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un escalier de différences : chaque nombre est la différence (en valeur absolue) des deux nombres situés sous lui ; tous les nombres sont des entiers strictement positifs différents. Construire un escalier à 8 étages (36 nombres) en minimisant le plus grand nombre M, puis la somme S.</p></details>
+          <div class="choix"><label for="sD">Pattern</label><select id="sD" data-pb="D"></select></div>
         </div>
       </li>
     </ol>
@@ -120,7 +152,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 1987, "problemes": [{"num": "C1", "titre": "Trente-trois… dites !"}, {"num": "C2", "titre": "Gagner, c’est spormidable"}, {"num": "L2", "titre": "Le motard qui monte au nez… du peloton"}, {"num": "O1", "titre": "Tirez le premier ?"}, {"num": "O3", "titre": "Le cent millième ?"}, {"num": "O5", "titre": "Nombres secrets"}, {"num": "O6", "titre": "Si ou alors ?"}]};</script>
+<script>window.QUIZ = {"annee": 1987, "problemes": [{"num": "C1", "titre": "Trente-trois… dites !"}, {"num": "C2", "titre": "Gagner, c’est spormidable"}, {"num": "L1", "titre": "Bonne année !"}, {"num": "L2", "titre": "Le motard qui monte au nez… du peloton"}, {"num": "O1", "titre": "Tirez le premier ?"}, {"num": "O2", "titre": "Des p’tits cubes…"}, {"num": "O3", "titre": "Le cent millième ?"}, {"num": "O4", "titre": "Suites logiques"}, {"num": "O5", "titre": "Nombres secrets"}, {"num": "O6", "titre": "Si ou alors ?"}, {"num": "D", "titre": "L’escalier des différences"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

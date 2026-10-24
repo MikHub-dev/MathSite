@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2019</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -124,6 +124,14 @@
           <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
         </div>
       </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Les disques</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans une feuille carrée, Mathilde découpe des disques identiques. La somme de leurs périmètres dépasse le périmètre de la feuille. Combien de disques au minimum ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p12">
         <span class="pb-num" aria-hidden="true">12</span>
         <div class="pb-body">
@@ -146,6 +154,22 @@
           <h3>Problème 14 · Un carré qui tourne rond</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Huit cases en carré reliées par des opérations : : 5, + 6, : 7, − 8, × 9, + 114, × 3, − 4, en revenant à la case de départ (en haut à gauche). Quel nombre écrire dans cette case ?</p></details>
           <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Aidez Dédé</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Six dés identiques portent 1 sur une face, 2 sur deux faces, 3 sur trois faces. Quelle est la probabilité que le total des six dés soit 12 ? (fraction irréductible)</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Concaténation</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">2019 = 3 × 673, et 3673 et 6733 sont premiers. Quel est le plus petit entier égal au produit de trois facteurs premiers (distincts ou non) dont toutes les concaténations sont premières ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
         </div>
       </li>
       <li class="pb" id="p17">
@@ -184,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2019, "problemes": [{"num": "1", "titre": "Du six au neuf"}, {"num": "2", "titre": "Sans les chiffres de l’année"}, {"num": "3", "titre": "Le solide"}, {"num": "4", "titre": "Les crayons"}, {"num": "5", "titre": "Le sac de billes"}, {"num": "6", "titre": "Le nombre mystérieux"}, {"num": "7", "titre": "Des billes de toutes les couleurs"}, {"num": "8", "titre": "La course à pied"}, {"num": "9", "titre": "La roue magique"}, {"num": "10", "titre": "Le nombre de Mathias"}, {"num": "12", "titre": "Dissection d’un rectangle"}, {"num": "13", "titre": "L’hexagone"}, {"num": "14", "titre": "Un carré qui tourne rond"}, {"num": "17", "titre": "Rectangle de carrés"}, {"num": "18", "titre": "La suite de Mathias"}]};</script>
+<script>window.QUIZ = {"annee": 2019, "problemes": [{"num": "1", "titre": "Du six au neuf"}, {"num": "2", "titre": "Sans les chiffres de l’année"}, {"num": "3", "titre": "Le solide"}, {"num": "4", "titre": "Les crayons"}, {"num": "5", "titre": "Le sac de billes"}, {"num": "6", "titre": "Le nombre mystérieux"}, {"num": "7", "titre": "Des billes de toutes les couleurs"}, {"num": "8", "titre": "La course à pied"}, {"num": "9", "titre": "La roue magique"}, {"num": "10", "titre": "Le nombre de Mathias"}, {"num": "11", "titre": "Les disques"}, {"num": "12", "titre": "Dissection d’un rectangle"}, {"num": "13", "titre": "L’hexagone"}, {"num": "14", "titre": "Un carré qui tourne rond"}, {"num": "15", "titre": "Aidez Dédé"}, {"num": "16", "titre": "Concaténation"}, {"num": "17", "titre": "Rectangle de carrés"}, {"num": "18", "titre": "La suite de Mathias"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

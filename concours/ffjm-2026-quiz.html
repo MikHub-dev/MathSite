@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2026</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -124,6 +124,14 @@
           <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
         </div>
       </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Les âges croisés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un père fête son anniversaire le 1<sup>er</sup> mai, sa fille le 31 mai. Le 2 mai, l'âge du père en années sera égal à l'âge de sa fille en mois. Le père avait entre 25 et 45 ans à la naissance de sa fille. Quel âge avait-il exactement à cette naissance ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p12">
         <span class="pb-num" aria-hidden="true">12</span>
         <div class="pb-body">
@@ -148,6 +156,38 @@
           <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
         </div>
       </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Sa revue préférée</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une revue de moins de 100 pages est faite d'un seul cahier de feuilles pliées en deux ; chaque feuille porte 4 pages (recto et verso). Les agrafes sont enlevées et les feuilles éparpillées. Mathias voit une double page dont le produit des deux numéros vaut 900. Quel est le produit des numéros de pages au verso de cette double page ? (Pages numérotées dans l'ordre à partir de 1.)</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Michel astique sa voiture</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une planche porte huit clous : cinq aux sommets d'un pentagone régulier et trois à l'intérieur, formant un petit triangle. On tend un élastique entre les clous de sorte qu'il touche chaque clou une seule fois et ne se croise pas. De combien de façons ? (Exemple : avec quatre clous dont un à l'intérieur du triangle des trois autres, il y a 3 possibilités.)</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Une drôle de tablette</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une tablette carrée est formée d'un grand carré central de 7 cm de côté entouré de 392 petits carrés de 1 cm de côté. On la casse en deux le long d'une ligne droite qui ne suit pas le quadrillage, de façon que le nombre de carrés coupés en deux soit maximal. Le carré central est alors coupé en un petit et un grand morceau. Quel est le supremum (le plus petit majorant) de l'aire du petit morceau ? (En cm², fraction irréductible, ou 0 si la découpe est impossible.)</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Le bois du Père Lucien</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un bois triangulaire ACE est partagé en trois parcelles ABD, BDE et BCE, avec B sur [AC] et D sur [AE]. Les angles ABD et ACE sont droits, BD = DE = 1 km, et l'aire du triangle ABD est le double de celle du triangle BCE. Quelle est la longueur CE ? (Arrondir au mètre, √3 ≈ 1,732.)</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
     </ol>
 
     <section class="resultat" id="resultat" hidden aria-live="polite">
@@ -168,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2026, "problemes": [{"num": "1", "titre": "Le défi du chocolatier"}, {"num": "2", "titre": "Le chapeau de l'année"}, {"num": "3", "titre": "Tirelire"}, {"num": "4", "titre": "Les intrus"}, {"num": "5", "titre": "Noël a trop par rapport à Léon"}, {"num": "6", "titre": "Ma recette"}, {"num": "7", "titre": "À la chasse aux œufs"}, {"num": "8", "titre": "Le train mexicain"}, {"num": "9", "titre": "Les dates d'Annie Versaire"}, {"num": "10", "titre": "Diviseurs"}, {"num": "12", "titre": "L'escalier roulant"}, {"num": "13", "titre": "Jetons à retourner"}, {"num": "14", "titre": "Rapporteur"}]};</script>
+<script>window.QUIZ = {"annee": 2026, "problemes": [{"num": "1", "titre": "Le défi du chocolatier"}, {"num": "2", "titre": "Le chapeau de l'année"}, {"num": "3", "titre": "Tirelire"}, {"num": "4", "titre": "Les intrus"}, {"num": "5", "titre": "Noël a trop par rapport à Léon"}, {"num": "6", "titre": "Ma recette"}, {"num": "7", "titre": "À la chasse aux œufs"}, {"num": "8", "titre": "Le train mexicain"}, {"num": "9", "titre": "Les dates d'Annie Versaire"}, {"num": "10", "titre": "Diviseurs"}, {"num": "11", "titre": "Les âges croisés"}, {"num": "12", "titre": "L'escalier roulant"}, {"num": "13", "titre": "Jetons à retourner"}, {"num": "14", "titre": "Rapporteur"}, {"num": "15", "titre": "Sa revue préférée"}, {"num": "16", "titre": "Michel astique sa voiture"}, {"num": "17", "titre": "Une drôle de tablette"}, {"num": "18", "titre": "Le bois du Père Lucien"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

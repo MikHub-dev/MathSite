@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2025</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -92,6 +92,14 @@
           <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
         </div>
       </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Tr&#x27;addition</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Placer 1, 2, 3, 4, 5 et 7 dans six cases alignées pour que, dans trois cases voisines quelconques, un nombre soit la somme des deux autres, et que le premier nombre soit plus petit que le dernier.</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p8">
         <span class="pb-num" aria-hidden="true">8</span>
         <div class="pb-body">
@@ -116,6 +124,14 @@
           <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
         </div>
       </li>
+      <li class="pb" id="p11">
+        <span class="pb-num" aria-hidden="true">11</span>
+        <div class="pb-body">
+          <h3>Problème 11 · Les trois carrés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mathias dessine trois carrés de côtés entiers (en cm), dont deux identiques. La somme de leurs aires vaut 2025 cm². Quel est le périmètre du plus petit carré (ou de l'un d'eux s'ils sont égaux) ?</p></details>
+          <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p12">
         <span class="pb-num" aria-hidden="true">12</span>
         <div class="pb-body">
@@ -124,12 +140,44 @@
           <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
         </div>
       </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Les scores du concours</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">18 questions numérotées de 1 à 18 ; chaque réponse est juste ou fausse. Premier score : nombre de réponses justes ; second score : somme des numéros des questions justes. Il n'y a eu aucun ex-æquo sur les deux scores. Combien de concurrents au maximum ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p14">
         <span class="pb-num" aria-hidden="true">14</span>
         <div class="pb-body">
           <h3>Problème 14 · Atteindre 2025</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On passe d'un nombre au suivant en lui ajoutant le double de la somme de ses chiffres (1000 → 1002 → 1008 → 1026…). Combien de nombres de départ strictement inférieurs à 2025 permettent d'arriver à 2025 ?</p></details>
           <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Des urnes et des boules</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Chaque joueur a une urne blanche (deux balles noires) et une urne noire (deux balles blanches). À chaque tour, le joueur 1 tire une balle au hasard dans chaque urne et les échange ; le joueur 2 tire une balle de l'urne blanche, la met dans la noire, puis tire une balle de la noire et la remet dans la blanche. Le premier qui a ses deux balles blanches dans l'urne blanche gagne ; en cas d'égalité, les deux ont gagné. Quelle est la probabilité que le joueur 1 gagne ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · Un cube à Sion</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un grand cube de 27 petits cubes a eu ses six faces peintes (rouge R, bleu B, vert V, noir N, marron M, orange O). On a mélangé les petits cubes et reconstruit un grand cube ne montrant que des faces peintes. Deux photos en perspective et une photo de face (où ne restent que M, V et V) montrent ce nouveau cube avec des couleurs effacées. Compléter la troisième photo.</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Poupées russes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Treize poupées russes sont numérotées de 1 (la plus petite) à 13. Mathilde en voit certaines ; les autres sont cachées, imbriquées dans les poupées visibles, avec au plus une poupée directement dans une autre. Elle compte 2025 façons possibles d'imbriquer les poupées. Quels sont les numéros des poupées visibles ?</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
         </div>
       </li>
       <li class="pb" id="p18">
@@ -160,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2025, "problemes": [{"num": "1", "titre": "Deux dates"}, {"num": "2", "titre": "Intersections"}, {"num": "3", "titre": "Jus de pomme"}, {"num": "4", "titre": "L'aquarium"}, {"num": "5", "titre": "Labyrinthe"}, {"num": "6", "titre": "Les quatre amis"}, {"num": "8", "titre": "Donnez-nous le LA"}, {"num": "9", "titre": "La planète Maths"}, {"num": "10", "titre": "Des entiers somme-somme-produit"}, {"num": "12", "titre": "Moyennons"}, {"num": "14", "titre": "Atteindre 2025"}, {"num": "18", "titre": "Tic-Tac-Toc"}]};</script>
+<script>window.QUIZ = {"annee": 2025, "problemes": [{"num": "1", "titre": "Deux dates"}, {"num": "2", "titre": "Intersections"}, {"num": "3", "titre": "Jus de pomme"}, {"num": "4", "titre": "L'aquarium"}, {"num": "5", "titre": "Labyrinthe"}, {"num": "6", "titre": "Les quatre amis"}, {"num": "7", "titre": "Tr'addition"}, {"num": "8", "titre": "Donnez-nous le LA"}, {"num": "9", "titre": "La planète Maths"}, {"num": "10", "titre": "Des entiers somme-somme-produit"}, {"num": "11", "titre": "Les trois carrés"}, {"num": "12", "titre": "Moyennons"}, {"num": "13", "titre": "Les scores du concours"}, {"num": "14", "titre": "Atteindre 2025"}, {"num": "15", "titre": "Des urnes et des boules"}, {"num": "16", "titre": "Un cube à Sion"}, {"num": "17", "titre": "Poupées russes"}, {"num": "18", "titre": "Tic-Tac-Toc"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

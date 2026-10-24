@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2001</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -52,12 +52,52 @@
           <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
         </div>
       </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · La caravane Peugeot</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Nombres cités : 106, 203, 309, 204, 304, 404, 504, 604. On peut en trouver quatre dont la somme égale celle de trois autres. Quel nombre reste seul ?</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p3">
         <span class="pb-num" aria-hidden="true">3</span>
         <div class="pb-body">
           <h3>Problème 3 · Rangement pénible</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Combien de pièces en forme de croix (6 carreaux) peut-on ranger à plat, au maximum, dans une boîte 11 × 8 ?</p></details>
           <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p4">
+        <span class="pb-num" aria-hidden="true">4</span>
+        <div class="pb-body">
+          <h3>Problème 4 · Parois pivotantes</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">15 panneaux forment une spirale (disposition 1) ; on veut la spirale symétrique (disposition 2). Un panneau pivote d’un quart de tour autour d’une de ses extrémités. Nombre minimal de parois à faire pivoter ?</p></details>
+          <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Aïe mes aïeux</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">D. Sandent a eu trois fils en 1800 ; chaque descendant a eu 3 fils, sauf un petit-fils et un arrière-petit-fils restés sans enfant. Combien de descendants (masculins) de la 1<sup>re</sup> à la 7<sup>e</sup> génération ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Les sept disques</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Sept disques Q, I, M, A, T, H, S de valeurs 1 à 7 toutes différentes ; sommes indiquées : Q + M = 13, M + I = 9, T + S = 6, A + H = 6. Somme M + A + T + H + S ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p7">
+        <span class="pb-num" aria-hidden="true">7</span>
+        <div class="pb-body">
+          <h3>Problème 7 · Le champ du Père Méable</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Champ carré partagé en quatre bandes horizontales égales et coupé par une diagonale ; les rosiers (en gris) occupent, alternativement, la partie gauche ou droite de chaque bande. Quelle fraction ?</p></details>
+          <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
         </div>
       </li>
       <li class="pb" id="p8">
@@ -68,12 +108,44 @@
           <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
         </div>
       </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · Billes en tête</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Six sacs de billes ; les nombres sont des entiers consécutifs, pas forcément distincts (ex. 12, 12, 13, 14, 14, 15). Jacques prend trois sacs (58 billes), son frère les trois autres (61). Nombres de billes, par ordre croissant ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Quelle famille</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Dans une réunion de famille : 2 « papa », 2 « maman », 2 « mon fils », 2 « ma fille », 2 « ma sœur », 4 « mon frère », 2 belles-sœurs, 2 beaux-frères, 2 cousines, 2 cousins, 2 nièces, 2 neveux, 2 tantes, 2 oncles, 2 femmes, 2 maris. Chacun n’appelle un autre que d’une façon. Combien de personnes au minimum ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p11">
         <span class="pb-num" aria-hidden="true">11</span>
         <div class="pb-body">
           <h3>Problème 11 · Un château médiéval</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Le rempart a 8 murs de 10, 20, 30, 40, 50, 60, 80 et 110 m ; chaque mur est perpendiculaire à ses voisins. Aire maximale du domaine, en dam² ?</p></details>
           <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Esprit de suite</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On écrit 8 et 7, puis le produit des 1<sup>er</sup> et 2<sup>e</sup> chiffres (56), des 2<sup>e</sup> et 3<sup>e</sup> (35), etc., en écrivant à la suite. Finalement, il n’y a plus que des zéros. Dernier chiffre non nul ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Mi-carré, mi-cube</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un nombre est mi-carré mi-cube s’il est la somme d’un carré et d’un cube (2000 = 44² + 4³). Quelle était l’année précédente de ce type ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
         </div>
       </li>
       <li class="pb" id="p14">
@@ -120,7 +192,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2001, "problemes": [{"num": "1", "titre": "Les dix verres"}, {"num": "3", "titre": "Rangement pénible"}, {"num": "8", "titre": "Les cinq nombres"}, {"num": "11", "titre": "Un château médiéval"}, {"num": "14", "titre": "La petite grenouille et les pavés"}, {"num": "15", "titre": "Cadres autoréférents"}, {"num": "16", "titre": "Le cerf-volant aux 4 lunules"}]};</script>
+<script>window.QUIZ = {"annee": 2001, "problemes": [{"num": "1", "titre": "Les dix verres"}, {"num": "2", "titre": "La caravane Peugeot"}, {"num": "3", "titre": "Rangement pénible"}, {"num": "4", "titre": "Parois pivotantes"}, {"num": "5", "titre": "Aïe mes aïeux"}, {"num": "6", "titre": "Les sept disques"}, {"num": "7", "titre": "Le champ du Père Méable"}, {"num": "8", "titre": "Les cinq nombres"}, {"num": "9", "titre": "Billes en tête"}, {"num": "10", "titre": "Quelle famille"}, {"num": "11", "titre": "Un château médiéval"}, {"num": "12", "titre": "Esprit de suite"}, {"num": "13", "titre": "Mi-carré, mi-cube"}, {"num": "14", "titre": "La petite grenouille et les pavés"}, {"num": "15", "titre": "Cadres autoréférents"}, {"num": "16", "titre": "Le cerf-volant aux 4 lunules"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

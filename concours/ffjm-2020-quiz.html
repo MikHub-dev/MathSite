@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2020</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -76,6 +76,14 @@
           <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
         </div>
       </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Les caméras de surveillance</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un quartier de 10 carrefours et 18 rues (réseau de triangles). Une caméra sur un carrefour surveille ce carrefour et ceux qui lui sont reliés par une rue. Combien faut-il de caméras au minimum pour surveiller tous les carrefours ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p6">
         <span class="pb-num" aria-hidden="true">6</span>
         <div class="pb-body">
@@ -98,6 +106,14 @@
           <h3>Problème 8 · Etadate</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une date s’écrit en 8 chiffres JJMMAAAA (02022020 pour le 2 février 2020). Une date palindrome se lit de la même façon dans les deux sens. Quelle sera la dernière date palindrome du millénaire (2001 à 3000) ?</p></details>
           <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p9">
+        <span class="pb-num" aria-hidden="true">9</span>
+        <div class="pb-body">
+          <h3>Problème 9 · L’âge d’Archibald</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">En 2020, l’âge d’Archibald est égal au nombre formé par les deux derniers chiffres de son année de naissance. En quelle année est-il né ?</p></details>
+          <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
         </div>
       </li>
       <li class="pb" id="p10">
@@ -132,12 +148,44 @@
           <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
         </div>
       </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · La roue</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Une roue est arrêtée contre une marche de 12,5 cm de haut. La distance entre le point de contact de la roue avec le sol et le bord de la marche est 25 cm. Quel est le rayon de la roue ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p15">
         <span class="pb-num" aria-hidden="true">15</span>
         <div class="pb-body">
           <h3>Problème 15 · Aires et périmètres</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un rectangle de périmètre 65 cm est découpé en 3 × 3 rectangles. Les périmètres des rectangles du milieu de chaque bord sont 14 cm (haut), 18 cm (bas), 28 cm (gauche), 26 cm (droite). Les quatre coins (grisés) ont une aire totale de 120 cm². Quelle est l’aire du rectangle central ?</p></details>
           <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p16">
+        <span class="pb-num" aria-hidden="true">16</span>
+        <div class="pb-body">
+          <h3>Problème 16 · La dernière carte</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un paquet de 2020 cartes numérotées de 1 (dessus) à 2020. On passe la carte du dessus sous le paquet, puis on élimine la suivante, et ainsi de suite. Quel est le numéro de la dernière carte ?</p></details>
+          <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Un grand verger</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">2020 pommiers sont plantés aux sommets d’un réseau de triangles équilatéraux de côté 5 m, à au moins 10 m du bord d’un terrain rectangulaire. Quelle est la surface minimale du terrain ? (√3 ≈ 1,732, arrondi au m².)</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Les quatre produits serrés</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Les nombres de 1 à 16 sont placés dans un tableau 4 × 4 (1 et 2 déjà placés). Les produits des lignes sont différents et croissants de bas en haut ; le plus grand vaut exactement 1,04 fois le plus petit. Chacun est aussi le produit d’une colonne, dans l’ordre croissant de gauche à droite. Quel est le produit des quatre nombres des cases colorées ?</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
         </div>
       </li>
     </ol>
@@ -160,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2020, "problemes": [{"num": "1", "titre": "La bande des six"}, {"num": "2", "titre": "Triple exigence"}, {"num": "3", "titre": "Échange de cavaliers"}, {"num": "4", "titre": "Le dé de Mathilde"}, {"num": "6", "titre": "Une année heureuse"}, {"num": "7", "titre": "Les couleurs"}, {"num": "8", "titre": "Etadate"}, {"num": "10", "titre": "La combinaison"}, {"num": "11", "titre": "Deux fois OOUUI"}, {"num": "12", "titre": "Deux fois trois"}, {"num": "13", "titre": "Les pions tricolores"}, {"num": "15", "titre": "Aires et périmètres"}]};</script>
+<script>window.QUIZ = {"annee": 2020, "problemes": [{"num": "1", "titre": "La bande des six"}, {"num": "2", "titre": "Triple exigence"}, {"num": "3", "titre": "Échange de cavaliers"}, {"num": "4", "titre": "Le dé de Mathilde"}, {"num": "5", "titre": "Les caméras de surveillance"}, {"num": "6", "titre": "Une année heureuse"}, {"num": "7", "titre": "Les couleurs"}, {"num": "8", "titre": "Etadate"}, {"num": "9", "titre": "L’âge d’Archibald"}, {"num": "10", "titre": "La combinaison"}, {"num": "11", "titre": "Deux fois OOUUI"}, {"num": "12", "titre": "Deux fois trois"}, {"num": "13", "titre": "Les pions tricolores"}, {"num": "14", "titre": "La roue"}, {"num": "15", "titre": "Aires et périmètres"}, {"num": "16", "titre": "La dernière carte"}, {"num": "17", "titre": "Un grand verger"}, {"num": "18", "titre": "Les quatre produits serrés"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

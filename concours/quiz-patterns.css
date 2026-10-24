@@ -1,4 +1,4 @@
-/* Version : 1.0 — Quiz des patterns FFJM (pages concours/ffjm-AAAA-quiz.html) */
+/* Version : 1.1 — Quiz des patterns FFJM (pages concours/ffjm-AAAA-quiz.html) */
 :root{--bg:#f4f6f9;--paper:#ffffff;--fg:#1a2130;--muted:#5b6577;--line:#d6dce6;--grid:#c5d1e4;--sec:#1f4fa3;--sec-soft:#e1e9f8;--cin:#17734d;--cin-soft:#dbefe4;--hi:#ffd64a;--hi-soft:#fff2c2;--warn:#c2410c;--warn-soft:#fde3d4;--margin:#d9534f;--on-strong:#ffffff;--font-body:"Literata",Georgia,"Times New Roman",serif;--font-head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--font-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;color-scheme:light}
 @media (prefers-color-scheme:dark){:root{--bg:#10141a;--paper:#171c24;--fg:#e4e8ef;--muted:#9ba4b4;--line:#2a3240;--grid:#2e3a4f;--sec:#8fb3ff;--sec-soft:#1b2742;--cin:#6dd3a1;--cin-soft:#12302a;--hi:#8a6a0f;--hi-soft:#39310f;--warn:#ff8a52;--warn-soft:#3d2317;--margin:#e06d6a;--on-strong:#0f131a;color-scheme:dark}}
 *{box-sizing:border-box}
@@ -41,6 +41,8 @@ main{padding-bottom:110px}
 .pat-n{font:800 28px/1 var(--font-head);color:var(--sec);min-width:1.4em;font-variant-numeric:tabular-nums}
 .pat h3{font-size:17px;font-weight:700}
 .pat p{grid-column:2;font-size:15px;color:var(--muted);line-height:1.5}
+
+.nv{background:var(--warn);color:var(--on-strong);font:700 11px var(--font-mono);letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
 
 /* Formulaire */
 .nom{display:grid;gap:6px;max-width:420px;margin-top:14px;font-family:var(--font-head)}

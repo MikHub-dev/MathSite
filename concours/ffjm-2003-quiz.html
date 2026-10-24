@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2003</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -60,12 +60,36 @@
           <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
         </div>
       </li>
+      <li class="pb" id="p3">
+        <span class="pb-num" aria-hidden="true">3</span>
+        <div class="pb-body">
+          <h3>Problème 3 · Pyramide</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Combien de cubes dans la pyramide à base rectangulaire du dessin (4 étages) ?</p></details>
+          <div class="choix"><label for="s3">Pattern</label><select id="s3" data-pb="3"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p4">
         <span class="pb-num" aria-hidden="true">4</span>
         <div class="pb-body">
           <h3>Problème 4 · Les quatre amis</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Deux garçons, deux blonds, deux à lunettes ; pas deux colonnes identiques. Compléter le tableau.</p></details>
           <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Appartenance triple</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Colorier les régions situées à l’intérieur d’exactement trois rectangles.</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p6">
+        <span class="pb-num" aria-hidden="true">6</span>
+        <div class="pb-body">
+          <h3>Problème 6 · Les pesées</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Six comparaisons de paires de jouets (5 jouets, chacun en double). Il donne les quatre plus lourds à son frère et les quatre plus légers à sa sœur. Lesquels garde-t-il ?</p></details>
+          <div class="choix"><label for="s6">Pattern</label><select id="s6" data-pb="6"></select></div>
         </div>
       </li>
       <li class="pb" id="p7">
@@ -92,6 +116,14 @@
           <div class="choix"><label for="s9">Pattern</label><select id="s9" data-pb="9"></select></div>
         </div>
       </li>
+      <li class="pb" id="p10">
+        <span class="pb-num" aria-hidden="true">10</span>
+        <div class="pb-body">
+          <h3>Problème 10 · Les losanges</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">4 points et 4 segments forment un losange. On ajoute points et segments pour obtenir 4 losanges au total. Nombre minimal de points ?</p></details>
+          <div class="choix"><label for="s10">Pattern</label><select id="s10" data-pb="10"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p11">
         <span class="pb-num" aria-hidden="true">11</span>
         <div class="pb-body">
@@ -106,6 +138,30 @@
           <h3>Problème 12 · 7 une chance</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On écrit les carrés des nombres à deux chiffres (10², 11²…), puis on additionne les chiffres jusqu’à un seul chiffre. Quel est le 13<sup>e</sup> nombre à deux chiffres dont le carré aboutit à 7 ?</p></details>
           <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · La vieille calculatrice</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">La calculatrice n’affiche que les chiffres impairs (points à la place des pairs). On tape un nombre à 6 chiffres puis √ : affichage √ . . . . 7 . = . . . Quel est le résultat ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Téléphone au carré</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Numéro 06 suivi de quatre nombres à deux chiffres, strictement décroissants ; si on remplace chacun par les deux derniers chiffres de son carré, le numéro ne change pas.</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Bicyclette partagée</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">25 km, un vélo. Mathilde : 6 km/h à pied, 18 km/h à vélo ; Matthieu : 3 km/h et 15 km/h. Mathilde part à vélo, le laisse au cèdre et continue à pied ; Matthieu marche jusqu’au cèdre puis prend le vélo. Ils arrivent ensemble. Distance du cèdre ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
         </div>
       </li>
       <li class="pb" id="p16">
@@ -152,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2003, "problemes": [{"num": "1", "titre": "Le dé coupé"}, {"num": "2", "titre": "Calcul incomplet"}, {"num": "4", "titre": "Les quatre amis"}, {"num": "7", "titre": "Les triangles"}, {"num": "8", "titre": "Les bonbons"}, {"num": "9", "titre": "La bonne année"}, {"num": "11", "titre": "Souvenir, souvenir…"}, {"num": "12", "titre": "7 une chance"}, {"num": "16", "titre": "Sauvetage dans l’espace"}, {"num": "17", "titre": "Le tapis persan"}, {"num": "18", "titre": "L’étang d’Ares"}]};</script>
+<script>window.QUIZ = {"annee": 2003, "problemes": [{"num": "1", "titre": "Le dé coupé"}, {"num": "2", "titre": "Calcul incomplet"}, {"num": "3", "titre": "Pyramide"}, {"num": "4", "titre": "Les quatre amis"}, {"num": "5", "titre": "Appartenance triple"}, {"num": "6", "titre": "Les pesées"}, {"num": "7", "titre": "Les triangles"}, {"num": "8", "titre": "Les bonbons"}, {"num": "9", "titre": "La bonne année"}, {"num": "10", "titre": "Les losanges"}, {"num": "11", "titre": "Souvenir, souvenir…"}, {"num": "12", "titre": "7 une chance"}, {"num": "13", "titre": "La vieille calculatrice"}, {"num": "14", "titre": "Téléphone au carré"}, {"num": "15", "titre": "Bicyclette partagée"}, {"num": "16", "titre": "Sauvetage dans l’espace"}, {"num": "17", "titre": "Le tapis persan"}, {"num": "18", "titre": "L’étang d’Ares"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

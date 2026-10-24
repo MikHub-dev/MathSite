@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2004</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -44,6 +44,22 @@
       <div class="err" id="erreur" role="alert"></div>
     </div>
     <ol class="questions">
+      <li class="pb" id="p1">
+        <span class="pb-num" aria-hidden="true">1</span>
+        <div class="pb-body">
+          <h3>Problème 1 · La course d’escargots</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Temps de sept escargots : 47 min, une demi-heure, 35 min, vingt minutes, 25 min, une heure moins dix, 53 min. Quel est le temps de la médaille de bronze ?</p></details>
+          <div class="choix"><label for="s1">Pattern</label><select id="s1" data-pb="1"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p2">
+        <span class="pb-num" aria-hidden="true">2</span>
+        <div class="pb-body">
+          <h3>Problème 2 · Calcul incomplet</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Placer 1, 1, 2 et 5 dans les cases de 3□ + □9 = □□.</p></details>
+          <div class="choix"><label for="s2">Pattern</label><select id="s2" data-pb="2"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p3">
         <span class="pb-num" aria-hidden="true">3</span>
         <div class="pb-body">
@@ -84,6 +100,14 @@
           <div class="choix"><label for="s7">Pattern</label><select id="s7" data-pb="7"></select></div>
         </div>
       </li>
+      <li class="pb" id="p8">
+        <span class="pb-num" aria-hidden="true">8</span>
+        <div class="pb-body">
+          <h3>Problème 8 · Le labyrinthe</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Grille 4 × 4 de nombres ; entrer en haut à gauche, sortir en bas sous la 3<sup>e</sup> colonne, sans repasser par une case, avec une somme de 13.</p></details>
+          <div class="choix"><label for="s8">Pattern</label><select id="s8" data-pb="8"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p9">
         <span class="pb-num" aria-hidden="true">9</span>
         <div class="pb-body">
@@ -122,6 +146,14 @@
           <h3>Problème 13 · Vive la politesse !</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Polis deux fois plus nombreux qu’impolis ; filles polies + garçons impolis = 2 × (garçons polis + filles impolies) ; filles polies = nombre de garçons ; entre 20 et 30 élèves. Combien de garçons ?</p></details>
           <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p14">
+        <span class="pb-num" aria-hidden="true">14</span>
+        <div class="pb-body">
+          <h3>Problème 14 · Le terrain du Père Oxyde</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Terrain en trapèze (côté 120 m, hauteur 150 m) ; mare triangulaire abricotier-épicéa-dolmen ; abricotier, épicéa, chêne alignés ; bouleau, épicéa, dolmen alignés à angle droit avec le chêne. Terrain sans la mare : 11 400 m². Aire de la mare ?</p></details>
+          <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
         </div>
       </li>
       <li class="pb" id="p15">
@@ -176,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2004, "problemes": [{"num": "3", "titre": "Les carrés"}, {"num": "4", "titre": "Demain"}, {"num": "5", "titre": "La grenouille et le prince"}, {"num": "6", "titre": "Les chèques du succès"}, {"num": "7", "titre": "L’immeuble des trois amis"}, {"num": "9", "titre": "La réserve"}, {"num": "10", "titre": "Décalage horaire"}, {"num": "11", "titre": "Triangle d’opérations"}, {"num": "12", "titre": "Les nombres de l’année"}, {"num": "13", "titre": "Vive la politesse !"}, {"num": "15", "titre": "Somme d’impairs cubique"}, {"num": "16", "titre": "Le terrain d’Éric"}, {"num": "17", "titre": "Solitaire à trois rangées"}, {"num": "18", "titre": "Multiplication polyglotte"}]};</script>
+<script>window.QUIZ = {"annee": 2004, "problemes": [{"num": "1", "titre": "La course d’escargots"}, {"num": "2", "titre": "Calcul incomplet"}, {"num": "3", "titre": "Les carrés"}, {"num": "4", "titre": "Demain"}, {"num": "5", "titre": "La grenouille et le prince"}, {"num": "6", "titre": "Les chèques du succès"}, {"num": "7", "titre": "L’immeuble des trois amis"}, {"num": "8", "titre": "Le labyrinthe"}, {"num": "9", "titre": "La réserve"}, {"num": "10", "titre": "Décalage horaire"}, {"num": "11", "titre": "Triangle d’opérations"}, {"num": "12", "titre": "Les nombres de l’année"}, {"num": "13", "titre": "Vive la politesse !"}, {"num": "14", "titre": "Le terrain du Père Oxyde"}, {"num": "15", "titre": "Somme d’impairs cubique"}, {"num": "16", "titre": "Le terrain d’Éric"}, {"num": "17", "titre": "Solitaire à trois rangées"}, {"num": "18", "titre": "Multiplication polyglotte"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

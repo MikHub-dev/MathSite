@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 2007</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -74,6 +74,14 @@
           <h3>Problème 4 · Le sapin</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Découper le sapin (12 petits triangles en pointillé) en quatre parties superposables.</p></details>
           <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Nombres à caser</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Placer 25, 29, 37, 87, 196, 935, 1256, 9891 dans une grille 4 × 4 à trois cases noires, en lignes (gauche à droite) ou en colonnes (haut en bas).</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
         </div>
       </li>
       <li class="pb" id="p6">
@@ -132,6 +140,14 @@
           <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
         </div>
       </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Le nombre de Paul</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un palindrome à 4 chiffres moins un palindrome à 3 chiffres donne un palindrome. Quel est le nombre de Paul ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p14">
         <span class="pb-num" aria-hidden="true">14</span>
         <div class="pb-body">
@@ -156,6 +172,22 @@
           <div class="choix"><label for="s16">Pattern</label><select id="s16" data-pb="16"></select></div>
         </div>
       </li>
+      <li class="pb" id="p17">
+        <span class="pb-num" aria-hidden="true">17</span>
+        <div class="pb-body">
+          <h3>Problème 17 · Avec deux lettres</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Mots croisés avec les seules lettres O et N ; quatre lettres données ; tous les mots d’au moins deux lettres sont différents.</p></details>
+          <div class="choix"><label for="s17">Pattern</label><select id="s17" data-pb="17"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p18">
+        <span class="pb-num" aria-hidden="true">18</span>
+        <div class="pb-body">
+          <h3>Problème 18 · Le lotissement du bonheur</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Un terrain de trois carrés accolés (31 600 m² en tout) est partagé en 13 parcelles identiques ; la surface perdue (triangles rectangles isocèles et carrés noircis) est minimale. Quelle est-elle, arrondie au m² ? (1,414 &lt; √2 &lt; 1,415.)</p></details>
+          <div class="choix"><label for="s18">Pattern</label><select id="s18" data-pb="18"></select></div>
+        </div>
+      </li>
     </ol>
 
     <section class="resultat" id="resultat" hidden aria-live="polite">
@@ -176,7 +208,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 2007, "problemes": [{"num": "1", "titre": "Les carreaux de Caroline"}, {"num": "2", "titre": "La bonne réponse"}, {"num": "3", "titre": "Le satellite"}, {"num": "4", "titre": "Le sapin"}, {"num": "6", "titre": "Les nombres de l’année"}, {"num": "7", "titre": "Les choristes"}, {"num": "8", "titre": "Barrons, barrons"}, {"num": "9", "titre": "Inflation"}, {"num": "10", "titre": "Eux ou lui"}, {"num": "11", "titre": "Les momies"}, {"num": "12", "titre": "Les montres"}, {"num": "14", "titre": "De 1 à 16"}, {"num": "15", "titre": "Enlève allumettes"}, {"num": "16", "titre": "Auto-commentaire"}]};</script>
+<script>window.QUIZ = {"annee": 2007, "problemes": [{"num": "1", "titre": "Les carreaux de Caroline"}, {"num": "2", "titre": "La bonne réponse"}, {"num": "3", "titre": "Le satellite"}, {"num": "4", "titre": "Le sapin"}, {"num": "5", "titre": "Nombres à caser"}, {"num": "6", "titre": "Les nombres de l’année"}, {"num": "7", "titre": "Les choristes"}, {"num": "8", "titre": "Barrons, barrons"}, {"num": "9", "titre": "Inflation"}, {"num": "10", "titre": "Eux ou lui"}, {"num": "11", "titre": "Les momies"}, {"num": "12", "titre": "Les montres"}, {"num": "13", "titre": "Le nombre de Paul"}, {"num": "14", "titre": "De 1 à 16"}, {"num": "15", "titre": "Enlève allumettes"}, {"num": "16", "titre": "Auto-commentaire"}, {"num": "17", "titre": "Avec deux lettres"}, {"num": "18", "titre": "Le lotissement du bonheur"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>

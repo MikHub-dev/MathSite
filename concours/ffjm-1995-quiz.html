@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.0 -->
+<!-- Version : 1.1 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -21,7 +21,7 @@
   <h1>Quiz des <span class="ink">patterns</span> 1995</h1>
   <p class="lede">Pour chaque problème, retrouvez le pattern de résolution qui convient le mieux.</p>
   <ol class="steps">
-    <li>Relisez le rappel des 24 patterns ci-dessous.</li>
+    <li>Relisez le rappel des 26 patterns ci-dessous.</li>
     <li>Saisissez votre prénom, puis choisissez un pattern pour chaque problème.</li>
     <li>Cliquez sur « Terminé » : un e-mail contenant vos réponses s’ouvre, il ne reste qu’à l’envoyer.</li>
   </ol>
@@ -30,8 +30,8 @@
 
 <main class="wrap">
   <section class="bloc" id="rappel" aria-labelledby="rappel-t">
-    <h2 id="rappel-t">Rappel : les 24 patterns</h2>
-    <p class="note">Chaque problème relève d’un seul pattern : celui de son raisonnement principal.</p>
+    <h2 id="rappel-t">Rappel : les 26 patterns</h2>
+    <p class="note">Choisissez, pour chaque problème, le pattern de son raisonnement principal. Quelques problèmes sont ambigus : si deux patterns vous semblent possibles, gardez celui qui vous paraît le plus important, la correction en tient compte. Les patterns 25 et 26 sont nouveaux.</p>
     <ol class="patterns" id="patterns"></ol>
     <noscript><p class="err">Cette page demande JavaScript pour afficher les patterns et envoyer vos réponses.</p></noscript>
   </section>
@@ -74,6 +74,14 @@
           <h3>Problème 4 · Les cinq poids</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Poids de 1, 2, 5, 6 et 10 g. Quelles masses de 1 à 24 g peut-on équilibrer ?</p></details>
           <div class="choix"><label for="s4">Pattern</label><select id="s4" data-pb="4"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p5">
+        <span class="pb-num" aria-hidden="true">5</span>
+        <div class="pb-body">
+          <h3>Problème 5 · Le roudoudou de Doudou</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Bonbon à 15 c. La marchande ne peut rendre ni sur 1 F (85 c) ni sur 50 c (35 c), avec entre 50 c et 1 F en pièces de 5, 10 et 20 c ; elle pourrait rendre sur 20 c (5 c). Combien a-t-elle ?</p></details>
+          <div class="choix"><label for="s5">Pattern</label><select id="s5" data-pb="5"></select></div>
         </div>
       </li>
       <li class="pb" id="p6">
@@ -124,12 +132,36 @@
           <div class="choix"><label for="s11">Pattern</label><select id="s11" data-pb="11"></select></div>
         </div>
       </li>
+      <li class="pb" id="p12">
+        <span class="pb-num" aria-hidden="true">12</span>
+        <div class="pb-body">
+          <h3>Problème 12 · Le numéro de code</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Code impair à 3 chiffres égal à 1 + 3<var>n</var>(<var>n</var> + 1). Connaissant les 3 chiffres, cette information ne réduit pas le nombre d’essais. Chiffres ?</p></details>
+          <div class="choix"><label for="s12">Pattern</label><select id="s12" data-pb="12"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p13">
+        <span class="pb-num" aria-hidden="true">13</span>
+        <div class="pb-body">
+          <h3>Problème 13 · Une pile de fractions</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">On empile 1, 2, …, 8 en fraction (avec des traits de longueurs variées). Combien de résultats différents ?</p></details>
+          <div class="choix"><label for="s13">Pattern</label><select id="s13" data-pb="13"></select></div>
+        </div>
+      </li>
       <li class="pb" id="p14">
         <span class="pb-num" aria-hidden="true">14</span>
         <div class="pb-body">
           <h3>Problème 14 · Une opération volcanique</h3>
           <details><summary>Voir l’énoncé résumé</summary><p class="enonce">LAVE / MAGMA = 0,VALLEEVALLEE… (cryptarithme). Que vaut VALLEE ?</p></details>
           <div class="choix"><label for="s14">Pattern</label><select id="s14" data-pb="14"></select></div>
+        </div>
+      </li>
+      <li class="pb" id="p15">
+        <span class="pb-num" aria-hidden="true">15</span>
+        <div class="pb-body">
+          <h3>Problème 15 · Les feux rouges</h3>
+          <details><summary>Voir l’énoncé résumé</summary><p class="enonce">Feux numérotés 1 à <var>n</var>, trois couleurs. Si deux feux <var>p</var> ≠ <var>q</var> ont la même couleur, le feu <var>p</var> + <var>q</var> n’a pas cette couleur. <var>n</var> maximal ?</p></details>
+          <div class="choix"><label for="s15">Pattern</label><select id="s15" data-pb="15"></select></div>
         </div>
       </li>
       <li class="pb" id="p16">
@@ -160,7 +192,7 @@
   </form>
 </main>
 
-<script>window.QUIZ = {"annee": 1995, "problemes": [{"num": "1", "titre": "Maya et ses sœurs"}, {"num": "2", "titre": "Le voyage de Maya"}, {"num": "3", "titre": "Des chiffres et des lettres"}, {"num": "4", "titre": "Les cinq poids"}, {"num": "6", "titre": "Le coup du menhir"}, {"num": "7", "titre": "Le piège des matheux"}, {"num": "8", "titre": "Les pentaminos de Léon Tine"}, {"num": "9", "titre": "Troncadivisible"}, {"num": "10", "titre": "La quadrichromie nette"}, {"num": "11", "titre": "La montre de Nicolas"}, {"num": "14", "titre": "Une opération volcanique"}, {"num": "16", "titre": "Le théorème discret"}]};</script>
+<script>window.QUIZ = {"annee": 1995, "problemes": [{"num": "1", "titre": "Maya et ses sœurs"}, {"num": "2", "titre": "Le voyage de Maya"}, {"num": "3", "titre": "Des chiffres et des lettres"}, {"num": "4", "titre": "Les cinq poids"}, {"num": "5", "titre": "Le roudoudou de Doudou"}, {"num": "6", "titre": "Le coup du menhir"}, {"num": "7", "titre": "Le piège des matheux"}, {"num": "8", "titre": "Les pentaminos de Léon Tine"}, {"num": "9", "titre": "Troncadivisible"}, {"num": "10", "titre": "La quadrichromie nette"}, {"num": "11", "titre": "La montre de Nicolas"}, {"num": "12", "titre": "Le numéro de code"}, {"num": "13", "titre": "Une pile de fractions"}, {"num": "14", "titre": "Une opération volcanique"}, {"num": "15", "titre": "Les feux rouges"}, {"num": "16", "titre": "Le théorème discret"}]};</script>
 <script src="quiz-patterns.js"></script>
 </body>
 </html>
