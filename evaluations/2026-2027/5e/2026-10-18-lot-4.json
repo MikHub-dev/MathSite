@@ -17,5 +17,14 @@
       "Sur une maquette à l'échelle 1/500, un bâtiment mesure 6 cm de haut : on cherche sa hauteur réelle",
       "Un chantier prévu pour 12 jours a déjà 5 jours de retard : on cherche sa durée totale"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>4,5 €</strong> : 13,50 ÷ 3 = 4,5.</p>",
+    "q2": "<p>1 h 30 min = 90 min et 90 ÷ 45 = 2, donc 18 × 2 = <strong>36 km</strong>.</p>",
+    "q3": "<p>1) 8 × 20 = <strong>160 cm</strong>. 2) 1,2 m = 120 cm et 120 ÷ 20 = <strong>6 cm</strong> sur le plan.</p>",
+    "q4": "<p>1) Réduction : 120 − 90 = 30 €, et 30 ÷ 120 = 0,25 : <strong>25 %</strong>. 2) 150 × 25 ÷ 100 = 37,5 et 150 − 37,5 = <strong>112,5 €</strong>.</p>",
+    "q5": "<p>1) 1,5 × 40 ÷ 100 = <strong>0,6 L</strong>. 2) 2,4 ÷ 0,6 = <strong>4 bouteilles</strong>.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 3e</strong> (la hauteur réelle est 6 × 500 = 3 000 cm, soit 30 m). Le piège était la 4e : 12 + 5 est une addition de jours, l'échelle ne sert pas. La 1re utilise un partage (division par 3) et la 2e un périmètre.</p>"
+  },
+  "cloturee": true
 }

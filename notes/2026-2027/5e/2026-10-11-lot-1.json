@@ -1,0 +1,58 @@
+{
+  "publieLe": "2026-10-24",
+  "notes": {
+    "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 9,
+      "commentaire": "Très bonne copie (18,5/20 avec le bonus) : les calculs sont justes. Fais attention à la phrase de conclusion (le nouveau prix est 42 €, pas 40 €) et n'écris pas d'égalité entre deux unités différentes (1 500 cm = 15 m).",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste."
+        },
+        "q5": {
+          "points": 1.5,
+          "remarque": "Réduction et soustraction justes (60 − 18 = 42), mais la conclusion donne 40 € : elle n'est pas cohérente avec ton calcul.",
+          "erreurs": [
+            "Son nouveau prix est 40 €"
+          ]
+        },
+        "q6": {
+          "points": 1.5,
+          "remarque": "Calculs et conversions justes, mais rédaction à soigner : écris l'unité de chaque nombre (1 500 cm = 15 m) et accorde la phrase (« les dimensions sont »).",
+          "incompletes": [
+            "1500 = 15 m",
+            "800 = 8 m"
+          ]
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonus gagné : 3 km en 15 min puis 7 km en x min est une situation de proportionnalité ; le tarif avec 30 € de départ ne l'est pas."
+      },
+      "reponduLe": "2026-10-23T08:21:03.626Z",
+      "corrigeLe": "2026-10-24",
+      "issue": 52,
+      "reponses": {
+        "q1": "35",
+        "q2": "2 → 5 et 6 → 15",
+        "q3": "18,40 €",
+        "q4": "84",
+        "q5": "60 x 30 : 100 = 1 8\nLe montant de la réduction est 18\n60 - 18 = 42\nSon nouveau prix est 40 €",
+        "q6": "7,5 x 200 = 1500 cm     4 x 200 = 800 cm\n1500 = 15 m  \n800 = 8 m \nLes dimensions de la salle est 15 m de longueur et 8 m de largeur",
+        "bonus": "Un coureur garde la même allure : il parcourt 3 km en 15 minutes ; on cherche en combien de temps il parcourt 7 km"
+      }
+    }
+  }
+}

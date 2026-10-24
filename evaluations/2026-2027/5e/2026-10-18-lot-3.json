@@ -17,5 +17,14 @@
       "Un salarié gagne 1 500 € et reçoit une prime de 120 € : on calcule la somme perçue",
       "Un commerçant vend trois articles à 12 €, 15 € et 18 € : on calcule le prix moyen d'un article"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>12</strong> : 15 % de 80 = 80 × 15 ÷ 100 = 12.</p>",
+    "q2": "<p>On calcule les quotients : 14 ÷ 4 = 3,5 ; 21 ÷ 6 = 3,5 ; 35 ÷ 10 = 3,5. <strong>Les quotients sont égaux, donc c'est un tableau de proportionnalité</strong> (coefficient 3,5).</p>",
+    "q3": "<p>4,5 × 50 000 = 225 000 cm = 2 250 m = 2,25 km. <strong>La distance réelle est 2,25 km.</strong></p>",
+    "q4": "<p>1) 27 ÷ 60 × 100 = <strong>45 %</strong>. 2) Augmentation : 60 × 20 ÷ 100 = 12, donc 60 + 12 = <strong>72 membres</strong>.</p>",
+    "q5": "<p>1) 6,5 × 2,6 = <strong>16,9 L</strong> pour 260 km. 2) 52 ÷ 6,5 = 8, donc 8 × 100 = <strong>800 km</strong>.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 1re</strong> (la part de 100 salariés sur 400 se divise puis s'exprime sur 100 : 25 %). Le piège était la 3e : la prime de 120 € s'ajoute au salaire, c'est une addition et non une part exprimée en pourcentage. La 4e utilise la formule de la moyenne.</p>"
+  },
+  "cloturee": true
 }

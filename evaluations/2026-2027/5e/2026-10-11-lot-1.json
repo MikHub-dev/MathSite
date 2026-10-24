@@ -18,5 +18,15 @@
       "Un club demande 30 € d'inscription puis 12 € par mois : on calcule le coût au bout de 5 mois",
       "Un joueur mesure 1,92 m, soit 12 cm de plus que son coéquipier : on cherche la taille de ce dernier"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>35</strong> : le coefficient est 21 ÷ 6 = 3,5, donc 10 × 3,5 = 35.</p>",
+    "q2": "<p><strong>2 → 5 et 6 → 15</strong> : 5 ÷ 2 = 2,5 et 15 ÷ 6 = 2,5, les quotients sont égaux.</p>",
+    "q3": "<p>11,50 ÷ 5 = 2,30 € par cahier, donc 2,30 × 8 = <strong>18,40 €</strong>.</p>",
+    "q4": "<p>240 × 35 ÷ 100 = <strong>84</strong>.</p>",
+    "q5": "<p>Réduction : 60 × 30 ÷ 100 = <strong>18 €</strong>. Nouveau prix : 60 − 18 = <strong>42 €</strong>.</p>",
+    "q6": "<p>7,5 × 200 = 1 500 cm = 15 m et 4 × 200 = 800 cm = 8 m. <strong>La salle mesure 15 m de long et 8 m de large.</strong></p>",
+    "bonus": "<p><strong>Bonne réponse : la 2e</strong> (la durée est proportionnelle à la distance : 15 ÷ 3 = 5 min par km, donc 7 × 5 = 35 min). Le piège était la 3e : avec 30 € d'inscription au départ, le coût n'est pas proportionnel au nombre de mois. La 1re utilise la formule de la moyenne.</p>"
+  },
+  "cloturee": true
 }

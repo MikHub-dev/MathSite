@@ -1,0 +1,50 @@
+{
+  "publieLe": "2026-10-24",
+  "notes": {
+    "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 8.5,
+      "commentaire": "Très bonne copie (17,5/20 avec le bonus) : les problèmes d'échelle, de pourcentages et de consommation sont bien menés et justifiés. Revois la façon de tester la proportionnalité d'un tableau : on divise la deuxième ligne par la première (14 ÷ 4 = 3,5) et on compare les quotients.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 0.5,
+          "remarque": "Raisonnement : le passage à l'unité est une bonne idée, mais le calcul est faux (14 ÷ 4 = 3,5 et non 4 ÷ 14) et la conclusion est erronée : 6 × 3,5 = 21 et 10 × 3,5 = 35, le tableau est bien proportionnel.",
+          "erreurs": [
+            "(4 : 14) ça fait 3,333...",
+            "Donc ce n'est pas proportionnelle"
+          ]
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Juste : conversions justifiées étape par étape et phrase de conclusion."
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste : pourcentage calculé, augmentation justifiée puis nouveau nombre de membres."
+        },
+        "q5": {
+          "points": 3,
+          "remarque": "Juste : calculs justifiés pour les deux questions, avec une phrase de conclusion à chaque fois."
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonus gagné : la part du temps partiel (100 sur 400) s'exprime bien en pourcentage, alors que les autres situations relèvent d'un produit, d'une somme ou d'une moyenne."
+      },
+      "reponduLe": "2026-10-23T07:40:14.102Z",
+      "corrigeLe": "2026-10-24",
+      "issue": 50,
+      "reponses": {
+        "q1": "12",
+        "q2": "Ce tableau n'est pas un tableau de proportionnalité n'est pas proportionnelle car si on passe à l'unité (4 : 14) ça fait 3,333... Et 3,333... fois 6 n'est pas égale à 21. Donc ce n'est pas proportionnelle",
+        "q3": "1 x 4,5 = 4,5     4,5 x 50 000 =  225 000\n225 000 cm = 2 250 m     2250 m = 2, 250 km\n\n La distance réelle entres ces deux villes est 2,25 km",
+        "q4": "27 ÷ 60 × 100 = 45 %\n1) Il y a 45 % de filles dans le club\n20 x 60 : 100 = 12\n60 + 12 = 72\n2) À la rentrée, les membres du club sont 72",
+        "q5": "6,5 x 2,6 = 16,9\n1) La voiture consomme 16,9 L pour 260 km\n52 : 6,5 = 8      8 x 100 = 800\n2) Il peut parcourir 800 km",
+        "bonus": "Une entreprise compte 400 salariés, dont 100 travaillent à temps partiel : on exprime la part du temps partiel en pourcentage"
+      }
+    }
+  }
+}

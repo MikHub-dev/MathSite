@@ -1,0 +1,46 @@
+{
+  "publieLe": "2026-10-24",
+  "notes": {
+    "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 10,
+      "commentaire": "Excellente copie (20,5/20 avec le bonus) : toutes les réponses sont justes, bien justifiées et conclues par des phrases claires. Continue ainsi.",
+      "details": {
+        "q1": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q2": {
+          "points": 2,
+          "remarque": "Juste : conversion de la durée, durée convertie en minutes, passage à une durée de référence (90 ÷ 45 = 2) puis conclusion rédigée."
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Juste : échelle bien utilisée dans les deux sens, avec la conversion de 1,2 m en centimètres."
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Juste : pourcentage de réduction calculé puis appliqué au manteau."
+        },
+        "q5": {
+          "points": 3,
+          "remarque": "Juste : quantité de jus calculée avec conversion des unités, puis nombre de bouteilles justifié."
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonus gagné : la maquette à l'échelle 1/500 utilise bien une échelle, alors que les autres situations relèvent d'un partage, d'un périmètre ou d'une addition."
+      },
+      "reponduLe": "2026-10-23T08:11:02.918Z",
+      "corrigeLe": "2026-10-24",
+      "issue": 51,
+      "reponses": {
+        "q1": "4,5 €",
+        "q2": "1h30 = 90 min   90 : 45 = 2    2 x 18 = 36\nIl fait 36 km en 1 h 30",
+        "q3": "1 x 8 = 8    8 x 20 = 160\n1) La longueur du lit est 160 cm\n1,2 m = 120 cm     120 : 20 = 6   \n2) La table mesure 6 cm sur le plan",
+        "q4": "90 : 120 = 0,75   0,75 x 100 = 75   100 - 75 = 25\n1) 25 %\n150 x 25 : 100 = 37,5   150 - 37,5 = 112,5\n2) 112,5 €",
+        "q5": "1,5 L = 150 cL    150 x 40 : 100 = 60     60 cL = 0,6 L\n1) 0,6 L\n0,6 x 4 = 2,4  \n2) Il faut 4 bouteilles",
+        "bonus": "Sur une maquette à l'échelle 1/500, un bâtiment mesure 6 cm de haut : on cherche sa hauteur réelle"
+      }
+    }
+  }
+}

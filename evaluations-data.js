@@ -244,7 +244,16 @@ window.EVALUATIONS = {
        "Un commerçant vend trois articles à 12 €, 15 € et 18 € : on calcule le prix moyen d'un article"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>12</strong> : 15 % de 80 = 80 × 15 ÷ 100 = 12.</p>",
+     "q2": "<p>On calcule les quotients : 14 ÷ 4 = 3,5 ; 21 ÷ 6 = 3,5 ; 35 ÷ 10 = 3,5. <strong>Les quotients sont égaux, donc c'est un tableau de proportionnalité</strong> (coefficient 3,5).</p>",
+     "q3": "<p>4,5 × 50 000 = 225 000 cm = 2 250 m = 2,25 km. <strong>La distance réelle est 2,25 km.</strong></p>",
+     "q4": "<p>1) 27 ÷ 60 × 100 = <strong>45 %</strong>. 2) Augmentation : 60 × 20 ÷ 100 = 12, donc 60 + 12 = <strong>72 membres</strong>.</p>",
+     "q5": "<p>1) 6,5 × 2,6 = <strong>16,9 L</strong> pour 260 km. 2) 52 ÷ 6,5 = 8, donc 8 × 100 = <strong>800 km</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 1re</strong> (la part de 100 salariés sur 400 se divise puis s'exprime sur 100 : 25 %). Le piège était la 3e : la prime de 120 € s'ajoute au salaire, c'est une addition et non une part exprimée en pourcentage. La 4e utilise la formule de la moyenne.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-18-lot-4",
@@ -309,7 +318,16 @@ window.EVALUATIONS = {
        "Un chantier prévu pour 12 jours a déjà 5 jours de retard : on cherche sa durée totale"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>4,5 €</strong> : 13,50 ÷ 3 = 4,5.</p>",
+     "q2": "<p>1 h 30 min = 90 min et 90 ÷ 45 = 2, donc 18 × 2 = <strong>36 km</strong>.</p>",
+     "q3": "<p>1) 8 × 20 = <strong>160 cm</strong>. 2) 1,2 m = 120 cm et 120 ÷ 20 = <strong>6 cm</strong> sur le plan.</p>",
+     "q4": "<p>1) Réduction : 120 − 90 = 30 €, et 30 ÷ 120 = 0,25 : <strong>25 %</strong>. 2) 150 × 25 ÷ 100 = 37,5 et 150 − 37,5 = <strong>112,5 €</strong>.</p>",
+     "q5": "<p>1) 1,5 × 40 ÷ 100 = <strong>0,6 L</strong>. 2) 2,4 ÷ 0,6 = <strong>4 bouteilles</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 3e</strong> (la hauteur réelle est 6 × 500 = 3 000 cm, soit 30 m). Le piège était la 4e : 12 + 5 est une addition de jours, l'échelle ne sert pas. La 1re utilise un partage (division par 3) et la 2e un périmètre.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-11-lot-1",
@@ -388,7 +406,17 @@ window.EVALUATIONS = {
        "Un joueur mesure 1,92 m, soit 12 cm de plus que son coéquipier : on cherche la taille de ce dernier"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>35</strong> : le coefficient est 21 ÷ 6 = 3,5, donc 10 × 3,5 = 35.</p>",
+     "q2": "<p><strong>2 → 5 et 6 → 15</strong> : 5 ÷ 2 = 2,5 et 15 ÷ 6 = 2,5, les quotients sont égaux.</p>",
+     "q3": "<p>11,50 ÷ 5 = 2,30 € par cahier, donc 2,30 × 8 = <strong>18,40 €</strong>.</p>",
+     "q4": "<p>240 × 35 ÷ 100 = <strong>84</strong>.</p>",
+     "q5": "<p>Réduction : 60 × 30 ÷ 100 = <strong>18 €</strong>. Nouveau prix : 60 − 18 = <strong>42 €</strong>.</p>",
+     "q6": "<p>7,5 × 200 = 1 500 cm = 15 m et 4 × 200 = 800 cm = 8 m. <strong>La salle mesure 15 m de long et 8 m de large.</strong></p>",
+     "bonus": "<p><strong>Bonne réponse : la 2e</strong> (la durée est proportionnelle à la distance : 15 ÷ 3 = 5 min par km, donc 7 × 5 = 35 min). Le piège était la 3e : avec 30 € d'inscription au départ, le coût n'est pas proportionnel au nombre de mois. La 1re utilise la formule de la moyenne.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-10-11-lot-2",
@@ -3590,6 +3618,64 @@ window.EVAL_NOTES = {
      }
     }
    },
+   "2026-10-11-lot-1": {
+    "publieLe": "2026-10-24",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 9,
+      "commentaire": "Très bonne copie (18,5/20 avec le bonus) : les calculs sont justes. Fais attention à la phrase de conclusion (le nouveau prix est 42 €, pas 40 €) et n'écris pas d'égalité entre deux unités différentes (1 500 cm = 15 m).",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste."
+       },
+       "q5": {
+        "points": 1.5,
+        "remarque": "Réduction et soustraction justes (60 − 18 = 42), mais la conclusion donne 40 € : elle n'est pas cohérente avec ton calcul.",
+        "erreurs": [
+         "Son nouveau prix est 40 €"
+        ]
+       },
+       "q6": {
+        "points": 1.5,
+        "remarque": "Calculs et conversions justes, mais rédaction à soigner : écris l'unité de chaque nombre (1 500 cm = 15 m) et accorde la phrase (« les dimensions sont »).",
+        "incompletes": [
+         "1500 = 15 m",
+         "800 = 8 m"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : 3 km en 15 min puis 7 km en x min est une situation de proportionnalité ; le tarif avec 30 € de départ ne l'est pas."
+      },
+      "reponduLe": "2026-10-23T08:21:03.626Z",
+      "corrigeLe": "2026-10-24",
+      "issue": 52,
+      "reponses": {
+       "q1": "35",
+       "q2": "2 → 5 et 6 → 15",
+       "q3": "18,40 €",
+       "q4": "84",
+       "q5": "60 x 30 : 100 = 1 8\nLe montant de la réduction est 18\n60 - 18 = 42\nSon nouveau prix est 40 €",
+       "q6": "7,5 x 200 = 1500 cm     4 x 200 = 800 cm\n1500 = 15 m  \n800 = 8 m \nLes dimensions de la salle est 15 m de longueur et 8 m de largeur",
+       "bonus": "Un coureur garde la même allure : il parcourt 3 km en 15 minutes ; on cherche en combien de temps il parcourt 7 km"
+      }
+     }
+    }
+   },
    "2026-10-18-lot-1": {
     "publieLe": "2026-10-22",
     "notes": {
@@ -3697,6 +3783,102 @@ window.EVAL_NOTES = {
        "q5": "250 x 12 = 3000      3000 : 100 = 30\nLe téléphone augmente de 30 €\n250 + 30 = 280\nSon nouveau prix est à 280 €",
        "q6": "480 x 35 = 16800     16800 : 100 = 168      480 - 168 = 312\n\n312 élèves ne sont pas demi-pensionnaires.",
        "bonus": "Une solution chauffe de 2 °C au départ, puis de 3 °C de plus chaque minute : on calcule sa température au bout de 5 minutes"
+      }
+     }
+    }
+   },
+   "2026-10-18-lot-3": {
+    "publieLe": "2026-10-24",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 8.5,
+      "commentaire": "Très bonne copie (17,5/20 avec le bonus) : les problèmes d'échelle, de pourcentages et de consommation sont bien menés et justifiés. Revois la façon de tester la proportionnalité d'un tableau : on divise la deuxième ligne par la première (14 ÷ 4 = 3,5) et on compare les quotients.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 0.5,
+        "remarque": "Raisonnement : le passage à l'unité est une bonne idée, mais le calcul est faux (14 ÷ 4 = 3,5 et non 4 ÷ 14) et la conclusion est erronée : 6 × 3,5 = 21 et 10 × 3,5 = 35, le tableau est bien proportionnel.",
+        "erreurs": [
+         "(4 : 14) ça fait 3,333...",
+         "Donc ce n'est pas proportionnelle"
+        ]
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste : conversions justifiées étape par étape et phrase de conclusion."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste : pourcentage calculé, augmentation justifiée puis nouveau nombre de membres."
+       },
+       "q5": {
+        "points": 3,
+        "remarque": "Juste : calculs justifiés pour les deux questions, avec une phrase de conclusion à chaque fois."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : la part du temps partiel (100 sur 400) s'exprime bien en pourcentage, alors que les autres situations relèvent d'un produit, d'une somme ou d'une moyenne."
+      },
+      "reponduLe": "2026-10-23T07:40:14.102Z",
+      "corrigeLe": "2026-10-24",
+      "issue": 50,
+      "reponses": {
+       "q1": "12",
+       "q2": "Ce tableau n'est pas un tableau de proportionnalité n'est pas proportionnelle car si on passe à l'unité (4 : 14) ça fait 3,333... Et 3,333... fois 6 n'est pas égale à 21. Donc ce n'est pas proportionnelle",
+       "q3": "1 x 4,5 = 4,5     4,5 x 50 000 =  225 000\n225 000 cm = 2 250 m     2250 m = 2, 250 km\n\n La distance réelle entres ces deux villes est 2,25 km",
+       "q4": "27 ÷ 60 × 100 = 45 %\n1) Il y a 45 % de filles dans le club\n20 x 60 : 100 = 12\n60 + 12 = 72\n2) À la rentrée, les membres du club sont 72",
+       "q5": "6,5 x 2,6 = 16,9\n1) La voiture consomme 16,9 L pour 260 km\n52 : 6,5 = 8      8 x 100 = 800\n2) Il peut parcourir 800 km",
+       "bonus": "Une entreprise compte 400 salariés, dont 100 travaillent à temps partiel : on exprime la part du temps partiel en pourcentage"
+      }
+     }
+    }
+   },
+   "2026-10-18-lot-4": {
+    "publieLe": "2026-10-24",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 10,
+      "commentaire": "Excellente copie (20,5/20 avec le bonus) : toutes les réponses sont justes, bien justifiées et conclues par des phrases claires. Continue ainsi.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 2,
+        "remarque": "Juste : conversion de la durée, durée convertie en minutes, passage à une durée de référence (90 ÷ 45 = 2) puis conclusion rédigée."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Juste : échelle bien utilisée dans les deux sens, avec la conversion de 1,2 m en centimètres."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Juste : pourcentage de réduction calculé puis appliqué au manteau."
+       },
+       "q5": {
+        "points": 3,
+        "remarque": "Juste : quantité de jus calculée avec conversion des unités, puis nombre de bouteilles justifié."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : la maquette à l'échelle 1/500 utilise bien une échelle, alors que les autres situations relèvent d'un partage, d'un périmètre ou d'une addition."
+      },
+      "reponduLe": "2026-10-23T08:11:02.918Z",
+      "corrigeLe": "2026-10-24",
+      "issue": 51,
+      "reponses": {
+       "q1": "4,5 €",
+       "q2": "1h30 = 90 min   90 : 45 = 2    2 x 18 = 36\nIl fait 36 km en 1 h 30",
+       "q3": "1 x 8 = 8    8 x 20 = 160\n1) La longueur du lit est 160 cm\n1,2 m = 120 cm     120 : 20 = 6   \n2) La table mesure 6 cm sur le plan",
+       "q4": "90 : 120 = 0,75   0,75 x 100 = 75   100 - 75 = 25\n1) 25 %\n150 x 25 : 100 = 37,5   150 - 37,5 = 112,5\n2) 112,5 €",
+       "q5": "1,5 L = 150 cL    150 x 40 : 100 = 60     60 cL = 0,6 L\n1) 0,6 L\n0,6 x 4 = 2,4  \n2) Il faut 4 bouteilles",
+       "bonus": "Sur une maquette à l'échelle 1/500, un bâtiment mesure 6 cm de haut : on cherche sa hauteur réelle"
       }
      }
     }
@@ -4171,16 +4353,16 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-22T04:03:43.280Z",
+  "genereLe": "2026-10-24T05:11:03.507Z",
   "annees": {
     "2026-2027": {
       "5e": {
         "total": 19,
-        "ouvertes": 9,
+        "ouvertes": 6,
         "enAttente": 0,
-        "fermees": 10,
-        "copiesCorrigees": 9,
-        "moyenneSur20": 15.9
+        "fermees": 13,
+        "copiesCorrigees": 12,
+        "moyenneSur20": 16.6
       },
       "seconde": {
         "total": 21,
