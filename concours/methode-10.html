@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 10 — Équations en nombres entiers — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 10 / 26</span>
+  <h1>Méthode 10</h1>
+  <p>Équations en nombres entiers<br>Fixer une inconnue, ou factoriser</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>deux sortes d’objets et un total (pattes, bras, pièces)</li><li>payer avec deux sortes de pièces</li><li>une aire égale à un périmètre</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>équation ax + by = n en entiers</li><li>produit à factoriser</li><li>équations de Markov ou de Pell</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>essayer une inconnue après l’autre ;</li><li>garder seulement les nombres entiers.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une borne sur une inconnue ;</li><li>une factorisation ou un test qui réduit les cas.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Aire égale au périmètre</li><li>Une solution en donne une autre</li><li>Presque carré</li><li>Deux sortes d’objets et un total</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Ajouter une constante pour factoriser</li><li>Équation de Markov</li><li>Équation de Pell</li><li>ax + by = n : fixer une inconnue</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Écrire le calcul avec les deux nombres inconnus.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Mettre en équation avec des inconnues entières.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Faire un tableau d’essais, une inconnue après l’autre.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Borner une inconnue (positivité, total).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Garder les essais qui tombent juste (multiples).</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Tester les valeurs, ou factoriser.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Vérifier, et chercher s’il y a d’autres solutions.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Lister toutes les solutions qui respectent l’énoncé.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : L’aquarium <span class="code">(2025-4)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Un aquarium contient des pieuvres (8 bras) et des étoiles de mer (5 bras), en tout 41 bras. Combien y a-t-il d’étoiles de mer ?</p>
+<p><b>On cherche :</b> le nombre d’étoiles de mer.</p><p class="lab">Essayer les pieuvres :</p><div class="scroll"><table><thead><tr><th scope="col">Pieuvres</th><th scope="col">Bras de pieuvres</th><th scope="col">Bras restants</th><th scope="col">Table de 5 ?</th></tr></thead><tbody><tr><td>1</td><td>8</td><td>33</td><td>non</td></tr><tr><td>2</td><td>16</td><td>25</td><td><span class="ok">oui</span></td></tr><tr><td>3</td><td>24</td><td>17</td><td>non</td></tr><tr><td>4</td><td>32</td><td>9</td><td>non</td></tr><tr><td>5</td><td>40</td><td>1</td><td>non</td></tr></tbody></table></div><p class="lab">Conclure :</p><p>25 bras d’étoiles : 25 ÷ 5 = 5 étoiles de mer.</p><span class="calc">2 × 8 + 5 × 5 = 41</span>
+<p class="rep">Réponse : 5 étoiles de mer.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Drôle de rectangle <span class="code">(2013-8)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Un rectangle non carré à côtés entiers a une aire (en cm²) égale à son périmètre (en cm). Quelle est sa longueur ?</p>
+<p>On cherche des entiers a &lt; b tels que ab = 2(a + b).</p><p class="lab">Factoriser :</p><span class="calc">ab − 2a − 2b = 0  ⟺  ab − 2a − 2b + 4 = 4  ⟺  (a − 2)(b − 2) = 4</span><p class="lab">Cas :</p><div class="scroll"><table><thead><tr><th scope="col">a − 2</th><th scope="col">b − 2</th><th scope="col">Rectangle</th></tr></thead><tbody><tr><td>1</td><td>4</td><td>3 × 6</td></tr><tr><td>2</td><td>2</td><td>4 × 4 : carré, exclu</td></tr></tbody></table></div><p>Les facteurs négatifs donneraient a ou b nul ou négatif.</p><p class="lab">Vérifier :</p><span class="calc">3 × 6 = 18  et  2 × (3 + 6) = 18</span>
+<p class="rep">Réponse : 6 cm.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-9.html">← Méthode 9</a>
+  <a href="methode-11.html">Méthode 11 →</a>
+</nav>
+</main>
+</body>
+</html>

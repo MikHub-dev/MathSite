@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.4 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 1 — Trouver un maximum ou un minimum — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 1 / 26</span>
+  <h1>Méthode 1</h1>
+  <p>Trouver un maximum ou un minimum<br>Une borne + un exemple</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>être sûr</li><li>être certain</li><li>au moins</li><li>au maximum</li><li>le plus grand</li><li>le plus petit</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>minimum ou maximum</li><li>nombre garanti</li><li>optimisation</li><li>nombre minimal de coups</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours montrer :</p><ul><li>que ça marche ;</li><li>qu’on ne peut pas faire mieux.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>un exemple atteignable ;</li><li>une borne optimale.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Être sûr</li><li>Plus grand / plus petit</li><li>Le moins de coups</li><li>Ranger le plus possible</li><li>Plus grande aire</li><li>Bloquer quelque chose</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier la nature de la borne :</p><ol><li>Garantie (tiroirs)</li><li>Optimisation numérique</li><li>Mouvements minimaux</li><li>Aire optimale</li><li>Rangement maximal</li><li>Blocage minimal</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Faire un dessin, un essai ou un rangement.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Construire une configuration candidate.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Compter ce que donne l’exemple.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Calculer précisément la valeur obtenue.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Montrer qu’on ne peut pas faire mieux.</p><p>Pour « être sûr » :<br>Pire cas → Compter → Ajouter 1</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Prouver la borne :</p><ul><li>aire</li><li>comptage</li><li>distance</li><li>parité</li><li>inégalité</li><li>principe des tiroirs</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Conclure :</p><ul><li>Avec …, on peut encore échouer.</li><li>Avec …, on réussit forcément.</li></ul></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Comparer borne et exemple.</p><p>Si elles coïncident, la réponse est trouvée.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Gants et chaussettes <span class="code">(1991-1, « Eh ! les gants ! »)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Dans le noir, on tire au hasard dans un tiroir qui contient 3 paires de chaussettes bleues, 3 paires de chaussettes rouges, 5 paires de gants marron et 5 paires de gants jaunes. Au toucher, on ne distingue pas un gant d’une chaussette. Combien d’objets faut-il sortir, au minimum, pour être certain d’avoir une paire de chaussettes assorties et une paire de gants assortis ?</p>
+<p><b>On cherche :</b> être sûr d’avoir une paire de chaussettes assorties et une paire de gants assortis.</p><p>⚠️ Une paire de gants, c’est un gauche et un droit de la même couleur.</p><p class="lab">Pire cas :</p><div class="scroll"><table><thead><tr><th scope="col">Objet</th><th scope="col">Nombre</th></tr></thead><tbody><tr><td>1 chaussette bleue</td><td>1</td></tr><tr><td>1 chaussette rouge</td><td>1</td></tr><tr><td>Tous les gants</td><td>20</td></tr><tr class="tot"><td>Total</td><td>22</td></tr></tbody></table></div><p>Avec 22 objets, on peut encore rater. (Autre pire cas : les 12 chaussettes et 10 gants tous de la main gauche, soit aussi 22.)</p><p class="lab">Ajouter 1 :</p><ul><li>23 objets ⇒ au moins 3 chaussettes (il n’y a que 20 gants) ⇒ deux de même couleur.</li><li>23 objets ⇒ au moins 11 gants (il n’y a que 12 chaussettes) ⇒ une paire de gants existe forcément (sans paire, on a au plus 5 marron et 5 jaunes).</li></ul><p class="lab">Conclusion :</p><p>22 : échec encore possible.<br>23 : succès garanti.</p>
+<p class="rep">Réponse : 23 objets.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Les disques <span class="code">(2019-11)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Dans une feuille carrée, Mathilde découpe des disques identiques. La somme de leurs périmètres dépasse le périmètre de la feuille. Combien de disques, au minimum ?</p>
+<p>On cherche le plus petit nombre de disques dont la somme des périmètres dépasse le périmètre du carré. On prend le côté du carré pour unité : son périmètre vaut 4.</p><p class="lab">Exemple :</p><p>3 disques de rayon 1/4 (deux en bas, un au-dessus au milieu).</p><p>Somme des périmètres :</p><span class="calc">2π × 3 × 1/4 = 3π/2 ≈ 4,71 &gt; 4</span><p>Donc 3 disques suffisent.</p><p class="lab">Borne :</p><ul><li>1 disque : r ≤ 1/2, périmètre ≤ π &lt; 4.</li><li>2 disques : les centres sont dans le carré intérieur de côté 1 − 2r, à une distance au moins 2r. Donc 2r ≤ (1 − 2r)√2, soit r ≤ 1/(2 + √2). Même dans le meilleur placement possible, la somme 4πr ≤ 2π(2 − √2) ≈ 3,68 reste &lt; 4.</li></ul><p>Donc :<br>1 disque : impossible.<br>2 disques : impossible.<br>3 disques : possible.</p>
+<p class="rep">Réponse : 3 disques.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <span class="vide">.</span>
+  <a href="methode-2.html">Méthode 2 →</a>
+</nav>
+</main>
+</body>
+</html>

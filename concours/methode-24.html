@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 24 — Solides, dés et patrons — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 24 / 26</span>
+  <h1>Méthode 24</h1>
+  <p>Solides, dés et patrons<br>Suivre quelques faces, compter</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>un dé qui roule</li><li>un patron à plier</li><li>ce qu’on voit d’un solide</li><li>compter faces, arêtes, sommets</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>faces opposées et orientation</li><li>vues d’un solide</li><li>relation d’Euler</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>suivre quelques faces ;</li><li>manipuler un vrai cube ou un patron.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>un petit nombre d’éléments suivis ;</li><li>un comptage (Euler, union de faces).</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Dés et patrons</li><li>Ce qu’on voit d’un solide</li><li>Faces, arêtes, sommets</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Faces opposées, sens de rotation</li><li>Vues : compter une union de faces</li><li>Euler : S − A + F = 2</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Construire le patron ou prendre un vrai dé.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Repérer les éléments à suivre (faces opposées, faces visibles).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Suivre trois faces : dessus, devant, côté.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Écrire le comptage (union de faces, S − A + F = 2).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Compter sur la maquette ou le dessin.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Calculer, ou compter le complémentaire.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Vérifier sur une vue connue.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Vérifier sur un cas simple (le cube).</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Le satellite <span class="code">(2007-3)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Un cube plein porte une lampe à chacun de ses 8 sommets. Combien de lampes peut-on voir en même temps, au maximum ?</p>
+<p><b>On cherche :</b> le plus grand nombre de sommets visibles d’un cube plein.</p><p class="lab">Manipuler :</p><p>En regardant un dé par un coin, on voit au plus 3 faces à la fois : celles qui se touchent autour de ce coin.</p><p class="lab">Compter :</p><p>Ces 3 faces ont 7 sommets en tout. Le 8e sommet, à l’opposé du coin regardé, est caché par le cube.</p>
+<p class="rep">Réponse : 7 lampes.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Les cubes <span class="code">(2021-3)</span></h2>
+<p class="enonce"><b>Énoncé.</b> 27 petits cubes forment un cube 3 × 3 × 3 posé sur une table. Sans bouger, combien de petits cubes peut-on voir au maximum ? Un cube vu sur plusieurs faces compte une fois.</p>
+<p>On cherche le nombre de petits cubes dans l’union des faces visibles.</p><p class="lab">Faces visibles :</p><p>Au plus trois : le dessus et deux côtés (la face du dessous touche la table).</p><p class="lab">Union de faces :</p><span class="calc">9 + 9 + 9 − 3 − 3 − 3 + 1 = 19</span><p>On retire les trois arêtes communes (3 cubes chacune, comptés deux fois) et on rajoute le cube du coin, retiré une fois de trop.</p><p class="lab">Complémentaire :</p><p>Les cubes cachés forment un cube 2 × 2 × 2.</p><span class="calc">27 − 8 = 19</span>
+<p class="rep">Réponse : 19 petits cubes.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-23.html">← Méthode 23</a>
+  <a href="methode-25.html">Méthode 25 →</a>
+</nav>
+</main>
+</body>
+</html>

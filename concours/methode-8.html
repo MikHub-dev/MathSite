@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 8 — Cycles, restes et calendrier — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 8 / 26</span>
+  <h1>Méthode 8</h1>
+  <p>Cycles, restes et calendrier<br>Enlever les tours complets</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>quelque chose qui recommence (pétales, jours, heures)</li><li>quel jour de la semaine sera…</li><li>une date palindrome</li><li>une date écrite avec des chiffres imposés</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>position dans un cycle</li><li>décalage calendaire</li><li>dates palindromes</li><li>dates à chiffres imposés</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>trouver la longueur du cycle ;</li><li>enlever les tours complets et regarder où l’on tombe.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une division euclidienne ;</li><li>un calcul de reste (modulo).</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Ce qui revient en boucle</li><li>Quel jour de la semaine</li><li>Date palindrome</li><li>Date avec des chiffres imposés</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Position = reste de la division</li><li>Décalage d’un ou deux jours par an</li><li>Palindrome : une moitié fixe l’autre</li><li>Chiffres imposés : le mois d’abord</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Repérer ce qui se répète et la longueur du cycle.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Modéliser : la position n correspond au reste de n modulo la longueur du cycle.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Compter les tours complets.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Écrire la division euclidienne.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Compter ce qui reste après le dernier tour.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Calculer le reste (décalages cumulés pour un calendrier).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Lire la réponse dans le cycle et vérifier sur un petit cas.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Interpréter le reste et vérifier le cas de départ.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : La grenouille et le prince <span class="code">(2004-5)</span></h2>
+<p class="enonce"><b>Énoncé.</b> On effeuille une marguerite : « il m’aime, un peu, beaucoup, à la folie, pas du tout », puis on recommence. Le dernier pétale tombe sur « à la folie » ; « pas du tout » a été dit exactement 7 fois. Combien de pétales ?</p>
+<p><b>On cherche :</b> le nombre de pétales.</p><p class="lab">Le cycle :</p><div class="scroll"><table><thead><tr><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th></tr></thead><tbody><tr><td>il m’aime</td><td>un peu</td><td>beaucoup</td><td>à la folie</td><td>pas du tout</td></tr></tbody></table></div><p class="lab">Tours complets :</p><p>« Pas du tout » termine chaque tour : 7 fois, c’est 7 tours complets.</p><span class="calc">7 × 5 = 35 pétales</span><p class="lab">Ce qui reste :</p><p>On recommence jusqu’à « à la folie » : 4 pétales de plus.</p><span class="calc">35 + 4 = 39</span>
+<p class="rep">Réponse : 39 pétales.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Le quarantième championnat <span class="code">(2006-3)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Le 20 octobre 2005 est un jeudi. Quel jour de la semaine sera le 20 octobre 2025 ?</p>
+<p>On cherche le décalage, en jours, entre les deux dates, modulo 7.</p><p class="lab">Modéliser :</p><ul><li>365 = 52 × 7 + 1 : une année ordinaire décale le jour de 1.</li><li>Un 29 février ajoute un jour de plus.</li><li>Entre les deux dates : 20 années et cinq 29 février (2008, 2012, 2016, 2020, 2024).</li></ul><p class="lab">Division euclidienne :</p><span class="calc">20 + 5 = 25 = 3 × 7 + 4</span><p class="lab">Conclure :</p><p>Jeudi + 4 jours = lundi.</p>
+<p class="rep">Réponse : lundi.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-7.html">← Méthode 7</a>
+  <a href="methode-9.html">Méthode 9 →</a>
+</nav>
+</main>
+</body>
+</html>

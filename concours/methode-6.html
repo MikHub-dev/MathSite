@@ -1,0 +1,58 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 6 — Cryptarithmes — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 6 / 26</span>
+  <h1>Méthode 6</h1>
+  <p>Cryptarithmes<br>Colonnes, retenues, premiers et derniers chiffres</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>des lettres à la place des chiffres</li><li>une addition codée</li><li>une multiplication codée</li><li>un nombre au carré codé</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>chaque lettre est un chiffre</li><li>lettres différentes, chiffres différents</li><li>addition, produit ou carré codé</li><li>pas de 0 en tête</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>commencer par les colonnes qui en disent le plus ;</li><li>refaire toute l’opération à la fin.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>un encadrement (ordre de grandeur) ;</li><li>une étude des premiers et derniers chiffres ;</li><li>une vérification complète.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Une addition codée</li><li>Une multiplication codée</li><li>Un nombre au carré codé</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Addition : colonnes et retenues</li><li>Produit : chiffre des unités</li><li>Carré : n² finit par n</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Écrire l’opération en colonnes.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Encadrer les nombres (nombre de chiffres, ordre de grandeur).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Chercher d’abord le premier chiffre et le chiffre des unités.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Écrire l’équation des colonnes, ou l’équation complète en base 10.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Essayer les chiffres restants dans l’ordre, en notant les retenues.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Réduire avec les unités, la parité et les chiffres distincts.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Refaire l’opération avec les chiffres trouvés.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Tester les cas restants et vérifier toutes les solutions.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Donnez-nous le LA <span class="code">(2025-8)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Dans l’addition PLAY + LA = 2025, des lettres différentes représentent des chiffres différents et aucun nombre ne commence par 0. Que vaut LA ?</p>
+<p><b>On cherche :</b> les chiffres P, L, A, Y.</p><p class="lab">En colonnes :</p><span class="calc">  P L A Y
++     L A
+= 2 0 2 5</span><p class="lab">Premiers chiffres :</p><ul><li>LA vaut au plus 99 : PLAY est entre 1926 et 2024.</li><li>Si PLAY commençait par 20, L vaudrait 0 et LA commencerait par 0 : interdit.</li><li>Donc PLAY commence par 19 : P = 1 et L = 9.</li></ul><p class="lab">Essayer A :</p><p>PLAY = 19AY et LA = 9A. Avec A = 3 : 193Y + 93 = 2025 donne Y = 2.</p><p class="lab">Vérifier :</p><span class="calc">1932 + 93 = 2025</span><p>Les chiffres 1, 9, 3, 2 sont tous différents.</p>
+<p class="rep">Réponse : LA = 93.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Une égalité lumineuse <span class="code">(2024-14)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Dans le cryptarithme UN × UN = NEON, une même lettre représente toujours le même chiffre, deux lettres différentes des chiffres différents, et le premier chiffre d’un nombre n’est jamais 0. Combien vaut ONE ?</p>
+<p>On cherche UN tel que (10U + N)² = 1000N + 100E + 10O + N.</p><p class="lab">Encadrer :</p><p>NEON a quatre chiffres : 32 ≤ UN ≤ 99.</p><p class="lab">Derniers chiffres :</p><p>N² doit se terminer par N, avec N ≠ 0 : N vaut 1, 5 ou 6.</p><p class="lab">Tester :</p><div class="scroll"><table><thead><tr><th scope="col">N</th><th scope="col">Carrés possibles</th><th scope="col">De la forme NEON ?</th></tr></thead><tbody><tr><td>1</td><td>41² = 1681, 51² = 2601, 61² = 3721, …</td><td>1681 seulement</td></tr><tr><td>5</td><td>35² = 1225, 45² = 2025, …, 75² = 5625, 85² = 7225, 95² = 9025</td><td>5625 seulement</td></tr><tr><td>6</td><td>36² = 1296, 46² = 2116, …, 96² = 9216</td><td>aucun</td></tr></tbody></table></div><p class="lab">Conclure :</p><ul><li>41² = 1681 : N = 1, E = 6, O = 8, et ONE = 816.</li><li>75² = 5625 : N = 5, E = 6, O = 2, et ONE = 256.</li></ul><p>Dans les deux cas, les quatre lettres ont des chiffres différents.</p>
+<p class="rep">Réponse : ONE = 816 ou ONE = 256.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-5.html">← Méthode 5</a>
+  <a href="methode-7.html">Méthode 7 →</a>
+</nav>
+</main>
+</body>
+</html>

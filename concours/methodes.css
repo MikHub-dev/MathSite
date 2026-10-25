@@ -1,0 +1,56 @@
+/* Version : 1.4 — Fiches méthodes FFJM (pages concours/methode-N.html) */
+:root{--bg:#ffffff;--paper:#ffffff;--fg:#1b1f27;--muted:#5d6676;--line:#c9ced8;--head:#e3ebf7;--accent:#2b5592;--ex:#f6f7f9;--ex-bar:#2b5592;--ok:#17734d;--ko:#b42318;color-scheme:light;
+  --font:"Inter","Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#11151c;--paper:#171c25;--fg:#e5e8ee;--muted:#9aa3b2;--line:#323b4a;--head:#1c2940;--accent:#8fb3ff;--ex:#1a1f29;--ex-bar:#8fb3ff;--ok:#6dd3a1;--ko:#ff8a7a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--font)}
+a{color:var(--accent)}
+a:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:3px}
+.wrap{max-width:900px;margin-inline:auto;padding-inline:16px}
+.site{border-bottom:1px solid var(--line)}
+.site .wrap{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;padding-block:10px;font-weight:600;font-size:15px}
+.site .logo{font-weight:800;text-decoration:none;font-size:17px}
+.site .retour{margin-left:auto;text-decoration:none}
+header.titre{text-align:center;padding:26px 0 18px}
+header.titre h1{font-size:clamp(28px,5vw,36px);margin:0 0 6px;font-weight:800;letter-spacing:-.01em}
+header.titre p{margin:0;color:var(--muted);font-size:clamp(17px,2.6vw,20px);line-height:1.35}
+header.titre .eyebrow{display:block;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+table.fiche{width:100%;border-collapse:collapse;table-layout:fixed;margin:8px 0 26px;background:var(--paper)}
+table.fiche th,table.fiche td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left}
+table.fiche thead th{background:var(--head);text-align:center;font-weight:700}
+table.fiche td h3{margin:0 0 2px;font-size:15.5px;color:var(--accent)}
+table.fiche td p{margin:0 0 6px}
+table.fiche td ul,table.fiche td ol{margin:6px 0 2px;padding-left:22px}
+table.fiche td li{margin:1px 0}
+.lvl{display:none}
+
+section.ex{background:var(--ex);border-left:4px solid var(--ex-bar);padding:14px 18px 16px;margin:0 0 22px;border-radius:0 6px 6px 0}
+section.ex h2{margin:0 0 10px;font-size:19px}
+section.ex h2 .code{font-weight:500;color:var(--muted);font-size:15px}
+section.ex p{margin:6px 0}
+section.ex .enonce{border:1px dashed var(--line);border-radius:6px;padding:8px 10px;background:var(--paper)}
+section.ex .lab{font-weight:700;margin-top:12px}
+section.ex ul{margin:4px 0;padding-left:22px}
+section.ex table{border-collapse:collapse;width:100%;margin:8px 0;background:var(--paper);font-variant-numeric:tabular-nums}
+section.ex th,section.ex td{border:1px solid var(--line);padding:6px 10px;text-align:left}
+section.ex thead th{background:var(--head);text-align:center}
+section.ex tr.tot td{font-weight:700}
+section.ex .rep{font-weight:800;margin-top:12px}
+.calc{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;font-size:15px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:6px 10px;display:block;white-space:pre-wrap;overflow-wrap:anywhere}
+.ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}
+.scroll{overflow-x:auto}
+
+nav.suite{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding:14px 0 30px;font-weight:600}
+nav.suite .vide{visibility:hidden}
+
+@media (max-width:640px){
+  table.fiche thead{display:none}
+  table.fiche,table.fiche tbody,table.fiche tr,table.fiche td{display:block;width:100%}
+  table.fiche tr{border:1px solid var(--line);border-radius:8px;margin-bottom:10px;overflow:hidden}
+  table.fiche td{border:0;border-top:1px solid var(--line)}
+  table.fiche td:first-child{border-top:0}
+  .lvl{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--head);color:var(--accent);border-radius:999px;padding:1px 8px;margin-bottom:4px}
+  section.ex{padding:12px 12px 14px}
+}
+@media print{.site,nav.suite{display:none}section.ex{break-inside:avoid}}

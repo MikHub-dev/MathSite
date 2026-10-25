@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.5 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 4 — Écrire et lire les nombres — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 4 / 26</span>
+  <h1>Méthode 4</h1>
+  <p>Écrire et lire les nombres<br>Des tranches de même forme</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>numéroter des pages</li><li>combien de chiffres écrits</li><li>combien de fois un chiffre</li><li>nombres écrits en lettres</li><li>afficheur à 7 segments</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>comptage de chiffres par position</li><li>écriture dans une autre base</li><li>rang dans une liste ordonnée</li><li>lettres ou segments par chiffre</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>découper en tranches de même forme ;</li><li>compter tranche par tranche.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>des tranches complètes comptées par formule ;</li><li>une dernière tranche finie à la main.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Chiffres pour numéroter</li><li>Combien de fois le chiffre 1</li><li>Nombres en lettres</li><li>Afficheur 7 segments</li><li>Liste sans certains chiffres</li><li>Le N-ième nombre d’une liste</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier la tranche :</p><ol><li>Longueur : 9, 90, 900 nombres</li><li>Position : chaque chiffre 1 fois sur 10</li><li>Autre base : chiffres permis</li><li>Ordre : premier chiffre, puis suivant</li><li>Lettres : dizaine par dizaine</li><li>Segments : chiffre par chiffre</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Faire un tableau des tranches (1 à 9, 10 à 99…).</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Écrire le comptage d’une tranche complète (de 0 à 999, chaque position porte 100 fois chaque chiffre).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Compter dans chaque tranche.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Cumuler les tranches complètes jusqu’à approcher la cible.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Finir à la main dans la dernière tranche.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Finir la tranche incomplète position par position, ou par une équation.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Vérifier en recomptant le total.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Vérifier la valeur exacte et que la réponse est unique.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Le numérotage des pages <span class="code">(2017-4)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Mathilde numérote les pages de son cahier à partir de 1. Elle a écrit exactement 21 chiffres de plus que le nombre de pages. Combien de pages ?</p>
+<p><b>On cherche :</b> le nombre de pages.</p><p class="lab">Tranches :</p><div class="scroll"><table><thead><tr><th scope="col">Pages</th><th scope="col">Chiffres par page</th><th scope="col">Chiffres « en plus »</th></tr></thead><tbody><tr><td>1 à 9</td><td>1</td><td>0</td></tr><tr><td>10 à 99</td><td>2</td><td>1 par page</td></tr></tbody></table></div><p>Chaque page à deux chiffres apporte un chiffre en plus. 21 chiffres en plus, c’est donc 21 pages à deux chiffres : de 10 à 30.</p><p class="lab">Vérifier :</p><span class="calc">9 × 1 + 21 × 2 = 51 chiffres  et  30 + 21 = 51</span><p class="lab">Conclusion :</p><p>Le cahier a 30 pages.</p>
+<p class="rep">Réponse : 30 pages.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : L’encyclopédie <span class="code">(1988-C5)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Pour numéroter les pages d’une encyclopédie, on a imprimé 1988 fois le chiffre 1. Combien de pages ?</p>
+<p>On cherche le numéro n de la dernière page tel que les nombres de 1 à n contiennent exactement 1988 chiffres 1.</p><p class="lab">Tranches complètes :</p><p>De 0 à 999, chaque position (unités, dizaines, centaines) porte 100 fois le chiffre 1 : 300 chiffres 1.</p><div class="scroll"><table><thead><tr><th scope="col">Tranche</th><th scope="col">Chiffres 1</th><th scope="col">Cumul</th></tr></thead><tbody><tr><td>1 à 999</td><td>300</td><td>300</td></tr><tr><td>1000 à 1999</td><td>1000 (milliers) + 300</td><td>1600</td></tr><tr><td>2000 à 2999</td><td>300</td><td>1900</td></tr><tr><td>3000 à 3099</td><td>20</td><td>1920</td></tr></tbody></table></div><p class="lab">Dernière tranche :</p><p>Il manque 1988 − 1920 = 68 chiffres 1. De 3100 à 3151 :</p><ul><li>centaines : 52 (3100 à 3151) ;</li><li>dizaines : 10 (3110 à 3119) ;</li><li>unités : 6 (3101, 3111, 3121, 3131, 3141, 3151).</li></ul><span class="calc">52 + 10 + 6 = 68   et   1920 + 68 = 1988</span><p class="lab">Unicité :</p><p>La page 3151 contient deux 1 : on passe de 1986 (page 3150) à 1988, puis 1989 à la page 3152. Seule la page 3151 convient.</p>
+<p class="rep">Réponse : 3151 pages.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-3.html">← Méthode 3</a>
+  <a href="methode-5.html">Méthode 5 →</a>
+</nav>
+</main>
+</body>
+</html>

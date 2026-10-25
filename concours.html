@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.5 -->
+<!-- Version : 1.6 -->
 <html lang="fr">
 <head>
   <meta name="robots" content="noindex, nofollow">
@@ -37,6 +37,11 @@
     .grille .absent { color: #555a66; }
     @media (max-width: 1060px) { .grille { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media (max-width: 520px) { .grille { grid-template-columns: repeat(2, minmax(0, 1fr)); font-size: 14px; } .grille li { white-space: normal; } }
+    .t-meth { margin-top: 18px; }
+    .methodes { list-style: none; margin: 10px 0 22px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+    .methodes a { display: inline-flex; align-items: center; gap: 7px; padding: 5px 12px 5px 6px; border: 1px solid #2a2d35; border-radius: 999px; background: #14161c; text-decoration: none; font-size: 14px; font-weight: 600; line-height: 1.3; }
+    .methodes a:hover, .methodes a:focus-visible { border-color: #7aa2ff; color: #ffffff; }
+    .methodes .mn { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 999px; background: #22314f; color: #cfe0ff; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
   </style>
 </head>
 <body>
@@ -47,8 +52,35 @@
   <main>
     <h1>Championnat International des Jeux Mathématiques et Logiques (FFJM)</h1>
       <p>Source : page officielle « Archives du championnat » de la FFJM : <a href="https://www.ffjm.org/fr/archives-du-championnat" target="_blank" rel="noopener noreferrer">https://www.ffjm.org/fr/archives-du-championnat</a></p>
-      <p>Les élèves de seconde concourent dans la catégorie <strong>L1</strong> (2nde à terminale). Chaque PDF contient les énigmes de toutes les catégories ; L1 correspond aux problèmes numérotés pour les lycéens (ex. : problèmes 1 à 16 en 2010 – à vérifier sur chaque épreuve).</p>
-      <p>Pour les quarts de finale, chaque année donne les énoncés officiels et nos corrigés détaillés : réponses vérifiées, lecture guidée de l’énoncé et méthode complète pour la seconde et la cinquième. Le fichier proposé pour 1994 contient le même sujet que 1995 : pas de corrigé séparé.</p>
+      <h2 class="t-meth" id="methodes">Les 26 méthodes de résolution</h2>
+      <ul class="methodes" aria-labelledby="methodes">
+        <li><a href="concours/methode-1.html" target="_blank" rel="noopener"><span class="mn">1</span> Trouver un maximum ou un minimum</a></li>
+        <li><a href="concours/methode-2.html" target="_blank" rel="noopener"><span class="mn">2</span> Dénombrer sans oubli ni doublon</a></li>
+        <li><a href="concours/methode-3.html" target="_blank" rel="noopener"><span class="mn">3</span> Compter pas à pas</a></li>
+        <li><a href="concours/methode-4.html" target="_blank" rel="noopener"><span class="mn">4</span> Écrire et lire les nombres</a></li>
+        <li><a href="concours/methode-5.html" target="_blank" rel="noopener"><span class="mn">5</span> Les chiffres d’un nombre</a></li>
+        <li><a href="concours/methode-6.html" target="_blank" rel="noopener"><span class="mn">6</span> Cryptarithmes</a></li>
+        <li><a href="concours/methode-7.html" target="_blank" rel="noopener"><span class="mn">7</span> Divisibilité, facteurs premiers, PPCM</a></li>
+        <li><a href="concours/methode-8.html" target="_blank" rel="noopener"><span class="mn">8</span> Cycles, restes et calendrier</a></li>
+        <li><a href="concours/methode-9.html" target="_blank" rel="noopener"><span class="mn">9</span> Répéter ou remonter une transformation</a></li>
+        <li><a href="concours/methode-10.html" target="_blank" rel="noopener"><span class="mn">10</span> Équations en nombres entiers</a></li>
+        <li><a href="concours/methode-11.html" target="_blank" rel="noopener"><span class="mn">11</span> Sommes remarquables</a></li>
+        <li><a href="concours/methode-12.html" target="_blank" rel="noopener"><span class="mn">12</span> Mettre en équation, systèmes</a></li>
+        <li><a href="concours/methode-13.html" target="_blank" rel="noopener"><span class="mn">13</span> Proportions, pourcentages, fractions</a></li>
+        <li><a href="concours/methode-14.html" target="_blank" rel="noopener"><span class="mn">14</span> Ce qui ne change pas</a></li>
+        <li><a href="concours/methode-15.html" target="_blank" rel="noopener"><span class="mn">15</span> Mouvements, vitesses, horloges</a></li>
+        <li><a href="concours/methode-16.html" target="_blank" rel="noopener"><span class="mn">16</span> Logique des énoncés</a></li>
+        <li><a href="concours/methode-17.html" target="_blank" rel="noopener"><span class="mn">17</span> Grilles et placements sous contraintes</a></li>
+        <li><a href="concours/methode-18.html" target="_blank" rel="noopener"><span class="mn">18</span> Parcours et coloriages</a></li>
+        <li><a href="concours/methode-19.html" target="_blank" rel="noopener"><span class="mn">19</span> Positions, coups et jeux</a></li>
+        <li><a href="concours/methode-20.html" target="_blank" rel="noopener"><span class="mn">20</span> Partages et pavages</a></li>
+        <li><a href="concours/methode-21.html" target="_blank" rel="noopener"><span class="mn">21</span> Aires et périmètres</a></li>
+        <li><a href="concours/methode-22.html" target="_blank" rel="noopener"><span class="mn">22</span> Cercles, tangentes, plus courts chemins</a></li>
+        <li><a href="concours/methode-23.html" target="_blank" rel="noopener"><span class="mn">23</span> Figures inscrites</a></li>
+        <li><a href="concours/methode-24.html" target="_blank" rel="noopener"><span class="mn">24</span> Solides, dés et patrons</a></li>
+        <li><a href="concours/methode-25.html" target="_blank" rel="noopener"><span class="mn">25</span> Géométrie du triangle</a></li>
+        <li><a href="concours/methode-26.html" target="_blank" rel="noopener"><span class="mn">26</span> Probabilités</a></li>
+      </ul>
     <nav class="annees" aria-label="Aller à un niveau"><a href="#n-quarts">Quarts de finale</a> <a href="#n-demi">Demi-finale</a> <a href="#n-fn">Finale nationale</a> <a href="#n-fi0">Finale internationale</a> <a href="#n-fi1">Finale internationale – jour 1</a> <a href="#n-fi2">Finale internationale – jour 2</a></nav>
       <section id="n-quarts">
         <h2>Quarts de finale</h2>
