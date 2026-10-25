@@ -1,0 +1,22 @@
+{
+  "titre": "Vecteurs : coordonnées, norme, colinéarité et alignement",
+  "chapitre": "Vecteurs",
+  "date": "2026-10-25",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Le plan est muni d'un repère orthonormé. Justifie chaque réponse par un calcul.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>On donne A(2 ; −1) et B(5 ; 3). Quelles sont les coordonnées du vecteur AB ?</p>", "choix": ["(7 ; 2)", "(3 ; 4)", "(−3 ; −4)", "(3 ; 2)"] },
+    { "id": "q2", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Calcule la norme du vecteur u de coordonnées (−6 ; 8).</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>Les vecteurs u(4 ; −6) et v(−10 ; 15) sont-ils colinéaires ? Justifie.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>On donne A(1 ; 1), B(3 ; 4) et C(7 ; 10). Montre que les points A, B et C sont alignés.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>On donne A(−1 ; 1), B(3 ; 2) et C(4 ; 5). a) Détermine les coordonnées du point D tel que ABCD soit un parallélogramme. b) Vérifie que les diagonales [AC] et [BD] ont le même milieu.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 13, "points": 2, "enonce": "<p>On donne A(1 ; 2), B(3 ; 5) et C(m ; 8), où m est un réel. a) Détermine m pour que les points A, B et C soient alignés. b) Le point D(−3 ; −4) est-il aligné avec A et B ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Navigation aérienne", "enonce": "<p>À la question 2, tu as calculé une norme : √(x² + y²) pour un vecteur de coordonnées (x ; y). Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un pilote vérifie sur sa carte que trois balises sont alignées",
+      "Un pilote connaît les composantes du vent vers l'est et vers le nord et en déduit la vitesse totale du vent",
+      "Un pilote calcule la distance parcourue en 2 heures à vitesse constante",
+      "Un pilote calcule la consommation de carburant pour 100 km"
+    ] }
+  ]
+}

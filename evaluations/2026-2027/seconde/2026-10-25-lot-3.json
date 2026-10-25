@@ -1,0 +1,22 @@
+{
+  "titre": "Statistiques : médiane, quartiles, écart interquartile et comparaison de séries",
+  "chapitre": "Statistiques",
+  "date": "2026-10-25",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Les questions 1 à 4 portent sur la série de onze notes : 3 ; 5 ; 7 ; 8 ; 9 ; 10 ; 11 ; 12 ; 13 ; 15 ; 17.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Quelle est la médiane de cette série ?</p>", "choix": ["9", "10", "11", "12"] },
+    { "id": "q2", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Quelle est l'étendue de cette série ?</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>Détermine le premier quartile Q₁ et le troisième quartile Q₃ de cette série, puis calcule l'écart interquartile. Explique ta méthode.</p>" },
+    { "id": "q4", "type": "numerique", "niveau": 2, "tempsMinutes": 5, "points": 1, "enonce": "<p>Le professeur ajoute 2 points à chacune des onze notes. Quelle est la nouvelle moyenne de la série ?</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Dans une classe de 30 élèves, la moyenne au dernier devoir est 11,4. Les 12 filles ont une moyenne de 13,5. Quelle est la moyenne des 18 garçons ? Justifie.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 15, "points": 3, "enonce": "<p>Deux séries de temps de livraison, en minutes, ont les caractéristiques suivantes. Série A : minimum 4, Q₁ = 8, médiane 10, Q₃ = 12, maximum 16. Série B : minimum 2, Q₁ = 6, médiane 10, Q₃ = 15, maximum 18. a) Calcule l'étendue et l'écart interquartile de chaque série. b) Quelle série est la plus régulière ? Justifie. c) Dans la série B, quelle part au moins des livraisons dure entre 6 et 15 minutes ?</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Data et marketing", "enonce": "<p>Aux questions 3 et 6, tu as utilisé l'écart interquartile Q₃ − Q₁, qui mesure la dispersion en ignorant les valeurs extrêmes. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un analyste cherche le temps de livraison tel que la moitié des commandes arrivent plus vite",
+      "Un analyste calcule le montant moyen des paniers d'un site de vente",
+      "Un analyste calcule la hausse en pourcentage des ventes d'un mois à l'autre",
+      "Un analyste compare la régularité des délais de livraison de deux entreprises, sans tenir compte de quelques livraisons exceptionnellement longues"
+    ] }
+  ]
+}

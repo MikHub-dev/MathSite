@@ -1,0 +1,22 @@
+{
+  "titre": "Probabilités : issues, événement contraire et fréquences",
+  "chapitre": "Probabilités",
+  "date": "2026-10-25",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Donne les probabilités sous forme décimale ou de fraction, et justifie ton raisonnement.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Lequel de ces nombres ne peut pas être la probabilité d'un événement ?</p>", "choix": ["0", "0,35", "1", "1,2"] },
+    { "id": "q2", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Un sac contient 3 boules rouges, 4 boules vertes et 3 boules bleues, indiscernables au toucher. On tire une boule au hasard. Quelle est la probabilité d'obtenir une boule verte ? Donne le résultat sous forme décimale.</p>" },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>On lance un dé équilibré à 6 faces numérotées de 1 à 6. Quelle est la probabilité d'obtenir un nombre premier ? Donne le résultat sous forme décimale.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>À un jeu de tickets, la probabilité de gagner est 0,15. Quelle est la probabilité de perdre ? Justifie.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Un sac contient 5 jetons rouges, 3 jetons bleus et des jetons jaunes. La probabilité de tirer un jeton jaune est 0,2. Combien y a-t-il de jetons jaunes dans le sac ? Explique ton raisonnement.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>On lance 50 fois un dé à 6 faces et le 6 sort 12 fois. a) Calcule la fréquence d'apparition du 6. b) Compare-la à la probabilité d'obtenir un 6 avec un dé équilibré. c) Peut-on en conclure que le dé est truqué ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Jeux vidéo", "enonce": "<p>À la question 4, tu as utilisé l'événement contraire : p(non A) = 1 − p(A). Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un joueur calcule la probabilité d'obtenir un 6 avec un dé : un cas favorable sur six cas possibles",
+      "Un joueur compte la proportion de parties gagnées parmi les 50 qu'il a jouées",
+      "Un joueur calcule le nombre moyen de points obtenus par partie",
+      "Un jeu affiche que la probabilité d'obtenir un objet rare dans un coffre est 0,08, donc que celle de ne pas l'obtenir est 0,92"
+    ] }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "titre": "Géométrie repérée : milieu, distance et équations de droites",
+  "chapitre": "Géométrie repérée",
+  "date": "2026-10-25",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Le plan est muni d'un repère orthonormé. Rédige soigneusement tes calculs.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>On donne A(−2 ; 1) et B(6 ; 5). Quelles sont les coordonnées du milieu de [AB] ?</p>", "choix": ["(2 ; 3)", "(4 ; 6)", "(4 ; 2)", "(8 ; 4)"] },
+    { "id": "q2", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>On donne A(1 ; 2) et B(4 ; 6). Calcule la distance AB.</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>On donne A(−1 ; 2), B(3 ; 5) et C(2 ; −2). Montre que le triangle ABC est isocèle en A.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 8, "points": 2, "enonce": "<p>Détermine l'équation réduite de la droite (EF) avec E(1 ; 3) et F(3 ; 7). Justifie.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Avec les points A, B et C de la question 3, montre que le triangle ABC est rectangle en A, puis calcule son aire.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>On considère les droites (d₁) : y = 2x − 1 et (d₂) : y = −x + 5. a) Détermine les coordonnées de leur point d'intersection. b) Le point K(4 ; −1) appartient-il à (d₂) ? c) Détermine l'équation réduite de la droite parallèle à (d₁) passant par K.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Transports", "enonce": "<p>À la question 2, tu as calculé la distance AB = √((x_B − x_A)² + (y_B − y_A)²) à partir des coordonnées de deux points. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Une application de navigation calcule la distance en ligne droite entre deux arrêts repérés par leurs coordonnées sur un plan",
+      "Un contrôleur place un point de rendez-vous à égale distance de deux gares",
+      "Un ingénieur détermine la pente d'une route à partir de deux points de son profil",
+      "Un chauffeur calcule la durée d'un trajet à partir de la distance et de sa vitesse moyenne"
+    ] }
+  ]
+}

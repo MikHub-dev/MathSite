@@ -4,6 +4,314 @@ window.EVALUATIONS = {
  "2026-2027": {
   "5e": [
    {
+    "id": "2026-10-25-lot-1",
+    "total": 10,
+    "titre": "Divisibilité : diviseurs, nombres premiers et multiples communs",
+    "chapitre": "Multiples, diviseurs et nombres premiers",
+    "date": "2026-10-25",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Écris les critères de divisibilité ou les calculs qui justifient chacune de tes réponses.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Lequel de ces nombres est divisible par 3 ?</p>",
+      "choix": [
+       "2 011",
+       "1 247",
+       "4 125",
+       "3 068"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Combien le nombre 18 a-t-il de diviseurs ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Combien y a-t-il de nombres premiers compris entre 20 et 40 ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Le nombre 357 est-il premier ? Justifie ta réponse.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Deux guirlandes s'allument ensemble à 20 h 00 min 00 s. La première clignote toutes les 18 secondes, la seconde toutes les 24 secondes. Au bout de combien de secondes clignotent-elles de nouveau ensemble pour la première fois ? Explique ton raisonnement.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Un confiseur dispose de 84 bonbons et de 126 chocolats. Il veut réaliser le plus grand nombre possible de sachets identiques, en utilisant tous les bonbons et tous les chocolats. Combien de sachets peut-il préparer et quelle est la composition de chacun ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Cryptographie",
+      "enonce": "<p>À la question 4, tu as cherché si un nombre est premier : il n'a que deux diviseurs, 1 et lui-même. Dans laquelle de ces situations cette notion est-elle utilisée ?</p>",
+      "choix": [
+       "Deux feux de balisage clignotent à des rythmes différents et on cherche quand ils s'allument de nouveau en même temps",
+       "La sécurité d'un paiement en ligne repose sur le produit de deux très grands nombres premiers, très difficile à décomposer",
+       "On partage équitablement des objets en un nombre maximal de lots identiques",
+       "Un message est codé en décalant chaque lettre de 3 rangs dans l'alphabet"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-25-lot-2",
+    "total": 10,
+    "titre": "Statistiques : étendue, moyenne, moyenne pondérée et fréquences",
+    "chapitre": "Statistiques",
+    "date": "2026-10-25",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Présente les calculs qui te permettent d'obtenir chaque résultat.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Voici cinq notes : 8, 12, 15, 9 et 14. Quelle est l'étendue de cette série ?</p>",
+      "choix": [
+       "7",
+       "8",
+       "11,6",
+       "15"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Voici quatre relevés de température : 12 °C, 15 °C, 9 °C et 16 °C. Quelle est leur moyenne, en °C ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Dans une classe de 25 élèves, 10 viennent à l'école à pied. Quelle est la fréquence des élèves qui viennent à pied, exprimée en pourcentage ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Un élève a obtenu 12 avec le coefficient 2, 15 avec le coefficient 3 et 9 avec le coefficient 1. Calcule sa moyenne pondérée. Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Après cinq devoirs, la moyenne de Léa est 12. Après le sixième devoir, sa moyenne est devenue 13. Quelle note a-t-elle obtenue au sixième devoir ? Explique ton raisonnement.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Une boutique a vendu des paires de chaussures : 4 paires en pointure 37, 6 en pointure 38, 8 en pointure 39 et 2 en pointure 40. a) Quel est l'effectif total ? b) Calcule la pointure moyenne. c) Quelle est la fréquence de la pointure 39 ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Météorologie",
+      "enonce": "<p>À la question 4, tu as calculé une moyenne pondérée : chaque valeur compte autant de fois que son coefficient ou son effectif. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un météorologue indique l'écart entre la température la plus haute et la plus basse du mois",
+       "Un météorologue annonce la part des jours de pluie du mois, en pourcentage",
+       "Une station calcule la température moyenne du mois en comptant chaque température autant de fois qu'elle a été relevée",
+       "Un météorologue convertit une température de degrés Celsius en degrés Fahrenheit"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-25-lot-3",
+    "total": 10,
+    "titre": "Probabilités : issues, événement contraire et fréquences",
+    "chapitre": "Probabilités",
+    "date": "2026-10-25",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Donne les probabilités sous forme décimale ou de fraction, et justifie ton raisonnement.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Lequel de ces nombres ne peut pas être la probabilité d'un événement ?</p>",
+      "choix": [
+       "0",
+       "0,35",
+       "1",
+       "1,2"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Un sac contient 3 boules rouges, 4 boules vertes et 3 boules bleues, indiscernables au toucher. On tire une boule au hasard. Quelle est la probabilité d'obtenir une boule verte ? Donne le résultat sous forme décimale.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>On lance un dé équilibré à 6 faces numérotées de 1 à 6. Quelle est la probabilité d'obtenir un nombre premier ? Donne le résultat sous forme décimale.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>À un jeu de tickets, la probabilité de gagner est 0,15. Quelle est la probabilité de perdre ? Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Un sac contient 5 jetons rouges, 3 jetons bleus et des jetons jaunes. La probabilité de tirer un jeton jaune est 0,2. Combien y a-t-il de jetons jaunes dans le sac ? Explique ton raisonnement.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>On lance 50 fois un dé à 6 faces et le 6 sort 12 fois. a) Calcule la fréquence d'apparition du 6. b) Compare-la à la probabilité d'obtenir un 6 avec un dé équilibré. c) Peut-on en conclure que le dé est truqué ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Jeux vidéo",
+      "enonce": "<p>À la question 4, tu as utilisé l'événement contraire : p(non A) = 1 − p(A). Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un joueur calcule la probabilité d'obtenir un 6 avec un dé : un cas favorable sur six cas possibles",
+       "Un joueur compte la proportion de parties gagnées parmi les 50 qu'il a jouées",
+       "Un joueur calcule le nombre moyen de points obtenus par partie",
+       "Un jeu affiche que la probabilité d'obtenir un objet rare dans un coffre est 0,08, donc que celle de ne pas l'obtenir est 0,92"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-25-lot-4",
+    "total": 10,
+    "titre": "Nombres relatifs : comparer, additionner et soustraire",
+    "chapitre": "Nombres relatifs",
+    "date": "2026-10-25",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Détaille chaque calcul et indique ce que représente chaque résultat dans le contexte.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le plus petit de ces nombres ?</p>",
+      "choix": [
+       "−3",
+       "−3,5",
+       "−3,05",
+       "−0,35"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Calcule (−7) − (−12) + (−4).</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Calcule A = −15 + 8 − (−6) − 11 en détaillant les étapes.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 9,
+      "points": 2,
+      "enonce": "<p>À 6 h, il fait −8 °C à Chamonix. Pendant 3 heures, la température monte de 5 °C par heure, puis pendant 2 heures elle baisse de 4 °C par heure. Quelle est la température à 11 h ? Justifie par un calcul.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 9,
+      "points": 3,
+      "enonce": "<p>Un plongeur est à −12 m (par rapport à la surface). Il remonte de 5 m, puis descend de 9 m, puis remonte de 7 m. a) À quelle altitude se trouve-t-il à la fin ? b) Une mouette vole à 8 m au-dessus de la surface. Quelle distance la sépare du plongeur ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Géologie",
+      "enonce": "<p>À la question 5, tu as calculé l'écart entre deux altitudes : grand nombre − petit nombre, en faisant attention aux nombres négatifs. Dans laquelle de ces situations le fait-on ?</p>",
+      "choix": [
+       "Un géologue calcule la différence d'altitude entre un sommet à +1 200 m et le fond d'une fosse à −3 800 m",
+       "Un géologue calcule l'aire d'une coulée de lave de forme rectangulaire",
+       "Un géologue range cinq roches de la moins dense à la plus dense",
+       "Un géologue calcule la distance réelle entre deux sites à partir d'une carte à l'échelle 1/50 000"
+      ]
+     }
+    ]
+   },
+   {
     "id": "2026-10-18-lot-1",
     "total": 10,
     "titre": "Proportionnalité : reconnaître et utiliser un coefficient",
@@ -1532,6 +1840,322 @@ window.EVALUATIONS = {
    }
   ],
   "seconde": [
+   {
+    "id": "2026-10-25-lot-1",
+    "total": 10,
+    "titre": "Variations et extremums : tableau, comparaison d'images et forme canonique",
+    "chapitre": "Variations et extremums",
+    "date": "2026-10-25",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Les questions 1 à 4 portent sur la fonction f définie sur [−4 ; 6], croissante sur [−4 ; 1] et décroissante sur [1 ; 6], avec f(−4) = −2, f(1) = 5 et f(6) = 0. On admet que sa courbe est continue.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le maximum de f sur [−4 ; 6] et en quelle valeur de x est-il atteint ?</p>",
+      "choix": [
+       "5, atteint en x = 1",
+       "1, atteint en x = 5",
+       "6, atteint en x = 0",
+       "5, atteint en x = −4"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le minimum de f sur [−4 ; 6] ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Sans calculer, compare f(2) et f(4), puis f(−3) et f(0). Justifie chaque comparaison en citant le sens de variation utilisé.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 1,
+      "enonce": "<p>Combien de solutions l'équation f(x) = 3 admet-elle sur [−4 ; 6] ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 9,
+      "points": 2,
+      "enonce": "<p>Soit h la fonction définie sur [1 ; 4] par h(x) = 3/x − 1. Justifie que h est décroissante sur [1 ; 4], puis donne son maximum et son minimum sur cet intervalle.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 16,
+      "points": 3,
+      "enonce": "<p>Une entreprise fabrique x centaines d'objets, avec 0 ≤ x ≤ 8. Son bénéfice, en centaines d'euros, est B(x) = −x² + 8x − 7. a) Montre que B(x) = −(x − 4)² + 9. b) En déduire le nombre d'objets à fabriquer pour que le bénéfice soit maximal, et la valeur de ce bénéfice maximal. c) Pour quelles valeurs de x le bénéfice est-il positif ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Énergie",
+      "enonce": "<p>À la question 6, tu as cherché la valeur de x pour laquelle une quantité est maximale, c'est-à-dire un extremum d'une fonction. Dans laquelle de ces situations le fait-on ?</p>",
+      "choix": [
+       "Un technicien lit sur une courbe la production d'une centrale solaire à 14 h",
+       "Un technicien calcule le coût d'un abonnement : un montant fixe plus un prix par kilowattheure consommé",
+       "Un ingénieur cherche l'inclinaison d'un panneau solaire pour laquelle la production est la plus grande possible",
+       "Un ingénieur calcule la baisse en pourcentage de la consommation entre deux années"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-25-lot-2",
+    "total": 10,
+    "titre": "Géométrie repérée : milieu, distance et équations de droites",
+    "chapitre": "Géométrie repérée",
+    "date": "2026-10-25",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Le plan est muni d'un repère orthonormé. Rédige soigneusement tes calculs.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>On donne A(−2 ; 1) et B(6 ; 5). Quelles sont les coordonnées du milieu de [AB] ?</p>",
+      "choix": [
+       "(2 ; 3)",
+       "(4 ; 6)",
+       "(4 ; 2)",
+       "(8 ; 4)"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>On donne A(1 ; 2) et B(4 ; 6). Calcule la distance AB.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>On donne A(−1 ; 2), B(3 ; 5) et C(2 ; −2). Montre que le triangle ABC est isocèle en A.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Détermine l'équation réduite de la droite (EF) avec E(1 ; 3) et F(3 ; 7). Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Avec les points A, B et C de la question 3, montre que le triangle ABC est rectangle en A, puis calcule son aire.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>On considère les droites (d₁) : y = 2x − 1 et (d₂) : y = −x + 5. a) Détermine les coordonnées de leur point d'intersection. b) Le point K(4 ; −1) appartient-il à (d₂) ? c) Détermine l'équation réduite de la droite parallèle à (d₁) passant par K.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Transports",
+      "enonce": "<p>À la question 2, tu as calculé la distance AB = √((x_B − x_A)² + (y_B − y_A)²) à partir des coordonnées de deux points. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Une application de navigation calcule la distance en ligne droite entre deux arrêts repérés par leurs coordonnées sur un plan",
+       "Un contrôleur place un point de rendez-vous à égale distance de deux gares",
+       "Un ingénieur détermine la pente d'une route à partir de deux points de son profil",
+       "Un chauffeur calcule la durée d'un trajet à partir de la distance et de sa vitesse moyenne"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-25-lot-3",
+    "total": 10,
+    "titre": "Statistiques : médiane, quartiles, écart interquartile et comparaison de séries",
+    "chapitre": "Statistiques",
+    "date": "2026-10-25",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Les questions 1 à 4 portent sur la série de onze notes : 3 ; 5 ; 7 ; 8 ; 9 ; 10 ; 11 ; 12 ; 13 ; 15 ; 17.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est la médiane de cette série ?</p>",
+      "choix": [
+       "9",
+       "10",
+       "11",
+       "12"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est l'étendue de cette série ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Détermine le premier quartile Q₁ et le troisième quartile Q₃ de cette série, puis calcule l'écart interquartile. Explique ta méthode.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 1,
+      "enonce": "<p>Le professeur ajoute 2 points à chacune des onze notes. Quelle est la nouvelle moyenne de la série ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Dans une classe de 30 élèves, la moyenne au dernier devoir est 11,4. Les 12 filles ont une moyenne de 13,5. Quelle est la moyenne des 18 garçons ? Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 15,
+      "points": 3,
+      "enonce": "<p>Deux séries de temps de livraison, en minutes, ont les caractéristiques suivantes. Série A : minimum 4, Q₁ = 8, médiane 10, Q₃ = 12, maximum 16. Série B : minimum 2, Q₁ = 6, médiane 10, Q₃ = 15, maximum 18. a) Calcule l'étendue et l'écart interquartile de chaque série. b) Quelle série est la plus régulière ? Justifie. c) Dans la série B, quelle part au moins des livraisons dure entre 6 et 15 minutes ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Data et marketing",
+      "enonce": "<p>Aux questions 3 et 6, tu as utilisé l'écart interquartile Q₃ − Q₁, qui mesure la dispersion en ignorant les valeurs extrêmes. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un analyste cherche le temps de livraison tel que la moitié des commandes arrivent plus vite",
+       "Un analyste calcule le montant moyen des paniers d'un site de vente",
+       "Un analyste calcule la hausse en pourcentage des ventes d'un mois à l'autre",
+       "Un analyste compare la régularité des délais de livraison de deux entreprises, sans tenir compte de quelques livraisons exceptionnellement longues"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-10-25-lot-4",
+    "total": 10,
+    "titre": "Vecteurs : coordonnées, norme, colinéarité et alignement",
+    "chapitre": "Vecteurs",
+    "date": "2026-10-25",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Le plan est muni d'un repère orthonormé. Justifie chaque réponse par un calcul.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>On donne A(2 ; −1) et B(5 ; 3). Quelles sont les coordonnées du vecteur AB ?</p>",
+      "choix": [
+       "(7 ; 2)",
+       "(3 ; 4)",
+       "(−3 ; −4)",
+       "(3 ; 2)"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule la norme du vecteur u de coordonnées (−6 ; 8).</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Les vecteurs u(4 ; −6) et v(−10 ; 15) sont-ils colinéaires ? Justifie.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>On donne A(1 ; 1), B(3 ; 4) et C(7 ; 10). Montre que les points A, B et C sont alignés.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>On donne A(−1 ; 1), B(3 ; 2) et C(4 ; 5). a) Détermine les coordonnées du point D tel que ABCD soit un parallélogramme. b) Vérifie que les diagonales [AC] et [BD] ont le même milieu.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 13,
+      "points": 2,
+      "enonce": "<p>On donne A(1 ; 2), B(3 ; 5) et C(m ; 8), où m est un réel. a) Détermine m pour que les points A, B et C soient alignés. b) Le point D(−3 ; −4) est-il aligné avec A et B ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Navigation aérienne",
+      "enonce": "<p>À la question 2, tu as calculé une norme : √(x² + y²) pour un vecteur de coordonnées (x ; y). Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un pilote vérifie sur sa carte que trois balises sont alignées",
+       "Un pilote connaît les composantes du vent vers l'est et vers le nord et en déduit la vitesse totale du vent",
+       "Un pilote calcule la distance parcourue en 2 heures à vitesse constante",
+       "Un pilote calcule la consommation de carburant pour 100 km"
+      ]
+     }
+    ]
+   },
    {
     "id": "2026-10-18-lot-1",
     "total": 10,
@@ -4353,20 +4977,20 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-24T05:11:03.507Z",
+  "genereLe": "2026-10-25T04:25:53.557Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 19,
-        "ouvertes": 6,
+        "total": 23,
+        "ouvertes": 10,
         "enAttente": 0,
         "fermees": 13,
         "copiesCorrigees": 12,
         "moyenneSur20": 16.6
       },
       "seconde": {
-        "total": 21,
-        "ouvertes": 12,
+        "total": 25,
+        "ouvertes": 16,
         "enAttente": 0,
         "fermees": 9,
         "copiesCorrigees": 9,

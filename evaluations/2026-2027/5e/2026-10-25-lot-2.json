@@ -1,0 +1,22 @@
+{
+  "titre": "Statistiques : étendue, moyenne, moyenne pondérée et fréquences",
+  "chapitre": "Statistiques",
+  "date": "2026-10-25",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Présente les calculs qui te permettent d'obtenir chaque résultat.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Voici cinq notes : 8, 12, 15, 9 et 14. Quelle est l'étendue de cette série ?</p>", "choix": ["7", "8", "11,6", "15"] },
+    { "id": "q2", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Voici quatre relevés de température : 12 °C, 15 °C, 9 °C et 16 °C. Quelle est leur moyenne, en °C ?</p>" },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>Dans une classe de 25 élèves, 10 viennent à l'école à pied. Quelle est la fréquence des élèves qui viennent à pied, exprimée en pourcentage ?</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Un élève a obtenu 12 avec le coefficient 2, 15 avec le coefficient 3 et 9 avec le coefficient 1. Calcule sa moyenne pondérée. Justifie.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Après cinq devoirs, la moyenne de Léa est 12. Après le sixième devoir, sa moyenne est devenue 13. Quelle note a-t-elle obtenue au sixième devoir ? Explique ton raisonnement.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Une boutique a vendu des paires de chaussures : 4 paires en pointure 37, 6 en pointure 38, 8 en pointure 39 et 2 en pointure 40. a) Quel est l'effectif total ? b) Calcule la pointure moyenne. c) Quelle est la fréquence de la pointure 39 ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Météorologie", "enonce": "<p>À la question 4, tu as calculé une moyenne pondérée : chaque valeur compte autant de fois que son coefficient ou son effectif. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un météorologue indique l'écart entre la température la plus haute et la plus basse du mois",
+      "Un météorologue annonce la part des jours de pluie du mois, en pourcentage",
+      "Une station calcule la température moyenne du mois en comptant chaque température autant de fois qu'elle a été relevée",
+      "Un météorologue convertit une température de degrés Celsius en degrés Fahrenheit"
+    ] }
+  ]
+}

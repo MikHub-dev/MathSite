@@ -1,0 +1,22 @@
+{
+  "titre": "Divisibilité : diviseurs, nombres premiers et multiples communs",
+  "chapitre": "Multiples, diviseurs et nombres premiers",
+  "date": "2026-10-25",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Écris les critères de divisibilité ou les calculs qui justifient chacune de tes réponses.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Lequel de ces nombres est divisible par 3 ?</p>", "choix": ["2 011", "1 247", "4 125", "3 068"] },
+    { "id": "q2", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Combien le nombre 18 a-t-il de diviseurs ?</p>" },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>Combien y a-t-il de nombres premiers compris entre 20 et 40 ?</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Le nombre 357 est-il premier ? Justifie ta réponse.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Deux guirlandes s'allument ensemble à 20 h 00 min 00 s. La première clignote toutes les 18 secondes, la seconde toutes les 24 secondes. Au bout de combien de secondes clignotent-elles de nouveau ensemble pour la première fois ? Explique ton raisonnement.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Un confiseur dispose de 84 bonbons et de 126 chocolats. Il veut réaliser le plus grand nombre possible de sachets identiques, en utilisant tous les bonbons et tous les chocolats. Combien de sachets peut-il préparer et quelle est la composition de chacun ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Cryptographie", "enonce": "<p>À la question 4, tu as cherché si un nombre est premier : il n'a que deux diviseurs, 1 et lui-même. Dans laquelle de ces situations cette notion est-elle utilisée ?</p>", "choix": [
+      "Deux feux de balisage clignotent à des rythmes différents et on cherche quand ils s'allument de nouveau en même temps",
+      "La sécurité d'un paiement en ligne repose sur le produit de deux très grands nombres premiers, très difficile à décomposer",
+      "On partage équitablement des objets en un nombre maximal de lots identiques",
+      "Un message est codé en décalant chaque lettre de 3 rangs dans l'alphabet"
+    ] }
+  ]
+}
