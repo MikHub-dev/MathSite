@@ -1,4 +1,4 @@
-/* Version : 1.3 — Fiches méthodes FFJM (pages concours/methode-N.html) */
+/* Version : 1.4 — Fiches méthodes FFJM (pages concours/methode-N.html) */
 :root{--bg:#ffffff;--paper:#ffffff;--fg:#1b1f27;--muted:#5d6676;--line:#c9ced8;--head:#e3ebf7;--accent:#2b5592;--ex:#f6f7f9;--ex-bar:#2b5592;--ok:#17734d;--ko:#b42318;color-scheme:light;
   --font:"Inter","Segoe UI",system-ui,-apple-system,Arial,sans-serif}
 @media (prefers-color-scheme:dark){:root{--bg:#11151c;--paper:#171c25;--fg:#e5e8ee;--muted:#9aa3b2;--line:#323b4a;--head:#1c2940;--accent:#8fb3ff;--ex:#1a1f29;--ex-bar:#8fb3ff;--ok:#6dd3a1;--ko:#ff8a7a;color-scheme:dark}}
@@ -54,8 +54,3 @@ nav.suite .vide{visibility:hidden}
   section.ex{padding:12px 12px 14px}
 }
 @media print{.site,nav.suite{display:none}section.ex{break-inside:avoid}}
-table.fiche .pbs,table.fiche .ty{display:block;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
-section.ex .type{font-size:15px;color:var(--muted);margin:8px 0 4px}
-table.fiche ul.types{list-style:none;padding-left:0}
-table.fiche ul.types li{margin:0 0 6px;break-inside:avoid}
-table.fiche td.commun{background:color-mix(in srgb,var(--head) 35%,var(--paper))}

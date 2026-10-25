@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.3 -->
+<!-- Version : 1.4 -->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -26,7 +26,7 @@
   <tbody>
     <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>combien de façons de monter, de sauter</li><li>combien de chemins</li><li>combien de régions</li><li>quand on peut dessiner les petits cas</li><li>avec 100 droites, 20 pavés…</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>suite définie par récurrence</li><li>chemins dans un réseau</li><li>nombre maximal de régions</li><li>formule en fonction de n</li></ul></td></tr>
     <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>On ne compte pas tout d’un coup :</p><ul><li>on regarde ce que change une étape de plus ;</li><li>on avance case par case.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une relation entre u(n) et les termes précédents ;</li><li>un calcul : déroulé ou formule.</li></ul></td></tr>
-    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème (4 types) :</p><ul class="types"><li><b>Type 1</b> : Suite de Fibonacci (compter selon le dernier pas)</li><li><b>Type 2</b> : Chemins comptés en notant le nombre de chemins à chaque sommet</li><li><b>Type 3</b> : Nombre maximal de régions : chaque trait ajoute « croisements + 1 »</li><li><b>Type 4</b> : Deux camps de pions qui échangent leurs places (n² + 2n)</li></ul></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Reconnaître le type de problème (4 types) :</p><ul class="types"><li><b>Type 1</b> : Suite de Fibonacci (compter selon le dernier pas)</li><li><b>Type 2</b> : Chemins comptés en notant le nombre de chemins à chaque sommet</li><li><b>Type 3</b> : Nombre maximal de régions : chaque trait ajoute « croisements + 1 »</li><li><b>Type 4</b> : Deux camps de pions qui échangent leurs places (n² + 2n)</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Bonds de 1 ou 2</li><li>Chemins dans une grille</li><li>Régions (traits, droites, cercles)</li><li>Échange de pions</li><li>Lire un mot dans des cases</li><li>Descendants, générations</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier la relation :</p><ol><li>Dernier pas : u(n) = u(n − 1) + u(n − 2)</li><li>Chemins : somme des cases d’arrivée</li><li>Régions : + nombre de morceaux de la nouvelle ligne</li><li>Échange de pions : n² + 2n</li><li>Générations : × k à chaque étape</li><li>Somme 1 + 2 + … + n</li></ol></td></tr>
     <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Dessiner les petits cas : 1, 2, 3…</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Calculer les premiers termes à la main.</p></td></tr>
     <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Ranger les résultats dans un tableau.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Justifier la relation : classer selon la dernière étape.</p></td></tr>
     <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Trouver comment on passe d’une case du tableau à la suivante.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Dérouler la relation ou trouver une formule.</p></td></tr>
@@ -35,16 +35,14 @@
 </table>
 
 <section class="ex" aria-labelledby="ex-5e">
-<h2 id="ex-5e">Exemple corrigé 5e : La grenouille</h2>
+<h2 id="ex-5e">Exemple corrigé 5e : La grenouille <span class="code">(1988-C4)</span></h2>
 <p class="enonce"><b>Énoncé.</b> Une grenouille monte un escalier de 13 marches par bonds de 1 ou de 2 marches. De combien de façons différentes peut-elle arriver en haut ?</p>
-<p class="type"><b>Étape 1 : type 1</b> : Suite de Fibonacci (compter selon le dernier pas)</p>
 <p><b>On cherche :</b> le nombre de façons d’arriver sur la 13e marche.</p><p class="lab">Petits cas :</p><p>Pour arriver sur une marche, le dernier bond part de la marche juste en dessous ou de celle d’avant. Le nombre de façons est donc la somme des deux précédents.</p><div class="scroll"><table><thead><tr><th scope="col">Marche</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th><th scope="col">6</th><th scope="col">7</th></tr></thead><tbody><tr><td>Façons</td><td>1</td><td>2</td><td>3</td><td>5</td><td>8</td><td>13</td><td>21</td></tr></tbody></table></div><div class="scroll"><table><thead><tr><th scope="col">Marche</th><th scope="col">8</th><th scope="col">9</th><th scope="col">10</th><th scope="col">11</th><th scope="col">12</th><th scope="col">13</th></tr></thead><tbody><tr><td>Façons</td><td>34</td><td>55</td><td>89</td><td>144</td><td>233</td><td><b>377</b></td></tr></tbody></table></div><p class="lab">Vérifier :</p><p>Marche 3 : 1+1+1, 1+2, 2+1, soit 3 façons. Le tableau est juste.</p>
 <p class="rep">Réponse : 377 façons.</p>
 </section>
 <section class="ex" aria-labelledby="ex-se">
-<h2 id="ex-se">Exemple corrigé Seconde : Les régions</h2>
+<h2 id="ex-se">Exemple corrigé Seconde : Les régions <span class="code">(1991-4)</span></h2>
 <p class="enonce"><b>Énoncé.</b> Une droite partage la feuille en 2 régions, 2 droites sécantes en 4, 3 droites en 7. Combien de régions, au plus, avec 100 droites ?</p>
-<p class="type"><b>Étape 1 : type 3</b> : Nombre maximal de régions : chaque trait ajoute « croisements + 1 »</p>
 <p>On cherche R(100), le nombre maximal de régions avec 100 droites. On sait R(1) = 2, R(2) = 4, R(3) = 7.</p><p class="lab">Relation :</p><p>Pour avoir le plus de régions, deux droites ne sont jamais parallèles et trois ne sont jamais concourantes. La k-ième droite coupe les k − 1 précédentes en k − 1 points distincts : elle est découpée en k morceaux, et chaque morceau partage une région en deux.</p><span class="calc">R(k) = R(k − 1) + k</span><p class="lab">Formule :</p><span class="calc">R(n) = 1 + (1 + 2 + … + n) = 1 + n(n + 1)/2</span><p class="lab">Contrôle :</p><ul><li>R(3) = 1 + 6 = 7 : conforme à l’énoncé.</li></ul><p>Donc :</p><span class="calc">R(100) = 1 + 100 × 101 / 2 = 1 + 5050 = 5051</span>
 <p class="rep">Réponse : 5 051 régions.</p>
 </section>
