@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Version : 1.6 -->
+<!-- Version : 1.7 -->
 <html lang="fr">
 <head>
   <meta name="robots" content="noindex, nofollow">
@@ -13,7 +13,7 @@
     header .logo { font-size: 22px; font-weight: 700; color: #7aa2ff; text-decoration: none; }
     header .retour { margin-left: auto; color: #7aa2ff; font-weight: 700; text-decoration: none; font-size: 15px; }
     header .retour:hover, a:hover { color: #ffffff; }
-    main { max-width: 1000px; margin: 0 auto; padding: 24px 20px 60px; }
+    main { max-width: none; margin: 0; padding: 24px clamp(16px, 2.5vw, 40px) 60px; }
     h1 { font-size: 28px; margin: 8px 0 12px; color: #ffffff; }
     h2 { font-size: 20px; margin: 0 0 10px; color: #7aa2ff; }
     p { color: #c9ccd3; }
@@ -29,13 +29,12 @@
     tbody th { font-weight: 600; color: #e6e6e6; white-space: nowrap; }
     tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
     td.vide { color: #555a66; }
-    .grille { list-style: none; margin: 0; padding: 12px 14px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px 8px; border: 1px solid #2a2d35; border-radius: 10px; background: #14161c; font-size: 13.5px; }
+    .grille { list-style: none; margin: 0; padding: 12px 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px 8px; border: 1px solid #2a2d35; border-radius: 10px; background: #14161c; font-size: 13.5px; }
     .grille li { white-space: nowrap; scroll-margin-top: 80px; }
     .grille strong { color: #ffffff; font-weight: 700; margin-right: 3px; }
     .grille a { color: #7aa2ff; }
     .grille .pt { color: #ffffff; }
     .grille .absent { color: #555a66; }
-    @media (max-width: 1060px) { .grille { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media (max-width: 520px) { .grille { grid-template-columns: repeat(2, minmax(0, 1fr)); font-size: 14px; } .grille li { white-space: normal; } }
     .t-meth { margin-top: 18px; }
     .methodes { list-style: none; margin: 10px 0 22px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
