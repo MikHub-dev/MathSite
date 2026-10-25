@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 5 — Les chiffres d’un nombre — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 5 / 26</span>
+  <h1>Méthode 5</h1>
+  <p>Les chiffres d’un nombre<br>Positions, retourné, somme des chiffres</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>la somme des chiffres</li><li>ajouter ou enlever un chiffre</li><li>un nombre lu à l’envers</li><li>un nombre égal à un calcul sur ses chiffres</li><li>un très grand nombre</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>équation sur les chiffres</li><li>reste modulo 9 ou 11</li><li>écriture avec les puissances de 10</li><li>nombre « formule de ses chiffres »</li><li>grand nombre à motif</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>écrire chaque chiffre à sa place ;</li><li>se rappeler qu’une retenue change la somme des chiffres.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une écriture abc = 100a + 10b + c ;</li><li>une propriété qui réduit les cas (modulo 9, modulo 11, borne).</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Somme des chiffres et table de 9</li><li>Une retenue fait perdre 9</li><li>Déplacer ou enlever un chiffre</li><li>Nombre lu à l’envers</li><li>Nombre égal à un calcul sur ses chiffres</li><li>Très grand nombre</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Reste modulo 9</li><li>Retenue : somme − 9</li><li>Puissances de 10</li><li>Retourné : 10a + b, multiples de 9 et 11</li><li>Borner, puis tester</li><li>Petits cas, puis forme générale</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Écrire le nombre dans un tableau de numération.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Poser les chiffres comme inconnues : n = 100a + 10b + c.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Essayer avec quelques nombres et observer ce qui change.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Traduire l’énoncé en équation.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Utiliser la table de 9 ou la règle de la retenue pour éliminer des cas.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Réduire les cas : modulo 9 ou 11, parité, nombre de chiffres.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Lister toutes les solutions et vérifier chacune.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Tester les cas restants et vérifier toutes les solutions.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Le nombre de Mathilde <span class="code">(2016-9)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Un nombre de trois chiffres. En lui ajoutant 3, la somme des chiffres du résultat est 3 fois plus petite que celle du nombre de départ. Quel était le nombre ?</p>
+<p><b>On cherche :</b> un nombre de trois chiffres dont la somme des chiffres est 3 fois celle de ce nombre + 3.</p><p class="lab">Observer :</p><ul><li>Sans retenue, ajouter 3 augmente la somme de 3 : elle ne peut pas devenir plus petite.</li><li>Il faut donc une retenue : le chiffre des unités est 7, 8 ou 9.</li><li>Une retenue fait perdre 9 : la somme devient « somme + 3 − 9 », soit « somme − 6 ».</li></ul><p class="lab">Essayer :</p><div class="scroll"><table><thead><tr><th scope="col">Somme avant</th><th scope="col">Somme après (− 6)</th><th scope="col">3 fois plus petite ?</th></tr></thead><tbody><tr><td>6</td><td>0</td><td>non</td></tr><tr><td>9</td><td>3</td><td><span class="ok">oui</span></td></tr><tr><td>12</td><td>6</td><td>non</td></tr></tbody></table></div><p class="lab">Lister :</p><p>Les nombres de somme 9 qui finissent par 7, 8 ou 9 : 207, 117 et 108 (un nombre comme 009 n’a pas trois chiffres).</p><div class="scroll"><table><thead><tr><th scope="col">Nombre</th><th scope="col">+ 3</th><th scope="col">Sommes</th></tr></thead><tbody><tr><td>108</td><td>111</td><td>9 et 3</td></tr><tr><td>117</td><td>120</td><td>9 et 3</td></tr><tr><td>207</td><td>210</td><td>9 et 3</td></tr></tbody></table></div>
+<p class="rep">Réponse : 3 solutions : 108, 117 et 207.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Trente-trois… dites ! <span class="code">(1987-C1)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Trouver le plus petit entier commençant par 4 tel qu’en supprimant ce 4, on obtient le nombre de départ divisé par 33.</p>
+<p>On cherche le plus petit A qui commence par 4, avec A = 33 × B, où B est A privé de son 4.</p><p class="lab">Écriture :</p><p>Si B a k chiffres (avec d’éventuels zéros devant), A = 4 × 10<sup>k</sup> + B.</p><span class="calc">4 × 10^k + B = 33B  ⟺  32B = 4 × 10^k  ⟺  B = 10^k / 8</span><p class="lab">Réduire :</p><ul><li>10<sup>k</sup> = 2<sup>k</sup> × 5<sup>k</sup> est divisible par 8 = 2³ si et seulement si k ≥ 3.</li><li>Le plus petit k est 3 : B = 1000 ÷ 8 = 125.</li></ul><p class="lab">Vérifier :</p><span class="calc">A = 4125 = 33 × 125</span>
+<p class="rep">Réponse : 4125.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-4.html">← Méthode 4</a>
+  <a href="methode-6.html">Méthode 6 →</a>
+</nav>
+</main>
+</body>
+</html>

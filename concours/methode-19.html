@@ -1,0 +1,57 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 19 — Positions, coups et jeux — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 19 / 26</span>
+  <h1>Méthode 19</h1>
+  <p>Positions, coups et jeux<br>Raisonner sur les positions</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>transvaser avec des récipients</li><li>remettre des livres dans l’ordre</li><li>retourner des jetons</li><li>un solitaire</li><li>un jeu à deux</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>graphe des positions</li><li>plus longue suite croissante</li><li>invariant de parité</li><li>analyse depuis la fin</li><li>positions gagnantes</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>noter chaque position ;</li><li>chercher le meilleur chemin, ou garder ce qui est déjà bien placé.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une description des positions ;</li><li>un invariant ou une exploration complète.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Transvaser</li><li>Remettre dans l’ordre</li><li>Retourner des pièces</li><li>Solitaire</li><li>Jeu à deux</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Transvasements : graphe des positions</li><li>Plus longue suite déjà rangée</li><li>Retournements : parité</li><li>Solitaire : depuis la fin</li><li>Jeux : positions gagnantes</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Écrire la position de départ et celle d’arrivée.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Décrire une position par quelques nombres (contenus, ordre, parités).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Essayer des coups et noter chaque position.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Lister les coups possibles depuis une position.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Garder la suite de coups la plus courte, ou ce qui est déjà bien rangé.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Chercher un invariant, ou explorer toutes les positions.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Vérifier qu’on ne peut pas faire plus court.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Donner un exemple qui atteint le minimum et justifier la borne.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : L’encyclopédie <span class="code">(2016-3)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Les 12 volumes d’une encyclopédie, de A à L, sont rangés dans l’ordre A C B H D F E K G I L J. Combien de volumes faut-il sortir et replacer, au minimum, pour les remettre dans l’ordre alphabétique ?</p>
+<p><b>On cherche :</b> le plus petit nombre de volumes à déplacer.</p><p class="lab">Garder ce qui est bien rangé :</p><p>Les volumes qu’on ne touche pas doivent déjà être dans l’ordre, de gauche à droite.</p><span class="calc">A C B H D F E K G I L J
+A · B · D · E · G I · J</span><p>A, B, D, E, G, I, J : 7 volumes déjà dans l’ordre (on ne trouve pas de suite plus longue).</p><p class="lab">Déplacer :</p><p>Il reste C, H, F, K, L.</p><span class="calc">12 − 7 = 5</span>
+<p class="rep">Réponse : 5 volumes.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Jean de La Fontaine <span class="code">(1991-3)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Avec une cruche de 8 pintes et une de 11, rapporter exactement 15 pintes. Chaque remplissage, chaque vidage et chaque transvasement coûte un écu. Quel est le coût minimal ?</p>
+<p>Une position est (a ; b) : le contenu de la cruche de 8 et celui de la cruche de 11. On cherche le plus court chemin de (0 ; 0) à une position où a + b = 15.</p><p class="lab">Cible :</p><p>15 = 8 + 7 : il faut fabriquer 7 pintes dans la grande cruche, puis remplir la petite.</p><p class="lab">Exemple :</p><p>On remplit la 8, on la verse dans la 11, on vide la 11 quand elle est pleine. La 11 contient successivement 8, puis 5, 2, 10 et 7.</p><div class="scroll"><table><thead><tr><th scope="col">Opérations</th><th scope="col">Nombre</th></tr></thead><tbody><tr><td>remplissages</td><td>6</td></tr><tr><td>transvasements</td><td>8</td></tr><tr><td>vidages</td><td>3</td></tr><tr class="tot"><td>Total</td><td>17</td></tr></tbody></table></div><p class="lab">Borne :</p><p>L’exploration de toutes les positions possibles, de proche en proche (parcours en largeur), montre qu’aucune suite de moins de 17 opérations n’aboutit à 15 pintes.</p>
+<p class="rep">Réponse : 17 écus.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-18.html">← Méthode 18</a>
+  <a href="methode-20.html">Méthode 20 →</a>
+</nav>
+</main>
+</body>
+</html>

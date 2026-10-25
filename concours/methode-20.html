@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 20 — Partages et pavages — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 20 / 26</span>
+  <h1>Méthode 20</h1>
+  <p>Partages et pavages<br>L’aire d’abord, puis les bords</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>partager une figure en morceaux identiques</li><li>paver avec des pièces</li><li>un rectangle fait de carrés</li><li>des bosses et des creux</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>partage en parts superposables</li><li>pavage par polyominos</li><li>rectangle pavé de carrés</li><li>compensation d’aires</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>calculer l’aire de chaque morceau ;</li><li>commencer par les cases les plus difficiles à couvrir.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une condition d’aire ;</li><li>un placement guidé par les contraintes du bord.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Partager en morceaux identiques</li><li>Paver avec des pièces</li><li>Rectangle fait de carrés</li><li>Bosses et creux</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Aire ÷ nombre de parts, puis les coins</li><li>Pavage : la case la plus contrainte d’abord</li><li>Rectangle de carrés : aire et côtés</li><li>Bosses et creux se compensent</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Compter les cases ou calculer l’aire totale.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Calculer l’aire totale et l’aire de chaque pièce.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>En déduire l’aire de chaque morceau ou les dimensions possibles.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>En déduire les dimensions possibles (diviseurs de l’aire).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Placer d’abord les coins, les bords et les grandes pièces.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Placer les plus grandes pièces contre les bords, puis compléter.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Vérifier que tout est couvert, sans chevauchement.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Vérifier le pavage et éliminer les autres dimensions.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Six carrés pour un rectangle <span class="code">(2023-9)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Un rectangle est formé de six carrés de côtés 1 cm, 4 cm, 5 cm, 6 cm, 7 cm, et d’un sixième carré dont le côté est égal à celui d’un des cinq précédents. Quel est le périmètre du rectangle ?</p>
+<p><b>On cherche :</b> les dimensions du rectangle.</p><p class="lab">Aire :</p><p>1 + 16 + 25 + 36 + 49 = 127, plus l’aire du sixième carré. Les deux côtés du rectangle mesurent au moins 7 cm.</p><div class="scroll"><table><thead><tr><th scope="col">Sixième carré</th><th scope="col">Aire totale</th><th scope="col">Rectangles (côtés ≥ 7)</th></tr></thead><tbody><tr><td>1</td><td>128</td><td>8 × 16</td></tr><tr><td>4</td><td>143</td><td><b>11 × 13</b></td></tr><tr><td>5</td><td>152</td><td>8 × 19</td></tr><tr><td>6</td><td>163</td><td>aucun</td></tr><tr><td>7</td><td>176</td><td>8 × 22, 11 × 16</td></tr></tbody></table></div><p class="lab">Les bords :</p><ul><li>Avec un côté de 8 cm, le carré de 7 laisse une bande de 1 cm sur 7 cm : il faudrait sept carrés de 1 cm. Impossible.</li><li>Le rectangle 11 × 16 ne se pave pas non plus (on le vérifie par essais).</li></ul><p class="lab">Pavage 11 × 13 :</p><p>En haut, les carrés de 7 et de 6 (7 + 6 = 13). Sous le 7, deux carrés de 4. Sous le 6, le carré de 1 puis le carré de 5.</p><span class="calc">2 × (11 + 13) = 48 cm</span>
+<p class="rep">Réponse : 48 cm.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Rectangle à reconstituer <span class="code">(1989-2)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Neuf carrés de côtés 18, 15, 14, 10, 9, 8, 7, 4 et 1 forment un rectangle. Quelles sont ses dimensions ?</p>
+<p>On cherche un rectangle pavé exactement par ces neuf carrés.</p><p class="lab">Aire :</p><span class="calc">18² + 15² + 14² + 10² + 9² + 8² + 7² + 4² + 1² = 1056</span><p class="lab">Dimensions possibles :</p><p>Chaque côté mesure au moins 18. 1056 = 22 × 48 = 24 × 44 = 32 × 33. On essaie le plus « carré » : 18 + 15 = 33 et 18 + 14 = 32.</p><p class="lab">Placer les grands carrés contre les bords :</p><div class="scroll"><table><thead><tr><th scope="col">Position</th><th scope="col">Carrés</th></tr></thead><tbody><tr><td>bande du haut (hauteur 18)</td><td>18, puis 15 à sa droite</td></tr><tr><td>sous le 15</td><td>7 et 8</td></tr><tr><td>sous le 18</td><td>14, puis 4 et 10 à sa droite</td></tr><tr><td>dernier coin</td><td>1 et 9</td></tr></tbody></table></div><p class="lab">Vérifier :</p><p>Tout est couvert sans chevauchement : 33 de large, 32 de haut. Les rectangles 22 × 48 et 24 × 44 ne se pavent pas (vérifié par ordinateur).</p>
+<p class="rep">Réponse : un rectangle de 32 × 33.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-19.html">← Méthode 19</a>
+  <a href="methode-21.html">Méthode 21 →</a>
+</nav>
+</main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 26 — Probabilités — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 26 / 26</span>
+  <h1>Méthode 26</h1>
+  <p>Probabilités<br>Cas favorables sur cas possibles</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>« au hasard »</li><li>une chance sur …</li><li>un jeu équitable</li><li>des dés ou des billes</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>probabilité d’un événement</li><li>tirages sans remise</li><li>dés non équilibrés</li><li>jeu équilibré</li><li>arbre de probabilités</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>lister tous les cas possibles ;</li><li>compter ceux qui conviennent.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>des issues équiprobables, ou des probabilités par branche ;</li><li>un dénombrement soigné.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Compter les cas qui conviennent</li><li>Tirer deux objets</li><li>Des dés truqués</li><li>Un jeu équitable</li><li>Un jeu en plusieurs tours</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Équiprobabilité : favorables / possibles</li><li>Tirages sans remise : paires</li><li>Dé non équilibré : produit des probabilités</li><li>Jeu équilibré : P = 1/2</li><li>Évolution tour par tour</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Faire la liste ou le tableau de tous les tirages sur un petit cas.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Décrire l’expérience et les issues (arbre, tableau, combinaisons).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Compter les cas qui conviennent.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Calculer la probabilité de chaque issue (produit le long d’une branche).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Écrire la fraction « cas favorables / cas possibles » et la simplifier.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Additionner les issues favorables ; pour un jeu équilibré, poser P = 1/2.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Essayer d’autres petits cas et vérifier.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Simplifier la fraction et vérifier sur un cas.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Jeu de billes <span class="code">(2024-17)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Un sac contient entre 2 et 24 billes, bleues ou rouges. On tire deux billes au hasard : Arthur gagne si elles sont de la même couleur, Blandine sinon. Combien de billes le sac contient-il quand le jeu est équilibré ?</p>
+<p><b>On cherche :</b> les nombres de billes pour lesquels Arthur et Blandine ont autant de chances.</p><p class="lab">Petit cas : 4 billes (3 rouges, 1 bleue) :</p><p>Les paires possibles : R1R2, R1R3, R2R3 (même couleur) et R1B, R2B, R3B (couleurs différentes). 3 contre 3 : équilibré.</p><p class="lab">Autres cas :</p><div class="scroll"><table><thead><tr><th scope="col">Billes</th><th scope="col">Couleurs</th><th scope="col">Paires en tout</th><th scope="col">Même couleur</th><th scope="col">Équilibré ?</th></tr></thead><tbody><tr><td>4</td><td>1 bleue, 3 rouges</td><td>6</td><td>0 + 3 = 3</td><td><span class="ok">oui</span></td></tr><tr><td>9</td><td>3 bleues, 6 rouges</td><td>36</td><td>3 + 15 = 18</td><td><span class="ok">oui</span></td></tr><tr><td>16</td><td>6 bleues, 10 rouges</td><td>120</td><td>15 + 45 = 60</td><td><span class="ok">oui</span></td></tr></tbody></table></div><p>Pour toutes les autres tailles de 2 à 24, aucune répartition ne donne exactement la moitié (on le vérifie en essayant). Les solutions 4, 9, 16 sont des carrés.</p>
+<p class="rep">Réponse : 4, 9 ou 16 billes.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Aidez Dédé <span class="code">(2019-15)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Six dés identiques portent 1 sur une face, 2 sur deux faces et 3 sur trois faces. On les lance. Quelle est la probabilité que le total des six dés soit 12 ? (fraction irréductible)</p>
+<p>Avec n₁, n₂, n₃ dés montrant 1, 2, 3 : n₁ + n₂ + n₃ = 6 et n₁ + 2n₂ + 3n₃ = 12, soit n₂ + 2n₃ = 6.</p><p class="lab">Probabilités d’un dé :</p><span class="calc">P(1) = 1/6,  P(2) = 1/3,  P(3) = 1/2</span><p class="lab">Les cas :</p><div class="scroll"><table><thead><tr><th scope="col">(n₁ ; n₂ ; n₃)</th><th scope="col">Ordres</th><th scope="col">Probabilité</th></tr></thead><tbody><tr><td>(0 ; 6 ; 0)</td><td>1</td><td>(1/3)⁶ = 1/729</td></tr><tr><td>(1 ; 4 ; 1)</td><td>30</td><td>30 × (1/6)(1/3)⁴(1/2) = 5/162</td></tr><tr><td>(2 ; 2 ; 2)</td><td>90</td><td>90 × (1/6)²(1/3)²(1/2)² = 5/72</td></tr><tr><td>(3 ; 0 ; 3)</td><td>20</td><td>20 × (1/6)³(1/2)³ = 5/432</td></tr></tbody></table></div><p class="lab">Additionner :</p><span class="calc">1/729 + 5/162 + 5/72 + 5/432 = 1321/11664</span><p>1321 est premier : la fraction est irréductible (environ 11 %).</p>
+<p class="rep">Réponse : 1321/11664.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-25.html">← Méthode 25</a>
+  <span class="vide">.</span>
+</nav>
+</main>
+</body>
+</html>

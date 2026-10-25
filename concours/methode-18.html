@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 18 — Parcours et coloriages — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 18 / 26</span>
+  <h1>Méthode 18</h1>
+  <p>Parcours et coloriages<br>Compter les traits, colorier</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>passer une fois par chaque trait</li><li>une chaîne de dominos</li><li>passer par chaque case</li><li>un damier</li><li>colorier une carte</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>graphe eulérien</li><li>chemin hamiltonien</li><li>coloriage en damier</li><li>coloriage à trois couleurs</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>compter, à chaque point, combien de traits arrivent.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une modélisation en graphe ;</li><li>un argument de parité.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Passer une fois par chaque trait</li><li>Passer une fois par chaque point</li><li>Damier noir et blanc</li><li>Colorier avec peu de couleurs</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Graphe eulérien : sommets impairs</li><li>Chemin hamiltonien : passages forcés</li><li>Coloriage en damier : parité</li><li>Cycle impair : trois couleurs</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Dessiner les points et les traits.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Modéliser par un graphe (sommets, arêtes).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Compter les traits qui arrivent à chaque point.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Calculer les degrés, ou colorier en damier.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Repérer les points « impairs » et en déduire ce qu’il faut ajouter ou retirer.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Appliquer le critère : 0 ou 2 sommets impairs pour un parcours ; parité des couleurs.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Tracer le chemin pour vérifier.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Construire un exemple qui atteint la borne.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Chaîne de dominos <span class="code">(2000-9)</span></h2>
+<p class="enonce"><b>Énoncé.</b> On retire d’un jeu de dominos les 7 dominos qui portent un 6 : il en reste 21, avec des valeurs de 0 à 5. Combien de dominos, au maximum, peut-on placer dans une chaîne fermée ?</p>
+<p><b>On cherche :</b> la plus longue chaîne qui se referme.</p><p class="lab">Compter les traits :</p><p>Chaque valeur apparaît sur 5 dominos mixtes et sur son double, qui compte 2 fois : 7 fois, un nombre impair.</p><p>Dans une chaîne fermée, chaque valeur se touche par paires : elle doit apparaître un nombre pair de fois.</p><p class="lab">Retirer :</p><p>Il faut retirer au moins un domino pour chaque valeur. Un domino porte 2 valeurs : il en faut au moins 3, par exemple 0-1, 2-3 et 4-5.</p><p class="lab">Conclusion :</p><span class="calc">21 − 3 = 18</span><p>On vérifie en traçant la chaîne avec les 18 dominos restants.</p>
+<p class="rep">Réponse : 18 dominos.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Le facteur X <span class="code">(1991-5)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Le quartier est un quadrillage de 3 × 3 blocs de 200 m (4 × 4 carrefours). Les 24 rues entre deux carrefours voisins portent chacune une maison. Le facteur part de A et arrive en B, deux carrefours voisins au milieu du bord du bas. Il doit passer devant toutes les maisons. Longueur minimale du trajet ?</p>
+<p>On cherche le parcours le plus court de A à B qui emprunte les 24 rues.</p><p class="lab">Degrés :</p><div class="scroll"><table><thead><tr><th scope="col">Carrefours</th><th scope="col">Nombre</th><th scope="col">Rues qui arrivent</th></tr></thead><tbody><tr><td>coins</td><td>4</td><td>2</td></tr><tr><td>intérieurs</td><td>4</td><td>4</td></tr><tr><td>bord (hors coins)</td><td>8</td><td><b>3</b></td></tr></tbody></table></div><p class="lab">Parité :</p><ul><li>Un parcours qui passe une seule fois par chaque rue n’a que deux sommets impairs : son départ et son arrivée.</li><li>A et B sont deux des 8 sommets impairs. Il en reste 6, qu’il faut rendre pairs en repassant par certaines rues.</li><li>Une rue doublée corrige au plus deux sommets : il faut au moins 3 rues doublées.</li></ul><p class="lab">Exemple :</p><p>Les 6 sommets impairs restants vont par paires voisines : deux sur le bord gauche, deux sur le bord droit, deux en haut. On double ces trois rues.</p><span class="calc">(24 + 3) × 200 = 5400 m</span>
+<p class="rep">Réponse : 5 400 m.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-17.html">← Méthode 17</a>
+  <a href="methode-19.html">Méthode 19 →</a>
+</nav>
+</main>
+</body>
+</html>

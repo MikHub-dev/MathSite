@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 9 — Répéter ou remonter une transformation — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 9 / 26</span>
+  <h1>Méthode 9</h1>
+  <p>Répéter ou remonter une transformation<br>Un cycle, ou le chemin à l’envers</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>on recommence la même opération</li><li>on connaît le résultat, pas le départ</li><li>des flèches qui forment une boucle</li><li>le 2018e terme</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>suite u(n + 1) = f(u(n))</li><li>recherche d’antécédents</li><li>boucle d’opérations</li><li>périodicité</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>calculer les premiers termes ;</li><li>ou faire le chemin à l’envers.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une suite qui devient périodique ;</li><li>ou une équation qui inverse la transformation.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>On recommence la même opération</li><li>On remonte depuis la fin</li><li>Les flèches font une boucle</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Suite périodique (nombre fini de valeurs)</li><li>Antécédents d’une transformation</li><li>Boucle : équation du premier degré</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Faire les premiers calculs à la main.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Écrire la transformation : u(n + 1) = f(u(n)).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Repérer ce qui revient, ou noter chaque étape à l’envers.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Calculer jusqu’à une répétition, ou encadrer les antécédents.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Utiliser le cycle (multiples), ou remonter étape par étape.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Utiliser la période (reste de la division), ou résoudre f(x) = y.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Vérifier en refaisant le chemin dans le bon sens.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Vérifier toutes les solutions dans le sens direct.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Le nombre mystérieux <span class="code">(2019-6)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Mathilde ajoute à un nombre la somme de ses chiffres, puis recommence avec le résultat. Elle obtient 60. Quel était le premier nombre ?</p>
+<p><b>On cherche :</b> le nombre de départ.</p><p class="lab">Remonter la deuxième étape :</p><p>Un nombre + la somme de ses chiffres = 60. Ce nombre est un peu plus petit que 60.</p><div class="scroll"><table><thead><tr><th scope="col">Essai</th><th scope="col">Calcul</th><th scope="col">Résultat</th></tr></thead><tbody><tr><td>51</td><td>51 + 5 + 1</td><td>57</td></tr><tr><td>54</td><td>54 + 5 + 4</td><td>63</td></tr><tr><td>48</td><td>48 + 4 + 8</td><td><b>60</b></td></tr></tbody></table></div><p class="lab">Remonter la première étape :</p><div class="scroll"><table><thead><tr><th scope="col">Essai</th><th scope="col">Calcul</th><th scope="col">Résultat</th></tr></thead><tbody><tr><td>39</td><td>39 + 3 + 9</td><td>51</td></tr><tr><td>42</td><td>42 + 4 + 2</td><td><b>48</b></td></tr><tr><td>45</td><td>45 + 4 + 5</td><td>54</td></tr></tbody></table></div><p class="lab">Vérifier :</p><span class="calc">42 → 48 → 60</span>
+<p class="rep">Réponse : 42.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Suite <span class="code">(2018-6)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Le premier terme d’une suite est 718. Chaque terme suivant est la somme des chiffres du précédent multipliée par 13. Quel est le 2018e terme ?</p>
+<p>On cherche u(2018), avec u(1) = 718 et u(n + 1) = 13 × (somme des chiffres de u(n)).</p><p class="lab">Premiers termes :</p><div class="scroll"><table><thead><tr><th scope="col">Rang</th><th scope="col">1</th><th scope="col">2</th><th scope="col">3</th><th scope="col">4</th><th scope="col">5</th><th scope="col">6</th><th scope="col">7</th></tr></thead><tbody><tr><td>Terme</td><td>718</td><td>208</td><td>130</td><td>52</td><td>91</td><td>130</td><td>52</td></tr></tbody></table></div><p class="lab">Période :</p><p>À partir du rang 3, les valeurs 130, 52, 91 se répètent : période 3. Les rangs multiples de 3 valent 130.</p><p class="lab">Division euclidienne :</p><span class="calc">2018 = 3 × 672 + 2</span><p>u(2016) = 130, u(2017) = 52, u(2018) = 91.</p>
+<p class="rep">Réponse : 91.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-8.html">← Méthode 8</a>
+  <a href="methode-10.html">Méthode 10 →</a>
+</nav>
+</main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 7 — Divisibilité, facteurs premiers, PPCM — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 7 / 26</span>
+  <h1>Méthode 7</h1>
+  <p>Divisibilité, facteurs premiers, PPCM<br>Décomposer, puis traduire les restes</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>il reste toujours le même nombre</li><li>des événements qui reviennent ensemble</li><li>des nombres faits d’un seul chiffre (111, 999…)</li><li>un produit à décomposer</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>restes égaux, congruences</li><li>PPCM, PGCD</li><li>décomposition en facteurs premiers</li><li>parties entières</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>décomposer les nombres en produits ;</li><li>chercher un multiple commun.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une décomposition en facteurs premiers ;</li><li>une traduction des restes en divisibilité.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Le même reste pour plusieurs rangements</li><li>Année divisible par la somme de ses chiffres</li><li>Décomposer en produit</li><li>Nombres faits d’un seul chiffre</li><li>Compter des parties entières</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Restes égaux : PPCM</li><li>Divisibilité par une somme de chiffres</li><li>Facteurs premiers pour énumérer</li><li>Répunits et périodes décimales</li><li>Parties entières par tranches</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Écrire les premiers multiples ou la liste des cas.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Traduire : « il reste r » ⟺ n − r est un multiple de k.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Décomposer les nombres (12 = 2 × 2 × 3).</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Décomposer en facteurs premiers.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Chercher le plus petit nombre commun aux listes.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Calculer le PPCM, ou énumérer les diviseurs.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Vérifier avec l’énoncé (dates, restes).</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Garder les solutions compatibles avec l’énoncé.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : À la chasse aux œufs <span class="code">(2026-7)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Quatre poules : la première pond tous les jours, la deuxième tous les deux jours, la troisième tous les trois jours, la quatrième tous les quatre jours. Le 1er octobre, Claude a ramassé 4 œufs pondus le jour même. Quel jour pourra-t-il de nouveau en ramasser 4 ?</p>
+<p><b>On cherche :</b> le premier jour après le 1er octobre où les quatre poules pondent.</p><p class="lab">Lister :</p><div class="scroll"><table><thead><tr><th scope="col">Poule</th><th scope="col">Jours de ponte en octobre</th></tr></thead><tbody><tr><td>tous les jours</td><td>1, 2, 3, 4, 5, …</td></tr><tr><td>tous les 2 jours</td><td>1, 3, 5, 7, 9, 11, <b>13</b></td></tr><tr><td>tous les 3 jours</td><td>1, 4, 7, 10, <b>13</b></td></tr><tr><td>tous les 4 jours</td><td>1, 5, 9, <b>13</b></td></tr></tbody></table></div><p class="lab">Conclure :</p><p>Le premier jour commun après le 1er est le 13 : 12 jours plus tard, et 12 est le plus petit multiple commun de 2, 3 et 4.</p><p>⚠️ Piège : 2 × 3 × 4 = 24 donnerait le 25, mais 24 n’est pas le plus petit multiple commun.</p>
+<p class="rep">Réponse : le 13 octobre.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Avec des A et des B <span class="code">(2016-8)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Quels chiffres différents de 0 mettre à la place de A et B pour que AB × A × B = BBB ?</p>
+<p>On cherche deux chiffres A et B non nuls et différents.</p><p class="lab">Traduire :</p><span class="calc">(10A + B) × A × B = 111 × B</span><p>B ≠ 0 : on simplifie par B.</p><span class="calc">(10A + B) × A = 111 = 3 × 37</span><p class="lab">Énumérer :</p><ul><li>A est un chiffre qui divise 111 = 3 × 37 : A = 1 ou A = 3.</li><li>A = 1 : 10 + B = 111, impossible.</li><li>A = 3 : 30 + B = 37, donc B = 7.</li></ul><p class="lab">Vérifier :</p><span class="calc">37 × 3 × 7 = 777</span>
+<p class="rep">Réponse : A = 3 et B = 7.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-6.html">← Méthode 6</a>
+  <a href="methode-8.html">Méthode 8 →</a>
+</nav>
+</main>
+</body>
+</html>

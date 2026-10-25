@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 15 — Mouvements, vitesses, horloges — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 15 / 26</span>
+  <h1>Méthode 15</h1>
+  <p>Mouvements, vitesses, horloges<br>Distances, vitesses, durées</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>avancer puis reculer</li><li>un escalier roulant, un tapis</li><li>se croiser sur un circuit</li><li>des montres qui avancent</li><li>les aiguilles d’une horloge</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>vitesse relative</li><li>rencontres périodiques</li><li>angles des aiguilles</li><li>décalages de montres</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>compter ce qu’on gagne à chaque cycle, ou à chaque minute.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une relation distance = vitesse × durée ;</li><li>des vitesses qui s’ajoutent ou se retranchent.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Avancer puis reculer</li><li>Un support qui bouge</li><li>Se croiser sur un circuit</li><li>Montres qui avancent ou retardent</li><li>Aiguilles d’une horloge</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Cycles avance-recul</li><li>Vitesse relative</li><li>Rencontres : distance relative</li><li>Écarts de montres</li><li>Angles : 6° et 0,5° par minute</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Faire un schéma ou un tableau, étape par étape.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Choisir les unités et nommer les vitesses.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Calculer ce qui est gagné à chaque cycle (ou par minute).</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Écrire les positions en fonction du temps.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Regarder le dernier cycle, qui peut être différent.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Résoudre l’équation de rencontre ou d’alignement.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Vérifier l’heure ou la position finale.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Vérifier l’ordre de grandeur et convertir (min, s).</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : L’escargot <span class="code">(2024-6)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Un escargot tombe au fond d’un puits de 24 m. Chaque heure de montée lui fait gagner 3 m, puis chaque heure de descente lui fait perdre 2 m. Il part un dimanche à midi. Quand atteint-il le haut du puits ?</p>
+<p><b>On cherche :</b> le jour et l’heure d’arrivée en haut.</p><p class="lab">Un cycle :</p><p>2 heures : + 3 m, puis − 2 m, soit + 1 m.</p><div class="scroll"><table><thead><tr><th scope="col">Cycles</th><th scope="col">Durée</th><th scope="col">Hauteur à la fin</th></tr></thead><tbody><tr><td>1</td><td>2 h</td><td>1 m</td></tr><tr><td>2</td><td>4 h</td><td>2 m</td></tr><tr><td>…</td><td>…</td><td>…</td></tr><tr><td>21</td><td>42 h</td><td>21 m</td></tr></tbody></table></div><p class="lab">Le dernier cycle :</p><p>Parti de 21 m, il monte de 3 m en une heure : il atteint 24 m sans redescendre.</p><span class="calc">42 h + 1 h = 43 h</span><p class="lab">Conclusion :</p><p>Dimanche midi + 24 h = lundi midi ; + 19 h = mardi 7 h.</p>
+<p class="rep">Réponse : mardi à 7 h du matin.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Quelle heure est-il ? <span class="code">(2011-12)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Entre 10 h 15 et 10 h 30, les deux aiguilles d’une montre sont exactement alignées, de part et d’autre du centre. Quelle heure est-il ?</p>
+<p>On cherche t, le nombre de minutes après 10 h.</p><p class="lab">Angles (depuis midi) :</p><ul><li>aiguille des minutes : 6t degrés ;</li><li>aiguille des heures : 300 + 0,5t degrés.</li></ul><p class="lab">Alignées de part et d’autre :</p><span class="calc">300 + 0,5t − 6t = 180  ⟺  5,5t = 120  ⟺  t = 240/11 ≈ 21,818 min</span><p class="lab">Convertir :</p><span class="calc">0,818 min × 60 ≈ 49 s</span><p>10 h 21 min 49 s est bien entre 10 h 15 et 10 h 30.</p>
+<p class="rep">Réponse : 10 h 21 min 49 s.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-14.html">← Méthode 14</a>
+  <a href="methode-16.html">Méthode 16 →</a>
+</nav>
+</main>
+</body>
+</html>

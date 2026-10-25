@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 23 — Figures inscrites — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 23 / 26</span>
+  <h1>Méthode 23</h1>
+  <p>Figures inscrites<br>Repérer le diamètre</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>un polygone dans un cercle</li><li>une boule dans un cube</li><li>un cube dans une sphère</li><li>un triangle équilatéral</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>polygone régulier inscrit</li><li>sphère inscrite ou circonscrite</li><li>quadrilatère inscriptible</li><li>rotation de 60°</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>repérer le diamètre ;</li><li>dessiner la vue la plus simple (coupe, vue de dessus).</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une longueur commune (diamètre, rayon) ;</li><li>un triangle rectangle ou un angle au centre.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Figure dans un cercle ou une sphère</li><li>Quatre sommets sur un même cercle</li><li>Triangle équilatéral</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Inscrit : grande diagonale = diamètre</li><li>Inscriptible : angles opposés supplémentaires</li><li>Équilatéral : rotation de 60°</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Dessiner une coupe ou une vue de dessus.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Exprimer les longueurs avec un seul paramètre (rayon, arête).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Repérer le diamètre sur ce dessin.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Écrire la relation : grande diagonale = diamètre, côté = 2R sin(180°/n).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Utiliser les propriétés connues (carré, hexagone régulier, triangle équilatéral).</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Calculer avec Pythagore ou la trigonométrie.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Calculer et vérifier l’ordre de grandeur.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>N’arrondir qu’à la fin et vérifier.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Le polygone mystérieux <span class="code">(2002-17)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Dans un cercle de rayon 1, le côté d’un dodécagone régulier (12 côtés) mesure √(2 − √3). Quel polygone régulier inscrit dans ce cercle a pour côté √(2 − √(2 + √(2 + √(2 + √3)))) ?</p>
+<p><b>On cherche :</b> le nombre de côtés du polygone.</p><p class="lab">Repérer le motif :</p><p>On passe du dodécagone au polygone cherché en ajoutant, à l’intérieur, des « 2 + √ ». Chaque ajout correspond à couper chaque arc du cercle en deux : le nombre de côtés double (admis).</p><div class="scroll"><table><thead><tr><th scope="col">Côté</th><th scope="col">Côtés</th></tr></thead><tbody><tr><td>√(2 − √3)</td><td>12</td></tr><tr><td>√(2 − √(2 + √3))</td><td>24</td></tr><tr><td>√(2 − √(2 + √(2 + √3)))</td><td>48</td></tr><tr><td>√(2 − √(2 + √(2 + √(2 + √3))))</td><td><b>96</b></td></tr></tbody></table></div><p class="lab">Vérifier :</p><p>On compte trois « 2 + √ » ajoutés : 12 × 2 × 2 × 2 = 96.</p>
+<p class="rep">Réponse : 96 côtés.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : La sphère entre les deux cubes <span class="code">(2013-15)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Une sphère est inscrite dans un cube de 504 cm³, et un petit cube est inscrit dans cette sphère. Quel est le volume du petit cube, arrondi au cm³ ?</p>
+<p>On cherche le volume du petit cube en fonction de l’arête a du grand.</p><p class="lab">Diamètre commun :</p><ul><li>La sphère inscrite dans le grand cube a pour diamètre a.</li><li>Le petit cube inscrit dans la sphère a pour grande diagonale ce même diamètre a.</li></ul><p class="lab">Arête du petit cube :</p><p>Un cube d’arête c a une grande diagonale c√3 (Pythagore deux fois).</p><span class="calc">c√3 = a  ⟺  c = a/√3</span><p class="lab">Volume :</p><span class="calc">c³ = a³ / (3√3) = 504 / (3√3) ≈ 96,99</span>
+<p class="rep">Réponse : environ 97 cm³.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-22.html">← Méthode 22</a>
+  <a href="methode-24.html">Méthode 24 →</a>
+</nav>
+</main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 21 — Aires et périmètres — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 21 / 26</span>
+  <h1>Méthode 21</h1>
+  <p>Aires et périmètres<br>Nommer les longueurs, découper</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>une figure à angles droits</li><li>un rectangle découpé</li><li>un périmètre à partir de baguettes</li><li>un agrandissement</li><li>une aire sur quadrillage</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>polygone à angles droits</li><li>rectangles en grille</li><li>demi-périmètre</li><li>agrandissement de rapport k</li><li>formule de Pick</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>nommer les longueurs inconnues ;</li><li>découper la figure en rectangles.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>des longueurs exprimées avec peu d’inconnues ;</li><li>une relation (somme, produit, rapport k²).</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Figure à angles droits</li><li>Rectangle découpé en morceaux</li><li>Longueur + largeur</li><li>Agrandir une figure</li><li>Aire sur un quadrillage</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Côtés qui se compensent</li><li>Grille : produits en croix</li><li>Demi-périmètre</li><li>Rapport k : aires × k²</li><li>Formule de Pick</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Dessiner en grand et nommer les longueurs.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Exprimer toutes les longueurs avec peu d’inconnues.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Découper en rectangles et en triangles simples.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Écrire les relations (côtés opposés, demi-périmètre, k²).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Calculer chaque morceau, puis additionner ou retrancher.</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Résoudre et lister les cas possibles.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Vérifier les unités et l’ordre de grandeur.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Vérifier que les dimensions sont positives et compatibles.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : La cible <span class="code">(2002-12)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Une cible est formée de trois cercles de même centre, de rayons r, 2r et 3r ; son aire totale est 1 113 cm². Quelle est l’aire de la zone blanche, entre les cercles de rayons r et 2r ?</p>
+<p><b>On cherche :</b> l’aire de la couronne entre r et 2r.</p><p class="lab">Agrandissement :</p><p>Rayon × 2 : aire × 4 ; rayon × 3 : aire × 9.</p><div class="scroll"><table><thead><tr><th scope="col">Disque</th><th scope="col">Rayon</th><th scope="col">Aire en parts</th></tr></thead><tbody><tr><td>petit</td><td>r</td><td>1</td></tr><tr><td>moyen</td><td>2r</td><td>4</td></tr><tr><td>grand</td><td>3r</td><td>9</td></tr></tbody></table></div><p class="lab">Zone blanche :</p><p>4 − 1 = 3 parts sur 9, soit le tiers de la cible.</p><span class="calc">1 113 ÷ 3 = 371</span>
+<p class="rep">Réponse : 371 cm².</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : L’hexagone <span class="code">(2019-13)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Les côtés d’un hexagone sont tous horizontaux ou verticaux. Ils mesurent 3, 5, 6, 8, 10 et 16 cm. Quelle est l’aire de cet hexagone ?</p>
+<p>On cherche l’aire de l’hexagone en forme de L.</p><p class="lab">Côtés qui se compensent :</p><p>Trois côtés horizontaux : deux d’entre eux ont pour somme le troisième. De même pour les verticaux. Dans la liste : 3 + 5 = 8 et 6 + 10 = 16.</p><p class="lab">Rectangle englobant :</p><span class="calc">8 × 16 = 128 cm²</span><p class="lab">Encoche :</p><p>Elle a pour côtés une partie du 8 (3 ou 5) et une partie du 16 (6 ou 10).</p><div class="scroll"><table><thead><tr><th scope="col">Encoche</th><th scope="col">Aire de l’encoche</th><th scope="col">Aire de l’hexagone</th></tr></thead><tbody><tr><td>3 × 6</td><td>18</td><td>110</td></tr><tr><td>3 × 10</td><td>30</td><td>98</td></tr><tr><td>5 × 6</td><td>30</td><td>98</td></tr><tr><td>5 × 10</td><td>50</td><td>78</td></tr></tbody></table></div>
+<p class="rep">Réponse : 3 aires possibles : 78, 98 ou 110 cm².</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-20.html">← Méthode 20</a>
+  <a href="methode-22.html">Méthode 22 →</a>
+</nav>
+</main>
+</body>
+</html>

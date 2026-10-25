@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- Version : 1.0 -->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Méthode 14 — Ce qui ne change pas — Alpha Omega Math</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="methodes.css">
+</head>
+<body>
+<nav class="site" aria-label="Site"><div class="wrap">
+  <a class="logo" href="../index.html">Alpha Omega Math</a>
+  <a class="retour" href="../concours.html">← Archives du concours</a>
+</div></nav>
+<main class="wrap">
+<header class="titre">
+  <span class="eyebrow">FFJM · fiches méthodes · 14 / 26</span>
+  <h1>Méthode 14</h1>
+  <p>Ce qui ne change pas<br>Trouver la quantité constante</p>
+</header>
+
+<table class="fiche">
+  <thead><tr><th scope="col">5e</th><th scope="col">Seconde</th></tr></thead>
+  <tbody>
+    <tr><td><span class="lvl">5e</span><h3>Quand ?</h3><ul><li>deux pesées (plein, à moitié plein)</li><li>un don entre deux personnes</li><li>des âges</li><li>une réserve partagée</li></ul></td><td><span class="lvl">Seconde</span><h3>Quand ?</h3><ul><li>invariant (total, différence)</li><li>stock et flux</li><li>personnes × jours</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Idée</h3><p>Il faut toujours :</p><ul><li>chercher ce qui ne change pas : le total, l’écart, le récipient.</li></ul></td><td><span class="lvl">Seconde</span><h3>Idée</h3><p>Toute solution comporte :</p><ul><li>une quantité conservée ;</li><li>une équation écrite avec elle.</li></ul></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 1</h3><p>Reconnaître le type de problème :</p><ol><li>Récipient et contenu : deux pesées</li><li>Une réserve qui diminue chaque jour</li><li>Le total ou l’écart reste le même</li></ol></td><td><span class="lvl">Seconde</span><h3>Étape 1</h3><p>Identifier le type :</p><ol><li>Différence de deux pesées</li><li>Stock et flux : personnes × jours</li><li>Invariant : total, écart d’âge</li></ol></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 2</h3><p>Faire un tableau avant / après.</p></td><td><span class="lvl">Seconde</span><h3>Étape 2</h3><p>Nommer les inconnues avant et après.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 3</h3><p>Repérer la quantité qui ne bouge pas.</p></td><td><span class="lvl">Seconde</span><h3>Étape 3</h3><p>Écrire l’invariant (somme, différence, produit).</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 4</h3><p>Partager cette quantité selon l’énoncé (parts, différence).</p></td><td><span class="lvl">Seconde</span><h3>Étape 4</h3><p>Résoudre.</p></td></tr>
+    <tr><td><span class="lvl">5e</span><h3>Étape 5</h3><p>Vérifier avec les nombres de départ.</p></td><td><span class="lvl">Seconde</span><h3>Étape 5</h3><p>Vérifier et répondre à la question posée.</p></td></tr>
+  </tbody>
+</table>
+
+<section class="ex" aria-labelledby="ex-5e">
+<h2 id="ex-5e">Exemple corrigé 5e : Noël a trop par rapport à Léon <span class="code">(2026-5)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Noël a 2026 mathsous, Léon 206. Noël donne des mathsous à Léon, et il lui en reste encore deux fois plus que Léon. Combien Noël a-t-il donné ?</p>
+<p><b>On cherche :</b> le nombre de mathsous donnés.</p><p class="lab">Ce qui ne change pas :</p><p>Ce que Noël donne, Léon le reçoit : le total reste le même.</p><span class="calc">2026 + 206 = 2232</span><p class="lab">Après le don :</p><div class="scroll"><table><thead><tr><th scope="col"></th><th scope="col">Parts</th><th scope="col">Mathsous</th></tr></thead><tbody><tr><td>Noël</td><td>2</td><td>1488</td></tr><tr><td>Léon</td><td>1</td><td>744</td></tr><tr><td>Total</td><td>3</td><td>2232</td></tr></tbody></table></div><p>Une part vaut 2232 ÷ 3 = 744.</p><p class="lab">Conclusion :</p><span class="calc">744 − 206 = 538</span>
+<p class="rep">Réponse : 538 mathsous.</p>
+</section>
+<section class="ex" aria-labelledby="ex-se">
+<h2 id="ex-se">Exemple corrigé Seconde : Sauvetage dans l’espace <span class="code">(2003-16)</span></h2>
+<p class="enonce"><b>Énoncé.</b> Un vaisseau a de l’oxygène pour 95 jours. Avec 7 rescapés de plus, il n’en aurait que pour 60 jours. Six jours après les avoir recueillis, il prend de nouveaux rescapés : il ne reste alors que 38 jours d’oxygène. Combien de nouveaux rescapés ?</p>
+<p>On cherche le nombre k de nouveaux rescapés.</p><p class="lab">L’invariant :</p><p>La réserve d’oxygène se mesure en « personnes × jours ».</p><p class="lab">Équipage :</p><span class="calc">95n = 60(n + 7)  ⟺  35n = 420  ⟺  n = 12</span><p class="lab">Après 6 jours :</p><p>19 personnes, et 60 − 6 = 54 jours de réserve.</p><span class="calc">19 × 54 = 1026 personnes × jours</span><p class="lab">Nouveaux rescapés :</p><span class="calc">(19 + k) × 38 = 1026  ⟺  19 + k = 27  ⟺  k = 8</span>
+<p class="rep">Réponse : 8 rescapés.</p>
+</section>
+
+<nav class="suite" aria-label="Méthodes">
+  <a href="methode-13.html">← Méthode 13</a>
+  <a href="methode-15.html">Méthode 15 →</a>
+</nav>
+</main>
+</body>
+</html>
