@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<!-- Version : 1.0 — copie de « Méthodes de raisonnement — 26 patterns FFJM » avec ancres #pattern-N -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Méthodes de raisonnement — 26 patterns FFJM</title>
+    <!-- Tailwind CSS pour un design moderne et des couleurs pastels harmonieuses -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- KaTeX pour le rendu des formules mathématiques -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .pattern { transition: box-shadow .3s; }
+        .pattern:target { box-shadow: 0 0 0 3px #6366f1, 0 10px 25px -5px rgba(99,102,241,.35); }
+        .retour { display:inline-block; margin-bottom:1rem; color:#4f46e5; font-weight:600; text-decoration:none; }
+        .retour:hover { text-decoration:underline; }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+    <div class="max-w-5xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-xl">
+        
+        <!-- En-tête -->
+        <header class="border-b border-slate-200 pb-8 mb-10">
+            <a class="retour" href="../concours.html">← Archives du concours</a>
+            <h1 class="text-4xl font-extrabold text-slate-800 tracking-tight mb-2">Méthodes de raisonnement</h1>
+            <p class="text-xl font-medium text-indigo-600 mb-4">Patterns FFJM</p>
+            <div class="flex flex-wrap gap-4 text-sm text-slate-500 font-medium">
+                <span>📅 Oct 23, 2026</span>
+                <span>•</span>
+                <span>✍️ Armen (mis à jour le 24 oct. 2026)</span>
+                <span>•</span>
+                <span>🔢 26 patterns | 649 problèmes au total</span>
+            </div>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+                Chacun des 26 patterns tirés des quarts de finale FFJM (1987-2026) reçoit une méthode commune, écrite deux fois : avec les outils d'un élève de seconde et avec ceux d'un élève de $5^{\text{e}}$. Un exemple vérifié montre la méthode appliquée.
+            </p>
+        </header>
+
+        <!-- Contenu des Patterns -->
+        <main class="space-y-12">
+
+            <!-- SECTION DÉNOMBREMENT -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-700 border-l-4 border-indigo-500 pl-3">Dénombrement</h2>
+
+                <!-- Pattern 1 -->
+                <div id="pattern-1" class="pattern scroll-mt-6 p-6 rounded-3xl bg-indigo-50/60 border border-indigo-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-indigo-900">1. Trouver un maximum ou un minimum : une borne, puis un exemple</h3>
+                    <p class="text-sm text-slate-700 italic">Une réponse « au plus » ou « au moins » a toujours deux moitiés : un exemple qui atteint la valeur, et une raison pour laquelle on ne peut pas faire mieux. Pour « être certain », la raison est le pire cas.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Nommer la quantité et écrire ce qu'on cherche : « le plus petit $n$ tel que... ».</li>
+                                <li>Construire le pire cas, ou la meilleure disposition : il donne une borne.</li>
+                                <li>Justifier la borne par un argument général : aire, comptage, ou principe des tiroirs ($n+1$ objets dans $n$ tiroirs, un tiroir en reçoit au moins deux).</li>
+                                <li>Vérifier que l'exemple et la borne donnent le même nombre ; sinon, améliorer l'un ou l'autre.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Faire un premier essai avec des jetons ou sur papier quadrillé.</li>
+                                <li>Se demander « et si je n'avais vraiment pas de chance ? » : sortir d'abord tout ce qui ne convient pas.</li>
+                                <li>Ajouter un objet : c'est le nombre qui garantit le résultat.</li>
+                                <li>Pour un rangement, compter les cases : l'aire donne un plafond, pas forcément la réponse.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2019-7 Des billes de toutes les couleurs</h4>
+                        <p class="text-sm text-slate-700">
+                            15 blanches, 15 noires, 6 rouges, 5 vertes : combien en sortir pour être certain d'en avoir 10 de la même couleur ? Le pire tirage donne 9 blanches, 9 noires, 6 rouges et 5 vertes, soit 29 billes sans 10 pareilles. La $30^{\text{e}}$ bille est forcément une $10^{\text{e}}$ blanche ou noire : 30 billes. Attention au piège de l'aire en 2026-1 : $49 \div 4$ autorise 12 chocolats, mais on n'en range que 9.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 2 -->
+                <div id="pattern-2" class="pattern scroll-mt-6 p-6 rounded-3xl bg-indigo-50/60 border border-indigo-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-indigo-900">2. Dénombrer sans oubli ni doublon</h3>
+                    <p class="text-sm text-slate-700 italic">On choisit un critère de classement (taille, chiffre répété, orientation), on compte chaque classe, puis on additionne en vérifiant qu'aucun objet n'est compté deux fois.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Choisir un critère qui partage les objets en classes séparées.</li>
+                                <li>Dans chaque classe, compter par un produit de choix indépendants, ou par une formule comme $n(n-1)/2$ pour les paires.</li>
+                                <li>Quand deux objets se confondent (rotation, retournement, chiffres identiques), regrouper ou diviser.</li>
+                                <li>Contrôler par un second comptage : le complémentaire, ou la même quantité comptée d'une autre façon.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Dresser une liste ou un tableau rangé, du plus petit au plus grand.</li>
+                                <li>Repérer chaque figure par un point fixe, par exemple son coin en haut à gauche.</li>
+                                <li>Éliminer au calque les figures identiques après rotation ou retournement.</li>
+                                <li>Recompter autrement si possible.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2018-2 Les carrés</h4>
+                        <p class="text-sm text-slate-700">
+                            Dans une grille de $6 \times 3$ petits carrés, on classe par taille. Côté $1 : 6 \times 3 = 18$. Côté $2 : 5 \times 2 = 10$. Côté $3 : 4 \times 1 = 4$. Total : 32 carrés. En $5^{\text{e}}$, on compte les positions possibles du coin en haut à gauche pour chaque taille.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 3 -->
+                <div id="pattern-3" class="pattern scroll-mt-6 p-6 rounded-3xl bg-indigo-50/60 border border-indigo-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-indigo-900">3. Compter pas à pas (ce qu'ajoute chaque étape)</h3>
+                    <p class="text-sm text-slate-700 italic">On regarde ce que change la dernière étape (le dernier bond, le dernier trait tracé) et on en tire une règle qui relie chaque cas aux cas précédents.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Noter $u(n)$ le nombre cherché pour la taille $n$.</li>
+                                <li>Classer selon la dernière étape. Bonds de 1 ou $2 : u(n) = u(n-1) + u(n-2)$. Une droite qui en coupe $k$ autres ajoute $k+1$ régions.</li>
+                                <li>Calculer les premiers termes, puis dérouler jusqu'au cas demandé, ou trouver une formule (comme $n^2 + 2n$ pour l'échange de pions).</li>
+                                <li>Vérifier la règle sur un petit cas dessiné.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Dessiner les petits cas : 1 marche, 2 marches, 3 marches...</li>
+                                <li>Ranger les résultats dans un tableau.</li>
+                                <li>Chercher comment on passe d'une case du tableau à la suivante.</li>
+                                <li>Prolonger le tableau jusqu'au cas demandé.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 1988-C4 La grenouille</h4>
+                        <p class="text-sm text-slate-700">
+                            Elle monte 13 marches par bonds de 1 ou 2. Pour arriver sur une marche, son dernier bond part de la marche juste en dessous ou de celle d'avant. Chaque nombre est donc la somme des deux précédents : 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377. Réponse : 377 façons.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION ARITHMÉTIQUE -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-700 border-l-4 border-indigo-500 pl-3">Arithmétique</h2>
+
+                <!-- Pattern 4 -->
+                <div id="pattern-4" class="pattern scroll-mt-6 p-6 rounded-3xl bg-purple-50/60 border border-purple-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-purple-900">4. Écrire et lire les nombres</h3>
+                    <p class="text-sm text-slate-700 italic">On découpe l'écriture en tranches de même forme (nombres à 1, 2, 3 chiffres; dizaines écrites en lettres; segments d'un afficheur) et on compte tranche par tranche.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Repérer les tranches : 1 à 9 (1 chiffre), 10 à 99 (2 chiffres), 100 à 999 (3 chiffres).</li>
+                                <li>Écrire le total de chaque tranche, puis une équation pour la tranche incomplète : jusqu'à $n \le 99$, on écrit $9 + 2(n-9)$ chiffres.</li>
+                                <li>Pour une liste où certains chiffres sont interdits, reconnaître une numération dans une autre base (6 chiffres permis : base 6).</li>
+                                <li>Vérifier la méthode sur les exemples de l'énoncé.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Faire un tableau : tranche, nombre de nombres, chiffres par nombre, total.</li>
+                                <li>Compter les excès : chaque page à 2 chiffres écrit 1 chiffre de plus qu'une page à 1 chiffre.</li>
+                                <li>Pour les nombres en lettres, écrire dizaine par dizaine et compter.</li>
+                                <li>Tester la méthode sur un petit cahier de 12 pages.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2017-4 Le numérotage des pages</h4>
+                        <p class="text-sm text-slate-700">
+                            Mathilde a écrit 21 chiffres de plus que le nombre de pages. Les pages 1 à 9 ne créent aucun excès ; chaque page de 10 à 99 en crée 1. Il faut 21 pages à deux chiffres, de 10 à 30 : 30 pages.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 5 -->
+                <div id="pattern-5" class="pattern scroll-mt-6 p-6 rounded-3xl bg-purple-50/60 border border-purple-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-purple-900">5. Les chiffres d'un nombre : positions, retourné, somme des chiffres</h3>
+                    <p class="text-sm text-slate-700 italic">On écrit le nombre avec ses chiffres et leurs poids ($\overline{abc} = 100a + 10b + c$). Deux faits reviennent sans cesse : un nombre et la somme de ses chiffres ont le même reste dans la division par 9, et chaque retenue fait perdre 9 à la somme des chiffres.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Poser $\overline{abc} = 100a + 10b + c$, et pour le retourné $\overline{ba} = 10b + a$.</li>
+                                <li>Traduire l'énoncé en équation ; retenir $\overline{abba} = 9(a-b)$ et $\overline{ab} + \overline{ba} = 11(a+b)$.</li>
+                                <li>Éliminer des cas avec le reste par 9 (preuve par 9) et avec le compte des retenues.</li>
+                                <li>Borner les chiffres (de 0 à 9, premier chiffre non nul) et tester les cas restants.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Placer le nombre dans un tableau de numération : centaines, dizaines, unités.</li>
+                                <li>Observer sur des essais : que devient la somme des chiffres quand on passe de 19 à 20 ?</li>
+                                <li>Trier avec les critères de divisibilité par 3 et par 9.</li>
+                                <li>Lister les cas restants dans l'ordre.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2016-9 Le nombre de Mathilde (jumeau de 2015-10)</h4>
+                        <p class="text-sm text-slate-700">
+                            On ajoute 3 à un nombre de trois chiffres et la somme des chiffres devient 3 fois plus petite. Sans retenue, elle augmenterait : il faut une retenue, qui enlève 9. Avec une retenue, $s + 3 - 9 = s/3$ donne $s = 9$ ; avec deux, $s = 22,5$ est impossible. Le chiffre des unités vaut donc 7, 8 ou 9 et la somme 9 : 108, 117 et 207.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 6 -->
+                <div id="pattern-6" class="pattern scroll-mt-6 p-6 rounded-3xl bg-purple-50/60 border border-purple-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-purple-900">6. Cryptarithmes</h3>
+                    <p class="text-sm text-slate-700 italic">On lit l'opération colonne par colonne, en commençant par celles qui en disent le plus (premier chiffre, unités), sans oublier les retenues.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Encadrer l'ordre de grandeur ; un résultat plus long que les termes commence par la retenue 1.</li>
+                                <li>Écrire l'équation de chaque colonne avec sa retenue (0 ou 1, parfois 2).</li>
+                                <li>Réduire avec les unités, la parité et la preuve par 9.</li>
+                                <li>Tester les cas restants, puis vérifier l'opération entière.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Recopier l'opération posée, une case par lettre.</li>
+                                <li>Commencer par la colonne de gauche ou par celle des unités.</li>
+                                <li>Tenir à jour la liste des chiffres déjà pris, de 0 à 9.</li>
+                                <li>Faire les derniers essais et vérifier l'opération.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2025-8 Donnez-nous le LA</h4>
+                        <p class="text-sm text-slate-700">
+                            $\text{PLAY} + \text{LA} = 2025$, donc $\text{PLAY}$ est entre 1926 et 2024. $P = 2$ donnerait $L = 0$, interdit car LA ne commence pas par 0. Donc $P = 1$ et $L = 9$, puis $11A + Y = 35 : A = 3$ et $Y = 2$. On vérifie $1932 + 93 = 2025 : \text{LA} = 93$.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 7 -->
+                <div id="pattern-7" class="pattern scroll-mt-6 p-6 rounded-3xl bg-purple-50/60 border border-purple-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-purple-900">7. Divisibilité, facteurs premiers, PPCM</h3>
+                    <p class="text-sm text-slate-700 italic">On décompose en facteurs premiers et on traduit les restes : « il reste 2 par 8 et par 11 » signifie que $n-2$ est un multiple commun de 8 et 11.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Décomposer les nombres de l'énoncé en produits de facteurs premiers.</li>
+                                <li>Ramener des restes égaux à un multiple commun : $n-r$ est un multiple du PPCM.</li>
+                                <li>Énumérer les diviseurs, ou les répartitions des facteurs, qui respectent les contraintes.</li>
+                                <li>Garder les valeurs compatibles avec les bornes de l'énoncé.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Écrire les listes de multiples de chaque nombre, côte à côte.</li>
+                                <li>Repérer le premier multiple commun.</li>
+                                <li>Trier vite avec les critères de divisibilité par 2, 3, 5 et 9.</li>
+                                <li>Vérifier la réponse dans l'énoncé.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2023-6 Les pommes</h4>
+                        <p class="text-sm text-slate-700">
+                            Moins de 100 pommes, et il en reste 2 qu'on les range par 8 ou par 11. $n-2$ est un multiple de 8 et de 11, donc de 88 : $n-2 = 88$ et $n = 90$ pommes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 8 -->
+                <div id="pattern-8" class="pattern scroll-mt-6 p-6 rounded-3xl bg-purple-50/60 border border-purple-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-purple-900">8. Cycles, restes et calendrier</h3>
+                    <p class="text-sm text-slate-700 italic">Tout ce qui se répète se ramène à un reste : on enlève les tours complets et on regarde où l'on tombe dans le cycle (7 jours, 26 lettres, 5 pétales, 24 heures).</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Identifier la longueur $T$ du cycle.</li>
+                                <li>Calculer le décalage total, puis son reste dans la division par $T$.</li>
+                                <li>Pour le calendrier : +1 jour de la semaine par an, +2 après un 29 février ; entre 1901 et 2099, tout se répète en 28 ans.</li>
+                                <li>Pour les dates palindromes ou à chiffres imposés : une partie (l'année, le mois) fixe le reste, puis on contrôle le nombre de jours du mois.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Écrire le cycle en ligne : lundi, mardi... ou les phrases des pétales.</li>
+                                <li>Faire des paquets complets, par exemple des semaines.</li>
+                                <li>Compter le reste à la main sur la ligne.</li>
+                                <li>Vérifier sur un vrai calendrier quand c'est possible.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2006-3 Le quarantième championnat</h4>
+                        <p class="text-sm text-slate-700">
+                            Le 20 octobre 2005 est un jeudi. Jusqu'au 20 octobre 2025, il y a 20 ans et cinq 29 février (2008, 2012, 2016, 2020, 2024), soit 25 jours de décalage. $25 = 3 \times 7 + 4$ : jeudi + 4 jours = lundi.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 9 -->
+                <div id="pattern-9" class="pattern scroll-mt-6 p-6 rounded-3xl bg-purple-50/60 border border-purple-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-purple-900">9. Répéter ou remonter une transformation</h3>
+                    <p class="text-sm text-slate-700 italic">On applique la règle jusqu'à voir revenir une valeur (un cycle), ou on la remonte depuis la fin en cherchant tous les nombres qui peuvent mener au résultat.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Écrire la règle comme une fonction : $n \to f(n)$.</li>
+                                <li>En avant : calculer jusqu'à retomber sur une valeur déjà vue ; le rang cherché se lit avec le reste de la division par la longueur du cycle.</li>
+                                <li>En arrière : encadrer les antécédents possibles et les tester. Une boucle d'opérations donne une équation du $1^{\text{er}}$ degré.</li>
+                                <li>Vérifier en refaisant le chemin dans le bon sens.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Écrire les étapes en ligne, reliées par des flèches.</li>
+                                <li>Repérer le moment où un nombre revient.</li>
+                                <li>Pour remonter, essayer les nombres un peu plus petits que le résultat.</li>
+                                <li>Refaire le calcul dans l'ordre pour vérifier.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2019-6 Le nombre mystérieux</h4>
+                        <p class="text-sm text-slate-700">
+                            Mathilde ajoute à un nombre la somme de ses chiffres, deux fois de suite, et obtient 60. Avant 60, un nombre entre 42 et 59 : seul 48 convient ($48 + 12 = 60$). Avant 48, seul 42 convient ($42 + 6 = 48$). Réponse : 42.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 10 -->
+                <div id="pattern-10" class="pattern scroll-mt-6 p-6 rounded-3xl bg-purple-50/60 border border-purple-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-purple-900">10. Équations en nombres entiers</h3>
+                    <p class="text-sm text-slate-700 italic">Quand les inconnues sont des entiers, une seule équation suffit : on fixe une inconnue, on la borne, et on teste. Si l'équation mélange produit et somme, on ajoute une constante pour factoriser.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Écrire l'équation : $8x + 5y = 41$ ou $xy = 2(x+y)$.</li>
+                                <li>Borner une inconnue : $8x \le 41$ donne $x \le 5$.</li>
+                                <li>Tester chaque valeur, ou utiliser une divisibilité ($41-8x$ doit être un multiple de 5). Pour $xy - 2x - 2y = 0$, ajouter 4 donne $(x-2)(y-2) = 4$.</li>
+                                <li>Lister toutes les solutions, pas seulement la première trouvée.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Faire un tableau : nombre de pieuvres, leurs bras, bras restants.</li>
+                                <li>Le remplir ligne par ligne.</li>
+                                <li>Garder les lignes où le reste se partage exactement.</li>
+                                <li>Vérifier qu'aucune autre ligne ne marche.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2025-4 L'aquarium</h4>
+                        <p class="text-sm text-slate-700">
+                            Pieuvres à 8 bras, étoiles de mer à 5 bras, 41 bras en tout : $8x + 5y = 41$. Pour $x = 0, 1, 2, 3, 4, 5$, il reste 41, 33, 25, 17, 9, 1 bras ; seul 25 est un multiple de 5. Réponse : 5 étoiles de mer.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 11 -->
+                <div id="pattern-11" class="pattern scroll-mt-6 p-6 rounded-3xl bg-purple-50/60 border border-purple-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-purple-900">11. Sommes remarquables</h3>
+                    <p class="text-sm text-slate-700 italic">Une somme de termes régulièrement espacés vaut le nombre de termes $\times$ le terme du milieu. La somme des carrés a sa formule, et deux nombres dont on connaît la somme et le produit sont les solutions d'une équation du second degré.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Repérer la forme : termes consécutifs, carrés, ou deux nombres de somme et produit (ou différence) connus.</li>
+                                <li>Appliquer la formule $1^2 + 2^2 + \dots + n^2 = n(n+1)(2n+1)/6$ ; avec somme $S$ et différence $D$, les nombres sont $(S+D)/2$ et $(S-D)/2$.</li>
+                                <li>Traduire la condition de l'énoncé (un cube, un nombre premier, une valeur donnée) en équation.</li>
+                                <li>Résoudre, puis vérifier sur les termes.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Écrire la somme en entier pour un petit cas.</li>
+                                <li>Associer le premier et le dernier terme, le deuxième et l'avant-dernier : chaque paire a la même somme.</li>
+                                <li>Pour une pyramide, compter étage par étage dans un tableau.</li>
+                                <li>Vérifier à la calculatrice.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2004-15 Somme d'impairs cubique</h4>
+                        <p class="text-sm text-slate-700">
+                            Sept impairs consécutifs ont pour somme le cube d'un nombre premier. Cette somme vaut $7 \times$ le terme du milieu ; le seul cube de premier divisible par 7 est $7^3 = 343$. Le milieu vaut 49, les termes vont de 43 à 55 : 55.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION PROBLÈMES CONCRETS -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-700 border-l-4 border-indigo-500 pl-3">Problèmes concrets</h2>
+
+                <!-- Pattern 12 -->
+                <div id="pattern-12" class="pattern scroll-mt-6 p-6 rounded-3xl bg-pink-50/60 border border-pink-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-pink-900">12. Mettre en équation, systèmes</h3>
+                    <p class="text-sm text-slate-700 italic">Une inconnue par quantité inconnue, une équation par phrase. Souvent, additionner toutes les équations donne directement ce qu'on cherche, sans trouver chaque inconnue.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Choisir l'inconnue la plus simple (souvent la plus petite quantité) et tout exprimer avec elle.</li>
+                                <li>Traduire chaque phrase dans l'ordre ; « puis » fixe l'ordre des opérations.</li>
+                                <li>Avant de résoudre, additionner ou soustraire les équations : une inconnue disparaît, ou le total apparaît.</li>
+                                <li>Résoudre et vérifier chaque phrase de l'énoncé.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Représenter les quantités par des barres ou des boîtes (« la boîte de Julie », « deux boîtes pour Alice »).</li>
+                                <li>Écrire chaque phrase avec ces boîtes.</li>
+                                <li>Faire des essais rangés dans un tableau.</li>
+                                <li>Vérifier toutes les phrases.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2012-3 Quatre cases</h4>
+                        <p class="text-sm text-slate-700">
+                            Dans un tableau $2 \times 2$, les colonnes font 20 et 12 et la première ligne 13. Les deux colonnes donnent le total des quatre cases : 32. La deuxième ligne vaut $32 - 13 = 19$, sans connaître aucune case.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 13 -->
+                <div id="pattern-13" class="pattern scroll-mt-6 p-6 rounded-3xl bg-pink-50/60 border border-pink-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-pink-900">13. Proportions, pourcentages, fractions</h3>
+                    <p class="text-sm text-slate-700 italic">Un pourcentage est un coefficient multiplicateur, et une proportion se traduit en parts égales. On suit la quantité qui ne bouge pas, ou un seul ingrédient.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Remplacer « augmenter de $t\%$ » par « multiplier par $1 + t/100$ ».</li>
+                                <li>Enchaîner les évolutions en multipliant les coefficients ; à distance fixée, le temps est inversement proportionnel à la vitesse.</li>
+                                <li>Traduire une proportion d'effectif en égalité : garçons $= 0,4 \times \text{total}$.</li>
+                                <li>Contrôler que les effectifs trouvés sont des entiers.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Traduire la fraction en parts : $40\% = 2$ parts sur 5.</li>
+                                <li>Dessiner les parts avec des barres.</li>
+                                <li>Trouver ce que vaut une part grâce au changement décrit dans l'énoncé.</li>
+                                <li>Multiplier pour retrouver toutes les quantités.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2018-9 Le club de basket</h4>
+                        <p class="text-sm text-slate-700">
+                            40% de garçons, soit 2 parts de garçons pour 3 parts de filles. Avec 6 garçons de plus, il y a autant de garçons que de filles : une part vaut 6. Le club avait $5 \times 6 = 30$ inscrits, il en a maintenant 36.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 14 -->
+                <div id="pattern-14" class="pattern scroll-mt-6 p-6 rounded-3xl bg-pink-50/60 border border-pink-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-pink-900">14. Ce qui ne change pas</h3>
+                    <p class="text-sm text-slate-700 italic">On repère la quantité qui reste fixe pendant la transformation (le total d'argent, l'écart d'âge, le poids du récipient) et on raisonne sur elle.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Lister les quantités avant et après.</li>
+                                <li>Identifier ce qui ne change pas : une somme, une différence, un contenant.</li>
+                                <li>Écrire l'état final avec cette quantité ($N_a = 2 \times L$ et $N_a + L = \text{total}$).</li>
+                                <li>Revenir à la question posée : le don, l'âge, le poids à vide.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Faire un schéma avant/après.</li>
+                                <li>Se demander : « qu'est-ce qui n'a pas bougé ? ».</li>
+                                <li>Partager cette quantité en parts selon l'énoncé.</li>
+                                <li>Comparer avec la situation de départ.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2026-5 Noël a trop par rapport à Léon</h4>
+                        <p class="text-sm text-slate-700">
+                            Noël a 2026 mathsous, Léon 206 ; le total, 2232, ne change pas. À la fin, Noël a 2 parts et Léon 1 part : une part vaut 744. Léon a reçu $744 - 206 = 538$ mathsous.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 15 -->
+                <div id="pattern-15" class="pattern scroll-mt-6 p-6 rounded-3xl bg-pink-50/60 border border-pink-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-pink-900">15. Mouvements, vitesses, horloges</h3>
+                    <p class="text-sm text-slate-700 italic">On choisit le bon repère. Sur un support qui bouge (escalator, peloton), les vitesses s'ajoutent ou se retranchent ; pour des croisements ou des aiguilles, on suit l'écart, qui grandit à vitesse constante.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Écrire chaque vitesse sous la forme $L/t$, avec une longueur inconnue $L$ qui disparaîtra.</li>
+                                <li>Même sens : on ajoute ; sens contraire : on retranche. Aiguilles : $6^\circ$ et $0,5^\circ$ par minute.</li>
+                                <li>Écrire $\text{temps} = \text{écart} / \text{vitesse relative}$. Sur un circuit, deux mobiles en sens contraires se croisent chaque fois que leurs parcours totalisent un tour.</li>
+                                <li>Vérifier la cohérence : temps positif, ordre de grandeur.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Choisir une longueur pratique, multiple de toutes les durées (50 marches pour 25 s et 10 s).</li>
+                                <li>Calculer les vitesses en marches par seconde.</li>
+                                <li>Ajouter ou retrancher selon le sens.</li>
+                                <li>Diviser la longueur par la vitesse obtenue.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2026-12 L'escalier roulant</h4>
+                        <p class="text-sm text-slate-700">
+                            Immobile, Mathias descend en 25 s ; en marchant, en 10 s. En montée, sa vitesse sur un escalier fixe vaut les $4/5$ de sa vitesse en descente. Avec 50 marches : l'escalier fait 2 marches/s, l'ensemble 5, donc Mathias seul 3. À contresens, il monte à $4/5 \times 3 = 2,4$ marches/s, moins 2 : il gagne 0,4 marche/s. $50 \div 0,4 = 125$ secondes.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION LOGIQUE -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-700 border-l-4 border-indigo-500 pl-3">Logique</h2>
+
+                <!-- Pattern 16 -->
+                <div id="pattern-16" class="pattern scroll-mt-6 p-6 rounded-3xl bg-yellow-50/60 border border-yellow-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-yellow-900">16. Logique des énoncés</h3>
+                    <p class="text-sm text-slate-700 italic">On fait les hypothèses une à une (« cette phrase est vraie ») et on cherche la contradiction. Deux phrases contraires ne sont jamais vraies ensemble ; une phrase qui parle d'elle-même se vérifie en comptant une fois complétée.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Traduire chaque phrase en condition précise : inégalité, nombre de lettres, « si P alors Q » (vraie dès que P est fausse).</li>
+                                <li>Repérer les paires de phrases contraires : exactement l'une des deux est vraie.</li>
+                                <li>Raisonner par cas : supposer une phrase vraie, en tirer les conséquences, éliminer en cas de contradiction. Pour « je ne sais pas », lister tous les cas et rayer ceux où la personne aurait su.</li>
+                                <li>Pour l'autoréférence, écrire $\text{nombre annoncé} = \text{nombre réel}$, tester les candidats, puis recompter la phrase finale.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Recopier les phrases et souligner les mots clés : « au moins », « moins de », « un seul ».</li>
+                                <li>Faire un tableau : une colonne par hypothèse, vrai ou faux pour chaque phrase.</li>
+                                <li>Barrer les colonnes qui mènent à une contradiction.</li>
+                                <li>Pour une phrase qui compte ses lettres, essayer chaque nombre, écrire la phrase et compter.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2013-3 Deux menteurs sur trois</h4>
+                        <p class="text-sm text-slate-700">
+                            Abel : « au moins 4 livres » ; Béatrice : « moins de 4 » ; Camille : « Abel en a lu au moins 2 ». Un seul dit vrai. Abel et Béatrice se contredisent, donc l'un des deux dit vrai et Camille ment : Abel a lu moins de 2 livres. Comme il en a lu au moins un : 1 livre.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 17 -->
+                <div id="pattern-17" class="pattern scroll-mt-6 p-6 rounded-3xl bg-yellow-50/60 border border-yellow-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-yellow-900">17. Grilles et placements sous contraintes</h3>
+                    <p class="text-sm text-slate-700 italic">On commence par l'endroit le plus contraint : la case qui a le moins de possibilités, le nombre qui a le moins de voisins permis. Pour une figure magique, on additionne toutes les lignes en comptant combien de fois chaque case sert.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Exprimer la somme commune $S$ : additionner toutes les lignes compte chaque case autant de fois qu'elle est utilisée ($3S = \text{total} + 2c$ pour un centre commun à 3 lignes).</li>
+                                <li>En déduire les valeurs possibles des cases partagées, par divisibilité, parité ou encadrement.</li>
+                                <li>Remplir en propageant : une ligne à une seule inconnue se complète, une case à possibilité unique se fixe.</li>
+                                <li>Lister toutes les solutions quand l'énoncé le demande.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Écrire au crayon, dans chaque case, les nombres encore possibles.</li>
+                                <li>Placer d'abord les extrêmes (1, le plus grand) et les cases qui ont le plus de voisins ou de lignes.</li>
+                                <li>Compléter les lignes où il ne manque qu'un nombre.</li>
+                                <li>En cas de blocage, effacer jusqu'à la dernière hypothèse et en essayer une autre.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2019-9 La roue magique</h4>
+                        <p class="text-sm text-slate-700">
+                            On place 1, 2, 3, 5, 6, 7, 8 (total 32) ; les trois alignements passent par le centre $c$ et ont la même somme $S$. Le centre est compté trois fois : $3S = 32 + 2c$, donc $c$ vaut 2, 5 ou 8. Avec $c = 2$, il faudrait trois paires de somme 10 parmi 1, 3, 5, 6, 7, 8 : seule $3 + 7$ existe. Réponse : 5 ou 8 (paires $1+8, 2+7, 3+6$ ou $1+7, 2+6, 3+5$).
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION GRAPHES ET JEUX -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-700 border-l-4 border-indigo-500 pl-3">Graphes et jeux</h2>
+
+                <!-- Pattern 18 -->
+                <div id="pattern-18" class="pattern scroll-mt-6 p-6 rounded-3xl bg-orange-50/60 border border-orange-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-orange-900">18. Parcours et coloriages</h3>
+                    <p class="text-sm text-slate-700 italic">On remplace le dessin par des points reliés et on compte, en chaque point, les traits qui y arrivent. La parité de ces nombres décide si un parcours existe ; l'alternance noir/blanc et les boucles impaires bornent les chemins et les couleurs.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Modéliser : des points (carrefours, nombres, cases) et des liens (rues, dominos, déplacements).</li>
+                                <li>Compter les liens en chaque point. Un chemin qui emprunte une fois chaque lien existe seulement si 0 ou 2 points ont un nombre impair de liens ; une boucle fermée, seulement s'il n'y en a aucun.</li>
+                                <li>Colorier en deux couleurs alternées : un chemin change de couleur à chaque pas, ce qui borne sa longueur. Une boucle d'un nombre impair de points impose trois couleurs.</li>
+                                <li>Construire un exemple qui atteint la borne.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Redessiner la figure en points et en traits.</li>
+                                <li>Écrire à côté de chaque point son nombre de traits.</li>
+                                <li>Colorier en damier et suivre un chemin du doigt : la couleur change à chaque pas.</li>
+                                <li>Chercher un parcours ou un coloriage qui marche.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2000-9 Chaîne de dominos</h4>
+                        <p class="text-sm text-slate-700">
+                            Sans les dominos qui portent un 6, il en reste 21, numérotés de 0 à 5. Chaque nombre apparaît 7 fois sur les demi-dominos (le double compte deux fois), un nombre impair. Dans une chaîne fermée, chaque nombre apparaît un nombre pair de fois : il faut retirer au moins 3 dominos, qui associent les six nombres deux par deux. Réponse : 18 dominos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 19 -->
+                <div id="pattern-19" class="pattern scroll-mt-6 p-6 rounded-3xl bg-orange-50/60 border border-orange-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-orange-900">19. Positions, coups et jeux</h3>
+                    <p class="text-sm text-slate-700 italic">On décrit chaque situation comme un état. Soit on cherche ce qui ne change pas (une parité, une suite déjà rangée), soit on part de la fin (positions gagnantes, solitaire à rebours).</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Définir un état : contenu des récipients, ordre des livres, jetons retournés, position de jeu.</li>
+                                <li>Chercher ce qui ne change pas ou un compteur : retourner deux fois le même jeton s'annule (on raisonne pair/impair) ; les livres jamais déplacés forment une suite déjà rangée.</li>
+                                <li>Pour un jeu à deux, classer les positions depuis la fin : une position est gagnante si un coup mène à une position perdante pour l'adversaire. Une stratégie de symétrie règle souvent le cas.</li>
+                                <li>En déduire la borne, puis donner la suite de coups qui l'atteint.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Manipuler des objets réels (verres, cartes, jetons) ou les dessiner.</li>
+                                <li>Noter chaque coup dans un tableau d'états.</li>
+                                <li>Pour un jeu, jouer de petites parties et noter qui gagne.</li>
+                                <li>Chercher une règle, par exemple « le premier joueur gagne s'il joue au milieu ».</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2016-3 L'encyclopédie</h4>
+                        <p class="text-sm text-slate-700">
+                            Les volumes sont rangés $\text{ACBHDFEKGILJ}$. Ceux qu'on ne touche pas doivent déjà être dans l'ordre : la plus longue suite rangée, par exemple $\text{ABDEGIJ}$, compte 7 volumes. On déplace les $12 - 7 = 5$ volumes restants.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION GÉOMÉTRIE -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-700 border-l-4 border-indigo-500 pl-3">Géométrie</h2>
+
+                <!-- Pattern 20 -->
+                <div id="pattern-20" class="pattern scroll-mt-6 p-6 rounded-3xl bg-teal-50/60 border border-teal-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-teal-900">20. Partages et pavages</h3>
+                    <p class="text-sm text-slate-700 italic">L'aire fixe la taille de chaque pièce. On commence par les cases les plus contraintes (coins, avancées, détails du bord) et par les grandes pièces ; bosses et creux se compensent dans le calcul des aires.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Calculer l'aire totale et la diviser par le nombre de parts, ou en déduire les dimensions du rectangle à paver.</li>
+                                <li>Placer les grandes pièces d'abord ; pour un rectangle de carrés, écrire les égalités de longueurs le long de chaque côté.</li>
+                                <li>Partir de la case la plus contrainte : peu de positions de pièces peuvent la couvrir.</li>
+                                <li>Vérifier que les parts sont superposables, avec ou sans retournement selon l'énoncé.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Compter les carreaux et diviser par le nombre de parts.</li>
+                                <li>Colorier d'abord la case du coin, ou la case isolée, avec la seule pièce qui peut la couvrir.</li>
+                                <li>Découper des pièces en papier, ou tester au calque.</li>
+                                <li>Remplacer chaque bosse par le creux qui lui correspond pour compter les carreaux.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 1989-2 Rectangle à reconstituer (repris tel quel en 2021-15)</h4>
+                        <p class="text-sm text-slate-700">
+                            Neuf carrés de côtés 18, 15, 14, 10, 9, 8, 7, 4 et 1 ont pour aire totale $1056 = 32 \times 33$. On essaie ce rectangle : $18 + 15 = 33$ sur un côté, $18 + 14 = 32$ sur l'autre, puis on complète avec les petits carrés. Réponse : un rectangle de $33 \times 32$.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 21 -->
+                <div id="pattern-21" class="pattern scroll-mt-6 p-6 rounded-3xl bg-teal-50/60 border border-teal-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-teal-900">21. Aires et périmètres</h3>
+                    <p class="text-sm text-slate-700 italic">On nomme les longueurs inconnues et on traduit chaque donnée. Un demi-périmètre vaut $\text{longueur} + \text{largeur}$ ; des rectangles en grille ont des produits d'aires en croix égaux ; un agrandissement de rapport $k$ multiplie les aires par $k^2$.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Nommer les longueurs ($x, y$) et traduire périmètres et aires.</li>
+                                <li>Utiliser les relations : $\text{demi-périmètre} = L + l$ ; rectangles en grille $a \times d = b \times c$ ; aires $\times k^2$, volumes $\times k^3$ ; polygone à angles droits, les côtés se compensent dans chaque direction.</li>
+                                <li>Pour une aire sur quadrillage, englober dans un rectangle et retrancher, ou appliquer la formule de Pick.</li>
+                                <li>Contrôler les dimensions (entières, positives) et les unités.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Dessiner en grand sur papier quadrillé.</li>
+                                <li>Découper la figure en rectangles et en triangles rectangles (demi-rectangles).</li>
+                                <li>Pour un périmètre, faire le tour en additionnant les côtés.</li>
+                                <li>Pour un agrandissement, dessiner : côtés doublés, 4 fois plus de carreaux.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2011-9 Les sept baguettes</h4>
+                        <p class="text-sm text-slate-700">
+                            Avec des baguettes de 2, 4, 6, 7, 8, 9 et 10 cm (46 cm en tout), $\text{longueur} + \text{largeur} = 23$ cm. Il faut répartir les baguettes en deux longueurs égales et deux largeurs égales. Trois rectangles conviennent, de longueur 13, 14 ou 17 cm ; par exemple $6 + 7$ et $4 + 9$ pour les longueurs de 13, puis 10 et $2 + 8$ pour les largeurs de 10.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 22 -->
+                <div id="pattern-22" class="pattern scroll-mt-6 p-6 rounded-3xl bg-teal-50/60 border border-teal-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-teal-900">22. Cercles, tangentes, plus courts chemins</h3>
+                    <p class="text-sm text-slate-700 italic">Un point de tangence aligne les centres ou crée un angle droit : on fait donc apparaître des triangles rectangles. Pour un plus court chemin, une symétrie transforme le trajet brisé en ligne droite.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Tracer les centres et les rayons aux points de contact : deux cercles tangents ont des centres à distance $r + r'$ (ou $r - r'$ à l'intérieur) ; une tangente est perpendiculaire au rayon.</li>
+                                <li>Repérer le triangle rectangle et écrire Pythagore avec l'inconnue.</li>
+                                <li>Angle maximal : le cercle qui passe par les deux points et touche la droite. Plus court chemin qui touche une droite : symétriser un point par rapport à elle et tracer le segment.</li>
+                                <li>Aires courbes : secteur - triangle ; courroie : segments tangents + arcs.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Faire une figure précise au compas, en grand.</li>
+                                <li>Relier les centres : la ligne passe par le point de contact.</li>
+                                <li>Mesurer sur la figure pour obtenir une estimation, à vérifier ensuite.</li>
+                                <li>Pour un trajet qui touche un mur, plier la feuille le long du mur (symétrie axiale) : le plus court chemin devient une ligne droite.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2022-13 Les tuyaux</h4>
+                        <p class="text-sm text-slate-700">
+                            Un conduit de rayon 24 cm contient deux gros tuyaux de rayon 12 cm, qui se touchent en son centre, et deux petits de rayon $r$. Le centre d'un petit est à $24-r$ du centre du conduit et à $12+r$ de celui d'un gros. Pythagore : $12^2 + (24-r)^2 = (12+r)^2$, donc $576 = 72r$ et $r = 8$. Diamètre : 16 cm. En $5^{\text{e}}$, une figure à l'échelle donne déjà environ 16.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 23 -->
+                <div id="pattern-23" class="pattern scroll-mt-6 p-6 rounded-3xl bg-teal-50/60 border border-teal-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-teal-900">23. Figures inscrites</h3>
+                    <p class="text-sm text-slate-700 italic">Une figure inscrite touche le cercle ou la sphère par ses sommets : sa plus grande diagonale est un diamètre. On ramène tout à un triangle rectangle ou à un angle au centre.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Repérer ce qui touche quoi : grande diagonale du cube = diamètre de la sphère ; côté d'un polygone régulier à $n$ côtés $= 2R \sin(180^\circ/n)$.</li>
+                                <li>Exprimer toutes les longueurs avec un seul paramètre, le rayon.</li>
+                                <li>Appliquer Pythagore ou la trigonométrie, puis calculer aires et volumes.</li>
+                                <li>N'arrondir qu'à la fin.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Dessiner la vue la plus simple : coupe par le milieu, vue de dessus.</li>
+                                <li>Repérer le diamètre sur ce dessin.</li>
+                                <li>Utiliser les propriétés connues : diagonales du carré égales et de même milieu, six triangles équilatéraux dans l'hexagone régulier.</li>
+                                <li>Calculer avec les formules de $5^{\text{e}}$ : aire du disque, volume du pavé.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2013-15 La sphère entre les deux cubes</h4>
+                        <p class="text-sm text-slate-700">
+                            Le grand cube a un volume de $504\text{ cm}^3$ et une arête $a$. La sphère inscrite a pour diamètre $a$ ; le petit cube inscrit dans la sphère a pour grande diagonale $a$, donc pour arête $a/\sqrt{3}$. Son volume vaut $504 \div (3\sqrt{3})$, soit environ $97\text{ cm}^3$.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 24 -->
+                <div id="pattern-24" class="pattern scroll-mt-6 p-6 rounded-3xl bg-teal-50/60 border border-teal-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-teal-900">24. Solides, dés et patrons</h3>
+                    <p class="text-sm text-slate-700 italic">On suit un petit nombre d'éléments (trois faces autour d'un coin, les faces opposées) et on compte faces, arêtes et sommets avec la relation d'Euler : $\text{sommets} - \text{arêtes} + \text{faces} = 2$.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Repérer les faces opposées (sur un dé normal, elles totalisent 7) et le sens de rotation des trois faces autour d'un coin.</li>
+                                <li>Pour un basculement ou un patron, suivre trois faces (dessus, devant, côté) à chaque étape.</li>
+                                <li>Pour un solide, compter avec $S - A + F = 2$, ou par couches ; pour les petits cubes visibles, compter ce qui est caché.</li>
+                                <li>Vérifier sur une vue connue de l'énoncé.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Construire le patron en papier et le plier.</li>
+                                <li>Dans un patron en croix, deux faces opposées sont séparées par une case de la bande.</li>
+                                <li>Numéroter les faces d'un vrai dé au crayon et le faire basculer.</li>
+                                <li>Compter faces, arêtes et sommets sur une maquette ou un dessin en perspective.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2003-1 Le dé coupé</h4>
+                        <p class="text-sm text-slate-700">
+                            Après avoir scié un coin, l'objet a 7 faces et 10 sommets. Avec $S - A + F = 2$ : $10 - A + 7 = 2$, donc 15 arêtes. En $5^{\text{e}}$, on compte directement les 12 arêtes du cube, plus les 3 côtés du triangle de coupe.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pattern 25 -->
+                <div id="pattern-25" class="pattern scroll-mt-6 p-6 rounded-3xl bg-teal-50/60 border border-teal-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-teal-900">25. Géométrie du triangle : Pythagore, Thalès, trigonométrie, aires relatives (nouveau)</h3>
+                    <p class="text-sm text-slate-700 italic">On nomme les longueurs et on repère les triangles rectangles et semblables : Pythagore donne les longueurs, Thalès et les rapports d'aires donnent les proportions, la trigonométrie sert dès qu'un angle est connu. Une aire dans une figure se ramène à des aires de triangles de même base ou de même hauteur.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Faire une figure et nommer les longueurs : une seule inconnue si possible.</li>
+                                <li>Repérer les triangles rectangles (Pythagore ; dans un triangle rectangle, un côté de l'angle droit au carré = sa projection sur l'hypoténuse $\times$ l'hypoténuse) et les triangles semblables (Thalès, rapports de longueurs).</li>
+                                <li>Dès qu'un angle est connu, utiliser sinus, cosinus ou tangente. Pour une aire : $\text{base} \times \text{hauteur} \div 2$, ou rapport d'aires de triangles de même hauteur (ou de même base).</li>
+                                <li>Résoudre l'équation, puis vérifier sur la figure : l'hypoténuse est le plus grand côté, les longueurs sont positives et cohérentes avec le dessin.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Dessiner la figure en grand et à l'échelle, sur papier quadrillé.</li>
+                                <li>Repérer les angles droits (à l'équerre) et les triangles qui ont la même forme : l'un est un agrandissement ou une réduction de l'autre.</li>
+                                <li>Comparer les aires en découpant en triangles ou en demi-rectangles : deux triangles de même base et de même hauteur ont la même aire.</li>
+                                <li>Mesurer sur la figure pour estimer, puis chercher une valeur exacte qui colle à la mesure.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2021-14 Le pré du père Drau</h4>
+                        <p class="text-sm text-slate-700">
+                            Un pré a la forme d'un triangle rectangle ; la hauteur issue de l'angle droit coupe l'hypoténuse en deux segments $a$ et $c$, avec $a = b + c$, où $b$ est le côté de l'angle droit voisin de $c$. Pour $a = 10$ m, que vaut $c$ ? Le côté $b$ au carré vaut sa projection $c \times$ l'hypoténuse $(a+c)$, donc $(a-c)^2 = c(a+c)$. On développe : $a^2 - 2ac + c^2 = ac + c^2$, soit $a^2 = 3ac$ et $c = a/3$. Avec $a = 10$ m : $c \approx 3,33$ m, soit 333 cm. En $5^{\text{e}}$, on trace la figure à l'échelle (1 cm pour 1 m) et on essaie $c = 3; 3,3; 3,5\dots$ jusqu'à ce que $b \times b$ soit égal à $c \times (10 + c)$ : pour $c = 3,33$, $b = 6,67$ et $44,4 = 44,4$.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- SECTION PROBABILITÉS -->
+            <section class="space-y-6">
+                <h2 class="text-2xl font-bold text-slate-700 border-l-4 border-indigo-500 pl-3">Probabilités</h2>
+
+                <!-- Pattern 26 -->
+                <div id="pattern-26" class="pattern scroll-mt-6 p-6 rounded-3xl bg-blue-50/60 border border-blue-100 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-blue-900">26. Probabilités : cas favorables sur cas possibles (nouveau)</h3>
+                    <p class="text-sm text-slate-700 italic">Une probabilité est un nombre de cas favorables divisé par le nombre de cas possibles équiprobables : on dénombre avec soin (arbre, tableau), ou on suit l'évolution d'un état d'un tour au suivant. Un jeu équilibré se traduit par l'égalité de deux probabilités.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <!-- En seconde -->
+                        <div class="p-4 rounded-2xl bg-sky-50 border border-sky-100 shadow-xs">
+                            <h4 class="font-bold text-sky-900 mb-2">En seconde</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Définir l'expérience et compter les cas possibles équiprobables : arbre, tableau, ou formule ($n(n-1)/2$ pour les paires).</li>
+                                <li>Compter les cas favorables, ou passer au complémentaire (« au moins un » $= 1 -$ « aucun »).</li>
+                                <li>Écrire $P = \text{cas favorables} / \text{cas possibles}$ et simplifier la fraction. Pour des étapes enchaînées : multiplier le long d'une branche de l'arbre, additionner les branches.</li>
+                                <li>Pour un jeu équilibré, égaler les deux probabilités et résoudre en nombres entiers ; vérifier sur un petit cas.</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- En 5e -->
+                        <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-100 shadow-xs">
+                            <h4 class="font-bold text-emerald-900 mb-2">En $5^{\text{e}}$</h4>
+                            <ol class="list-decimal list-inside text-sm text-slate-700 space-y-1">
+                                <li>Faire un tableau ou un arbre de tous les tirages possibles sur un petit cas.</li>
+                                <li>Compter combien de tirages conviennent.</li>
+                                <li>Écrire la fraction « cas favorables sur cas possibles » et la simplifier.</li>
+                                <li>Vérifier en essayant avec 2, 3, 4... objets.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Exemple -->
+                    <div class="p-4 rounded-2xl bg-amber-50 border border-amber-100 shadow-xs">
+                        <h4 class="font-bold text-amber-900 mb-1">Exemple : 2024-17 Jeu de billes</h4>
+                        <p class="text-sm text-slate-700">
+                            Un sac contient de 2 à 24 billes, rouges ou bleues ; on en tire deux au hasard. Arthur gagne si elles sont de la même couleur, Blandine sinon. Pour quel nombre $n$ de billes le jeu est-il équilibré ? Avec $r$ rouges et $b$ bleues ($n = r+b$), $P(\text{même couleur}) = [r(r-1) + b(b-1)] / [n(n-1)] = 1/2$. On développe : $2r^2 + 2b^2 = n^2 + n$, et comme $n^2 = r^2 + b^2 + 2rb$, cela donne $(r-b)^2 = n$. Donc $n$ est un carré parfait : 4, 9 ou 16, soit 3 solutions. En $5^{\text{e}}$, avec 4 billes (3 rouges et 1 bleue), on liste les 6 paires : 3 de même couleur et 3 de couleurs différentes, soit $1/2$.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Script d'initialisation de KaTeX -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            try { renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ],
+                throwOnError: false
+            }); } catch (e) { /* formules non rendues : le texte reste lisible */ }
+            // Le rendu des formules et des styles change la hauteur de la page : on revient sur le pattern demandé.
+            function allerAuPattern() {
+                var cible = location.hash && document.getElementById(location.hash.slice(1));
+                if (cible) cible.scrollIntoView({ block: "start" });
+            }
+            allerAuPattern();
+            window.addEventListener("load", function () { allerAuPattern(); setTimeout(allerAuPattern, 400); });
+        });
+    </script>
+</body>
+</html>
