@@ -1,0 +1,22 @@
+{
+  "titre": "Puissances et racines carrées : calculs, écriture scientifique et radicaux",
+  "chapitre": "Puissances et racines carrées",
+  "date": "2026-11-01",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Détaille tes calculs et cite les règles ou identités utilisées.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Quelle est l'écriture simplifiée de 5³ × 5⁴ ?</p>", "choix": ["5¹²", "5⁷", "25⁷", "10⁷"] },
+    { "id": "q2", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Calcule 2⁻³ × 2⁵.</p>" },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>Écris (6 × 10⁵) × (4 × 10⁻⁹) en écriture scientifique.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>Écris √45 + √20 sous la forme a√5, où a est un entier. Détaille les étapes.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>a) Montre que (√5 + 2)² = 9 + 4√5, en citant l'identité utilisée. b) Calcule de la même façon (√5 − 2)². c) Déduis-en que (√5 + 2)² + (√5 − 2)² est un nombre entier que tu préciseras.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 13, "points": 2, "enonce": "<p>La lumière se déplace à la vitesse de 3 × 10⁸ m/s et met environ 500 s pour aller du Soleil à la Terre. a) Calcule la distance Soleil–Terre en mètres, en écriture scientifique. b) Mars est à 2,3 × 10¹¹ m du Soleil. Combien de temps la lumière met-elle pour aller du Soleil à Mars ? Donne le résultat en secondes arrondi à l'unité, puis en minutes arrondi au dixième.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Biologie et médecine", "enonce": "<p>À la question 3, tu as écrit un nombre sous la forme a × 10ⁿ avec 1 ≤ a < 10 (écriture scientifique). Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un laborantin calcule la moyenne de cinq mesures de température",
+      "Un artisan calcule la diagonale d'un carreau carré de côté 30 cm, qui mesure 30√2 cm",
+      "Un biologiste écrit la masse d'une bactérie, 0,000 000 000 001 g, sous la forme 1 × 10⁻¹² g pour comparer des ordres de grandeur",
+      "Un infirmier calcule une dose de médicament proportionnelle à la masse du patient"
+    ] }
+  ]
+}

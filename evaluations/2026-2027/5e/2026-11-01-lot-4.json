@@ -1,0 +1,21 @@
+{
+  "titre": "Périmètres et aires : parallélogramme, disque, triangle et figures composées",
+  "chapitre": "Périmètres et aires",
+  "date": "2026-11-01",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Écris les formules utilisées et n'oublie pas les unités. Arrondis au dixième lorsque c'est demandé.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Calcule l'aire, en cm², d'un parallélogramme de base 9 cm et de hauteur associée 6 cm.</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>Quelle est l'aire d'un disque de rayon 5 cm ?</p>", "choix": ["10π cm²", "25π cm²", "5π cm²", "50π cm²"] },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Convertis 4,2 m² en cm².</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Un triangle a une base de 12 cm et une aire de 30 cm². Calcule la hauteur associée à cette base. Justifie.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 3, "enonce": "<p>Une piste d'athlétisme est formée d'un rectangle de 20 m sur 8 m et de deux demi-disques de diamètre 8 m accolés aux deux petits côtés. a) Calcule l'aire de la piste, arrondie au dixième de m². b) Calcule le périmètre de la piste, arrondi au dixième de m.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Urbanisme", "enonce": "<p>À la question 2, tu as utilisé la formule A = π × r² pour l'aire d'un disque. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Une mairie cherche la surface de gazon à semer sur un rond-point circulaire de rayon 6 m",
+      "Une mairie cherche la longueur de bordure à poser autour d'un rond-point circulaire de rayon 6 m",
+      "Une mairie cherche la surface d'un parterre triangulaire de base 8 m et de hauteur 5 m",
+      "Une mairie cherche le nombre de places d'un parking de 450 m² à raison de 15 m² par place"
+    ] }
+  ]
+}

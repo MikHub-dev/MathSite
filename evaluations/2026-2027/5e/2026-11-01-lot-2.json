@@ -1,0 +1,22 @@
+{
+  "titre": "Symétrie centrale : propriétés, coordonnées et parallélogramme",
+  "chapitre": "Symétrie centrale",
+  "date": "2026-11-01",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Cite la propriété utilisée chaque fois que tu justifies une réponse.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Laquelle de ces figures possède un centre de symétrie ?</p>", "choix": ["Un triangle équilatéral", "Un trapèze quelconque", "Un parallélogramme", "Un triangle isocèle"] },
+    { "id": "q2", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Dans un repère d'origine O, le point A a pour coordonnées (5 ; −3). Quelle est l'abscisse de son symétrique A' par rapport à O ?</p>" },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>Le point A' est le symétrique du point A par rapport au point O, et AA' = 14 cm. Quelle est la longueur OA, en centimètres ?</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Le segment [A'B'] est le symétrique du segment [AB] par rapport à un point O, et AB = 6,5 cm. a) Donne la longueur A'B'. b) Que peut-on dire des droites (AB) et (A'B') ? Cite à chaque fois la propriété utilisée.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Dans un repère, on donne A(2 ; 5) et O(−1 ; 3). Détermine les coordonnées du point A', symétrique de A par rapport à O, en justifiant ta méthode.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Dans le quadrilatère ABCD, les diagonales [AC] et [BD] se coupent en O, qui est le milieu de [AC] et de [BD]. On sait que AB = 5 cm et BC = 8 cm. a) Quelle est la nature de ABCD ? Justifie. b) Donne les longueurs CD et AD en justifiant.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Art et design", "enonce": "<p>À la question 5, tu as utilisé le fait que, si A' est le symétrique de A par rapport à O, alors O est le milieu de [AA']. Dans laquelle de ces situations obtient-on un point à partir d'un autre de cette façon ?</p>", "choix": [
+      "Un designer répète un motif le long d'une frise en le faisant glisser, sans le tourner",
+      "Un designer dessine le reflet d'un logo dans une flaque d'eau, de l'autre côté d'une ligne",
+      "Un designer fait pivoter un motif d'un demi-tour autour d'un point : chaque point est envoyé à l'opposé, à la même distance du centre",
+      "Un designer agrandit une affiche en doublant toutes ses dimensions"
+    ] }
+  ]
+}

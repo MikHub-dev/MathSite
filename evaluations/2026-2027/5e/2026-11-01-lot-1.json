@@ -1,0 +1,22 @@
+{
+  "titre": "Expressions littérales : substitution, égalités et périmètres",
+  "chapitre": "Expressions littérales",
+  "date": "2026-11-01",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Détaille tes calculs et rédige tes réponses avec soin.</p>",
+  "questions": [
+    { "id": "q1", "type": "qcm", "niveau": 1, "tempsMinutes": 2, "points": 1, "enonce": "<p>Quelle est l'écriture simplifiée de 5 × a × 3 ?</p>", "choix": ["8a", "15a", "a15", "53a"] },
+    { "id": "q2", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Calcule 4x + 9 pour x = 6.</p>" },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 4, "points": 2, "enonce": "<p>Calcule 3a − 2b pour a = 7 et b = 4.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Teste l'égalité 3x + 4 = 5x − 2 pour x = 3, puis pour x = 5. Pour chaque valeur, indique si l'égalité est vraie ou fausse en montrant tes calculs.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Une place de cinéma coûte 8 € et Inès achète en plus un paquet de bonbons à 5 €. a) Exprime le prix total P, en euros, en fonction du nombre n de places achetées. b) Calcule P pour n = 4. c) Inès dispose de 40 € : peut-elle acheter 5 places et le paquet de bonbons ? Justifie.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 2, "enonce": "<p>Un terrain rectangulaire a pour longueur L mètres et pour largeur 5 mètres. a) Écris une expression de son périmètre sous la forme 2 × (L + 5). b) Développe cette expression. c) Calcule le périmètre pour L = 12,5.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Communication et téléphonie", "enonce": "<p>À la question 5, tu as écrit un prix total à l'aide d'une lettre : prix = 8 × n + 5, c'est-à-dire un prix par article multiplié par le nombre d'articles, plus un montant fixe. Dans laquelle de ces situations utilise-t-on une expression de ce type ?</p>", "choix": [
+      "Un opérateur compare les parts de marché de ses clients en pourcentages",
+      "Un opérateur facture un forfait de 10 € par mois plus 2 € par gigaoctet supplémentaire : pour n gigaoctets, le prix est 10 + 2 × n",
+      "Un opérateur lit sur une carte la distance entre deux antennes grâce à l'échelle",
+      "Un opérateur calcule la moyenne des durées des appels d'une semaine"
+    ] }
+  ]
+}

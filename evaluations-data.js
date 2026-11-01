@@ -4,6 +4,306 @@ window.EVALUATIONS = {
  "2026-2027": {
   "5e": [
    {
+    "id": "2026-11-01-lot-1",
+    "total": 10,
+    "titre": "Expressions littérales : substitution, égalités et périmètres",
+    "chapitre": "Expressions littérales",
+    "date": "2026-11-01",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Détaille tes calculs et rédige tes réponses avec soin.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Quelle est l'écriture simplifiée de 5 × a × 3 ?</p>",
+      "choix": [
+       "8a",
+       "15a",
+       "a15",
+       "53a"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule 4x + 9 pour x = 6.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Calcule 3a − 2b pour a = 7 et b = 4.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Teste l'égalité 3x + 4 = 5x − 2 pour x = 3, puis pour x = 5. Pour chaque valeur, indique si l'égalité est vraie ou fausse en montrant tes calculs.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Une place de cinéma coûte 8 € et Inès achète en plus un paquet de bonbons à 5 €. a) Exprime le prix total P, en euros, en fonction du nombre n de places achetées. b) Calcule P pour n = 4. c) Inès dispose de 40 € : peut-elle acheter 5 places et le paquet de bonbons ? Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Un terrain rectangulaire a pour longueur L mètres et pour largeur 5 mètres. a) Écris une expression de son périmètre sous la forme 2 × (L + 5). b) Développe cette expression. c) Calcule le périmètre pour L = 12,5.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Communication et téléphonie",
+      "enonce": "<p>À la question 5, tu as écrit un prix total à l'aide d'une lettre : prix = 8 × n + 5, c'est-à-dire un prix par article multiplié par le nombre d'articles, plus un montant fixe. Dans laquelle de ces situations utilise-t-on une expression de ce type ?</p>",
+      "choix": [
+       "Un opérateur compare les parts de marché de ses clients en pourcentages",
+       "Un opérateur facture un forfait de 10 € par mois plus 2 € par gigaoctet supplémentaire : pour n gigaoctets, le prix est 10 + 2 × n",
+       "Un opérateur lit sur une carte la distance entre deux antennes grâce à l'échelle",
+       "Un opérateur calcule la moyenne des durées des appels d'une semaine"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-01-lot-2",
+    "total": 10,
+    "titre": "Symétrie centrale : propriétés, coordonnées et parallélogramme",
+    "chapitre": "Symétrie centrale",
+    "date": "2026-11-01",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Cite la propriété utilisée chaque fois que tu justifies une réponse.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Laquelle de ces figures possède un centre de symétrie ?</p>",
+      "choix": [
+       "Un triangle équilatéral",
+       "Un trapèze quelconque",
+       "Un parallélogramme",
+       "Un triangle isocèle"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Dans un repère d'origine O, le point A a pour coordonnées (5 ; −3). Quelle est l'abscisse de son symétrique A' par rapport à O ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Le point A' est le symétrique du point A par rapport au point O, et AA' = 14 cm. Quelle est la longueur OA, en centimètres ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Le segment [A'B'] est le symétrique du segment [AB] par rapport à un point O, et AB = 6,5 cm. a) Donne la longueur A'B'. b) Que peut-on dire des droites (AB) et (A'B') ? Cite à chaque fois la propriété utilisée.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Dans un repère, on donne A(2 ; 5) et O(−1 ; 3). Détermine les coordonnées du point A', symétrique de A par rapport à O, en justifiant ta méthode.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Dans le quadrilatère ABCD, les diagonales [AC] et [BD] se coupent en O, qui est le milieu de [AC] et de [BD]. On sait que AB = 5 cm et BC = 8 cm. a) Quelle est la nature de ABCD ? Justifie. b) Donne les longueurs CD et AD en justifiant.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Art et design",
+      "enonce": "<p>À la question 5, tu as utilisé le fait que, si A' est le symétrique de A par rapport à O, alors O est le milieu de [AA']. Dans laquelle de ces situations obtient-on un point à partir d'un autre de cette façon ?</p>",
+      "choix": [
+       "Un designer répète un motif le long d'une frise en le faisant glisser, sans le tourner",
+       "Un designer dessine le reflet d'un logo dans une flaque d'eau, de l'autre côté d'une ligne",
+       "Un designer fait pivoter un motif d'un demi-tour autour d'un point : chaque point est envoyé à l'opposé, à la même distance du centre",
+       "Un designer agrandit une affiche en doublant toutes ses dimensions"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-01-lot-3",
+    "total": 10,
+    "titre": "Angles : triangles, angles supplémentaires et droites parallèles",
+    "chapitre": "Angles et parallélisme",
+    "date": "2026-11-01",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque réponse en citant la propriété utilisée.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Dans un triangle, deux angles mesurent 48° et 77°. Quelle est la mesure du troisième angle, en degrés ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Deux angles sont supplémentaires et l'un d'eux mesure 112°. Quelle est la mesure de l'autre ?</p>",
+      "choix": [
+       "78°",
+       "68°",
+       "22°",
+       "248°"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Le triangle ABC est isocèle en A et l'angle en A mesure 36°. Calcule la mesure de l'angle ABC en justifiant.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Deux droites parallèles (d) et (d') sont coupées par une sécante (s). L'angle aigu formé par (s) et (d) mesure 58°. a) Donne la mesure de son angle alterne-interne, formé par (s) et (d'), et cite la propriété utilisée. b) Donne la mesure de l'angle obtus formé par (s) et (d') qui est adjacent à cet angle alterne-interne. Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Les trois angles d'un triangle mesurent x°, 2x° et 3x°. a) Écris une équation traduisant que la somme des angles d'un triangle vaut 180°. b) Calcule la valeur de x puis les trois angles. c) Quelle est la nature de ce triangle ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Topographie et cartographie",
+      "enonce": "<p>À la question 1, tu as utilisé le fait que la somme des angles d'un triangle vaut 180°. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un géomètre sait qu'une rue forme un angle de 70° avec une avenue rectiligne et en déduit l'angle de 110° qu'elle forme avec le prolongement de l'avenue",
+       "Un géomètre calcule l'aire d'un terrain triangulaire à partir de sa base et de sa hauteur",
+       "Un géomètre utilise l'échelle d'une carte pour trouver une distance réelle",
+       "Un géomètre mesure deux angles d'un terrain triangulaire avec son appareil et en déduit le troisième sans le mesurer"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-01-lot-4",
+    "total": 10,
+    "titre": "Périmètres et aires : parallélogramme, disque, triangle et figures composées",
+    "chapitre": "Périmètres et aires",
+    "date": "2026-11-01",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Écris les formules utilisées et n'oublie pas les unités. Arrondis au dixième lorsque c'est demandé.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule l'aire, en cm², d'un parallélogramme de base 9 cm et de hauteur associée 6 cm.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 2,
+      "enonce": "<p>Quelle est l'aire d'un disque de rayon 5 cm ?</p>",
+      "choix": [
+       "10π cm²",
+       "25π cm²",
+       "5π cm²",
+       "50π cm²"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Convertis 4,2 m² en cm².</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Un triangle a une base de 12 cm et une aire de 30 cm². Calcule la hauteur associée à cette base. Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Une piste d'athlétisme est formée d'un rectangle de 20 m sur 8 m et de deux demi-disques de diamètre 8 m accolés aux deux petits côtés. a) Calcule l'aire de la piste, arrondie au dixième de m². b) Calcule le périmètre de la piste, arrondi au dixième de m.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Urbanisme",
+      "enonce": "<p>À la question 2, tu as utilisé la formule A = π × r² pour l'aire d'un disque. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Une mairie cherche la surface de gazon à semer sur un rond-point circulaire de rayon 6 m",
+       "Une mairie cherche la longueur de bordure à poser autour d'un rond-point circulaire de rayon 6 m",
+       "Une mairie cherche la surface d'un parterre triangulaire de base 8 m et de hauteur 5 m",
+       "Une mairie cherche le nombre de places d'un parking de 450 m² à raison de 15 m² par place"
+      ]
+     }
+    ]
+   },
+   {
     "id": "2026-10-25-lot-1",
     "total": 10,
     "titre": "Divisibilité : diviseurs, nombres premiers et multiples communs",
@@ -1840,6 +2140,316 @@ window.EVALUATIONS = {
    }
   ],
   "seconde": [
+   {
+    "id": "2026-11-01-lot-1",
+    "total": 10,
+    "titre": "Puissances et racines carrées : calculs, écriture scientifique et radicaux",
+    "chapitre": "Puissances et racines carrées",
+    "date": "2026-11-01",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Détaille tes calculs et cite les règles ou identités utilisées.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est l'écriture simplifiée de 5³ × 5⁴ ?</p>",
+      "choix": [
+       "5¹²",
+       "5⁷",
+       "25⁷",
+       "10⁷"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule 2⁻³ × 2⁵.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Écris (6 × 10⁵) × (4 × 10⁻⁹) en écriture scientifique.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Écris √45 + √20 sous la forme a√5, où a est un entier. Détaille les étapes.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>a) Montre que (√5 + 2)² = 9 + 4√5, en citant l'identité utilisée. b) Calcule de la même façon (√5 − 2)². c) Déduis-en que (√5 + 2)² + (√5 − 2)² est un nombre entier que tu préciseras.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 13,
+      "points": 2,
+      "enonce": "<p>La lumière se déplace à la vitesse de 3 × 10⁸ m/s et met environ 500 s pour aller du Soleil à la Terre. a) Calcule la distance Soleil–Terre en mètres, en écriture scientifique. b) Mars est à 2,3 × 10¹¹ m du Soleil. Combien de temps la lumière met-elle pour aller du Soleil à Mars ? Donne le résultat en secondes arrondi à l'unité, puis en minutes arrondi au dixième.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Biologie et médecine",
+      "enonce": "<p>À la question 3, tu as écrit un nombre sous la forme a × 10ⁿ avec 1 ≤ a < 10 (écriture scientifique). Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un laborantin calcule la moyenne de cinq mesures de température",
+       "Un artisan calcule la diagonale d'un carreau carré de côté 30 cm, qui mesure 30√2 cm",
+       "Un biologiste écrit la masse d'une bactérie, 0,000 000 000 001 g, sous la forme 1 × 10⁻¹² g pour comparer des ordres de grandeur",
+       "Un infirmier calcule une dose de médicament proportionnelle à la masse du patient"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-01-lot-2",
+    "total": 10,
+    "titre": "Équations : premier degré, produit nul et comparaison de tarifs",
+    "chapitre": "Équations et inéquations",
+    "date": "2026-11-01",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Détaille chaque résolution et vérifie tes solutions.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Résous l'équation 4x − 9 = 15. Donne la valeur de x.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est la solution de l'équation 2x − 7 = 3x + 1 ?</p>",
+      "choix": [
+       "x = −8",
+       "x = 8",
+       "x = −6",
+       "x = 6"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Résous l'équation (x − 4)(3x + 6) = 0 en citant la propriété utilisée.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Résous l'équation 3(x − 2) + 5 = 2(x + 4) − 1, puis vérifie ta solution.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Un parc d'attractions propose deux tarifs. Tarif A : 12 € l'entrée plus 3 € par attraction. Tarif B : 30 € l'entrée plus 1 € par attraction. a) Exprime en fonction du nombre n d'attractions le prix payé avec chaque tarif. b) Pour quelle valeur de n les deux tarifs sont-ils égaux ? c) Pour 12 attractions, quel tarif choisir ? Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 13,
+      "points": 2,
+      "enonce": "<p>a) Résous x² − 4x = 0 en factorisant. b) Résous (x + 3)(2x − 1) = (x + 3)(x + 4), en te ramenant à une équation produit nul. c) Explique pourquoi diviser les deux membres par x + 3 ferait perdre une solution.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Numérique et streaming",
+      "enonce": "<p>À la question 5, tu as cherché pour quelle valeur de n deux prix sont égaux, c'est-à-dire que tu as résolu une équation. Dans laquelle de ces situations le fait-on ?</p>",
+      "choix": [
+       "Une plateforme calcule le prix de 8 films loués à 4 € l'unité",
+       "Une plateforme calcule le pourcentage d'abonnés qui regardent des séries",
+       "Une plateforme calcule le temps de téléchargement d'un film en divisant sa taille par le débit",
+       "Une plateforme cherche le nombre de films pour lequel la location à 4 € l'unité coûte exactement autant que l'abonnement mensuel de 20 €"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-01-lot-3",
+    "total": 10,
+    "titre": "Inéquations du premier degré : résolution, intervalles et problèmes",
+    "chapitre": "Équations et inéquations",
+    "date": "2026-11-01",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Donne les ensembles de solutions sous forme d'intervalles et attention au sens des inégalités.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle inégalité est équivalente à −2x > 8 ?</p>",
+      "choix": [
+       "x > −4",
+       "x < −4",
+       "x > 4",
+       "x < 4"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le plus petit entier x qui vérifie 3x − 4 ≥ 8 ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Résous l'inéquation 2x + 5 < 7x − 10 et donne l'ensemble des solutions sous forme d'intervalle.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Résous l'inéquation 4(x − 1) ≥ 6x + 2 et donne l'ensemble des solutions sous forme d'intervalle.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 13,
+      "points": 2,
+      "enonce": "<p>Un artisan vend des bougies 7 € l'unité. Chaque mois, il paie 240 € de frais fixes et 3 € de fabrication par bougie. a) Exprime son bénéfice B(n) en fonction du nombre n de bougies vendues. b) À partir de combien de bougies vendues le bénéfice est-il positif ou nul ? c) Combien de bougies doit-il vendre au minimum pour obtenir un bénéfice d'au moins 100 € ?</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 13,
+      "points": 2,
+      "enonce": "<p>a) Résous le système d'inéquations 2x − 3 ≤ 9 et −x + 4 < 1. b) Donne l'ensemble des solutions sous forme d'intervalle. c) Combien d'entiers cet intervalle contient-il ? Précise-les.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Agriculture",
+      "enonce": "<p>À la question 5, tu as cherché à partir de combien de bougies le bénéfice devient positif : tu as résolu une inéquation pour trouver un seuil. Dans laquelle de ces situations le fait-on ?</p>",
+      "choix": [
+       "Un agriculteur cherche à partir de combien de paniers à 12 € vendus ses recettes dépassent ses frais de 900 €",
+       "Un agriculteur cherche combien de paniers à 12 € il doit vendre pour obtenir exactement une recette de 960 €",
+       "Un agriculteur calcule l'aire d'un champ rectangulaire de 120 m sur 45 m",
+       "Un agriculteur calcule le rendement moyen de ses cinq parcelles"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-01-lot-4",
+    "total": 10,
+    "titre": "Probabilités : événement contraire, réunion, dés et arbres pondérés",
+    "chapitre": "Probabilités",
+    "date": "2026-11-01",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Donne les probabilités sous forme de fractions irréductibles ou de nombres décimaux, et justifie ton raisonnement.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>On sait que P(A) = 0,28. Calcule la probabilité de l'événement contraire de A.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>On sait que P(A) = 0,45, P(B) = 0,3 et P(A ∩ B) = 0,12. Calcule P(A ∪ B).</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Dans une classe de 30 élèves, 18 étudient l'anglais, 12 étudient l'espagnol et 5 étudient les deux langues. On choisit un élève au hasard. Calcule la probabilité qu'il étudie au moins une de ces deux langues, puis celle qu'il n'en étudie aucune.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>On lance deux dés équilibrés à 6 faces. Calcule la probabilité que la somme des deux nombres obtenus soit égale à 9. Justifie en listant les issues favorables.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Une urne contient 3 boules rouges et 2 boules vertes. On tire successivement deux boules avec remise. a) Décris l'arbre pondéré de l'expérience. b) Calcule la probabilité d'obtenir deux boules de la même couleur.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>On reprend la même urne (3 boules rouges et 2 boules vertes), mais on tire maintenant deux boules successivement et sans remise. Calcule la probabilité d'obtenir deux boules de couleurs différentes. Compare avec le tirage avec remise pour cet événement.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Industrie et qualité",
+      "enonce": "<p>À la question 5, tu as multiplié les probabilités le long des branches d'un arbre pour obtenir la probabilité de deux résultats successifs. Dans laquelle de ces situations le fait-on ?</p>",
+      "choix": [
+       "Une usine sait qu'une pièce est conforme avec la probabilité 1 − 0,02 = 0,98, car elle est défectueuse avec la probabilité 0,02",
+       "Une usine sait qu'une pièce est défectueuse avec la probabilité 0,02, indépendamment des autres, et calcule 0,02 × 0,02 pour la probabilité que deux pièces contrôlées l'une après l'autre le soient",
+       "Une usine compte 12 pièces défectueuses parmi 500 contrôlées et en déduit la proportion de pièces défectueuses",
+       "Une usine additionne les pièces produites chaque jour pour connaître la production de la semaine"
+      ]
+     }
+    ]
+   },
    {
     "id": "2026-10-25-lot-1",
     "total": 10,
@@ -4977,20 +5587,20 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-10-25T04:25:53.557Z",
+  "genereLe": "2026-11-01T10:22:29.896Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 23,
-        "ouvertes": 10,
+        "total": 27,
+        "ouvertes": 14,
         "enAttente": 0,
         "fermees": 13,
         "copiesCorrigees": 12,
         "moyenneSur20": 16.6
       },
       "seconde": {
-        "total": 25,
-        "ouvertes": 16,
+        "total": 29,
+        "ouvertes": 20,
         "enAttente": 0,
         "fermees": 9,
         "copiesCorrigees": 9,
