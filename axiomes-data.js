@@ -21,7 +21,29 @@ window.AXIOMES_INTRO = {
     "Étymologiquement, le terme axiome vient du grec ancien <span class=\"ax-grec\">αξιωμα</span>, signifiant « digne d’être pris en considération et donc, évident en soi », qui dérive lui-même de l’adjectif <span class=\"ax-grec\">αξιος</span>, signifiant « <span class=\"ax-grec\">digne</span> ». Il désigne une vérité indémontrable qui doit être admise. Toute démonstration part de prémisses : des propriétés déjà démontrées, ou des affirmations admises sans preuve. En remontant le fil de toutes les démonstrations d’une théorie, on aboutit forcément à un nombre fini de points de départ non démontrés : les <strong>axiomes</strong>.",
     "Pour les Grecs, et jusqu’au début du XIX<sup>e</sup> siècle, un axiome était une vérité évidente en soi (les <em>Éléments</em> d’Euclide). Aujourd’hui, un axiome est une vérité première acceptée <em>à l’intérieur d’une théorie</em> : il postule l’existence d’objets non définis et de relations entre eux, sans valeur de vérité « morale ». L’ensemble des axiomes d’une théorie s’appelle une <strong>axiomatique</strong> ; sa seule contrainte est d’être <strong>non contradictoire</strong>.",
     "Le tableau ci-dessous recense les grands systèmes d’axiomes. Cliquez sur un système pour ouvrir sa page."
-  ]
+  ],
+  // Encart « Axiome ou conjecture ? » (affiché sous l’encart précédent)
+  conjecture: {
+    titre: "Axiome ou conjecture ?",
+    html: [
+      "<p>Un <strong>axiome</strong> est un énoncé que l’on pose comme point de départ, sans le démontrer. Une <strong>conjecture</strong> est un énoncé que l’on pense vrai, mais que l’on cherche encore à démontrer.</p>",
+      "<h3>Axiome</h3><ul>",
+      "<li>C’est une règle du jeu : on l’accepte, et toute la théorie se construit dessus.</li>",
+      "<li>Exemples : « par deux points passe une seule droite » (géométrie d’Euclide), ou les axiomes de Peano pour les entiers.</li>",
+      "<li>On ne le « prouve » pas. On choisit simplement lequel adopter.</li>",
+      "<li>Changer d’axiome change la théorie. Sans l’axiome des parallèles d’Euclide, on obtient les géométries non euclidiennes.</li></ul>",
+      "<h3>Conjecture</h3><ul>",
+      "<li>C’est une hypothèse appuyée par des indices, souvent de nombreux exemples vérifiés, mais sans preuve.</li>",
+      "<li>Exemples : la conjecture de Goldbach, celle de Syracuse.</li>",
+      "<li>Elle a un statut provisoire. Une fois démontrée, elle devient un théorème (Fermat, Poincaré). Un seul contre-exemple suffit à la réfuter.</li></ul>",
+      "<h3>Le lien entre les deux : l’hypothèse du continu</h3><ul>",
+      "<li>Cantor l’avait posée comme conjecture en 1878.</li>",
+      "<li>Gödel (1940) puis Cohen (1963) ont montré qu’on ne peut ni la démontrer ni la réfuter à partir des axiomes usuels (ZFC).</li>",
+      "<li>Elle est donc indépendante de ces axiomes. On peut l’ajouter ou ajouter sa négation comme nouvel axiome, et les deux théories sont cohérentes (si ZFC l’est).</li>",
+      "<li>Une conjecture n’est donc pas toujours vraie ou fausse « en soi » : tout dépend des axiomes choisis.</li></ul>",
+      "<p><strong>En résumé :</strong> un axiome se choisit, une conjecture se démontre ou se réfute, et un théorème est une conjecture démontrée.</p>"
+    ].join("")
+  }
 };
 
 window.AXIOMES_INDEX = [

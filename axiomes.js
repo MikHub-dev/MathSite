@@ -93,6 +93,12 @@
            ${intro.paragraphes.map(p => `<p>${p}</p>`).join("")}
          </div>`
       : "";
+    const conj = intro && intro.conjecture
+      ? `<div class="ax-encart ax-conjecture-box">
+           <h2>${esc(intro.conjecture.titre)}</h2>
+           ${intro.conjecture.html}
+         </div>`
+      : "";
     return `
       <div class="axiomes-page">
         <div class="ax-entete">
@@ -104,6 +110,7 @@
           algèbre, géométrie, analyse, probabilités et calcul lambda.
         </p>
         ${introHtml}
+        ${conj}
         <table class="axiomes-table">
           <thead>
             <tr>

@@ -225,3 +225,8 @@
   font-weight: 800;
   text-shadow: 0 0 6px rgba(255, 255, 255, .85), 0 0 14px rgba(255, 255, 255, .45);
 }
+
+/* Encart « Axiome ou conjecture ? » */
+.axiomes-page .ax-encart h3 { margin: 12px 0 4px; font-size: 15px; color: #ffb86b; }
+.axiomes-page .ax-encart ul { margin: 0 0 8px; padding-left: 20px; color: #c8c8c8; line-height: 1.6; font-size: 14.5px; }
+.axiomes-page .ax-encart li { margin: 2px 0; }
