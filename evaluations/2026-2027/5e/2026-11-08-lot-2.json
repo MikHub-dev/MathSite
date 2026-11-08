@@ -1,0 +1,22 @@
+{
+  "titre": "Priorités opératoires : parenthèses et calcul en une ligne",
+  "chapitre": "Calcul et priorités opératoires",
+  "date": "2026-11-08",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Détaille chaque calcul ligne par ligne en respectant les priorités opératoires.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Calcule : 14 − 4 × 3.</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Quel est le résultat de (14 − 4) × 3 ?</p>", "choix": ["42", "2", "18", "30"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Calcule en détaillant les étapes : 4 + 6 × (9 − 5) ÷ 8.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 1, "enonce": "<p>Place des parenthèses pour que l'égalité soit vraie : 3 + 5 × 4 − 2 = 30. Vérifie par le calcul.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 8, "points": 3, "enonce": "<p>Léa achète 4 carnets à 2,50 € l'un et 2 stylos à 1,75 € l'un. Elle paie avec un billet de 20 €. Écris en une seule ligne le calcul de la monnaie qu'on lui rend, puis effectue-le.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 6, "points": 2, "enonce": "<p>Un élève a écrit : « 24 − 8 ÷ 4 + 2 = 6 ». Explique son erreur, puis donne le bon résultat.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Informatique et tableur", "enonce": "<p>À la question 5, tu as appliqué la règle : on effectue d'abord les parenthèses, puis les multiplications et divisions, puis les additions et soustractions. Dans laquelle de ces situations cette règle décide-t-elle du résultat affiché ?</p>", "choix": [
+      "Un tableur trie une colonne de prix du plus petit au plus grand",
+      "Un tableur calcule la somme 2 + 3 + 4 en lisant de gauche à droite",
+      "Un tableur colore en rouge les cellules dont la valeur est négative",
+      "Un tableur affiche le résultat de la formule =20-4*2,5 : il calcule d'abord 4*2,5"
+    ] }
+  ]
+}

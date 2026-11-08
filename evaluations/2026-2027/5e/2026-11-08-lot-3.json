@@ -1,0 +1,21 @@
+{
+  "titre": "Volumes : conversions, prisme droit et cylindre",
+  "chapitre": "Volumes",
+  "date": "2026-11-08",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Écris les formules utilisées et n'oublie pas les unités. Arrondis au dixième lorsque c'est demandé.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Calcule le volume, en cm³, d'un pavé droit de dimensions 6 cm, 5 cm et 4 cm.</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Combien de cm³ y a-t-il dans 3,5 L ?</p>", "choix": ["350 cm³", "35 000 cm³", "3 500 cm³", "35 cm³"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Un prisme droit a pour base un triangle rectangle dont les côtés de l'angle droit mesurent 6 cm et 5 cm. Sa hauteur est 12 cm. Calcule son volume.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 3, "tempsMinutes": 9, "points": 3, "enonce": "<p>Une boîte de conserve est un cylindre de rayon 4 cm et de hauteur 10 cm. Calcule son volume : donne la valeur exacte, puis l'arrondi au dixième de cm³.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 3, "enonce": "<p>Un aquarium a la forme d'un pavé droit de 60 cm de long, 30 cm de large et 40 cm de haut. Il est rempli aux 2/3 de sa capacité.</p><p>a) Quel volume d'eau contient-il, en litres ?</p><p>b) Peut-on y verser 30 litres d'eau supplémentaires sans qu'il déborde ? Justifie.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Chimie", "enonce": "<p>À la question 4, tu as utilisé la formule V = π × r² × h pour le volume d'un cylindre. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un laboratoire cherche l'aire du disque de verre qui ferme un bécher cylindrique de rayon 4 cm",
+      "Un laboratoire cherche la longueur de ruban adhésif à enrouler autour du bord circulaire d'un bécher de rayon 4 cm",
+      "Un laboratoire cherche le volume de liquide contenu dans un bécher cylindrique de rayon 4 cm rempli sur 10 cm de hauteur",
+      "Un laboratoire cherche l'aire de l'étiquette rectangulaire collée autour d'un bécher cylindrique"
+    ] }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "titre": "Ensembles de nombres, intervalles et valeur absolue",
+  "chapitre": "Ensembles de nombres et intervalles",
+  "date": "2026-11-08",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie tes réponses. Les ensembles de solutions s'écrivent sous forme d'intervalles ou de réunions d'intervalles.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Combien d'entiers relatifs appartiennent à l'intervalle [−2 ; 3] ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 4, "points": 1, "enonce": "<p>Quel est le plus petit des ensembles ℕ, ℤ, 𝔻, ℚ qui contient le nombre 7/4 ?</p>", "choix": ["ℕ", "ℤ", "𝔻", "ℚ"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>Détermine [−3 ; 2] ∩ ]0 ; 5[ et [−3 ; 2] ∪ ]0 ; 5[.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 1, "enonce": "<p>Résous l'inéquation −2x + 3 > 7 et donne l'ensemble des solutions sous forme d'intervalle.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Résous l'inéquation |x + 2| < 3 en interprétant la valeur absolue comme une distance, puis donne l'ensemble des solutions sous forme d'intervalle.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 3, "enonce": "<p>Démontre que le nombre 1/6 n'est pas un nombre décimal. Tu pourras raisonner par l'absurde.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Fabrication", "enonce": "<p>À la question 5, tu as utilisé le fait que |x − a| ≤ r signifie que x est à une distance de a d'au plus r. Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Une usine calcule le volume moyen de 5 bouteilles prélevées sur la chaîne",
+      "Une usine note que le volume de remplissage d'une bouteille doit être supérieur à 50 cl",
+      "Une usine compte le nombre de bouteilles produites en une heure",
+      "Une usine accepte une bouteille si son volume v, en cl, vérifie |v − 50| ≤ 0,5, c'est-à-dire s'il s'écarte d'au plus 0,5 cl de 50 cl"
+    ] }
+  ]
+}

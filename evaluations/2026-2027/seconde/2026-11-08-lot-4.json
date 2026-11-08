@@ -1,0 +1,22 @@
+{
+  "titre": "Probabilités : événement contraire, réunion, équiprobabilité et arbre",
+  "chapitre": "Probabilités",
+  "date": "2026-11-08",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie tes calculs. Donne les probabilités sous forme de fractions irréductibles ou de nombres décimaux.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Une urne contient 4 boules rouges et 6 boules bleues, indiscernables au toucher. On tire une boule au hasard. Donne, sous forme décimale, la probabilité d'obtenir une boule rouge.</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 4, "points": 1, "enonce": "<p>Un événement A a pour probabilité P(A) = 0,28. Quelle est la probabilité de l'événement contraire de A ?</p>", "choix": ["0,28", "1,28", "0,62", "0,72"] },
+    { "id": "q3", "type": "numerique", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>On donne P(A) = 0,45, P(B) = 0,30 et P(A ∩ B) = 0,10. Calcule P(A ∪ B).</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>On tire une carte au hasard dans un jeu de 32 cartes. Calcule la probabilité d'obtenir un pique, celle d'obtenir une figure (valet, dame ou roi), puis celle d'obtenir un pique ou une figure. Justifie.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>On lance deux dés équilibrés à six faces et on additionne les deux nombres obtenus.</p><p>a) Calcule la probabilité d'obtenir une somme égale à 8.</p><p>b) Calcule la probabilité d'obtenir une somme supérieure ou égale à 10.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Une urne contient 3 boules rouges et 2 boules vertes. On tire une boule, on note sa couleur, on la remet dans l'urne, puis on en tire une seconde.</p><p>Construis un arbre pondéré décrivant cette expérience, puis calcule la probabilité d'obtenir deux boules de la même couleur.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Marketing", "enonce": "<p>À la question 3, tu as utilisé la formule P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Dans laquelle de ces situations l'utilise-t-on ?</p>", "choix": [
+      "Un service de streaming connaît la part d'abonnés qui regardent des séries (45 %), celle qui regardent des films (30 %) et celle qui regardent les deux (10 %) : il cherche la part de ceux qui regardent au moins l'un des deux",
+      "Un service de streaming sait que 45 % de ses abonnés regardent des séries : il cherche la part de ceux qui n'en regardent pas",
+      "Un service de streaming cherche la durée moyenne de visionnage de ses abonnés sur une semaine",
+      "Un service de streaming cherche la part d'abonnés qui regardent à la fois des séries et des films"
+    ] }
+  ]
+}

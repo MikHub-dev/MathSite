@@ -4,6 +4,314 @@ window.EVALUATIONS = {
  "2026-2027": {
   "5e": [
    {
+    "id": "2026-11-08-lot-1",
+    "total": 10,
+    "titre": "Fractions : additionner, soustraire et résoudre un problème",
+    "chapitre": "Fractions",
+    "date": "2026-11-08",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Donne chaque résultat sous la forme d'une fraction simplifiée au maximum et détaille tes calculs.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Complète l'égalité : 5/6 = …/42. Quel nombre doit-on écrire à la place des points ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Laquelle de ces fractions est égale à 12/18 ?</p>",
+      "choix": [
+       "3/4",
+       "2/3",
+       "6/10",
+       "4/9"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Calcule 3/4 + 5/12 et donne le résultat sous la forme d'une fraction irréductible.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Compare 7/8 et 5/6 en les réduisant au même dénominateur. Justifie ta réponse.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Calcule 7/10 − 1/5 et simplifie le résultat. Détaille les étapes.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Dans un club de sport, 2/5 des adhérents font du judo, 1/3 font du tennis et tous les autres font de la natation (chaque adhérent pratique une seule activité).</p><p>a) Quelle fraction des adhérents fait de la natation ?</p><p>b) Le club compte 90 adhérents. Combien font de la natation ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Cuisine",
+      "enonce": "<p>À la question 3, tu as additionné deux fractions après les avoir mises au même dénominateur. Dans laquelle de ces situations additionne-t-on des fractions ?</p>",
+      "choix": [
+       "Un pâtissier veut partager 3/4 de litre de lait en 3 verres identiques",
+       "Un pâtissier verse 1/4 de litre de lait puis 1/2 litre de crème dans le même saladier et veut connaître la quantité totale",
+       "Un pâtissier veut savoir laquelle de deux recettes demande la plus grande part de sucre : 3/8 ou 2/5 de la masse",
+       "Un pâtissier veut tripler une recette qui demande 1/4 de litre de lait"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-08-lot-2",
+    "total": 10,
+    "titre": "Priorités opératoires : parenthèses et calcul en une ligne",
+    "chapitre": "Calcul et priorités opératoires",
+    "date": "2026-11-08",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Détaille chaque calcul ligne par ligne en respectant les priorités opératoires.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule : 14 − 4 × 3.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le résultat de (14 − 4) × 3 ?</p>",
+      "choix": [
+       "42",
+       "2",
+       "18",
+       "30"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Calcule en détaillant les étapes : 4 + 6 × (9 − 5) ÷ 8.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 1,
+      "enonce": "<p>Place des parenthèses pour que l'égalité soit vraie : 3 + 5 × 4 − 2 = 30. Vérifie par le calcul.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 8,
+      "points": 3,
+      "enonce": "<p>Léa achète 4 carnets à 2,50 € l'un et 2 stylos à 1,75 € l'un. Elle paie avec un billet de 20 €. Écris en une seule ligne le calcul de la monnaie qu'on lui rend, puis effectue-le.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Un élève a écrit : « 24 − 8 ÷ 4 + 2 = 6 ». Explique son erreur, puis donne le bon résultat.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Informatique et tableur",
+      "enonce": "<p>À la question 5, tu as appliqué la règle : on effectue d'abord les parenthèses, puis les multiplications et divisions, puis les additions et soustractions. Dans laquelle de ces situations cette règle décide-t-elle du résultat affiché ?</p>",
+      "choix": [
+       "Un tableur trie une colonne de prix du plus petit au plus grand",
+       "Un tableur calcule la somme 2 + 3 + 4 en lisant de gauche à droite",
+       "Un tableur colore en rouge les cellules dont la valeur est négative",
+       "Un tableur affiche le résultat de la formule =20-4*2,5 : il calcule d'abord 4*2,5"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-08-lot-3",
+    "total": 10,
+    "titre": "Volumes : conversions, prisme droit et cylindre",
+    "chapitre": "Volumes",
+    "date": "2026-11-08",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Écris les formules utilisées et n'oublie pas les unités. Arrondis au dixième lorsque c'est demandé.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule le volume, en cm³, d'un pavé droit de dimensions 6 cm, 5 cm et 4 cm.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Combien de cm³ y a-t-il dans 3,5 L ?</p>",
+      "choix": [
+       "350 cm³",
+       "35 000 cm³",
+       "3 500 cm³",
+       "35 cm³"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Un prisme droit a pour base un triangle rectangle dont les côtés de l'angle droit mesurent 6 cm et 5 cm. Sa hauteur est 12 cm. Calcule son volume.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 9,
+      "points": 3,
+      "enonce": "<p>Une boîte de conserve est un cylindre de rayon 4 cm et de hauteur 10 cm. Calcule son volume : donne la valeur exacte, puis l'arrondi au dixième de cm³.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Un aquarium a la forme d'un pavé droit de 60 cm de long, 30 cm de large et 40 cm de haut. Il est rempli aux 2/3 de sa capacité.</p><p>a) Quel volume d'eau contient-il, en litres ?</p><p>b) Peut-on y verser 30 litres d'eau supplémentaires sans qu'il déborde ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Chimie",
+      "enonce": "<p>À la question 4, tu as utilisé la formule V = π × r² × h pour le volume d'un cylindre. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un laboratoire cherche l'aire du disque de verre qui ferme un bécher cylindrique de rayon 4 cm",
+       "Un laboratoire cherche la longueur de ruban adhésif à enrouler autour du bord circulaire d'un bécher de rayon 4 cm",
+       "Un laboratoire cherche le volume de liquide contenu dans un bécher cylindrique de rayon 4 cm rempli sur 10 cm de hauteur",
+       "Un laboratoire cherche l'aire de l'étiquette rectangulaire collée autour d'un bécher cylindrique"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-08-lot-4",
+    "total": 10,
+    "titre": "Calcul littéral : développer, tester une égalité et prouver",
+    "chapitre": "Expressions littérales",
+    "date": "2026-11-08",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Détaille tes calculs et rédige tes réponses avec soin.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule 4x + 7 pour x = 5.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est l'écriture simplifiée de 3 × a × 4 × b ?</p>",
+      "choix": [
+       "7ab",
+       "12ab",
+       "34ab",
+       "12 + ab"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Développe puis réduis : 3(x + 5) + 2x.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Teste l'égalité 3x − 4 = x + 6 pour x = 5, puis pour x = 3. Conclus pour chaque valeur.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Un rectangle a pour largeur ℓ cm et sa longueur mesure 4 cm de plus que sa largeur. Écris une expression du périmètre, développe-la, puis calcule le périmètre pour ℓ = 3,5.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Voici un programme de calcul : choisir un nombre, lui ajouter 5, multiplier le résultat par 2, soustraire 4, puis soustraire le double du nombre choisi au départ.</p><p>En appelant x le nombre choisi, montre que le résultat est toujours le même, quel que soit x. Quel est ce résultat ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Sport et loisirs",
+      "enonce": "<p>À la question 1, tu as remplacé x par une valeur dans l'expression 4x + 7. Dans laquelle de ces situations fait-on la même chose ?</p>",
+      "choix": [
+       "Une salle de sport facture 7 € d'inscription plus 4 € par séance : on calcule le prix à payer pour 5 séances",
+       "Une salle de sport propose deux forfaits : on cherche pour quel nombre de séances ils coûtent le même prix",
+       "Une salle de sport partage une facture de 120 € entre 5 associations",
+       "Une salle de sport classe les tarifs du plus petit au plus grand"
+      ]
+     }
+    ]
+   },
+   {
     "id": "2026-11-01-lot-1",
     "total": 10,
     "titre": "Expressions littérales : substitution, égalités et périmètres",
@@ -2140,6 +2448,322 @@ window.EVALUATIONS = {
    }
   ],
   "seconde": [
+   {
+    "id": "2026-11-08-lot-1",
+    "total": 10,
+    "titre": "Équations et inéquations : résolution et mise en équation",
+    "chapitre": "Équations et inéquations",
+    "date": "2026-11-08",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque résolution et donne les solutions des inéquations sous forme d'intervalles.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Résous l'équation 4x − 9 = 15. Quelle est la valeur de x ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Quel est l'ensemble des solutions de l'inéquation 3x + 2 < 11 ?</p>",
+      "choix": [
+       "]3 ; +∞[",
+       "]−∞ ; 3]",
+       "]−∞ ; 3[",
+       "]−∞ ; 13/3["
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Résous l'équation (2x − 6)(x + 5) = 0 en citant la propriété utilisée.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Résous l'inéquation 7 − 3x ≥ x + 19 et donne l'ensemble des solutions sous forme d'intervalle.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Un cinéma propose deux formules. Formule A : 8 € la séance, sans abonnement. Formule B : un abonnement de 30 € pour l'année, puis 5 € la séance.</p><p>On note n le nombre de séances dans l'année. Écris une inéquation traduisant « la formule B est strictement moins chère que la formule A », résous-la et conclus : à partir de combien de séances la formule B est-elle la plus avantageuse ?</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Résous l'équation (x − 4)² = 3(x − 4) sans diviser par x − 4. Explique pourquoi cette division serait une erreur.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Télécommunications",
+      "enonce": "<p>À la question 5, tu as comparé deux tarifs en résolvant une inéquation. Dans laquelle de ces situations fait-on la même démarche ?</p>",
+      "choix": [
+       "Un opérateur calcule la consommation moyenne de données d'un client sur 6 mois",
+       "Un opérateur calcule le prix d'un forfait pour 8 Go de données consommés",
+       "Un opérateur cherche à partir de quel volume de données le forfait B (20 € + 0,25 € par Go) devient moins cher que le forfait A (12 € + 0,50 € par Go)",
+       "Un opérateur convertit en mégaoctets le volume d'une vidéo de 2,5 Go"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-08-lot-2",
+    "total": 10,
+    "titre": "Puissances et racines carrées : écriture scientifique et simplification",
+    "chapitre": "Puissances et racines carrées",
+    "date": "2026-11-08",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Détaille tes calculs, cite les règles ou identités utilisées et donne les résultats sous la forme demandée.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule 3⁴ ÷ 3².</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Écris (4 × 10³) × (5 × 10⁻⁵) en écriture scientifique. Quelle est la bonne réponse ?</p>",
+      "choix": [
+       "2 × 10⁻²",
+       "20 × 10⁻²",
+       "9 × 10⁻²",
+       "2 × 10⁻¹"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Écris A = 2√48 − √27 + √3 sous la forme a√3, où a est un entier. Détaille les étapes.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Montre que (√7 − 3)² = 16 − 6√7, en citant l'identité remarquable utilisée.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>La lumière se propage à la vitesse de 3 × 10⁸ m/s. Elle met environ 480 secondes pour aller du Soleil à la Terre.</p><p>Calcule la distance Soleil–Terre en mètres, puis en kilomètres. Donne chaque résultat en écriture scientifique.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Compare 3√5 et 2√11 sans calculatrice. Justifie soigneusement ta réponse.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Biologie",
+      "enonce": "<p>À la question 5, tu as écrit de très grands nombres sous la forme a × 10ⁿ. Dans laquelle de ces situations utilise-t-on cette écriture ?</p>",
+      "choix": [
+       "Un biologiste exprime la taille d'une bactérie, 0,0000025 m, sous la forme 2,5 × 10⁻⁶ m",
+       "Un biologiste calcule la taille moyenne de 20 bactéries observées au microscope",
+       "Un biologiste calcule la proportion de cellules malades dans un échantillon de 80 cellules",
+       "Un biologiste classe des mesures du plus petit au plus grand"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-08-lot-3",
+    "total": 10,
+    "titre": "Ensembles de nombres, intervalles et valeur absolue",
+    "chapitre": "Ensembles de nombres et intervalles",
+    "date": "2026-11-08",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie tes réponses. Les ensembles de solutions s'écrivent sous forme d'intervalles ou de réunions d'intervalles.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Combien d'entiers relatifs appartiennent à l'intervalle [−2 ; 3] ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Quel est le plus petit des ensembles ℕ, ℤ, 𝔻, ℚ qui contient le nombre 7/4 ?</p>",
+      "choix": [
+       "ℕ",
+       "ℤ",
+       "𝔻",
+       "ℚ"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>Détermine [−3 ; 2] ∩ ]0 ; 5[ et [−3 ; 2] ∪ ]0 ; 5[.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 1,
+      "enonce": "<p>Résous l'inéquation −2x + 3 > 7 et donne l'ensemble des solutions sous forme d'intervalle.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Résous l'inéquation |x + 2| < 3 en interprétant la valeur absolue comme une distance, puis donne l'ensemble des solutions sous forme d'intervalle.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 3,
+      "enonce": "<p>Démontre que le nombre 1/6 n'est pas un nombre décimal. Tu pourras raisonner par l'absurde.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Fabrication",
+      "enonce": "<p>À la question 5, tu as utilisé le fait que |x − a| ≤ r signifie que x est à une distance de a d'au plus r. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Une usine calcule le volume moyen de 5 bouteilles prélevées sur la chaîne",
+       "Une usine note que le volume de remplissage d'une bouteille doit être supérieur à 50 cl",
+       "Une usine compte le nombre de bouteilles produites en une heure",
+       "Une usine accepte une bouteille si son volume v, en cl, vérifie |v − 50| ≤ 0,5, c'est-à-dire s'il s'écarte d'au plus 0,5 cl de 50 cl"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-08-lot-4",
+    "total": 10,
+    "titre": "Probabilités : événement contraire, réunion, équiprobabilité et arbre",
+    "chapitre": "Probabilités",
+    "date": "2026-11-08",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie tes calculs. Donne les probabilités sous forme de fractions irréductibles ou de nombres décimaux.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Une urne contient 4 boules rouges et 6 boules bleues, indiscernables au toucher. On tire une boule au hasard. Donne, sous forme décimale, la probabilité d'obtenir une boule rouge.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 4,
+      "points": 1,
+      "enonce": "<p>Un événement A a pour probabilité P(A) = 0,28. Quelle est la probabilité de l'événement contraire de A ?</p>",
+      "choix": [
+       "0,28",
+       "1,28",
+       "0,62",
+       "0,72"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>On donne P(A) = 0,45, P(B) = 0,30 et P(A ∩ B) = 0,10. Calcule P(A ∪ B).</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>On tire une carte au hasard dans un jeu de 32 cartes. Calcule la probabilité d'obtenir un pique, celle d'obtenir une figure (valet, dame ou roi), puis celle d'obtenir un pique ou une figure. Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>On lance deux dés équilibrés à six faces et on additionne les deux nombres obtenus.</p><p>a) Calcule la probabilité d'obtenir une somme égale à 8.</p><p>b) Calcule la probabilité d'obtenir une somme supérieure ou égale à 10.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Une urne contient 3 boules rouges et 2 boules vertes. On tire une boule, on note sa couleur, on la remet dans l'urne, puis on en tire une seconde.</p><p>Construis un arbre pondéré décrivant cette expérience, puis calcule la probabilité d'obtenir deux boules de la même couleur.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Marketing",
+      "enonce": "<p>À la question 3, tu as utilisé la formule P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un service de streaming connaît la part d'abonnés qui regardent des séries (45 %), celle qui regardent des films (30 %) et celle qui regardent les deux (10 %) : il cherche la part de ceux qui regardent au moins l'un des deux",
+       "Un service de streaming sait que 45 % de ses abonnés regardent des séries : il cherche la part de ceux qui n'en regardent pas",
+       "Un service de streaming cherche la durée moyenne de visionnage de ses abonnés sur une semaine",
+       "Un service de streaming cherche la part d'abonnés qui regardent à la fois des séries et des films"
+      ]
+     }
+    ]
+   },
    {
     "id": "2026-11-01-lot-1",
     "total": 10,
@@ -5587,20 +6211,20 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-11-01T10:59:37.440Z",
+  "genereLe": "2026-11-08T11:06:36.072Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 27,
-        "ouvertes": 14,
+        "total": 31,
+        "ouvertes": 18,
         "enAttente": 0,
         "fermees": 13,
         "copiesCorrigees": 12,
         "moyenneSur20": 16.6
       },
       "seconde": {
-        "total": 29,
-        "ouvertes": 20,
+        "total": 33,
+        "ouvertes": 24,
         "enAttente": 0,
         "fermees": 9,
         "copiesCorrigees": 9,

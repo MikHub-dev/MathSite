@@ -1,0 +1,22 @@
+{
+  "titre": "Calcul littéral : développer, tester une égalité et prouver",
+  "chapitre": "Expressions littérales",
+  "date": "2026-11-08",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Détaille tes calculs et rédige tes réponses avec soin.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Calcule 4x + 7 pour x = 5.</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Quelle est l'écriture simplifiée de 3 × a × 4 × b ?</p>", "choix": ["7ab", "12ab", "34ab", "12 + ab"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 4, "points": 1, "enonce": "<p>Développe puis réduis : 3(x + 5) + 2x.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Teste l'égalité 3x − 4 = x + 6 pour x = 5, puis pour x = 3. Conclus pour chaque valeur.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 2, "tempsMinutes": 5, "points": 2, "enonce": "<p>Un rectangle a pour largeur ℓ cm et sa longueur mesure 4 cm de plus que sa largeur. Écris une expression du périmètre, développe-la, puis calcule le périmètre pour ℓ = 3,5.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 10, "points": 3, "enonce": "<p>Voici un programme de calcul : choisir un nombre, lui ajouter 5, multiplier le résultat par 2, soustraire 4, puis soustraire le double du nombre choisi au départ.</p><p>En appelant x le nombre choisi, montre que le résultat est toujours le même, quel que soit x. Quel est ce résultat ?</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Sport et loisirs", "enonce": "<p>À la question 1, tu as remplacé x par une valeur dans l'expression 4x + 7. Dans laquelle de ces situations fait-on la même chose ?</p>", "choix": [
+      "Une salle de sport facture 7 € d'inscription plus 4 € par séance : on calcule le prix à payer pour 5 séances",
+      "Une salle de sport propose deux forfaits : on cherche pour quel nombre de séances ils coûtent le même prix",
+      "Une salle de sport partage une facture de 120 € entre 5 associations",
+      "Une salle de sport classe les tarifs du plus petit au plus grand"
+    ] }
+  ]
+}

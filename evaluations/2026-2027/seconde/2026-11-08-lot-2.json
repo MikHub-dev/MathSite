@@ -1,0 +1,22 @@
+{
+  "titre": "Puissances et racines carrées : écriture scientifique et simplification",
+  "chapitre": "Puissances et racines carrées",
+  "date": "2026-11-08",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Détaille tes calculs, cite les règles ou identités utilisées et donne les résultats sous la forme demandée.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Calcule 3⁴ ÷ 3².</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 4, "points": 1, "enonce": "<p>Écris (4 × 10³) × (5 × 10⁻⁵) en écriture scientifique. Quelle est la bonne réponse ?</p>", "choix": ["2 × 10⁻²", "20 × 10⁻²", "9 × 10⁻²", "2 × 10⁻¹"] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>Écris A = 2√48 − √27 + √3 sous la forme a√3, où a est un entier. Détaille les étapes.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>Montre que (√7 − 3)² = 16 − 6√7, en citant l'identité remarquable utilisée.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>La lumière se propage à la vitesse de 3 × 10⁸ m/s. Elle met environ 480 secondes pour aller du Soleil à la Terre.</p><p>Calcule la distance Soleil–Terre en mètres, puis en kilomètres. Donne chaque résultat en écriture scientifique.</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Compare 3√5 et 2√11 sans calculatrice. Justifie soigneusement ta réponse.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Biologie", "enonce": "<p>À la question 5, tu as écrit de très grands nombres sous la forme a × 10ⁿ. Dans laquelle de ces situations utilise-t-on cette écriture ?</p>", "choix": [
+      "Un biologiste exprime la taille d'une bactérie, 0,0000025 m, sous la forme 2,5 × 10⁻⁶ m",
+      "Un biologiste calcule la taille moyenne de 20 bactéries observées au microscope",
+      "Un biologiste calcule la proportion de cellules malades dans un échantillon de 80 cellules",
+      "Un biologiste classe des mesures du plus petit au plus grand"
+    ] }
+  ]
+}

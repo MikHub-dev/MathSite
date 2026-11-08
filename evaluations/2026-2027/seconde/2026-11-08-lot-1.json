@@ -1,0 +1,22 @@
+{
+  "titre": "Équations et inéquations : résolution et mise en équation",
+  "chapitre": "Équations et inéquations",
+  "date": "2026-11-08",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie chaque résolution et donne les solutions des inéquations sous forme d'intervalles.</p>",
+  "questions": [
+    { "id": "q1", "type": "numerique", "niveau": 1, "tempsMinutes": 3, "points": 1, "enonce": "<p>Résous l'équation 4x − 9 = 15. Quelle est la valeur de x ?</p>" },
+    { "id": "q2", "type": "qcm", "niveau": 1, "tempsMinutes": 4, "points": 1, "enonce": "<p>Quel est l'ensemble des solutions de l'inéquation 3x + 2 < 11 ?</p>", "choix": ["]3 ; +∞[", "]−∞ ; 3]", "]−∞ ; 3[", "]−∞ ; 13/3["] },
+    { "id": "q3", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>Résous l'équation (2x − 6)(x + 5) = 0 en citant la propriété utilisée.</p>" },
+    { "id": "q4", "type": "redaction", "niveau": 2, "tempsMinutes": 7, "points": 2, "enonce": "<p>Résous l'inéquation 7 − 3x ≥ x + 19 et donne l'ensemble des solutions sous forme d'intervalle.</p>" },
+    { "id": "q5", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Un cinéma propose deux formules. Formule A : 8 € la séance, sans abonnement. Formule B : un abonnement de 30 € pour l'année, puis 5 € la séance.</p><p>On note n le nombre de séances dans l'année. Écris une inéquation traduisant « la formule B est strictement moins chère que la formule A », résous-la et conclus : à partir de combien de séances la formule B est-elle la plus avantageuse ?</p>" },
+    { "id": "q6", "type": "redaction", "niveau": 3, "tempsMinutes": 12, "points": 2, "enonce": "<p>Résous l'équation (x − 4)² = 3(x − 4) sans diviser par x − 4. Explique pourquoi cette division serait une erreur.</p>" },
+    { "id": "bonus", "type": "qcm", "bonus": true, "domaine": "Télécommunications", "enonce": "<p>À la question 5, tu as comparé deux tarifs en résolvant une inéquation. Dans laquelle de ces situations fait-on la même démarche ?</p>", "choix": [
+      "Un opérateur calcule la consommation moyenne de données d'un client sur 6 mois",
+      "Un opérateur calcule le prix d'un forfait pour 8 Go de données consommés",
+      "Un opérateur cherche à partir de quel volume de données le forfait B (20 € + 0,25 € par Go) devient moins cher que le forfait A (12 € + 0,50 € par Go)",
+      "Un opérateur convertit en mégaoctets le volume d'une vidéo de 2,5 Go"
+    ] }
+  ]
+}
