@@ -18,5 +18,15 @@
       "Un tableur colore en rouge les cellules dont la valeur est négative",
       "Un tableur affiche le résultat de la formule =20-4*2,5 : il calcule d'abord 4*2,5"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p><strong>2</strong> : la multiplication est prioritaire, donc 14 − 4 × 3 = 14 − 12 = 2.</p>",
+    "q2": "<p><strong>30</strong> : on calcule d'abord la parenthèse, donc (14 − 4) × 3 = 10 × 3 = 30.</p>",
+    "q3": "<p>4 + 6 × (9 − 5) ÷ 8 = 4 + 6 × 4 ÷ 8 = 4 + 24 ÷ 8 = 4 + 3 = <strong>7</strong>.</p><p>On calcule la parenthèse, puis la multiplication et la division de gauche à droite, enfin l'addition.</p>",
+    "q4": "<p>(3 + 5) × 4 − 2 = 8 × 4 − 2 = 32 − 2 = <strong>30</strong>.</p><p>Les parenthèses autour de 3 + 5 rendent l'addition prioritaire.</p>",
+    "q5": "<p>Monnaie rendue : <strong>20 − (4 × 2,50 + 2 × 1,75)</strong> = 20 − (10 + 3,5) = 20 − 13,5 = <strong>6,50 €</strong>.</p><p>Les parenthèses sont nécessaires : on retranche le total des achats. Phrase de conclusion : on rend 6,50 € à Léa.</p>",
+    "q6": "<p>L'élève a effectué 24 − 8 avant 8 ÷ 4, alors que la division est prioritaire sur la soustraction.</p><p>Bon calcul : 24 − 8 ÷ 4 + 2 = 24 − 2 + 2 = 22 + 2 = <strong>24</strong>.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 4e</strong> (dans =20-4*2,5, le tableur calcule d'abord 4*2,5 = 10, puis 20 − 10 = 10 : c'est bien la priorité de la multiplication). Le piège était la 2e : dans 2 + 3 + 4 il n'y a que des additions, donc la règle des priorités ne change pas le résultat, quel que soit l'ordre. Le tri et la couleur des cellules ne font aucun calcul.</p>"
+  },
+  "cloturee": true
 }

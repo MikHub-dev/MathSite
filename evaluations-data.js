@@ -159,7 +159,17 @@ window.EVALUATIONS = {
        "Un tableur affiche le résultat de la formule =20-4*2,5 : il calcule d'abord 4*2,5"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p><strong>2</strong> : la multiplication est prioritaire, donc 14 − 4 × 3 = 14 − 12 = 2.</p>",
+     "q2": "<p><strong>30</strong> : on calcule d'abord la parenthèse, donc (14 − 4) × 3 = 10 × 3 = 30.</p>",
+     "q3": "<p>4 + 6 × (9 − 5) ÷ 8 = 4 + 6 × 4 ÷ 8 = 4 + 24 ÷ 8 = 4 + 3 = <strong>7</strong>.</p><p>On calcule la parenthèse, puis la multiplication et la division de gauche à droite, enfin l'addition.</p>",
+     "q4": "<p>(3 + 5) × 4 − 2 = 8 × 4 − 2 = 32 − 2 = <strong>30</strong>.</p><p>Les parenthèses autour de 3 + 5 rendent l'addition prioritaire.</p>",
+     "q5": "<p>Monnaie rendue : <strong>20 − (4 × 2,50 + 2 × 1,75)</strong> = 20 − (10 + 3,5) = 20 − 13,5 = <strong>6,50 €</strong>.</p><p>Les parenthèses sont nécessaires : on retranche le total des achats. Phrase de conclusion : on rend 6,50 € à Léa.</p>",
+     "q6": "<p>L'élève a effectué 24 − 8 avant 8 ÷ 4, alors que la division est prioritaire sur la soustraction.</p><p>Bon calcul : 24 − 8 ÷ 4 + 2 = 24 − 2 + 2 = 22 + 2 = <strong>24</strong>.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 4e</strong> (dans =20-4*2,5, le tableur calcule d'abord 4*2,5 = 10, puis 20 − 10 = 10 : c'est bien la priorité de la multiplication). Le piège était la 2e : dans 2 + 3 + 4 il n'y a que des additions, donc la règle des priorités ne change pas le résultat, quel que soit l'ordre. Le tri et la couleur des cellules ne font aucun calcul.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-11-08-lot-3",
@@ -5740,6 +5750,70 @@ window.EVAL_NOTES = {
       }
      }
     }
+   },
+   "2026-11-08-lot-2": {
+    "publieLe": "2026-11-15",
+    "notes": {
+     "489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24": {
+      "note": 6.5,
+      "commentaire": "Bonne maîtrise des priorités et bonus gagné. Soigne la rédaction : détaille toutes les étapes (parenthèses comprises), écris le calcul de la monnaie en une seule ligne avec une phrase de conclusion, et fais attention aux calculs de gauche à droite. Note : 13,5/20 avec le bonus.",
+      "details": {
+       "q1": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 1.5,
+        "remarque": "Résultat juste, mais la parenthèse (9 − 5) n'est pas détaillée : justification incomplète.",
+        "incompletes": [
+         "4 + 6 x 4 : 8"
+        ]
+       },
+       "q4": {
+        "points": 0.5,
+        "remarque": "Parenthèses bien placées, mais la vérification par le calcul demandée manque : justification.",
+        "incompletes": [
+         "(3 + 5) x 4 - 2"
+        ]
+       },
+       "q5": {
+        "points": 1.5,
+        "remarque": "Résultat juste (6,50 €), mais le calcul n'est pas écrit en une seule ligne, il manque l'unité et la phrase de conclusion : rédaction.",
+        "incompletes": [
+         "20 - x = ?"
+        ]
+       },
+       "q6": {
+        "points": 1,
+        "remarque": "L'erreur est bien expliquée (la division est prioritaire), mais ton calcul final est faux : 22 + 2 = 24 et non 22 − 2. Le bon résultat est 24 : raisonnement correct, résultat faux.",
+        "erreurs": [
+         "22 - 2",
+         "20"
+        ]
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : la formule =20-4*2,5 est bien celle où la multiplication prioritaire décide du résultat, alors que 2 + 3 + 4 ne contient que des additions."
+      },
+      "reponduLe": "2026-11-14T14:37:01.972Z",
+      "corrigeLe": "2026-11-15",
+      "issue": 60,
+      "reponses": {
+       "q1": "2",
+       "q2": "30",
+       "q3": "4 + 6 x 4 : 8\n4 + 24 : 8\n4 + 3\n7",
+       "q4": "(3 + 5) x 4 - 2",
+       "q5": "(4 x 2,50) + (2 x 1,75) = x      20 - x = ?\n10 + 3,5 = 13,5    20 - 13,5 = 6,5",
+       "q6": "Il a d'abord fait 24 - 8 à la place de 8 : 4 en premier\n24 - 2 + 2 \n22 - 2\n20",
+       "bonus": "Un tableur affiche le résultat de la formule =20-4*2,5 : il calcule d'abord 4*2,5"
+      }
+     }
+    }
    }
   },
   "seconde": {
@@ -6211,16 +6285,16 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-11-08T11:06:36.072Z",
+  "genereLe": "2026-11-15T11:21:06.975Z",
   "annees": {
     "2026-2027": {
       "5e": {
         "total": 31,
-        "ouvertes": 18,
+        "ouvertes": 17,
         "enAttente": 0,
-        "fermees": 13,
-        "copiesCorrigees": 12,
-        "moyenneSur20": 16.6
+        "fermees": 14,
+        "copiesCorrigees": 13,
+        "moyenneSur20": 16.4
       },
       "seconde": {
         "total": 33,
