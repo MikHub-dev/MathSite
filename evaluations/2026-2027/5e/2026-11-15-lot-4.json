@@ -1,0 +1,69 @@
+{
+  "titre": "Divisibilité : critères, diviseurs, nombres premiers et multiples communs",
+  "chapitre": "Multiples, diviseurs et nombres premiers",
+  "date": "2026-11-15",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie tes réponses : un résultat sans explication ne rapporte pas tous les points.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Lequel de ces nombres est divisible par 9 ?</p>",
+      "choix": [
+        "1 254",
+        "3 447",
+        "2 305",
+        "4 112"
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Combien le nombre 36 a-t-il de diviseurs ?</p>"
+    },
+    {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Quel est le plus petit multiple commun non nul à 12 et à 18 ?</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 9,
+      "points": 3,
+      "enonce": "<p>a) Le nombre 91 est-il premier ? Justifie.</p><p>b) Donne tous les nombres premiers compris entre 20 et 40.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Deux bus partent ensemble de la gare à 8 h. Le premier repasse à la gare toutes les 12 minutes, le second toutes les 15 minutes.</p><p>a) À quelle heure se retrouvent-ils ensemble à la gare pour la première fois après 8 h ?</p><p>b) Combien de fois se retrouvent-ils ensemble entre 8 h (exclue) et 11 h (incluse) ?</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Spectacle et lumières",
+      "enonce": "<p>À la question 5, tu as cherché le plus petit multiple commun de deux nombres. Dans laquelle de ces situations le cherche-t-on ?</p>",
+      "choix": [
+        "Deux projecteurs clignotent, l'un toutes les 6 secondes et l'autre toutes les 8 secondes : on cherche quand ils clignotent ensemble de nouveau",
+        "Un organisateur veut répartir 24 affiches et 36 flyers en lots identiques, avec le plus grand nombre de lots possible et sans reste",
+        "Un technicien veut savoir si les 1 247 places d'une salle peuvent être réparties en 3 rangées égales",
+        "Un spectacle comporte 3 actes de 40 minutes : on cherche sa durée totale"
+      ]
+    }
+  ]
+}

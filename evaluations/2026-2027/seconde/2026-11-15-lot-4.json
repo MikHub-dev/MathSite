@@ -1,0 +1,77 @@
+{
+  "titre": "Statistiques : moyenne, médiane, quartiles et effet d'une transformation",
+  "chapitre": "Statistiques",
+  "date": "2026-11-15",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Rédige tes calculs. Utilise la définition des quartiles du cours (rang ⌈n/4⌉ et ⌈3n/4⌉).</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule la moyenne de la série : 5 ; 8 ; 11 ; 12 ; 14.</p>"
+    },
+    {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est la médiane de la série 2 ; 5 ; 7 ; 9 ; 17 ?</p>",
+      "choix": [
+        "5",
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Voici les durées de trajet, en minutes, de 12 élèves, rangées dans l'ordre croissant : 3 ; 5 ; 6 ; 8 ; 9 ; 11 ; 12 ; 14 ; 15 ; 17 ; 19 ; 25.</p><p>Calcule la médiane, le premier quartile Q₁ et le troisième quartile Q₃.</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>On reprend la série de la question 3, dont la moyenne vaut 12 et l'écart interquartile 9. Chaque durée augmente de 5 minutes (travaux sur la route).</p><p>Donne, sans tout recalculer, la nouvelle moyenne, la nouvelle médiane et le nouvel écart interquartile. Justifie.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Deux classes ont passé le même contrôle. Classe A : médiane 12, Q₁ = 9, Q₃ = 14. Classe B : médiane 12, Q₁ = 6, Q₃ = 17.</p><p>a) Calcule l'écart interquartile de chaque classe.</p><p>b) Quelle classe a les résultats les plus homogènes ? Justifie.</p><p>c) Vrai ou faux : « Dans la classe B, au moins 75 % des élèves ont une note supérieure ou égale à 6 ». Justifie.</p>"
+    },
+    {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Après quatre contrôles, la moyenne de Inès est 11. Après un cinquième contrôle, sa moyenne passe à 12.</p><p>a) Quelle note a-t-elle obtenue au cinquième contrôle ?</p><p>b) Quelle note aurait-il fallu obtenir pour atteindre une moyenne de 13 ? Est-ce possible sur 20 ? Justifie.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Immobilier et statistiques",
+      "enonce": "<p>À la question 3, tu as calculé la médiane d'une série : elle partage les valeurs en deux groupes de même effectif. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+        "Un site d'annonces calcule le prix moyen des appartements en divisant la somme des prix par leur nombre",
+        "Un site d'annonces affiche le prix en dessous duquel se vendent la moitié des appartements d'une ville",
+        "Une agence calcule l'écart entre le prix de vente le plus élevé et le plus bas de la semaine",
+        "Une agence calcule l'évolution en pourcentage du prix d'un appartement revendu plus cher qu'à l'achat"
+      ]
+    }
+  ]
+}

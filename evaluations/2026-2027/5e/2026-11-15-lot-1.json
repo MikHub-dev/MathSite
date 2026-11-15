@@ -1,0 +1,69 @@
+{
+  "titre": "Nombres relatifs : additionner, soustraire et repérer sur une droite",
+  "chapitre": "Nombres relatifs",
+  "date": "2026-11-15",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Détaille tes calculs et n'oublie pas les unités quand il y en a.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le plus petit de ces nombres ?</p>",
+      "choix": [
+        "−2",
+        "−9",
+        "0",
+        "+4"
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule : (−7) + (+12).</p>"
+    },
+    {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Calcule : (−4) − (−9) + (−6).</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 9,
+      "points": 3,
+      "enonce": "<p>À 6 h du matin, il fait −5 °C. À midi, la température a augmenté de 11 °C. Le soir, elle baisse de 9 °C par rapport à midi.</p><p>a) Quelle est la température à midi ?</p><p>b) Quelle est la température le soir ?</p><p>c) Quel est l'écart entre la température la plus basse et la plus haute de la journée ?</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Sur une droite graduée, le point A a pour abscisse −7 et le point B a pour abscisse +5.</p><p>a) Calcule la distance AB.</p><p>b) Quelle est l'abscisse du milieu M de [AB] ?</p><p>c) Quelle est l'abscisse du point C tel que B soit le milieu de [AC] ?</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Plongée et océanographie",
+      "enonce": "<p>À la question 5, tu as calculé la distance entre deux points d'une droite graduée : abscisse la plus grande − abscisse la plus petite. Dans laquelle de ces situations utilise-t-on cette idée ?</p>",
+      "choix": [
+        "Un plongeur est à −18 m, puis il descend encore de 7 m : on cherche sa nouvelle profondeur",
+        "Un bassin d'observation a un fond à −12 m et un bord à +3 m par rapport au niveau de la mer : on cherche la hauteur totale entre le fond et le bord",
+        "Un bateau de recherche possède 3 plongeurs par équipe et 4 équipes : on cherche le nombre total de plongeurs",
+        "Un océanographe relève −4 °C puis −6 °C : on cherche le total des deux températures"
+      ]
+    }
+  ]
+}

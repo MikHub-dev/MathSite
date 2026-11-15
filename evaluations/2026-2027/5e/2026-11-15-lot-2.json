@@ -1,0 +1,69 @@
+{
+  "titre": "Triangles : inégalité triangulaire et triangles particuliers",
+  "chapitre": "Triangles",
+  "date": "2026-11-15",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie chaque réponse avec une propriété du cours.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Peut-on construire un triangle dont les côtés mesurent 5 cm, 6 cm et 12 cm ?</p>",
+      "choix": [
+        "Oui, car les trois longueurs sont différentes",
+        "Non, car 5 + 6 = 11 est plus petit que 12",
+        "Oui, car 5 + 12 est plus grand que 6",
+        "Non, car 12 est un nombre pair"
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Un triangle équilatéral a un périmètre de 27 cm. Quelle est la longueur d'un côté, en cm ?</p>"
+    },
+    {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Un triangle ABC est isocèle en A. Son périmètre est 34 cm et sa base BC mesure 12 cm. Calcule la longueur AB.</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Un triangle a deux côtés de 7 cm et 11 cm.</p><p>a) Entre quelles valeurs est comprise la longueur du troisième côté ? Justifie.</p><p>b) Ce triangle est isocèle. Quelles sont les longueurs possibles du troisième côté ?</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Léa affirme : « Avec AB = 8 cm, BC = 5 cm et AC = 13 cm, je peux construire un vrai triangle ABC. »</p><p>a) Calcule AB + BC et compare à AC. Que peux-tu dire des points A, B et C ?</p><p>b) Léa a-t-elle raison ? Justifie.</p><p>c) Si BC mesurait 6 cm au lieu de 5 cm, pourrait-on construire le triangle ABC ? Justifie.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Navigation maritime",
+      "enonce": "<p>À la question 5, tu as utilisé l'inégalité triangulaire : chaque côté d'un triangle est inférieur ou égal à la somme des deux autres. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+        "Un pêcheur veut connaître la longueur du cordon qui entoure un parc à huîtres triangulaire de côtés 8 m, 5 m et 9 m",
+        "Un capitaine calcule la moyenne des températures de l'eau relevées en trois points",
+        "Un marin sait que deux balises sont à 8 km et à 5 km d'un phare : il en déduit que la distance entre les deux balises ne peut pas dépasser 13 km",
+        "Un navigateur cherche la mesure du troisième angle d'un triangle de route dont deux angles mesurent 40° et 75°"
+      ]
+    }
+  ]
+}

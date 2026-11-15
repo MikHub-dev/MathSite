@@ -1,0 +1,77 @@
+{
+  "titre": "Fonctions affines : coefficient, expression, signe et comparaison de tarifs",
+  "chapitre": "Fonctions affines",
+  "date": "2026-11-15",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Rédige soigneusement et justifie tes calculs.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le coefficient directeur de la droite d'équation y = −2x + 7 ?</p>",
+      "choix": [
+        "7",
+        "−2",
+        "2",
+        "−7"
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Une fonction affine f vérifie f(1) = 4 et f(4) = 13. Calcule son coefficient directeur.</p>"
+    },
+    {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Détermine l'expression de la fonction affine f telle que f(2) = 1 et f(5) = 7.</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Soit f la fonction définie sur ℝ par f(x) = −3x + 12. Résous l'inéquation f(x) ≥ 0, puis dresse le tableau de signes de f.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Une salle de sport propose deux formules. Formule A : un abonnement de 15 € puis 4 € par séance. Formule B : 8 € par séance, sans abonnement.</p><p>a) Exprime en fonction du nombre x de séances le coût f(x) de la formule A et le coût g(x) de la formule B.</p><p>b) À partir de combien de séances la formule A est-elle strictement plus avantageuse ? Justifie.</p>"
+    },
+    {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Dans un repère, on considère les points A(−1 ; 2), B(3 ; 10) et C(5 ; 14).</p><p>a) Détermine l'équation réduite de la droite (AB).</p><p>b) Les points A, B et C sont-ils alignés ? Justifie.</p><p>c) Le point D(2 ; 7) appartient-il à la droite (AB) ? Justifie.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Physique et mécanique",
+      "enonce": "<p>À la question 5, tu as modélisé un coût par une fonction affine f(x) = a x + b : une valeur de départ, plus une variation constante par unité. Dans laquelle de ces situations une fonction affine convient-elle ?</p>",
+      "choix": [
+        "L'aire d'une plaque métallique carrée en fonction de la longueur de son côté",
+        "Le temps mis pour parcourir 120 km en fonction de la vitesse moyenne",
+        "La longueur d'un ressort de 15 cm au repos, qui s'allonge de 2 cm par kilogramme suspendu",
+        "Le nombre de bactéries d'une culture qui double toutes les heures"
+      ]
+    }
+  ]
+}

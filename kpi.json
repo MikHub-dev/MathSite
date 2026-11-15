@@ -1,19 +1,19 @@
 {
-  "genereLe": "2026-11-15T11:21:06.975Z",
+  "genereLe": "2026-11-15T11:46:52.133Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 31,
-        "ouvertes": 17,
+        "total": 35,
+        "ouvertes": 21,
         "enAttente": 0,
         "fermees": 14,
         "copiesCorrigees": 13,
         "moyenneSur20": 16.4
       },
       "seconde": {
-        "total": 33,
-        "ouvertes": 24,
-        "enAttente": 0,
+        "total": 37,
+        "ouvertes": 26,
+        "enAttente": 2,
         "fermees": 9,
         "copiesCorrigees": 9,
         "moyenneSur20": 17.9

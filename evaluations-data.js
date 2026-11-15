@@ -4,6 +4,284 @@ window.EVALUATIONS = {
  "2026-2027": {
   "5e": [
    {
+    "id": "2026-11-15-lot-1",
+    "total": 10,
+    "titre": "Nombres relatifs : additionner, soustraire et repérer sur une droite",
+    "chapitre": "Nombres relatifs",
+    "date": "2026-11-15",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Détaille tes calculs et n'oublie pas les unités quand il y en a.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le plus petit de ces nombres ?</p>",
+      "choix": [
+       "−2",
+       "−9",
+       "0",
+       "+4"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule : (−7) + (+12).</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Calcule : (−4) − (−9) + (−6).</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 9,
+      "points": 3,
+      "enonce": "<p>À 6 h du matin, il fait −5 °C. À midi, la température a augmenté de 11 °C. Le soir, elle baisse de 9 °C par rapport à midi.</p><p>a) Quelle est la température à midi ?</p><p>b) Quelle est la température le soir ?</p><p>c) Quel est l'écart entre la température la plus basse et la plus haute de la journée ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Sur une droite graduée, le point A a pour abscisse −7 et le point B a pour abscisse +5.</p><p>a) Calcule la distance AB.</p><p>b) Quelle est l'abscisse du milieu M de [AB] ?</p><p>c) Quelle est l'abscisse du point C tel que B soit le milieu de [AC] ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Plongée et océanographie",
+      "enonce": "<p>À la question 5, tu as calculé la distance entre deux points d'une droite graduée : abscisse la plus grande − abscisse la plus petite. Dans laquelle de ces situations utilise-t-on cette idée ?</p>",
+      "choix": [
+       "Un plongeur est à −18 m, puis il descend encore de 7 m : on cherche sa nouvelle profondeur",
+       "Un bassin d'observation a un fond à −12 m et un bord à +3 m par rapport au niveau de la mer : on cherche la hauteur totale entre le fond et le bord",
+       "Un bateau de recherche possède 3 plongeurs par équipe et 4 équipes : on cherche le nombre total de plongeurs",
+       "Un océanographe relève −4 °C puis −6 °C : on cherche le total des deux températures"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-15-lot-2",
+    "total": 10,
+    "titre": "Triangles : inégalité triangulaire et triangles particuliers",
+    "chapitre": "Triangles",
+    "date": "2026-11-15",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque réponse avec une propriété du cours.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Peut-on construire un triangle dont les côtés mesurent 5 cm, 6 cm et 12 cm ?</p>",
+      "choix": [
+       "Oui, car les trois longueurs sont différentes",
+       "Non, car 5 + 6 = 11 est plus petit que 12",
+       "Oui, car 5 + 12 est plus grand que 6",
+       "Non, car 12 est un nombre pair"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Un triangle équilatéral a un périmètre de 27 cm. Quelle est la longueur d'un côté, en cm ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Un triangle ABC est isocèle en A. Son périmètre est 34 cm et sa base BC mesure 12 cm. Calcule la longueur AB.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Un triangle a deux côtés de 7 cm et 11 cm.</p><p>a) Entre quelles valeurs est comprise la longueur du troisième côté ? Justifie.</p><p>b) Ce triangle est isocèle. Quelles sont les longueurs possibles du troisième côté ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Léa affirme : « Avec AB = 8 cm, BC = 5 cm et AC = 13 cm, je peux construire un vrai triangle ABC. »</p><p>a) Calcule AB + BC et compare à AC. Que peux-tu dire des points A, B et C ?</p><p>b) Léa a-t-elle raison ? Justifie.</p><p>c) Si BC mesurait 6 cm au lieu de 5 cm, pourrait-on construire le triangle ABC ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Navigation maritime",
+      "enonce": "<p>À la question 5, tu as utilisé l'inégalité triangulaire : chaque côté d'un triangle est inférieur ou égal à la somme des deux autres. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un pêcheur veut connaître la longueur du cordon qui entoure un parc à huîtres triangulaire de côtés 8 m, 5 m et 9 m",
+       "Un capitaine calcule la moyenne des températures de l'eau relevées en trois points",
+       "Un marin sait que deux balises sont à 8 km et à 5 km d'un phare : il en déduit que la distance entre les deux balises ne peut pas dépasser 13 km",
+       "Un navigateur cherche la mesure du troisième angle d'un triangle de route dont deux angles mesurent 40° et 75°"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-15-lot-3",
+    "total": 10,
+    "titre": "Statistiques : étendue, moyenne, moyenne pondérée et fréquences",
+    "chapitre": "Statistiques",
+    "date": "2026-11-15",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Donne les calculs et les unités. Arrondis au dixième si nécessaire.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule l'étendue de la série : 12 ; 7 ; 15 ; 9 ; 12.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule la moyenne de la série : 8 ; 12 ; 14 ; 6.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Dans un devoir, 1 élève a eu 10, 3 élèves ont eu 14 et 2 élèves ont eu 16. Calcule la moyenne de ces six élèves.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 9,
+      "points": 3,
+      "enonce": "<p>Dans une classe de 25 élèves, on a relevé le mode de transport pour venir au collège : 10 élèves viennent à pied, 5 en bus, 8 à vélo et 2 en voiture.</p><p>a) Calcule la fréquence de chaque mode de transport, en pourcentage.</p><p>b) Vérifie que la somme des fréquences est égale à 100 %.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Samir a eu 4 devoirs. Sa moyenne est 12. Ses trois premières notes sont 9, 15 et 11.</p><p>a) Quelle est sa quatrième note ?</p><p>b) Calcule l'étendue de ses quatre notes.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Santé",
+      "enonce": "<p>À la question 5, tu as utilisé la formule de la moyenne : somme des valeurs ÷ nombre de valeurs. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un médecin cherche l'écart entre la nuit de sommeil la plus longue et la plus courte d'un patient sur une semaine",
+       "Un infirmier cherche la proportion de patients vaccinés dans un service de 40 personnes dont 30 sont vaccinées",
+       "Un pharmacien convertit une durée de traitement de 3 h 30 en minutes",
+       "Un médecin calcule la durée de sommeil moyenne d'un patient à partir des durées de ses 7 dernières nuits"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-15-lot-4",
+    "total": 10,
+    "titre": "Divisibilité : critères, diviseurs, nombres premiers et multiples communs",
+    "chapitre": "Multiples, diviseurs et nombres premiers",
+    "date": "2026-11-15",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie tes réponses : un résultat sans explication ne rapporte pas tous les points.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Lequel de ces nombres est divisible par 9 ?</p>",
+      "choix": [
+       "1 254",
+       "3 447",
+       "2 305",
+       "4 112"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Combien le nombre 36 a-t-il de diviseurs ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Quel est le plus petit multiple commun non nul à 12 et à 18 ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 9,
+      "points": 3,
+      "enonce": "<p>a) Le nombre 91 est-il premier ? Justifie.</p><p>b) Donne tous les nombres premiers compris entre 20 et 40.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Deux bus partent ensemble de la gare à 8 h. Le premier repasse à la gare toutes les 12 minutes, le second toutes les 15 minutes.</p><p>a) À quelle heure se retrouvent-ils ensemble à la gare pour la première fois après 8 h ?</p><p>b) Combien de fois se retrouvent-ils ensemble entre 8 h (exclue) et 11 h (incluse) ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Spectacle et lumières",
+      "enonce": "<p>À la question 5, tu as cherché le plus petit multiple commun de deux nombres. Dans laquelle de ces situations le cherche-t-on ?</p>",
+      "choix": [
+       "Deux projecteurs clignotent, l'un toutes les 6 secondes et l'autre toutes les 8 secondes : on cherche quand ils clignotent ensemble de nouveau",
+       "Un organisateur veut répartir 24 affiches et 36 flyers en lots identiques, avec le plus grand nombre de lots possible et sans reste",
+       "Un technicien veut savoir si les 1 247 places d'une salle peuvent être réparties en 3 rangées égales",
+       "Un spectacle comporte 3 actes de 40 minutes : on cherche sa durée totale"
+      ]
+     }
+    ]
+   },
+   {
     "id": "2026-11-08-lot-1",
     "total": 10,
     "titre": "Fractions : additionner, soustraire et résoudre un problème",
@@ -2458,6 +2736,322 @@ window.EVALUATIONS = {
    }
   ],
   "seconde": [
+   {
+    "id": "2026-11-15-lot-1",
+    "total": 10,
+    "titre": "Fonctions affines : coefficient, expression, signe et comparaison de tarifs",
+    "chapitre": "Fonctions affines",
+    "date": "2026-11-15",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Rédige soigneusement et justifie tes calculs.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le coefficient directeur de la droite d'équation y = −2x + 7 ?</p>",
+      "choix": [
+       "7",
+       "−2",
+       "2",
+       "−7"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Une fonction affine f vérifie f(1) = 4 et f(4) = 13. Calcule son coefficient directeur.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Détermine l'expression de la fonction affine f telle que f(2) = 1 et f(5) = 7.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Soit f la fonction définie sur ℝ par f(x) = −3x + 12. Résous l'inéquation f(x) ≥ 0, puis dresse le tableau de signes de f.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Une salle de sport propose deux formules. Formule A : un abonnement de 15 € puis 4 € par séance. Formule B : 8 € par séance, sans abonnement.</p><p>a) Exprime en fonction du nombre x de séances le coût f(x) de la formule A et le coût g(x) de la formule B.</p><p>b) À partir de combien de séances la formule A est-elle strictement plus avantageuse ? Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Dans un repère, on considère les points A(−1 ; 2), B(3 ; 10) et C(5 ; 14).</p><p>a) Détermine l'équation réduite de la droite (AB).</p><p>b) Les points A, B et C sont-ils alignés ? Justifie.</p><p>c) Le point D(2 ; 7) appartient-il à la droite (AB) ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Physique et mécanique",
+      "enonce": "<p>À la question 5, tu as modélisé un coût par une fonction affine f(x) = a x + b : une valeur de départ, plus une variation constante par unité. Dans laquelle de ces situations une fonction affine convient-elle ?</p>",
+      "choix": [
+       "L'aire d'une plaque métallique carrée en fonction de la longueur de son côté",
+       "Le temps mis pour parcourir 120 km en fonction de la vitesse moyenne",
+       "La longueur d'un ressort de 15 cm au repos, qui s'allonge de 2 cm par kilogramme suspendu",
+       "Le nombre de bactéries d'une culture qui double toutes les heures"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-15-lot-2",
+    "total": 10,
+    "titre": "Fonctions de référence : carré, inverse et racine carrée",
+    "chapitre": "Fonctions de référence",
+    "date": "2026-11-15",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie tes comparaisons et tes résolutions avec le sens de variation des fonctions de référence.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est l'image de −4 par la fonction carré ?</p>",
+      "choix": [
+       "−16",
+       "16",
+       "−8",
+       "8"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Soit f la fonction définie sur ℝ par f(x) = √(x² + 16). Calcule f(−3).</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Compare, sans calculatrice, en citant le sens de variation de la fonction utilisée :</p><p>a) (−3)² et (−2)² ;</p><p>b) 1/2,7 et 1/3,1 ;</p><p>c) √7 et √5.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Résous dans ℝ :</p><p>a) x² > 9 ;</p><p>b) √x ≤ 4.</p><p>Donne les solutions sous forme d'intervalles.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Un terrain carré a un côté de x mètres (x > 0). Son aire est A(x) = x².</p><p>a) Pour quelles valeurs de x l'aire est-elle comprise entre 16 m² et 49 m² (bornes incluses) ?</p><p>b) On veut une aire strictement supérieure à 100 m². Quelle longueur de côté minimale faut-il dépasser ?</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Un rectangle a une aire de 36 cm². Sa longueur est x cm, avec x > 0.</p><p>a) Exprime sa largeur ℓ(x) en fonction de x.</p><p>b) Pour quelles valeurs de x la largeur est-elle supérieure ou égale à 4 cm ? Justifie à l'aide de la fonction inverse.</p><p>c) Quelle est la largeur quand la longueur est 9 cm ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Sport et course à pied",
+      "enonce": "<p>À la question 6, tu as exprimé une largeur par ℓ(x) = 36/x : le produit de deux grandeurs reste constant, donc l'une est une fonction inverse de l'autre. Dans laquelle de ces situations cela se produit-il ?</p>",
+      "choix": [
+       "Pour un marathon de 42 km, la durée de la course en fonction de la vitesse moyenne du coureur",
+       "Le prix des bidons d'eau achetés en fonction de leur nombre, à 2 € le bidon",
+       "L'aire d'un terrain d'entraînement carré en fonction de la longueur de son côté",
+       "La distance parcourue en fonction du temps, à vitesse constante de 12 km/h"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-15-lot-3",
+    "total": 10,
+    "titre": "Proportions et évolutions : taux, coefficients et évolutions successives",
+    "chapitre": "Proportions et évolutions",
+    "date": "2026-11-15",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Donne les calculs et exprime les taux en pourcentage.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Un article coûte 80 €. Quel est son prix, en euros, après une hausse de 15 % ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Une grandeur augmente de 20 %, puis diminue de 20 %. L'évolution globale est :</p>",
+      "choix": [
+       "0 %",
+       "−4 %",
+       "+4 %",
+       "−20 %"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Un lycée compte 800 élèves, dont 55 % de filles. Parmi les filles, 30 % pratiquent un sport en club.</p><p>a) Quelle proportion des élèves du lycée représentent les filles qui pratiquent un sport en club ?</p><p>b) Combien d'élèves cela représente-t-il ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Le prix d'un abonnement passe de 25 € à 28 €. Calcule le taux d'évolution, en pourcentage.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Le prix d'un produit baisse de 20 %. Quelle hausse, en pourcentage, doit-il ensuite subir pour retrouver son prix initial ? Justifie avec des coefficients multiplicateurs.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>La population d'une ville a augmenté de 8 % en 2021, puis diminué de 5 % en 2022. Elle compte 20 520 habitants à la fin de 2022.</p><p>a) Calcule le coefficient multiplicateur global.</p><p>b) Quel était le nombre d'habitants avant l'augmentation de 2021 ?</p><p>c) Quel est le taux d'évolution global, en pourcentage ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Démographie et santé publique",
+      "enonce": "<p>À la question 6, tu as obtenu le coefficient multiplicateur global en multipliant les coefficients de chaque évolution. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Une mairie calcule la nouvelle population d'un quartier après une seule hausse de 4 %",
+       "Un service de santé calcule la proportion de personnes vaccinées parmi 2 000 habitants dont 1 500 sont vaccinés",
+       "Un institut calcule la moyenne d'âge d'un groupe de 50 personnes",
+       "Une équipe de biologistes calcule la taille d'une population de bactéries après deux heures, sachant qu'elle augmente de 10 % la première heure puis de 20 % la seconde"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-15-lot-4",
+    "total": 10,
+    "titre": "Statistiques : moyenne, médiane, quartiles et effet d'une transformation",
+    "chapitre": "Statistiques",
+    "date": "2026-11-15",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Rédige tes calculs. Utilise la définition des quartiles du cours (rang ⌈n/4⌉ et ⌈3n/4⌉).</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule la moyenne de la série : 5 ; 8 ; 11 ; 12 ; 14.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est la médiane de la série 2 ; 5 ; 7 ; 9 ; 17 ?</p>",
+      "choix": [
+       "5",
+       "7",
+       "8",
+       "9"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 8,
+      "points": 2,
+      "enonce": "<p>Voici les durées de trajet, en minutes, de 12 élèves, rangées dans l'ordre croissant : 3 ; 5 ; 6 ; 8 ; 9 ; 11 ; 12 ; 14 ; 15 ; 17 ; 19 ; 25.</p><p>Calcule la médiane, le premier quartile Q₁ et le troisième quartile Q₃.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 7,
+      "points": 2,
+      "enonce": "<p>On reprend la série de la question 3, dont la moyenne vaut 12 et l'écart interquartile 9. Chaque durée augmente de 5 minutes (travaux sur la route).</p><p>Donne, sans tout recalculer, la nouvelle moyenne, la nouvelle médiane et le nouvel écart interquartile. Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Deux classes ont passé le même contrôle. Classe A : médiane 12, Q₁ = 9, Q₃ = 14. Classe B : médiane 12, Q₁ = 6, Q₃ = 17.</p><p>a) Calcule l'écart interquartile de chaque classe.</p><p>b) Quelle classe a les résultats les plus homogènes ? Justifie.</p><p>c) Vrai ou faux : « Dans la classe B, au moins 75 % des élèves ont une note supérieure ou égale à 6 ». Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Après quatre contrôles, la moyenne de Inès est 11. Après un cinquième contrôle, sa moyenne passe à 12.</p><p>a) Quelle note a-t-elle obtenue au cinquième contrôle ?</p><p>b) Quelle note aurait-il fallu obtenir pour atteindre une moyenne de 13 ? Est-ce possible sur 20 ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Immobilier et statistiques",
+      "enonce": "<p>À la question 3, tu as calculé la médiane d'une série : elle partage les valeurs en deux groupes de même effectif. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un site d'annonces calcule le prix moyen des appartements en divisant la somme des prix par leur nombre",
+       "Un site d'annonces affiche le prix en dessous duquel se vendent la moitié des appartements d'une ville",
+       "Une agence calcule l'écart entre le prix de vente le plus élevé et le plus bas de la semaine",
+       "Une agence calcule l'évolution en pourcentage du prix d'un appartement revendu plus cher qu'à l'achat"
+      ]
+     }
+    ]
+   },
    {
     "id": "2026-11-08-lot-1",
     "total": 10,
@@ -6285,21 +6879,21 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-11-15T11:21:06.975Z",
+  "genereLe": "2026-11-15T11:46:52.133Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 31,
-        "ouvertes": 17,
+        "total": 35,
+        "ouvertes": 21,
         "enAttente": 0,
         "fermees": 14,
         "copiesCorrigees": 13,
         "moyenneSur20": 16.4
       },
       "seconde": {
-        "total": 33,
-        "ouvertes": 24,
-        "enAttente": 0,
+        "total": 37,
+        "ouvertes": 26,
+        "enAttente": 2,
         "fermees": 9,
         "copiesCorrigees": 9,
         "moyenneSur20": 17.9

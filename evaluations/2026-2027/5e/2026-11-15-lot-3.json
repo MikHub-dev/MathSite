@@ -1,0 +1,63 @@
+{
+  "titre": "Statistiques : étendue, moyenne, moyenne pondérée et fréquences",
+  "chapitre": "Statistiques",
+  "date": "2026-11-15",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Donne les calculs et les unités. Arrondis au dixième si nécessaire.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule l'étendue de la série : 12 ; 7 ; 15 ; 9 ; 12.</p>"
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule la moyenne de la série : 8 ; 12 ; 14 ; 6.</p>"
+    },
+    {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Dans un devoir, 1 élève a eu 10, 3 élèves ont eu 14 et 2 élèves ont eu 16. Calcule la moyenne de ces six élèves.</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 9,
+      "points": 3,
+      "enonce": "<p>Dans une classe de 25 élèves, on a relevé le mode de transport pour venir au collège : 10 élèves viennent à pied, 5 en bus, 8 à vélo et 2 en voiture.</p><p>a) Calcule la fréquence de chaque mode de transport, en pourcentage.</p><p>b) Vérifie que la somme des fréquences est égale à 100 %.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Samir a eu 4 devoirs. Sa moyenne est 12. Ses trois premières notes sont 9, 15 et 11.</p><p>a) Quelle est sa quatrième note ?</p><p>b) Calcule l'étendue de ses quatre notes.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Santé",
+      "enonce": "<p>À la question 5, tu as utilisé la formule de la moyenne : somme des valeurs ÷ nombre de valeurs. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+        "Un médecin cherche l'écart entre la nuit de sommeil la plus longue et la plus courte d'un patient sur une semaine",
+        "Un infirmier cherche la proportion de patients vaccinés dans un service de 40 personnes dont 30 sont vaccinées",
+        "Un pharmacien convertit une durée de traitement de 3 h 30 en minutes",
+        "Un médecin calcule la durée de sommeil moyenne d'un patient à partir des durées de ses 7 dernières nuits"
+      ]
+    }
+  ]
+}

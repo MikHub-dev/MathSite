@@ -1,0 +1,77 @@
+{
+  "titre": "Fonctions de référence : carré, inverse et racine carrée",
+  "chapitre": "Fonctions de référence",
+  "date": "2026-11-15",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie tes comparaisons et tes résolutions avec le sens de variation des fonctions de référence.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quelle est l'image de −4 par la fonction carré ?</p>",
+      "choix": [
+        "−16",
+        "16",
+        "−8",
+        "8"
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Soit f la fonction définie sur ℝ par f(x) = √(x² + 16). Calcule f(−3).</p>"
+    },
+    {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Compare, sans calculatrice, en citant le sens de variation de la fonction utilisée :</p><p>a) (−3)² et (−2)² ;</p><p>b) 1/2,7 et 1/3,1 ;</p><p>c) √7 et √5.</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Résous dans ℝ :</p><p>a) x² > 9 ;</p><p>b) √x ≤ 4.</p><p>Donne les solutions sous forme d'intervalles.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Un terrain carré a un côté de x mètres (x > 0). Son aire est A(x) = x².</p><p>a) Pour quelles valeurs de x l'aire est-elle comprise entre 16 m² et 49 m² (bornes incluses) ?</p><p>b) On veut une aire strictement supérieure à 100 m². Quelle longueur de côté minimale faut-il dépasser ?</p>"
+    },
+    {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Un rectangle a une aire de 36 cm². Sa longueur est x cm, avec x > 0.</p><p>a) Exprime sa largeur ℓ(x) en fonction de x.</p><p>b) Pour quelles valeurs de x la largeur est-elle supérieure ou égale à 4 cm ? Justifie à l'aide de la fonction inverse.</p><p>c) Quelle est la largeur quand la longueur est 9 cm ?</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Sport et course à pied",
+      "enonce": "<p>À la question 6, tu as exprimé une largeur par ℓ(x) = 36/x : le produit de deux grandeurs reste constant, donc l'une est une fonction inverse de l'autre. Dans laquelle de ces situations cela se produit-il ?</p>",
+      "choix": [
+        "Pour un marathon de 42 km, la durée de la course en fonction de la vitesse moyenne du coureur",
+        "Le prix des bidons d'eau achetés en fonction de leur nombre, à 2 € le bidon",
+        "L'aire d'un terrain d'entraînement carré en fonction de la longueur de son côté",
+        "La distance parcourue en fonction du temps, à vitesse constante de 12 km/h"
+      ]
+    }
+  ]
+}
