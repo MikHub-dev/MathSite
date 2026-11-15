@@ -1,0 +1,54 @@
+{
+  "publieLe": "2026-11-15",
+  "notes": {
+    "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 8.5,
+      "commentaire": "Très bonne copie (17,5/20 avec le bonus) : les produits nuls et les inéquations sont bien maîtrisés. Surveille le calcul de la question 1 (4x = 24 donne x = 6) et définis toujours l'inconnue du problème (n = nombre de séances).",
+      "details": {
+        "q1": {
+          "points": 0,
+          "remarque": "4x = 24 est juste, mais 24 ÷ 4 = 6 et non 7."
+        },
+        "q2": {
+          "points": 1,
+          "remarque": "Juste."
+        },
+        "q3": {
+          "points": 2,
+          "remarque": "Propriété citée, deux équations résolues et solutions justes."
+        },
+        "q4": {
+          "points": 2,
+          "remarque": "Étapes écrites, résultat juste et intervalle correct."
+        },
+        "q5": {
+          "points": 1.5,
+          "remarque": "Inéquation, résolution et conclusion justes, mais rédaction : tu n'as pas défini l'inconnue n (nombre de séances) et tu écris x.",
+          "incompletes": [
+            "30+5x<8x"
+          ]
+        },
+        "q6": {
+          "points": 2,
+          "remarque": "Factorisation, propriété du produit nul et explication justes."
+        }
+      },
+      "bonus": {
+        "points": 0.5,
+        "remarque": "Bonus gagné : chercher à partir de quand un forfait devient moins cher qu'un autre revient à résoudre une inéquation, comme à la question 5."
+      },
+      "reponduLe": "2026-11-15T11:24:32.722Z",
+      "corrigeLe": "2026-11-15",
+      "issue": 61,
+      "reponses": {
+        "q1": "4x=24; x=7 S={7}",
+        "q2": "]−∞ ; 3[",
+        "q3": "Si un produit de facteur est nul, alors l'un au moins des facteurs est nul:\nsoit 2x-6=0 ou x+5=0:\n2x=6   ou    x=-5\nx=3 \nS={3;-5}",
+        "q4": "7>=4x+19\n-12>=4x\n-3>=x\nS=]-∞; -3]",
+        "q5": "30+5x<8x\n30<3x\n10<x\nS=]10; +∞[\nA partir de 11 séances la formule B est la plus avantageuse.",
+        "q6": "(x − 4)² - 3(x − 4) = 0\n(x − 4) (x-4-3)=0\n(x-4) (x-7)=0\nSi AB= 0, A=0 ou B=0:\nSoit x-4=0 ou x-7=0:\nx=4 ou x=7\nS={4;7}\nLa division serait une erreur, car si x-4=0, le dénominateur de la division sera 0, ce qui n'existe pas.",
+        "bonus": "Un opérateur cherche à partir de quel volume de données le forfait B (20 € + 0,25 € par Go) devient moins cher que le forfait A (12 € + 0,50 € par Go)"
+      }
+    }
+  }
+}

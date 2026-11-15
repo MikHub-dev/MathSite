@@ -18,5 +18,15 @@
       "Une plateforme calcule le temps de téléchargement d'un film en divisant sa taille par le débit",
       "Une plateforme cherche le nombre de films pour lequel la location à 4 € l'unité coûte exactement autant que l'abonnement mensuel de 20 €"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p>4x − 9 = 15 donc 4x = 24, d'où <strong>x = 6</strong>.</p>",
+    "q2": "<p>2x − 7 = 3x + 1 donne −7 − 1 = 3x − 2x, soit <strong>x = −8</strong>.</p>",
+    "q3": "<p>Un produit est nul si et seulement si l'un de ses facteurs est nul : x − 4 = 0 ou 3x + 6 = 0, donc <strong>S = {4 ; −2}</strong>.</p>",
+    "q4": "<p>3x − 6 + 5 = 2x + 8 − 1 donne 3x − 1 = 2x + 7, d'où <strong>x = 8</strong>. Vérification : 3(8 − 2) + 5 = 23 et 2(8 + 4) − 1 = 23.</p>",
+    "q5": "<p>a) Tarif A : 12 + 3n ; tarif B : 30 + n. b) 12 + 3n = 30 + n donne 2n = 18, soit <strong>n = 9</strong>. c) Pour n = 12 : A coûte 48 € et B coûte 42 €, donc <strong>le tarif B</strong>.</p>",
+    "q6": "<p>a) x(x − 4) = 0 donc <strong>S = {0 ; 4}</strong>. b) (x + 3)(2x − 1 − x − 4) = 0, soit (x + 3)(x − 5) = 0, donc <strong>S = {−3 ; 5}</strong>. c) Diviser par x + 3 est interdit si x = −3 (division par 0) et fait perdre cette solution.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 4e</strong> (on cherche n tel que 4n = 20, une équation comme à la question 5). Le piège était la 1re : calculer le prix de 8 films est un simple calcul de valeur, pas la recherche d'une égalité entre deux coûts. Les deux autres choix sont un pourcentage et un quotient.</p>"
+  },
+  "cloturee": true
 }

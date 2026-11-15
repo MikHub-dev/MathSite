@@ -18,5 +18,15 @@
       "Un opérateur cherche à partir de quel volume de données le forfait B (20 € + 0,25 € par Go) devient moins cher que le forfait A (12 € + 0,50 € par Go)",
       "Un opérateur convertit en mégaoctets le volume d'une vidéo de 2,5 Go"
     ] }
-  ]
+  ],
+  "corrige": {
+    "q1": "<p>4x − 9 = 15 donc 4x = 24, d'où <strong>x = 6</strong>.</p>",
+    "q2": "<p>3x + 2 < 11 donc 3x < 9, d'où x < 3 : <strong>]−∞ ; 3[</strong> (la borne 3 est exclue car l'inégalité est stricte).</p>",
+    "q3": "<p>Un produit est nul si et seulement si l'un de ses facteurs est nul : 2x − 6 = 0 ou x + 5 = 0, donc <strong>S = {3 ; −5}</strong>.</p>",
+    "q4": "<p>7 − 3x ≥ x + 19 donne −12 ≥ 4x, soit x ≤ −3 : <strong>S = ]−∞ ; −3]</strong>.</p>",
+    "q5": "<p>B moins chère que A : 30 + 5n < 8n, donc 30 < 3n, soit n > 10. La formule B est la plus avantageuse <strong>à partir de 11 séances</strong>.</p>",
+    "q6": "<p>(x − 4)² − 3(x − 4) = 0 donne (x − 4)(x − 7) = 0, donc <strong>S = {4 ; 7}</strong>. Diviser par x − 4 serait une erreur : si x = 4, on divise par 0, et on perdrait la solution 4.</p>",
+    "bonus": "<p><strong>Bonne réponse : la 3e</strong> (on cherche à partir de quand 20 + 0,25x < 12 + 0,50x, une inéquation comme à la question 5). Le piège était la 2e : calculer le prix pour 8 Go est un simple calcul de valeur, pas une comparaison de deux tarifs. Les deux autres choix sont une moyenne et une conversion.</p>"
+  },
+  "cloturee": true
 }

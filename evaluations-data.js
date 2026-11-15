@@ -3129,7 +3129,17 @@ window.EVALUATIONS = {
        "Un opérateur convertit en mégaoctets le volume d'une vidéo de 2,5 Go"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p>4x − 9 = 15 donc 4x = 24, d'où <strong>x = 6</strong>.</p>",
+     "q2": "<p>3x + 2 < 11 donc 3x < 9, d'où x < 3 : <strong>]−∞ ; 3[</strong> (la borne 3 est exclue car l'inégalité est stricte).</p>",
+     "q3": "<p>Un produit est nul si et seulement si l'un de ses facteurs est nul : 2x − 6 = 0 ou x + 5 = 0, donc <strong>S = {3 ; −5}</strong>.</p>",
+     "q4": "<p>7 − 3x ≥ x + 19 donne −12 ≥ 4x, soit x ≤ −3 : <strong>S = ]−∞ ; −3]</strong>.</p>",
+     "q5": "<p>B moins chère que A : 30 + 5n < 8n, donc 30 < 3n, soit n > 10. La formule B est la plus avantageuse <strong>à partir de 11 séances</strong>.</p>",
+     "q6": "<p>(x − 4)² − 3(x − 4) = 0 donne (x − 4)(x − 7) = 0, donc <strong>S = {4 ; 7}</strong>. Diviser par x − 4 serait une erreur : si x = 4, on divise par 0, et on perdrait la solution 4.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 3e</strong> (on cherche à partir de quand 20 + 0,25x < 12 + 0,50x, une inéquation comme à la question 5). Le piège était la 2e : calculer le prix pour 8 Go est un simple calcul de valeur, pas une comparaison de deux tarifs. Les deux autres choix sont une moyenne et une conversion.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-11-08-lot-2",
@@ -3524,7 +3534,17 @@ window.EVALUATIONS = {
        "Une plateforme cherche le nombre de films pour lequel la location à 4 € l'unité coûte exactement autant que l'abonnement mensuel de 20 €"
       ]
      }
-    ]
+    ],
+    "corrige": {
+     "q1": "<p>4x − 9 = 15 donc 4x = 24, d'où <strong>x = 6</strong>.</p>",
+     "q2": "<p>2x − 7 = 3x + 1 donne −7 − 1 = 3x − 2x, soit <strong>x = −8</strong>.</p>",
+     "q3": "<p>Un produit est nul si et seulement si l'un de ses facteurs est nul : x − 4 = 0 ou 3x + 6 = 0, donc <strong>S = {4 ; −2}</strong>.</p>",
+     "q4": "<p>3x − 6 + 5 = 2x + 8 − 1 donne 3x − 1 = 2x + 7, d'où <strong>x = 8</strong>. Vérification : 3(8 − 2) + 5 = 23 et 2(8 + 4) − 1 = 23.</p>",
+     "q5": "<p>a) Tarif A : 12 + 3n ; tarif B : 30 + n. b) 12 + 3n = 30 + n donne 2n = 18, soit <strong>n = 9</strong>. c) Pour n = 12 : A coûte 48 € et B coûte 42 €, donc <strong>le tarif B</strong>.</p>",
+     "q6": "<p>a) x(x − 4) = 0 donc <strong>S = {0 ; 4}</strong>. b) (x + 3)(2x − 1 − x − 4) = 0, soit (x + 3)(x − 5) = 0, donc <strong>S = {−3 ; 5}</strong>. c) Diviser par x + 3 est interdit si x = −3 (division par 0) et fait perdre cette solution.</p>",
+     "bonus": "<p><strong>Bonne réponse : la 4e</strong> (on cherche n tel que 4n = 20, une équation comme à la question 5). Le piège était la 1re : calculer le prix de 8 films est un simple calcul de valeur, pas la recherche d'une égalité entre deux coûts. Les deux autres choix sont un pourcentage et un quotient.</p>"
+    },
+    "cloturee": true
    },
    {
     "id": "2026-11-01-lot-3",
@@ -6873,13 +6893,118 @@ window.EVAL_NOTES = {
       }
      }
     }
+   },
+   "2026-11-01-lot-2": {
+    "publieLe": "2026-11-15",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 9,
+      "commentaire": "Excellente copie (18,5/20 avec le bonus) : démarches rigoureuses, propriétés citées et vérifications faites. Seule la question 1 est à reprendre : 24 ÷ 4 = 6.",
+      "details": {
+       "q1": {
+        "points": 0,
+        "remarque": "4x = 24 est juste, mais x = 6 et non 7."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Propriété citée, résolution et solutions justes."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Développement juste, solution x = 8 et vérification bien menée."
+       },
+       "q5": {
+        "points": 2,
+        "remarque": "Expressions, équation et comparaison justes, conclusion claire."
+       },
+       "q6": {
+        "points": 2,
+        "remarque": "Factorisations, propriété du produit nul et explication justes : tu as bien vu qu'on perd la solution x = −3."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : chercher quand deux coûts sont exactement égaux revient à résoudre une équation, comme à la question 5."
+      },
+      "reponduLe": "2026-11-15T11:39:40.834Z",
+      "corrigeLe": "2026-11-15",
+      "issue": 62,
+      "reponses": {
+       "q1": "4x=24; x=7 S={7}",
+       "q2": "x = −8",
+       "q3": "Si un produit de facteur est nul, alors l'un au moins des facteurs est nul:\nsoit x-4=0 ou 3x+6=0:\nx=4 ou 3x=-6\n            x=-2\nS={4;-2}",
+       "q4": "3x-6+5=2x+8-1\n3x-1=2x+7\nx=8\nS={8}\nVerification:\n3(8-2)+5=2(8+4)-1\n18+5=24-1\n23=23",
+       "q5": "a) Tarif A: 12+3n\n    Tarif B: 30+n\nb) 12+3n=30+n\n    2n=18\n    n=9\n    S={9}\nc) soit n=12:\n    D'une part: 12+3n= 12+3*12=12+36=48\n    D'autre part: 30+n=30+12=42\n    On remarque que 42<48 \n    Donc le tarif le plus avantageux est le tarif B.",
+       "q6": "a)x² − 4x = 0\nx(x-4) = 0\nSi AB=0, A=0 ou B=0:\nsoit x=0 ou x-4=0:\nx=0         x=4\nS={0;4}\nb) (x + 3)(2x − 1) = (x + 3)(x + 4)\n    (x + 3)(2x − 1) - (x + 3)(x + 4) = 0\n    (x + 3)(2x − 1 - x - 4) = 0\n    (x + 3)(x - 5)=0\nSi AB=0, A=0 ou B=0:\nx+3=0 ou x-5=0:\nx=-3 ou x=5\nS={-3;5}\nc) si on divise par x+3, on passe d'une équation de second degré (qui possède généralement 2 solutions) à une équation de premier degré (1 seule solution). Cela nous fait donc perdre 1 solution. Ce cas n'est meme pas envisageable car si x+3=0, cela reviendrai à diviser par 0, ce qui n'existe pas.",
+       "bonus": "Une plateforme cherche le nombre de films pour lequel la location à 4 € l'unité coûte exactement autant que l'abonnement mensuel de 20 €"
+      }
+     }
+    }
+   },
+   "2026-11-08-lot-1": {
+    "publieLe": "2026-11-15",
+    "notes": {
+     "8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f": {
+      "note": 8.5,
+      "commentaire": "Très bonne copie (17,5/20 avec le bonus) : les produits nuls et les inéquations sont bien maîtrisés. Surveille le calcul de la question 1 (4x = 24 donne x = 6) et définis toujours l'inconnue du problème (n = nombre de séances).",
+      "details": {
+       "q1": {
+        "points": 0,
+        "remarque": "4x = 24 est juste, mais 24 ÷ 4 = 6 et non 7."
+       },
+       "q2": {
+        "points": 1,
+        "remarque": "Juste."
+       },
+       "q3": {
+        "points": 2,
+        "remarque": "Propriété citée, deux équations résolues et solutions justes."
+       },
+       "q4": {
+        "points": 2,
+        "remarque": "Étapes écrites, résultat juste et intervalle correct."
+       },
+       "q5": {
+        "points": 1.5,
+        "remarque": "Inéquation, résolution et conclusion justes, mais rédaction : tu n'as pas défini l'inconnue n (nombre de séances) et tu écris x.",
+        "incompletes": [
+         "30+5x<8x"
+        ]
+       },
+       "q6": {
+        "points": 2,
+        "remarque": "Factorisation, propriété du produit nul et explication justes."
+       }
+      },
+      "bonus": {
+       "points": 0.5,
+       "remarque": "Bonus gagné : chercher à partir de quand un forfait devient moins cher qu'un autre revient à résoudre une inéquation, comme à la question 5."
+      },
+      "reponduLe": "2026-11-15T11:24:32.722Z",
+      "corrigeLe": "2026-11-15",
+      "issue": 61,
+      "reponses": {
+       "q1": "4x=24; x=7 S={7}",
+       "q2": "]−∞ ; 3[",
+       "q3": "Si un produit de facteur est nul, alors l'un au moins des facteurs est nul:\nsoit 2x-6=0 ou x+5=0:\n2x=6   ou    x=-5\nx=3 \nS={3;-5}",
+       "q4": "7>=4x+19\n-12>=4x\n-3>=x\nS=]-∞; -3]",
+       "q5": "30+5x<8x\n30<3x\n10<x\nS=]10; +∞[\nA partir de 11 séances la formule B est la plus avantageuse.",
+       "q6": "(x − 4)² - 3(x − 4) = 0\n(x − 4) (x-4-3)=0\n(x-4) (x-7)=0\nSi AB= 0, A=0 ou B=0:\nSoit x-4=0 ou x-7=0:\nx=4 ou x=7\nS={4;7}\nLa division serait une erreur, car si x-4=0, le dénominateur de la division sera 0, ce qui n'existe pas.",
+       "bonus": "Un opérateur cherche à partir de quel volume de données le forfait B (20 € + 0,25 € par Go) devient moins cher que le forfait A (12 € + 0,50 € par Go)"
+      }
+     }
+    }
    }
   }
  }
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-11-15T11:46:52.133Z",
+  "genereLe": "2026-11-15T14:15:09.586Z",
   "annees": {
     "2026-2027": {
       "5e": {
@@ -6893,9 +7018,9 @@ window.EVAL_KPI = {
       "seconde": {
         "total": 37,
         "ouvertes": 26,
-        "enAttente": 2,
-        "fermees": 9,
-        "copiesCorrigees": 9,
+        "enAttente": 0,
+        "fermees": 11,
+        "copiesCorrigees": 11,
         "moyenneSur20": 17.9
       }
     }
