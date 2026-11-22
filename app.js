@@ -2301,13 +2301,18 @@ function normalizeWithMap(text) {
 // Extrait (HTML déjà échappé) montrant où un mot cherché apparaît dans le CORPS de la fiche.
 // Vide si la fiche est trouvée par son seul titre.
 function buildDeepSnippet(e, parsed) {
-  if (!parsed || !parsed.terms || !e.ficheKey) return "";
-  const fiche = (window.MATHSITE_FICHES || {})[e.ficheKey];
-  if (!fiche) return "";
+  if (!parsed || !parsed.terms) return "";
+  let fields = e.fields;   // pages annexes : champs portés par l'entrée elle-même
+  if (!fields) {
+    if (!e.ficheKey) return "";
+    const fiche = (window.MATHSITE_FICHES || {})[e.ficheKey];
+    if (!fiche) return "";
+    fields = ficheSearchFields(fiche);
+  }
   const bodyTerms = parsed.terms.filter(t => e.deep.includes(t) && !e.hay.includes(t));
   if (!bodyTerms.length) return "";
 
-  for (const f of ficheSearchFields(fiche)) {
+  for (const f of fields) {
     const m = normalizeWithMap(f.text);
     const positions = bodyTerms.map(t => m.norm.indexOf(t)).filter(pos => pos >= 0);
     if (!positions.length) continue;
@@ -2485,6 +2490,93 @@ function buildMenuSearchIndex() {
   return idx;
 }
 
+// --- Index de recherche des PAGES ANNEXES ---
+// Les pages HTML à part (concours.html et les pages de concours/, carnet de visite,
+// axiomatisation…) ne sont pas chargées par index.html. Leur texte est rassemblé dans
+// recherche-pages.json par outils/index-pages.py (relancé à chaque mise en ligne) : une entrée
+// par partie de page (élément avec un id et un titre), avec un lien direct vers cette partie.
+// Le fichier est lu à la première recherche ; les pages liées depuis concours.html qui n'y
+// figurent pas encore (concours ajouté depuis) sont lues directement.
+let pageSearchIndex = null;      // tableau d'entrées, une fois chargé
+let pageSearchLoading = null;
+
+function addPageSearchEntry(list, u, t, p, x) {
+  const label = String(t || p || u).replace(/\s+/g, " ").trim();
+  const text = String(x || "").replace(/\s+/g, " ").trim();
+  if (!text) return;
+  list.push({
+    group: "pages", label, url: u,
+    tag: u.startsWith("concours") ? "Concours" : "Page", tagClass: "tag-theme",
+    path: p && p !== label ? p : "",
+    fields: [{ label: "Texte", text }],
+    hay: normalizeForSearch(label),
+    deep: normalizeForSearch(label + "\n" + text)
+  });
+}
+
+// Lit une page qui n'est pas encore dans recherche-pages.json (même découpage que le script).
+async function indexMissingPage(list, url) {
+  try {
+    const r = await fetch(url, { cache: "no-cache" });
+    if (!r.ok) return;
+    const doc = new DOMParser().parseFromString(await r.text(), "text/html");
+    doc.querySelectorAll("script, style, svg, noscript, template").forEach(n => n.remove());
+    doc.querySelectorAll("p, li, div, td, th, h1, h2, h3, h4, section, article, header, br").forEach(n => n.after(" "));
+    const pageTitle = (doc.title || url).trim();
+    let found = 0;
+    doc.querySelectorAll("body [id]").forEach(el => {
+      if (/^(H[1-4]|SPAN|A|B|STRONG|EM|I)$/.test(el.tagName)) return;
+      const h = el.querySelector("h1, h2, h3");
+      if (!h || h.closest("[id]:not(h1):not(h2):not(h3)") !== el) return;
+      addPageSearchEntry(list, `${url}#${el.id}`, h.textContent, pageTitle, el.textContent);
+      found++;
+    });
+    if (!found) addPageSearchEntry(list, url, pageTitle, pageTitle, doc.body ? doc.body.textContent : "");
+  } catch (err) { /* page absente : ignorée */ }
+}
+
+function loadPageSearchIndex() {
+  if (pageSearchLoading) return pageSearchLoading;
+  pageSearchLoading = (async () => {
+    const list = [];
+    let known = new Set();
+    try {
+      const r = await fetch("recherche-pages.json", { cache: "no-cache" });
+      if (r.ok) {
+        const data = await r.json();
+        known = new Set(data.pages || []);
+        (data.entrees || []).forEach(e => addPageSearchEntry(list, e.u, e.t, e.p, e.x));
+      }
+    } catch (err) { console.warn("Index des pages annexes indisponible :", err); }
+    try {
+      const r = await fetch("concours.html", { cache: "no-cache" });
+      if (r.ok) {
+        const doc = new DOMParser().parseFromString(await r.text(), "text/html");
+        const missing = [...new Set([...doc.querySelectorAll("a[href]")]
+          .map(a => a.getAttribute("href").split("#")[0])
+          .filter(h => /^concours\/[^/]+\.html$/.test(h) && !known.has(h)))];
+        await Promise.all(missing.map(u => indexMissingPage(list, u)));
+      }
+    } catch (err) { /* hors ligne : on garde l'index du fichier */ }
+    pageSearchIndex = list;
+    return list;
+  })();
+  return pageSearchLoading;
+}
+
+function renderPageHitRow(e, parsed) {
+  const snippet = parsed ? buildDeepSnippet(e, parsed) : "";
+  return `
+    <a class="search-menu-item" href="${escapeHtml(e.url)}" target="_blank" rel="noopener">
+      <span class="card-niveau-tag ${e.tagClass}">${escapeHtml(e.tag)}</span>
+      <span class="search-menu-text">
+        <span class="search-menu-label">${escapeHtml(e.label)}</span>
+        ${e.path ? `<span class="search-menu-path">${escapeHtml(e.path)}</span>` : ""}
+        ${snippet ? `<span class="search-menu-snippet">${snippet}</span>` : ""}
+      </span>
+    </a>`;
+}
+
 function getMenuSearchIndex() {
   if (!menuSearchIndex) {
     try {
@@ -2602,7 +2694,7 @@ function renderSearchGroup(groupId, title, hits, parsed) {
   return `
     <h2 class="search-group-title" id="search-grp-${groupId}">${escapeHtml(title)} <span class="search-group-count">${hits.length}</span></h2>
     <div class="search-menu-list" id="search-list-${groupId}">
-      ${hits.slice(0, shown).map(h => renderMenuHitRow(h, parsed)).join("")}
+      ${hits.slice(0, shown).map(h => (h.group === "pages" ? renderPageHitRow : renderMenuHitRow)(h, parsed)).join("")}
     </div>
     ${hits.length > shown ? `<button class="back-btn search-more" id="search-more-${groupId}" onclick="showMoreSearchHits('${groupId}')">Afficher plus (${hits.length - shown} restants)</button>` : ""}
   `;
@@ -2613,7 +2705,7 @@ function showMoreSearchHits(groupId) {
   const list = document.getElementById(`search-list-${groupId}`);
   if (!pager || !list) return;
   const next = Math.min(pager.shown + SEARCH_PAGE_SIZE, pager.hits.length);
-  list.insertAdjacentHTML("beforeend", pager.hits.slice(pager.shown, next).map(h => renderMenuHitRow(h, pager.parsed)).join(""));
+  list.insertAdjacentHTML("beforeend", pager.hits.slice(pager.shown, next).map(h => (h.group === "pages" ? renderPageHitRow : renderMenuHitRow)(h, pager.parsed)).join(""));
   pager.shown = next;
   const btn = document.getElementById(`search-more-${groupId}`);
   if (!btn) return;
@@ -2640,7 +2732,15 @@ function showSearchResults(rawQuery) {
   const menuHits = searchMenuEntries(idx.menus, parsed);
   const conceptHits = searchFicheEntries(idx.concepts, parsed);
   const found = notions.filter(n => matchesSearchQuery(n, q));
-  const total = menuHits.length + conceptHits.length + found.length;
+  const pageHits = pageSearchIndex ? searchFicheEntries(pageSearchIndex, parsed) : [];
+  const total = menuHits.length + conceptHits.length + found.length + pageHits.length;
+  if (!pageSearchIndex) {
+    // Premier passage : l'index des pages annexes arrive ; on réaffiche si la requête n'a pas changé.
+    loadPageSearchIndex().then(() => {
+      const input = document.getElementById("global-search");
+      if (input && input.value === rawQuery) showSearchResults(rawQuery);
+    });
+  }
 
   searchPagers = {};
   const groups = [];   // [id, titre, nombre] — sert aux liens "Aller à" en haut de page
@@ -2659,8 +2759,14 @@ function showSearchResults(rawQuery) {
     groups.push(["concepts", "Fiches détaillées", conceptHits.length]);
     body += renderSearchGroup("concepts", "Fiches détaillées", conceptHits, parsed);
   }
+  if (pageHits.length) {
+    groups.push(["pages", "Pages et concours", pageHits.length]);
+    body += renderSearchGroup("pages", "Pages et concours", pageHits, parsed);
+  }
   if (!total) {
-    body = `<div id="results"><p class="empty">Aucun résultat pour « ${escapeHtml(q)} ».</p></div>`;
+    body = `<div id="results"><p class="empty">${pageSearchIndex ? "Aucun résultat" : "Recherche en cours dans les pages et concours… Aucun résultat pour l'instant"} pour « ${escapeHtml(q)} ».</p></div>`;
+  } else if (!pageSearchIndex) {
+    body += `<p class="subtitle">Recherche en cours dans les pages et concours…</p>`;
   }
 
   const jumps = groups.length > 1

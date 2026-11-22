@@ -1956,6 +1956,12 @@ table.formules-table tr:hover td { background: #1a1d24; }
   background: #23262f;
 }
 
+/* Résultats « Pages et concours » : liens vers les pages annexes */
+a.search-menu-item {
+  color: inherit;
+  text-decoration: none;
+}
+
 .search-menu-item .card-niveau-tag {
   margin-bottom: 0;
   flex-shrink: 0;
