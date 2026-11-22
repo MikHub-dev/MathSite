@@ -1,0 +1,69 @@
+{
+  "titre": "Périmètres et aires : triangle, disque et figure composée",
+  "chapitre": "Périmètres et aires",
+  "date": "2026-11-22",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Donne les valeurs exactes puis les arrondis demandés, avec les unités.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Calcule l'aire d'un triangle de base 9 cm et de hauteur associée 6 cm, en cm².</p>"
+    },
+    {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le périmètre d'un cercle de rayon 5 cm, arrondi au dixième ?</p>",
+      "choix": [
+        "15,7 cm",
+        "31,4 cm",
+        "78,5 cm",
+        "62,8 cm"
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Convertis 4,2 m² en dm².</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Un terrain a la forme d'un parallélogramme de base 24 m et de hauteur 15 m. On veut y semer du gazon. Un sachet de graines couvre 40 m² et coûte 12 €.</p><p>a) Calcule l'aire du terrain.</p><p>b) Combien de sachets faut-il acheter au minimum ?</p><p>c) Quel est le prix à payer ?</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Une piste d'athlétisme est formée d'un rectangle de 20 m sur 8 m et de deux demi-disques de diamètre 8 m accolés aux deux petits côtés.</p><p>a) Calcule le périmètre de la piste : valeur exacte puis arrondi au dixième.</p><p>b) Calcule l'aire de la piste : valeur exacte puis arrondi au dixième.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Restauration",
+      "enonce": "<p>À la question 5, tu as utilisé la formule de l'aire d'un disque A = π × r². Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+        "Un cuisinier calcule la longueur de ruban nécessaire pour entourer une boîte à pizza carrée de côté 33 cm",
+        "Un cuisinier découpe une pizza en 8 parts égales et cherche l'angle de chaque part",
+        "Un pizzaiolo compare la quantité de pâte nécessaire, à épaisseur égale, pour une pizza de 30 cm de diamètre et pour une de 40 cm de diamètre",
+        "Un cuisinier convertit 1,5 L de sauce tomate en centilitres"
+      ]
+    }
+  ]
+}

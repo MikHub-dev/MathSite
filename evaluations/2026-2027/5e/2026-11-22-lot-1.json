@@ -1,0 +1,77 @@
+{
+  "titre": "Proportionnalité : tableau, pourcentages et échelle",
+  "chapitre": "Proportionnalité",
+  "date": "2026-11-22",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie chaque réponse par un calcul clair.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Dans un tableau de proportionnalité, 6 correspond à 15. À quelle valeur correspond 10 ?</p>"
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule 30 % de 80.</p>"
+    },
+    {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>5 cahiers identiques coûtent 8,50 €. Combien coûtent 12 de ces cahiers, en euros ?</p>"
+    },
+    {
+      "id": "q4",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 1,
+      "enonce": "<p>Un pull coûte 40 €. Son prix baisse de 25 %. Quel est son nouveau prix ?</p>",
+      "choix": [
+        "10 €",
+        "30 €",
+        "15 €",
+        "65 €"
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Le tableau suivant est-il un tableau de proportionnalité ? Justifie.</p><p>4 → 10 ; 6 → 15 ; 10 → 26</p>"
+    },
+    {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Sur une carte à l'échelle 1/50 000, deux villages sont séparés de 7 cm.</p><p>a) Calcule la distance réelle entre les deux villages, en km.</p><p>b) Un randonneur marche à 4 km/h à vitesse constante. Combien de temps met-il pour aller d'un village à l'autre ? Donne la réponse en minutes.</p><p>c) Sur une carte à l'échelle 1/25 000, quelle serait la distance entre les deux villages, en cm ?</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Médecine et pharmacie",
+      "enonce": "<p>À la question 3, tu as utilisé la proportionnalité : quand la quantité est multipliée par un nombre, le prix est multiplié par le même nombre. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+        "Une infirmière additionne les comprimés pris le matin (2) et le soir (3) pour connaître le nombre total de comprimés par jour",
+        "Un infirmier sait que 4 mL de sirop conviennent à un enfant de 10 kg ; la dose étant proportionnelle à la masse, il calcule la dose pour un enfant de 25 kg",
+        "Un médecin calcule la moyenne de trois mesures de tension prises le même jour",
+        "Un pharmacien calcule l'aire de l'étiquette rectangulaire collée sur une boîte"
+      ]
+    }
+  ]
+}

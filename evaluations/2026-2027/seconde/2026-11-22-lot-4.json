@@ -1,0 +1,69 @@
+{
+  "titre": "Calcul littéral : développer, factoriser et démontrer",
+  "chapitre": "Calcul littéral",
+  "date": "2026-11-22",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie chaque réponse en détaillant les étapes de ton calcul.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le développement de (x + 5)² ?</p>",
+      "choix": [
+        "x² + 25",
+        "x² + 10x + 25",
+        "x² + 5x + 25",
+        "x² + 10x + 10"
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Quel est le coefficient de x dans le développement réduit de (3x − 2)(x + 4) ?</p>"
+    },
+    {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Factorise :</p><p>a) 9x² − 25</p><p>b) (2x + 1)(x − 3) − (2x + 1)(x + 4)</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>a) Démontre que, pour tout réel x, (x + 3)² − (x − 3)² = 12x.</p><p>b) Déduis-en, sans calculatrice, la valeur de 1 003² − 997².</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 4,
+      "enonce": "<p>Pour tout entier naturel n, on pose A = n(n + 2) + 1.</p><p>a) Développe A.</p><p>b) Factorise A et déduis-en que A est le carré d'un entier.</p><p>c) Calcule 99 × 101 + 1 sans calculatrice en utilisant ce résultat.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Jardinage et aménagement",
+      "enonce": "<p>À la question 4, tu as utilisé l'identité remarquable a² − b² = (a − b)(a + b). Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+        "Un jardinier agrandit un parterre carré de 10 m de côté de 2 m sur chaque côté et calcule sa nouvelle aire en développant (10 + 2)²",
+        "Un jardinier compare l'aire de deux parterres carrés de côtés 52 m et 48 m en calculant 52² − 48² = (52 − 48)(52 + 48)",
+        "Un jardinier convertit en ares l'aire d'une pelouse exprimée en m²",
+        "Un jardinier calcule la hauteur moyenne de plusieurs plants de tomates"
+      ]
+    }
+  ]
+}

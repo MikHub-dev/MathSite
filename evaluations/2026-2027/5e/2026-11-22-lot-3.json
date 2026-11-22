@@ -1,0 +1,69 @@
+{
+  "titre": "Probabilités : issues, événement impossible et fréquence",
+  "chapitre": "Probabilités",
+  "date": "2026-11-22",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Écris tes réponses sous forme de fractions ou de nombres décimaux, et justifie-les.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>On lance un dé équilibré à 10 faces numérotées de 1 à 10. Quelle est la probabilité d'obtenir 7 ? Donne la réponse en écriture décimale.</p>"
+    },
+    {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>On lance un dé équilibré à six faces. Quel événement est impossible ?</p>",
+      "choix": [
+        "Obtenir un nombre pair",
+        "Obtenir un nombre inférieur à 7",
+        "Obtenir 0",
+        "Obtenir un multiple de 3"
+      ]
+    },
+    {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Une urne contient 4 boules rouges, 7 boules bleues et 9 boules vertes. On tire une boule au hasard. Quelle est la probabilité de ne pas tirer une boule bleue ? Donne la réponse en écriture décimale.</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Une roue de loterie est partagée en 8 secteurs égaux : 3 rouges, 2 jaunes, 2 bleus et 1 vert. On la fait tourner ; elle s'arrête sur un secteur au hasard.</p><p>a) Quelle est la probabilité que la roue s'arrête sur un secteur jaune ou bleu ?</p><p>b) Quelle est la probabilité de ne pas obtenir rouge ?</p><p>c) Quelle est la couleur la plus probable ? Justifie.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Samir lance 200 fois une pièce équilibrée et obtient 112 fois « pile ».</p><p>a) Calcule la fréquence d'apparition de « pile ».</p><p>b) Compare-la à la probabilité théorique d'obtenir « pile ». Quel est l'écart ?</p><p>c) Samir pense que sa pièce est truquée. Que peux-tu lui répondre ? Que peut-on attendre s'il lance la pièce 20 000 fois ?</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Industrie agroalimentaire",
+      "enonce": "<p>À la question 3, tu as calculé une probabilité : nombre d'issues favorables ÷ nombre d'issues possibles. Dans laquelle de ces situations la calcule-t-on ?</p>",
+      "choix": [
+        "Un fabricant sait qu'un sachet contient 120 bonbons dont 30 à la fraise : il calcule la probabilité qu'un bonbon pioché au hasard soit à la fraise",
+        "Un fabricant pèse dix sachets et calcule la masse moyenne d'un sachet",
+        "Un fabricant mesure la plus grande et la plus petite masse de ses sachets pour en déduire l'étendue",
+        "Un fabricant compte combien de sachets sont vendus chaque jour pendant une semaine"
+      ]
+    }
+  ]
+}

@@ -4,6 +4,306 @@ window.EVALUATIONS = {
  "2026-2027": {
   "5e": [
    {
+    "id": "2026-11-22-lot-1",
+    "total": 10,
+    "titre": "Proportionnalité : tableau, pourcentages et échelle",
+    "chapitre": "Proportionnalité",
+    "date": "2026-11-22",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque réponse par un calcul clair.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Dans un tableau de proportionnalité, 6 correspond à 15. À quelle valeur correspond 10 ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Calcule 30 % de 80.</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>5 cahiers identiques coûtent 8,50 €. Combien coûtent 12 de ces cahiers, en euros ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 1,
+      "enonce": "<p>Un pull coûte 40 €. Son prix baisse de 25 %. Quel est son nouveau prix ?</p>",
+      "choix": [
+       "10 €",
+       "30 €",
+       "15 €",
+       "65 €"
+      ]
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Le tableau suivant est-il un tableau de proportionnalité ? Justifie.</p><p>4 → 10 ; 6 → 15 ; 10 → 26</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Sur une carte à l'échelle 1/50 000, deux villages sont séparés de 7 cm.</p><p>a) Calcule la distance réelle entre les deux villages, en km.</p><p>b) Un randonneur marche à 4 km/h à vitesse constante. Combien de temps met-il pour aller d'un village à l'autre ? Donne la réponse en minutes.</p><p>c) Sur une carte à l'échelle 1/25 000, quelle serait la distance entre les deux villages, en cm ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Médecine et pharmacie",
+      "enonce": "<p>À la question 3, tu as utilisé la proportionnalité : quand la quantité est multipliée par un nombre, le prix est multiplié par le même nombre. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Une infirmière additionne les comprimés pris le matin (2) et le soir (3) pour connaître le nombre total de comprimés par jour",
+       "Un infirmier sait que 4 mL de sirop conviennent à un enfant de 10 kg ; la dose étant proportionnelle à la masse, il calcule la dose pour un enfant de 25 kg",
+       "Un médecin calcule la moyenne de trois mesures de tension prises le même jour",
+       "Un pharmacien calcule l'aire de l'étiquette rectangulaire collée sur une boîte"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-22-lot-2",
+    "total": 10,
+    "titre": "Parallélogrammes : côtés, angles et diagonales",
+    "chapitre": "Parallélogrammes",
+    "date": "2026-11-22",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque réponse avec une propriété du cours.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>ABCD est un parallélogramme avec AB = 7 cm et BC = 4 cm. Quelle est la longueur CD, en cm ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>EFGH est un parallélogramme et l'angle en E mesure 65°. Quelle est la mesure de l'angle en G, en degrés ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Dans le parallélogramme ABCD, l'angle en A mesure 72°. Quelle est la mesure de l'angle en B, en degrés ?</p>"
+     },
+     {
+      "id": "q4",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 1,
+      "enonce": "<p>Les diagonales [AC] et [BD] du parallélogramme ABCD se coupent en O. On a AC = 13 cm et BD = 9 cm. Que vaut OB ?</p>",
+      "choix": [
+       "9 cm",
+       "4,5 cm",
+       "6,5 cm",
+       "13 cm"
+      ]
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>ABCD est un parallélogramme de périmètre 30 cm et AB = 9 cm. Calcule BC en justifiant.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Un quadrilatère KLMN a ses diagonales [KM] et [LN] qui se coupent en O, milieu de chacune d'elles. De plus, KM = LN = 10 cm.</p><p>a) Quelle est la nature de KLMN ? Justifie en deux étapes.</p><p>b) Calcule la longueur KO.</p><p>c) Que faut-il ajouter sur les diagonales pour que KLMN soit un carré ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Menuiserie et bricolage",
+      "enonce": "<p>À la question 4, tu as utilisé la propriété : les diagonales d'un parallélogramme se coupent en leur milieu. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un menuisier calcule la longueur de baguette nécessaire pour border un panneau en parallélogramme en doublant la somme de deux côtés consécutifs",
+       "Un menuisier calcule l'angle manquant d'une équerre triangulaire dont il connaît deux angles",
+       "Un menuisier convertit en centimètres une longueur de planche mesurée en millimètres",
+       "Un charpentier sait que la diagonale d'une trappe en parallélogramme mesure 120 cm : il place le point de croisement des deux diagonales à 60 cm d'un sommet"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-22-lot-3",
+    "total": 10,
+    "titre": "Probabilités : issues, événement impossible et fréquence",
+    "chapitre": "Probabilités",
+    "date": "2026-11-22",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Écris tes réponses sous forme de fractions ou de nombres décimaux, et justifie-les.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>On lance un dé équilibré à 10 faces numérotées de 1 à 10. Quelle est la probabilité d'obtenir 7 ? Donne la réponse en écriture décimale.</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>On lance un dé équilibré à six faces. Quel événement est impossible ?</p>",
+      "choix": [
+       "Obtenir un nombre pair",
+       "Obtenir un nombre inférieur à 7",
+       "Obtenir 0",
+       "Obtenir un multiple de 3"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Une urne contient 4 boules rouges, 7 boules bleues et 9 boules vertes. On tire une boule au hasard. Quelle est la probabilité de ne pas tirer une boule bleue ? Donne la réponse en écriture décimale.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Une roue de loterie est partagée en 8 secteurs égaux : 3 rouges, 2 jaunes, 2 bleus et 1 vert. On la fait tourner ; elle s'arrête sur un secteur au hasard.</p><p>a) Quelle est la probabilité que la roue s'arrête sur un secteur jaune ou bleu ?</p><p>b) Quelle est la probabilité de ne pas obtenir rouge ?</p><p>c) Quelle est la couleur la plus probable ? Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Samir lance 200 fois une pièce équilibrée et obtient 112 fois « pile ».</p><p>a) Calcule la fréquence d'apparition de « pile ».</p><p>b) Compare-la à la probabilité théorique d'obtenir « pile ». Quel est l'écart ?</p><p>c) Samir pense que sa pièce est truquée. Que peux-tu lui répondre ? Que peut-on attendre s'il lance la pièce 20 000 fois ?</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Industrie agroalimentaire",
+      "enonce": "<p>À la question 3, tu as calculé une probabilité : nombre d'issues favorables ÷ nombre d'issues possibles. Dans laquelle de ces situations la calcule-t-on ?</p>",
+      "choix": [
+       "Un fabricant sait qu'un sachet contient 120 bonbons dont 30 à la fraise : il calcule la probabilité qu'un bonbon pioché au hasard soit à la fraise",
+       "Un fabricant pèse dix sachets et calcule la masse moyenne d'un sachet",
+       "Un fabricant mesure la plus grande et la plus petite masse de ses sachets pour en déduire l'étendue",
+       "Un fabricant compte combien de sachets sont vendus chaque jour pendant une semaine"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-22-lot-4",
+    "total": 10,
+    "titre": "Périmètres et aires : triangle, disque et figure composée",
+    "chapitre": "Périmètres et aires",
+    "date": "2026-11-22",
+    "dureeMinutes": 30,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Donne les valeurs exactes puis les arrondis demandés, avec les unités.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>Calcule l'aire d'un triangle de base 9 cm et de hauteur associée 6 cm, en cm².</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le périmètre d'un cercle de rayon 5 cm, arrondi au dixième ?</p>",
+      "choix": [
+       "15,7 cm",
+       "31,4 cm",
+       "78,5 cm",
+       "62,8 cm"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Convertis 4,2 m² en dm².</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Un terrain a la forme d'un parallélogramme de base 24 m et de hauteur 15 m. On veut y semer du gazon. Un sachet de graines couvre 40 m² et coûte 12 €.</p><p>a) Calcule l'aire du terrain.</p><p>b) Combien de sachets faut-il acheter au minimum ?</p><p>c) Quel est le prix à payer ?</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Une piste d'athlétisme est formée d'un rectangle de 20 m sur 8 m et de deux demi-disques de diamètre 8 m accolés aux deux petits côtés.</p><p>a) Calcule le périmètre de la piste : valeur exacte puis arrondi au dixième.</p><p>b) Calcule l'aire de la piste : valeur exacte puis arrondi au dixième.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Restauration",
+      "enonce": "<p>À la question 5, tu as utilisé la formule de l'aire d'un disque A = π × r². Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un cuisinier calcule la longueur de ruban nécessaire pour entourer une boîte à pizza carrée de côté 33 cm",
+       "Un cuisinier découpe une pizza en 8 parts égales et cherche l'angle de chaque part",
+       "Un pizzaiolo compare la quantité de pâte nécessaire, à épaisseur égale, pour une pizza de 30 cm de diamètre et pour une de 40 cm de diamètre",
+       "Un cuisinier convertit 1,5 L de sauce tomate en centilitres"
+      ]
+     }
+    ]
+   },
+   {
     "id": "2026-11-15-lot-1",
     "total": 10,
     "titre": "Nombres relatifs : additionner, soustraire et repérer sur une droite",
@@ -2736,6 +3036,314 @@ window.EVALUATIONS = {
    }
   ],
   "seconde": [
+   {
+    "id": "2026-11-22-lot-1",
+    "total": 10,
+    "titre": "Vecteurs : coordonnées, somme, parallélogramme et norme",
+    "chapitre": "Vecteurs",
+    "date": "2026-11-22",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque réponse en détaillant tes calculs.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Dans un repère, on donne A(2 ; −3) et B(5 ; 1). Quelles sont les coordonnées du vecteur AB ?</p>",
+      "choix": [
+       "(3 ; 4)",
+       "(7 ; −2)",
+       "(−3 ; −4)",
+       "(3 ; −4)"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Calcule la norme du vecteur u de coordonnées (5 ; −12).</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>On donne les vecteurs u(3 ; −2) et v(−1 ; 4). Calcule les coordonnées des vecteurs u + v et 2u − 3v.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>On donne A(−1 ; 2), B(3 ; 1) et C(4 ; 4). Détermine les coordonnées du point D tel que ABCD soit un parallélogramme. Justifie par une égalité de vecteurs.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>On donne u(2 ; −3) et v(−6 ; 9).</p><p>a) Les vecteurs u et v sont-ils colinéaires ? Justifie.</p><p>b) Détermine le réel k tel que le vecteur w(4 ; k) soit colinéaire à u.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>On donne A(1 ; 1), B(5 ; 1) et C(3 ; 5). Calcule les longueurs AB, AC et BC. Que peux-tu dire du triangle ABC ? Justifie.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Robotique",
+      "enonce": "<p>À la question 5, tu as utilisé le critère de colinéarité : u(x ; y) et v(x' ; y') sont colinéaires si et seulement si xy' − x'y = 0. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un technicien calcule la moyenne des temps de trajet d'un robot sur cinq parcours",
+       "Un ingénieur calcule la longueur du déplacement direct d'un robot entre deux points, en utilisant √(x² + y²)",
+       "Un ingénieur vérifie que le bras d'un robot, sa pince et l'objet à saisir sont alignés : les déplacements du bras vers la pince et vers l'objet sont colinéaires",
+       "Un opérateur additionne les durées de deux déplacements successifs du robot"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-22-lot-2",
+    "total": 10,
+    "titre": "Géométrie repérée : milieu, distance et droites",
+    "chapitre": "Géométrie repérée",
+    "date": "2026-11-22",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque réponse en détaillant tes calculs.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Dans un repère, on donne A(−3 ; 2) et B(5 ; 6). Quelle est l'abscisse du milieu du segment [AB] ?</p>"
+     },
+     {
+      "id": "q2",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Dans un repère orthonormé, on donne A(1 ; −2) et B(7 ; 6). Quelle est la distance AB ?</p>",
+      "choix": [
+       "14",
+       "10",
+       "√20",
+       "2"
+      ]
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>On donne A(0 ; −1) et B(3 ; 5). Détermine l'équation réduite de la droite (AB).</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Soit d la droite d'équation y = −3x + 4. Les points E(2 ; −2) et F(−1 ; 6) appartiennent-ils à d ? Justifie.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Dans un repère orthonormé, on donne A(1 ; 1), B(4 ; 2) et C(0 ; 4).</p><p>a) Calcule AB, AC et BC.</p><p>b) Quelle est la nature du triangle ABC ? Justifie.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Dans un repère, on donne A(−2 ; 1), B(4 ; 3) et C(6 ; −1).</p><p>a) Calcule les coordonnées du milieu I de [AC].</p><p>b) Déduis-en les coordonnées du point D tel que ABCD soit un parallélogramme.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Géolocalisation et GPS",
+      "enonce": "<p>À la question 6, tu as utilisé les coordonnées du milieu d'un segment : ((xA + xB) ÷ 2 ; (yA + yB) ÷ 2). Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Deux amis connaissent leurs positions GPS et se donnent rendez-vous à mi-chemin : on calcule les coordonnées du point central à partir des leurs",
+       "Un livreur veut connaître la longueur du trajet direct entre deux adresses repérées par leurs coordonnées",
+       "Un cycliste cherche la pente d'une route à partir de l'altitude de deux points",
+       "Un géomètre calcule la moyenne des températures relevées à trois endroits"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-22-lot-3",
+    "total": 10,
+    "titre": "Variations et extremums : tableau, minimum et comparaison",
+    "chapitre": "Variations et extremums",
+    "date": "2026-11-22",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque réponse avec une propriété du cours.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>La fonction f définie sur ℝ par f(x) = 5 − 2x est :</p>",
+      "choix": [
+       "croissante sur ℝ",
+       "décroissante sur ℝ",
+       "constante sur ℝ",
+       "ni croissante ni décroissante sur ℝ"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Quel est le minimum de la fonction g définie sur ℝ par g(x) = (x − 4)² − 7 ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Une fonction f est définie sur [−3 ; 5]. Elle est croissante sur [−3 ; 1] et décroissante sur [1 ; 5], avec f(−3) = −1, f(1) = 6 et f(5) = 2. Combien de solutions l'équation f(x) = 3 admet-elle ? Justifie.</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Une fonction f est décroissante sur [0 ; +∞[.</p><p>a) Compare f(2,5) et f(3,1). Justifie.</p><p>b) Compare f(√5) et f(2,2). Justifie en comparant √5 et 2,2.</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>a) Montre que, pour tout réel x, x² − 8x + 19 = (x − 4)² + 3.</p><p>b) Déduis-en que la fonction h définie par h(x) = x² − 8x + 19 admet un minimum sur ℝ. Donne sa valeur et la valeur de x pour laquelle il est atteint.</p>"
+     },
+     {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Un artisan fabrique x objets par jour (0 ≤ x ≤ 20). Son bénéfice en euros est B(x) = −x² + 14x − 24.</p><p>a) Montre que B(x) = 25 − (x − 7)².</p><p>b) Déduis-en le nombre d'objets à fabriquer pour que le bénéfice soit maximal, et la valeur de ce bénéfice maximal.</p><p>c) Vérifie que l'artisan ne gagne rien s'il fabrique 2 objets.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Gestion de l'eau",
+      "enonce": "<p>À la question 6, tu as cherché le maximum d'une fonction. Dans laquelle de ces situations cherche-t-on un extremum (maximum ou minimum) d'une fonction ?</p>",
+      "choix": [
+       "Un technicien calcule la moyenne des volumes d'eau relevés chaque jour d'une semaine",
+       "Un technicien cherche à quel instant un réservoir est vide, en résolvant l'équation f(t) = 0",
+       "Un technicien convertit un débit de 3 m³ par heure en litres par minute",
+       "Un ingénieur cherche le débit pour lequel le rendement d'une pompe, modélisé par une fonction, est le plus grand possible"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "2026-11-22-lot-4",
+    "total": 10,
+    "titre": "Calcul littéral : développer, factoriser et démontrer",
+    "chapitre": "Calcul littéral",
+    "date": "2026-11-22",
+    "dureeMinutes": 45,
+    "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+    "consignes": "<p>Justifie chaque réponse en détaillant les étapes de ton calcul.</p>",
+    "questions": [
+     {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>Quel est le développement de (x + 5)² ?</p>",
+      "choix": [
+       "x² + 25",
+       "x² + 10x + 25",
+       "x² + 5x + 25",
+       "x² + 10x + 10"
+      ]
+     },
+     {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Quel est le coefficient de x dans le développement réduit de (3x − 2)(x + 4) ?</p>"
+     },
+     {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>Factorise :</p><p>a) 9x² − 25</p><p>b) (2x + 1)(x − 3) − (2x + 1)(x + 4)</p>"
+     },
+     {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 2,
+      "enonce": "<p>a) Démontre que, pour tout réel x, (x + 3)² − (x − 3)² = 12x.</p><p>b) Déduis-en, sans calculatrice, la valeur de 1 003² − 997².</p>"
+     },
+     {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 12,
+      "points": 4,
+      "enonce": "<p>Pour tout entier naturel n, on pose A = n(n + 2) + 1.</p><p>a) Développe A.</p><p>b) Factorise A et déduis-en que A est le carré d'un entier.</p><p>c) Calcule 99 × 101 + 1 sans calculatrice en utilisant ce résultat.</p>"
+     },
+     {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Jardinage et aménagement",
+      "enonce": "<p>À la question 4, tu as utilisé l'identité remarquable a² − b² = (a − b)(a + b). Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+       "Un jardinier agrandit un parterre carré de 10 m de côté de 2 m sur chaque côté et calcule sa nouvelle aire en développant (10 + 2)²",
+       "Un jardinier compare l'aire de deux parterres carrés de côtés 52 m et 48 m en calculant 52² − 48² = (52 − 48)(52 + 48)",
+       "Un jardinier convertit en ares l'aire d'une pelouse exprimée en m²",
+       "Un jardinier calcule la hauteur moyenne de plusieurs plants de tomates"
+      ]
+     }
+    ]
+   },
    {
     "id": "2026-11-15-lot-1",
     "total": 10,
@@ -7004,20 +7612,20 @@ window.EVAL_NOTES = {
 };
 window.EVAL_ELEVES = {"2026-2027":{"5e":["489c1aecd78964bf6e285c1425430f40b6a14f6cc4ba1f9ffd2bc2f48b203a24"],"seconde":["8f29042f5b26a90537a0cec56715742c14a0e793fd534ed7b5478796565bc56f"]}};
 window.EVAL_KPI = {
-  "genereLe": "2026-11-15T14:15:09.586Z",
+  "genereLe": "2026-11-22T11:02:21.499Z",
   "annees": {
     "2026-2027": {
       "5e": {
-        "total": 35,
-        "ouvertes": 21,
+        "total": 39,
+        "ouvertes": 25,
         "enAttente": 0,
         "fermees": 14,
         "copiesCorrigees": 13,
         "moyenneSur20": 16.4
       },
       "seconde": {
-        "total": 37,
-        "ouvertes": 26,
+        "total": 41,
+        "ouvertes": 30,
         "enAttente": 0,
         "fermees": 11,
         "copiesCorrigees": 11,

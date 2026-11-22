@@ -1,0 +1,77 @@
+{
+  "titre": "Parallélogrammes : côtés, angles et diagonales",
+  "chapitre": "Parallélogrammes",
+  "date": "2026-11-22",
+  "dureeMinutes": 30,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie chaque réponse avec une propriété du cours.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 2,
+      "points": 1,
+      "enonce": "<p>ABCD est un parallélogramme avec AB = 7 cm et BC = 4 cm. Quelle est la longueur CD, en cm ?</p>"
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>EFGH est un parallélogramme et l'angle en E mesure 65°. Quelle est la mesure de l'angle en G, en degrés ?</p>"
+    },
+    {
+      "id": "q3",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>Dans le parallélogramme ABCD, l'angle en A mesure 72°. Quelle est la mesure de l'angle en B, en degrés ?</p>"
+    },
+    {
+      "id": "q4",
+      "type": "qcm",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 1,
+      "enonce": "<p>Les diagonales [AC] et [BD] du parallélogramme ABCD se coupent en O. On a AC = 13 cm et BD = 9 cm. Que vaut OB ?</p>",
+      "choix": [
+        "9 cm",
+        "4,5 cm",
+        "6,5 cm",
+        "13 cm"
+      ]
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 5,
+      "points": 2,
+      "enonce": "<p>ABCD est un parallélogramme de périmètre 30 cm et AB = 9 cm. Calcule BC en justifiant.</p>"
+    },
+    {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 3,
+      "enonce": "<p>Un quadrilatère KLMN a ses diagonales [KM] et [LN] qui se coupent en O, milieu de chacune d'elles. De plus, KM = LN = 10 cm.</p><p>a) Quelle est la nature de KLMN ? Justifie en deux étapes.</p><p>b) Calcule la longueur KO.</p><p>c) Que faut-il ajouter sur les diagonales pour que KLMN soit un carré ?</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Menuiserie et bricolage",
+      "enonce": "<p>À la question 4, tu as utilisé la propriété : les diagonales d'un parallélogramme se coupent en leur milieu. Dans laquelle de ces situations l'utilise-t-on ?</p>",
+      "choix": [
+        "Un menuisier calcule la longueur de baguette nécessaire pour border un panneau en parallélogramme en doublant la somme de deux côtés consécutifs",
+        "Un menuisier calcule l'angle manquant d'une équerre triangulaire dont il connaît deux angles",
+        "Un menuisier convertit en centimètres une longueur de planche mesurée en millimètres",
+        "Un charpentier sait que la diagonale d'une trappe en parallélogramme mesure 120 cm : il place le point de croisement des deux diagonales à 60 cm d'un sommet"
+      ]
+    }
+  ]
+}

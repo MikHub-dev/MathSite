@@ -1,0 +1,77 @@
+{
+  "titre": "Variations et extremums : tableau, minimum et comparaison",
+  "chapitre": "Variations et extremums",
+  "date": "2026-11-22",
+  "dureeMinutes": 45,
+  "rappelMethode": "Pour des exercices de niveau 3, pensez à mettre le problème en contexte, justifiez les calculs surtout lorsque plusieurs notions sont combinées, rédigez correctement, citez des propriétés, montrez la cohérence de votre raisonnement.",
+  "consignes": "<p>Justifie chaque réponse avec une propriété du cours.</p>",
+  "questions": [
+    {
+      "id": "q1",
+      "type": "qcm",
+      "niveau": 1,
+      "tempsMinutes": 3,
+      "points": 1,
+      "enonce": "<p>La fonction f définie sur ℝ par f(x) = 5 − 2x est :</p>",
+      "choix": [
+        "croissante sur ℝ",
+        "décroissante sur ℝ",
+        "constante sur ℝ",
+        "ni croissante ni décroissante sur ℝ"
+      ]
+    },
+    {
+      "id": "q2",
+      "type": "numerique",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 1,
+      "enonce": "<p>Quel est le minimum de la fonction g définie sur ℝ par g(x) = (x − 4)² − 7 ?</p>"
+    },
+    {
+      "id": "q3",
+      "type": "redaction",
+      "niveau": 2,
+      "tempsMinutes": 6,
+      "points": 2,
+      "enonce": "<p>Une fonction f est définie sur [−3 ; 5]. Elle est croissante sur [−3 ; 1] et décroissante sur [1 ; 5], avec f(−3) = −1, f(1) = 6 et f(5) = 2. Combien de solutions l'équation f(x) = 3 admet-elle ? Justifie.</p>"
+    },
+    {
+      "id": "q4",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Une fonction f est décroissante sur [0 ; +∞[.</p><p>a) Compare f(2,5) et f(3,1). Justifie.</p><p>b) Compare f(√5) et f(2,2). Justifie en comparant √5 et 2,2.</p>"
+    },
+    {
+      "id": "q5",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>a) Montre que, pour tout réel x, x² − 8x + 19 = (x − 4)² + 3.</p><p>b) Déduis-en que la fonction h définie par h(x) = x² − 8x + 19 admet un minimum sur ℝ. Donne sa valeur et la valeur de x pour laquelle il est atteint.</p>"
+    },
+    {
+      "id": "q6",
+      "type": "redaction",
+      "niveau": 3,
+      "tempsMinutes": 10,
+      "points": 2,
+      "enonce": "<p>Un artisan fabrique x objets par jour (0 ≤ x ≤ 20). Son bénéfice en euros est B(x) = −x² + 14x − 24.</p><p>a) Montre que B(x) = 25 − (x − 7)².</p><p>b) Déduis-en le nombre d'objets à fabriquer pour que le bénéfice soit maximal, et la valeur de ce bénéfice maximal.</p><p>c) Vérifie que l'artisan ne gagne rien s'il fabrique 2 objets.</p>"
+    },
+    {
+      "id": "bonus",
+      "type": "qcm",
+      "bonus": true,
+      "domaine": "Gestion de l'eau",
+      "enonce": "<p>À la question 6, tu as cherché le maximum d'une fonction. Dans laquelle de ces situations cherche-t-on un extremum (maximum ou minimum) d'une fonction ?</p>",
+      "choix": [
+        "Un technicien calcule la moyenne des volumes d'eau relevés chaque jour d'une semaine",
+        "Un technicien cherche à quel instant un réservoir est vide, en résolvant l'équation f(t) = 0",
+        "Un technicien convertit un débit de 3 m³ par heure en litres par minute",
+        "Un ingénieur cherche le débit pour lequel le rendement d'une pompe, modélisé par une fonction, est le plus grand possible"
+      ]
+    }
+  ]
+}
