@@ -468,6 +468,7 @@ async function evalEntrerCode(classe) {
 
 function evalOublierCode(classe) {
   evalEcrireCode(classe, "");
+  if (window.FamZakVerrou && FamZakVerrou.deconnecter) return FamZakVerrou.deconnecter();   // déconnecte tous les sites et le portail
   loadEvaluationsPage("");
 }
 
@@ -539,6 +540,7 @@ async function evalValiderCode() {
 
 function evalChangerCodeFiche(classe) {
   evalEcrireCode(classe, "");
+  if (window.FamZakVerrou && FamZakVerrou.deconnecter) return FamZakVerrou.deconnecter();   // déconnecte tous les sites et le portail
   if (typeof evalApresCode === "function") evalApresCode();
 }
 
