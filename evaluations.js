@@ -141,7 +141,7 @@ function evalPoints(p) {
   return `${evalNombre(p)} point${p > 1 ? "s" : ""}`;
 }
 
-// ---------- Codes élèves ----------
+// ---------- Codes ZF ----------
 function evalNormaliserCode(s) {
   return String(s || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
 }
@@ -284,7 +284,7 @@ async function loadEvaluationsPage(classe) {
           <h1 class="eval-title">Évaluations</h1>
           <p class="subtitle">${actif
             ? "Votre espace de travail : les évaluations à faire, puis celles déjà corrigées."
-            : "Chaque classe a son espace : entrez votre code dans la vignette de votre classe."}</p>
+            : "Chaque classe a son espace : entrez votre code ZF dans la vignette de votre classe."}</p>
         </div>
         <label class="eval-annee">Année scolaire
           <select class="eval-input" onchange="evalChangerAnnee(this.value)">
@@ -353,7 +353,7 @@ function evalVignetteHtml(annee, k) {
         ? `<button type="button" class="eval-btn" onclick="loadEvaluationsPage('${k.key}')">Ouvrir mon espace</button>`
         : `<label class="eval-vignette-code" for="eval-code-${k.key}">Mon code</label>
            <div class="eval-champ-ligne">
-             <input id="eval-code-${k.key}" class="eval-input" placeholder="Votre code" autocomplete="off" spellcheck="false"
+             <input id="eval-code-${k.key}" class="eval-input" placeholder="Votre code ZF" autocomplete="off" spellcheck="false"
                     onkeydown="if (event.key === 'Enter') evalEntrerCode('${k.key}')"
                     oninput="document.getElementById('eval-code-erreur-${k.key}').textContent = ''">
              <button type="button" class="eval-btn" onclick="evalEntrerCode('${k.key}')">Entrer</button>
@@ -510,8 +510,8 @@ function evalLigne(annee, classe, ev, note) {
 function evalSaisieCodeHtml(intro) {
   return `<p>${intro}</p>
     <div class="eval-champ-ligne">
-      <input id="eval-code-saisie" class="eval-input" placeholder="Votre code" autocomplete="off" spellcheck="false"
-             aria-label="Code élève" onkeydown="if (event.key === 'Enter') evalValiderCode()" oninput="document.getElementById('eval-code-erreur').textContent = ''">
+      <input id="eval-code-saisie" class="eval-input" placeholder="Votre code ZF" autocomplete="off" spellcheck="false"
+             aria-label="Code ZF" onkeydown="if (event.key === 'Enter') evalValiderCode()" oninput="document.getElementById('eval-code-erreur').textContent = ''">
       <button type="button" class="eval-btn" onclick="evalValiderCode()">Afficher</button>
     </div>
     <p class="eval-erreur" id="eval-code-erreur" role="alert"></p>`;
@@ -709,7 +709,7 @@ async function evalAfficherMaNote(annee, classe, ev) {
   if (!zone) return;
   const code = evalLireCode(classe);
   if (!code) {
-    zone.innerHTML = `<h3>Ma note</h3>${evalSaisieCodeHtml("Saisissez votre code pour afficher votre note et le commentaire.")}`;
+    zone.innerHTML = `<h3>Ma note</h3>${evalSaisieCodeHtml("Saisissez votre code ZF pour afficher votre note et le commentaire.")}`;
     return;
   }
   const emp = await evalEmpreinteDansClasse(annee, classe, code);
@@ -750,7 +750,7 @@ function evalFormulaireHtml(annee, classe, ev) {
       <fieldset class="eval-identite">
         <legend>Vos informations</legend>
         <label>Prénom<input name="prenom" class="eval-input" autocomplete="given-name"></label>
-        <label>Code élève<input name="code" class="eval-input" placeholder="Votre code" autocomplete="off" spellcheck="false"
+        <label>Code ZF<input name="code" class="eval-input" placeholder="Votre code ZF" autocomplete="off" spellcheck="false"
                value="${code ? evalFormaterCode(code) : ""}"></label>
       </fieldset>
       <div id="eval-turnstile" class="eval-turnstile"></div>
@@ -780,7 +780,7 @@ async function evalEnvoyerReponses(annee, classe, id) {
   const prenom = form.elements.prenom.value.trim();
   const code = evalNormaliserCode(form.elements.code.value);
   if (!prenom) return evalErreurChamp(err, "Indiquez votre prénom.", form.elements.prenom);
-  if (code.length < 6) return evalErreurChamp(err, "Indiquez votre code élève (au moins 6 caractères), remis par votre enseignant.", form.elements.code);
+  if (code.length < 6) return evalErreurChamp(err, "Indiquez votre code ZF (au moins 6 caractères), remis par votre enseignant.", form.elements.code);
 
   if (evalInscrits(annee, classe).length && !(await evalEmpreinteDansClasse(annee, classe, code))) {
     const classeCode = await evalClasseDuCode(annee, code);
