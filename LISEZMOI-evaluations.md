@@ -123,3 +123,11 @@ Trois évaluations et les codes `DEMO-0001` à `DEMO-0006` (5e) et `DEMO-0101` �
 (Seconde) servent à essayer la page. Avant la rentrée réelle : supprimer les trois fichiers de
 `evaluations/2026-2027/`, celui de `notes/2026-2027/5e/`, remettre `eleves/2026-2027.json` à
 `{}`, puis créer les vrais codes.
+
+## Ma progression (espace de l'élève)
+
+Dans l'espace de sa classe, l'élève voit au-dessus de ses évaluations un bloc « Ma progression » : sa moyenne, la tendance, la courbe de ses notes sur 20 (dès deux copies corrigées) et un badge par chapitre d'après sa meilleure note (🥉 dès 10/20, 🥈 dès 13/20, 🥇 dès 16/20). Tout est calculé dans le navigateur à partir de `evaluations-data.js` (`evalProgressionHtml` dans `evaluations.js`) : rien de plus n'est publié.
+
+## Défi chronométré des fiches FFJM
+
+Les fiches de résolution `concours/ffjm-*-fiche-*.html` chargent `concours/defi-ffjm.js` : bouton « ⏱ Relever le défi chronométré » (réponse et résolution masquées, chrono avec un temps conseillé de 1,5 min par point de coefficient, réponse vérifiée sur ses nombres, ou jugée par l'élève si le cas est ambigu). Les pages d'année `ffjm-AAAA-quarts.html` affichent les défis réussis. Résultats gardés sur l'appareil (`famzak:mathsite:ffjm`).

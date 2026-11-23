@@ -1075,3 +1075,22 @@ textarea.eval-input { resize: vertical; line-height: 1.5; }
   .imp-remarque { border-left: 3px solid #777; padding: 2px 9px; margin: 6px 0; font-style: italic; }
   .imp-corrige { border: 1px dashed #777; padding: 5px 9px; margin: 6px 0; font-size: 10pt; }
 }
+
+/* Ma progression : courbe des notes et badges par chapitre (v3.0) */
+.eval-progression-resume { margin: 4px 0 8px; }
+.eval-courbe { width: 100%; max-width: 680px; height: auto; display: block; }
+.eval-courbe-grille { stroke: currentColor; stroke-opacity: .12; }
+.eval-courbe-moyenne { stroke-dasharray: 4 4; stroke-opacity: .35; }
+.eval-courbe-axe { fill: currentColor; fill-opacity: .6; font-size: 11px; }
+.eval-courbe-ligne { fill: none; stroke: #5fc98a; stroke-width: 2.5; stroke-linejoin: round; }
+.eval-courbe-point { fill: #5fc98a; stroke: #0f1116; stroke-width: 2; }
+.eval-courbe-val { fill: currentColor; font-size: 11px; font-weight: 700; }
+.eval-progression-titre { margin: 14px 0 6px; font-size: 1em; }
+.eval-progression-titre small { font-weight: 400; opacity: .7; margin-left: 6px; }
+.eval-badges-chap { display: flex; flex-wrap: wrap; gap: 8px; }
+.eval-badge-chap { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px dashed rgba(127,127,127,.5); font-size: .88em; }
+.eval-badge-chap i { font-style: normal; }
+.eval-badge-chap b { font-weight: 700; opacity: .75; }
+.eval-badge-chap--or { border: 1px solid #e3b341; background: rgba(227,179,65,.12); }
+.eval-badge-chap--argent { border: 1px solid #b8c2cc; background: rgba(184,194,204,.12); }
+.eval-badge-chap--bronze { border: 1px solid #c9834a; background: rgba(201,131,74,.12); }

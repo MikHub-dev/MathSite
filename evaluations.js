@@ -1,4 +1,4 @@
-// Version : 2.9
+// Version : 3.0
 // --- Page « Évaluations » (menu horizontal) ---
 // Données : evaluations-data.js, généré par outils/compiler-evaluations.mjs à partir des dossiers
 // evaluations/, notes/ et eleves/, fournit window.EVALUATIONS, window.EVAL_NOTES et window.EVAL_ELEVES.
@@ -390,10 +390,57 @@ function evalEspaceHtml(annee, classe, empreinte) {
           <button type="button" class="eval-lien" onclick="evalOublierCode('${classe}')">Oublier mon code</button>
         </div>
       </div>
+      ${evalProgressionHtml(corrigees, noteDe)}
       ${groupe("À faire", aFaire, "Rien à faire pour le moment : les nouvelles évaluations arrivent le dimanche matin.")}
       ${groupe("Corrigées", corrigees, "Aucune copie corrigée pour l'instant. Votre enseignant corrige les copies reçues.")}
       ${sansCopie.length ? groupe("Fermées sans copie", sansCopie, "") : ""}
     </section>`;
+}
+
+// ---------- Ma progression : courbe des notes et badges par chapitre (espace de l'élève) ----------
+// Paliers d'un chapitre, d'après la meilleure note sur 20 obtenue dans ce chapitre.
+const EVAL_PALIERS = [
+  { min: 16, icone: "🥇", nom: "Or" },
+  { min: 13, icone: "🥈", nom: "Argent" },
+  { min: 10, icone: "🥉", nom: "Bronze" }
+];
+function evalPalier(n20) { return EVAL_PALIERS.find(p => n20 >= p.min) || null; }
+function evalCourbeSvg(points) {
+  // points : [{ date, n20, titre }] dans l'ordre des dates
+  const W = 640, H = 200, g = 34, d = 14, h = 16, b = 26;
+  const x = i => points.length === 1 ? (g + W - d) / 2 : g + i * (W - g - d) / (points.length - 1);
+  const y = v => h + (20 - Math.min(20, v)) * (H - h - b) / 20;
+  const lignes = [0, 5, 10, 15, 20].map(v => `<line x1="${g}" x2="${W - d}" y1="${y(v)}" y2="${y(v)}" class="eval-courbe-grille${v === 10 ? " eval-courbe-moyenne" : ""}"/><text x="${g - 6}" y="${y(v) + 4}" text-anchor="end" class="eval-courbe-axe">${v}</text>`).join("");
+  const chemin = points.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)} ${y(p.n20).toFixed(1)}`).join(" ");
+  const pts = points.map((p, i) => `<g><circle cx="${x(i).toFixed(1)}" cy="${y(p.n20).toFixed(1)}" r="5" class="eval-courbe-point"/><title>${escapeHtml(evalDate(p.date))} · ${escapeHtml(p.titre)} : ${evalNombre(p.n20)}/20</title>`
+    + `<text x="${x(i).toFixed(1)}" y="${(y(p.n20) - 10).toFixed(1)}" text-anchor="middle" class="eval-courbe-val">${evalNombre(p.n20)}</text>`
+    + `<text x="${x(i).toFixed(1)}" y="${H - 6}" text-anchor="${points.length > 1 && i === 0 ? "start" : points.length > 1 && i === points.length - 1 ? "end" : "middle"}" class="eval-courbe-axe">${escapeHtml(evalDate(p.date).replace(/ (\S{3})\S*$/, " $1."))}</text></g>`).join("");
+  return `<svg class="eval-courbe" viewBox="0 0 ${W} ${H}" role="img" aria-label="Courbe de mes notes sur 20">${lignes}<path d="${chemin}" class="eval-courbe-ligne"/>${pts}</svg>`;
+}
+function evalProgressionHtml(corrigees, noteDe) {
+  if (!corrigees.length) return "";
+  const points = corrigees.map(ev => ({ date: ev.date, titre: ev.titre, chapitre: ev.chapitre, n20: evalNoteCopie20(noteDe(ev), ev.total) }))
+    .sort((a, b) => a.date.localeCompare(b.date));
+  const moy = points.reduce((s, p) => s + p.n20, 0) / points.length;
+  const chapitres = {};
+  points.forEach(p => { const c = chapitres[p.chapitre] || (chapitres[p.chapitre] = { meilleure: 0, n: 0 }); c.meilleure = Math.max(c.meilleure, p.n20); c.n++; });
+  const badges = Object.keys(chapitres).sort((a, b) => chapitres[b].meilleure - chapitres[a].meilleure).map(nom => {
+    const c = chapitres[nom], pal = evalPalier(c.meilleure);
+    const suite = pal === EVAL_PALIERS[0] ? "palier le plus haut" : `prochain palier à ${(pal ? EVAL_PALIERS[EVAL_PALIERS.indexOf(pal) - 1] : EVAL_PALIERS[2]).min}/20`;
+    return `<span class="eval-badge-chap${pal ? " eval-badge-chap--" + pal.nom.toLowerCase() : ""}" title="Meilleure note : ${evalNombre(c.meilleure)}/20 (${c.n} évaluation${c.n > 1 ? "s" : ""}) · ${suite}">
+      <i aria-hidden="true">${pal ? pal.icone : "🔒"}</i>${escapeHtml(nom)}<b>${evalNombre(c.meilleure)}</b></span>`;
+  }).join("");
+  const derniere = points[points.length - 1].n20, avant = points.length > 1 ? points[points.length - 2].n20 : null;
+  const tendance = avant === null ? "" : derniere > avant ? ` · en hausse (+${evalNombre(Math.round((derniere - avant) * 10) / 10)}) 📈` : derniere < avant ? " · un peu en baisse : relis le commentaire de la dernière copie" : " · stable";
+  const nbOr = Object.values(chapitres).filter(c => c.meilleure >= EVAL_PALIERS[0].min).length;
+  return `
+    <div class="eval-groupe eval-progression">
+      <h3>Ma progression <span class="eval-groupe-nombre">${points.length}</span></h3>
+      <p class="eval-progression-resume">Ma moyenne : <b>${evalNombre(Math.round(moy * 10) / 10)}/20</b>${tendance}</p>
+      ${points.length > 1 ? evalCourbeSvg(points) : `<p class="eval-vide">La courbe apparaîtra à partir de deux copies corrigées.</p>`}
+      <h4 class="eval-progression-titre">Mes badges par chapitre <small>${nbOr} en or · 🥉 dès 10/20, 🥈 dès 13/20, 🥇 dès 16/20 (meilleure note du chapitre)</small></h4>
+      <div class="eval-badges-chap">${badges}</div>
+    </div>`;
 }
 
 async function evalEntrerCode(classe) {
