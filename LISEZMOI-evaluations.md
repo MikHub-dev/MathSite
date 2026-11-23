@@ -131,3 +131,7 @@ Dans l'espace de sa classe, l'élève voit au-dessus de ses évaluations un bloc
 ## Défi chronométré des fiches FFJM
 
 Les fiches de résolution `concours/ffjm-*-fiche-*.html` chargent `concours/defi-ffjm.js` : bouton « ⏱ Relever le défi chronométré » (réponse et résolution masquées, chrono avec un temps conseillé de 1,5 min par point de coefficient, réponse vérifiée sur ses nombres, ou jugée par l'élève si le cas est ambigu). Les pages d'année `ffjm-AAAA-quarts.html` affichent les défis réussis. Résultats gardés sur l'appareil (`famzak:mathsite:ffjm`).
+
+## Progression liée au code
+
+Progression liée au code élève : `famzak-progres.js` (même fichier sur les sites FamZakSites) envoie les progrès des jeux au serveur de suivi de RoutineSite (routes `/progres/…`, Worker 1.6) sous le code de l'élève, saisi une fois (bouton 👤 en bas à droite). Sans code, tout reste sur l'appareil. Sur MathSite, le code mémorisé de l'espace Évaluations est repris automatiquement.
