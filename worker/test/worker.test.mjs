@@ -1,12 +1,11 @@
 // Tests du Worker sans réseau : GitHub, Turnstile et Brevo sont simulés.
 // Usage : node test/worker.test.mjs   (depuis le dossier worker/)
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import worker from "../src/index.js";
 
-const racine = new URL("../../", import.meta.url);
-const lire = chemin => readFileSync(new URL(chemin, racine), "utf8");
+// Tout est fabriqué ici : aucune vraie évaluation (elles finissent clôturées) ni aucun vrai code ZF.
+const CODE_5E = "ESSAI5E", CODE_2D = "ESSAI2D";
 const h = (classe, code) => createHash("sha256").update(`mathsite:${classe}:${code}`).digest("hex");
 const ORIGINE = "https://pseudo.github.io";
 const env = {
@@ -16,12 +15,17 @@ const env = {
   ADMIN_PASSWORD: "un-mot-de-passe-long",
 };
 
-// Évaluation ouverte fabriquée pour le test (date limite dans un an)
-const ouverte = JSON.parse(lire("evaluations/2026-2027/5e/2026-09-25-priorites-operatoires.json"));
-ouverte.dateLimite = `${new Date().getFullYear() + 1}-01-01`;
-const fermee = JSON.parse(lire("evaluations/2026-2027/5e/2026-09-18-nombres-relatifs.json"));
-fermee.cloturee = true;
-const eleves = lire("eleves/2026-2027.json");
+// Évaluation ouverte fabriquée pour le test (date limite dans un an), et une évaluation clôturée
+const questions = () => [
+  { id: "q1", type: "numerique", points: 2, enonce: "<p>Calcule : 7 + 3 × 5</p>" },
+  { id: "q2", type: "numerique", points: 2, enonce: "<p>Calcule : (7 + 3) × 5</p>" },
+  { id: "q3", type: "qcm", points: 2, enonce: "<p>Quelle expression est égale à 20 ?</p>", choix: ["4 + 4 × 4", "(4 + 4) × 4", "4 × 4 − 4", "4 + 4 + 4"] },
+  { id: "q4", type: "redaction", points: 4, enonce: "<p>Calcule en détaillant les étapes.</p>" },
+  { id: "bonus", type: "qcm", bonus: true, enonce: "<p>Question bonus</p>", choix: ["oui", "non"] },
+];
+const ouverte = { titre: "Évaluation d'essai", date: "2026-09-25", questions: questions(), dateLimite: `${new Date().getFullYear() + 1}-01-01` };
+const fermee = { titre: "Évaluation d'essai clôturée", date: "2026-09-18", questions: questions(), cloturee: true };
+const eleves = JSON.stringify({ "5e": [h("5e", CODE_5E)], seconde: [h("seconde", CODE_2D)] });
 
 let appels;
 globalThis.fetch = async (url, opts = {}) => {
@@ -31,7 +35,7 @@ globalThis.fetch = async (url, opts = {}) => {
   if (u.includes("/contents/eleves/2026-2027.json")) return new Response(eleves);
   if (u.includes("/contents/evaluations/2026-2027/5e/ouverte.json")) return new Response(JSON.stringify(ouverte));
   if (u.includes("/contents/evaluations/2026-2027/5e/fermee.json")) return new Response(JSON.stringify(fermee));
-  if (u.includes("/contents/notes/2026-2027/5e/ouverte.json") && globalThis.dejaNote) return new Response(JSON.stringify({ notes: { [h("5e", "MARCZA")]: { note: 5 } } }));
+  if (u.includes("/contents/notes/2026-2027/5e/ouverte.json") && globalThis.dejaNote) return new Response(JSON.stringify({ notes: { [h("5e", CODE_5E)]: { note: 5 } } }));
   if (u.includes("/contents/")) return new Response("{}", { status: 404 });
   if (u.endsWith("/issues")) return Response.json({ number: 1 }, { status: 201 });
   if (u.includes("brevo")) return Response.json({ messageId: "x" }, { status: 201 });
@@ -55,28 +59,28 @@ async function envoyer(corps, origine = ORIGINE, chemin = "/envoyer") {
 }
 const reponse = (extra = {}) => ({
   type: "reponse-evaluation", annee: "2026-2027", classe: "5e", evaluation: "ouverte",
-  prenom: "Léa", code: "marcza", jeton: "bon-jeton",
+  prenom: "Léa", code: CODE_5E.toLowerCase(), jeton: "bon-jeton",
   reponses: [{ question: "q1", reponse: "22" }, { question: "q3", reponse: "4 + 4 × 4" }, { question: "zz", reponse: "ignorée" }],
   ...extra,
 });
 
-// 1. Envoi valide : issue sans prénom ni code, e-mail avec prénom
+// 1. Envoi valide : issue sans prénom ni code, e-mail avec le prénom mais sans le code ZF
 let r = await envoyer(reponse());
 assert.equal(r.statut, 200, JSON.stringify(r.json));
 assert.equal(r.cors, ORIGINE);
 const issue = JSON.parse(appels.find(a => a.url.endsWith("/issues")).opts.body);
 assert.deepEqual(issue.labels, ["reponse-eval", "5e"]);
-assert.ok(!issue.body.includes("Léa") && !issue.body.includes("MARCZA"), "l'issue ne doit contenir ni prénom ni code");
+assert.ok(!issue.body.includes("Léa") && !issue.body.includes(CODE_5E), "l'issue ne doit contenir ni prénom ni code");
 const bloc = JSON.parse(issue.body.split("```json\n")[1].split("\n```")[0]);
-assert.equal(bloc.empreinte, h("5e", "MARCZA"));
+assert.equal(bloc.empreinte, h("5e", CODE_5E));
 assert.deepEqual(bloc.reponses.map(x => x.question), ouverte.questions.map(q => q.id));   // toutes les questions, bonus compris
 assert.equal(bloc.reponses[2].reponse, "4 + 4 × 4");
 const mail = JSON.parse(appels.find(a => a.url.includes("brevo")).opts.body);
-assert.ok(mail.textContent.includes("Léa") && mail.textContent.includes("MARCZA"));
+assert.ok(mail.textContent.includes("Léa") && !mail.textContent.includes(CODE_5E), "l'e-mail montre le prénom, jamais le code ZF");
 console.log("OK  envoi valide");
 
 // 2. Code de Seconde sur une évaluation de 5e
-r = await envoyer(reponse({ code: "MikaZa" }));
+r = await envoyer(reponse({ code: CODE_2D.toLowerCase() }));
 assert.equal(r.statut, 403);
 assert.match(r.json.erreur, /Seconde.*pas valable en 5e/);
 assert.ok(!appels.some(a => a.url.endsWith("/issues")));
