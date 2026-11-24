@@ -1855,8 +1855,10 @@ function loadHome() {
   const cards = HOME_SECTION_CARDS.concat(getHomeNiveauCards());
 
   c.innerHTML = `
-    <h1 class="home-title">Encyclopédie Scientifique</h1>
-    <p class="subtitle">Toutes les notions, formules, théorèmes et correspondances — du Collège aux Grandes Écoles.</p>
+    <div class="home-entete">
+      <h1 class="home-title">Encyclopédie Scientifique</h1>
+      <p class="subtitle">Toutes les notions, formules, théorèmes et correspondances — du Collège aux Grandes Écoles.</p>
+    </div>
 
     <div class="home-links-grid">
       ${cards.map(card => `

@@ -2155,7 +2155,7 @@ a.search-menu-item {
    (famzak-progres.js, fixé en bas à droite) n'est pas touché : la grille garde seulement une marge
    en bas pour que la dernière rangée ne passe pas dessous. */
 .home-links-grid {
-  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(max(288px, calc((100% - 36px) / 4)), 100%), 1fr));  /* 4 par ligne au plus */
   padding-bottom: 56px;
 }
 #sidebar.collapsed ~ #content .home-links-grid { grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); }
@@ -2169,6 +2169,29 @@ a.search-menu-item {
 .home-link-3d { display: none; width: 104px; height: 104px; overflow: visible; user-select: none; -webkit-user-select: none; }
 .home-3d-pret .home-link-icon { display: none; }
 .home-3d-pret .home-link-3d { display: block; }
+
+/* Titre + phrase de l'accueil sur UNE ligne, en petit, collés en haut : les vignettes remontent
+   au maximum (demande d'Armen : elles ne doivent toucher ni cette phrase ni le bouton du code ZF). */
+.home-entete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 10px;
+  row-gap: 2px;
+  margin: -18px 0 0;          /* #content a 30 px de marge haute : on n'en garde que 12 */
+}
+.home-entete .home-title { font-size: 14px; margin: 0; white-space: nowrap; }
+.home-entete .subtitle { font-size: 12.5px; margin: 0; }
+.home-entete + .home-links-grid { margin-top: 10px; gap: 12px; }
+.home-link-card { padding: 10px 12px 10px 10px; }
+/* Écrans peu hauts (portables 768 px) : images un peu moins grandes pour que les 4 rangées
+   restent au-dessus du bouton du code ZF */
+@media (max-height: 820px) {
+  .home-link-card { grid-template-columns: 92px 1fr; }
+  .home-link-icon-wrap { min-height: 92px; }
+  .home-link-icon { max-height: 92px; }
+  .home-link-3d { width: 92px; height: 92px; }
+}
 
 /* Logo 3D fixe en haut à gauche : même taille que l'image d'origine (64 px de large) */
 .logo-3d { display: none; width: 64px; height: 43px; flex: none; }
