@@ -36,7 +36,7 @@
   // tube : contour sombre + couleur + reflet, segment par segment
   function tube(P, w, colFn, k) {
     var o = []; k = k || 1;
-    for (var i = 0; i < P.length - 1; i += k) { var u = i / (P.length - 1); o.push({ t: "tube", p: P.slice(i, Math.min(i + k, P.length - 1) + 1), w: w, c: colFn(u) }); }
+    for (var i = 0; i < P.length - 1; i += k) { var u = i / (P.length - 1); var c = colFn(u), rgb = c.match(/\d+/g).map(Number); o.push({ t: "tube", p: P.slice(i, Math.min(i + k, P.length - 1) + 1), p2: P.slice(Math.max(0, i - 2), Math.min(i + k + 2, P.length - 1) + 1), w: w, c: c, hl: mix(rgb, [255, 255, 255], 0.4) }); }
     return o;
   }
   // pavé : centre, demi-côtés, rotation des décalages
@@ -57,10 +57,11 @@
   function Scene(svg, cfg, zone) {
     this.svg = svg; this.cfg = cfg; this.uy = 0; this.up = 0; this.hy = 0; this.hp = 0; this.thy = 0; this.thp = 0; this.moved = false;
     var self = this;
-    svg.innerHTML = '<defs>' + DEFS + '</defs><rect x="2" y="2" width="196" height="196" rx="26" fill="url(#m3Fond)" stroke="' + cfg.halo + '" stroke-opacity=".35" stroke-width="2"/>' +
-      '<circle cx="100" cy="100" r="78" fill="' + cfg.halo + '" opacity=".13" filter="url(#m3Flou)"/>';
+    svg.innerHTML = '<defs>' + DEFS + '</defs>' + (cfg.fond || '<rect x="2" y="2" width="196" height="196" rx="26" fill="url(#m3Fond)" stroke="' + cfg.halo + '" stroke-opacity=".35" stroke-width="2"/>' +
+      '<circle cx="100" cy="100" r="78" fill="' + cfg.halo + '" opacity=".13" filter="url(#m3Flou)"/>');
     this.g = document.createElementNS(NS, "g"); svg.appendChild(this.g);
     this.statique = cfg.build();
+    if (cfg.fixe) { this.uy = this.up = 0; return; } // logo : image 3D fixe, sans animation ni pivotement
     var drag = null;
     svg.style.touchAction = "pan-y"; svg.style.cursor = "grab";
     svg.addEventListener("pointerdown", function (e) { drag = { x: e.clientX, y: e.clientY, uy: self.uy, up: self.up }; self.moved = false; svg.style.cursor = "grabbing"; });
@@ -114,7 +115,7 @@
         var ln = pts(P), w = pr.w * s;
         o += '<polyline points="' + ln + '" fill="none" stroke="#070b16" stroke-width="' + f1(w + 2.4) + '" stroke-linecap="butt" stroke-linejoin="round"/>' +
           '<polyline points="' + ln + '" fill="none" stroke="' + pr.c + '" stroke-width="' + f1(w) + '" stroke-linecap="round" stroke-linejoin="round"/>' +
-          '<polyline points="' + ln + '" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="' + f1(w * 0.25) + '" stroke-linecap="round" stroke-linejoin="round"/>';
+          '<polyline points="' + pts(pr.p2.map(function (q) { return proj(rot(q, K)); })) + '" fill="none" stroke="' + pr.hl + '" stroke-width="' + f1(w * 0.25) + '" stroke-linecap="round" stroke-linejoin="round"/>';
       } else if (pr.t === "b") {
         o += '<circle cx="' + f1(P[0][0]) + '" cy="' + f1(P[0][1]) + '" r="' + f1(pr.r * s) + '" fill="' + pr.fill + '"' + (pr.op != null ? ' opacity="' + pr.op + '"' : "") + (pr.fl ? ' filter="url(#m3Lueur)"' : "") + "/>";
       } else if (pr.t === "tx") {
@@ -151,6 +152,27 @@
   };
 
   // Études : la bibliothèque en couches de couleur, avec une orbite
+  // Logo du site (en haut à gauche) : le grand ∞ vert, α dans la boucle de gauche, Ω dans celle de droite.
+  // Scène FIXE (demande d'Armen) : vue en 3D, mais sans mouvement. viewBox "-50 0 300 200".
+  SC.logo = {
+    fixe: true, halo: C.vert, pitch: 0.42, yaw0: -0.28, auto: function () { return 0; },
+    fond: '<rect x="-48" y="2" width="296" height="196" rx="22" fill="url(#m3Fond)"/><ellipse cx="100" cy="100" rx="130" ry="70" fill="#5fe08a" opacity=".16" filter="url(#m3Flou)"/>',
+    build: function () {
+      var o = [], a = 128;
+      // anneaux concentriques autour de chaque boucle, comme sur l'image d'origine
+      [-1, 1].forEach(function (sg) {
+        [74, 58, 44].forEach(function (r, i) { o.push.apply(o, courbe(param(function (t) { return [sg * 66 + r * Math.cos(t), r * Math.sin(t), 0]; }, 56), { s: C.vert, o: 0.5 - i * 0.1, w: 1.3 }, 4)); });
+        o.push.apply(o, courbe([[sg * 66 - 80, 0, 0], [sg * 66 + 80, 0, 0]], { s: C.vert, o: 0.3, w: 1 }, 1));
+        o.push.apply(o, courbe([[sg * 66, -80, 0], [sg * 66, 80, 0]], { s: C.vert, o: 0.3, w: 1 }, 1));
+      });
+      var inf = param(function (t) { var d = 1 + Math.sin(t) * Math.sin(t); return [a * Math.cos(t) / d, a * 0.95 * Math.sin(t) * Math.cos(t) / d * 1.25, 14 * Math.sin(t)]; }, 140);
+      o.push.apply(o, tube(inf, 11, function (u) { return mixH(C.vert, "#b6ffcf", 0.25 + 0.25 * Math.cos(u * TAU * 2)); }, 4));
+      o.push(boule([0, 0, 16], 6, "#ffffff", { fl: true }));
+      o.push(texte([-70, 0, 8], "α", 70, "#ff7a3a", { it: true, fl: true }), texte([70, 0, 8], "Ω", 62, "#4fc3ff"));
+      return o;
+    }
+  };
+
   SC.etudes = {
     halo: C.bleu, pitch: 0.45, auto: function (t) { return t * 0.3; },
     build: function () {
@@ -341,6 +363,7 @@
       var cfg = SC[svg.getAttribute("data-3d")];
       if (!cfg) return;
       svg.setAttribute("data-3d-ok", "1");
+      if (cfg.fixe) { svg.parentNode.classList.add("logo-3d-pret"); new Scene(svg, cfg, svg).frame(0); return; }
       var zone = svg.closest(".home-link-card") || svg;
       if (zone.parentNode && zone.parentNode.classList) zone.parentNode.classList.add("home-3d-pret");
       var s = new Scene(svg, cfg, zone);
@@ -363,4 +386,5 @@
     requestAnimationFrame(bougerFixe);
   }
   window.MathSite3D = { monter: monter, scenes: Object.keys(SC) };
+  monter(document.getElementById("navbar")); // le logo est déjà dans la page
 })();

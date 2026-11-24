@@ -2169,3 +2169,8 @@ a.search-menu-item {
 .home-link-3d { display: none; width: 104px; height: 104px; overflow: visible; user-select: none; -webkit-user-select: none; }
 .home-3d-pret .home-link-icon { display: none; }
 .home-3d-pret .home-link-3d { display: block; }
+
+/* Logo 3D fixe en haut à gauche : même taille que l'image d'origine (64 px de large) */
+.logo-3d { display: none; width: 64px; height: 43px; flex: none; }
+.logo-3d-pret .logo-image { display: none; }
+.logo-3d-pret .logo-3d { display: block; }
