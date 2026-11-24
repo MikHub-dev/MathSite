@@ -149,6 +149,11 @@ function evalFormaterCode(n) {
   // Codes aléatoires de 8 caractères affichés ABCD-EFGH ; les codes choisis (ex. MARCZA) tels quels.
   return n.length === 8 ? n.slice(0, 4) + "-" + n.slice(4) : n;
 }
+// Nom affiché à la place du code ZF : le prénom déchiffré par famzak-verrou.js (jamais le code lui-même).
+function evalNomAffiche(code) {
+  const V = window.FamZakVerrou;
+  return (V && V.nom && code && V.nom(code)) || null;
+}
 async function evalEmpreinte(code, classe) {
   const texte = `${EVAL_CONFIG.sel}${classe}:${evalNormaliserCode(code)}`;
   if (window.crypto && crypto.subtle) {
@@ -384,7 +389,7 @@ function evalEspaceHtml(annee, classe, empreinte) {
         ${evalMoyenneHtml(annee, classe)}
       </div>
       <div class="eval-espace-barre">
-        <p class="eval-vignette-niveau">${k.niveau}, code ${escapeHtml(evalFormaterCode(evalLireCode(classe)))}</p>
+        <p class="eval-vignette-niveau">${k.niveau}, ${escapeHtml(evalNomAffiche(evalLireCode(classe)) || "code ZF enregistré")}</p>
         <div class="eval-espace-actions">
           <button type="button" class="eval-lien" onclick="loadEvaluationsPage('')">Revenir aux deux classes</button>
           <button type="button" class="eval-lien" onclick="evalOublierCode('${classe}')">Oublier mon code</button>
@@ -719,12 +724,12 @@ async function evalAfficherMaNote(annee, classe, ev) {
   const autreClasse = !emp;
   zone.innerHTML = `<h3>Ma note</h3>
     ${autreClasse
-      ? `<p>Le code ${evalFormaterCode(code)} n'appartient pas à la classe de ${escapeHtml(evalLabelClasse(classe))}.</p>`
+      ? `<p>Ce code ZF n'appartient pas à la classe de ${escapeHtml(evalLabelClasse(classe))}.</p>`
       : n
         ? `<p class="eval-ma-note-val">${evalNombre(evalNoteCopie20(n, ev.total))}<small>/20</small></p>${evalBonusObtenu(n) > 0 ? `<p class="eval-ma-note-bonus">dont +${evalNombre(evalBonusObtenu(n))} de bonus</p>` : ""}
            ${n.reponduLe ? `<p class="eval-ma-note-date">Répondu le ${evalDate(n.reponduLe.slice(0, 10), true)}${n.corrigeLe ? `, corrigé le ${evalDate(n.corrigeLe, true)}` : ""}.</p>` : ""}
            ${n.commentaire ? `<p class="eval-ma-note-com">${escapeHtml(n.commentaire)}</p>` : ""}`
-        : `<p>Pas encore de copie corrigée pour le code ${evalFormaterCode(code)}.</p>`}
+        : `<p>Pas encore de copie corrigée pour ${escapeHtml(evalNomAffiche(code) || "ce code ZF")}.</p>`}
     <button type="button" class="eval-lien" onclick="evalChangerCodeFiche('${classe}')">Changer de code</button>`;
 }
 
@@ -753,7 +758,7 @@ function evalFormulaireHtml(annee, classe, ev) {
         <legend>Vos informations</legend>
         <label>Prénom<input name="prenom" class="eval-input" autocomplete="given-name"></label>
         <label>Code ZF<input name="code" class="eval-input" placeholder="Votre code ZF" autocomplete="off" spellcheck="false"
-               value="${code ? evalFormaterCode(code) : ""}"></label>
+               type="${code ? "password" : "text"}" value="${code ? evalFormaterCode(code) : ""}"></label>
       </fieldset>
       <div id="eval-turnstile" class="eval-turnstile"></div>
       <div class="eval-actions">
@@ -815,7 +820,6 @@ async function evalEnvoyerReponses(annee, classe, id) {
     `Évaluation : ${ev.titre} (${id})`,
     `Classe : ${evalLabelClasse(classe)}, année ${annee}`,
     `Prénom : ${prenom}`,
-    `Code : ${message.code}`,
     "",
     ...reponses.map(r => `${evalNumeroQuestion(ev, ev.questions.find(q => q.id === r.question))} : ${r.reponse || "(sans réponse)"}`),
   ].join("\n");
@@ -823,7 +827,7 @@ async function evalEnvoyerReponses(annee, classe, id) {
   const bouton = form.querySelector("button[type=submit]");
   bouton.disabled = true;
   try {
-    const mode = await evalExpedier(message, `[MathSite] Réponses ${evalLabelClasse(classe)}, ${ev.titre}, ${message.code}`, corps);
+    const mode = await evalExpedier(message, `[MathSite] Réponses ${evalLabelClasse(classe)}, ${ev.titre}, ${prenom}`, corps);
     evalEcrireCode(classe, code);
     if (mode === "mail") {
       ok.textContent = "Votre messagerie s'ouvre avec vos réponses : relisez le message puis cliquez sur Envoyer.";

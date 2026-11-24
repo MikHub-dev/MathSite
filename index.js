@@ -98,7 +98,7 @@ async function traiterReponse(env, d) {
   }
   const code = normaliserCode(d.code);
   const prenom = nettoyer(d.prenom, 60);
-  if (code.length < 6) return [400, { erreur: "Code élève manquant." }];
+  if (code.length < 6) return [400, { erreur: "Code ZF manquant." }];
   if (!prenom) return [400, { erreur: "Prénom manquant." }];
 
   const ev = await lireFichierDepot(env, `evaluations/${annee}/${classe}/${id}.json`);
@@ -154,7 +154,7 @@ async function traiterReponse(env, d) {
     [
       `Évaluation : ${ev.titre} (${id})`,
       `Classe : ${CLASSES[classe]}, année ${annee}`,
-      `Élève : ${prenom}, code ${formaterCode(code)} (empreinte ${court})`,
+      `Élève : ${prenom} (empreinte ${court})`,
       `Reçu le : ${recuLe}`,
       "",
       ...reponses.map((r, i) => `Question ${i + 1} : ${r.reponse || "(sans réponse)"}`),
