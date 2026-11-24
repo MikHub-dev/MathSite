@@ -2149,3 +2149,23 @@ a.search-menu-item {
   font-size: 13px;
   color: #9aa0ab;
 }
+
+/* ===================== ACCUEIL : VIGNETTES AGRANDIES ET SCÈNES 3D (accueil-3d.js) =====================
+   Image 104 px au lieu de 64 px, vignettes un peu plus larges. Le bouton « 👤 Mon code ZF »
+   (famzak-progres.js, fixé en bas à droite) n'est pas touché : la grille garde seulement une marge
+   en bas pour que la dernière rangée ne passe pas dessous. */
+.home-links-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  padding-bottom: 56px;
+}
+#sidebar.collapsed ~ #content .home-links-grid { grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); }
+.home-link-card {
+  grid-template-columns: 104px 1fr;
+  gap: 14px;
+  padding: 14px 14px 14px 12px;
+}
+.home-link-icon-wrap { min-height: 104px; position: relative; }
+.home-link-icon { max-height: 104px; }
+.home-link-3d { display: none; width: 104px; height: 104px; overflow: visible; user-select: none; -webkit-user-select: none; }
+.home-3d-pret .home-link-icon { display: none; }
+.home-3d-pret .home-link-3d { display: block; }

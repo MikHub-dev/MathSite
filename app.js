@@ -1838,6 +1838,15 @@ const HOME_SECTION_CARDS = [
   { icon: "IconeTopologie.png", title: "Dictionnaires de Mathématiques\nFR et EN", desc: "Deux références en ligne pour chercher une définition, en français et en anglais.", onclick: "loadDictionnaires()", titleWrap: true }
 ];
 
+// Scène 3D de chaque vignette (accueil-3d.js), repérée par l'icône d'origine ; l'image PNG reste
+// dans la vignette et ne s'affiche que si les scènes 3D ne se chargent pas.
+const HOME_SCENES_3D = {
+  "IconeAccueil.png": "presentation", "IconeEncyclopédie.png": "etudes", "IconeCorrespondances.png": "correspondances",
+  "IconeExercices.png": "exercices", "IconeBanque.png": "banque", "IconeFormules.png": "formules",
+  "IconeTopologie.png": "dictionnaires", "IconeCollege.png": "college", "IconeLycee.png": "lycee",
+  "IconePrepa.png": "prepa", "IconeGrandesEcoles.png": "grandesEcoles", "IconeTousNiveaux.png": "tous"
+};
+
 // --- Page d'accueil : présentation du site + accès rapide aux grandes sections ---
 function loadHome() {
   const c = document.getElementById("content");
@@ -1854,6 +1863,7 @@ function loadHome() {
         <div class="home-link-card" onclick="${card.nav ? `sidebarForNav('${card.nav}'); ` : ""}${card.onclick}">
           <div class="home-link-icon-wrap">
             <img class="home-link-icon" src="${escapeHtml(ICONES_DIR + card.icon)}" alt="" />
+            ${HOME_SCENES_3D[card.icon] ? `<svg class="home-link-3d" data-3d="${HOME_SCENES_3D[card.icon]}" viewBox="0 0 200 200" aria-hidden="true" focusable="false"></svg>` : ""}
           </div>
           <div class="home-link-text">
             <div class="home-link-title${card.titleWrap ? " home-link-title--wrap" : ""}">${escapeHtml(card.title)}</div>
@@ -1863,6 +1873,7 @@ function loadHome() {
       `).join("")}
     </div>
   `;
+  if (window.MathSite3D) MathSite3D.monter(c);
   setActiveNav("home");
 }
 
