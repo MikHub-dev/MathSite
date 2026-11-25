@@ -404,22 +404,20 @@ function evalEspaceHtml(annee, classe, empreinte) {
 }
 
 // ---------- Mur des réussites de la famille (famzak-mur.js, chargé par le verrou) ----------
-// Une note d'au moins 10/20 d'une évaluation récente (30 jours) est publiée sur le mur, une seule fois
+// Toute note d'au moins 10/20 est publiée sur le mur à la date de l'évaluation, une seule fois
 // (le serveur s'en souvient), au nom de l'élève de cet espace : le mur n'affiche que son prénom.
 const evalMurEnvoyees = new Set();
 function evalPublierSurLeMur(annee, classe, corrigees, noteDe) {
   const code = evalLireCode(classe);
   if (!code) return;
-  const limite = new Date(Date.now() - 30 * 86400000).toISOString().slice(0, 10);
   const k = EVAL_CLASSES.find(x => x.key === classe) || { label: classe };
   corrigees.forEach(ev => {
-    if (!ev.date || ev.date < limite) return;
     const n20 = evalNoteCopie20(noteDe(ev), ev.total);
     const cle = `eval:${annee}:${classe}:${ev.id}`;
     if (!(n20 >= 10) || evalMurEnvoyees.has(code + cle)) return;
     evalMurEnvoyees.add(code + cle);
     (window.FamZakMurAttente = window.FamZakMurAttente || []).push(["mathsite", cle,
-      `a obtenu [[${evalNombre(n20)}/20]] à l'évaluation « ${ev.titre} »`, `${k.label}${ev.chapitre ? " · " + ev.chapitre : ""}`, n20 >= 16, { classe, code }]);
+      `a obtenu [[${evalNombre(n20)}/20]] à l'évaluation « ${ev.titre} »`, `${k.label}${ev.chapitre ? " · " + ev.chapitre : ""}`, n20 >= 16, { classe, code }, ev.date || ""]);
   });
 }
 
