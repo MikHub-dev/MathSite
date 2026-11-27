@@ -374,6 +374,7 @@ function evalEspaceHtml(annee, classe, empreinte) {
   const noteDe = ev => { const n = evalNotes(annee, classe, ev.id); return (n && n.notes[empreinte]) || null; };
   const corrigees = liste.filter(noteDe);
   evalPublierSurLeMur(annee, classe, corrigees, noteDe);
+  evalPublierAvancement(annee, classe, liste, noteDe);
   const aFaire = liste.filter(ev => !noteDe(ev) && evalStatut(annee, classe, ev) === "ouverte");
   const sansCopie = liste.filter(ev => !noteDe(ev) && evalStatut(annee, classe, ev) === "cloturee");
   const groupe = (titre, evs, vide) => `
@@ -418,6 +419,37 @@ function evalPublierSurLeMur(annee, classe, corrigees, noteDe) {
     evalMurEnvoyees.add(code + cle);
     (window.FamZakMurAttente = window.FamZakMurAttente || []).push(["mathsite", cle,
       `a obtenu [[${evalNombre(n20)}/20]] à l'évaluation « ${ev.titre} »`, `${k.label}${ev.chapitre ? " · " + ev.chapitre : ""}`, n20 >= 16, { classe, code }, ev.date || ""]);
+  });
+}
+
+// Avancement : un palier de 10 % d'évaluations faites (corrigées) sur le total donné à la classe.
+// Le total grandit chaque dimanche : on rejoue l'historique, date de correction par date de correction,
+// avec le total connu à ce jour-là. Un palier n'est publié que s'il dépasse le plus haut déjà atteint :
+// une baisse du pourcentage le dimanche n'efface rien et ne fait rien publier deux fois.
+// Les paliers ne comptent qu'à partir de EVAL_MUR_MIN évaluations données (évite « 1 / 1 = 100 % »).
+const EVAL_MUR_MIN = 5;
+function evalPaliersAvancement(liste, noteDe, notesDe) {
+  const faits = liste.filter(noteDe).map(ev => { const n = notesDe(ev); return (n && n.publieLe) || ev.date || ""; }).filter(Boolean).sort();
+  const paliers = [];
+  let max = 0;
+  for (const d of [...new Set(faits)]) {
+    const f = faits.filter(x => x <= d).length, t = liste.filter(ev => (ev.date || "") <= d).length;
+    if (t < EVAL_MUR_MIN) continue;
+    const p = Math.min(100, Math.floor(f / t * 10) * 10);
+    if (p > max) { max = p; paliers.push({ p, f, t, date: d }); }
+  }
+  return paliers;
+}
+function evalPublierAvancement(annee, classe, liste, noteDe) {
+  const code = evalLireCode(classe);
+  if (!code) return;
+  const k = EVAL_CLASSES.find(x => x.key === classe) || { label: classe };
+  evalPaliersAvancement(liste, noteDe, ev => evalNotes(annee, classe, ev.id)).forEach(x => {
+    const cle = `avancement:${annee}:${classe}:${x.p}`;
+    if (evalMurEnvoyees.has(code + cle)) return;
+    evalMurEnvoyees.add(code + cle);
+    (window.FamZakMurAttente = window.FamZakMurAttente || []).push(["mathsite", cle,
+      `a fait [[${x.p} %]] des évaluations : ${x.f} sur ${x.t} à faire`, `${k.label} · Avancement des évaluations`, x.p % 50 === 0, { classe, code }, x.date]);
   });
 }
 
